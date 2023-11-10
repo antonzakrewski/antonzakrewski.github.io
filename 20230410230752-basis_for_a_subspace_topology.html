@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Basis for a subspace topology</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Basis for a subspace topology</h1>
+<div id="outline-container-orga9569e1" class="outline-2">
+<h2 id="orga9569e1"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \((X, \mathcal{T})\) be a <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological space</a> and \(\mathcal{B}\) a <a href="20221002152517-basis_einer_topologie.html#ID-1a5a6999-876a-4b54-b786-acafe4968fd6">basis</a> for \(X\).
+Suppose further \(Y \subseteq X\) with the <a href="20230211132940-unterraumtopologie.html#ID-e38ab938-b4e6-4094-98a1-4a8dec808b54">subspace topology</a>.
+Then 
+</p>
+\begin{align*}
+\mathcal{B}_Y =& \{B \cap Y \vert B \in \mathcal{B}\}
+\end{align*}
+<p>
+is a <a href="20221002152517-basis_einer_topologie.html#ID-1a5a6999-876a-4b54-b786-acafe4968fd6">basis</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org3a3fdd5" class="outline-2">
+<h2 id="org3a3fdd5"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org4ae54e9" class="outline-3">
+<h3 id="org4ae54e9"><span class="section-number-3">2.1.</span> <a href="20230312232134-bedingung_fur_eine_basis_einer_topologie.html#ID-b8f08e4a-d1b7-40ba-a9e7-aa6757d00f13">Bedingung für eine Basis einer Topologie</a></h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org3697ae7" class="outline-4">
+<h4 id="org3697ae7"><span class="section-number-4">2.1.1.</span> a)</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+follows from <a href="20230324121812-allgemeine_distributivgesetz_fur_vereinigung_und_schnitt.html#ID-2365d754-a288-4146-9866-3d818afa661b">Allgemeine Distributivgesetz für Vereinigung und Schnitt</a>
+</p>
+\begin{align*}
+\bigcup_{B \in \mathcal{B}_Y} B =& \bigcup_{B \in \mathcal{B}} (B \cap Y) \\
+=& (\bigcup_{B \in \mathcal{B}} B ) \cap Y \\
+=& X \cap Y \\
+=& Y
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org5623d92" class="outline-4">
+<h4 id="org5623d92"><span class="section-number-4">2.1.2.</span> b)</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+Let \(B_Y,B_Y' \in \mathcal{B}_Y\):
+Then there exist \(B,B' \in \mathcal{B}\) such that \(B \cap Y = B_Y, B' \cap Y = B_Y'\)
+furthermore there exist \(B_i \in \mathcal{B}\) such that \(\bigcup_{i \in I} B_i = B \cap B'\).
+Therefore we can construct with \(B_{i,Y}  \coloneqq B_i \cap Y \in \mathcal{B}_Y\):
+</p>
+\begin{align*}
+\bigcup_{i \in I} B_{i,Y} =& \bigcup_{i \in I} (B_i \cap Y) \\
+=& (\bigcup_{i \in I} B_i) \cap Y \\
+=& (B \cap B') \cap Y \\
+=& (B \cap Y) \cap (B' \cap Y)
+\end{align*}
+</div>
+</div>
+</div>
+<div id="outline-container-org5f62307" class="outline-3">
+<h3 id="org5f62307"><span class="section-number-3">2.2.</span> equal <a href="20220930230520-topologie_auf_einer_menge.html#ID-1ced2edb-806d-4fb8-ada3-ca97b7ea1d10">topology</a></h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-org7069174" class="outline-4">
+<h4 id="org7069174"><span class="section-number-4">2.2.1.</span> a)</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+Let \(O_y \subseteq Y\) an <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">set</a> in \(Y\), then there exists an <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> set \(O_x\) such that \(Y \cap O_x = O_y\)
+It follows, that there exist \(B_i \in \mathcal{B}\) such that \(\bigcup_{i \in I} B_i = O_X\).
+Furthermore
+</p>
+\begin{align*}
+O_y =& O_x \cap Y \\
+=& ( \bigcup_{i \in I} B_i) \cap Y \\
+=& \bigcup_{i \in I} (B_i \cap Y)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org54b1439" class="outline-4">
+<h4 id="org54b1439"><span class="section-number-4">2.2.2.</span> b)</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+Let \(\bigcup_{i \in I} B_{i,Y}\) be a <a href="20230317161154-allgemeine_vereinigung.html#ID-69c0d505-311b-4ea6-a337-8450d6529d02">union</a> of <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">sets</a> from \(\mathcal{B}_Y\) with \(B_{i,y} := B_i \cap Y\)
+Then
+</p>
+\begin{align*}
+\bigcup_{i \in I} B_{i,Y} =& \bigcup_{i \in I} (B_i  \cap Y) \\
+=& (\bigcup_{i \in I} B_i ) \cap Y \\
+\end{align*}
+<p>
+We know, that \(\bigcup_{i \in I} B_i\) is <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> in \(X\) and therefore \(\bigcup_{i \in I} B_i \cap Y\) is <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> in \(Y\)
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

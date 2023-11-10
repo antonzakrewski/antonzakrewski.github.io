@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>lineare Abbildungen auf endlich dimensionalen Vektorräumen als Lipschitzstetig</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">lineare Abbildungen auf endlich dimensionalen Vektorräumen als Lipschitzstetig</h1>
+<div id="outline-container-org5f437b3" class="outline-2">
+<h2 id="org5f437b3"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Seien \((V, \| \cdot \|_{V}),(W, \| \cdot \|_W)\) <a href="20221109121525-endlich_erzeugter_vektorraum.html#ID-477797e9-4b4d-4886-9606-6e1c5f378a4f">endlich erzeugte</a>, <a href="20220920053006-norm_eines_vektors.html#ID-445db843-5369-48de-a31f-f1f245833425">normierte</a>  <a href="20230204210438-reeller_vektorraum.html#ID-47c426f6-4f34-402a-8c78-5ef0c3b88ce9">reelle Vektorräume</a> und \(A: V \rightarrow W\) ein <a href="20221119162741-vektorraumhomomorphismus.html#ID-863f0f55-054c-413e-9cf4-2c2704ea5b14">Vektorraumhomomorphism</a>.
+Dann ist \(A\) <a href="20221125175541-lipschitzstetig.html#ID-53d30a09-5724-4c59-9495-2ffa2f053707">Lipschitzstetig</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-org654d104" class="outline-2">
+<h2 id="org654d104"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Seien \(v_1,v_2 \in V\) bzw. \(v  \coloneqq v_1 - v_2\) so ist zu zeigen:
+</p>
+\begin{align*}
+\| A(v_1) - A(v_2) \|_W \leq& L \cdot \| v_1 - v_2 \|_V \\
+\| A(v) \|_W \leq& L \cdot \| v \|_V \\
+\end{align*}
+<p>
+Sei ferner \(V \simeq \mathbb{R}^n\) und \(W \simeq \mathbb{R}^m\), \(v = \sum_{i=1}^{n} \beta_{i1} e_{i1}\) für eine <a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">Basis</a> \(e_i \in V\) und \(A(e_i) = \sum_{j=1}^{k} \alpha_{ji} e_{i1}'\) für eine <a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">Basis</a> \(e_i' \in V\) mit \(\| e_i \|_V = \| e_i' \|_W = 1\).
+(siehe: <a href="20230515172707-existenz_einer_normierten_basis.html#ID-02488965-93c9-4a37-b92e-7fa55618cf93">Existenz einer normierten Basis</a>)
+</p>
+
+<p>
+Dann folgt die aufgrund der <a href="20221003143707-dreiecksungleichung_einer_norm.html#ID-ab6dc42a-e937-4409-8dce-39b5925205dd">Dreiecksungleichung einer Norm</a> folgende Abschätzung
+</p>
+\begin{align*}
+\| A(v) \|_W \leq& \sum_{j=1}^{k} \sum_{i=1}^{n} \| \alpha_{ij} \beta_{j} e_{j}' \|_W \\
+=& \sum_{j=1}^{k} \sum_{i=1}^{n} \vert \alpha_{ij} \vert  \| \beta_{j} e_{j}' \|_W \\
+\leq& n \cdot \mathrm{max}(\vert \alpha_{ij}\vert) \sum_{j=1}^{n} \| \beta_{j} e_{j}' \|_W \\
+\leq& n \cdot k \cdot \mathrm{max}(\vert \alpha_{ij} \vert) \cdot \mathrm{max}(\vert \beta_j \vert) \\
+\leq& \left(n \cdot k \cdot \mathrm{max}(\vert \alpha_{ij} \vert) \right) \cdot \| \beta_{\mathrm{max}} e_j \|_V \\
+\leq& \left(n \cdot k \cdot \mathrm{max}(\vert \alpha_{ij} \vert) \right) \cdot \| \sum_{j=1}^{n} \beta_j e_j \|_V
+\end{align*}
+<p>
+Damit ist eine möglich <a href="20221222102430-lipschitzkonstante.html#ID-fefaf440-f71c-45e7-b68a-1f6c6ccdce52">Lipschitzkonstante</a> \(n \cdot k \cdot \mathrm{\vert \alpha_{ij} \vert}\), welche unabhängig von 
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

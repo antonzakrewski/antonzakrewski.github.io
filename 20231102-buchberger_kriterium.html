@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Buchberger-Kriterium</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Buchberger-Kriterium</h1>
+<div id="outline-container-org190d153" class="outline-2">
+<h2 id="org190d153"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(K\) ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a>, \(I \subseteq K[X_1,...,X_n]\) ein <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a> und \(G = \{g_1,...,g_n\}\) eine <a href="20231030-basis_eines_ideals_eines_polynomrings.html#ID-95191ba7-fe15-4130-906e-4940b384bce6">Basis eines Ideals</a>.
+</p>
+
+<p>
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol class="org-ol">
+<li>\(G\) ist eine <a href="20231030-grobner_basis.html#ID-1743b7a4-d1c8-4e3e-96c0-6c2b208fdb47">gröbner basis</a></li>
+<li>für alle \(i,j \in \{1,...,n\}\) ist der Divisionsrest vom <a href="20231102-s_polynom.html#ID-8c85941a-bbde-4634-bd03-21f8275a7783">S-Polynom</a> \(S(g_i,g_j)\) unter Division von \(g_1,...,g_n\) gleich Null (in beliebiger Reihenfolge)</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgc29ad4d" class="outline-2">
+<h2 id="orgc29ad4d"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org90c7272" class="outline-3">
+<h3 id="org90c7272"><span class="section-number-3">2.1.</span> 1) \(\implies\) 2)</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>gröbner basis ~&gt; division gleich null im ideal</li>
+<li><a href="20231102-s_polynom_im_erzeugten_ideal.html#ID-2381c550-910e-4848-aa9f-3bbafc0ea109">S-Polynom im erzeugten Ideal</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org281d5c3" class="outline-3">
+<h3 id="org281d5c3"><span class="section-number-3">2.2.</span> 2) \(\implies\) 1)</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-orgff817c7" class="outline-4">
+<h4 id="orgff817c7"><span class="section-number-4">2.2.1.</span> beweisskizze</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+gegen ein Polynom \(f \in I\) mit \(f \neq 0\).
+Dann existiert eine Darstellung als Kombination \(f = \sum_{i=1}^{s} h_i g_i\) für \(h_i \in K[X_1,...,X_n]\).
+Dann ist der \(\mathrm{multideg}(f) \leq \mathrm{max}(\mathrm{multideg}(h_i g_i))\) (vgl. <a href="20231102-multigrad_einer_summe.html#ID-7caf16fc-2e30-4961-a5e1-6e49ea78269a">Multigrad einer Summe</a>)
+Es existieren zwei Möglichkeiten:
+</p>
+</div>
+<div id="outline-container-org1955176" class="outline-5">
+<h5 id="org1955176"><span class="section-number-5">2.2.1.1.</span> \(<\)</h5>
+<div class="outline-text-5" id="text-2-2-1-1">
+<ul class="org-ul">
+<li>dann können wir mit hilfe <a href="20231102-darstellung_einer_linearkombination_von_polynomen_mit_gleichem_multidegree_durch_s_polynome.html#ID-dcfee77a-f426-41a1-835a-ab0dacc81880">Darstellung einer Linearkombination von Polynomen mit gleichem Multidegree durch S-Polynome</a> als Kombination von <a href="20231102-s_polynom.html#ID-8c85941a-bbde-4634-bd03-21f8275a7783">S-Polynomen</a> - nahc schrecklich technischen bla bla - schreiben.</li>
+<li>mit kleinerem Multigrad</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgad55bde" class="outline-5">
+<h5 id="orgad55bde"><span class="section-number-5">2.2.1.2.</span> \(=\)</h5>
+<div class="outline-text-5" id="text-2-2-1-2">
+<p>
+Dann ist \(\mathrm{multideg}(f) = \mathrm{multideg}(h_ig_i)\) für ein \(i\).
+Damit gilt \(\mathrm{LT}(f) \in \langle \mathrm{LT}(g_1),...,\mathrm{LT}(g_s)\rangle\) (vgl. <a href="20231030-monomial_ideal_and_associate_elements.html#ID-3b9a52f7-1a7d-498b-9dbe-86a437473bf4">monomial ideal and division</a>)
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org94037b6" class="outline-4">
+<h4 id="org94037b6"><span class="section-number-4">2.2.2.</span> beweis</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+Ausführlich:
+sei \(m_{i,h} \coloneqq \mathrm{multidegree}(h_ig_i)\) und $&delta;<sub>h</sub> \coloneqq \mathrm{max}(m<sub>i</sub>)
+und 
+</p>
+\begin{align*}
+\mathrm{multideg}(f) \leq \delta_{h}
+\end{align*}
+<p>
+Betrachte <b>alle</b> Darstellungen 
+</p>
+\begin{align*}
+f = \sum_{i=1}^{s} h_i g_i
+\end{align*}
+<p>
+und zu jeder Darstellung ein $&delta; &isin; \(\mathbb{N}_0^n\)
+Da die <a href="20231030-monomordnung.html#ID-6e957901-1e39-4a42-936c-cdb51c862a3c">Monomordnung</a> eine <a href="20220929195946-wohlordnung.html#ID-8f3e284b-c3c9-4aaf-8bf5-5eadc47faa78">Wohlordnung</a> ist, existiert ein minimales \(\delta\)
+</p>
+
+<p>
+Behauptung:
+Es gilt
+</p>
+\begin{align*}
+\mathrm{multideg}(f) = \delta
+\end{align*}
+
+<p>
+Angenommen der multigrad von \(f\) ist echt kleiner als \(\delta\)
+Dan n
+</p>
+\begin{align*}
+f =& \sum_{i=1}^{s} h_i g_i \\
+=& \sum_{m_i=\delta}^{}  h_i + g_i + \sum_{m_i < \delta} h_i g_i \\
+=& \sum_{m_i = \delta}^{} \mathrm{LT}(h_i) g_i + \sum_{m_i = \delta} (h_i - \mathrm{LT}(h_i)) g_i + \sum_{m_i < \delta}^{} h_i g_i
+\end{align*}
+<p>
+es folgt 
+</p>
+\begin{align*}
+\mathrm{multideg}(h_i - \mathrm{LT}(h_i) g_i) < \delta
+\end{align*}
+
+<p>
+Damit bleibt nur
+</p>
+\begin{align*}
+\sum_{m_i = \delta}^{} \mathrm{LT}(h_i) g_i 
+\end{align*}
+<p>
+mit \(\mathrm{multideg}(\sum_{m_i = \delta}^{} \mathrm{LT}(h_i) g_i) = \delta\)
+</p>
+
+<p>
+Sei
+</p>
+\begin{align*}
+\mathrm{LT}(h_i) = c_i X^{\alpha_i) 
+\end{align*}
+<p>
+für \(c_i K\)
+Dann gilt
+</p>
+\begin{align*}
+\sum_{m_i = \delta}^{} \mathrm{LT}(h_i) g_i =& \sum_{m_i = \delta}^{} c_i x^{\alpha_i) g_i
+\end{align*}
+<p>
+nach <a href="20231102-darstellung_einer_linearkombination_von_polynomen_mit_gleichem_multidegree_durch_s_polynome.html#ID-dcfee77a-f426-41a1-835a-ab0dacc81880">Darstellung einer Linearkombination von Polynomen mit gleichem Multidegree durch S-Polynome</a> 
+existiert eine \(K\)-Lineare Kombination durch <a href="20231102-s_polynom.html#ID-8c85941a-bbde-4634-bd03-21f8275a7783">S-Polynome</a> 
+</p>
+\begin{align*}
+S(x^{\alpha_j} g_j, x^{\alpha_l} g_l)
+\end{align*}
+
+
+<p>
+Es gilt
+</p>
+\begin{align*}
+S(x^{\alpha_j} g_j, x^{\alpha_l}g_l) =& \frac{x^{\delta}}{x^{\alpha_j} \mathrm{LT}(g_j)} \cdot x^{\alpha_j} \cdot g_j - \frac{x^{\delta}}{x^{\alpha_j} \cdot \mathrm{LT}(g_l} hcdot x^{\alpha_l) g_l \\
+=& x^{\delta - \gamma_{j,l}} S(g_j,g_l)
+\end{align*}
+
+<p>
+wobei
+</p>
+\begin{align*}
+x^{\gamma_{j,l}} = \mathrm{lcm}(\mathrm{LM}(g_j), \mathrm{LM}(g_l))
+\end{align*}
+
+<p>
+Also existieren \(c_{j,l} \in K\) mit
+</p>
+\begin{align*}
+\sum_{m_i= \delta}^{} \mathrm{LT}(h_i) g_i = \sum_{j,l}^{} c_{j,l} x^{\delta - \gamma_{j,l}} S(g_j,g_=)
+\end{align*}
+<p>
+nach unserer Voraussetzung gilt
+</p>
+\begin{align*}
+S(g_j,g_l) = \sum_{i=1}^{s} \alpha_{i,j,l} g_i
+\end{align*}
+<p>
+für schreckliche <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c-70182b7714f9">Polynome</a> \(\alpha_{i,j,l} \in K[X_1,...,X_n]\)
+</p>
+
+<p>
+Außerdem gilt beim <a href="20231030-euklidischer_algorithmus_in_mehreren_variablen.html#ID-7732d500-1a32-4796-933e-da2fa5e2d906">Euklidischen Algorithmus in mehreren Variablen</a>  für den Multigrad
+</p>
+\begin{align*}
+\mathrm{multideg}(\alpha_{i,j,l} \circ g_i) \leq \mathrm{multideg}(S(g_{j}, g_l))
+\end{align*}
+<p>
+für alle \(i\)
+</p>
+
+<p>
+Durch multiplikation mit \(x^{\delta - \gamma_{j,l}}\) erhalten wir
+</p>
+\begin{align*}
+S(g_j,g_l) =& \sum_{i=1}^{s} \alpha_{i,i,jl} g_i && \vert \cdot x^{\delta - \gamma_{j,l}} \\
+X^{\delta - \gamma_{j,l}} S(g_j,g_l) =& \sum_{i=1}^{s} X^{\delta - \gamma{j,l}} \cdot \alpha_{i,j,l} \cdot g_i
+\end{align*}
+<p>
+aufgrund der verträglichkeit von monomordnungen mit Multiplikation gilt
+</p>
+\begin{align*}
+\mathrm{multdeg}(x^{\delta - \gamma_{j,l}} \cdot \alpha_{i,j,l}) \cdot g_{i}) \leq \mathrm{multdeg}(x^{\delta - \gamma_{j,l}} S(g_{j}, g_l)) = \mathrm{multdeg}(S(f_j, f_l)) \leq \delta
+\end{align*}
+
+<p>
+Alles Einsetzen ergibt
+</p>
+\begin{align*}
+\sum_{m_i = \delta}^{} \mathrm{LT}(h_i) g_i =& \sum_{j,l} c_{j,l} x^{\delta - \gamma_{j,l}} S(g_j,g_l) \\
+=& \sum_{j,l} c_{j,l} (\sum_{i=1}^{s} x^{\delta - \gamma_{j,l}} \cdot \alpha_{i,j,l} g_i) \\
+=& \sum_{i=1}^{s} \tilde{h_i}g_i
+\end{align*}
+<p>
+für \(c_{j,l} \in K\) und \(\tilde{h_i} = \sum_{j,l} c_{j,l} \cdot x^{\delta - \gamma_{i,j,l}} \alpha_{i,j,l}\) und \(\mathrm{multdeg}(\tilde{h_i} \cdot g_i) < \delta\)
+</p>
+
+<p>
+Dies ist ein Widerspruch zur Minimalität des Multigrads 
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

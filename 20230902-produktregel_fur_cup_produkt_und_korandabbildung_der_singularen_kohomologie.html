@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Produktregel für cup-Produkt und Korandabbildung der singulären Kohomologie</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Produktregel für cup-Produkt und Korandabbildung der singulären Kohomologie</h1>
+<div id="outline-container-org58e865f" class="outline-2">
+<h2 id="org58e865f"><span class="section-number-2">1.</span> Definition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \((X, \mathcal{T})\) ein <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topologischer Raum</a>
+</p>
+
+<p>
+für \(\psi \in C^n(X,A)\) und \(\psi \in C^m(X,A)\) gilt für die <a href="20230902-korandabbildung.html#ID-21de9b10-01e1-4478-905c-b724046a73ba">Korandabbildung</a> 
+</p>
+
+\begin{align*}
+\partial (\phi \cup \psi) = \partial \varphi \cup \psi + (-1)^n \cdot \phi \cup \partial \psi
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org8e126e9" class="outline-2">
+<h2 id="org8e126e9"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Es gilt
+</p>
+\begin{align*}
+\partial(\phi \cup \psi) \in C^{n+m+1}
+\end{align*}
+<p>
+und
+</p>
+\begin{align*}
+\partial \phi \cup \psi \in C^{n+m+1}
+\end{align*}
+<p>
+Sei \(\Delta_{n+m+1} \rightarrow X\) eine beliebige <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">stetige</a> <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a> 
+</p>
+
+<p>
+Nach Definition gilt
+</p>
+\begin{align*}
+\partial_{n+m+1}f = \sum_{l=0}^{n+m+1} (-1)^l \cdot (f \circ \sigma_{n+m+1}^{(l)})
+\end{align*}
+
+<p>
+Damit erhalten wir durch Anwenden der Dualen Konstruktion für die linke Seite
+</p>
+\begin{align*}
+\partial^{n+m+1}(\phi \cup \psi)(f) =& \(\phi \cup \psi)(\partial_{n+m+?} f) \\
+=& \sum_{l=0}^{n+m+1}  (-1)^l \cdot (f \circ \sigma_{n+m+1}^{(i)}) \\
+=& \sum_{l=0}^{n+m+1} (-1)^l \cdot \varphi(f \circ \sigma_{n+m+1}^{(i)} \circ \iota_{n}^{n+m}) \cdot \psi(f \circ \sigma_{n+m+1}^{(i)} \circ \jota_{m}^{n+m})
+\end{align*}
+
+
+<p>
+Für die Rechte Seite gilt nach Anwendung des cup-produkts und später Auswertung der <a href="20230901-boundary_map_of_a_simplex.html#ID-a0218452-70ae-4217-8959-07378b2ff32e">Randabbildung</a> 
+</p>
+\begin{align*}
+(\partial \phi \cup \psi)(f) + (-1)^n (\phi \cup \partial \psi)(f) =& (\partial \varphi)(f \circ \iota_{n+1}^{n+m+1}) \cdot \psi(f \circ \iota_{m}^{n+m+1} + (-1)^n \varphi(f \circ \iota_n^{n+m+1}) \cdot (\partial \psi) (f \circ j_{m+1}^{n+m+1}) \\
+=& \sum_{l=0}^{n+1}(-1)^l \cdot (f \circ \iota_{n+1}^{n+m+1} \circ \sigma_{n+1}^{(i)} \cdot \psi(f \circ \iota_{m}^{n+m+1}) + (-1)^n \sum_{l=0}^{m+1} (-1)^l \varphi(f \circ \iota_{n}^{n+m+1}) \cdot \psi(f \circ j_{m+1}^{n+m+1} \circ \sigma_{m+1}^{(j)}) \\
+\end{align*}
+<p>
+Damit erhalten wir durch Kommutieren von \(\sigma\) und \(\iota\)
+</p>
+\begin{align*}
+\sum_{l=0}^{n+1} (-1)^l \cdot \varphi(f \circ \sigma_{n+m+1}^{(i)} \circ \iota_{n}^{n+m}) \cdot \psi(f \circ \iota_{m}^{n+m+1}) + \sum_{l=0}^{m+1} (-1)^{n+l} \cdot \varphi(f \circ \iota_{n}^{n+m+1}) \cdot \psi(f \circ \sigma_{n+m+1}^{(n+j)} \circ j_{m)^{n+m})
+\end{align*}
+
+<p>
+Durch einen Indexshifts und rausziehen von jeweils einem Summanden, welche sich beide gegenseitig kürzen, erhält man die Summe
+</p>
+
+<p>
+"todo" - technisch
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>lineare Unabhängigkeit von Eigenvektoren für verschiedene Eigenwerte</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">lineare Unabhängigkeit von Eigenvektoren für verschiedene Eigenwerte</h1>
+<div id="outline-container-org4914616" class="outline-2">
+<h2 id="org4914616"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(V\) ein <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">K-Vektorraum</a> und \(A \in \mathrm{End}_{K}(V)\), so gilt für <a href="20220904160119-eigenvektor.html#ID-6ffc560a-28ea-4b47-81a9-5ce44feb02d1">Eigenvektoren</a> \(v_1,...,v_n\) füw paarweise verschiedene <a href="20220303190024-eigenwert.html#ID-c96ef2bb-2cf6-4ca8-9d98-40991bd99031">Eigenwerte</a> \(\alpha_1,...,\alpha_n\), dass \(v_1,...,v_n\) <a href="20220207224644-lineare_unabhangigkeit.html#ID-c4d1496f-6012-4ade-8b98-3e29dad89ded">lineare unabhängig</a> sind.
+</p>
+</div>
+</div>
+<div id="outline-container-org7176015" class="outline-2">
+<h2 id="org7176015"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="20210305204948-beweis_durch_vollstandige_induktion.html#ID-c79953c3-855e-432d-9321-047dd5decac8">Beweis durch vollständige Induktion</a>:
+</p>
+</div>
+<div id="outline-container-orge957964" class="outline-3">
+<h3 id="orge957964"><span class="section-number-3">2.1.</span> induktionsanfang</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Nach Definition ist  \(v_1 \neq 0\) (vgl. <a href="20220904160119-eigenvektor.html#ID-6ffc560a-28ea-4b47-81a9-5ce44feb02d1">Eigenvektor</a>) und daraus folgt <a href="20220207224644-lineare_unabhangigkeit.html#ID-c4d1496f-6012-4ade-8b98-3e29dad89ded">lineare Unabhängigkeit</a>.
+</p>
+</div>
+</div>
+<div id="outline-container-org7257821" class="outline-3">
+<h3 id="org7257821"><span class="section-number-3">2.2.</span> induktionsschritt</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Seien für \(i \in \{1,...,n\}\) \(v_i\) <a href="20220207224644-lineare_unabhangigkeit.html#ID-c4d1496f-6012-4ade-8b98-3e29dad89ded">lineare unabhängig</a>.
+Sei \(\beta_1,...,\beta_{n+1} \in K\) mit \(\sum_{i=1}^{n+1}  \beta_i v_1 = 0\) so folgt:
+</p>
+\begin{align*}
+0 =& A(0) \\
+=& A( \sum_{i=1}^{n+1} \beta_i v_i) \\
+=& \sum_{i=1}^{n+1} A(\beta_i v_i) \\
+=& \sum_{i=1}^{n+1} \beta_i A(v_i) \\
+=& \sum_{i=1}^{n+1} \beta_i \alpha_i v_i \\
+=& \sum_{i=1}^{n+1} \alpha_i \beta_i v_i
+\end{align*}
+<p>
+Desweiteren gilt:
+</p>
+\begin{align*}
+0 =& \alpha_{n+1} \cdot 0 \\
+=& \alpha_{n+1} \left( \sum_{i=1}^{n+1} \beta_i v_i \right) \\
+=& \sum_{i=1}^{n+1} \alpha_{n+1} \beta_i v_i
+\end{align*}
+<p>
+Daraus folgt für die Differenz:
+</p>
+\begin{align*}
+0 =& 0 - 0 \\
+=& \sum_{i=1}^{n+1} \alpha_i \beta_i v_i - \sum_{i=1}^{n+1} \alpha_{n+1} \beta_i v_i \\
+=& \sum_{i=1}^{n+1} (\alpha_i - \alpha_{n+1}) \beta_i v_i \\
+=& \sum_{i=1}^{n} (\alpha_i - \alpha_{n+1}) \beta_i v_i
+\end{align*}
+<p>
+Nach Induktionsannahme sind \(v_1,...,v_n\) <a href="20220207224644-lineare_unabhangigkeit.html#ID-c4d1496f-6012-4ade-8b98-3e29dad89ded">lineare unabhängig</a>.
+Damit gilt \((\alpha_i - \alpha_{n+1}) \cdot \beta_i = 0\) 
+Da wir annehmen, dass die <a href="20220303190024-eigenwert.html#ID-c96ef2bb-2cf6-4ca8-9d98-40991bd99031">Eigenwerte</a> paarweise verschieden sind, gilt insbesondere für \(i \neq n + 1\) e \(\alpha_i - \alpha_1 \neq 0\).
+Daraus folgt \(\beta_i = 0\) für \(i \in \{1,...,n\}\) und dann auch für \(\beta_{n+1} = 0\)
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

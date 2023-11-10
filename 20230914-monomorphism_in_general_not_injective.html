@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>monomorphism in general not injective</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">monomorphism in general not injective</h1>
+<div id="outline-container-orga3bf319" class="outline-2">
+<h2 id="orga3bf319"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(\mathcal{C}\) be a <a href="20230402143946-concrete_category.html#ID-5445ec6b-bf83-4c73-a8d1-b2bd4e7e37a7">concrete</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a> and \(f \in \mathrm{Hom}_{\mathcal{C}}(A, B)\) a <a href="20220819135911-monomorphismus.html#ID-60b63797-32fa-4d4e-a577-7616faa010ba">monomorphism</a>.
+Then \(f\) is in general not <a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injective</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-org296c3dc" class="outline-2">
+<h2 id="org296c3dc"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Let \(\mathrm{divAb}\) be the <a href="20230914-category_of_divisible_groups.html#ID-4db4eabf-ac38-45a2-a7cd-518e387df718">category of divisible groups</a>.
+</p>
+\begin{align*}
+\pi: \mathbb{Q} \rightarrow& \mathbb{Q}/\mathbb{Z} \\
+\frac{p}{q} \mapsto& \frac{p}{q} + \mathbb{Z} 
+\end{align*}
+
+<p>
+Let \((G,+)\) be a <a href="20230914-divisible_group.html#ID-c8408812-b193-42a3-afc3-c53b96a1d718">divisible group</a> (possibly nonabelian) and \(f,g: G \rightarrow \mathbb{Q}\) <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphisms</a> such that
+</p>
+\begin{align*}
+\pi \circ f = \pi \circ g
+\end{align*}
+<p>
+Suppose there exists an \(x \in G\) such that
+</p>
+\begin{align*}
+(\pi \circ f)(x) = (\pi \circ g)(x)
+\end{align*}
+<p>
+but \(f(x) \neq g(x)\)
+Thus we conclude, that \(f(x) - g(x) = n \neq 0\), <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> \(n > 0\).
+Since \(G\) is a divisible group, there exists an \(y \in G\) such that \(y^{2n} = x\).
+Thus
+</p>
+\begin{align*}
+f(x) =& f(2n \cdot y) \\
+=& 2n \cdot f(y) \\
+\Rightarrow f(y) =& \frac{1}{2n} f(x)
+\end{align*}
+<p>
+and analoguosly for \(g\)
+Furthermore we get
+</p>
+\begin{align*}
+f(y) - g(y) =& \frac{1}{2n} (f(x) - g(x)) \\
+=& \frac{1}{2n} n \\
+=& \frac{1}{2}
+\end{align*}
+<p>
+but since \(\pi\) is a monomorphism, we conclude that
+</p>
+\begin{align*}
+\pi \circ f(y) =& \pi \circ g(y) \\
+\Rightarrow f(y) - g(y) \in \mathbb{Z} 
+\end{align*}
+<p>
+Hence we have a <a href="20220902194001-widerspruch.html#ID-d758d8be-c0f8-45d8-b7b4-5d9ecc65476a">Contradiction</a> 
+</p>
+
+
+
+<p>
+for <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">well-definition</a> see: <a href="20230914-field_as_divisible_group_and_characteristic.html#ID-bb9a6e21-0cd1-4868-9bb4-33d36a5eb0cb">field as additive divisible group and characteristic</a>, <a href="20230914-quotient_of_a_divisible_group_as_divisible_group.html#ID-7f48e933-38b7-4b54-9560-2a883de87789">quotient of a divisible group as divisible group</a>wa
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

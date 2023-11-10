@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Zusammenhängende Menge enthält Randpunkte wegen inneren und äußeren Punkten</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Zusammenhängende Menge enthält Randpunkte wegen inneren und äußeren Punkten</h1>
+<div id="outline-container-orgc360d05" class="outline-2">
+<h2 id="orgc360d05"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \((X, \mathcal{T})\) ein <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topologischer Raum</a> und \(A \subseteq X\) eine <a href="20230308121524-zusammenhangende_menge.html#ID-d97e4b2e-16ae-483f-92bb-6438a08821a8">zusammenhängende Menge</a>.
+Falls für ein \(B \subsetneq A\) gilt, dass \(A\) <a href="20230222172815-innerer_punkt_topologischer_raum.html#ID-47791b32-716b-4159-94e7-31c4f0b9e4cd">innere</a> und <a href="20230308132422-außerer_punkt_topologie.html#ID-7619a027-a29f-429b-8f43-0ccdd46766bb">äußere</a> Punkte enthält, so beinhaltet \(A\) auch einen <a href="20230222174058-randpunkt_topologie.html#ID-8e438d10-6a6c-4087-9ebe-4b53f3b7e420">Randpunkt</a> von \(B\)
+</p>
+</div>
+</div>
+<div id="outline-container-org4070ac9" class="outline-2">
+<h2 id="org4070ac9"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="20210305204929-beweis_durch_gegenbeispiel.html#ID-82f7f698-c489-4630-b2a1-ec7a6228b374">Beweis durch Kontraposition</a>:
+</p>
+
+<p>
+Nach der Aussage über den <a href="20230511095526-randpunkt_und_komplement.html#ID-b1b3bb01-395f-4d81-ac26-b868f4cb865e">Rand und Komplement</a> gilt: \(\partial(B) = \partial(X \setminus B)\).
+Daraus folgt:
+</p>
+\begin{align*}
+A \subseteq& B \cup X \setminus B \\
+A \subseteq& \overline{B} \cup \overline{X \setminus B} \\
+A \subseteq& \mathring{B} \cup \partial(B) \cup  \mathring{X \setminus B} \cup \partial(X \setminus B) \\
+A \subseteq& \mathring{B} \cup \mathring{X \setminus B} \cup \partial(B)
+\end{align*}
+<p>
+Ferner gilt \(\partial(B) \cap A) = \emptyset\), daraus folgt:
+</p>
+\begin{align*}
+A =& A \cap (\mathring{B} \cup \mathring{X \setminus B} \cup \partial(B)) \\
+=& A \cap \mathring{B} \cup \mathring{X \setminus B} \cap A \cup \emptyset \\
+=& (A \setminus \mathring{B}) \cup (\mathring{X \setminus B} \cap A)
+\end{align*}
+<p>
+Dabei sind \(\mathring{B}, \mathring{X \setminus B}\) nach Konstruktion <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a> in der <a href="20230211132940-unterraumtopologie.html#ID-e38ab938-b4e6-4094-98a1-4a8dec808b54">Unterraumtopologie</a> und <a href="20211226220255-disjunkte_mengen.html#ID-2000e1f4-7e9e-45f9-91ed-16ded8a15190">Disjunkt</a>, d.h. Widerspruch zur Annahme, \(A\) wäre <a href="20230118223336-zusammenhangender_raum.html#ID-bcc53507-bc5a-46d4-bd83-53e504f62b9d">zusammenhängend</a> 
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

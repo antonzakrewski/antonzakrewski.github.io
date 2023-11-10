@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hausdorff-Abstand auf den abgeschlossenen, kompakten Mengen als Metrik</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Hausdorff-Abstand auf den abgeschlossenen, kompakten Mengen als Metrik</h1>
+<div id="outline-container-org243b18a" class="outline-2">
+<h2 id="org243b18a"><span class="section-number-2">1.</span> Satz / Definition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \((M,d)\) ein <a href="20221002145259-metrischer_raum.html#ID-6b95a0b5-83e0-43cc-830f-05b416769fe1">metrischer Raum</a>.
+dann ist der Hausdorff-Abstand eine <a href="20220716173517-metrik.html#ID-0aa21afc-5f24-4618-a61e-e5ebf2e9640c">Metrik</a> definiert auf der <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> der <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossenen</a>, <a href="20220902125304-nichtleere_menge.html#ID-119fa0d9-a2b3-4b46-bb61-a6e590282321">nichtleeren</a> <a href="20230121142600-kompaktheit_topologie.html#ID-58037a78-9969-4077-ad91-ce5e70c6c32c">kompakten</a> <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Mengen</a> definiert als
+</p>
+\begin{align*}
+d(A,B) = \mathrm{max}(\sup_{a \in A} \inf_{b \in B} d(a,b), \sup_{b \in B} \inf_{a \in A} d(a,b))
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org6e8d29d" class="outline-2">
+<h2 id="org6e8d29d"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orga24ce6b" class="outline-3">
+<h3 id="orga24ce6b"><span class="section-number-3">2.1.</span> Welldefined</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Da \(A,B\) <a href="20230121142600-kompaktheit_topologie.html#ID-58037a78-9969-4077-ad91-ce5e70c6c32c">Kompakt</a> sind, ist \(\mathrm{diam}(A), \mathrm{diam}(B)\) beschränkt (vgl. <a href="20230511112800-beschranktheit_einer_kompakten_menge_in_einem_metrischen_raum.html#ID-ce59f04c-0461-4bee-b37d-f4f3f5b3d3fc">Beschränktheit einer kompakten Menge</a>)
+Es gilt nach der Dreiecksungleichung für beliebiges \(a \in A, b \in B\) und für ein festes \(a_0 \in A, b_0 \in B\):
+</p>
+\begin{align*}
+d(a,b) \leq& d(a_0,a) + d(a_0, b_0) + d(b_0,b) \\
+\leq& \mathrm{diam}(A) + \mathrm{diam}(B) + d(a_0,b_0)
+\end{align*}
+<p>
+und Wegen der positiven Definitheit:
+</p>
+\begin{align*}
+0 \leq& d(a,b) 
+\end{align*}
+<p>
+Damit ist \(d(A,B) \leq \mathrm{diam}(A) + \mathrm{diam}(B) + d(a_0,b_0) \in \mathbb{R}^+_0\).
+Somit sind <a href="20220718133117-supremum.html#ID-0694ad6d-ce06-4c52-9f5c-29b040425dd1">Supremum</a>, <a href="20220718133120-infimum.html#ID-46cb173e-d119-4d6f-82b5-f27511bb0081">Infimum</a> nach <a href="20220717170446-vollstandigkeitsaxiom.html#ID-2772514a-cfc0-4f1c-9762-b5565967613c">Vollständigkeit</a> <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">wohldefiniert</a> in \(\mathbb{R}\)
+</p>
+</div>
+</div>
+<div id="outline-container-org8a75285" class="outline-3">
+<h3 id="org8a75285"><span class="section-number-3">2.2.</span> Positiv Definit</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-org362a2cc" class="outline-4">
+<h4 id="org362a2cc"><span class="section-number-4">2.2.1.</span> Gleich \(0\)</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+Für \(A = B\) folgt für beliebiges \(a\) auch \(\inf_{a' \in A} d(a,a') = d(a,a) = 0\)
+Somit folgt \(\sup_{a \in A} \inf_{b \in B} d(a,b) = 0\) und auch \(d(A,A) = 0\).
+</p>
+</div>
+</div>
+<div id="outline-container-org83038fa" class="outline-4">
+<h4 id="org83038fa"><span class="section-number-4">2.2.2.</span> Ungleich</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+Sei \(A \neq B\), so existiert <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> ein \(a \in A, a \not\in B\) und es folgt dann \(\sup_{a \in A} \inf_{b \in B} d(a,b) \geq \inf_{b \in B} d(a,b) = d(a,B) > 0\) (vgl. <a href="20230320163744-positiver_abstand_zu_einer_abgeschlosenen_menge.html#ID-4cec4a2b-75eb-431a-ac92-9c4fe3e8619c">positiver Abstand zu einer Abgeschlosenen Menge</a>)
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orge2763ec" class="outline-3">
+<h3 id="orge2763ec"><span class="section-number-3">2.3.</span> Symmetrisch</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+folgt aus der Symmetrie vom Maximum
+</p>
+</div>
+</div>
+<div id="outline-container-org1f90dbc" class="outline-3">
+<h3 id="org1f90dbc"><span class="section-number-3">2.4.</span> dreiecksungleichung</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Seien \(A,B,C\) gegeben, so gilt
+</p>
+\begin{align*}
+d(A,B) =& \mathrm{max}(\sup_{a \in A} \inf_{b \in B} d(a,b), \sup_{b \in B} \inf_{a \in A} d(a,b)) \\
+\leq& \mathrm{max}(\sup_{a \in A} \inf_{b \in B,c \in C} d(a,c) + d(c,b), \sup_{b \in B} \inf_{a \in A, c \in C} d(a,c) + d(b,c)) \\
+\leq& \mathrm{max}(
+\sup_{a \in A} (\inf_{c \in C} d(a,c) + \inf_{b \in B, c \in C} d(b,c)),
+\sup_{b \in B} (\inf_{c \in C} d(b,c) + \inf_{a \in A, c \in C} d(b,c))
+) \\
+% \leq& \mathrm{max}(
+% \sup_{a \in A} \inf_{c \in C} d(a,c) + \inf_{b \in B, c \in C} d(b,c),
+% \sup_{b \in B} \inf_{c \in C} d(b,c) + \inf_{a \in A, c \in C} d(b,c)
+% ) \\
+\leq& \mathrm{max}(
+\sup_{a \in A} \inf_{c \in C} d(a,c) + \sup_{c \in C} \inf_{b \in B} d(b,c),
+\sup_{b \in B} \inf_{c \in C} d(b,c) + \sup_{c \in C} \inf_{a \in A} d(b,c)
+) \\
+\leq& \mathrm{max}(
+\sup_{a \in A} \inf_{c \in C} d(a,c), \sup_{c \in C} \inf_{a \in A} d(b,c)) + 
+ \mathrm{max}(\sup_{c \in C} \inf_{b \in B} d(b,c), \sup_{b \in B} \inf_{c \in C} d(b,c)) \\
+=& d(A,C) + d(B,C)
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

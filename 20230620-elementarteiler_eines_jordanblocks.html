@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Elementarteiler eines Jordanblocks</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Elementarteiler eines Jordanblocks</h1>
+<div id="outline-container-org5025ec3" class="outline-2">
+<h2 id="org5025ec3"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(V\) ein <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">K-Vektorraum</a> über einem <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a> \(K\) und \(J(\alpha,n)\) ein <a href="20230616-jordanblock.html#ID-2e7d45d8-6ab4-4e1a-80b6-1af69fc7808c">Jordanblock</a>.
+Dann gilt für die <a href="20230608-elementarteiler.html#ID-5a0af13d-e134-4b63-96f8-19f9a128e3cf">Elementarteiler</a> von \(J(\alpha,n)\):
+</p>
+\begin{align*}
+M_{J(\alpha,n)}(x) \sim \begin{pmatrix}
+1 & & & & \\
+& 1 & & & \\
+& & \vdots & & \\
+& & & 1 & \\
+& & & & (x-\alpha)^{n} \\
+ \end{pmatrix} 
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org254ecbb" class="outline-2">
+<h2 id="org254ecbb"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+folgt aus dem <a href="20230610-algorithmischer_elementarteilersatz_fur_moduln_uber_euklidische_ringe.html#ID-ccc45228-1dd6-40e5-a706-20180852a181">algorithmischer Elementarteilersatz für Moduln über euklidische Ringe</a>:
+Durch Permutation folgt für die <a href="20230608-charakteristische_matrix.html#ID-62d08ada-fc7a-43eb-8029-8794d9d03e52">charakteristische Matrix</a> 
+</p>
+\begin{align*}
+\begin{pmatrix}
+x - \alpha & 0 & 0 & 0 & 0 & 0 \\
+-1 & x - \alpha & 0 & 0 & 0 & 0 \\
+0 & -1 & x - \alpha & 0 & 0 & 0 \\
+& & \vdots & \vdots &  & \\
+0 & 0 & 0 & -1 & x - \alpha & 0 \\
+0 & 0 & 0 & 0 & -1 & x - \alpha \\
+ \end{pmatrix} \\
+\rightarrow&
+\begin{pmatrix}
+-1 & x - \alpha & 0 & 0 & 0 & 0 \\
+0 & -1 & x - \alpha & 0 & 0 & 0 \\
+& & \vdots & \vdots &  & \\
+0 & 0 & 0 & -1 & x - \alpha & 0 \\
+0 & 0 & 0 & 0 & -1 & x - \alpha \\
+x - \alpha & 0 & 0 & 0 & 0 & 0 \\
+ \end{pmatrix} \\
+\rightarrow& 
+\end{align*}
+<p>
+Durch Subtraktion nach dem Algorithmus folgt
+</p>
+\begin{align*}
+\begin{pmatrix}
+-1 & x - \alpha & 0 & 0 & 0 & 0 \\
+0 & -1 & x - \alpha & 0 & 0 & 0 \\
+& & \vdots & \vdots &  & \\
+0 & 0 & 0 & -1 & x - \alpha & 0 \\
+0 & 0 & 0 & 0 & -1 & x - \alpha \\
+x - \alpha & 0 & 0 & 0 & 0 & 0 \\
+ \end{pmatrix} \\
+\rightarrow& 
+\begin{pmatrix}
+-1 & 0 &  &  & 0 & 0 \\
+0 & -1 &  &  & 0 & 0 \\
+& & \vdots & \vdots &  & \\
+0 & 0 &  & -1 & 0 & 0 \\
+0 & 0 &  & 0 & -1 & 0 \\
+x - \alpha & (x - \alpha) (\alpha - x)^1  &  &  & (x - \alpha)(\alpha - x)^{n-2} & (x - \alpha)(\alpha - x)^{n-1} \\
+ \end{pmatrix} \\
+\rightarrow&
+\begin{pmatrix}
+-1 & 0 &  &  & 0 & 0 \\
+0 & -1 &  &  & 0 & 0 \\
+& & \vdots & \vdots &  & \\
+0 & 0 &  & -1 & 0 & 0 \\
+0 & 0 &  & 0 & -1 & 0 \\
+ & &  & & & (x - \alpha)(\alpha - x)^{n-1} \\
+ \end{pmatrix} \\
+\end{align*}
+<p>
+Dabei erhalten wir durch Normierung (Multiplikation mit \(-1\)) die <a href="20230608-elementarteiler.html#ID-5a0af13d-e134-4b63-96f8-19f9a128e3cf">Elementarteiler</a>  \(1,1,...,(x - \alpha)^n\)
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

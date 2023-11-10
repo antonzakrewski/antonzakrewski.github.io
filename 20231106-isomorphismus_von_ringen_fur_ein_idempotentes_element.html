@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>isomorphismus von Ringen für ein Idempotentes Element</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">isomorphismus von Ringen für ein Idempotentes Element</h1>
+<div id="outline-container-org63fb4ba" class="outline-2">
+<h2 id="org63fb4ba"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(R\) ein <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">kommutativer Ring</a> und \(e \in R\) ein <a href="20230605-idempotentes_element.html#ID-08520735-6a21-4b2e-83ab-772d2f9eb0d8">idempotentes</a> element.
+Dann ist die Abbildung
+</p>
+\begin{align*}
+\varphi: R \rightarrow& eR \times (1-e)R \\
+r \mapsto& (r \cdot e, r \cdot (1 - e))
+\end{align*}
+<p>
+ein <a href="20230304213233-ringisomorphismus.html#ID-7690cd07-e072-4d63-a8f1-a629a8e576ea">ring-isomorphismus</a> mit umkehrabbildung
+</p>
+\begin{align*}
+\varphi^{-1}: eR \times (1-e)R \rightarrow& R \\
+(r \cdot e, r' \cdot (1 - e)) \mapsto& r \cdot e + r' \cdot (1 - e)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgfc6fe72" class="outline-2">
+<h2 id="orgfc6fe72"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgd389747" class="outline-3">
+<h3 id="orgd389747"><span class="section-number-3">2.1.</span> <a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">bijektiv</a></h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Folgt durch
+</p>
+\begin{align*}
+\varphi^{-1} \circ \varphi(r) =& \varphi^{-1}(r e, r \cdot (1 - e)) \\
+=& r \cdot e + r \cdot (1 - e) \\
+=& r
+\end{align*}
+<p>
+und
+</p>
+\begin{align*}
+\varphi \circ \varphi^{-1}(r \cdot e, r'(1 - e)) =& \varphi(r \cdot e + r'(1 - e)) \\
+=& ((r \cdot e + r'(1 - e)) \cdot e, (r \cdot e + r'(1 - e)) \cdot (1-e))
+\end{align*}
+<p>
+wobei gilt
+</p>
+\begin{align*}
+(r \cdot e + r'(1 - e)) \cdot e =& r \cdot e^2 + r'(e - e^2) \\
+=& r \cdot e + r' \cdot (e - e) \\
+=& r \cdot e \\
+(r \cdot e + r'(1 - e)) \cdot (1-e) =& r \cdot e \cdot (1 - e) + r' \cdot (1 - e)^2 \\
+=& r \cdot (e - e^2) + r' (1 - e) \\
+=& r \cdot (e - e) + r' (1 - e) \\
+=& r' \cdot (1 - e)
+\end{align*}
+<p>
+siehe: <a href="20231106-1_minus_idempotent_element.html#ID-57a1de7f-25f9-43bc-8cf2-e3aadadcf746">1 minus idempotent element</a> 
+</p>
+
+<p>
+Damit folgt
+</p>
+\begin{align*}
+\varphi \circ \varphi^{-1} = \mathrm{id}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org0267070" class="outline-3">
+<h3 id="org0267070"><span class="section-number-3">2.2.</span> ring-homomorphismus</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-orge8247ba" class="outline-4">
+<h4 id="orge8247ba"><span class="section-number-4">2.2.1.</span> \(\varphi^{-1}\)</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+folgt aus dem Distributivgesetz
+</p>
+\begin{align*}
+\varphi(\alpha (r e, r' \cdot (1-e))) =& \varphi(\alpha r e, \alpha r' (1 -e)) \\
+=& \alpha (r e + r'(1 - e)) \\
+=& \alpha \varphi(r e, r' \cdot (1 - e))
+\end{align*}
+<p>
+und 
+</p>
+\begin{align*}
+\varphi(r e, r' \cdot (1 - e)) + \varphi(r_2 e, r_2' \cdot (1 - e)) =& re + r' \cdot (1 - e) + r_2 e + r_2' \cdot (1 - e) \\
+=& (r + r_2) e + (r' + r_2') (1 - e)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org50a296e" class="outline-4">
+<h4 id="org50a296e"><span class="section-number-4">2.2.2.</span> \(\varphi\)</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+folgt aus &lt;algebraische kategorie: bijektiv impliziert iso&gt;
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

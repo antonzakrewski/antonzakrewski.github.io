@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Schnitt einer Kette kompakter Mengen ist nichtleer</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Schnitt einer Kette kompakter Mengen ist nichtleer</h1>
+<div id="outline-container-orgc1c049a" class="outline-2">
+<h2 id="orgc1c049a"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \((X, \mathcal{T})\) ein <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topologischer Raum</a> und \(A_i\) für \(i \in \mathbb{N}\) <a href="20230121142600-kompaktheit_topologie.html#ID-58037a78-9969-4077-ad91-ce5e70c6c32c">Kompakt</a> und <a href="20220902125304-nichtleere_menge.html#ID-119fa0d9-a2b3-4b46-bb61-a6e590282321">nichtleer</a> mit \(A_i \subesetq A_{i+1}\).
+Dann gilt
+</p>
+\begin{align*}
+\bigcap_{i \in \mathbb{N}} A_i \neq \emptyset
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orga0aa422" class="outline-2">
+<h2 id="orga0aa422"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Angenommen es gilt
+</p>
+\begin{align*}
+\bigcap_{i \in \mathbb{N}} A_i = \emptyset
+\end{align*}
+<p>
+Dann gilt nach den <a href="20230110103410-komplementbildung_unter_schnitt_und_vereinigung.html#ID-d6517940-4043-41d9-9063-12faf67aab22">allgemeinen de Morganschen Gesetzen</a>
+</p>
+\begin{align*}
+A_j =& A_j \setminus \left(\bigcap_{i \in \mathbb{N}} A_i\right) \\
+=& \bigcup_{i \in \mathbb{N} } A_j \setminus A_i
+\end{align*}
+<p>
+Da \(A_j\) <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossen</a> ist, folgt nach der <a href="20230314155253-ubertragung_der_abgeschlossenheit_von_der_unterraumtopologie.html#ID-2287eeee-f246-4ebb-8c18-793ac03adc02">Übertragung der Abgeschlossenheit von der Unterraumtopologie</a>, dass \(A_i\) in der <a href="20230211132940-unterraumtopologie.html#ID-e38ab938-b4e6-4094-98a1-4a8dec808b54">Unterraumtopologie</a> von \(A_j\) ebenfalls abgeschlossen ist.
+Ferner ist \(A_j\) auch in der Unterraumtopologie <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a> und nach dem <a href="20230330212948-komplement_einer_abgeschlossenen_und_offenen_menge.html#ID-443ec431-b5d9-49af-93c0-172f5d49556b">Komplement einer abgeschlossenen und offenen Menge</a> ist \(A_j \setminus A_i\) ebenfalls <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a> und eine <a href="20221125072633-offene_uberdeckung.html#ID-f64293ce-3838-4f49-b45d-07666123c2c9">offene Überdeckung</a> von ganz \(A_j\).
+Nach Kompaktheit existiert eine <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">endliche</a> <a href="20221224121300-teiluberdeckung.html#ID-592bb00c-d4d2-4853-a393-ef6977c82437">Teilüberdeckung</a> \(\bigcup_{k = 1}^{n} A_j \setminus A_{n_k}\).
+Somit gilt 
+</p>
+\begin{align*}
+A_j =& \bigcup_{k = 1}^n A_j \setminus A_{n_k} \\
+=& A_j \setminus \bigcap_{k = 1}^n A_{n_k}
+\end{align*}
+<p>
+mit \(\bigcap_{k=1}^n A_{n_k} = \emptyset\).
+Nach Annahme folgt aber \(A_{n_1} \supseteq A_{n_2} ... \supseteq A_{n_n}\) und damit auch \(A_{n_n} = \emptyset\), Widerspruch
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

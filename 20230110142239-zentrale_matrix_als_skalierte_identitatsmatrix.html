@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>zentrale Matrix als skalierte Identitätsmatrix</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">zentrale Matrix als skalierte Identitätsmatrix</h1>
+<div id="outline-container-org89540e9" class="outline-2">
+<h2 id="org89540e9"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(R\) ein <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">Ring</a> und \(A \in R^{n \times n}\) eine <a href="20220303181007-matrix.html#ID-3234cd94-0d93-470b-a319-75288f97326e">Matrix</a>.
+\(A\) ist eine <a href="20230110142129-zentrale_matrix.html#ID-65d43bd2-e4eb-46fe-a4d9-ecc2541c05a8">zentrale Matrix</a> <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">g.d.w.</a> ein \(r \in R\) existiert, so dass gilt:
+</p>
+\begin{align*}
+r \cdot E =& A
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org1c50bbd" class="outline-2">
+<h2 id="org1c50bbd"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgf91166a" class="outline-3">
+<h3 id="orgf91166a"><span class="section-number-3">2.1.</span> skaliert \(\Rightarrow\)  <a href="20230110142129-zentrale_matrix.html#ID-65d43bd2-e4eb-46fe-a4d9-ecc2541c05a8">zentrale Matrix</a></h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Sei \(B \in R^{n \times n}\) so gilt
+Nach Definition der <a href="20221126194743-matrixmultiplikation.html#ID-f1eb1007-4ae9-4903-825c-8c59f9c0f3ad">Matrixmultiplikation</a> gilt
+</p>
+\begin{align*}
+(A \cdot B)_{ij} =& r \cdot (E_n \cdot B)_{ij} \\
+=& r \sum_{t=1}^{n} \delta_{it} \beta_{tj} \\
+=& r \cdot \beta_{ij}
+=& r \cdot \sum_{t=1}^{n} \beta_{it} \delta_{tj}
+=& r \cdot (B \cdot E_n)_{ij} \\
+=& (B \cdot r \cdot E_n)_{ij} \\
+=& (B \cdot A)_{ij} \\
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org4610a3d" class="outline-3">
+<h3 id="org4610a3d"><span class="section-number-3">2.2.</span> <a href="20230110142129-zentrale_matrix.html#ID-65d43bd2-e4eb-46fe-a4d9-ecc2541c05a8">zentrale Matrix</a> \(\Rightarrow\) skaliert</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Sei \(A = \sum_{1 \leq i,j \leq n} \alpha_{ij} E_{ij}\)
+Nach der <a href="20230217210437-multiplikative_identitat_fur_die_standardbasis_von_einer_quadratischen_matrix.html#ID-ca224840-5a1a-46c7-bb69-591a56426835">Multiplikative Identität für die Standardbasis von einer quadratischen Matrix</a> und der <a href="20221128194935-distributivitat_des_matrixprodukts.html#ID-4bbfac39-ca02-4d2b-b25d-595a0e7eda62">Distributivität des Matrixprodukts</a> gilt
+</p>
+\begin{align*}
+A \cdot E_{k,l} =& (\sum_{1 \leq i,j \leq n}^{} \alpha_{i,j} E_{ij}) E_{k,l} \\
+=& \sum_{1 \leq i,j \leq n}^{} \alpha_{i,j} E_{ij}E_{k,l} \\
+=& \sum_{1 \leq i,j \leq n}^{} \alpha_{i,j} \delta_{jk}E_{il} \\
+\sum_{i=1}^{n} \alpha_{ik} E_{il}
+E_{k,l} \cdot A =& E_{k,l} \sum_{1 \leq i,j \leq n}^{} \alpha_{ij} E_{i,j} \\
+=& \sum_{1 \leq i,j \leq n}^{} \alpha_{ij} E_{k,l} E_{i,j} \\
+=& \sum_{1 \leq i,j \leq n}^{} \alpha_{ij} \delta_{li} E_{kj} \\
+=& \sum_{j = 1}^{n} \alpha_{lj} E_{kj}
+\end{align*}
+<p>
+Daraus folgt wegen der Annahme der Zentralen Matrix
+</p>
+\begin{align*}
+\sum_{i=1}^{n} \alpha_{i,k} E_{i,l} = \sum_{j=1}^{n} \alpha_{l,j} E_{k,j}
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

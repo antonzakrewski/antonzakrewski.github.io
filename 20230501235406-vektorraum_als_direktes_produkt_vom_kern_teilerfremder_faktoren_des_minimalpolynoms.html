@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vektorraum als Summe der Kerne teilerfremder Faktoren des Minimalpolynoms</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Vektorraum als Summe der Kerne teilerfremder Faktoren des Minimalpolynoms</h1>
+<div id="outline-container-org92e0375" class="outline-2">
+<h2 id="org92e0375"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(V\) ein <a href="20221109121525-endlich_erzeugter_vektorraum.html#ID-477797e9-4b4d-4886-9606-6e1c5f378a4f">endlich erzeugter</a> <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">K-Vektorraum</a> und \(A \in \mathrm{End}_K(V)\) mit <a href="20230306144242-minimalpolynom.html#ID-45149b8e-4acd-4735-b7df-6c7f499582fd">Minimalpolynom</a> \(m_A = g_1 \cdot ... \cdot g_r\) für teilerfremde \(g_i \in K[X]\)
+Dann folgt:
+</p>
+\begin{align*}
+V = \bigoplus_{i=1}^r \mathrm{ker}(g_i(A))
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orga7e6142" class="outline-2">
+<h2 id="orga7e6142"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgf22611a" class="outline-3">
+<h3 id="orgf22611a"><span class="section-number-3">2.1.</span> Summe</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Sei \(h_i = \prod_{j \neq i} g_j \in K[x]\).
+Nach Annahme gilt \(\mathrm{gcd}(h_1,...,h_r) = 1 \in K[X]\)
+Da \(K[X]\) ein <a href="20221226132415-euklidischer_ring.html#ID-4b723c79-698b-40cf-ad6e-1b20de1300a9">euklidischer Ring</a> ist mit <a href="20230427142833-lemma_von_bezout.html#ID-21bcd872-2b04-4642-8601-60e1f03f3901">Lemma von Bezout</a> / <a href="20230427134534-erweiterter_euklidischer_algorithmus.html#ID-29d60e8e-68dd-48c4-8fd6-def9d853294a">erweiterter euklidischer Algorithmus</a> existieren \(k_i \in K[X]\) mit
+</p>
+\begin{align*}
+1 = \sum_{i=1}^{r} k_i h_i
+\end{align*}
+<p>
+Einsetzen von \(A\) liefert in \(\mathrm{End}_K(V)\) die Identität:
+</p>
+\begin{align*}
+E = \sum_{i=1}^{r} k_i(A)h_i(A)
+\end{align*}
+<p>
+Daraus folgt für \(v \in V\):
+</p>
+\begin{align*}
+v =& Ev  \\
+=& \sum_{i=1}^{r} k_i(A) h_i(A) v
+\end{align*}
+<p>
+Da \(K\) ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a> ist, folgt dass \(K[X]\) ein <a href="20230224232626-kommutativer_polynomring.html#ID-9044af65-69db-4be0-9a42-da4f21a8439f">kommutativer Polynomring</a> ist, so dass folgt:
+</p>
+\begin{align*}
+g_i \cdot (k_i \cdot h_i)) =& g_i \cdot k_i \cdot \prod_{j \neq i} g_j \\
+=& g_i \cdot \prod_{j \neq i} k_i \\
+=& m_A \cdot k_i \\
+=& k_i \cdot m_A
+\end{align*}
+<p>
+Daraus folgt durch einsetzen von \(A\):
+</p>
+\begin{align*}
+(g_i \cdot k_i \cdot h_i)(A) =& (k_i \cdot m_A)(A) \\
+=& k_i \cdot 0 \\
+=& 0
+\end{align*}
+<p>
+Und somit gilt für \(v \in V\):
+</p>
+\begin{align*}
+v =& Ev \\
+=& \sum_{i=1}^{r} k_i(A) h_i(A) v \\
+g_i(A) \cdot \sum_{i=1}^{r} k_i(A) h_i(A) v =& (g_i(A) \cdot \sum_{i=1}^{r} k_i(A)) \cdot v \\
+=& 0 \cdot v \\
+=& 0
+\end{align*}
+<p>
+und damit auch \(v \in \sum_{i=1}^{r} \mathrm{ker}(g_i(A))\) bzw. \(V \subseteq \sum_{i=1}^{r} \mathrm{ker(g_i(A))}\)
+Daraus folgt dann auch \(V = \mathrm{ker}(g_i(A))\)
+</p>
+</div>
+</div>
+<div id="outline-container-org277493d" class="outline-3">
+<h3 id="org277493d"><span class="section-number-3">2.2.</span> direkte</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Sei \(U = \mathrm{ker}(g_i(A)) \cap \bigoplus_{j\neq i}^{} \mathrm{ker}(g_j(A))\).
+Wir zeigen nach der Aussage über die <a href="20230111100333-aquivalenz_von_trivialem_schnitt_linearen_unabhangigkeit_und_direkter_summe_zweier_vektorraumen.html#ID-7e657151-5604-4594-a622-cd0bda4f39ef">Äquivalenz von trivialem Schnitt, linearen unabhängigkeit und direkter Summe zweier Vektorräumen</a>, dass \(U = \{0\}\) gilt.
+Die allgemeine Aussage folgt durch <a href="20210305204948-beweis_durch_vollstandige_induktion.html#ID-c79953c3-855e-432d-9321-047dd5decac8">Induktion</a> über die \(i \in I\)
+</p>
+
+<p>
+Sei \(h_i  \coloneqq \prod_{j \neq i} g_j\).
+Nach Annahme gilt:
+</p>
+\begin{align*}
+g_i(A)[U] =& \{0\} \\
+=& h_i(A)[U]
+\end{align*}
+<p>
+Da \(g_i,h_i\) nach Annahme <a href="20230419130659-teilerfremde_elemente.html#ID-8ca5b06a-42b2-4511-86a3-753af5442412">teilerfremd</a> sind existiert nach <a href="20230427142833-lemma_von_bezout.html#ID-21bcd872-2b04-4642-8601-60e1f03f3901">Lemma von Bezout</a> <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c-70182b7714f9">Polynom</a> \(s_i,t_i \in K[X]\) mit
+</p>
+\begin{align*}
+s_i g_i + t_i h_i = 1
+\end{align*}
+<p>
+Daraus folgt dann \(s_i(A) g_i(A) + t_i(A) h_i(A) = 1(A)^0 = E \in \mathrm{End}_K(V)\) und es folgt für \(B \in U\)
+</p>
+\begin{align*}
+B =& 1 \cdot B \\
+=& E \cdot B \\
+=& (s_i(A)g_i(A))B + (t_i(A)h_i(A))+ \\
+=& (s_i(A) \cdot 0 )B + (t_i(A)\cdot 0)+ \\
+=& 0 + 0 \\
+=& 0
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

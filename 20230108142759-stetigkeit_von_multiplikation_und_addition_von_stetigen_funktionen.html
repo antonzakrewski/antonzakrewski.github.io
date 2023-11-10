@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stetigkeit von Multiplikation und Addition von stetigen reellwertigen Funktionen</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Stetigkeit von Multiplikation und Addition von stetigen reellwertigen Funktionen</h1>
+<div id="outline-container-orgc64595c" class="outline-2">
+<h2 id="orgc64595c"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Seien \(f: M \rightarrow N\), \(g: M \rightarrow N\) <a href="20220819232419-stetigkeit.html#ID-b2d86612-ee0d-43a3-b49c-6953d712ecc5">stetige</a> <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktionen</a> im Punkt \(m \in M\).
+Dann gilt, dass \(f \pm g\) und \(f \cdot g\) <a href="20220819232419-stetigkeit.html#ID-b2d86612-ee0d-43a3-b49c-6953d712ecc5">stetig</a> sind.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd5fa3c9" class="outline-2">
+<h2 id="orgd5fa3c9"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgac64872" class="outline-3">
+<h3 id="orgac64872"><span class="section-number-3">2.1.</span> Addition</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Sei \(\frac{\varepsilon}{2} > 0\), dann existieren \(\delta_f, \delta_g > 0\), so dass für \(m, m' \in M\) mit \(\vert m - m' \vert < \delta_f, \delta_g\) gilt:
+</p>
+\begin{align*}
+\vert f(m) - f(m')\vert < \varepsilon \\
+\vert g(m) - g(m')\vert < \varepsilon
+\end{align*}
+<p>
+Daraus folgt aus der <a href="20220716173747-dreiecksungleichung_metrik.html#ID-e5ef5ef6-266f-4486-aa97-9ba2093531fe">Dreiecksungleichung</a> für:
+</p>
+\begin{align*}
+\vert f(m) \pm g(m) - f(m') \mp g(m) \vert =& \vert (f(m) - f(m')) \pm (g(m) - g(m')) \vert \\
+\leq& \vert f(m) - f(m') \vert + \vert \pm (g(m) - g(m')) \vert \\
+=& \vert f(m) - f(m') \vert + \vert g(m) - g(m') \vert \\
+<& \frac{\varepsilon}{2} + \frac{\varepsilon}{2} \\
+=& \varepsilon
+\end{align*}
+<p>
+Daraus folgt, dass für \(\varepsilon > 0\) das Minimum von \(\delta_{f, \frac{\varepsilon}{2}}, \delta_{g, \frac{\varepsilon}{2}}\) die geforderte Eigenschaft erfüllt
+</p>
+</div>
+</div>
+<div id="outline-container-org902cf88" class="outline-3">
+<h3 id="org902cf88"><span class="section-number-3">2.2.</span> Mutliplikation</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Sei \(\varepsilon > 0\), dann existieren \(\delta_{f, \varepsilon}, \delta_{g, \varepsilon} > 0\), so dass <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> für \(f\)  \(s_f  \coloneqq \sup \{\vert f(x) \vert \mid \vert x - x_0 \vert < \delta_{f, \varepsilon}\} \leq \vert f(x) \vert + \varepsilon\) existiert.
+Sei \(s  \coloneqq \mathrm{max}(1, s_f, s_g)\), dann existiert für \(0 < \frac{\varepsilon}{2 \cdot s} < \varepsilon\) wieder \(\delta_{f, \frac{\varepsilon}{2 \cdot s}}, \delta_{g, \frac{\varepsilon}{2 \cdot s}} > 0\) und sei \(\delta  \coloneqq \mathrm{min}( \delta_{f, \frac{\varepsilon}{2 \cdot s}}, \delta_{g, \frac{\varepsilon}{2 \cdot s}})\).
+Daraus folgt für \(m'\) mit \(\vert m - m' \vert < \delta\)
+</p>
+
+\begin{align*}
+\vert f(m)\cdot g(m) - f(m') \cdot g(m') \vert =& \vert f(m) \cdot g(m) - f(m') \cdot (g(m') - g(m) + g(m)) \vert \\
+=& \vert g(m) \cdot \left(f(m) - f(m')\right) - f(m') \cdot \left( g(m') - g(m) \right) \vert \\
+\leq& \vert g(m) \cdot \left(f(m) - f(m')\right) \vert  + \vert f(m') \cdot \left( g(m') - g(m) \right) \vert  \\
+=& \vert g(m) \vert \cdot \left(f(m) - f(m')\right) \vert + \vert f(m') \vert \cdot \vert \left( g(m') - g(m) \right) \vert \\
+\leq& s \cdot \frac{\varepsilon}{2 \cdot s} + s \cdot \frac{\varepsilon}{2 \cdot s} \\
+=& \varepsilon
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

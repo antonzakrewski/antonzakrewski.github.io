@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Potenz als Summe von Stirling Zahlen zweiter Art und fallender Faktorielle</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Potenz als Summe von Stirling Zahlen zweiter Art und fallender Faktorielle</h1>
+<div id="outline-container-org2ef2cca" class="outline-2">
+<h2 id="org2ef2cca"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(x \in \mathbb{R}\) und \(n \in \mathbb{N}_0\), so  gilt:
+</p>
+\begin{align*}
+x^n = \sum_{k \in \mathbb{N}_0}^{} S_{n,k} x^{\underline{k}}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgeac69f1" class="outline-2">
+<h2 id="orgeac69f1"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="20210305204948-beweis_durch_vollstandige_induktion.html#ID-c79953c3-855e-432d-9321-047dd5decac8">Beweis durch vollständige Induktion</a> 
+</p>
+</div>
+<div id="outline-container-orgef60f53" class="outline-3">
+<h3 id="orgef60f53"><span class="section-number-3">2.1.</span> IA</h3>
+<div class="outline-text-3" id="text-2-1">
+\begin{align*}
+x^0 =& 1 \\
+\sum_{k \in \mathbb{N}_0}^{} S_{n,k} x^{\underline{k}} =& S_{0,0} x^{\underline{0}} \\
+=& 1 \cdot 1 \\
+=& 1
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org3de0046" class="outline-3">
+<h3 id="org3de0046"><span class="section-number-3">2.2.</span> IS</h3>
+<div class="outline-text-3" id="text-2-2">
+\begin{align*}
+x^n =& x \cdot x^{n-1} \\
+=& x \cdot \sum_{k \in \mathbb{N}_0 } S_{n-1,k} x^{\underline{k}} \\
+=& \sum_{k \in \mathbb{N}_0 } x \cdot  S_{n-1,k} x^{\underline{k}} \\
+=& \sum_{k \in \mathbb{N}_0 } (x-k+k) \cdot  S_{n-p,k} x^{\underline{k}} \\
+=& \sum_{k \in \mathbb{N}_0 } (x-k) \cdot  S_{n-1,k} x^{\underline{k}} + \sum_{k \in \mathbb{N}_0 } k \cdot  S_{n-1,k} x^{\underline{k}} \\
+=& \sum_{k \in \mathbb{N}_0 } S_{n-1,k} x^{\underline{k+1}} + \sum_{k \in \mathbb{N}_0} k \cdot  S_{n-1,k} x^{\underline{k}}
+\end{align*}
+<p>
+Da \(S_{n-1,-1} = 0\) gilt, folgt durch Indexverschiebung:
+</p>
+\begin{align*}
+x^n =& \sum_{k \in \mathbb{N}_0 } S_{n,k} \cdot x^{\underline{k+1}} + \sum_{k \in \mathbb{N}_0 } k \cdot  S_{n,k} \cdot x^{\underline{k}} \\
+=& \sum_{k \in \mathbb{N}_0} S_{n-1,k} \cdot x^{\underline{k+1}} + \sum_{k \in \mathbb{N}_0 } k \cdot  S_{n-1,k} \cdot x^{\underline{k}} \\
+=& \sum_{k \in \mathbb{N}_0} S_{n-1,k-1} \cdot x^{\underline{k}} + \sum_{k \in \mathbb{N}_0 } k \cdot  S_{n-1,k} \cdot x^{\underline{k}} \\
+=& \sum_{k \in \mathbb{N}_0} \left(S_{n-1,k-1} + k \cdot S_{n-1,k} \right) x^{\underline{k}}
+\end{align*}
+<p>
+Nach der <a href="20230327224107-rekursionsformel_fur_die_stirling_zahl_zweiter_art.html#ID-340ea228-586f-404a-abfb-1b24189fa97d">Rekursionsformel für die Stirling Zahl zweiter Art</a> gilt \(S_{n-1,k-1} + k \cdot S_{n-1,k} = S_{n,k}\)
+Daraus folgt dann:
+</p>
+\begin{align*}
+x^n =& \sum_{k \in \mathbb{N}_0} \left(S_{n-1,k-1} + k \cdot S_{n-1,k} \right) x^{\underline{k}} \\
+=& \sum_{k \in \mathbb{N}_0 } S_{n,k} x^{\underline{k}}
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

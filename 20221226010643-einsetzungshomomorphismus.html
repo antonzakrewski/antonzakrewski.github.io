@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>evaluation homomorphism</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">evaluation homomorphism</h1>
+<div id="outline-container-org7fd9dcf" class="outline-2">
+<h2 id="org7fd9dcf"><span class="section-number-2">1.</span> Definitione / Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Seien \(R,R'\) <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">kommutative</a> <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">Ringe</a> und \(\phi: R \rightarrow R'\) ein <a href="20221226010233-ringhomomorphismus.html#ID-136298f7-3132-4bd7-934f-0eefaa48fcf9">Ringhomomorphismus</a> sowie \(A\) ein <a href="20221228202836-r_algebra.html#ID-f1401a23-6bbb-4e91-812e-071fddeb1e67">R'-Algebra</a>.
+Für ein \(b_i \in A\) und \(\sum_{i=0}^{n} \alpha_i \prod_{i} X_i^i \in R[X_i]\) ist der Einsetzungshomomorphismus als <a href="20230304230206-r_algebrahomomorphismus.html#ID-fd85ff74-2af9-4617-9f4a-280b9d6a4a18">R-Algebrahomomorphismus</a>  \(\phi_{(b_i)}\) definiert durch:
+</p>
+\begin{align*}
+\phi_b : R[X] \rightarrow& A \\
+\sum_{i=0}^{n} \alpha_i X^i \mapsto& \sum_{i=0}^{n} \phi(\alpha_i) b^i
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgf652faa" class="outline-2">
+<h2 id="orgf652faa"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> für den Fall \(R[X]\), der allgemeine fall folgt durch <a href="20230731-polynomialring_in_multiple_variables_and_inductive_construction.html#ID-91984701-b039-47a2-acb1-e2400c89a819">polynomialring in multiple variables and inductive construction</a> und reduktion von \(R[X_i]\) auf \(R[X_1,...,X_n]\) für \(f \in R[X_i]\) wobei nur endlich viele variablen vorkommen (letztes richtig ?).
+</p>
+</div>
+<div id="outline-container-org6e0c6f3" class="outline-3">
+<h3 id="org6e0c6f3"><span class="section-number-3">2.1.</span> <a href="20221226010233-ringhomomorphismus.html#ID-136298f7-3132-4bd7-934f-0eefaa48fcf9">Ringhomomorphismus</a></h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org893588d" class="outline-4">
+<h4 id="org893588d"><span class="section-number-4">2.1.1.</span> additiv</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+für \(\sum_{i=0}^{n} (\alpha_i + \beta_i) X^i\) gilt:
+</p>
+\begin{align*}
+\phi_b(\sum_{i=0}^{n} (\alpha_i + \beta_i) X^i) =& \sum_{i=1}^{n} \phi(\alpha_i + \beta_i) b^i \\
+=& \sum_{i=1}^{n} \phi(\alpha_i) b^i + \sum_{i=1}^{n} \phi(\beta_i) b^i 
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orge8e3338" class="outline-4">
+<h4 id="orge8e3338"><span class="section-number-4">2.1.2.</span> multiplikation mit \(R\)</h4>
+<div class="outline-text-4" id="text-2-1-2">
+\begin{align*}
+\phi_b(r \cdot \sum_{i=0}^{n} \alpha_i X^i) =& \phi_b(\sum_{i=0}^{n} r \cdot \alpha_i X^i )\\
+=& \sum_{i=0}^{n} \phi(r \cdot \alpha_i) b^i \\
+=& \sum_{i=0}^{n} \phi(r) \cdot \phi(\alpha_i) b^i \\
+=& \phi(r) \cdot \sum_{i=0}^{n} \phi(\alpha_i) b^i \\
+=& \phi_b(r \cdot X^0) \cdot \phi_b(\sum_{i=0}^{n} \alpha_i X^i) \\
+=& \phi_b(r) \cdot \phi_b(\sum_{i=0}^{n} \alpha_i X^i) 
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org365bd99" class="outline-4">
+<h4 id="org365bd99"><span class="section-number-4">2.1.3.</span> multiplikation in \(R[X]\)</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> gilt \(\mathrm{deg}(\sum_{i=0}^{n} \alpha_i X^i), \mathrm{deg}(\sum_{i=0}^{n} \beta_i X^i) \leq n\).
+</p>
+\begin{align*}
+\phi_b(\sum_{i=0}^{n} \alpha_i X^i) \cdot \phi_b(\sum_{i=0}^{n} \beta_i X^i) =& ( \sum_{i=0}^{n} \phi(\alpha_i) b^i ) \cdot (\sum_{i=0}^{n} \phi(\beta_i) b^i ) \\
+=& \sum_{i=0}^{2n} \sum_{j=0}^{i} \phi(\alpha_j) b^j \phi(\beta_{i - j}) b^{i - j} \\
+=& \sum_{i=0}^{2n} \sum_{j=0}^{i} \phi(\alpha_j) \phi(\beta_{i - j}) b^{j} b^{i - j} \\
+=& \sum_{i=0}^{2n} \sum_{j=0}^{i} \phi(\alpha_j \cdot \beta_{i - j}) b^{i} \\
+=& \phi_b( \sum_{i=0}^{2n} \sum_{j=0}^{i} \alpha_j \cdot \beta_{i - j} X^{i} ) \\
+=& \phi_b( (\sum_{i=0}^{n} \alpha_i X^i) \cdot (\sum_{i=0}^{n} \beta_i X^i))
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

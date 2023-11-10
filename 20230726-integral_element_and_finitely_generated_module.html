@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>integral element and finitely generated module</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">integral element and finitely generated module</h1>
+<div id="outline-container-org454f10a" class="outline-2">
+<h2 id="org454f10a"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(A \subseteq B\) be <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative rings</a> and \(\alpha \in B\)
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol class="org-ol">
+<li>\(\alpha\) is <a href="20230726-integral_element_over_a_subring.html#ID-73648315-aa1e-4e87-a5e8-ce378a8a8015">integral element over a subring</a></li>
+<li>\(A[\alpha]\) is a <a href="20230531104455-endlich_erzeugter_modul.html#ID-b8bbecb1-a067-40a2-a8c8-3c4119252b18">finitely generated module</a> over \(A\)</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgdc46b76" class="outline-2">
+<h2 id="orgdc46b76"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgcf9b113" class="outline-3">
+<h3 id="orgcf9b113"><span class="section-number-3">2.1.</span> 1) \(\implies\) 2)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+by assumption, there exists a <a href="20221226010524-normiertes_polynom.html#ID-f17a0f11-0953-4728-91a6-9a81df943813">monic</a> <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c-70182b7714f9">polynomial</a> \(f: \sum_{i=0}^{n} \alpha_i X^i\) such that \(\varphi_{\alpha}(f) = f(\alpha) = 0\) (see: <a href="20221226010643-einsetzungshomomorphismus.html#ID-714a456e-dcd8-4e03-906b-2b497bf77766">evaluation homomorphism</a>)
+Therefore,
+</p>
+\begin{align*}
+\langle 1, \alpha,...,\alpha^n\rangle
+\end{align*}
+
+<p>
+Suppose \(\alpha^i \in A[\alpha]\) for \(i \leq m\), then
+</p>
+\begin{align*}
+\alpha^m =& \sum_{i=0}^{m-1} \lambda_i \alpha^i
+\end{align*}
+<p>
+Therefore 
+</p>
+\begin{align*}
+\alpha^{m+1} =& \alpha \cdot \alpha^m \\
+=& \alpha \sum_{i=0}^{m-1} \lambda_i \alpha^i \\
+=& \sum_{i=0}^{m-1} \lambda_i \alpha^{i+1} \in \langle 1,...,\alpha^m\rangle
+\end{align*}
+
+<p>
+???
+tl;dr: <a href="20230722-division_mit_rest_uber_polynomen_fur_eine_einheit.html#ID-60d904bd-2e73-4e2c-8e79-651b7e8255c6">Division mit Rest über Polynomen für eine Einheit</a> - weil monic
+</p>
+</div>
+</div>
+<div id="outline-container-org11f8d2d" class="outline-3">
+<h3 id="org11f8d2d"><span class="section-number-3">2.2.</span> 2) \(\implies\) 1)</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+By assumption, there exist <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">finitely</a> many generators \(f_1,...,f_n \in A[\alpha]\).
+Let \(m = \mathrm{max}(\mathrm{deg}(f_i))\), then \(\alpha^0,...,\alpha^m\) each generate \(f_1,...,f_n\) and thus generate \(A[\alpha]\).
+Furthermore, for \(\alpha^{m+1}\) there exists a generation
+</p>
+\begin{align*}
+\alpha^{m+1} =& \sum_{i=0}^{m} \lambda_{i} \alpha^i \\
+\alpha^{m+1} - \sum_{i=0}^{m} \lambda_{i} \alpha^i =& 0
+\end{align*}
+<p>
+thus we conclude, that for
+</p>
+\begin{align*}
+f = X^{m+1} - \sum_{i=0}^{m} \lambda_{i} X^i
+\end{align*}
+<p>
+is a <a href="20221226010524-normiertes_polynom.html#ID-f17a0f11-0953-4728-91a6-9a81df943813">monic polynomial</a> with
+</p>
+\begin{align*}
+f(\alpha) = 0
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

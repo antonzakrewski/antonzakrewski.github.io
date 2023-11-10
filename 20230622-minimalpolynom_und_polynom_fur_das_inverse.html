@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Minimalpolynom und Polynom für das Inverse</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Minimalpolynom und Polynom für das Inverse</h1>
+<div id="outline-container-orgc6829a2" class="outline-2">
+<h2 id="orgc6829a2"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(K^{n \times n}\) ein <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">K-Vektorraum</a> und \(A \in K^{n \times n}\) eine <a href="20220303181007-matrix.html#ID-3234cd94-0d93-470b-a319-75288f97326e">Matrix</a> mit <a href="20230222203528-minimalpolynom.html#ID-6ec50a2e-09e0-4866-a0f6-acae544923f8">Minimalpolynom eines Endomorphismus</a> \(\mu_A\)
+Dann ist \(A\) <a href="20220926093948-umkehrbarkeit.html#ID-6598aa2c-c26d-4984-95a7-68ee8edd829c">invertierbar</a> <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">g.d.w.</a> \(\mu_A = x^n + ... + \alpha_0\) mit \(\alpha_0 \neq 0\) und die <a href="20220927213528-umkehrabbildung.html#ID-6852cd17-4614-4655-ad66-85727c75b0f5">Umkehrabbildung</a> ist gegeben durch:
+</p>
+\begin{align*}
+A^{-1} =& \frac{1}{\alpha_0} (A^{n-1} + ... + \alpha_1)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org7a05410" class="outline-2">
+<h2 id="org7a05410"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org0759435" class="outline-3">
+<h3 id="org0759435"><span class="section-number-3">2.1.</span> a)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Nach <a href="20230222203639-satz_von_cayley_hamilton.html#ID-617e9586-9b4a-4651-b036-ac05b6befa50">Cayley-Hamilton</a> gilt:
+</p>
+\begin{align*}
+\mu_A(A) = 0
+\end{align*}
+<p>
+Damit folgt dann
+</p>
+\begin{align*}
+0 =& \mu_A(A) \\
+=& (A^n + ... + \alpha_1 A) + \alpha_0 E \\
+\alpha_0 E = (A^n + ... + \alpha_1 A) \\
+\alpha_0 E = A \cdot (A^{n-1} + ... + \alpha_1)
+E = A \cdot \frac{1}{\alpha_0} (A^{n-1} + ... + \alpha_1)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org97cbb76" class="outline-3">
+<h3 id="org97cbb76"><span class="section-number-3">2.2.</span> b)</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Sei \(\alpha_0 = 0\), so ist nach der Aussage über einen <a href="20230501140837-eigenwert_und_nullstelle_des_minimalpolynoms.html#ID-9b7b00e0-8ff4-4547-8cb3-6a52781ff80d">Eigenwert und Nullstelle des Minimalpolynoms</a> \(0\) ein <a href="20220303190024-eigenwert.html#ID-c96ef2bb-2cf6-4ca8-9d98-40991bd99031">Eigenwert</a>.
+Damit folgt für das <a href="20230222202847-charakteristische_polynom.html#ID-dd44aea9-79be-473f-90e3-e2d6c67a41ae">charakteristische Polynom</a> auch \(x \mid \chi_A(x)\) bzw. nach der Aussage über das <a href="20230625-charakteristische_polynom_und_determinante.html#ID-bf42ac1b-a3e2-4501-a34c-d6915accba92">Charakteristische Polynom und Determinante</a> \(\det(A) = 0\).
+Damit ist nach <a href="20230118135508-invertierbarkeit_einer_matrix_in_abhangigkeit_von_der_determinante.html#ID-cb336931-40a0-4039-8acd-c96b61a32468">Invertierbarkeit einer Matrix in Abhängigkeit von der Determinante</a> \(A\) nicht invertierbar.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

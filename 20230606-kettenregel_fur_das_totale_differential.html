@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kettenregel für das totale Differential</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Kettenregel für das totale Differential</h1>
+<div id="outline-container-orgbec8893" class="outline-2">
+<h2 id="orgbec8893"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Seien \(U \subseteq \mathbb{R}^n\) und \(V \subseteq \mathbb{R}^m\) gegeben und <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a> sowie \(F: U \rightarrow V\) und \(G: V \rightarrow \mathbb{R}^k\) <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildungen</a>, so dass \(F\) <a href="20230601102558-totale_differenzierbarkeit.html#ID-2bdfcfac-76de-4f04-b2c7-6eca0297c586">total differenzierbar</a> in \(x_0\) und \(G\) <a href="20230601102558-totale_differenzierbarkeit.html#ID-2bdfcfac-76de-4f04-b2c7-6eca0297c586">total differenzierbar</a> in \(F(x_0)\) ist.
+Dann ist \(G \circ F\) <a href="20230601102558-totale_differenzierbarkeit.html#ID-2bdfcfac-76de-4f04-b2c7-6eca0297c586">total differenzierbar</a> in \(x_0\) mit <a href="20221113224442-totales_differential.html#ID-9361fe82-74cf-489a-8551-9da7453a92b7">totalem Differential</a>:
+</p>
+\begin{align*}
+\mathrm{d} (G \circ F)_{x_0} = \mathrm{d} G_{F(x_0)} \circ \mathrm{d}F_{x_0}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgf13628d" class="outline-2">
+<h2 id="orgf13628d"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org2f337ea" class="outline-3">
+<h3 id="org2f337ea"><span class="section-number-3">2.1.</span> Umformungen</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Nach Annahme sei
+</p>
+\begin{align*}
+F(x) =& F(x_0) + \mathrm{d} F_{x_0}(x - x_0) + r_{F,x_0}(x) \\
+G(x) =& G(F(x_0)) + \mathrm{d} G_{F(x_0)} (y - F(x_0) + r_{G,F(x_0)}(y) 
+\end{align*}
+<p>
+Somit folgt
+</p>
+\begin{align*}
+(G \circ F) \cdot x =& G(F(x)) \\
+=& G(F(x_0)) + \mathrm{d} G_{F(x_0)}(F(x) - F(x_0)) + r_{G,F(x_0)}(F(x))
+\end{align*}
+<p>
+Ferner gilt nach Annahme
+</p>
+\begin{align*}
+(F(x) - F(x_0)) = \mathrm{d} F_{x_0}(x - x_0) + r_{F,x_0}(x)
+\end{align*}
+<p>
+D.h. durch Einsetzen folgt:
+</p>
+\begin{align*}
+G(F(x_0)) + \mathrm{d} G_{F(x_0)}(F(x) - F(x_0)) + r_{G,F(x_0)}(F(x)) =& G(F(x_0)) + (\mathrm{d} G_{F(x_0)} \circ \mathrm{d} F_{x_0})(x - x_0) + \mathrm{d}G_{F(x_0)}(r_{F,x_0}(x)) + r_{G,F(x_0)}(F(x))
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org1993687" class="outline-3">
+<h3 id="org1993687"><span class="section-number-3">2.2.</span> abschätzung des Restglieds</h3>
+<div class="outline-text-3" id="text-2-2">
+\begin{align*}
+\| \mathrm{d} G_{F(x_0)}(r_{F,x_0}(x)) \| \leq& \| d G_{F(x_0)} \| \cdot \| r_{F,x_0}(x) \| \\
+=& o(\| x - x_0\|)
+\end{align*}
+<p>
+Dabei sei <a href="20230228183044-operatornorm_als_echte_norm.html#ID-ee5d7893-af98-4807-8118-00bde790b509">Operatornorm</a> als Lipschitzkonstante
+Desweiteren gilt aufgrund der <a href="20220716173747-dreiecksungleichung_metrik.html#ID-e5ef5ef6-266f-4486-aa97-9ba2093531fe">Dreiecksungleichung</a>:
+</p>
+\begin{align*}
+r_{G,F(x_0)}(F(x)) =& o(\| F(x) - F(x_0) \|) \\
+\leq& \| d F_{x_0} \| \cdot \| x - x_0 \| + \| r_{F,x_0}(x) \| \\
+=& O(\| x - x_0 \|
+\end{align*}
+<p>
+Daraus folgt dann
+</p>
+\begin{align*}
+r_{G,F(x_0)}(F(x)) = o(\| x - x_0 \|)
+\end{align*}
+
+<p>
+Durch die <a href="20221003143707-dreiecksungleichung_einer_norm.html#ID-ab6dc42a-e937-4409-8dce-39b5925205dd">Dreiecksungleichung</a> folgt dann auch
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

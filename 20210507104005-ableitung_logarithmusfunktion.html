@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ableitung Logarithmusfunktion</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Ableitung Logarithmusfunktion</h1>
+<div id="outline-container-orgd24c1cd" class="outline-2">
+<h2 id="orgd24c1cd"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+\begin{equation}
+f(x) = \log_a(x) \Rightarrow f'(x) = \frac{1}{\ln{a} \cdot x}
+\end{equation}
+</div>
+</div>
+<div id="outline-container-org5c7d2e9" class="outline-2">
+<h2 id="org5c7d2e9"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+über die Anwendung der <a href="20210412125148-kettenregel.html#ID-2a4a6de8-4c4d-45bc-97f3-de18cfd2aac7">Kettenregel</a> und <a href="20211121134413-ableitung_exponentialfunktion.html#ID-37b13ba9-4b00-4576-ab98-9b5e4002cefc">Ableitung Exponentialfunktion</a> 
+Lemma: gleiche funktion mit gleicher ableitung 
+</p>
+\begin{align*}
+a^{\log_{a}(x)} =& x && \vert \frac{\mathrm{d}}{\mathrm{d}x} \\
+\left(\ln(a) \cdot a^{\log_{a}(x)}\right) \cdot (\log_{a}(x))' =& 1 \\
+\left(\ln(a) \cdot x\right) \cdot (\log_{a}(x))' =& 1 && \vert \cdot \frac{1}{x} \\
+(\log_{a}(x))' =& \frac{1}{\ln(a) \cdot x} 
+\end{align*}
+</div>
+<div id="outline-container-orgbc41645" class="outline-3">
+<h3 id="orgbc41645"><span class="section-number-3">2.1.</span> Alternativ</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+über <a href="20220122083018-logarithmus_produkt_ausklammern.html#ID-134efe4c-e7c8-4c8f-9259-6c52e1033fea">Produkt ausklammern beim Logarithmus</a> und <a href="20220122082215-logarithmus_exponenten_ausklammern.html#ID-0c5fd494-1c44-438d-9439-212632000ff6">Ausklammern des Exponenten beim Logarithmus</a> und <a href="20220705164459-definition_eulersche_zahl_uber_grenzwert_der_ableitung.html#ID-3e901213-f395-4279-bde5-d0a8099c7eb0">Definition: Eulersche Zahl über Grenzwert der Ableitung</a> 
+</p>
+\begin{align*}
+\ln(x)' =& \lim_{\epsilon \to 0}\left(\frac{\ln(x+h) - \ln(x)}{\epsilon}\right) \\
+=& \lim_{\epsilon \to 0}\left(\ln\left(\frac{x+\epsilon}{x}\right)\cdot \frac{1}{\epsilon}\right) \\
+=& \lim_{\epsilon \to 0}\left(\ln\left(1 + \frac{\epsilon}{x}\right)\cdot \frac{x}{\epsilon} \cdot \frac{1}{x}\right) \\
+=& \frac{1}{x} \cdot \lim_{(\frac{\epsilon}{x}) \to 0}\left(\ln\left(1 + \left(\frac{\epsilon}{x}\right)\right)\cdot \left(\frac{x}{\epsilon}\right)\right) \\
+=& \frac{1}{x} \cdot \lim_{\left(\frac{\epsilon}{x}\right) \to 0}\left(\ln\left(\left(1 + \left(\frac{\epsilon}{x}\right))^\left(\frac{x}{\epsilon}\right)\right)\right) \\
+=& \frac{1}{x} \cdot \ln(e)
+=& \frac{1}{x}
+\end{align*}
+<p>
+schritt (3)  formal richtig ?
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

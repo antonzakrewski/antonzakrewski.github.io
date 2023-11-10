@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>fallende Faktorielle und Stirling Zahl erster Art</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">fallende Faktorielle und Stirling Zahl erster Art</h1>
+<div id="outline-container-orga462fc4" class="outline-2">
+<h2 id="orga462fc4"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(n \in \mathbb{N}_0\) und \(x \in \mathbb{R}\).
+Dann gilt für die <a href="20230327221510-fallende_faktorielle.html#ID-1ccdc8d4-b3e2-4af8-b46d-e911cb36bdab">fallende Faktorielle</a> und die <a href="20230327104607-stirling_zahl_erster_art.html#ID-7133e309-606f-408d-8a8e-85d27c0aa9ea">Stirling Zahl erster Art</a>:
+</p>
+\begin{align*}
+x^{\underline{n}} = \sum_{k=0}^{n} \overline{S}_{n,k} (-1)^{n-k} x^k
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org8346d52" class="outline-2">
+<h2 id="org8346d52"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="20210305204948-beweis_durch_vollstandige_induktion.html#ID-c79953c3-855e-432d-9321-047dd5decac8">Beweis durch vollständige Induktion</a>
+</p>
+</div>
+<div id="outline-container-org1e60474" class="outline-3">
+<h3 id="org1e60474"><span class="section-number-3">2.1.</span> IA</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Es gilt für \(n = 0\):
+</p>
+\begin{align*}
+x^{\underline{0}} =& 1 \\
+=& 1 \cdot (-1)^{0} \cdot x^0 \\
+=& \sum_{k=0}^{0} \overline{S}_{n,k} (-1)^{n-k} \cdot x^{k}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgb9d40dd" class="outline-3">
+<h3 id="orgb9d40dd"><span class="section-number-3">2.2.</span> IS</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Aus der <a href="20230327113418-rekursionsformel_fur_die_stirling_zahl_erster_art.html#ID-d6c38a9f-9039-4bcb-864a-ba200848dd98">Rekursionsformel für die Stirling Zahl erster Art</a> folgt:
+</p>
+\begin{align*}
+x^{\underline{n+1}} =& x^{\underline{n}} \cdot (x - n) \\
+=& \sum_{k=0}^{n} \overline{S}_{n,k} (-1)^{n-k} x^k \cdot (x - n)\\
+=& \sum_{k=0}^{n} \overline{S}_{n,k} (-1)^{n-k} x^k \cdot x - \sum_{k=0}^{n} n \cdot (-1)^{n-k} \overline{S}_{n,k} x^k \\
+=& \sum_{k=1}^{n+1} \overline{S}_{n,k-1} (-1)^{n-(k-1)} x^k + \sum_{k=1}^{n} n \cdot (-1)^{n-k-1} \overline{S}_{n,k} x^k + n \cdot (-1)^{n-k-1} \overline{S}_{n,0} x^k \\
+=& \sum_{k=1}^{n} \overline{S}_{n,k-1} (-1)^{n-(k-1)} x^k + \sum_{k=1}^{n} n \cdot (-1)^{n-k-1} \overline{S}_{n,k} x^k + 0 + \overline{S}_{n,n} (-1)^{n-(k-1)} x^{n+1}
+=& \sum_{k=1}^{n} (-1)^{n-(k-1)} x^k \left(\overline{S}_{n,k-1} + n \cdot \overline{S}_{n,k}\right) + (n+1) \cdot (-1)^{n-k-1} \overline{S}_{n+1,0} x^k + \overline{S}_{n+1,n+1} (-1)^{n-(k-1)} x^{n+1} \\
+=& \sum_{k=1}^{n} (-1)^{n+1-k} x^k \overline{S}_{n+1,k} + (n+1) \cdot (-1)^{n-k-1} \overline{S}_{n+1,0} x^k + \overline{S}_{n+1,n+1} (-1)^{n+1-k} x^{n+1} \\
+=& \sum_{k=0}^{n+1} (-1)^{n+1-k} x^k \overline{S}_{n+1,k} 
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

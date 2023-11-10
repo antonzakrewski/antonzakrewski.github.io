@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>doppelte Negation und Allquantor</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">doppelte Negation und Allquantor</h1>
+<div id="outline-container-org74753e0" class="outline-2">
+<h2 id="org74753e0"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+innerhalb der <a href="20231016-minimal_logic.html#ID-271addb9-7f20-4b4d-9ebd-6c8530448773">minimal Logik</a> gilt
+</p>
+\begin{align*}
+\vdash \lnot\lnot \forall_x A(x) \rightarrow \forall_x \lnot\lnot A(x)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgcfef75b" class="outline-2">
+<h2 id="orgcfef75b"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Ausschreiben der <a href="20231016-negation.html#ID-fb46cc03-609c-4e11-9636-b9a1f07234a5">Negation</a> ergibt
+</p>
+\begin{align*}
+(((\forall_x A(x)) \rightarrow \bot ) \rightarrow \bot ) \rightarrow (\forall_x (A(x) \rightarrow \bot) \rightarrow \bot)
+\end{align*}
+
+
+<p>
+<a href="20231030-einfuhrung_einer_doppelten_negatino.html#ID-35d6d5ed-a5cc-4058-817e-4a93e15768e9">intuitionistische einführung einer doppelten Negation</a>
+</p>
+
+<p>
+Es folgt
+</p>
+\begin{prooftree}
+
+\hypo{[1: $(\forall_x A(x) \rightarrow \bot) \rightarrow F$]}
+\hypo{[2: $\forall_x A(x) \rightarrow \bot$]}
+\infer2[ $\rightarrow^-$]{$\bot$}
+\infer1[ $\rightarrow^+$ 3]{ $\forall_x A(x) \rightarrow \bot$}
+
+\hypo{[2: $\forall_x A(x) \rightarrow \bot$]}
+\hypo{[3: $\forall_x A(x)$]}
+\infer2[ $\rightarrow^-$]{$\bot$} 
+\infer1[ $\rightarrow^+$ 2]{ $(\forall_x A(x) \rightarrow \bot) \rightarrow F$}
+
+
+\hypo{[3: $\forall_x A(x)$]}
+\hypo{t}
+\infer2[ $\forall^-$]{ A(t)}
+\ellipsis{M}{$(A(t) \rightarrow \bot)  \rightarrow F$}
+\infer1[$ \forall^+ \text{var. cond.}$]{$\forall_x (A(x) \rightarrow \bot) \rightarrow F$}
+
+\infer2[ $\land^+$]{$(\forall_x (A(x) \rightarrow \bot) \rightarrow F) \land (\forall_x A(x) \rightarrow F) \rightarrow F$}
+\infer1[ $\land_{2}^-$]{$\forall_x (A(x) \rightarrow \bot) \rightarrow F)$}
+\infer1[ $\rightarrow^+$ 1]{$((\forall_x A(x) \rightarrow \bot) \rightarrow F) \rightarrow (\forall_x (A(x) \rightarrow F) \rightarrow F)$}
+\end{prooftree}
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

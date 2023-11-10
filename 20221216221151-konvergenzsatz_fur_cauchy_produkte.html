@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Konvergenzsatz für Cauchy-Produkte</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Konvergenzsatz für Cauchy-Produkte</h1>
+<div id="outline-container-orgf117dcb" class="outline-2">
+<h2 id="orgf117dcb"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Seien \(\sum_{n=0}^{\infty} a_n\) und \(\sum_{n=0}^{\infty} b_n\)  <a href="20211222222904-reihe_mathe.html#ID-ae236532-f177-4c70-806b-a1be965ef5e4">Reihen</a>, welche <a href="20220718130957-absolute_reihe.html#ID-96128527-4a42-424c-b629-68bce48ddccb">absolut</a> <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergieren</a>, so <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergiert</a> auch das <a href="20221216221137-cauchy_produkt.html#ID-fbec730c-5e96-4cde-9d0c-4783e1ff9ee3">Cauchy Produkt</a> <a href="20220718130957-absolute_reihe.html#ID-96128527-4a42-424c-b629-68bce48ddccb">absolut</a> und es gilt
+</p>
+\begin{align*}
+\sum_{n=0}^{\infty} \sum_{k=0}^{n} a_{n-k} b_k = \left( \sum_{n=0}^{\infty} a_n \right) \cdot \left( \sum_{n=0}^{\infty} b_n \right)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgf89fb01" class="outline-2">
+<h2 id="orgf89fb01"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Sei \(\sum_{n=0}^{m} c_n  \coloneqq \sum_{n=0}^{m} \sum_{k=0}^{n} a_{n-k} b_k\)  so folgt
+</p>
+\begin{align*}
+\left(\sum_{n=0}^{m} a_n \right) \cdot \left( \sum_{n=0}^{m} b_n \right) - \sum_{n=0}^{m} c_n  =& \sum_{k,l \leq m} a_k b_l - \sum_{k + l \leq m} a_kb_l \\
+=& \sum_{\substack{k,l \leq m \\ k + l > m}} a_k b_l
+\end{align*}
+<p>
+Es genügt zu zeigen, dass
+</p>
+\begin{align*}
+ \lim_{m \to \infty}\left(\sum_{\substack{k,l \leq m \\ k + l > m}} \vert a_k b_l \vert \right) = 0
+\end{align*}
+<p>
+Es gilt
+</p>
+\begin{align*}
+\sum_{\substack{k,l \leq m \\ k + l > m}} \vert a_k b_l \vert  \leq \sum_{k,l \leq m}^{}  \vert a_k b_l \vert - \sum_{k,l \leq \frac{m}{2}} \vert a_k b_l \vert 
+\end{align*}
+<p>
+Dabei ist der <a href="20211120130127-grenzwert.html#ID-c9d16981-08f6-40ca-af81-22b5db6f06df">Grenzwert</a> für \(m \rightarrow \infty\) gleich von:
+</p>
+\begin{align*}
+\sum_{k,l \leq m} \vert a_k b_l \vert, \sum_{k,l \leq \frac{m}{2}} \vert a_k b_l \vert, 
+\end{align*}
+<p>
+und damit auch deren Differenz
+</p>
+\begin{align*}
+ \sum_{k,l \leq m}^{}  \vert a_k b_l \vert - \sum_{k,l \leq \frac{m}{2}} \vert a_k b_l \vert  \rightarrow 0
+\end{align*}
+</div>
+<div id="outline-container-org301767f" class="outline-3">
+<h3 id="org301767f"><span class="section-number-3">2.1.</span> alternativ</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li><a href="20230113081018-umordnungssatz_fur_doppelsummen.html#ID-02e058fa-71b0-4ad8-9462-9e69f62e31c2">Umordnungssatz für Doppelsummen</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

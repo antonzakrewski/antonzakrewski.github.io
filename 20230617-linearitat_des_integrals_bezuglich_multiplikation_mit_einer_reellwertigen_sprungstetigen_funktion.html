@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Linearität des Integrals bezüglich Multiplikation mit einer reellwertigen sprungstetigen Funktion</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Linearität des Integrals bezüglich Multiplikation mit einer reellwertigen sprungstetigen Funktion</h1>
+<div id="outline-container-org8e35bf5" class="outline-2">
+<h2 id="org8e35bf5"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(\varphi: [a,b] \rightarrow \mathrm{Hom}_{\mathbb{R}}(\mathbb{R}^n,\mathbb{R}^m)\) eine <a href="20230204190938-sprungstetige_funktion.html#ID-e0050a39-69b7-400b-8609-e0bdc7d4de22">Sprungstetige Funktion</a> und \(v_0 \in \mathbb{R}^n\), so gilt für das <a href="20221113200415-mehrdimensionale_integration.html#ID-bce984b7-9e28-4d87-809e-cc94e7f9f816">Mehrdimensionale Integral</a> 
+</p>
+\begin{align*}
+\int_{a}^{b} \varphi(t) v_0 \mathrm{d}t = (\int_{a}^{b} \varphi(t) \mathrm{d}t) v_0
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org879da46" class="outline-2">
+<h2 id="org879da46"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Nach Annahme existiert eine (komponentenweise) <a href="20220819232744-treppenfunktion.html#ID-44a46263-b27e-4186-86da-d7a82b58b01b">Treppenfunktion</a> \(\tau_n: [a,b] \rightarrow \mathrm{Hom}_{\mathbb{R}}(\mathbb{R}^n,\mathbb{R}^m)\) und es gilt \(\tau_n \rightarrow \varphi\).
+Somit gilt mit \(\delta_i\) als <a href="20220717183751-lange_eines_intervalls.html#ID-f827c035-3f1b-47ed-9ef1-00d508fe5130">Länge des Intervalls</a> mit endlich vielen \(i\) für ein \(\tau_n\):
+</p>
+\begin{align*}
+\int_{a}^{b} \varphi(t) v_0 \mathrm{d}t = \lim_{n \to \infty}\left(\sum_{i} \delta_i \cdot \tau_n(i) (v_0)\right) 
+\end{align*}
+<p>
+Da \(\delta_i \cdot \tau_n(i)\) jeweils ein <a href="20221119162741-vektorraumhomomorphismus.html#ID-863f0f55-054c-413e-9cf4-2c2704ea5b14">Vektorraumhomomorphismus</a> ist, gilt wegen der <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">Stetigkeit</a> (vgl. <a href="20230515133113-lineare_abbildungen_auf_endlich_dimensionalen_vektorraumen_als_lipschitzstetig.html#ID-d3166af7-eefd-457b-9c14-12bbe3f4963a">lineare Abbildungen auf endlich dimensionalen Vektorräumen als Lipschitzstetig</a>) der Summe
+</p>
+
+\begin{align*}
+\lim_{n \to \infty}\left(\sum_{i} \delta_i \cdot \tau_n(i) (v_0)\right) =& \lim_{n \to \infty}\left((\sum_{i} \delta_i \cdot \tau_n(i)) (v_0) \right) \\
+=& \lim_{n \to \infty}\left((\sum_{i} \delta_i \cdot \tau_n(i)) \right) (v_0)  \\
+=& \int_{a}^{b} \varphi(t) \mathrm{d}t \cdot v_0
+\end{align*}
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

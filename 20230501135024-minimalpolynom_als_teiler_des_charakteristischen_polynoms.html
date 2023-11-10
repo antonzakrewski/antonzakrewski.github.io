@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Minimalpolynom als Teiler des Charakteristischen Polynoms</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Minimalpolynom als Teiler des Charakteristischen Polynoms</h1>
+<div id="outline-container-org555e614" class="outline-2">
+<h2 id="org555e614"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(V\) ein \(n\)-<a href="20220102135318-dimension.html#ID-3e484fb0-c9a8-485a-999b-4f0052bd13e4">dimensionaler</a> <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">K-Vektorraum</a> und \(A\) ein <a href="20230303151710-vektorraumendomorphismus.html#ID-ecd3affd-0dbf-4f53-8c43-79af608c67e9">Endomorphismus</a> mit <a href="20230222203528-minimalpolynom.html#ID-6ec50a2e-09e0-4866-a0f6-acae544923f8">Minimalpolynom</a> \(m_A\) und <a href="20230222202847-charakteristische_polynom.html#ID-dd44aea9-79be-473f-90e3-e2d6c67a41ae">charakteristischem Polynom</a> \(f_A\)
+Dann existiert ein \(g \in K[X]\) so dass gilt:
+</p>
+\begin{align*}
+f_A = g \cdot m_A
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgceb1bca" class="outline-2">
+<h2 id="orgceb1bca"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Da <a href="20230314170420-polynomring_uber_einem_korper_als_euklidischer_ring.html#ID-56b8e8c8-a1ca-4271-a5b8-c6e1c8d5ab1b">der Polynomring über einem Körper ein euklidischer Ring</a> ist, folgt durch Polynomdivision:
+</p>
+\begin{align*}
+\chi_A(x) = \mu_A(x) \cdot g(x) + r(x)
+\end{align*}
+<p>
+für \(g,r \in K[X]\).
+</p>
+
+<p>
+Nach dem <a href="20230222203639-satz_von_cayley_hamilton.html#ID-617e9586-9b4a-4651-b036-ac05b6befa50">Satz von Cayley-Hamilton</a> gilt \(f_A(A) = 0\) , d.h. \(A\) ist im <a href="20221111200152-kern_algebra.html#ID-438e68de-0603-419c-8b21-5cb3b4add3a1">Kern</a> des <a href="20230304193911-algebra_einsetzungshomomorphismus.html#ID-5440db15-647e-4546-91c6-8333ebcd2dfa">Algebra-Einsetzungshomomorphismus</a>:
+</p>
+\begin{align*}
+K[X] \rightarrow \mathrm{End}_K(V) \\
+A \rightarrow f(A)
+\end{align*}
+<p>
+Nach Definition ist \(m_A\) der <a href="20221226010524-normiertes_polynom.html#ID-f17a0f11-0953-4728-91a6-9a81df943813">normierte</a> Erzeuger des Kerns, damit folgt \(\mu_A(A) = 0\) und auch
+</p>
+\begin{align*}
+0 =& \chi_A(A) \\
+=& \mu_A(A) \cdot g(A) + r(A) \\
+=& r(A)
+\end{align*}
+<p>
+Da \(\mu_A\) nach Definition minimal gewählt wurde, folgt auch \(r = 0\), da sonst \(\mathrm{deg}(r) < \mathrm{deg}(\mu_A)\) gelten würde
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

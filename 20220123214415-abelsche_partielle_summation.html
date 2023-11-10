@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Abelsche Partielle Summation</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Abelsche Partielle Summation</h1>
+<div id="outline-container-org409929d" class="outline-2">
+<h2 id="org409929d"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Seien \(a_0,a_1,...,a_n\) und \(b_0,b_1,...,b_n\) reelle Zahlen und
+</p>
+\begin{align*}
+A_k  \coloneqq \sum_{i=0}^k a_i \\
+B_k  \coloneqq \sum_{i=0}^k b_i \\
+\text{für }k = 0,1,...,n
+\end{align*}
+\begin{align*}
+\sum_{k=0}^n A_kb_k = A_nb_n - \sum_{k=0}^{n-1} a_{k+1}B_k
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org6c80bbc" class="outline-2">
+<h2 id="org6c80bbc"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgee9a8ab" class="outline-3">
+<h3 id="orgee9a8ab"><span class="section-number-3">2.1.</span> Induktionsanfang</h3>
+<div class="outline-text-3" id="text-2-1">
+\begin{align*}
+\sum_{k=0}^0 A_0 b_0 =& A_0 \cdot b_0 \\
+A_0B_0 - \sum_{k=0}^{0-1} a_{0+1}B_k =& A_0B_0 \\
+B_0 =& \sum_{i=0}^0 b_i = b_0 \\
+\Rightarrow& A_0 \cdot b_0 = A_0B_0
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org0e35efe" class="outline-3">
+<h3 id="org0e35efe"><span class="section-number-3">2.2.</span> Induktionsschritt</h3>
+<div class="outline-text-3" id="text-2-2">
+\begin{align*}
+\sum_{k=0}^{n+1} A_kb_k =& \sum_{k=0}^n A_kb_k + A_{n+1}b_{n+1} \\
+=& \sum_{k=0}^n A_kb_k + (A_{n} + a_{n+1})b_{n+1} \\
+=& \sum_{k=0}^n A_kb_k + (A_{n} + a_{n+1})b_{n+1} \\
+\end{align*}
+\begin{align*}
+A_{n+1}B_{n+1} - \sum_{k=0}^{n+1-1}a_{k+1}B_k =& A_{n+1}B_{n+1} - \sum_{k=0}^{n}a_{k+1}B_k \\
+=&  (A_{n} + a_{n+1})(B_{n} + b_{n+1}) - \sum_{k=0}^{n-1}(a_{k+1}B_k) - a_{n+1}B_{n} \\
+=& ( A_nB_n - \sum_{k=0}^{n-1}(a_{k+1}B_k) ) + (a_{n+1}B_{n} - a_{n+1}B_{n}) + (A_{n}b_{n+1} + a_{n+1}b_{n+1}) \\
+=& \sum_{k=0}^{n+1}A_kb_k = + (A_{n}b_{n+1} + a_{n+1}b_{n+1})
+\end{align*}
+
+
+<p>
+<a href="&amp;forster1976analysis">&amp;forster1976analysis</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Existenz eines Isomorphismus für die direkte Summe aufgrund eines Modulepimorphismus</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Existenz eines Isomorphismus für die direkte Summe aufgrund eines Modulepimorphismus</h1>
+<div id="outline-container-orgd028d39" class="outline-2">
+<h2 id="orgd028d39"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(R^I\) ein <a href="20230222205257-freier_modul.html#ID-f31e26dc-9f62-4ff2-81db-88cd88c22229">freies Modul</a> und \(M\) ein $R$-<a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">Modul</a> sowie \(f: M \rightarrow R^I\) ein <a href="20230303170514-modulepimorphismus.html#ID-8658ea5e-6f26-4544-a083-aec8a247284f">Modulepimorphismus</a>.
+Dann existiert ein <a href="20230303170548-modulisomorphismus.html#ID-808e406f-ac3b-433c-a704-4f83909ef60d">Modulisomorphismus</a>
+</p>
+\begin{align*}
+M \simeq \mathrm{ker}(f) \oplus R^I
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgce3c8f6" class="outline-2">
+<h2 id="orgce3c8f6"><span class="section-number-2">2.</span> Beewis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Sei \(\{e_i\} \subseteq R^I\) als <a href="20230303171607-basis_eines_moduls.html#ID-4d94d36c-5d43-4344-a837-6c9705d279a1">Basis</a> gegeben.
+Da \(f\) <a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjektiv</a> ist, existiert für ein \(e_i \in R^I\) mind. ein \(m_i \in M\) mit \(f(m_i) = e_i\)
+Nach <a href="20220817142613-auswahlaxiom.html#ID-0fac098f-bed6-4f86-a90b-7a269c9fd21e">Axiom of choice</a> und der Aussage über <a href="20230315004410-existenz_eines_eindeutigen_modulhomomorphismus_von_einem_freien_r_modul.html#ID-314d3db0-a044-4588-aca6-c289620cc3c7">Existenz eines eindeutigen Modulhomomorphismus von einem freien R-Modul auf ein beliebigen Modul</a> konstruieren wir einen <a href="20230303170539-modulmonomorphismus.html#ID-bf69176f-1b85-40c5-a8b7-fb306539c238">Modulmonomorphismus</a>
+</p>
+\begin{align*}
+g: R^I \rightarrow& M \\
+e_i \mapsto& m_i
+\end{align*}
+<p>
+Dann gilt \((f \circ g) = \mathrm{id}_{R^I}\) und es folgt durch Einschräknung auf das <a href="20221224140013-bildmenge.html#ID-def6ffac-1c21-427b-bacf-7b8580f5d7dd">Bild</a> \(R^I \simeq g[R^I]\).
+</p>
+</div>
+<div id="outline-container-org40f21cd" class="outline-3">
+<h3 id="org40f21cd"><span class="section-number-3">2.1.</span> summe</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Sei \(m \in M\) mit \(f(m) = r\) so existieren eindeutige \(r_i \in R\) mit \(\sum_{i=1}^{k} r_i e_i\).
+Ferner definieren die \(r_i\) ein eindeutiges Element \(m' = g(r) = g(\sum_{i=1}^{k} r_i e_i)\)
+Es folgt dann:
+</p>
+\begin{align*}
+f(m - m') =& \sum_{i=1}^{k} r_i e_i - f(g(\sum_{i=1}^{k} r_i e_i) \\
+=& \sum_{i=1}^{k} r_i e_i - (f \circ g)(\sum_{i=1}^{k} r_i e_i) \\
+=& \sum_{i=1}^{k} r_i e_i - \mathrm{id}_{R^I} (\sum_{i=1}^{k} r_i e_i) \\
+=&  \sum_{i=1}^{k} r_i e_i -  \sum_{i=1}^{k} r_i e_i \\
+=& 0
+\end{align*}
+<p>
+Damit gilt \(m \in \mathrm{ker}(f) + g[R^I]\).
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orge620b3e" class="outline-3">
+<h3 id="orge620b3e"><span class="section-number-3">2.2.</span> direkt</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Sei \(m \in \mathrm{ker}(f) \cap g[R^I]\), so gilt nach Annahme \(m = \sum_{i=1}^{k} r_i g(e_i) =  \sum_{i=1}^{k} r_i m_i\) und \(f(m) = 0\)
+Daraus folgt:
+</p>
+\begin{align*}
+0 =& f(m) \\
+=& f(\sum_{i=1}^{k} r_i m_i) \\
+=& \sum_{i=1}^{k} r_i f(m_i) \\
+=& \sum_{i=1}^{k} r_i e_i
+\end{align*}
+<p>
+Dabei ist \(e_i\) als <a href="20230303171607-basis_eines_moduls.html#ID-4d94d36c-5d43-4344-a837-6c9705d279a1">Basis</a> <a href="20220207224644-lineare_unabhangigkeit.html#ID-c4d1496f-6012-4ade-8b98-3e29dad89ded">lineare unabhängig</a>, d.h. es folgt \(r_i = 0\) und damit auch \(m = 0\)
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

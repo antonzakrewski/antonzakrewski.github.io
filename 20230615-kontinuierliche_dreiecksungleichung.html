@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>kontinuierliche Dreiecksungleichung für das Integral</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">kontinuierliche Dreiecksungleichung für das Integral</h1>
+<div id="outline-container-org5361b86" class="outline-2">
+<h2 id="org5361b86"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \((V, \| \cdot \|)\) ein <a href="20221109121525-endlich_erzeugter_vektorraum.html#ID-477797e9-4b4d-4886-9606-6e1c5f378a4f">endlich erzeugter</a>, <a href="20221003143917-normierter_raum.html#ID-250c7843-ade4-44e9-9d45-05423ddaa1d8">normierter</a> <a href="20230204210438-reeller_vektorraum.html#ID-47c426f6-4f34-402a-8c78-5ef0c3b88ce9">reeller Vektorraum</a>, so gilt für das <a href="20221113211400-mehrdimensionale_riemannsche_integral.html#ID-3e50c9e4-cb2b-417b-8ac2-df20850bd90f">mehrdimensionale Riemannsche Integral</a> und eine <a href="20230617-vektorwertige_sprungstetige_funktion.html#ID-1b718989-4bf9-46cf-b0fd-dac773326cef">vektorwertige sprungstetige Funktion</a> für eine <a href="20221014115636-integrierbar.html#ID-1d4ac6ca-0c1b-49b9-86f4-ee43e9b8a401">integrierbare</a> <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktion</a> \(f: \mathbb{R} \rightarrow V\)
+</p>
+\begin{align*}
+\| \int_{a}^b v(t) \mathrm{d}t \| \leq \int_{a}^b \| v(t) \| \mathrm{d}t
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgdd0642c" class="outline-2">
+<h2 id="orgdd0642c"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Nach Annahme existieren (komponentenweise) <a href="20220819232744-treppenfunktion.html#ID-44a46263-b27e-4186-86da-d7a82b58b01b">Treppenfunktionen</a> \(\tau_n: \mathbb{R} \rightarrow \mathbb{R}^n\) mit \(\| \tau_n(t) - v(t) \| \rightarrow 0\).
+Damit folgt für eine beliebige Komponente \(e_i \in \mathbb{R}^n\)
+</p>
+\begin{align*}
+\int_{a}^{b} \pi_i \circ v(t) \mathrm{d}t =& \lim_{n \to \infty}\left( \int_{a}^{b} \pi_i \circ \tau_n(x) \mathrm{d}x \right) \\
+=& \lim_{n \to \infty}\left(\sum_{i=1}^{k} \alpha_{i,n} \delta_{i,n} \right)
+\end{align*}
+<p>
+Wobei \(\alpha_i\) den Wert der Treppenfunktion auf einem <a href="20220401195853-intervall.html#ID-ea9ab8cb-ef38-4c06-bab0-d392820614f3">intervall</a> der länge \(\delta_{i,n}\) beschreibt.
+</p>
+
+<p>
+Daraus folgt dann wegen der <a href="20230506130948-stetigkeit_der_norm.html#ID-95077cc6-84d2-4fcc-b765-b2fec0bfffe3">Stetigkeit der Norm</a> 
+</p>
+\begin{align*}
+\| \int_{a}^{b} \pi_i v(t) \mathrm{d}t \| =& \| \lim_{n \to \infty}\left( \int_{a}^{b} \pi_i \tau_n(x) \mathrm{d}x \right) \| \\
+=& \lim_{n \to \infty}\left(\| \sum_{i=1}^{k} \alpha_{i,n} \delta_{i,n} \| \right) \\
+\end{align*}
+<p>
+Nach dem <a href="20221124134600-vergleichsprinzip.html#ID-4c135605-2a04-4e05-8198-296eb8cda04d">Vergleichsprinzip</a> von <a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">Folgen</a> folgt wegen der <a href="20221003143707-dreiecksungleichung_einer_norm.html#ID-ab6dc42a-e937-4409-8dce-39b5925205dd">Dreiecksungleichung einer Norm</a>:
+</p>
+\begin{align*}
+\vert \sum_{i=1}^{k} \alpha_{i,n} \delta_{i,n} \vert \leq \sum_{i=1}^{k} \vert \alpha_{i,n} \delta_{i,n} \vert
+\lim_{n \to \infty}\left( \vert \sum_{i=1}^{k} \alpha_{i,n} \delta_{i,n} \vert \right) \leq& \lim_{n \to \infty}\left(\sum_{i=1}^{k} \vert \alpha_{i,n} \delta_{i,n} \| \right) 
+\end{align*}
+<p>
+wegen \(\vert \pi_i \circ \tau_n \vert \rightarrow \vert \pi_i \circ v \vert\) folgt damit 
+</p>
+\begin{align*}
+\lim_{n \to \infty}\left( \vert \sum_{i=1}^{k} \alpha_{i,n} \delta_{i,n} \vert \right) \leq& \lim_{n \to \infty}\left(\sum_{i=1}^{k} \vert \alpha_{i,n} \delta_{i,n} \| \right) \\
+=& \int_{a}^{b} \vert \pi_i \circ v(t) \vert \mathrm{d}t 
+\end{align*}
+<p>
+Indem man z.B. die <a href="20230426104603-bilipschitzaquivalenz_von_normen.html#ID-663c959a-0b4a-42fa-84a8-a5cea2d08d59">bilipschitzäquivalente</a> <a href="20230224165724-summennorm.html#ID-7069e305-1d54-4c5b-9f10-f4db9649a43b">Summennorm</a> wählt, folgt dann auch die Aussage
+</p>
+\begin{align*}
+\| \int_{a}^{b} v(t) \mathrm{d}t \| \leq& \int_{a}^{b} \| v(t) \| \mathrm{d}t
+\end{align*}
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

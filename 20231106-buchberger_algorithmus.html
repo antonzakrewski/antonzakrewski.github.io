@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Buchberger-Algorithmus</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Buchberger-Algorithmus</h1>
+<div id="outline-container-org2970e6d" class="outline-2">
+<h2 id="org2970e6d"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(K\) ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a>, \(K[X_1,...,X_l]\) der <a href="20220303185921-polynomring.html#ID-1a010da5-5e8a-407f-87ba-85383825403f">Polynomring</a> und \(I \subseteq K[X_1,...,X_l]\) ein <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a> mit <a href="20230722-erzeugendensystem_eines_ideals.html#ID-8fefc2d7-34d4-4591-91cc-67ebfdffb814">Erzeugendensystem</a> \(\langle f_1,...,f_n\rangle\)
+Dann ist der Buchberger-Algorithmus definiert durch
+</p>
+<ol class="org-ol">
+<li>wähle \(f_i,f_j\) aus \(i,j \in \{1,..,n\}\)</li>
+<li>Berechne das <a href="20231102-s_polynom.html#ID-8c85941a-bbde-4634-bd03-21f8275a7783">S-Polynom</a> \(S(f_i,f_j)\)</li>
+<li>Dividiere \(S(f_i,f_j)\) nach dem <a href="20231030-euklidischer_algorithmus_in_mehreren_variablen.html#ID-7732d500-1a32-4796-933e-da2fa5e2d906">Euklidischer Algorithmus in mehreren Variablen</a> durch \(f_1,...,f_n\)</li>
+<li>falls der Rest ungleich null ist, so füge \(f_{n+k}\) zu \(f_1,...,f_n,...,f_{n+k-1}\) hinzu</li>
+<li>iteriere, bis der Rest \(S(f_i,f_l)\) für beliebige \(i,j\) durch \(f_1,...,f_n,...,f_m\) teilbar ist.</li>
+</ol>
+
+<p>
+und liefert in <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">endlich</a> vielen Schritten eine <a href="20231030-grobner_basis.html#ID-1743b7a4-d1c8-4e3e-96c0-6c2b208fdb47">gröbner basis</a>    
+</p>
+</div>
+</div>
+<div id="outline-container-orgad49423" class="outline-2">
+<h2 id="orgad49423"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org59fb410" class="outline-3">
+<h3 id="org59fb410"><span class="section-number-3">2.1.</span> basis</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+nach Annahme ist jedes polynom \(f_{n+1},...,f_{m}\) konstruiert durch multiplikation und addition von Polynomen \(f_1,...,f_n\).
+Damit liegt \(f_m \in I\)
+</p>
+</div>
+</div>
+<div id="outline-container-org7bed590" class="outline-3">
+<h3 id="org7bed590"><span class="section-number-3">2.2.</span> gröbner und terminieren</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+folgt aus dem <a href="20231102-buchberger_kriterium.html#ID-d17ddd88-a517-4f99-bc92-77f977eee676">Buchberger-Kriterium</a>:
+</p>
+
+<p>
+Es gilt  \(\langle \mathrm{LT}(f_1),...,\mathrm{LT}(f_n)\rangle \subsetneq \langle \mathrm{LT}(f_1),...,\mathrm{LT}(f_{n+1})\rangle\)
+Da nach dem eukldischen Algorithmus gilt \(\mathrm{Lt}(f_i) \not\mid \mathrm{LT}(f_{n+1})\).
+Damit liegt eine strikt wachsende <a href="20230222205150-kette.html#ID-0b38d50a-42b8-4d13-9f40-0248f887ca7d">kette</a> von <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">idealen</a> im ring \(K[X_1,...,X_l]\), wobei \(K[X_1,...,X_l]\) ein <a href="20230725-noetherian_ring.html#ID-3bc5f76d-9774-4046-b432-697db6e9f77b">noetherscher Ring</a> ist (vgl. <a href="20230810-polynomial_ring_over_a_field_as_noetherian_ring.html#ID-46affecb-3a32-4157-8e9e-14732642bb6b">finite polynomial ring over a field as noetherian ring</a>) 
+Nach <a href="20230812-noetherian_ring_and_stabilizing_of_an_ascending_chain.html#ID-1979c802-a62e-4f34-ae9a-29cf48755eb1">noetherian ring and stabilizing of an ascending chain</a> stabilisiert sich die Kette, d.h. schon <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">endlich</a> viele \(f_1,...,f_n\) reichen aus.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

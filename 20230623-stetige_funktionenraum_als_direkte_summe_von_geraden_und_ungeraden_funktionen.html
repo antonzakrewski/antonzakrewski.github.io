@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stetige Funktionenraum als direkte Summe von geraden und ungeraden Funktionen</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Stetige Funktionenraum als direkte Summe von geraden und ungeraden Funktionen</h1>
+<div id="outline-container-org8623abb" class="outline-2">
+<h2 id="org8623abb"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(V\) der <a href="20230204210438-reeller_vektorraum.html#ID-47c426f6-4f34-402a-8c78-5ef0c3b88ce9">reelle Vektorraum</a> der <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">stetigen</a>, <a href="20230504110222-beschrankte_funktion.html#ID-52e37e84-8cb8-49c4-a730-cb75224c83fc">beschränkten Funktionen</a> \(f: \mathbb{R} \rightarrow \mathbb{R}\) gegeben sowie \(U\) die <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> der <a href="20230623-ungerade_funktion.html#ID-21298545-b055-45b8-b3bf-90e39d6fa0ca">ungerade Funktionen</a> und \(G\) die <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> der <a href="20230623-gerade_funktion.html#ID-eb820242-182d-4642-92d1-bd0ed7ef0260">geraden Funktionen</a>.
+Dann gilt
+</p>
+\begin{align*}
+V = U \bigoplus G
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgc73aca7" class="outline-2">
+<h2 id="orgc73aca7"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org8c28e2b" class="outline-3">
+<h3 id="org8c28e2b"><span class="section-number-3">2.1.</span> summe</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Sei \(f' \in V\) eine beliebige <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktion</a>.
+Wir können \(f  \coloneqq f - f(0)\) setzen, damit \(f(0) = 0\) gilt.
+Sei im folgenden die ungerade Funktion \(g_u\) und die gerade Funktion \(g_g\) definiert als:
+</p>
+\begin{align*}
+g_u(x)  \coloneqq 
+    \begin{cases}
+    \frac{1}{2} f(x) & \mbox{if } x \leq 0 \\
+    -\frac{1}{2} f(-x) & \mbox{if } x > 0
+    \end{cases}
+g_g  \coloneqq& 
+    \begin{cases}
+    \frac{1}{2} f(x) & \mbox{if } x \leq 0  \\
+    \frac{1}{2} f(-x) & \mbox{if } x > 0  \\
+    \end{cases}
+\end{align*}
+<p>
+Somit gilt
+</p>
+\begin{align*}
+g_u + g_g =& 
+    \begin{cases}
+    f(x) & \mbox{if } x \leq 0 \\
+    0  & \mbox{else } x > 0 \\ 
+    \end{cases}
+\end{align*}
+<p>
+Analog erhält man für die andere Hälfte funktionen \(h_u, h_g\) und es folgt:
+</p>
+\begin{align*}
+f' =& h_u + h_g + g_u + g_g + f(0) \\
+=& (h_u + g_u) + (h_g + g_g + f0)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org561edc4" class="outline-3">
+<h3 id="org561edc4"><span class="section-number-3">2.2.</span> direkt</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Sei \(f \in (G \cap U)\) und \(x \in \mathbb{R}\) beliebig, so gilt \(f(x) = f(-x) = -f(x)\).
+Damit folgt dann \(f(x) = 0\) und somit auch \(f = 0\)
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

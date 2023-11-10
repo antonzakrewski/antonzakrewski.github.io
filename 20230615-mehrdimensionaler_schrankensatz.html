@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>mehrdimensionaler Schrankensatz</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">mehrdimensionaler Schrankensatz</h1>
+<div id="outline-container-org6b11187" class="outline-2">
+<h2 id="org6b11187"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(U \subseteq \mathbb{R}^n\) <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a> und \(F: U \rightarrow \mathbb{R}^m\) eine \(\mathcal{C}^1\) <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktion</a> (vgl. <a href="20230123233223-differentiationsklasse.html#ID-7ef674b2-958d-4fa2-af99-dc7188f4acce">Differentiationsklasse</a>).
+Sei \(K \subseteq U\) <a href="20230204200620-konvexitat_in_ℝ_2.html#ID-27959893-bbe1-4150-9b4c-09a7cd91abd1">konvex</a> mit \(\| d F_x \|_{\mathrm{op}} \leq L \forall x \in K\) (vgl. <a href="20230228183044-operatornorm_als_echte_norm.html#ID-ee5d7893-af98-4807-8118-00bde790b509">Operatornorm</a>)
+</p>
+
+<p>
+Dann gilt \(\| F(b) - F(a) \| \leq L \cdot \| b - a \|\) für \(a,b \in K\), d.h. \(F_{\vert K}\) ist <a href="20221125175541-lipschitzstetig.html#ID-53d30a09-5724-4c59-9495-2ffa2f053707">lipschitzstetig</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-org44c7655" class="outline-2">
+<h2 id="org44c7655"><span class="section-number-2">2.</span> Bewesi</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Wegen der Konvexität von \(K\) verläuft das Segment von \(a\) nach \(b\) in \(K\) und wir können nach dem <a href="20230615-mittelwertsatz_fur_reellwertige_mehrdimensionale_funktionen.html#ID-80819ad0-a01c-4087-88a7-c300ab51f209">Mittelwertsatz für reellwertige, mehrdimensionale Funktionen</a> abschätzen:
+</p>
+\begin{align*}
+\| F(b) - F(a) \| = \| \int_0^1 \mathrm{d} F_{(1 - t)a + tb} (b - a) \mathrm{d}t \| 
+\end{align*}
+<p>
+nach der <a href="20230615-kontinuierliche_dreiecksungleichung.html#ID-1264ae46-8e94-485f-948a-944859161e97">kontinuierlichen Dreiecksungleichung</a> gilt dann
+</p>
+\begin{align*}
+\| \int \mathrm{d} F_{(1 - t)a + tb} (b - a) \mathrm{d}t \| \leq& \int_0^1 \| \mathrm{d}F (b - a) \| \mathrm{d}t \\
+\leq& \int_0^1 \| \mathrm{d}F \|_{\mathrm{op}, K} \cdot \|b - a \| \\
+\leq& L \cdot \|b - a\|
+\end{align*}
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

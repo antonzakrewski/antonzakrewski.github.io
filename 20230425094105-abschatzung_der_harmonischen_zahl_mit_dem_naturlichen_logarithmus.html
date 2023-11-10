@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Abschätzung der Harmonischen Zahl mit dem natürlichen Logarithmus</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Abschätzung der Harmonischen Zahl mit dem natürlichen Logarithmus</h1>
+<div id="outline-container-org565c9f4" class="outline-2">
+<h2 id="org565c9f4"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Es gilt für die \(n\)-te <a href="20230327225748-harmonische_zahl.html#ID-a4bfe849-4829-48a0-a660-bcb7c06886f6">Harmonische Zahl der Ordnung 1</a>:
+</p>
+\begin{align*}
+\ln(n) \leq H_n \leq 1 + \ln(n - 1)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org9fbdfad" class="outline-2">
+<h2 id="org9fbdfad"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Betrachten wir die <a href="20220819232744-treppenfunktion.html#ID-44a46263-b27e-4186-86da-d7a82b58b01b">Treppenfunktion</a> 
+</p>
+\begin{align*}
+\tau: [1,n+1] \rightarrow \mathbb{R} \\
+n \mapsto \frac{1}{\floor(n)}
+\end{align*}
+<p>
+Das <a href="20230208131201-riemannsche_integral.html#ID-4b3c65e0-5b1b-4cb0-b9bd-205a1080c794">Riemann</a> ist der Treppenfunktion ist die <a href="20230327225748-harmonische_zahl.html#ID-a4bfe849-4829-48a0-a660-bcb7c06886f6">Harmonische Zahl der Ordnung 1</a> und wir können abschätzen: 
+</p>
+\begin{align*}
+\frac{1}{x} \leq \tau(x)
+\end{align*}
+<p>
+Damit folgt:
+</p>
+\begin{align*}
+H_n \geq& \int_1^n \frac{1}{x} \mathrm{d}x\\
+=& \ln(n)
+\end{align*}
+<p>
+Zudem gilt für die Funktion:
+</p>
+\begin{align*}
+f(x)  \coloneqq 
+    \begin{cases}
+    1 & \mbox{if } x \in [0,1] \\
+    \frac{1}{x}  
+    \end{cases}
+\end{align*}
+<p>
+Die Abschätzung:
+</p>
+\begin{align*}
+\tau(x) \leq f(x)
+\end{align*}
+<p>
+Daraus folgt die Abschätzung:
+</p>
+\begin{align*}
+H_{n-1} \leq& 1 + \int_1^{n-1} \frac{1}{x} \mathrm{d}x \\
+=& 1 + \ln(n-1)
+\end{align*}
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

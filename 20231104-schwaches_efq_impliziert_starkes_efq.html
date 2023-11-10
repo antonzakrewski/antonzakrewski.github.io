@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>schwaches EFQ impliziert starkes EFQ</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">schwaches EFQ impliziert starkes EFQ</h1>
+<div id="outline-container-orgc7c05d6" class="outline-2">
+<h2 id="orgc7c05d6"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(A\) eine <a href="20230102152602-formel_logik.html#ID-c64a841a-b6f1-49fa-baa7-6b628b4e189d">Formel</a> und es gelte <a href="20230102150606-ex_falso_quodlibet.html#ID-dc6e2310-561f-40ba-86ac-9abb338717c7">Ex Falso Quodlibet</a> in der schwachen Form
+</p>
+\begin{align*}
+\vdash: \forall_{\vec{x}} R\vec{x}
+\end{align*}
+<p>
+Dann folgt
+</p>
+\begin{align*}
+\vdash: \bot \rightarrow A
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orga82e260" class="outline-2">
+<h2 id="orga82e260"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+über induktion über Formeln
+</p>
+</div>
+<div id="outline-container-org07c30fa" class="outline-3">
+<h3 id="org07c30fa"><span class="section-number-3">2.1.</span> <a href="20230102152428-atomare_formel.html#ID-3b5cf9ae-53b7-40ff-8e1a-59f6e978bf9f">Primformel</a></h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Nach Definition besteht eine Primformel \(P\) aus einem <a href="20231016-relationssymbol.html#ID-efd21fd7-37c4-4660-bb22-7c6cf1281067">Relationssymbol</a> \(R\) und einem <a href="20230102152325-term_logik.html#ID-e10e8478-8107-420a-8054-7247f8680224">Term</a> \(\vec{x}\).
+Damit folgt nach Annahme
+</p>
+\begin{align*}
+\vdash: \bot \rightarrow R\vec{x}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orga2e0274" class="outline-3">
+<h3 id="orga2e0274"><span class="section-number-3">2.2.</span> Junktoren</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Seien im folgenden \(A,B\) <a href="20230102152602-formel_logik.html#ID-c64a841a-b6f1-49fa-baa7-6b628b4e189d">Formeln</a>, so dass gilt
+</p>
+\begin{align*}
+\vdash:& (\bot \rightarrow A) \\
+\vdash:& (\bot \rightarrow B)
+\end{align*}
+</div>
+<div id="outline-container-org6c4b1ca" class="outline-4">
+<h4 id="org6c4b1ca"><span class="section-number-4">2.2.1.</span> \(\rightarrow\)</h4>
+<div class="outline-text-4" id="text-2-2-1">
+\begin{prooftree}
+\hypo{[v: $\bot \rightarrow$ B]}
+\hypo{[u: $\bot$]}
+\infer2[ $\rightarrow^-$]{B}
+\infer1[ $\rightarrow^+$]{A $\rightarrow$ B}
+\infer1[ $\rightarrow^+ u$]{$\bot \rightarrow (A \rightarrow B)$}
+\infer1[ $\rightarrow^+ v$]{$(\bot \rightarrow B) \rightarrow \bot \rightarrow (A \rightarrow B)$}
+\end{prooftree}
+</div>
+</div>
+<div id="outline-container-orgbb45a3e" class="outline-4">
+<h4 id="orgbb45a3e"><span class="section-number-4">2.2.2.</span> \(\land\)</h4>
+<div class="outline-text-4" id="text-2-2-2">
+\begin{prooftree}
+\hypo{[w: $\bot \rightarrow A$]}
+\hypo{[u: $\bot$]}
+\infer2[ $\rightarrow^-$]{A}
+\hypo{[v: $\bot \rightarrow B$]}
+\hypo{[u: $\bot$]}
+\infer2[ $\rightarrow^-$]{B}
+\infer2[$\land^+$]{A \land B}
+\infer1[ $\rightarrow^+ u$]{$\bot \rightarrow (A \land B)$}
+\infer1[ $\rightarrow^+ w$]{ $(\bot \rightarrow A) \rightarrow \bot \rightarrow (A \land B)$}
+\infer1[ $\rightarrow^+ v$]{ $(\bot \rightarrow B) \rightarrow (\bot \rightarrow A) \rightarrow \bot \rightarrow (A \land B)$}
+\end{prooftree}
+</div>
+</div>
+<div id="outline-container-orgd38893b" class="outline-4">
+<h4 id="orgd38893b"><span class="section-number-4">2.2.3.</span> \(\lor\)</h4>
+<div class="outline-text-4" id="text-2-2-3">
+\begin{prooftree}
+\hypo{[w: $\bot \rightarrow A$]}
+\hypo{[u: $\bot$]}
+\infer2[ $\rightarrow^-$]{A}
+\infer2[$\lor^+$]{A \land B}
+\infer1[ $\rightarrow^+ u$]{$\bot \rightarrow (A \land B)$}
+\infer1[ $\rightarrow^+ w$]{ $(\bot \rightarrow A) \rightarrow \bot \rightarrow (A \land B)$}
+\end{prooftree}
+</div>
+</div>
+</div>
+<div id="outline-container-orgcfbee88" class="outline-3">
+<h3 id="orgcfbee88"><span class="section-number-3">2.3.</span> quantoren</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+für eine <a href="20230102152602-formel_logik.html#ID-c64a841a-b6f1-49fa-baa7-6b628b4e189d">Formel</a> \(A(t)\) gilt
+</p>
+</div>
+<div id="outline-container-org17edd92" class="outline-4">
+<h4 id="org17edd92"><span class="section-number-4">2.3.1.</span> \(\exists\)</h4>
+<div class="outline-text-4" id="text-2-3-1">
+\begin{prooftree}
+\hypo{t}
+\hypo{[w: $\bot \rightarrow A(t)$]}
+\hypo{[u: $\bot$]}
+\infer2[ $\rightarrow^-$]{A(t)}
+\infer2[ $\exists^+$]{$\exists_x A(x)$}
+\infer1[ $\rightarrow^+$]{$\bot \rightarrow (\exists_x A(x))$}
+\infer1[ $\rightarrow^+$]{$\bot \rightarrow A(t) \rightarrow \bot \rightarrow (\exists_x A(x))$}
+\end{prooftree}
+</div>
+</div>
+<div id="outline-container-orgc749647" class="outline-4">
+<h4 id="orgc749647"><span class="section-number-4">2.3.2.</span> \(\forall\)</h4>
+<div class="outline-text-4" id="text-2-3-2">
+\begin{prooftree}
+\hypo{[w: $\bot \rightarrow A$]}
+\hypo{[u: $\bot$]}
+\infer2[ $\rightarrow^-$]{A}
+\infer1[ $\forall^+ x$ var. cond.]{ $\forall_x A$}
+\infer1[ $\rightarrow^+$ u]{ $\bot \rightarrow \forall_x A$}
+\infer1[ $\rightarrow^+$ w]{ $\bot \rightarrow A \rightarrow \bot \rightarrow \forall_x A$}
+\end{prooftree}
+<p>
+wobei \(x\) bei \(\forall^+ x\) nicht als offene Annahme vorkommt
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

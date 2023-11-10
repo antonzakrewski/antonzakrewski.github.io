@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Darstellung einer Linearkombination von Polynomen mit gleichem Multidegree durch S-Polynome</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Darstellung einer Linearkombination von Polynomen mit gleichem Multidegree durch S-Polynome</h1>
+<div id="outline-container-orgfd19762" class="outline-2">
+<h2 id="orgfd19762"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(K\) ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a>, \(K[X_1,...,X_n]\) der <a href="20220303185921-polynomring.html#ID-1a010da5-5e8a-407f-87ba-85383825403f">Polynomring</a> und \(f_i \in K[X_1,...,X_n]\) <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c-70182b7714f9">Polynome</a> sowie \(c_i \in K\) skalare 
+</p>
+
+<p>
+Gelte ferner für den <a href="20231030-multidegree.html#ID-21ca0a84-2650-4024-9515-825661563ebd">multidegree</a> einer <a href="20231030-monomordnung.html#ID-6e957901-1e39-4a42-936c-cdb51c862a3c">Monomordnung</a> 
+</p>
+\begin{align*}
+\mathrm{multideg}(f_i) = \delta \in \mathbb{N}_{0}^n 
+\end{align*}
+<p>
+für alle \(i\) und zudem
+</p>
+\begin{align*}
+\mathrm{multideg}(\sum_{i=1}^{s} c_i f_i) < \delta
+\end{align*}
+<p>
+Dann existiert eine \(K\)-lineare Darstellung von von \(\sum_{i=1}^{s} c_i f_i\) durch <a href="20231102-s_polynom.html#ID-8c85941a-bbde-4634-bd03-21f8275a7783">S-Polynomen</a> \(S(f_j,f_l)\)
+</p>
+</div>
+</div>
+<div id="outline-container-org41ee79f" class="outline-2">
+<h2 id="org41ee79f"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Sei \(d_i \coloneqq \mathrm{LC}(f_i) \in K\) der <a href="20231030-leitkoeffizient_einer_monomordnung.html#ID-d5c9cb6b-d182-4e92-a212-3ca24565dc36">Leitkoeffizient</a> 
+Dann ist
+</p>
+\begin{align*}
+c_i \cdot d_i = \mathrm{LC}(c_i \cdot f_i)
+\end{align*}
+<p>
+es gilt ferner
+</p>
+\begin{align*}
+\mathrm{multideg}(f_i) = \sigma
+\mathrm{multideg}(\sum_{i=1}^{s} c_i f_i) < \delta
+\end{align*}
+<p>
+Sei \(p_i \coloneqq \frac{f_i}{d_i}\) die <a href="20221226010524-normiertes_polynom.html#ID-f17a0f11-0953-4728-91a6-9a81df943813">Normierung</a>.
+</p>
+
+<p>
+Es folgt für die <a href="20220922110852-teleskopsumme.html#ID-bd73c5fe-35ce-4687-aaec-793ff41634f7">Teleskopsumme</a> 
+</p>
+\begin{align*}
+\sum_{i=1}^{s} c_i f_i =& \sum_{i=1}^{s} c_i d_i p_i  \\
+=& \sum_{i=1}^{s-1} ( \sum_{j=1}^{i} c_j d_j \cdot (p_{i} - p_{i+1})) + (\sum_{i=1}^{s} c_i d_i) p_s
+\end{align*}
+
+<p>
+Der <a href="20231030-leitterm.html#ID-dd651610-0a3f-4d3a-a023-7054df6eec87">Leitterm</a>
+</p>
+\begin{align*}
+\mathrm{LT}(f_i) = d_i x^{\delta}
+\end{align*}
+<p>
+und es folgt für den <a href="20220906095246-kleinstes_gemeinsames_vielfache.html#ID-2e7d2bdd-5ced-4aed-866c-cf1a18dbf579">least common denominator</a> 
+</p>
+\begin{align*}
+\mathrm{lcm}( \mathrm{LM}(f_i), \mathrm{LM}(f_l))) = x^{\delta}
+\end{align*}
+<p>
+Damit erhalten wir als S-Polynom
+</p>
+\begin{align*}
+S(f_j,f_l) =& \frac{x^{\delta}}{\mathrm{LT}(f_j)} f_j - \frac{x^{\delta}}{\mathrm{LT}(f_l)} \cdot f_l\\
+=& \frac{x^{\delta}}{d_j x^{\delta} } f_j - \frac{x^{\delta}}{d_l \cdot x^{\delta}} \cdot f_l \\
+=& p_j - p_l
+\end{align*}
+
+<p>
+Damit gilt
+</p>
+\begin{align*}
+\sum_{i=1}^{s} c_i f_i = c_1 d_1 S(f_1,f_2) + (c_1d_1 + c_2d_2) S(f_2,f_3) + ... + (c_1d_1 + ... + c_{s-1} d_{s-1}) S(p_{s-1},p_{s}) + \sum_{i=1}^{s} (c_i d_i)
+\end{align*}
+<p>
+wobei nach multideg Annahme gilt: \(\sum_{i=1}^{s} c_i d_i = 0\)
+</p>
+
+<p>
+Damit liegt die gewünschte Darstellung vor
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

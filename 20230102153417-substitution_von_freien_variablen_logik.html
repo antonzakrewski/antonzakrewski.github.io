@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Substitution von freien Variablen (Logik)</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Substitution von freien Variablen (Logik)</h1>
+<div id="outline-container-org557063e" class="outline-2">
+<h2 id="org557063e"><span class="section-number-2">1.</span> Definition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Die Substitution von freien Variablen \([x/s]\) ist rekursiv definiert durch:
+</p>
+</div>
+<div id="outline-container-org8fdbe83" class="outline-3">
+<h3 id="org8fdbe83"><span class="section-number-3">1.1.</span> <a href="20230102152325-term_logik.html#ID-e10e8478-8107-420a-8054-7247f8680224">Term</a></h3>
+<div class="outline-text-3" id="text-1-1">
+<ol class="org-ol">
+<li>für eine <a href="20231016-variable.html#ID-b0b32c44-804e-4eac-8d1a-6bef0ca65a42">variable</a></li>
+</ol>
+\begin{align*}
+x[x/s] \coloneqq& s
+y[x/s] \coloneqq& y && \mbox{if } x \neq y \\ 
+\end{align*}
+<ol class="org-ol">
+<li>für eine <a href="20230102151858-konstante_logik.html#ID-0d6c1469-f2b4-42d8-a8e5-86745ec31a9a">Konstante</a> \(c\):</li>
+</ol>
+\begin{align*}
+c(x/s) \coloneqq c
+\end{align*}
+<ol class="org-ol">
+<li>für ein <a href="20231016-funktionssymbol.html#ID-fc0c9558-1948-495a-9877-25c440da002d">Funktionssymbol</a> \(f\) und einen Term \(t\)</li>
+</ol>
+\begin{align*}
+(f \vec{t})[x/s] \coloneqq f(t_i[x/s])_{i \leq \vert \vec{t} \vert }
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-orgcf2f952" class="outline-3">
+<h3 id="orgcf2f952"><span class="section-number-3">1.2.</span> <a href="20230102152602-formel_logik.html#ID-c64a841a-b6f1-49fa-baa7-6b628b4e189d">Formel</a></h3>
+<div class="outline-text-3" id="text-1-2">
+<ol class="org-ol">
+<li>für eine <a href="20230102152428-atomare_formel.html#ID-3b5cf9ae-53b7-40ff-8e1a-59f6e978bf9f">Primformel</a> \(P(t_1,...,t_n)\)</li>
+</ol>
+\begin{align*}
+P(t_1,...,t_n)[x/s] \coloneqq& P(t_1[x/s],...,t_n[x/s])
+\end{align*}
+<ol class="org-ol">
+<li>für \(\circ \in \{\land, \lor, \rightarrow\}\) und <a href="20230102152602-formel_logik.html#ID-c64a841a-b6f1-49fa-baa7-6b628b4e189d">Formeln</a></li>
+</ol>
+\begin{align*}
+(A circ B) [x/s] = A[x/s] \circ B[x/s]
+\end{align*}
+<ol class="org-ol">
+<li>für \(\square \in \exists_x, \forall_z\) sei</li>
+</ol>
+\begin{align*}
+(\square_y A)[x/s] \coloneqq& \square_y A[x/s]  && \mbox{if } s \neq y  \\ 
+(\square_s A)[x/s] \coloneqq& \square_z (A[s/z])[x/s]
+\end{align*}
+
+\begin{align*}
+(\square_x A)[x/s] \coloneqq& \square_x A \\
+(\square_y A)[x/s] \coloneqq& \square_z ((A[y/z])[x/s]) && x \neq y, \text{ z neue variable}
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

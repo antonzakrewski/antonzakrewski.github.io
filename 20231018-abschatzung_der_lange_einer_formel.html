@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Abschätzung der Länge einer Formel</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Abschätzung der Länge einer Formel</h1>
+<div id="outline-container-orgc2e5276" class="outline-2">
+<h2 id="orgc2e5276"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(A\) eine <a href="20230102152602-formel_logik.html#ID-c64a841a-b6f1-49fa-baa7-6b628b4e189d">Formel</a>.
+Dann gilt für die <a href="20231016-hohe_einer_formel.html#ID-2690020c-3b32-4712-b664-69d9e8a4f5dd">Höhe</a> \(\vert A \vert\) und die <a href="20231018-length_of_a_formula.html#ID-0d0e88d1-4648-496b-a222-f126a71947af">Länge</a> \(\| A \|\) die Abschätzung
+</p>
+\begin{align*}
+\| A \| + 1 \leq 2^{\vert A \vert + 1} 
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org9b2d272" class="outline-2">
+<h2 id="org9b2d272"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+durch Induktion
+</p>
+</div>
+<div id="outline-container-orga5d60fc" class="outline-3">
+<h3 id="orga5d60fc"><span class="section-number-3">2.1.</span> Induktionsanfang</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+für \(P\) <a href="20230102152428-atomare_formel.html#ID-3b5cf9ae-53b7-40ff-8e1a-59f6e978bf9f">Primformel</a> gilt
+</p>
+\begin{align*}
+\| P \| + 1 =& 1 + 1 \\
+=& 2 \\
+=& 2^{1} \\
+\leq& 2^{\vert P \vert + 1} 
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgd8e8832" class="outline-3">
+<h3 id="orgd8e8832"><span class="section-number-3">2.2.</span> Induktionsschritt</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Sei \(\circ \in \{ \rightarrow, \land, \lor\}\) und \(\square \in \{\exists, \forall\}\)
+</p>
+</div>
+<div id="outline-container-org22f4672" class="outline-4">
+<h4 id="org22f4672"><span class="section-number-4">2.2.1.</span> \(\rightarrow, \land, \lor\)</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+Nach Annahme gilt
+</p>
+\begin{align*}
+\| A \circ B \| + 1 =& \| A \| + \| B \| + 1 \\
+\leq& 2^{\vert A \vert + 1} + 2^{\vert B \vert + 1} - 1 \\
+\leq& 2 \cdot 2^{\mathrm{max}(\| A \|, \| B\|)+1} - 1 \\
+=& 2 \cdot 2^{\vert A \circ B \vert} - 1 \\
+=& 2^{\vert A \circ B \vert + 1} - 1 \\
+<& 2^{\vert A \circ B \vert + 1}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org7cfc217" class="outline-4">
+<h4 id="org7cfc217"><span class="section-number-4">2.2.2.</span> \(\exists_x, \forall_x\)</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+Es gilt
+</p>
+\begin{align*}
+\| \square_x A \| + 1 =& \| A \| + 1 + 1 \\
+=& \| A \| + 2 \\
+\leq& 2^{\vert A \vert + 1} + 2 \\
+=& 2^{\vert \square_x A \vert} + 2
+\end{align*}
+<p>
+und wegen \(2^{\vert A \vert + 1} \geq 2\) auch
+</p>
+\begin{align*}
+ 2^{\vert \square_x A \vert} + 2 \leq 2^{\vert \square_x A \vert + 1}
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

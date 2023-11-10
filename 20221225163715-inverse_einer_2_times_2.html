@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Inverse einer $2 \times 2$ Matrix</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Inverse einer \(2 \times 2\) Matrix</h1>
+<div id="outline-container-org15b6ded" class="outline-2">
+<h2 id="org15b6ded"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(A =& \begin{pmatrix} \alpha_{11} & \alpha_{12} \\ \alpha_{21} & \alpha_{22} \end{pmatrix}  \in K^{2 \times 2}\)  
+Falls \(A\) <a href="20221126194548-regulare_matrix.html#ID-14893187-42b5-4042-9d00-9db7ee576a55">regulär</a> ist, d.h. das inverse existiert, so gilt
+</p>
+\begin{align*}
+A^{-1} =& \frac{1}{d} \begin{pmatrix} \alpha_{22} & - \alpha_{12} \\ -\alpha_{21} & \alpha_{11} \end{pmatrix} \\
+ =& \begin{pmatrix} \frac{\alpha_{22}}{d} & - \frac{\alpha_{12}}{d} \\ - \frac{\alpha_{21}}{d} & \frac{\alpha_{11}}{d} \end{pmatrix} \\
+\end{align*}
+<p>
+mit \(d = \mathrm{det}(A)\)
+</p>
+</div>
+</div>
+<div id="outline-container-org342ff25" class="outline-2">
+<h2 id="org342ff25"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org9d55808" class="outline-3">
+<h3 id="org9d55808"><span class="section-number-3">2.1.</span> rechtsinvers</h3>
+<div class="outline-text-3" id="text-2-1">
+\begin{align*}
+A \cdot A^{-1} =& \frac{1}{d} \cdot \begin{pmatrix} \alpha_{11} \alpha_{22} -\alpha_{12} \alpha_{21} & -\alpha_{11} \alpha_{12} + \alpha_{12} \alpha_{11} \\
+\alpha_{21}\alpha_{22} - \alpha_{22}\alpha_{21} & -\alpha_{21}\alpha_{12} + \alpha_{22}\alpha_{11}
+  \end{pmatrix} \\
+=& \frac{1}{d} \begin{pmatrix} \alpha_{11}\alpha_{22} - \alpha_{12}\alpha_{21} & 0 \\ 0 & \alpha_{22}\alpha_{11} - \alpha_{21} \alpha_{12} \end{pmatrix} \\
+=& \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} 
+\end{align*}
+<p>
+andere Richtung:
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbb8daa7" class="outline-3">
+<h3 id="orgbb8daa7"><span class="section-number-3">2.2.</span> linksinvers</h3>
+<div class="outline-text-3" id="text-2-2">
+\begin{align*}
+\mathrm{det}(A^{-1}) =& \frac{1}{d^2} \cdot \left( \alpha_{22} \alpha_{11} - \alpha_{12} \alpha_{21} \right) \\
+=& \frac{1}{d}
+\end{align*}
+
+<p>
+Daraus folgt:
+</p>
+\begin{align*}
+\left(A^{-1} \right)^{-1} =& \frac{1}{\frac{1}{d}} \cdot \begin{pmatrix} \frac{\alpha_{11}}{d} & \frac{\alpha_{12}}{d} \\ \frac{\alpha_{21}}{d} & \frac{\alpha_{22}}{d} \end{pmatrix} \\
+=& A \\
+\end{align*}
+<p>
+so dass folgt:
+</p>
+\begin{align*}
+A^{-1} \cdot \left(A^{-1} \right)^{-1} =& A^{-1} \cdot A \\
+=& \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} 
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

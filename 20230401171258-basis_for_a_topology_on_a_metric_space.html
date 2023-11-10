@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Basis for a topology on a metric space</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Basis for a topology on a metric space</h1>
+<div id="outline-container-orgf05b2ad" class="outline-2">
+<h2 id="orgf05b2ad"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \((M,d)\) be a <a href="20221002145259-metrischer_raum.html#ID-6b95a0b5-83e0-43cc-830f-05b416769fe1">metric space</a> and \((M,\mathcal{T})\) be the <a href="20230222171645-von_einer_metrik_induzierte_topologie.html#ID-69ce8957-4373-4cbd-ae36-9da730675f0d">topology induced by the metric</a> \(d\).
+Then the collection \(\mathcal{B} := \{B_{\varepsilon}(m) \vert m \in M, \varepsilon > 0\}\) of <a href="20221027092741-epsilon_umgebung.html#ID-b8422ae4-c20f-468f-8f66-aa736833f806">epsilon-neighbourhoods</a> \(B_{\varepsilon}(m)\) is a <a href="20221002152517-basis_einer_topologie.html#ID-1a5a6999-876a-4b54-b786-acafe4968fd6">basis</a> for the natural <a href="20220930230520-topologie_auf_einer_menge.html#ID-1ced2edb-806d-4fb8-ada3-ca97b7ea1d10">topology</a>.
+</p>
+</div>
+</div>
+<div id="outline-container-org9b66b23" class="outline-2">
+<h2 id="org9b66b23"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org901e7d5" class="outline-3">
+<h3 id="org901e7d5"><span class="section-number-3">2.1.</span> <a href="20221002152517-basis_einer_topologie.html#ID-1a5a6999-876a-4b54-b786-acafe4968fd6">basis</a></h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+\(\bigcup_{B \in \mathcal{B}} B = M\) is trivial - e.g. choose for \(m \in M : B_{1}(m)\)
+For \(B_{\varepsilon}(m) \cap B_{\varepsilon'}(m')\)  we can construct a suitable <a href="20230317161154-allgemeine_vereinigung.html#ID-69c0d505-311b-4ea6-a337-8450d6529d02">union</a>.
+For \(b \in C := B_{\varepsilon}(m) \cap B_{\varepsilon'}(m')\) we can embed an <a href="20221027092741-epsilon_umgebung.html#ID-b8422ae4-c20f-468f-8f66-aa736833f806">epsilon-neighbourhood</a> using the <a href="20220716173747-dreiecksungleichung_metrik.html#ID-e5ef5ef6-266f-4486-aa97-9ba2093531fe">triangle inequality</a>:
+</p>
+\begin{align*}
+\forall b \in B_{\varepsilon}(m) : d(m,c) \leq d(m,b) + d(b,c) \Rightarrow B_{\varepsilon - d(m,b)}(b) \subseteq B_{\varepsilon}(m)
+\end{align*}
+<p>
+with \(\varepsilon - d(m,b) > 0\) because of \(d(m,b) < \varepsilon\)
+For \(c \in C\) we can take \(\mathrm{min}(\varepsilon - d(m,b), \varepsilon' - d(m',b))\) and unite those <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">sets</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgd86a1fc" class="outline-3">
+<h3 id="orgd86a1fc"><span class="section-number-3">2.2.</span> equal <a href="20220930230520-topologie_auf_einer_menge.html#ID-1ced2edb-806d-4fb8-ada3-ca97b7ea1d10">topology</a></h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+by definition, every union of <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">sets</a> from \(\mathcal{B}\) is <a href="20221002145550-offene_menge_in_einem_metrischen_raum.html#ID-48a9cdb7-4398-449e-b008-2c0fe06b2d00">open  (metric space)</a>.
+Suppose \(O\) <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a>, then for each \(o \in O\) we can choose an \(\varepsilon > 0\), such that \(B_{\varepsilon}(o) \subseteq O\).
+Therefore the <a href="20230317161154-allgemeine_vereinigung.html#ID-69c0d505-311b-4ea6-a337-8450d6529d02">union</a> of those \(B_{\varepsilon}(o)\) is \(O\) itself
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

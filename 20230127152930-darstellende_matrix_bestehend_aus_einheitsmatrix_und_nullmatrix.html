@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Darstellende Matrix bestehend aus Einheitsmatrix und Nullmatrix</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Darstellende Matrix bestehend aus Einheitsmatrix und Nullmatrix</h1>
+<div id="outline-container-orgdb493d2" class="outline-2">
+<h2 id="orgdb493d2"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Seien \(V,W\) ein <a href="20221109121525-endlich_erzeugter_vektorraum.html#ID-477797e9-4b4d-4886-9606-6e1c5f378a4f">endlich erzeugter</a> <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">K-Vektorraum</a> und \(\phi: V \rightarrow W\) ein <a href="20221119162741-vektorraumhomomorphismus.html#ID-863f0f55-054c-413e-9cf4-2c2704ea5b14">Homomorphismus</a>
+Dann existieren <a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">Basen</a> \(X,V\), so dass die zugehörige <a href="20220303181007-matrix.html#ID-3234cd94-0d93-470b-a319-75288f97326e">Matrix</a> besteht aus:
+</p>
+\begin{align*}
+A_{\phi,X,Y} = \begin{pmatrix} E_s & 0 \\ 0 & 0 \end{pmatrix} 
+\end{align*}
+<p>
+mit geeigneten Nullmatrizen
+</p>
+</div>
+</div>
+<div id="outline-container-org6c208a7" class="outline-2">
+<h2 id="org6c208a7"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Da der <a href="20221111200152-kern_algebra.html#ID-438e68de-0603-419c-8b21-5cb3b4add3a1">Kern</a> ein endlich erzeugter <a href="20221009092955-unterraum.html#ID-854e21c6-b2ac-4d8c-b859-7797b3ddb35e">Untervektorraum</a> ist (siehe <a href="20221111220924-lemma_uber_den_kern_als_linearen_unterraum.html#ID-85a5c948-302a-42d4-b6df-000a9e0bb5ec">Kern als linearen Unterraum</a>) wähle man eine <a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">Basis</a> \(\{u_1,...,u_k\}\) für den Kern (<a href="20221109111932-satz_uber_die_existenz_einer_basis_in_einem_endlich_erzeugten_vektorraum.html#ID-545e0404-237c-4981-816c-ae700b4998a2">Existenz einer Basis in einem endlich erzeugten Vektorraum</a>).
+Diese erweitere man dann durch \(v_{k+1},...,v_n\) zu einer <a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">Basis</a> von \(V\) (siehe: <a href="20221109113020-austauschsatz_von_steinitz.html#ID-860f3c52-9845-4cae-9b24-ac2a07a653e0">Austauschsatz von Steinitz</a>) und wähle dann \(\phi(v_i)\) als einen Teil der <a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">Basis</a> von \(W\) und erweitere diesen durch \(w'_i\)
+Dabei gilt zu zeigen: \(\phi(v_i)\) ist linear unabhängig:
+angenommen nicht, so gilt
+</p>
+\begin{align*}
+0 =& \sum_{i}^{} \alpha_i \phi(v_i) \\ 
+0 =& \phi(\sum_{i}^{} \alpha_i v_i)
+ \end{align*}
+<p>
+D.h. \(\sum_{i}^{} \alpha_i v_i \in \mathrm{ker}(\phi)\) und es gilt nach Konstruktion, dass \(\{u_1,...,u_k,v_{k+1},...,v_n\}\) <a href="20220207224704-lineare_abhangigkeit.html#ID-97e6b172-9da3-4ad6-a1b1-a589a41c8ec5">Linear abhängig</a> ist
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

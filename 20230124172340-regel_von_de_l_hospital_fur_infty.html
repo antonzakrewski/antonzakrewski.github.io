@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Regel von de L'Hospital für $\infty$</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Regel von de L'Hospital für \(\infty\)</h1>
+<div id="outline-container-orgc5b9632" class="outline-2">
+<h2 id="orgc5b9632"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei das <a href="20220105232221-offenes_intervall.html#ID-ff9b0b3b-6225-430d-8b42-196a1257791d">offene Intervall</a> \((a,b) \subsetneq \overline{\mathbb{R}}\) und die <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktionen</a> \(f: (a,b) \rightarrow \mathbb{R}\) sowie \(g: \mathbb{R} \rightarrow (a,b)\) gegeben, so dass für \(a\) gilt:
+</p>
+<ul class="org-ul">
+<li>\(\vert \lim_{x \to a^+}\left(g(x)\right) \vert = \vert \lim_{x \to a^+}\left(g(x)\right) \vert = \infty\)</li>
+<li>\(g' \neq 0\)  für eine <a href="20221206143436-umgebung_metrischer_raum.html#ID-c68f3091-12bb-48b4-896f-9d42d8ef1d09">Umgebung</a> von \(a\)</li>
+<li>\(\lim_{x \to a^+}\left(\frac{f'(x)}{g'(x)}\right)\) ist <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">Wohldefiniert</a> 
+Dann gilt</li>
+</ul>
+\begin{align*}
+\lim_{x \to a^+}\left(\frac{f(x)}{g(x)}\right) = \lim_{x \to a^+}\left(\frac{f'(x)}{g'(x)}\right) 
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orga9b109d" class="outline-2">
+<h2 id="orga9b109d"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Sei \(a < x < u < b\), so dass gilt \(g(x) - g(u), g(x),f(x) \neq 0\).
+Insbesondere gilt dies für eine <a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">Umgebung</a> von \(x\) , da \(\vert \lim_{x \to a^+}\left(g(x)\right) \vert = \vert \lim_{x \to a^+}\left(f(x)\right) \vert = +\infty\)
+Daraus folgt wegen <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> \(\lim_{x \to a^+}\left(\frac{f(u)}{f(x)}\right) = 0\) :
+</p>
+\begin{align*}
+\lim_{x \to a^+}\left(\frac{\frac{f(x) - f(u)}{g(x)-g(u)}}{\frac{f(x)}{g(x)}}\right) =& \lim_{x \to a^+}\left(\frac{1 - \frac{f(u)}{f(x)}}{1 - \frac{g(u)}{g(x)}}\right) \\
+=& 1
+\end{align*}
+<p>
+und aus den <a href="20221124121214-rechenregeln_fur_konvergenz.html#ID-378232f9-6577-4647-8e25-5f0793b92314">Rechenregeln für Konvergenz</a> damit auch
+</p>
+\begin{align*}
+\lim_{x \to a^+}\left(\frac{f(x) - f(u)}{g(x) - g(u)}\right) = \lim_{x \to a^+}\left(\frac{f(x)}{g(x)}\right) 
+\end{align*}
+<p>
+nach dem <a href="20230123234327-verallgemeinerter_mittelwertsatz.html#ID-81e3bb77-8a95-4537-b91e-fb883e964720">Verallgemeinerten Mittelwertsatz</a> für \([x,a]\) existiert somit ein \(\zeta(x,u) \in (x,u)\) mit
+</p>
+\begin{align*}
+\frac{f(x) - f(u)}{g(x) - g(u)} = \frac{f'(\zeta(x,u))}{g'(\zeta(x,u))}
+\end{align*}
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

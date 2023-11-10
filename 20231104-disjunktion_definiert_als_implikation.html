@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Disjunktion definiert als Implikation</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Disjunktion definiert als Implikation</h1>
+<div id="outline-container-orgf018894" class="outline-2">
+<h2 id="orgf018894"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Die <a href="20231104-disjunction.html#ID-a8860676-1178-41cc-aaa5-d13f57bbfbd5">Disjunktion</a> äquivalent zu <a href="20231022-elimination_and_introduction_rule_for_the_disjunction.html#ID-1beb796b-2a02-4ce3-9fec-105bff5f8c61">elimination rule for the disjunction</a> / <a href="20231023-introduction_rule_for_the_disjunction.html#ID-20a9ca16-dc18-428d-9bf9-c6ce68f3b108">introduction rule for the disjunction</a> definiert durch
+</p>
+\begin{align*}
+(\lor)_i^+: A_i \rightarrow& A_0 \lor A_i && i \in \{1,2\}\\
+(\lor)^-: A \lor B \rightarrow& (A \rightarrow C) \rightarrow (B \rightarrow C) \rightarrow C
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgc5b37fd" class="outline-2">
+<h2 id="orgc5b37fd"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgda6471e" class="outline-3">
+<h3 id="orgda6471e"><span class="section-number-3">2.1.</span> Elimination / Introduction impliziert Axiome</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-orgce770ad" class="outline-4">
+<h4 id="orgce770ad"><span class="section-number-4">2.1.1.</span> \((\lor)_i^+\)</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+Es gilt
+</p>
+\begin{prooftree}
+\hypo{[u: $A_0$]}
+\infer1[ $\lor_1^+$]{$A_0 \lor A_1$}
+\infer1[ $\rightarrow^+$ u]{$A_0 \rightarrow (A_0 \lor A_1)$}
+\end{prooftree}
+
+\begin{prooftree}
+\hypo{[u: $A_1$]}
+\infer1[ $\lor_0^+$]{$A_0 \lor A_1$}
+\infer1[ $\rightarrow^+$ u]{$A_1 \rightarrow (A_0 \lor A_1)$}
+\end{prooftree}
+</div>
+</div>
+<div id="outline-container-org40af608" class="outline-4">
+<h4 id="org40af608"><span class="section-number-4">2.1.2.</span> \((\lor)^-\)</h4>
+<div class="outline-text-4" id="text-2-1-2">
+\begin{prooftree}
+\hypo{[ $A \lor B$]}
+
+\hypo{[ $A \rightarrow C$]}
+\hypo{[ A]}
+\infer2[ $\rightarrow^-$]{C}
+
+\hypo{[ $B \rightarrow C$]}
+\hypo{[ B]}
+\infer2[ $\rightarrow^-$]{C}
+
+\infer3[ $\lor^-$ ]{C}
+\infer1[ $\rightarrow^+$]{$B \rightarrow C \rightarrow C$}
+\infer1[ $\rightarrow^+$]{$(A \rightarrow C) \rightarrow (B \rightarrow C) \rightarrow C$}
+\infer1[ $\rightarrow^+$]{$A \lor B \rightarrow (A \rightarrow C) \rightarrow (B \rightarrow C) \rightarrow C$}
+\end{prooftree}
+</div>
+</div>
+</div>
+
+<div id="outline-container-org294ae48" class="outline-3">
+<h3 id="org294ae48"><span class="section-number-3">2.2.</span> Axiome implizieren Elimination / Introduction</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Es gilt, ohne Verwendung der Eliminations- / Einführungsregel für die Disjunktion:
+</p>
+\begin{prooftree}
+\hypo{$A_i \rightarrow A_0 \lor A_1$}
+\hypo{}
+\ellipsis{M}{A_i}
+\infer2[ $\rightarrow^-$]{$A_0 \lor A_1$}
+\end{prooftree}
+<p>
+bzw.
+</p>
+\begin{prooftree}
+\ellipsis{M}{$A \lor B$}
+\hypo{u: $A \lor B \rightarrow (A \rightarrow C) \rightarrow (B \rightarrow C) \rightarrow C$}
+\infer2[ $\rightarrow^-$]{ $(A \rightarrow C) \rightarrow (B \rightarrow C) \rightarrow C$}
+
+\hypo{a: A}
+\ellipsis{N}{C}
+\infer1[ $\rightarrow^+ a$]{$A \rightarrow C$}
+\infer2[ $\rightarrow^-$]{$(B \rightarrow C) \rightarrow C}
+
+\hypo{b: B}
+\ellipsis{N}{C}
+\infer1[ $\rightarrow^+ b$]{$B \rightarrow C$}
+
+\infer2[ $\rightarrow^-$]{C}
+\end{prooftree}
+</div>
+</div>
+
+
+<div id="outline-container-orgfc7ae61" class="outline-3">
+<h3 id="orgfc7ae61"><span class="section-number-3">2.3.</span> Konklusion</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Damit sind alle gentzen-herleitbare (axiom-herleitbare) Formeln axiom-herleitbar (gentzen-herleitbar) und damit sind die beiden Mengen der herleitbaren Formeln jeweils gleich
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

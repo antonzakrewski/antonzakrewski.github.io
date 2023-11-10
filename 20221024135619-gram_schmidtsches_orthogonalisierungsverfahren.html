@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gram-Schmidtsches Orthogonalisierungsverfahren</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Gram-Schmidtsches Orthogonalisierungsverfahren</h1>
+<div id="outline-container-orgb1bb926" class="outline-2">
+<h2 id="orgb1bb926"><span class="section-number-2">1.</span> Definition / Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(K^n\) ein <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">K-Vektorraum</a> mit <a href="20221003093414-skalarprodukt.html#ID-edd2aca6-e8ec-4a59-9b4a-879e89845014">Skalarprodukt</a> \((\cdot, \cdot)\) und \(v_1,...,v_n\) eine <a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">Basis</a>.
+</p>
+
+<p>
+Dann lässt sich induktiv ein <a href="20221030105429-orthogonalsystem.html#ID-8801b2ff-ae1c-4ef2-97a2-0fceafb7bc65">Orthogonalsystem</a> \(w_1,...,w_n\) nach dem folgenden Verfahren berechnen:
+</p>
+\begin{align*}
+w_j  \coloneqq v_j - \sum_{i=1}^{j-1}  \frac{(v_j, w_i)}{\| w_j \|^2} \cdot w_i
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org6497c67" class="outline-2">
+<h2 id="org6497c67"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgac97c56" class="outline-3">
+<h3 id="orgac97c56"><span class="section-number-3">2.1.</span> <a href="20230303172844-orthogonale_menge.html#ID-07ebca84-e55a-4e58-81c8-d65cedf69820">orthogonale Menge</a></h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Induktiv seien \(w_1,...,w_k\) <a href="20230303172844-orthogonale_menge.html#ID-07ebca84-e55a-4e58-81c8-d65cedf69820">orthogonal</a>.
+Dann gilt für \(w_{k+1},w_j\):
+</p>
+\begin{align*}
+(w_{k+1},w_j) =& (v_j - \sum_{i=1}^{j-1} \frac{(v_j,w_i)}{\| w_j \|^2} \cdot w_i,w_j) \\
+=& (v_j,w_j) - (\sum_{i=1}^{j-1} \frac{(v_j,w_i)}{\| w_j \|^2} \cdot w_i,w_j) \\
+=& (v_j,w_j) - \sum_{i=1}^{j-1}(\frac{(v_j,w_i)}{\| w_j \|^2} \cdot w_i,w_j) \\
+=& (v_j,w_j) - \frac{(v_j,w_j)}{\| w_j \|^2} \cdot (w_j,w_j) \\
+=& (v_j,w_j) - (v_j,w_j) \\
+=& 0
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org8255765" class="outline-3">
+<h3 id="org8255765"><span class="section-number-3">2.2.</span> ungleich null</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Sei \(w_{j} = 0\), so gilt \(v_j = \sum_{i=1}^{j-1} \lambda_i w_i\), also \(v_j \in \langle w_1,...,w_{j-1}\rangle \subseteq \langle v_1,...,v_{j-1}\rangle\), Widerspruch zur Annahme der Linearen Unabhängigkeit
+</p>
+</div>
+</div>
+<div id="outline-container-org3dfebf4" class="outline-3">
+<h3 id="org3dfebf4"><span class="section-number-3">2.3.</span> <a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">basis</a></h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+folgt aus der aussage über die <a href="20230303172959-lineare_unabhangigkeit_einer_orthogonalen_menge.html#ID-c25fceb2-82d7-4c2f-9ef5-f3169477ffae">Lineare Unabhängigkeit einer orthogonalen Menge</a> 
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

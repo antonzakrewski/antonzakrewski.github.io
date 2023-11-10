@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Binomial theorem for a commutative ring</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Binomial theorem for a commutative ring</h1>
+<div id="outline-container-org1cddef9" class="outline-2">
+<h2 id="org1cddef9"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(R\) ein <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">kommutativer Ring</a> und seien \(x,y \in R\) sowie \(n \in \mathbb{N}\).
+Dann gilt:
+</p>
+\begin{align*}
+(x + y)^n = \sum_{k=0}^n \binom{n}{k} x^{n-k}y^{k}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org94612f2" class="outline-2">
+<h2 id="org94612f2"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+über <a href="20210305204948-beweis_durch_vollstandige_induktion.html#ID-c79953c3-855e-432d-9321-047dd5decac8">Beweis durch vollständige Induktion</a> 
+</p>
+</div>
+<div id="outline-container-org441683a" class="outline-3">
+<h3 id="org441683a"><span class="section-number-3">2.1.</span> Induktionsanfang</h3>
+<div class="outline-text-3" id="text-2-1">
+\begin{align*}
+(x + y)^0 = 1 = \sum_{k=0}^0 \binom{0}{0} x^0 y^0 = 1
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org4b4c65e" class="outline-3">
+<h3 id="org4b4c65e"><span class="section-number-3">2.2.</span> Induktionsschritt</h3>
+<div class="outline-text-3" id="text-2-2">
+\begin{align*}
+(x + y)^{n+1} =& (x+y) (x+y)^n \\
+=&  x(x+y)^n + y(x+y)^n \\
+=& x \cdot \sum_{k=0}^n \binom{n}{k} x^{n-k}y^k + y \cdot \sum_{k=0}^n \binom{n}{k} x^{n-k}y^{k} \\
+=& \sum_{k=0}^n \binom{n}{k} x^{n+1-k}y^k + \sum_{k=0}^n \binom{n}{k} x^{n-k}y^{k+1}
+\end{align*}
+<p>
+Anwenden des Lemmas <a href="20220104210027-binomialkoeffizient_k_n.html#ID-9ae6db52-02fc-4a30-97b6-d4801e80ca62">Binomialkoeffizient - k &gt; n</a>
+</p>
+\begin{align*}
+\binom{n}{n+1} =& 0 \\
+\Rightarrow \sum_{k=0}^{n} \binom{n}{k} a_k =& \sum_{k=0}^{n} \binom{n}{k} a_k + 0 \\
+=& \sum_{k=0}^{n} \binom{n}{k} a_k + \binom{n}{n+1} a_{n+1} \\
+=& \sum_{k=0}^{n+1} \binom{n}{k} a_k \\
+\Rightarrow \sum_{k=0}^n \binom{n}{k} x^{n+1-k}y^k =& \sum_{k=0}^{n+1} \binom{n}{k} x^{n+1-k}y^{k}
+\end{align*}
+\begin{align*}
+\sum_{k=0}^n \binom{n}{k} x^{n-k}y^{k+1}
+\end{align*}
+</div>
+<div id="outline-container-org40b2dbb" class="outline-4">
+<h4 id="org40b2dbb"><span class="section-number-4">2.2.1.</span> y</h4>
+<div class="outline-text-4" id="text-2-2-1">
+\begin{align*}
+\sum_{k=0}^n a_{k+1} =& \sum_{k=1}^{n+1} a_k \\
+\Rightarrow \sum_{k=0}^n \binom{n}{k} x^{n-k}y^{k+1} =& \sum_{k=1}^{n+1}\binom{n}{k-1} x^{n-(k-1)}y^k \\
+=& \sum_{k=1}^{n+1}\binom{n}{k-1} x^{n+1-k}y^k \\
+\end{align*}
+\begin{align*}
+\binom{n}{-1} =& 0 \\
+\Rightarrow \sum_{k=1}^{n+1}\binom{n}{k-1} x^{n+1-k}y^k  =& \sum_{k=1}^{n+1}\binom{n}{k-1} x^{n+1-k}y^k + \binom{n}{-1} x^{n+1}y^{0}\\
+=& \sum_{k=0}^{n+1}\binom{n}{k-1} x^{n+1-k}y^k 
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-org041a346" class="outline-4">
+<h4 id="org041a346"><span class="section-number-4">2.2.2.</span> Zusammenaddieren</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<ul class="org-ul">
+<li>nach <a href="20220106222835-binomialkoeffizient_hilfssatz.html#ID-3f28b90e-18b5-420b-88e8-2794157bc002">Binomialkoeffizient - Hilfssatz</a></li>
+</ul>
+ \begin{align*}
+&\sum_{k=0}^n \binom{n}{k} x^{n+1-k}y^k + \sum_{k=0}^n \binom{n}{k} x^{n-k}y^{k+1} \\
+=& \sum_{k=0}^{n+1} \binom{n}{k} x^{n+1-k}y^{k} + \sum_{k=0}^{n+1} \binom{n}{k-1}x^{n+1-k}y^k \\
+=& \sum_{k=0}^{n+1} \left( \binom{n}{k} x^{n+1-k}y^k + \binom{n}{k-1} x^{n+1-k}y^k \right) \\
+=& \sum_{k=0}^{n+1} \left( \binom{n+1}{k} x^{n+1-k}y^k\right)
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

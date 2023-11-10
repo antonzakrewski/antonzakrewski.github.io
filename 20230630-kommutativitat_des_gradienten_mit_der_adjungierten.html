@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>kommutativität des Gradienten mit der Adjungierten bezüglich des Standardskalarprodukts</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">kommutativität des Gradienten mit der Adjungierten bezüglich des Standardskalarprodukts</h1>
+<div id="outline-container-org477551f" class="outline-2">
+<h2 id="org477551f"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(U \subseteq \mathbb{R}^n\) und \(V \subseteq \mathbb{R}^m\) <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a> und \(F: U \rightarrow V\) und \(\phi: V \rightarrow \mathbb{R}\) <a href="20230601102558-totale_differenzierbarkeit.html#ID-2bdfcfac-76de-4f04-b2c7-6eca0297c586">total differenzierbare</a> <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktionen</a>.
+Dann gilt für den <a href="20220315144400-gradient.html#ID-41119c12-88e0-4361-94eb-25f27cf52ba8">Gradienten</a> in \(p \in U\):
+</p>
+\begin{align*}
+\nabla (\phi \circ F)(p) = (\mathrm{d}F_p)^* (\nabla \phi(F(p)))
+\end{align*}
+<p>
+wobei \((\mathrm{d}F_p)^*\) die <a href="20230623-adjungierte_abbildung.html#ID-056e5a29-654d-4425-9266-70839a36a082">Adjungierte Abbildung</a> zum <a href="20230228170206-euklidisches_skalarprodukt.html#ID-aa212354-4b27-4632-a1f6-ee0ccc12729c">Standardskalarprodukt</a> ist.
+</p>
+</div>
+</div>
+<div id="outline-container-org277b3f5" class="outline-2">
+<h2 id="org277b3f5"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Nach <a href="20230606-kettenregel_fur_das_totale_differential.html#ID-8b45d9e9-87fb-42ce-a53c-b1aca5fac3e5">Kettenregel</a> gilt:
+</p>
+\begin{align*}
+\nabla(\phi \circ F)(p) =& \mathrm{d}(\phi \circ F)_p \\
+=& \mathrm{d} \phi _{F(p)} \circ \mathrm{d}F_p \\
+=& \nabla \phi(F(p)) \circ \mathrm{d}F_p
+\end{align*}
+<p>
+Dabei ist \(\nabla \phi(F(p)) \in \mathrm{Hom}_{\mathbb{R}}(\mathbb{R}^m, \mathbb{R})\) und \(\mathrm{d}F_p \in \mathrm{Hom}_{\mathbb{R}}(\mathbb{R}^n, \mathbb{R}^m)\)
+Sei \(\mathrm{d}F_p = (\alpha_{i,j}) \in \mathbb{R}^{m \times n}, \nabla\phi(F(p)) = (\beta_{1,j}) \in \mathbb{R}^{1 \times m}\) in der <a href="20221209203713-isomorphie_zwischen_matrixdarstellung_und_homomorphismus.html#ID-8a33a54a-5559-47cc-b2aa-8c5a2c41ae95">Matrixdarstellung</a> und \(v = (\gamma_{i,1}) \in \mathbb{R}^n\).
+Es folgt \((\mathrm{d}F_p)^{*} = (\alpha_{j,i}) \in \mathbb{R}^{n \times m}\) und durch Matrixmultiplikation erhalten wir:
+</p>
+\begin{align*}
+\mathrm{d}F_p \circ v = \sum_{k=1}^{m} \sum_{l=1}^{n} \alpha_{k,l} \gamma_{l,1} e_k
+\end{align*}
+<p>
+und dann
+</p>
+\begin{align*}
+(\beta_{1,j}) \circ \sum_{k=1}^{m} \sum_{l=1}^{n} \alpha_{k,l} \gamma_{l,1} e_k \\
+=& \sum_{k=1}^{m} \sum_{l=1}^{n} \beta_{1, k} \alpha_{k,l} \gamma_{l,1}
+\end{align*}
+<p>
+Während für die andere Formel und das <a href="20230228170206-euklidisches_skalarprodukt.html#ID-aa212354-4b27-4632-a1f6-ee0ccc12729c">Standardskalarprodukt</a> gilt:
+</p>
+\begin{align*}
+\langle(\mathrm{d}F_p)^*(\nabla \phi(F(p))), v \rangle =& \langle(\nabla \phi(F(p))), (\mathrm{d}F_p) v \rangle \\
+ =& \langle(\nabla \phi(F(p))), \sum_{k=1}^{m} \sum_{l=1}^{n} \alpha_{k,l} \gamma_{l,1} e_k \rangle \\
+=& \sum_{k=1}^{m} \sum_{l=1}^{n} \beta_{1, k} \alpha_{k,l} \gamma_{l,1}\\
+\end{align*}
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

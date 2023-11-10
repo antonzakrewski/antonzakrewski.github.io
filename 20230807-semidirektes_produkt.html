@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>semidirect product</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">semidirect product</h1>
+<div id="outline-container-orge7a3378" class="outline-2">
+<h2 id="orge7a3378"><span class="section-number-2">1.</span> Definition / Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(G,H\) be <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">groups</a>, \(\varphi: G \rightarrow \mathrm{Aut}(H)\) a <a href="20220928134932-gruppenhomomorphismus.html#ID-7d86b4b2-8f83-4da4-b1ef-08c3d37aa417">homomorphism</a> between \(G\) and the <a href="20230302210538-automorphismengruppe.html#ID-ad2bea99-3395-41e7-84ca-c93a1fc0efab">automorphism group</a>.
+Then the semidirect product \(G \rtimes_{\varphi} H\) is defined as <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a> \(G \times H\) with the <a href="20220925215102-binare_verknupfung.html#ID-213966ae-84e5-480d-93a3-f1d55034b939">operation</a> 
+</p>
+\begin{align*}
+(g_1,h_1) * (g_2,h_2) =& (g_1 \left(\varphi(h_1)\right)(g_2), h_1 \cdot h_2)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgf8385d5" class="outline-2">
+<h2 id="orgf8385d5"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org23e069f" class="outline-3">
+<h3 id="org23e069f"><span class="section-number-3">2.1.</span> <a href="20210702074906-neutrales_element_mathe.html#ID-2a95aac8-42e6-4724-9f37-15f6143a35ca">neutral element</a></h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Let \(e \in G,H\), then
+</p>
+\begin{align*}
+(g_1,h_1) * (e,e) =& (g_1 \varphi(h_1)(e), h_1 \cdot e) \\
+=& (g_1 \cdot e, h_i) \\ 
+=& (g_1,h_1) \\
+(e,e) * (g_1,h_1) =& (e \circ \varphi(e)(g_1), e \cdot h_1) \\
+=& (e \circ \mathrm{id}(g_1), h_1) \\
+=& (g_1,h_1) 
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orge24a9e3" class="outline-3">
+<h3 id="orge24a9e3"><span class="section-number-3">2.2.</span> <a href="20211218210712-inverses_element.html#ID-f9edb7bd-9975-4606-9f12-698118b3d992">inverse element</a></h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Let \((g_1,h_1) \in G \rtimes_{\varphi} H\).
+By assumption, \(\varphi(h_i)\) is an <a href="20220928135903-gruppenautomorphismus.html#ID-bde82a42-2a52-4890-a477-dc738b045a46">automorphism</a>, so there exists an \(g_2 \in G\) such that \(g_1^{-1} = \varphi(h_1)(g_2)\).
+Therefore
+</p>
+\begin{align*}
+(g_1, h_1) * (g_2, h_1^{-1}) = (g_1 \cdot \varphi(h_1)(g_2), h_1 \cdot h_1^{-1}) \\
+=& (g_1 \cdot g_1^{-1}, h_1 \cdot h_1^{-1}) \\
+=& (e,e)
+\end{align*}
+<p>
+Furthermore, \(\varphi(h_1^{-1}) = \varphi(h_1)^{-1}\) and hence
+</p>
+\begin{align*}
+g_1^{-1} =& \varphi(h_1)(g_2) && \vert \varphi(h_1)^{-1}  \\
+\varphi(h_1)^{-1}(g_1^{-1}) =& g_2 && \vert ()^{-1} \\
+\varphi(h_1)^{-1}(g_1) =& g_2^{-1}
+\end{align*}
+<p>
+Thus
+</p>
+\begin{align*}
+(g_2,h_1^{-1}) * (g_1,h_1) =& (g_2 \varphi(h_1^{-1})(g_1), h_1^{-1} h_1) \\
+=& (g_2 \cdot g_2^{-1}, h_1^{-1} h_1 ) \\
+=& (e,e)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org5967c97" class="outline-3">
+<h3 id="org5967c97"><span class="section-number-3">2.3.</span> associative</h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

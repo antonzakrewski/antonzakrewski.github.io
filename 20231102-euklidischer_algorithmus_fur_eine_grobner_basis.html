@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>euklidischer Algorithmus für eine Gröbner Basis</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">euklidischer Algorithmus für eine Gröbner Basis</h1>
+<div id="outline-container-org3e0dd35" class="outline-2">
+<h2 id="org3e0dd35"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(K\) ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a>, \(f \in K[X_1,...,X_n]\) ein <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c-70182b7714f9">Polynom</a> und \(g_1,...,g_n\) eine <a href="20231030-grobner_basis.html#ID-1743b7a4-d1c8-4e3e-96c0-6c2b208fdb47">gröbner basis</a> von einem <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a> \(I\)
+Dann hängt für den <a href="20231030-euklidischer_algorithmus_in_mehreren_variablen.html#ID-7732d500-1a32-4796-933e-da2fa5e2d906">Euklidischer Algorithmus in mehreren Variablen</a> der Divisionsrest nicht von der Reihenfolge von \(g_1,...,g_n\) ab
+</p>
+</div>
+</div>
+<div id="outline-container-orgc7ae10c" class="outline-2">
+<h2 id="orgc7ae10c"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Sei
+</p>
+\begin{align*}
+f =& g + r \\
+=& g' + r
+\end{align*}
+<p>
+für \(g,g' \in I\)
+Dann folgt
+</p>
+\begin{align*}
+r - r' = g' - g \in I
+\end{align*}
+
+<p>
+und es gilt
+</p>
+\begin{align*}
+\mathrm{LT}(r - r') \in \langle \mathrm{LT}(g_1),...,\mathrm{LT}(g_n)\rangle
+\end{align*}
+
+<p>
+Es folgt damit auch
+</p>
+\begin{align*}
+\mathrm{LT}(g_i) \mid \mathrm{Lt}(r - r')
+\end{align*}
+<p>
+für ein \(i\)
+Dies ist aber für \(r' - r \neq 0\) ein Widerspruch zum euklidischen Algorithmus, da kein <a href="20230905-monomial.html#ID-0c3d60db-952a-4c22-a40e-9b951ec409e7">Monom</a> von \(r\) durch ein \(\mathrm{LT}(g_i)\) teilbar ist
+(+ da wir über einem Körper sind, macht ein veränderter Skalar keinen unterscheid)
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

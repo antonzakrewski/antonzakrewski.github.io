@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>quaternionen als Matrizenring</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">quaternionen als Matrizenring</h1>
+<div id="outline-container-orgad7aa2c" class="outline-2">
+<h2 id="orgad7aa2c"><span class="section-number-2">1.</span> Definition / Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Die <a href="20211230225918-quaternion.html#ID-3f46036d-daf8-4b3f-a79a-31c4b070e907">Quaternionen</a> \(\mathbb{H}\) sind definiert als nichtkommutative \(\mathbb{R}\)-<a href="20230722-a_algebra.html#ID-c3ba0b73-5545-48cc-9e90-81fda7909b5f">Algebra</a> 
+</p>
+\begin{align*}
+\varphi: \mathbb{R}[X_1,...,X_3] \rightarrow& \mathbb{H} \\
+r \mapsto& r \cdot \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \\
+X_1 \mapsto& I \\
+X_2 \mapsto& J \\ 
+X_3 \mapsto& K 
+\end{align*}
+
+<p>
+mit Matrixaddition und Matrixmultiplikation als Verknüpfung für
+</p>
+\begin{align*}
+I \coloneqq& \begin{pmatrix} \mathrm{i} & 0 \\ 0 & - \mathrm{i} \end{pmatrix} \\
+J \coloneqq& \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}   \\
+K \coloneqq& \begin{pmatrix} 0 & \mathrm{i} \\ \mathrm{i} & 0 \end{pmatrix} 
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org3307c86" class="outline-2">
+<h2 id="org3307c86"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org93e89e8" class="outline-3">
+<h3 id="org93e89e8"><span class="section-number-3">2.1.</span> multiplikativ abgeschlossen</h3>
+<div class="outline-text-3" id="text-2-1">
+\begin{align*}
+I \cdot J =& \begin{pmatrix} 0 & i \\ \mathrm{i} 0 \end{pmatrix} \\
+=& K
+J \cdot I =& \begin{pmatrix} 0 & - \mathrm{i} \\ - \mathrm{i} & 0  \end{pmatrix} 
+=& - K
+J \cdot K =& \begin{pmatrix} \mathrm{i} & 0 \\ 0 & -\mathrm{i} \end{pmatrix} 
+=& I
+K \cdot J =& \begin{pmatrix} - \mathrm{i} & 0 \\0 & \mathrm{i} \end{pmatrix} 
+=& - I
+K \cdot I =& \begin{pmatrix} 0 & 1 \\ - 1 & 0 \end{pmatrix} 
+=& J
+I \cdot K =& \begin{pmatrix} & - 1 \\ 1 & 0  \end{pmatrix} 
+=& - J
+\end{align*}
+<p>
+und
+</p>
+\begin{align*}
+I \cdot I =& \begin{pmatrix} - 1 & 0 \\ 0 & -1 \end{pmatrix} \\
+=& - E \\
+J \cdot J =& \begin{pmatrix} - 1 & 0 \\ 0 & -1 \end{pmatrix} \\
+=& - E \\
+K \cdot K =& \begin{pmatrix} - 1 & 0 \\ 0 & -1 \end{pmatrix} \\
+=& - E
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgb9f06cf" class="outline-3">
+<h3 id="orgb9f06cf"><span class="section-number-3">2.2.</span> inverses</h3>
+</div>
+<div id="outline-container-orgf20c2b1" class="outline-3">
+<h3 id="orgf20c2b1"><span class="section-number-3">2.3.</span> fehlende kommutavität</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Folgt z.B. aus \(I \cdot J = - J \cdot I\), siehe oben
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

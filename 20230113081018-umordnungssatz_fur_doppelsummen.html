@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>umordnungssatz für Doppelsummen</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">umordnungssatz für Doppelsummen</h1>
+<div id="outline-container-orge92a09a" class="outline-2">
+<h2 id="orge92a09a"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei
+\(\sum_{n=0}^{\infty} \left(\sum_{k=0}^{\infty} a_{n,k} \right)\) eine absolute doppelsummenkonvergente(*) Reihe (insbesondere existieren nach annahme die grenzwerte \(b_n  \coloneqq \sum_{n=0}^{\infty} a_{n,k}\)), so dass gilt
+</p>
+\begin{align*}
+\sum_{n=0}^{\infty} \left(\sum_{k=0}^{\infty} a_{n,k} \right) = g
+\end{align*}
+<p>
+Dann folgt, dass auch
+</p>
+\begin{align*}
+\sum_{k=0}^{\infty} \left( \sum_{n=0}^{\infty} a_{n,k} \right) = g'
+\end{align*}
+<p>
+konvergiert und zwar gegen den gleichen grenzwert \(g' = g\) 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org45105a4" class="outline-2">
+<h2 id="org45105a4"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Beweisskizze:
+</p>
+<ul class="org-ul">
+<li>wir können uns mit einer endlichen summe von \(\sum_{n=0}^{\infty} \left(\sum_{k=0}^{\infty} a_{n,k}  \right) = g\)  beliebig dem grenzwert \(g\) nähern;</li>
+<li>diese können wir dann gewohnt umordnen, um eine "partialsumme" von  \(\sum_{k=0}^{\infty} \left( \sum_{n=0}^{\infty}  a_{n,k} \right)\) zu erhalten - mit dem gleichen grenzwert</li>
+<li>das heißt wir können mit einer "partialsumme" (die besser wird, je mehr folgenglieder sie zusätzlich addiert) von \(\sum_{k=0}^{\infty} \left( \sum_{n=0}^{\infty} a_{n,k} \right)\) uns beliebig dem grenzwert \(g\) nähern;</li>
+<li>dies ist symmetrisch, das heißt wir können uns auch umgekehrt mit einer partialsumme beliebig dem grenzwert \(g'\) nähern</li>
+<li>aufgrund der eindeutigkeit des grenzwerts gilt \(g = g'\)</li>
+<li>diese komische bedingung der absoluten doppelsummenkonvergenz ist notwendig, damit jede reihe (nach majorantenkriterium) auch konvergiert und wir im körper bleiben um weiterzurechnen</li>
+</ul>
+</div>
+<div id="outline-container-orgd773edb" class="outline-3">
+<h3 id="orgd773edb"><span class="section-number-3">2.1.</span> Formal</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Sei \(b_n  \coloneqq \sum_{k=0}^{\infty} a_{n,k}\).
+Wir wissen, dass die Folge \((b_n)\) eine konvergente nullfolge ist, da die Reihe \(\sum_{n=0}^{\infty} b_n\) konvergiert 
+Sei \(\varepsilon > 0\)
+Nach cauchy (und unserer absoluten konvergenz) existiert ein \(n( \frac{\varepsilon}{2})\), so dass
+</p>
+\begin{align*}
+\sum_{n=n(\frac{\varepsilon}{2})}^{\infty} \vert b_n \vert < \frac{\varepsilon}{2}
+\end{align*}
+<p>
+Das heißt:
+</p>
+\begin{align*}
+\right\vert g - \sum_{n=0}^{n(\frac{\varepsilon}{2})- 1} \vert b_n \vert \left \vert < \frac{\varepsilon}{2}
+\end{align*}
+<p>
+Zudem existiert wegen der konvergenz für \(b_n = \sum_{k=0}^{\infty} a_{n,k}\) für \(n_0 \in \{0,...,n(\frac{\varepsilon}{2})-1\}\) (insbesondere endlich viele, \(\sum_{k=0}^{\infty} a_{n,k}\) jeweils cauchy =&gt; maximum davon wählen) ein \(\mathrm{max}(n'(\frac{\varepsilon}{2 \cdot n(\frac{\varepsilon}{2})}))\), so dass gilt
+</p>
+\begin{align*}
+\left  \vert b_n - \sum_{k=0}^{n'(\frac{\varepsilon}{2 \cdot n(\frac{\varepsilon}{2})})}a_{n,k} \right \vert < \frac{\varepsilon}{2 \cdot n(\frac{\varepsilon}{2})}
+\end{align*}
+
+<p>
+so dass gilt:
+</p>
+\begin{align*}
+\left \left \vert \sum_{n=0}^{\infty} \sum_{k=0}^{\infty} a_{n,k} - \sum_{n=0}^{n(\frac{\varepsilon}{2})-1} \sum_{k=0}^{n'(\frac{\varepsilon}{2 \cdot n(\frac{\varepsilon}{2})})} a_{n,k} \right \vert =& \left \vert \sum_{n=n(\frac{\varepsilon}{2})}^{\infty} b_n + \sum_{n=0}^{n(\frac{\varepsilon}{2})-1} \sum_{k= n'(\frac{\varepsilon}{2 \cdot n(\frac{\varepsilon}{2})}) + 1}^{\infty} a_{n,k} \right\vert \\
+\leq& \left \vert \sum_{n=n(\frac{\varepsilon}{2})}^{\infty} b_n \right \vert + \left \vert \sum_{n=0}^{n(\frac{\varepsilon}{2})-1} \sum_{k= n'(\frac{\varepsilon}{2 \cdot n(\frac{\varepsilon}{2})}) + 1}^{\infty} a_{n,k} \right \vert \\
+<& \frac{\varepsilon}{2} + n(\frac{\varepsilon}{2}) \cdot \frac{\varepsilon}{2 \cdot n(\frac{\varepsilon}{2})} \\
+=& \varepsilon
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-orgd3307c6" class="outline-3">
+<h3 id="orgd3307c6"><span class="section-number-3">2.2.</span> Definition</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+\(\sum_{n=0}^{\infty} \sum_{k=0}^{\infty} a_{n,k}\) sei eine absolut doppelsummenkonvergente reihe (oder so ähnlich) falls 
+</p>
+\begin{align*}
+\sum_{n=0}^{\infty} \sum_{k=0}^{\infty} \vert a_{n,k} \vert
+\end{align*}
+<p>
+konvergiert
+</p>
+</div>
+</div>
+<div id="outline-container-org49fa288" class="outline-3">
+<h3 id="org49fa288"><span class="section-number-3">2.3.</span> Übertragung auf \(\mathbb{C}\)</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+folgt, indem man realteil und imaginärteil schrittweise ausklammert
+</p>
+\begin{align*}
+\leadsto \sum_{n=0}^{\infty} \sum_{k=0}^{\infty} a_{n,k} =& \sum_{n=0}^{\infty} \sum_{k=0}^{\infty} \mathrm{Im}(a_{n,k}) + \sum_{n=0}^{\infty} \sum_{k=0}^{\infty} \mathrm{Re}(a_{n,k}) + 
+\end{align*}
+
+<p>
+Angewandt auf die Aufgabe kann man 
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Beweis: Produktregel für mehrere Faktoren</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Beweis: Produktregel für mehrere Faktoren</h1>
+<div id="outline-container-orgdd56aa6" class="outline-2">
+<h2 id="orgdd56aa6"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+\begin{align*}
+\left(\prod_{i=1}^k f_k(x)\right)' =& \sum_{i=1}^k\left(\frac{f_i'(x)}{f_i(x)} \cdot \prod_{j=1}^k f_j(x)\right)
+\end{align*}
+<p>
+<a href="20210305204948-beweis_durch_vollstandige_induktion.html#ID-c79953c3-855e-432d-9321-047dd5decac8">Beweis durch vollständige Induktion</a>
+</p>
+</div>
+<div id="outline-container-orgcb711e0" class="outline-3">
+<h3 id="orgcb711e0"><span class="section-number-3">1.1.</span> Induktionsanfang</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>siehe: <a href="20220401202407-beweis_produktregel.html#ID-4be5c492-8fe6-44b1-9dd8-d4ef721426f1">Beweis: Produktregel</a></li>
+</ul>
+\begin{align*}
+\left(f_1(x) \cdot f_2(x)\right)' =& f_1(x)f_2(x)' + f_1(x)'f_2(x) \\
+=& \sum_{i=1}^2 \frac{f'_{i}(x)}{f'_{i}(x)} \cdot f_1(x)f_2(x) \\
+=& \sum_{i=1}^2 \frac{f'_{i}(x)}{f'_{i}(x)} \cdot \prod_{j=1}^2 f_j(x)
+ \end{align*}
+</div>
+</div>
+<div id="outline-container-org348c16b" class="outline-3">
+<h3 id="org348c16b"><span class="section-number-3">1.2.</span> Induktionsschritt</h3>
+<div class="outline-text-3" id="text-1-2">
+\begin{align*}
+f_a(x)  \coloneqq& \prod_{i=1}^k f_k(x) \\
+f_a'(x)  \coloneqq& \sum_{i=1}^k \frac{f_i'(x)}{f_i(x)} \cdot \prod_{j=1}^k f_j(x) \\
+\prod_{i=1}^{k+1} f_k(x) =& \left(\prod_{i=1}^{k}f_k(x)\right) \cdot f_{k+1}(x) \\
+=& f_a(x) \cdot f_{k+1}(x) \\
+\left(\prod_{i=1}^{k+1} f_k(x)\right)' =& \left(f_a(x) \cdot f_{k+1}(x)\right)' \\
+=& f_a'(x) f_{k+1}(x) + f_a(x)f_'{k+1}(x) \\
+=& \sum_{i=1}^k \frac{f_i'(x)}{f_i(x)} \cdot \prod_{j=1}^k f_j(x) \cdot f_{k+1}(x) + \prod_{j=1}^k f_j(x)f_'{k+1}(x) \\
+=& \sum_{i=1}^k \frac{f_i'(x)}{f_i(x)} \cdot \prod_{j=1}^{k+1} f_j(x)  + \prod_{j=1}^{k+1} f_j(x) \cdot \frac{f_'{k+1}(x)}{f_{k+1}(x)} \\
+=& \sum_{i=1}^{k+1} \frac{f_i'(x)}{f_i(x)} \cdot \prod_{j=1}^{k+1} f_j(x)
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

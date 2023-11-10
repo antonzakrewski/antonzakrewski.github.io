@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Formel von Moivre-Binet</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Formel von Moivre-Binet</h1>
+<div id="outline-container-org1e259c4" class="outline-2">
+<h2 id="org1e259c4"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(\phi = \frac{1 + \sqrt{5}}{2}\) der <a href="20230327125530-goldene_schnitt.html#ID-d9144bf3-7de1-45ea-a83e-453c577cd5c7">Goldene Schnitt</a> und \(\widehat{\phi} = \frac{1 - \sqrt{5}}{2} = - \frac{1}{\phi}\).
+Dann gilt für die \(n\)-te <a href="20220105152935-fibonacci_folge.html#ID-eb92de88-6dd3-44c8-b074-4dc119f0d0e0">Fibonacci Zahl</a>, \(n \in \mathbb{N}_0\)
+</p>
+\begin{align*}
+F_n = \frac{1}{\sqrt{5}} ( \phi^{n} - \widehat{\phi}^n)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org69277f1" class="outline-2">
+<h2 id="org69277f1"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Sei \(S := \{(x_0,x_1,x_2,...\} \subseteq \mathbb{R}^{\mathbb{N}}\) mit \(x_i = x_{i-1} + x_{i-2}\) für \(i \geq 2\) (analog zur Fibonacci Folge)
+Dann ist \(S\) ein <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">Vektorraum</a> (siehe: <a href="20221206084011-kriterium_fur_eine_menge_von_vektoren_als_korper.html#ID-76e19fa0-a64e-4d4f-9930-bb1cbce66afa">Kriterium für eine Menge von Vektoren als Körper</a>)
+</p>
+</div>
+<div id="outline-container-orgf88b967" class="outline-3">
+<h3 id="orgf88b967"><span class="section-number-3">2.1.</span> Abgeschlossenheit gegenüber Addition</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Seien \(x,x' \in S\)
+Es folgt:
+</p>
+\begin{align*}
+x + x' = (x_0 + x_0', x_1 + x_1', ...)  \coloneqq (y_0,y_1,...,)
+\end{align*}
+<p>
+Und desweiteren für \(i \geq 2\)
+</p>
+\begin{align*}
+y_i =& x_i + x_i' \\
+=& (x_{i-1} + x_{i-2}) + (x_{i-1}' + x_{i-2}') \\
+=& (x_{i-1} + x_{i-1}') + (x_{i-2} + x_{i-2}') \\
+=& y_{i-1} + y_{i-2}
+\end{align*}
+<p>
+Daraus folgt \(x + x' \in S\)
+</p>
+</div>
+</div>
+<div id="outline-container-org9c85627" class="outline-3">
+<h3 id="org9c85627"><span class="section-number-3">2.2.</span> Abgeschlossenheit gegenüber Multiplikation</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Für \(\alpha \in \mathbb{R}\) und \(x \in S\) folgt:
+</p>
+\begin{align*}
+\alpha \cdot x =& (\alpha x_0, \alpha x_1, ...) \\
+ \coloneqq& (y_0,y_1,...)
+\end{align*}
+<p>
+Dabei gilt für \(i \geq 2\)
+</p>
+\begin{align*}
+y_i =& \alpha \cdot (x_i) \\
+=& \alpha \cdot (x_{i-1} + x_{i-2}) \\
+=& \alpha \cdot x_{i-1} + \alpha \cdot x_{i-2} \\
+=& y_{i-1} + y_{i-2}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org25dc759" class="outline-3">
+<h3 id="org25dc759"><span class="section-number-3">2.3.</span> <a href="20230227153105-vektorraumisomorphismus.html#ID-27b6dd7a-30ae-4eb8-b5c4-e1a268344d2e">Isomorphie</a></h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Es folgt zudem:
+</p>
+\begin{align*}
+S \simeq \mathbb{R}^2
+\end{align*}
+<p>
+Durch die <a href="20230226211841-projektion.html#ID-7d34ba5d-48ed-476e-a440-d18dd40eac27">Projektion</a> der ersten beiden Komponenten und gegebnfalls Berechnung der folgenden \(x_i\)
+Daraus folgt für die <a href="20220102135318-dimension.html#ID-3e484fb0-c9a8-485a-999b-4f0052bd13e4">Dimension</a> 
+</p>
+\begin{align*}
+\mathrm{dim}_{\mathbb{R}}(S) = 2
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org5d591c7" class="outline-3">
+<h3 id="org5d591c7"><span class="section-number-3">2.4.</span> Konstruktion einer Basis</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Sei \(x_i = \alpha^i\) für \(i \in \mathbb{N}_0\) und ein \(\alpha \in \mathbb{R} \setminus \{0\}\)
+Dann folgt aus
+</p>
+\begin{align*}
+\alpha^i =& \alpha^{i-1} + \alpha^{i-2} \\
+\Rightarrow \alpha^2 =& \alpha + 1
+\end{align*}
+<p>
+Daraus folgt \(\alpha_1 = \phi\) und \(\alpha_2 = \widehat{\phi}\)
+Sei also
+</p>
+\begin{align*}
+\Phi =& (\phi^0,\phi^1,...) \in S\\
+\widehat{\Phi} =& (\widehat{\phi}^0, \widehat{\phi}^1,...) \in S
+\end{align*}
+<p>
+Diese sind <a href="20220207224644-lineare_unabhangigkeit.html#ID-c4d1496f-6012-4ade-8b98-3e29dad89ded">lineare unabhängig</a> (vgl. erste und zweite Komponente) und damit auch ein <a href="20221106152549-erzeugendensystem.html#ID-f76ea8a6-1176-46cf-a300-c2312e60e6d8">Erzeugendensystem</a>, d.h. eine <a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">Basis</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-org975ded5" class="outline-3">
+<h3 id="org975ded5"><span class="section-number-3">2.5.</span> Berechnung</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+Wir suchen die Folge mit \(s_1 = 0\) und \(s_2 = 1\).
+Daraus folgt das Gleichungssystem
+</p>
+\begin{align*}
+f_0 = 0 =& \alpha + \beta \\
+f_1 = 1 =& \alpha \cdot \phi + \beta \cdot \widehat{\phi} \\
+=& \alpha \cdot \frac{1 + \sqrt{5}}{2} + \beta \cdot \frac{1 - \sqrt{5}}{2}
+\end{align*}
+<p>
+mit der Lösung:
+</p>
+\begin{align*}
+\alpha =& \frac{1}{\sqrt{5}} \\
+\beta =& - \frac{1}{\sqrt{5}}
+\end{align*}
+
+<p>
+Damit folgt für die <a href="20220105152935-fibonacci_folge.html#ID-eb92de88-6dd3-44c8-b074-4dc119f0d0e0">Fibonacci Folge</a> beginnend mit \(0,1\) für die \(n\)-te komponente:
+</p>
+\begin{align*}
+f_n =& \alpha \phi^{n} + \beta \widehat{\phi}^n \\
+=& \frac{1}{\sqrt{5}} \left(\frac{1 + \sqrt{5}}{2}\right)^n - \frac{1}{\sqrt{5}} \left(\frac{1 - \sqrt{5}}{2} \right)^n \\
+=& \frac{1}{\sqrt{5}} \left( \left(\frac{1 + \sqrt{5}}{2}\right)^n - \left(\frac{1 - \sqrt{5}}{2} \right)^n \right)
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

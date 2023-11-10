@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cauchy-Schwarz Ungleichung</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Cauchy-Schwarz Ungleichung</h1>
+<div id="outline-container-orgc4d418c" class="outline-2">
+<h2 id="orgc4d418c"><span class="section-number-2">1.</span> Definition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(\langle \cdot, \cdot \rangle\) eine <a href="20221003155502-positiv_semidefinite_bilinearform.html#ID-234ae6b6-59ba-4f8e-8345-1d990d225fac">positiv semidefinite</a>, <a href="20221003155536-symmetrische_bilinearform.html#ID-bfcdf772-269e-4f6d-a960-90547502eb5f">symmetrische Bilinearform</a> oder <a href="20221003160915-hermitesche_sesquilinearform.html#ID-f2530251-d424-47ad-909c-6d7357b928f1">Hermitesche Sesquilinearform</a> auf einem <a href="20230204210438-reeller_vektorraum.html#ID-47c426f6-4f34-402a-8c78-5ef0c3b88ce9">reellen</a> oder <a href="20230204210448-komplexer_vektorraum.html#ID-b1836b1a-a3bd-4abc-86b6-2706f358a79f">komplexen Vektorraum</a>
+Dann gilt für alle \(v_1,v_2 \in V\)
+</p>
+\begin{align*}
+\vert \langle v_1,v_2\rangle \vert \leq \| v_1 \| \| v_2 \|
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org5231ca4" class="outline-2">
+<h2 id="org5231ca4"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgd065267" class="outline-3">
+<h3 id="orgd065267"><span class="section-number-3">2.1.</span> \(v_1 = 0\)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Dann folgt \(\vert \langle v_1, v_2\rangle \vert = \vert 0 \cdot \langle v_1, v_2\rangle \vert = 0 = \| 0 \| \cdot \| y \|\)
+</p>
+</div>
+</div>
+<div id="outline-container-orgf2a0e51" class="outline-3">
+<h3 id="orgf2a0e51"><span class="section-number-3">2.2.</span> \(v_1 \neq 0\)</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Sei
+</p>
+\begin{align*}
+v_3  \coloneqq v_2 - \frac{(v_2,v_1)}{\| v_1 \|} v_1
+\end{align*}
+<p>
+Dann gilt
+</p>
+\begin{align*}
+(v_3,v_1) =& (v_2,v_1) - \frac{(v_2,v_1)}{\| v_1 \|^2} \cdot (v_1,v_1) \\
+=& (v_2,v_1) - (v_2,v_1) \\
+=& 0
+\end{align*}
+<p>
+Es gilt dabei
+</p>
+\begin{align*}
+0 \leq& (v_3,v_3) \\
+% =& \| v_3 \|^2 \\
+=& (v_3, v_2 - \frac{(v_2,v_1)}{\| v_1 \|^2} \cdot v_1) \\
+=& (v_3,v_2) + (v_3, - \frac{(v_2,v_1)}{\| v_1 \|^2} \cdot v_1) \\
+=& (v_3,v_2) + \overline{- \frac{(v_2,v_1)}{\| v_1 \|^2}} (v_3,  \cdot v_1) \\
+=& (v_3,v_2) + \overline{- \frac{(v_2,v_1)}{\| v_1 \|^2}} 0 \\
+=& ( v_3, v_2 ) \\
+=& (v_2, v_2) - \frac{(v_2,v_1)}{\| v_1 \|^2} (v_1,v_2)\\
+=& \| v_2 \|^2 - \frac{\vert (v_1,v_2) \|^2}{\| v_1 \|^2}
+\end{align*}
+<p>
+Damit folgt 
+</p>
+\begin{align*}
+\| (v_1, v_2) \| \leq \| v_1 \| \| v_2 \|
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

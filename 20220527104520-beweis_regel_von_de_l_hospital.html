@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Beweis: Regel von de L'Hospital</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Beweis: Regel von de L'Hospital</h1>
+
+<div id="outline-container-org27b7de5" class="outline-2">
+<h2 id="org27b7de5"><span class="section-number-2">1.</span> Beweis</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+för \(a \in \mathbb{R} \cup \{-\infty, \infty\}\)
+</p>
+</div>
+<div id="outline-container-org856b9c6" class="outline-3">
+<h3 id="org856b9c6"><span class="section-number-3">1.1.</span> \(\lim\left(\frac{0}{0}\right)\)</h3>
+<div class="outline-text-3" id="text-1-1">
+\begin{align*}
+\lim_{x \to a}\left(g(x)\right)  \coloneqq& 0 \\
+\lim_{x \to a}\left(f(x)\right)  \coloneqq& 0 \\
+\lim_{x \to a}\left(\frac{g(x)}{f(x)}\right) =& \lim_{x \to a}\left(\frac{g(x) - 0}{f(x) - 0}\right) \\
+=& \lim_{x \to a}\left(\frac{g(x) - g(a)}{f(x) - f(a)}\right) \\
+=& \lim_{x \to a}\left(\frac{\frac{g(x) - g(a)}{x - a}}{\frac{f(x) - f(a)}{x - a}}\right) \\
+=& \lim_{x \to a}\left(\frac{g'(x)}{f'(x)}\right)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org22f2857" class="outline-3">
+<h3 id="org22f2857"><span class="section-number-3">1.2.</span> \(\lim\left(\frac{\infty}{\infty}\right)\)</h3>
+<div class="outline-text-3" id="text-1-2">
+\begin{align*}
+g_i(x)  \coloneqq& \frac{1}{g_i(x)} \Rightarrow g_i'(x) = \frac{-1}{g(x)^2} g'(x) \\
+f_i(x)  \coloneqq& \frac{1}{f_i(x)} \Rightarrow f_i'(x) = \frac{-1}{f(x)^2} f'(x) \\
+\lim_{x\to a}\left(g(x)\right)  \coloneqq& \pm \infty \\
+\lim_{x\to a}\left(f(x)\right)  \coloneqq& \pm \infty  \\
+\Rightarrow \lim_{x \to a}\left(\frac{1}{g(x)}\right) =& \lim_{x \to a}\left(g_i(x)\right) = 0 \\
+\Rightarrow \lim_{x \to a}\left(\frac{1}{f(x)}\right) =& \lim_{x \to a}\left(f_i(x)\right) = 0 \\
+\end{align*}
+
+\begin{align*}
+\lim_{x \to a}\left(\frac{g(x)}{f(x)}\right) =& \lim_{x \to a}\left(\frac{\frac{1}{f(x)}}{\frac{1}{g(x)}}\right) \\
+=& \lim_{x \to a}\left(\frac{f_i(x)}{g_i(x)}\right) \\
+…& \\
+=& \lim_{x \to a}\left(\frac{f_i(x)'}{g_i(x)'}\right) \\
+=& \lim_{x \to a}\left(\frac{\frac{-1}{f(x)^2} \cdot f'(x)}{\frac{-1}{g(x)^2} \cdot g'(x)}\right) \\
+=& \lim_{x \to a}\left(\frac{g(x)^2}{f(x)^2}\right) \cdot \lim_{x \to a}\left(\frac{f'(x)}{g'(x)}\right) \\
+\lim_{x \to a}\left(\frac{g(x)}{f(x)}\right) =& \lim_{x \to a}\left(\frac{g(x)^2}{f(x)^2}\right) \cdot \lim_{x \to a}\left(\frac{f'(x)}{g'(x)}\right) && \vert \cdot \left(\lim_{x \to a}\left(\frac{g(x)^2}{f(x)^2}\right)\right)^{-1}\\
+\lim_{x \to a}\left(\frac{g(x)}{f(x)}\right) \cdot \lim_{x \to a}\left(\frac{f(x)^2}{g(x)^2}\right) =& \lim_{x \to a}\left(\frac{f'(x)}{g'(x)}\right) \\
+\lim_{x \to a}\left(\frac{f(x)}{g(x)}\right) =& \lim_{x \to a}\left(\frac{f'(x)}{g'(x)}\right)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org09759c8" class="outline-3">
+<h3 id="org09759c8"><span class="section-number-3">1.3.</span> \(\lim\left(\infty \cdot 0\right)\)</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Durch Umformen
+</p>
+\begin{align*}
+\lim_{x \to a}\left(f(x)\cdot g(x)\right) =& \lim_{x \to a}\left(\frac{f(x)}{\frac{1}{g(x)}}\right) 
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

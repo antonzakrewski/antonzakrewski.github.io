@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Euler-Mascheroni und Harmonische Zahl bzw. der Logarithmus</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Euler-Mascheroni und Harmonische Zahl bzw. der Logarithmus</h1>
+<div id="outline-container-orgb67533d" class="outline-2">
+<h2 id="orgb67533d"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Für die <a href="20230327225748-harmonische_zahl.html#ID-a4bfe849-4829-48a0-a660-bcb7c06886f6">Harmonische Zahl der Ordnung 1</a> und den <a href="20220122081509-naturlicher_logarithmus.html#ID-8c4a1c82-dc2b-4368-8236-1cffdb6f6c06">natürlichen Logarithmus</a> gilt:
+</p>
+\begin{align*}
+\lim_{n \to \infty}\left(H_n - \ln(n)\right) = \gamma
+\end{align*}
+<p>
+mit \(\gamma\) als <a href="20230428083216-euler_mascheroni_konstante.html#ID-5413acf2-40d6-4d73-9e6c-9fb2cbd9303a">Euler-Mascheroni-Konstante</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-orgdb7e3e0" class="outline-2">
+<h2 id="orgdb7e3e0"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Für \(k \geq 2\) gilt
+</p>
+\begin{align*}
+\ln(\frac{k}{k-1}) =& \ln((\frac{k-1}{k})^{-1}) \\
+=& - \ln(1 - \frac{1}{k})
+\end{align*}
+<p>
+Durch Entwicklung als <a href="20220302162755-taylorreihe.html#ID-a4e603aa-2ab3-42af-b185-e357439006bc">Taylorreihe</a> (mit welchem Entwicklungspunkt?) folgt:
+</p>
+\begin{align*}
+- \ln(1 - \frac{1}{k}) =& \sum_{i=1}^{\infty} \frac{1}{i} k^{-i}
+\end{align*}
+<p>
+Damit folgt:
+</p>
+\begin{align*}
+\ln(n) =& \ln(n) - \ln(1) \\
+=& \sum_{k=2}^{n} \ln(\frac{k}{k-1}) \\
+=& \sum_{k=2}^{n} \sum_{i=1}^{\infty} \frac{1}{i} k^i
+\end{align*}
+<p>
+Daraus folgt aus dem <a href="20221217011632-umordnungssatz.html#ID-1d55c766-d343-44d0-b98d-a6f8200083e2">Umordnungssatz</a> 
+</p>
+\begin{align*}
+=& \sum_{k=2}^{n} \sum_{i=1}^{\infty} \frac{1}{i} k^{-1} \\
+=& \sum_{i=1}^{\infty} \frac{1}{i} \cdot \sum_{k=2}^{n} k^i \\
+=& \frac{1}{1} \cdot \sum_{k=2}^{n} k^i + \sum_{i=2}^{\infty} \frac{1}{i} \sum_{k=2}^{n} k^i
+=& H_{n} - 1 + \sum_{i=2}^{\infty} \frac{1}{i} ( H_n^{(i)} - 1) \\
+\end{align*} 
+<p>
+Somit folgt:
+</p>
+\begin{align*}
+\ln(n) =& H_n - 1 + \sum_{i=2}^{\infty} \frac{1}{i} (H_n^{(i)} - 1) \\
+H_n - \ln(n) =& 1 - \sum_{i=2}^{\infty} \frac{1}{i} (H_n^{(i)} - 1)
+\end{align*}
+<p>
+Dabei <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergiert</a>  die <a href="20211222222904-reihe_mathe.html#ID-ae236532-f177-4c70-806b-a1be965ef5e4">Reihe</a>, da \(\frac{1}{i} (H_n^{(i)} - 1) \geq 0\) und ferner wegen der <a href="20230425094105-abschatzung_der_harmonischen_zahl_mit_dem_naturlichen_logarithmus.html#ID-a446428b-6dc2-4976-95df-6ba716d430aa">Abschätzung der Harmonischen Zahl mit dem natürlichen Logarithmus</a> zusätzlich gilt:
+</p>
+\begin{align*}
+H_n - \ln(n) = 1 - \sum_{i=2}^{\infty} \frac{1}{i} (H_n^{(i)} - 1) \geq& 0 \\
+1 \geq& \sum_{i=2}^{\infty} \frac{1}{i} (H_n^{(i)} - 1)
+\end{align*}
+<p>
+d.h. es gilt die <a href="20221128181402-konvergenz_monotoner_beschrankter_folgen.html#ID-de93d9f0-978c-477a-8f79-25da8007a6aa">Konvergenz monotoner beschränkter Folgen</a>.
+Somit folgt:
+</p>
+\begin{align*}
+\lim_{n \to \infty}\left( \sum_{i=2}^{\infty} \frac{1}{i} (H_n^{(i)} - 1) \right) =& \sum_{i=2}^{\infty} \frac{1}{i} \lim_{n \to \infty}\left(H_n^{(i)} - 1\right) \\
+=& \sum_{i=2}^{\infty} \frac{1}{i} \left(\mathcal{S}(i) - 1\right)
+\end{align*}
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>
