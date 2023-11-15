@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Substitution von Formeln erhält Herleitungen</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Substitution von Formeln erhält Herleitungen</h1>
+<div id="outline-container-orgce58081" class="outline-2">
+<h2 id="orgce58081"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Seien \(A,B_i\) <a href="20230102152602-formel_logik.html#ID-c64a841a-b6f1-49fa-baa7-6b628b4e189d">Formeln</a> for \(i \in \{1,...,n\}\) so dass
+</p>
+\begin{align*}
+B_0,...,B_{n} \vdash A
+\end{align*}
+<p>
+Dann gilt nach <a href="20231113-substitution_durch_eine_formel.html#ID-a6f642ec-e909-4b13-86a8-7e1b02f412cc">Substitution</a> durch \(P/C\)
+</p>
+\begin{align*}
+B_0[P/C],...,B_n[P/C] \vdash A[P/C]
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgabb192e" class="outline-2">
+<h2 id="orgabb192e"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Induktion über Herleitungen:
+</p>
+</div>
+<div id="outline-container-orgd9c3292" class="outline-3">
+<h3 id="orgd9c3292"><span class="section-number-3">2.1.</span> Annahme</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Nach Definition wird aus
+</p>
+\begin{prooftree}
+\hypo{B}
+\ellipsis{}{}
+\infer1[]{}
+\end{prooftree}
+<p>
+Dann ist 
+</p>
+\begin{prooftree}
+\hypo{B[P/C]}
+\ellipsis{}{}
+\infer1[]{}
+\end{prooftree}
+<p>
+die Korrespondierende Annahme
+</p>
+</div>
+</div>
+<div id="outline-container-org5086ff5" class="outline-3">
+<h3 id="org5086ff5"><span class="section-number-3">2.2.</span> Implikation - elimination</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Seien \(M,N\) Herleitungen von
+</p>
+\begin{prooftree}
+\hypo{B_i,...}
+\ellipsis{N}{$C \rightarrow A$}
+\hypo{B_j,...}
+\ellipsis{M}{C}
+\infer2[ $\rightarrow^-$]{A}
+\end{prooftree}
+<p>
+Nach Induktionsannahme existieren Herleitungen \(M',N'\), so dass durch Anwenden der Eliminationsregel folgt:
+</p>
+\begin{prooftree}
+\hypo{B_i[P/C],...}
+\ellipsis{N'}{$C[P/C] \rightarrow A[P/C]$}
+\hypo{B_j[P/C],...}
+\ellipsis{M'}{C[P/C]}
+\infer2[ $\rightarrow^-$]{$A[P/C]$}
+\end{prooftree}
+</div>
+</div>
+<div id="outline-container-org345aa6a" class="outline-3">
+<h3 id="org345aa6a"><span class="section-number-3">2.3.</span> implikation - introduction</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Sei \(M\) eine herleitung
+</p>
+\begin{prooftree}
+\hypo{[B_0]}
+\ellipsis{M}{A}
+\infer2[ $\rightarrow^+$]{$B_0 \rightarrow A$}
+\end{prooftree}
+<p>
+Nach Induktionsannahme folgt durch Anwenden der Einführungsregel für die Implikation
+</p>
+\begin{prooftree}
+\hypo{[B_0[P/C]]}
+\ellipsis{M'}{A[P/C]}
+\infer2[ $\rightarrow^+$]{$B_0[P/C] \rightarrow A[P/C]$}
+\end{prooftree}
+</div>
+</div>
+<div id="outline-container-org95666b3" class="outline-3">
+<h3 id="org95666b3"><span class="section-number-3">2.4.</span> allquantor - elimination</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Sei 
+</p>
+\begin{prooftree}
+\hypo{B_i,...}
+\ellipsis{}{$\forall_x A$}
+\hypo{t}
+\infer1[ $\all^-$]{$A(t)$}
+\end{prooftree}
+<p>
+Damit folgt nach induktionsannahme und Elimination des Allquantors
+</p>
+\begin{prooftree}
+\hypo{B_i[P/C],...}
+\ellipsis{}{$\forall_x A[P/C]$}
+\hypo{t}
+\infer1[ $\forall^-$]{$A[P/C](t)$}
+\end{prooftree}
+</div>
+</div>
+<div id="outline-container-org48e760f" class="outline-3">
+<h3 id="org48e760f"><span class="section-number-3">2.5.</span> allquantor - introduction</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+Sei \(M\) eine Herleitung 
+</p>
+\begin{prooftree}
+\hypo{B_i,...}
+\ellipsis{M}{$A(t)$}
+\hypo{t}
+\infer1[ $\forall^+$ var. cond ]{$ \forall_x A(x)$}
+\end{prooftree}
+<p>
+dann folgt
+</p>
+\begin{prooftree}
+\hypo{B_i[P/C],...}
+\ellipsis{M}{$A[P/C](t)$}
+\hypo{t}
+\infer1[ $\forall^+$ var. cond ]{$ \forall_x A[P/C](x)$}
+\end{prooftree}
+
+<p>
+wobei jeweils die variablen bedingung erfüllt ist
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>
