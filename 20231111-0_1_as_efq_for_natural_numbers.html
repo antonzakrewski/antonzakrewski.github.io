@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>0 = 1 as EfQ for Natural Numbers</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">0 = 1 as EfQ for Natural Numbers</h1>
+<div id="outline-container-org4887ae2" class="outline-2">
+<h2 id="org4887ae2"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Es gilt
+</p>
+\begin{align*}
+0 \equiv S(0) \rightarrow \forall_{x,y} x \equiv y
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org11eee38" class="outline-2">
+<h2 id="org11eee38"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Sei
+</p>
+\begin{align*}
+P (x) \coloneqq 0 \equiv x
+\end{align*}
+<p>
+Dann gilt \(P(0) = 0 \equiv 0\) wegen 
+</p>
+\begin{prooftree}
+\infer1[ $\mathrm{Refl}$ ]{$0 \equiv 0$}
+\infer1[ $\mathrm{def.}$]{P(0)}
+
+\hypo{[u: P x]}
+\infer1[ $\mathrm{def}$]{$0 \equiv x$}
+\infer1[ $\mathrm{Suc}$]{S(0) \equiv S(x)}
+
+\hypo{$0 \equiv S(0)$}
+\infer2[ $\mathrm{Trans}$]{0 \equiv S(x)}
+\infer1[ $\mathrm{def}$]{P(S(x))}
+
+\infer2[ $\mathrm{Ind} (*)$]{$\forall_x P(x)$}
+\infer1[ $\rightarrow^+$]{$0 \equiv S(0) \rightarrow \forall_x P(x)$}
+\end{prooftree}
+
+<p>
+Damit folgt auch
+</p>
+\begin{prooftree}
+\hypo{v:[ $\forall_x P(x)$]}
+\hypo{t}
+\infer1[ $\forall^-$]{P(t)}
+\infer1[ $\mathrm{def}$]{0 \equiv t}
+\infer1[ $\mathrm{Sym}$]{t \equiv 0}
+\hypo{v: [ $\forall_y P(y)$]}
+\hypo{u}
+\infer1[ $\forall^-$]{P(u)}
+\infer1[ $\mathrm{def}$]{0 \equiv u}
+\infer2[ $\mathrm{Trans}$]{t \equiv u}
+\infer1[ $\forall^+ \mathrm{var cond.}$]{$\forall_x x \equiv u$}
+\infer1[ $\forall^+ \mathrm{var cond.}$]{$\forall_{x,y} x \equiv y$}
+\infer1[ $\rightarrow^+$ v]{ $\forall_x P(x) \rightarrow \forall_{x,y} x \equiv y$}
+\end{prooftree}
+
+<p>
+zusammengesetzt ergibt sich
+</p>
+\begin{prooftree}
+\hypo{w: $0 \equiv S(0)$}
+\ellipsis{N}{$\forall_x P(x)$}
+\hypo{u: $\forall_x P(x)$}
+\ellipsis{M}{$\forall_{x,y} x \equiv y$}
+\infer1[ $\rightarrow^+$ u]{$ \forall_x P(x) \rightarrow \forall_{x,y} x \equiv y$
+\infer2[ $\rightarrow^-$]{ $\forall_{x,y} x \equiv y$}
+\infer1[ $\rightarrow^+$ w]{ $0 \equiv S(0) \rightarrow \forall_{x,y} x \equiv y$}
+\end{prooftree}
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

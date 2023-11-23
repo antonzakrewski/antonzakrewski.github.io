@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Satz von Macaulay</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Satz von Macaulay</h1>
+<div id="outline-container-org0fb7527" class="outline-2">
+<h2 id="org0fb7527"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(K\) ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a>, \(K[X_1,...,X_n]\) der <a href="20220303185921-polynomring.html#ID-1a010da5-5e8a-407f-87ba-85383825403f">Polynomring</a>, \(I \subseteq K[X_1,...,X_n]\) ein <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">Ideal</a> und \(>\) eine <a href="20231116-graded_monomial_order.html#ID-b98b4c5d-fbed-4f8f-ad57-3fdca9512f64">graduierte Monomordnung</a>
+</p>
+
+<p>
+Dann gilt für die <a href="20231113-affine_hilbert_funktion_eines_polynoms.html#ID-180ef87f-0fdf-42f2-942f-d334c72f13ef">Affine Hilbert-Funktion eines Ideals</a> und für das <a href="20231030-monomiales_ideal_erzeugt_durch_leitterme.html#ID-3fe81bd4-d13b-4d4f-9977-199d5566c72e">Leittermideal</a> 
+</p>
+\begin{align*}
+\mathrm{HF}_{I}(s) = \mathrm{HF}_{ \langle \mathrm{LT}(I)\rangle}(s)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orge90a89b" class="outline-2">
+<h2 id="orge90a89b"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Sei
+</p>
+\begin{align*}
+M \coloneqq \{\mathrm{LM}(f) \vert f \in I_{\leq s}, f \neq 0\} 
+\end{align*}
+<p>
+die <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">menge</a> der vorkommenden <a href="20231030-leitmonom.html#ID-71bb2d24-cad6-4ce3-84f1-89e0c4feac7e">Leitmonome</a>.
+Dann ist \(M\) endlich als <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">Teilmenge</a> von \(\{1,...,s\}^n\).
+</p>
+
+<p>
+Sei im folgenden \(f_i \in I\) für \(i \in \{1,...,n\}\) mit \(\{\mathrm{LM}(f_i)\} = M\) und <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> \(\mathrm{LM}(f_1) > ... > \mathrm{LM}(f_m)\).
+Dann ist \(f_i\) eine <a href="20220207224644-lineare_unabhangigkeit.html#ID-c4d1496f-6012-4ade-8b98-3e29dad89ded">linear unabhängige</a> <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">Teilmenge</a> von \(I_{s}\) als <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">K-Vektorraum</a>, 
+</p>
+
+<p>
+Sei
+</p>
+\begin{align*}
+0 = \sum_{i=1}^{n} \lambda_i \mathrm{LM}(f_i)
+\end{align*}
+
+<p>
+Sei \(j\) minimal mit \(\lambda_j \neq 0\), dann wird aber nach Annamhe \(\lambda_j \cdot \mathrm{LT}(f_j)\) nicht gekürzt, da $\mathrm{LM}(f<sub>j</sub>) &gt; \mathrm{LM}(f<sub>j+1</sub>) &#x2026;$ gilt.
+</p>
+
+<p>
+Ebenso ist \(f_i\) ein <a href="20221106152549-erzeugendensystem.html#ID-f76ea8a6-1176-46cf-a300-c2312e60e6d8">Erzeugendensystem eines Vektorraums</a> von \(I_{\leq s}\)
+Angenommen \(I \setminus \langle f_i\rangle\) ist <a href="20220902125304-nichtleere_menge.html#ID-119fa0d9-a2b3-4b46-bb61-a6e590282321">nichtleer</a>, so existiert, da eine <a href="20231030-monomordnung.html#ID-6e957901-1e39-4a42-936c-cdb51c862a3c">Monomordnung</a> eine <a href="20220929195946-wohlordnung.html#ID-8f3e284b-c3c9-4aaf-8bf5-5eadc47faa78">Wohlordnung</a> ist, ein <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c-70182b7714f9">Polynom</a> \(g \in I \setminus \langle f_i\rangle\) mit minimalem Leitmonom \(\mathrm{LM}(g)\).
+Dann ist aber \(\mathrm{LM}(g) \in M\) und somit gilt für den <a href="20231030-leitterm.html#ID-dd651610-0a3f-4d3a-a023-7054df6eec87">Leitterm</a> 
+</p>
+\begin{align*}
+\mathrm{LT}(g) = \lambda \mathrm{LT}(f_j)
+\end{align*}
+<p>
+mit \(\lambda \in K^{\times}\)
+</p>
+
+<p>
+Dann ist \(g - f_j \in I_{\leq s}\) mit kleinerem Leitmonom, widerspruch
+</p>
+
+
+<p>
+Sei \(\mathrm{LM}(f_1),...,\mathrm{LM}(f_m)\), dann gilt nach Konstruktion \(\mathrm{LM}(f_1) > \mathrm{LM}(f_2) ... > \mathrm{LM}(f_m)\) und damit ist \(\mathrm{LM}(f_i)\) linear unabhängig
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

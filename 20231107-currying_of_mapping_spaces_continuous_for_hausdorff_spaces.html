@@ -13,11 +13,97 @@
 <script type="text/javascript" id="MathJax-script" defer
 src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
 <h1 class="title">currying of mapping spaces continuous for hausdorff spaces</h1>
+<div id="outline-container-org4be9381" class="outline-2">
+<h2 id="org4be9381"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \((X, \mathcal{T}_X)\), \((Y, \mathcal{T}_Y)\) and \((Z, \mathcal{T}_Z)\) be <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological spaces</a>, such that \(X\) is <a href="20221122074811-hausdorff_raum.html#ID-f49f9b47-9f16-456f-837f-7b9656c46aba">Hausdorff</a> 
+Then for the <a href="20231103-mapping_space.html#ID-233d712d-03e8-4415-b86e-25bc8b6c3cef">mapping spaces</a> equipped with the <a href="20231103-compact_open_topology.html#ID-fcb63ee4-436d-4523-9277-bb9678883c5c">compact open</a> <a href="20220930230520-topologie_auf_einer_menge.html#ID-1ced2edb-806d-4fb8-ada3-ca97b7ea1d10">topology</a>, <a href="20221009120959-currying.html#ID-81706d71-7ba9-435f-86e6-0e2e3d3d2493">Currying</a> 
+</p>
+\begin{align*}
+\mathrm{curry}: \mathrm{Map}(X \times Y, Z) \rightarrow& \mathrm{Map}(X, \mathrm{Map}(Y,Z)) \\
+f \mapsto& (f_x: y \mapsto f(x,y))
+\end{align*}
+<p>
+is <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org2ce5396" class="outline-2">
+<h2 id="org2ce5396"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Since \(X\) is <a href="20221122074811-hausdorff_raum.html#ID-f49f9b47-9f16-456f-837f-7b9656c46aba">Hausdorff</a>, we may choose a <a href="20230211131537-subbasis_einer_topologie.html#ID-9d1f4366-7535-41ca-bb72-967675fb06ab">Subbasis</a> \(\mathcal{S}\) of \(\mathrm{Map}(Y,Z)\) and then
+</p>
+\begin{align*}
+\mathcal{O}_{K, \mathcal{S}}
+\end{align*}
+<p>
+for \(K \subseteq X\) <a href="20230412003456-compact_set.html#ID-d09ae6d2-2b5c-41c1-a54d-3259d3e2f0f0">compact</a> is a subbasis of \(\mathrm{Map}(X, \mathrm{Map}(Y,Z))\) (cf. <a href="20231107-restricting_subbasis_for_the_compact_open_topology.html#ID-30dada72-541e-4c4f-ad5c-86c0aea300d8">restricting subbasis for the compact open topology</a>)
+</p>
 
+<p>
+Therefore, let \(\mathcal{S} = \{\mathcal{O}_{L,U} \vert U \subseteq Z \text{ open}, L \subseteq Y \text{ compact} \}\) be the canonical subbasis 
+</p>
+
+
+<p>
+Thus
+</p>
+\begin{align*}
+\mathrm{curry}^{-1}[ \mathcal{O}_{K, \mathcal{O}_{K,U}}] = \mathcal{O}_{K \times L, U}
+\end{align*}
+<p>
+where by <a href="20230519090021-satz_von_tychonoff.html#ID-30c83690-820b-4f4f-ac1b-5019fde136a9">Tychonoff's Theorem</a> \(K \times L\) is <a href="20230412003456-compact_set.html#ID-d09ae6d2-2b5c-41c1-a54d-3259d3e2f0f0">compact</a>.
+</p>
+
+<p>
+Note that \(f \in \mathrm{curry}^{-1}[ \mathcal{O}_{K, \mathcal{O}_{L,U}}]\) <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a>
+</p>
+\begin{align*}
+f[ \{k\} \times L] \subseteq U \forall k \in K
+\end{align*}
+<p>
+hence the equality
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Anton Zakrewski</p>

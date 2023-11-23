@@ -53,13 +53,17 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 <h2 id="org5ca1b9c"><span class="section-number-2">1.</span> Proposition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Let \((X, \mathcal{T}_X)\), \((Y, \mathcal{T}_Y)\) and \((Z, \mathcal{T}_Z)\) be <a href="20230705-locally_compact_regular_space.html#ID-f89f4ba5-4eb9-448b-bf35-da8e5aeaa963">locally regular compact</a> <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological spaces</a>
+Let \((X, \mathcal{T}_X)\), \((Y, \mathcal{T}_Y)\) and \((Z, \mathcal{T}_Z)\) be <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological spaces</a>, such that \(Y\) is <a href="20231117-locally_pseudoregular_compact_space.html#ID-5e17ded0-6f62-4eab-a5da-f8abe301cb2c">locally pseudoregular compact</a> 
+</p>
+
+<p>
+Then the composition
 </p>
 \begin{align*}
 \sigma: \mathrm{Map}(Y,Z) \times \mathrm{Map}(X,Y) \rightarrow \mathrm{Map}(X,Z)
 \end{align*}
 <p>
-is <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a> with respect to the <a href="20230211133152-produkttopologie.html#ID-32030f19-ac2a-4c46-aaed-1abb1cd6df9f">product topology</a> and the <a href="20231103-compact_open_topology.html#ID-fcb63ee4-436d-4523-9277-bb9678883c5c">compact open topology</a> 
+is <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a> with respect to the <a href="20230211133152-produkttopologie.html#ID-32030f19-ac2a-4c46-aaed-1abb1cd6df9f">product topology</a> and the <a href="20231103-compact_open_topology.html#ID-fcb63ee4-436d-4523-9277-bb9678883c5c">compact open topology</a> of the <a href="20231103-mapping_space.html#ID-233d712d-03e8-4415-b86e-25bc8b6c3cef">mapping spaces</a> 
 </p>
 </div>
 </div>
@@ -100,6 +104,50 @@ Let \(L = K_1 \cup ... \cup K_n\) be compact subsets of \(Y_i\), then for
 
 <div id="outline-container-org79b8e55" class="outline-2">
 <h2 id="org79b8e55"><span class="section-number-2">3.</span> Proof</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+<a href="20230313165454-urbild_und_subbasis_einer_stetigen_funktion.html#ID-8a7fdcd8-db9e-4bd5-8456-6f738b2054ed">continuous map and subbasis</a>
+</p>
+
+
+<p>
+Let \(\mathcal{O}_{K,U}\) be open with \(K \subeteq X\) <a href="20230412003456-compact_set.html#ID-d09ae6d2-2b5c-41c1-a54d-3259d3e2f0f0">compact</a> and \(U \subseteq Z\) <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a>.
+</p>
+
+<p>
+Then for \((g,f) \in \sigma^{-1}[\mathcal{O}_{K,U}]\), it follows by <a href="20231106-perimage_and_subsets.html#ID-24ef0798-ff70-4c90-be3a-79ee2b8c9649">preimage and subsets</a> 
+</p>
+\begin{align*}
+g \circ f[K] \subseteq& U && \vert g^{-1}[-]\\
+f[K] \subseteq g^{-1} \circ g \circ f[K] \subseteq& g^{-1}[U]
+\end{align*}
+
+<p>
+Since \(Y\) is locally pseudoregular compact,  there exists an <a href="20221125072633-offene_uberdeckung.html#ID-f64293ce-3838-4f49-b45d-07666123c2c9">open cover</a> of \(g^{-1}[U]\) with <a href="20230412003456-compact_set.html#ID-d09ae6d2-2b5c-41c1-a54d-3259d3e2f0f0">compact</a> <a href="20221206134155-obermenge.html#ID-cde60332-c343-46aa-a2c4-90186f32d6de">supersets</a> (cf. <a href="20231117-locally_pseudoregular_compact_and_open_covering_with_associated_compact_sets.html#ID-ce02b012-c88c-486d-a19d-8a18e9869e94">locally pseudoregular compact and open set as union of open sets with compact supersets</a>).
+Because \(K \subseteq g^{-1}[U]\) is compact, there exists a finite covering \(O_1,...,O_n\) with compact supersets \(C_i \supseteq O_i\).
+</p>
+
+<p>
+Let \(L = \bigcup_{i=1}^n C_i\) be the finite union of those compact sets, hence also compact (cf. <a href="20230429001932-endliche_vereinigung_von_kompakten_mengen.html#ID-34022ca4-9559-4e9c-b11d-e1c61fb78e99">finite union of compact sets</a>) and \(V \coloneqq \bigcup_{i=1}^n O_i\).
+</p>
+
+<p>
+Then
+</p>
+\begin{align*}
+(g,f) \in \mathcal{O}_{L,U} \times \mathcal{O}_{K,V}
+\end{align*}
+<p>
+and furthermore since \(V \subseteq L\), it follows, that 
+</p>
+\begin{align*}
+\mathcal{O}_{L,U} \times \mathcal{O}_{K,V} \subseteq \sigma^{-1}[ \mathcal{O}_{K,U}]
+\end{align*}
+
+<p>
+hence \(\sigma^{-1}[\mathcal{O}_{K,U}]\) is a <a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">neighbourhood</a> of all points, hence open (cf. <a href="20230222170300-offenheit_und_umgebung_aller_punkte.html#ID-a6a5b663-7773-4622-9bfa-8b870e5e381f">openness and neighbourhood for all points</a>)
+</p>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">

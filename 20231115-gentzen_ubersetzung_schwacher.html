@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gentzen-Übersetzung schwächer</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Gentzen-Übersetzung schwächer</h1>
+<div id="outline-container-orgd2bbead" class="outline-2">
+<h2 id="orgd2bbead"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(A \in \mathcal{F}\) eine <a href="20230102152602-formel_logik.html#ID-c64a841a-b6f1-49fa-baa7-6b628b4e189d">Formel</a>, dann gilt für die <a href="20231106-gentzen_ubersetzung.html#ID-460eb1d5-03f9-4f39-a188-08031790aec0">Gentzen Übersetzung</a> 
+</p>
+\begin{align*}
+\vdash: A \rightarrow A^g
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org284bac7" class="outline-2">
+<h2 id="org284bac7"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Induktion über Herleitungen
+</p>
+</div>
+<div id="outline-container-org9ce44a5" class="outline-3">
+<h3 id="org9ce44a5"><span class="section-number-3">2.1.</span> \(\bot\)</h3>
+<div class="outline-text-3" id="text-2-1">
+\begin{align*}
+\vdash: \bot \rightarrow \bot
+\end{align*}
+<p>
+ist eine tautologie
+</p>
+</div>
+</div>
+<div id="outline-container-orgff24feb" class="outline-3">
+<h3 id="orgff24feb"><span class="section-number-3">2.2.</span> \(R\vec{t}\)</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+folgt aus der <a href="20231030-einfuhrung_einer_doppelten_negatino.html#ID-35d6d5ed-a5cc-4058-817e-4a93e15768e9">minimallogischen einführung einer doppelten Negation</a> 
+</p>
+\begin{align*}
+\vdash: R\vec{t} \rightarrow \lnot\lnot R\vec{t}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgbac7c36" class="outline-3">
+<h3 id="orgbac7c36"><span class="section-number-3">2.3.</span> \(\lor\)</h3>
+<div class="outline-text-3" id="text-2-3">
+\begin{prooftree}
+\hypo{[a: A]}
+\ellipsis{Ind}{A^g}
+\infer1[$\lor_2^+$]{$A^g \lor B^g$}
+\hypo{[a: B]}
+\ellipsis{Ind}{B^g}
+\infer1[$\lor_1^+$]{$A^g \lor B^g$}
+\hypo{A \lor B}
+\infer3[$\lor^-$]{$A^g \lor B^g$}
+\ellipsis{M}{$A^g \tilde{\lor} B^g$}
+\end{prooftree}
+<p>
+wobei \(M\) die herleitung "<a href="20231104-minimallogische_disjunktion_impliziert_klassische_disjunktion.html#ID-4576e87c-c519-43bf-b268-d8d5115296dd">minimallogische Disjunktion impliziert klassische Disjunktion</a>" ist.
+</p>
+</div>
+</div>
+<div id="outline-container-orge3f7a6b" class="outline-3">
+<h3 id="orge3f7a6b"><span class="section-number-3">2.4.</span> \(\land\)</h3>
+<div class="outline-text-3" id="text-2-4">
+\begin{prooftree}
+\hypo{u: A \land B}
+\infer1[$\land_1^-$]{B}
+\ellipsis{Ind}{B^g}
+
+\hypo{v: A \land B}
+\infer1[$\land_1^-$]{A}
+\ellipsis{Ind}{A^g}
+\infer2[$\land^+$]{A^g \land B^g}
+\end{prooftree}
+</div>
+</div>
+
+<div id="outline-container-org3fa1d00" class="outline-3">
+<h3 id="org3fa1d00"><span class="section-number-3">2.5.</span> \(\rightarrow\)</h3>
+<div class="outline-text-3" id="text-2-5">
+\begin{prooftree}
+\hypo{$A \rightarrow B$}
+\hypo{u: A}
+\infer2[ $\rightarrow^-$]{B}
+\ellipsis{Ind}{B^g}
+
+\hypo{u: A}
+\ellipsis{Ind}{A^g}
+\end{prooftree}
+</div>
+</div>
+
+<div id="outline-container-org3fe6378" class="outline-3">
+<h3 id="org3fe6378"><span class="section-number-3">2.6.</span> existenz</h3>
+<div class="outline-text-3" id="text-2-6">
+\begin{prooftree}
+\hypo{ $\exists_x A$}
+\hypo{ [A]}
+\infer2[ $\exists^-$, var. cond]{A}
+\ellipsis{Ind}{A^g(t)}
+\infer1[ $\exists^+$]{$\exists_x A^g$}
+\ellipsis{M}{ $\tilde{\exists} A^g$}
+\end{prooftree}
+<p>
+wobei \(M\) die Herleitung aus "<a href="20231104-minimallogische_existenz_impliziert_klassische_existenz.html#ID-61f9bd72-8883-4eb9-8079-9985bf27522c">minimallogische Existenz impliziert klassische Existenz</a>" ist und \(x\) bei var. cond. nicht in \(A\) frei vorkommt.
+</p>
+</div>
+</div>
+<div id="outline-container-org885426d" class="outline-3">
+<h3 id="org885426d"><span class="section-number-3">2.7.</span> allquantor</h3>
+<div class="outline-text-3" id="text-2-7">
+\begin{prooftree}
+\hypo{ $\forall_x A$}
+\infer1[ $\forall^-$]{A}
+\ellipsis{Ind}{$A^g$}
+\infer1[ $\forall^+$, var. cond.]{$\forall_x A^g$}
+\end{prooftree}
+<p>
+wobei bei \(\forall^+\) \(x\) nicht als Annahme vorkommt.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

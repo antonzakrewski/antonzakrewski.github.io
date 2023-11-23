@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>algebraic topology 1 - homotopy groups</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">algebraic topology 1 - homotopy groups</h1>
+<div id="outline-container-org8345021" class="outline-2">
+<h2 id="org8345021"><span class="section-number-2">1.</span> aspects</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><a href="20231110-comonoid.html#ID-78554746-4c37-4a9a-80ed-049a61803c64">comonoid</a> - todo</li>
+<li><a href="20231110-pointed_s_1_as_comonoid_in_htop.html#ID-290d424f-5119-44bb-b91b-81692f476075">pointed S<sup>1</sup> as comonoid in hTop</a></li>
+<li><a href="20231110-pointed_s_1_as_cogroup_in_htop.html#ID-4bc04b15-8ca9-42e9-8050-c25b5042377c">pointed S<sup>1</sup> as cogroup in hTop</a></li>
+
+<li><a href="20231114-cogroup_on_s_1_in_htop_unique.html#ID-f551f0b5-2aa5-46a5-8adf-8a74715eb651">cogroup on S<sup>1</sup> in hTop unique</a> - fact</li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20231114-smash_product_on_s_1_as_cogroup.html#ID-aaccf00c-97f3-4bc4-9d10-fec9a3131c1c">smash product on S<sup>1</sup> as cogroup</a></li>
+<li><a href="20231114-distributivity_of_the_smash_and_wedge_product.html#ID-55802a10-fc10-460f-a77e-6938540a05cf">distributivity of the smash and wedge product</a> - todo</li>
+<li><a href="20231114-based_loop_space_as_group_in_htop.html#ID-ea67ed6c-c9d7-4016-ac76-f07ec786c149">based loop space as group in hTop*</a></li>
+
+<li><a href="20230302211108-fundamentalgruppe.html#ID-f98b938b-c835-4903-9857-40c781220452">fundamental group</a></li>
+<li><a href="20230802-fundamental_groupoid.html#ID-37343ec7-8b5f-4b64-aa6e-69ffbd9012c1">fundamental groupoid</a></li>
+<li><a href="20230722-homotopy_group.html#ID-8aa4161f-9373-468e-90e1-7ab31641c24a">homotopy group</a> - \(n = 0\)</li>
+<li><a href="20231114-fundamental_group_functor.html#ID-7635166b-8729-4feb-9e20-69d0164ece06">fundamental group functor</a></li>
+<li><a href="20231114-smash_product_on_spheres.html#ID-3e12d36e-85b3-407c-9fbb-9c1081bcd23d">smash product on spheres</a></li>
+<li></li>
+
+<li><a href="20230723-join_topology.html#ID-32e2a0d3-99a3-429c-b037-72bbdd860ab9">Join (Topology)</a></li>
+<li><a href="20231114-homotopy_group_functor.html#ID-96d36bfd-4e5d-4e89-9513-a4d9b8e74600">homotopy group functor</a></li>
+<li></li>
+
+<li><a href="20231114-zeroth_homotopy_group_not_depending_on_the_base_point.html#ID-53072b3e-afa2-4988-b55b-4e03cdb3db15">zeroth homotopy group not depending on the base point</a></li>
+<li><a href="20231114-homotopy_group_functor_commutes_with_products.html#ID-480100e8-98b8-4a63-b8b9-4b4b197afc2b">homotopy group functor commutes with products</a></li>
+
+<li><a href="20231114-path_induces_isomorphism_between_fundamental_groups.html#ID-6ecb51fd-2bbe-49b9-a22d-531d229be317">path induces isomorphism between fundamental groups</a></li>
+<li></li>
+
+<li><a href="20230729-eckmann_hilton_argumenta.html#ID-2ab97470-d873-4cff-973b-87a6501f9b08">Eckmann-Hilton Argument</a> - todo</li>
+
+<li><a href="20231114-weak_homotopy_equivalence.html#ID-560d1751-c604-40c4-9f8b-787e7e47e5ed">weak homotopy equivalence</a></li>
+<li><a href="20231114-pointed_homotopy_equivalence_as_weak_homotopy_equivalence.html#ID-80ffaa49-cc13-438e-bc3a-90bfc1ab8862">pointed homotopy equivalence as weak homotopy equivalence</a></li>
+<li></li>
+</ul>
+
+
+
+<ul class="org-ul">
+<li><a href="20231121-weak_equivalence_in_general_not_a_homotopy_equivalence.html#ID-7374adbb-ee90-476d-b635-63afd50ef81f">weak equivalence in general not a homotopy equivalence</a></li>
+<li><a href="20231121-path_induced_homtoopy_equivalence_between_based_loop_spaces.html#ID-7712a56f-b92b-4ed9-8911-0cd98ed36498">path induced homtoopy equivalence between based loop spaces</a></li>
+<li></li>
+</ul>
+</div>
+<div id="outline-container-orge9ab60f" class="outline-3">
+<h3 id="orge9ab60f"><span class="section-number-3">1.1.</span> CW</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20230504195105-cw_komplex.html#ID-ee726694-2276-434b-8043-b02bf828177b">CW-Complex</a></li>
+<li><a href="20231121-sphere_as_cw_complex.html#ID-65d2eb93-5396-4786-ba62-8649a2556e9b">Sphere as CW-Complex</a></li>
+<li><a href="20231121-disk_as_cw_complex.html#ID-f4a93ac0-f266-4a6c-9467-3c9d1010f9cd">disk as CW complex</a></li>
+<li><a href="20231121-dimension_of_a_cw_complex.html#ID-88a5d944-49a1-472d-b985-c3e7e7a8c3eb">dimension of a CW-Complex</a></li>
+<li><a href="20231121-finite_dimensional_cw_complex.html#ID-6e58e004-184c-43e4-b077-0a41d27290f2">finite dimensional CW-complex</a></li>
+<li><a href="20231121-finite_type_cw_structure.html#ID-a6a036b9-fc40-44db-b4ef-fd092f9212c6">finite type cw-structure</a></li>
+<li><a href="20231121-finite_cw_complex.html#ID-a06cd5e3-3aed-4af2-a7b2-2b0a58b90a82">finite cw-complex</a></li>
+<li><a href="20231121-cw_subcomplex.html#ID-d7bd762f-e5dc-4dde-bfad-0e6a720eda79">CW subcomplex</a></li>
+<li><a href="20231121-compact_subset_of_a_cw_complex_as_subset_of_a_finite_subcomplex.html#ID-ee451878-7854-4206-adb2-121de9a947af">compact subset of a cw-complex as subset of a finite subcomplex</a></li>
+<li><a href="20231121-compact_cw_complex_and_finite_cw_complex.html#ID-efb8e1ef-b616-428a-aa00-896c57d3942a">compact CW complex and finite CW complex</a></li>
+<li><a href="20231121-locally_compact_cw_complex_and_locally_finite_cw_complex.html#ID-ac5a9725-8a2e-4ddc-b3af-02f9915d7b4e">locally compact CW complex and locally finite CW complex</a></li>
+<li><a href="20230406114101-paracompact_space.html#ID-e335d767-4989-4ad5-ba4e-28c7559ae05a">parakompakt</a></li>
+<li><a href="20231121-cw_complex_as_paracompact_space.html#ID-2bd5e5b7-73e8-42aa-84af-64d286e6cccf">CW complex as paracompact space</a></li>
+<li><a href="20231121-cw_complex_as_normal_space.html#ID-c606adbd-53d5-4086-bed2-d1f1f3ea6ec7">CW complex as normal space</a></li>
+<li><a href="20231121-cw_complex_as_hausdorff_space.html#ID-2a0bdff5-3171-4bac-b43b-a3c4150026ee">CW complex as hausdorff space</a></li>
+<li><a href="20231121-cw_complex_as_locally_contractible_space.html#ID-13bc323b-8db2-490b-bec1-c130594a43ce">CW complex as locally contractible space</a></li>
+<li><a href="20231121-cw_complex_as_path_connected_space.html#ID-b90f8b00-e891-4d84-805e-72948d53cf11">CW complex as path connected space</a></li>
+<li><a href="20231121-cellular_map.html#ID-3ffdf08d-2b0b-485b-b446-5882683a43eb">cellular map</a></li>
+<li><a href="20231121-cellular_approximation.html#ID-9316a819-5c68-4445-adfe-8be652126955">cellular approximation</a></li>
+
+<li><a href="20231121-smaller_homotopy_group_of_a_sphere.html#ID-36050977-a13e-43b4-8768-0f5d6cd948bc">smaller homotopy group of a sphere</a></li>
+<li><a href="20231121-space_equivalent_to_a_cw_complex.html#ID-ace9fc31-8838-451a-a70e-5df109738af3">space equivalent to a cw-complex</a></li>
+<li><a href="20231029-satz_von_whitehead.html#ID-c852d592-5c82-4ca4-af31-2b1385c000a3">Whitehead theorem</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

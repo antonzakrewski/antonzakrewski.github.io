@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>isomorphism in category cat as surjective, fully faithful functor</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">isomorphism in category cat as surjective, fully faithful functor</h1>
+<div id="outline-container-org9523758" class="outline-2">
+<h2 id="org9523758"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(\mathrm{Cat}\) be <a href="20230301211140-kategorie_der_kleinen_kategorien.html#ID-0974d48a-c50e-471e-9dab-61b60297d34b">Category Cat</a>, then the <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphisms</a> are the <a href="20231111-surjective_functor.html#ID-ce6efc54-e4f5-4e0d-a8e8-959bd2de193a">surjective</a>, <a href="20230301211947-volltreuer_funktor.html#ID-85a359f5-50f6-4f57-ae10-c34278befc6c">fully faithful functor</a>  <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functors</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-orgf5bd026" class="outline-2">
+<h2 id="orgf5bd026"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgf074243" class="outline-3">
+<h3 id="orgf074243"><span class="section-number-3">2.1.</span> surjective, fully faithful as iso</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Suppose \(\mathcal{F}: \mathcal{C} \rightarrow \mathcal{D}\) is a surjective, fully faithfull functor.
+Then for for \(A_1,A_2,A_3 \in \mathrm{Ob}(\mathcal{D})\), since \(\mathcal{F}\) is surjective, there exists \(\mathcal{F}^{-1}(A_i)\) such that
+</p>
+\begin{align*}
+\mathcal{F}( \mathcal{F}^{-1}(A_i)) = A_i
+\end{align*}
+<p>
+Suppose \(f: A_1 \rightarrow A_2, g: A_2 \rightarrow A_3\), then since \(\mathcal{F}\) is <a href="20230301211925-voller_funktor.html#ID-300944ac-0e6d-4b27-99f1-176a261999aa">full</a> and \(\mathcal{F}^{-1}(A_i) \in \mathrm{Ob}(\mathcal{C})\), there exist unique <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphisms</a>
+</p>
+\begin{align*}
+\mathcal{F}^{-1}(f): \mathcal{F}^{-1}(A_1) \rightarrow \mathcal{F}^{-1}(A_2)
+\mathcal{F}^{-1}(g): \mathcal{F}^{-1}(A_2) \rightarrow \mathcal{F}^{-1}(A_3)
+\end{align*}
+<p>
+such that
+</p>
+\begin{align*}
+\mathcal{F}(\mathcal{F}^{-1}(f)) =& f  \\
+\mathcal{F}(\mathcal{F}^{-1}(g)) =& g 
+\end{align*}
+
+<p>
+then let
+</p>
+\begin{align*}
+\mathcal{F}^{-1}: \mathcal{D} \rightarrow& \mathcal{C} \\
+A \mapsto& \mathcal{F}^{-1}(A) \\
+f \mapsto& \mathcal{F}^{-1}(f)
+\end{align*}
+
+<p>
+Then by uniqueness, it follows that \(\mathcal{F}^{-1}(\mathrm{id}_{A_1}) = \mathrm{id}_{\mathcal{F}^{-1}(A_1)}\)
+</p>
+
+<p>
+Furthermore, applying functorality
+</p>
+\begin{align*}
+\mathcal{F}( \mathcal{F}^{-1}(g) \circ \mathcal{F}^{-1}(f)) =& \mathcal{F}( \mathcal{F}^{-1}(g)) \circ \mathcal{F}(\mathcal{F}^{-1}(f)) \\
+=& f \circ g
+\end{align*}
+<p>
+hence by uniqueness, it follows that
+</p>
+\begin{align*}
+\mathcal{F}^{-1}(f \circ g) =& \mathcal{F}^{-1}(f) \circ \mathcal{F}^{-1}(g)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgb8e4eb6" class="outline-3">
+<h3 id="orgb8e4eb6"><span class="section-number-3">2.2.</span> iso are surjective, fully faithful</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+:)
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

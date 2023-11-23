@@ -53,7 +53,10 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 <h2 id="org522ada4"><span class="section-number-2">1.</span> Proposition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Let \((X,\mathcal{T}_X)\) and \((Y,\mathcal{T}_Y)\) be <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological spaces</a>, \(\mathrm{Map}(X,Y)\) the <a href="20231103-mapping_space.html#ID-233d712d-03e8-4415-b86e-25bc8b6c3cef">mapping space</a> with the <a href="20231103-compact_open_topology.html#ID-fcb63ee4-436d-4523-9277-bb9678883c5c">compact open</a> <a href="20220930230520-topologie_auf_einer_menge.html#ID-1ced2edb-806d-4fb8-ada3-ca97b7ea1d10">topology</a> and \(\mathcal{S} \subseteq Y\) a <a href="20230211131537-subbasis_einer_topologie.html#ID-9d1f4366-7535-41ca-bb72-967675fb06ab">Subbasis</a>.
+Let \((X,\mathcal{T}_X)\) and \((Y,\mathcal{T}_Y)\) be <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological spaces</a>, where \(X\) is <a href="20221122074811-hausdorff_raum.html#ID-f49f9b47-9f16-456f-837f-7b9656c46aba">Hausdorff</a>,  \(\mathrm{Map}(X,Y)\) the <a href="20231103-mapping_space.html#ID-233d712d-03e8-4415-b86e-25bc8b6c3cef">mapping space</a> with the <a href="20231103-compact_open_topology.html#ID-fcb63ee4-436d-4523-9277-bb9678883c5c">compact open</a> <a href="20220930230520-topologie_auf_einer_menge.html#ID-1ced2edb-806d-4fb8-ada3-ca97b7ea1d10">topology</a> and \(\mathcal{S} \subseteq \mathcal{T}_Y\) a <a href="20230211131537-subbasis_einer_topologie.html#ID-9d1f4366-7535-41ca-bb72-967675fb06ab">Subbasis</a>.
+</p>
+
+<p>
 Then
 </p>
 \begin{align*}
@@ -68,50 +71,49 @@ is a subbasis on \(\mathrm{Map}(X,Y)\)
 <h2 id="orge3928d2"><span class="section-number-2">2.</span> Proof</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-Let \(U \subesetq Y\) open, \(k \subseteq X\) copmact and \(f \in \mathcal{O}_{K,U}\)
+Let \(U \subesetq Y\) open, \(k \subseteq X\) copmact and \(f \in \mathcal{O}_{K,U}\).
 </p>
 
 <p>
-Write \(U = \bigcap_{i \in I} U_i\) where \(U_i = \bigcap_{j =1}^n A_{i,j}\) for \(A_{i,j} \in \mathcal{S}\).
+Since \(\mathcal{S}\) is a subbasis, there exist \(A_{i,j} \in \mathcal{S}\) such that
 </p>
 
+\begin{align*}
+U =& \bigcup_{i \in I} U_i \\
+=& \bigcap_{i \in I} \bigcap_{j=1}^m A_{i,j}
+\end{align*}
+
+
 <p>
-Then
+Then \(K \subseteq f^{-1}[U]\) or because of <a href="20230228184501-urbild_von_der_vereinigung.html#ID-ef62accd-bba7-4498-b471-ae964570b67e">unions commute with preimages</a> 
 </p>
 \begin{align*}
 K \subseteq \bigcup_{i \in I} U_i f^{-1}[U_i]
 \end{align*}
+
 <p>
-Pick \(i(x) \in I\) such that \(x \in f^{-1}[U_{i(x)}]\)
-and \(x \in V_x \subseteq K_x \subseteq f^{-1}[U_{i(x)}]\) with \(V_x\) open in \(K \cap f^{-1}[U_{i(x)}]\) and \(K_x \subseteq K \cap f^{-1}[U_{i(x)}]\) compact.
-This can be done, because \(K\) is compact Hausdorff, since \(X\) is hausdorff and hence locally compact.
+For \(x \in K\), pick \(i(x) \in I\) such that \(x \in f^{-1}[U_{i(x)}]\).
+Because \(K\) as topological space is <a href="20221122074811-hausdorff_raum.html#ID-f49f9b47-9f16-456f-837f-7b9656c46aba">hausdorff</a> and compact (cf. <a href="20230518091728-hausdorff_raum_und_unterraum.html#ID-67f424d4-d476-49e5-9e89-414978341c38">inheritance of hausdorffness</a>), it is <a href="20230615-lokalkompakter_hausdorffraum.html#ID-c03b88f3-c6f0-4b6a-be77-ca8f9969e1d6">locally compact Hausdorff</a> (cf. <a href="20231103-compact_hausdorff_space_as_locally_hausdorff_space.html#ID-35a0f984-89a1-4734-b3de-66c169fac4ea">compact hausdorff space as locally compact hausdorff space</a>)
+Hence for \(x \in K \cap f^{-1}[U_i]\), there exists an open <a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">neighbourhood</a> \(V_x \subseteq f^{-1}[U_i]\) with compact closure \(K_x\).
+Since \(K\) is compact and \(\bigcup_{x \in K} V_x\) is an <a href="20221125072633-offene_uberdeckung.html#ID-f64293ce-3838-4f49-b45d-07666123c2c9">open cover</a>, there exists a finite subcover \(V_{x_1},...,V_{x_n}\).
+Then it follows, that
+</p>
+\begin{align*}
+f \in \bigcap_{i = 1}^n \mathcal{O}_{K_{x_i}, U_{x_i}} \subseteq \mathcal{O}_{K, U}
+\end{align*}
+<p>
+where \(U_{x_i} \in (U_i)\).
 </p>
 
 <p>
-Since \(K\) is compact, there exist \(x_1,...,x_n\) such that
+thus by <a href="20231117-intersection_of_compact_open_subbasis_sets_for_different_open_sets.html#ID-7d4c8cf1-c18e-4cf9-a79b-8a67955b3133">intersection of compact open subbasis sets for different open sets</a>, we conclude that
 </p>
 \begin{align*}
-K \subseteq \bigcup_{k=1}^n V_{x_k}
+\bigcap_{i = 1}^n \mathcal{O}_{K_{x_i}, U_{x_i}} =& \bigcap_{i = 1}^n \bigcap_{j = 1}^m \mathcal{O}_{K_{x_i},A_{i,j}}
 \end{align*}
 <p>
-Therefore, 
+and hence for \(C \subseteq X\) compact and \(S \in \mathcal{S}\), \(\mathcal{O}_{C,S}\) forms a subbasis (cf. <a href="20231117-criteria_for_a_subbasis.html#ID-381b35f9-6e55-4407-9dc4-b2ae97fe45f8">criteria for a subbasis</a>)
 </p>
-\begin{align*}
-f \in \mathcal{O}_{K_{x_k}, U_{i(x_k)}}
-\end{align*}
-
-<p>
-We recall, that
-</p>
-\begin{align*}
-U_{i(x_k)} =& \bigcap_{j=1}^{m_k} A_{i,j}
-\end{align*}
-<p>
-hence
-</p>
-\begin{align*}
-f \in \bigcap_{k=1}^n \bigcap{j=1}^{m_k} \mathcal{O}_{K_{x_k}, A_{k_i}} =& \mathcal{O}_{K_{x_k}, U_{i(x_k)}} \subseteq \mathcal{O}_{K,U}
-\end{align*}
 </div>
 </div>
 </div>
