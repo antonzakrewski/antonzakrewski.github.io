@@ -13,16 +13,100 @@
 <script type="text/javascript" id="MathJax-script" defer
 src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
 <h1 class="title">currying for mapping spaces welldefined</h1>
 <div id="outline-container-orge21008e" class="outline-2">
 <h2 id="orge21008e"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \((X, \mathcal{T}_X)\), \((Y, \mathcal{T}_Y)\) and \((Z, \mathcal{T}_Z)\) be <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological spaces</a>
+Then &lt;<a href="20221009120959-currying.html#ID-81706d71-7ba9-435f-86e6-0e2e3d3d2493">Currying</a>&gt;
+</p>
+\begin{align*}
+\mathrm{curry}: \mathrm{Map}(X \times Y, Z) \rightarrow& \mathrm{Map}(X, \mathrm{Map}(Y,Z))
+f \mapsto& (\widehat{f}: x \mapsto (f_x: y \mapsto f(x,y)))
+\end{align*}
+<p>
+is a <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">welldefined</a> set-theoretic map
+</p>
 </div>
-
+</div>
 <div id="outline-container-org6ee0111" class="outline-2">
 <h2 id="org6ee0111"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org44ba645" class="outline-3">
+<h3 id="org44ba645"><span class="section-number-3">2.1.</span> a) inside \(\mathrm{Map}(Y,Z)\)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Suppose \(f: X \times Y \rightarrow Z\) is <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a> and \(x \in X\).
+Then the restriction \(f_{\vert}: \{x\} \times Y \rightarrow Z\) is continuous (cf. <a href="20230515195750-einschrankung_einer_stetigen_abbildung_als_stetige_abbildung.html#ID-1afa10bb-de7f-4315-bf07-1966ed96afe0">restriction of a continuous map</a>)
+</p>
+
+<p>
+Furthermore \(\{x\} \times Y \simeq Y\) are canonically homeomorphic.
+</p>
+</div>
+</div>
+<div id="outline-container-org6988e4c" class="outline-3">
+<h3 id="org6988e4c"><span class="section-number-3">2.2.</span> b) inside \(\mathrm{Map}(X,\mathrm{Map}(Y,Z))\)</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Let \(\widehat{f}: x \mapsto (f_x: y \mapsto f(x,y))\).
+We have to show, that \(\overline{f}\) is continuous.
+</p>
+
+<p>
+By <a href="20230313165454-urbild_und_subbasis_einer_stetigen_funktion.html#ID-8a7fdcd8-db9e-4bd5-8456-6f738b2054ed">continuous map and subbasis</a> and <a href="20231117-criteria_for_a_subbasis.html#ID-381b35f9-6e55-4407-9dc4-b2ae97fe45f8">criteria for a subbasis</a>, consider \(U \subseteq Z\) <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> and \(K \subseteq Y\) <a href="20230412003456-compact_set.html#ID-d09ae6d2-2b5c-41c1-a54d-3259d3e2f0f0">compact</a>.
+Then for \(x \in \widehat{f}^{-1}[\mathcal{O}_{K,U}]\), it follows, that
+</p>
+\begin{align*}
+f_{\vert x}[ \{x\} \times K] \subseteq U
+\end{align*}
+<p>
+hence \(\{x\} \times K \subseteq f^{-1}[U]\) for the original \(f: X \times Y \rightarrow Z\)
+</p>
+
+<p>
+By <a href="20230601084010-tube_lemma.html#ID-b72789d6-acba-436c-b9f9-bc831ab5100d">tube lemma</a>, there exists an <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> <a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">neighbourhood</a> \(V \subseteq U\) of \(x\) with \(f[V \times K] \subseteq U\).
+Thus, \(V \subseteq \widehat{f}^{-1}[\mathcal{O}_{K,U}]\), hence \(\overline{f}\) is continuous. 
+</p>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
