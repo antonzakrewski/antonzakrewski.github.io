@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>degree of a polynomial and the polynomial successor</title>
+<title>degree of a polynomial and the degree of the difference polynomial</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -13,16 +13,89 @@
 <script type="text/javascript" id="MathJax-script" defer
 src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">degree of a polynomial and the polynomial successor</h1>
-<div id="outline-container-org5cdba7a" class="outline-2">
-<h2 id="org5cdba7a"><span class="section-number-2">1.</span> Proposition</h2>
-</div>
+<h1 class="title">degree of a polynomial and the degree of the difference polynomial</h1>
+<div id="outline-container-org60fe5d2" class="outline-2">
+<h2 id="org60fe5d2"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(f: \mathbb{Z} \rightarrow \mathbb{Q}\) be <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">map</a>,  <a href="20231123-polynomial_like_map.html#ID-567bc93a-ed92-447c-af68-4b6d10b4234d">polynomial-like</a> on \(\mathbb{Z}\).
+Then for the successor <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">map</a>   
+</p>
+\begin{align*}
+\Delta f = f(x+1) - f(x) 
+\end{align*}
+<p>
+it holds for the <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c-70182b7714f9">polynomials</a> 
+</p>
+\begin{align*}
+\mathrm{deg}(P_f) = \mathrm{deg}(P_{\Delta(P_f)}) + 1
+\end{align*}
 
-<div id="outline-container-orge67a21a" class="outline-2">
-<h2 id="orge67a21a"><span class="section-number-2">2.</span> Proof</h2>
+<p>
+see: <a href="20231123-polynomial_for_a_polynomial_like_map_on_the_integers_uniquely_determined.html#ID-526bb705-20fc-4363-8674-28867e74966b">polynomial for a polynomial-like map on the integers uniquely determined</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-org88323a0" class="outline-2">
+<h2 id="org88323a0"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Let
+</p>
+\begin{align*}
+P_f = \sum_{i=0}^{n} \alpha_i X^i
+\end{align*}
+<p>
+with \(\alpha_n \neq 0\).
+Then (cf. <a href="20231123-polynomial_like_map_and_successor_difference_polynomial_like.html#ID-6ec4c103-4f49-45b8-87af-5fe572063afc">polynomial-like map and successor difference polynomial-like</a>)
+</p>
+\begin{align*}
+\Delta_{P_f} =& \sum_{i=0}^{n} \alpha_i (X+1)^i - \sum_{i=0}^{n} \alpha_i X^i \\
+=& \alpha_n X^n - \alpha_n X^n + \alpha_n \binom{n}{1} X^{n-1} + \alpha_{n-1} X^{n-1} - \alpha_{n-1} X^{n-1} + r \\
+=& \alpha_n \binom{n}{1} X^{n-1} + r(x)
+\end{align*}h
+where $\mathrm{deg}(r(x)) < n-1$.
+Hence by [[id:f31d2706-62f7-4d1b-9490-24e8a8f4f892][degree of homogeneous polynomials under addition]], it follows, that
+\begin{align*}
+\mathrm{deg}(\Delta_{P_f}) =& n - 1 \\
+=& \mathrm{deg}(P_f) - 1
+\end{align*}
+</div>
 </div>
 </div>
 <div id="postamble" class="status">

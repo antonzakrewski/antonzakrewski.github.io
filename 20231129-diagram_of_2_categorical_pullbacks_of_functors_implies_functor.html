@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>diagram of 2-categorical pullbacks of functors implies functor</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">diagram of 2-categorical pullbacks of functors implies functor</h1>
+<div id="outline-container-org9da3006" class="outline-2">
+<h2 id="org9da3006"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(\mathcal{C}_0, \mathcal{C}_1, \mathcal{C}_2\) and \(\mathcal{D}_0, \mathcal{D}_1, \mathcal{D}_2\) be <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">categories</a> and 
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{C}_1 \arrow[]{r}{\mathcal{F}_1} \arrow[]{d}{\mathcal{L}_1} & \mathcal{C}_0 \arrow[]{d}{\mathcal{L}_0} & \mathcal{C}_2 \arrow[swap]{l}{\mathcal{F}_2} \arrow[]{d}{\mathcal{L}_2}\\
+\mathcal{D}_1 \arrow[swap]{r}{\mathcal{G}_1}& \mathcal{D}_0 & \arrow[]{l}{\mathcal{G}_2}\mathcal{D}_2 \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+a commuting diagram
+</p>
+
+<p>
+Then there exists a canonical <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a> for the <a href="20231129-2_categorical_pullback.html#ID-360cf3dc-2746-40ac-85a2-42076cfde1f9">2-categorical pullback of a functor diagram</a> 
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{C}_1 \times_{\mathcal{C}_0} \mathcal{C}_2 \rightarrow \mathcal{D}_1 \times_{\mathcal{D}_0} \mathcal{D}_2
+\end{tikzcd}
+\end{displaymath}
+
+
+\begin{align*}
+\mathcal{L}: \mathcal{C}_1 \times_{\mathcal{C}_0} \mathcal{C}_2 \rightarrow& \mathcal{L}_1 \times_{\mathcal{L}_0} \mathcal{L}_2 \\
+(X_1,X_2, \alpha) \mapsto& (\mathcal{L}_1(X_1), \mathcal{L}_2(X_2), \mathcal{L}_0(\alpha)) \\
+(f_1,f_2) \mapsto& \left( \mathcal{L}_1(f_1), \mathcal{L}_2(f_2)\right) \\
+% (f_1,f_2,f_0) \mapsto& \left( \mathcal{L}_1(f_1), \mathcal{L}_2(f_2), \mathcal{L}_0(f_0)\right)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org46add0a" class="outline-2">
+<h2 id="org46add0a"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org8c89413" class="outline-3">
+<h3 id="org8c89413"><span class="section-number-3">2.1.</span> <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">welldefined</a></h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Let \((X_1,X_2,\alpha)\) and \((Y_1,Y_2,\beta)\) be <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">objects</a>
+</p>
+</div>
+<div id="outline-container-org80617d7" class="outline-4">
+<h4 id="org80617d7"><span class="section-number-4">2.1.1.</span> domain / codomain</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+Then by commutativity,  \(\mathcal{G}_1(\mathcal{L}_1(X_1)) = \mathcal{L}_0(\mathcal{F}_1(X_1))\) and \(\mathcal{G}_2(\mathcal{L}_2(X_2)) = \mathcal{L}_0(\mathcal{F}_2(X_2))\) and thus 
+</p>
+\begin{align*}
+\alpha: \mathcal{F}_1(X_1) \rightarrow& \mathcal{F}_2(X_2) \\
+\mathcal{L}_0(\alpha): \mathcal{L}_1(\mathcal{F}_1(X_1)) \rightarrow& \mathcal{L}_2(\mathcal{F}_2(X_2)) \\
+\mathcal{L}_0(\alpha): \mathcal{G}_1(\mathcal{L}_1(X_1)) \rightarrow& \mathcal{G}_2(\mathcal{L}_2(X_2))
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org18c6203" class="outline-4">
+<h4 id="org18c6203"><span class="section-number-4">2.1.2.</span> morphism</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+Let \((f_1,f_2): (X_1,X_2,\alpha) \rightarrow (Y_1,Y_2, \beta)\).
+Then
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{F}_1(X_1) \arrow[swap]{d}{\mathcal{F}_1(f_1)}\arrow[]{r}{\alpha}& \mathcal{F}_2(X_2) \arrow[]{d}{\mathcal{F}_1(f_2 )}  \\
+\mathcal{F}_1(Y_1)  \arrow[]{r}{\beta}& \mathcal{F}_2(Y_2) \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+commutes
+Thus, since applying \(\mathcal{L}_0\) preserves the diagram, we get
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{L}_0(\mathcal{F}_1(X_1)) \arrow[swap]{d}{\mathcal{L}_0(\mathcal{F}_1(f_1))} \arrow[]{r}{\mathcal{L}_0(\alpha)}& \mathcal{L}_0(\mathcal{F}_2(X_2)) \arrow[]{d}{\mathcal{L}_0(\mathcal{F}_2(f_2))}  \\
+\mathcal{L}_0(\mathcal{F}_1(Y_1))  \arrow[]{r}{\mathcal{L}_0(\beta)}& \mathcal{L}_0(\mathcal{F}_2(Y_2)) \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+By commutativity of 
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{C}_1 \arrow[]{r}{\mathcal{F}_1} \arrow[]{d}{\mathcal{L}_1} & \mathcal{C}_0 \arrow[]{d}{\mathcal{L}_0} & \mathcal{C}_2 \arrow[swap]{l}{\mathcal{F}_2} \arrow[]{d}{\mathcal{L}_2}\\
+\mathcal{D}_1 \arrow[swap]{r}{\mathcal{G}_1}& \mathcal{D}_0 & \arrow[]{l}{\mathcal{G}_2}\mathcal{D}_2 \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+we get
+</p>
+\begin{align*}
+\mathcal{L}_0 \circ \mathcal{F}_1 =& \mathcal{G}_1 \circ \mathcal{L}_1 \\
+\mathcal{L}_0 \circ \mathcal{F}_2 =& \mathcal{G}_2 \circ \mathcal{L}_2
+\end{align*}
+<p>
+and hence
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{G}_1(\mathcal{L}_1(X_1)) \arrow[swap]{d}{\mathcal{G}_1(\mathcal{L}_1(f_1))} \arrow[]{r}{\mathcal{L}_0(\alpha)}& \mathcal{G}_2(\mathcal{L}_2(X_2)) \arrow[]{d}{\mathcal{G}_2(\mathcal{L}_2(f_2))}  \\
+\mathcal{G}_1(\mathcal{L}_1(Y_1))  \arrow[]{r}{\mathcal{L}_0(\beta)}& \mathcal{G}_2(\mathcal{L}_2(Y_2)) \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+commutes
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org52c5743" class="outline-3">
+<h3 id="org52c5743"><span class="section-number-3">2.2.</span> identity</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Let \((X_1,X_2, \alpha)\) be an <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">object</a>, then \((\mathrm{id}_{X_1}, \mathrm{id}_{X_2})\) is the <a href="20220817165031-identitatsmorphismus.html#ID-18d8207c-a2f4-499b-ab59-b7efe4858e31">identity morphism</a>
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{F}_1(X_1) \arrow[swap]{d}{\mathcal{F}_1(\mathrm{id}_{X_1} )}\arrow[]{r}{\alpha}& \mathcal{F}_2(X_2) \arrow[]{d}{\mathcal{F}_1(\mathrm{id}_{X_2} )}  \\
+\mathcal{F}_1(X_1)  \arrow[]{r}{\alpha}& \mathcal{F}_2(X_2) \\
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+Then by construction we get
+</p>
+\begin{align*}
+\mathcal{L}(\mathrm{id}_{X_1} , \mathrm{id}_{X_2})  =& (\mathcal{L}_1(\mathrm{id}_{X_1}, \mathcal{L}_2(\mathrm{id}_{X_2}) \\
+=& (\mathrm{id}_{\mathcal{L}_1(X_1)}, \mathrm{id}_{\mathcal{L}_2(X_2)})  
+\end{align*}
+<p>
+which is the identity for \(( \mathcal{L}_1(X_1), \mathcal{L}_2(X_2), \mathcal{L}_0(\alpha))\)
+</p>
+</div>
+</div>
+<div id="outline-container-orgbd9dd3d" class="outline-3">
+<h3 id="orgbd9dd3d"><span class="section-number-3">2.3.</span> functorality</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Let \(X \coloneqq (X_1,X_2,\alpha), Y \coloneqq (Y_1,Y_2,\beta), Z \coloneqq (Z_1,Z_2, \gamma)\) be objects and \((f_1,f_2): X \rightarrow Y\) and \((g_1,g_2): Y \rightarrow Z\) be morphisms.
+Then by construction,
+</p>
+\begin{align*}
+\mathcal{L}(g_1,g_2) \circ \mathcal{L}(f_1,f_2) =& (\mathcal{L}_1(g_1), \mathcal{L}_2(g_2)) \circ (\mathcal{L}_1(f_1), \mathcal{L}_2(f_2)) \\
+=& (\mathcal{L}_1(g_1) \circ \mathcal{L}_1(f_1), \circ \mathcal{L}_2(g_2) \circ \mathcal{L}_2(f_2)) \\
+=& (\mathcal{L}_1(g_1 \circ f_1), \circ \mathcal{L}_2(g_2 \circ f_2)) \\
+=& \mathcal{L}(g_1 \circ f_1, g_2 \circ f_2)
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

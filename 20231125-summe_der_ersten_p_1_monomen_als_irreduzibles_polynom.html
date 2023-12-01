@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>summe der ersten p-1 monomen als irreduzibles Polynom</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">summe der ersten p-1 monomen als irreduzibles Polynom</h1>
+<div id="outline-container-org13ffef6" class="outline-2">
+<h2 id="org13ffef6"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(p\) eine <a href="20211228193940-primzahl.html#ID-d7857a86-c778-478d-aa48-7e239fcd8076">Primzahl</a>.
+</p>
+
+<p>
+Dann ist das <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c-70182b7714f9">Polynom</a> 
+</p>
+\begin{align*}
+f \coloneqq \sum_{i=0}^{p-1} X^{i}  \in \mathbb{Q}[X]
+\end{align*}
+<p>
+ein <a href="20221226125836-irreduzibles_element.html#ID-0cc3140d-cb4c-48a2-8cb6-2d9801e34db0">irreduzibles</a> Element.
+</p>
+</div>
+</div>
+<div id="outline-container-org7a59d1b" class="outline-2">
+<h2 id="org7a59d1b"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Sei der <a href="20221226010643-einsetzungshomomorphismus.html#ID-714a456e-dcd8-4e03-906b-2b497bf77766">Einsetzungshomomorphismus</a> 
+</p>
+\begin{align*}
+\varphi_{X+1}: R[X] \rightarrow& R[X] \\
+X \mapsto& X + 1
+\end{align*}
+<p>
+gegeben.
+Dieser ist ein <a href="20230304213233-ringisomorphismus.html#ID-7690cd07-e072-4d63-a8f1-a629a8e576ea">ring-isomorphismus</a> (vgl. <a href="20231125-einsetzungshomomorphismus_zwischen_polynomringen_uber_integritatsbereichen_als_iso.html#ID-5159f08a-66ec-4ceb-8744-99c8d99e1b55">einsetzungshomomorphismus zwischen Polynomringen über Integritätsbereichen als Iso</a>)
+</p>
+
+<p>
+Dann gilt
+</p>
+\begin{align*}
+\varphi_{X +1}(f) = \sum_{i=0}^{p-1} (X + 1)^{i} 
+\end{align*}
+<p>
+Somit gilt für die Koeffizienten
+Nach der <a href="20230426204214-summenformel_uber_beide_werte_des_binomialkoeffizienten.html#ID-352ae9c4-905e-4b4b-8186-0918b3ce5ae4">Summenformel über beide Werte des Binomialkoeffizienten</a> gilt dann für die Koeffizienten
+</p>
+\begin{align*}
+\alpha_i =& \sum_{j=0}^{p - 1 - i} \binom{i+j}{j} \\
+=& \binom{i + 1 + p - 1 - i}{p-1 - i} \\
+=& \binom{p}{(p - 1) - i}
+\end{align*}
+<p>
+somit folgt für \(i = 0, i = p-1\) auch
+</p>
+\begin{align*}
+\alpha_0 =& \binom{p}{p-1} = p
+\alpha_{p-1} =& \binom{p}{p-1 - (p - 1)} = \\
+=& \binom{p}{0} \\
+=& 1
+\end{align*}
+<p>
+und für \(i \in \{1,...,p-1\}\)
+</p>
+\begin{align*}
+\alpha_i =& \binom{p}{p-1 - i} \\
+p \mid& \alpha_i = \binom{p}{p-1 - i}
+\end{align*}
+
+<p>
+damit greift der <a href="20230730-satz_von_eisenstein.html#ID-232793e8-2184-44a6-a336-d272db07232b">Satz von Eisenstein</a> 
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

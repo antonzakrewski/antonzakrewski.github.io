@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>simple monicalization of a multivariate polynomial over an infinite field</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">simple monicalization of a multivariate polynomial over an infinite field</h1>
+<div id="outline-container-orgde73dfc" class="outline-2">
+<h2 id="orgde73dfc"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(K\) be an <a href="20230826-infinite.html#ID-66aecdb2-720e-4e41-9a27-dab1700474fc">infinite</a> <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">field</a> and \(f \in K[X_1,...,X_n]\) be a <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c-70182b7714f9">polynomial</a> different from the <a href="20221223184351-nullpolynom.html#ID-3ecc5d53-e0d1-4b33-a9a8-12103316164a">zero polynomial</a>.
+Then there exist \(\lambda, \alpha_1,...,\alpha_{n-1} \in K\) such that
+</p>
+\begin{align*}
+f' = \lambda f(y_1 + \alpha_1 y_n, y_2 + \alpha_2 y_n, ...,y_{n-1} + \alpha_{n-1} y_n, y_n) \in K[Y_1,...,Y_n]
+\end{align*}
+<p>
+is <a href="20221226010524-normiertes_polynom.html#ID-f17a0f11-0953-4728-91a6-9a81df943813">monic</a> as an element of \((K[y_1,...,y_{n-1}])[y_n]\)
+</p>
+</div>
+</div>
+<div id="outline-container-orgef662d9" class="outline-2">
+<h2 id="orgef662d9"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Let \(f = \sum_{i=0}^{n} \beta_i \prod_{j=1}^n X_j^{\nu_{j,i}}\).
+Then evaluating \(y_1 + \alpha_i y_n, ..., y_{n-1} + \alpha_{n-1} y_n, y_n\) results in
+</p>
+\begin{align*}
+f(...) =& \sum_{i=0}^{n} \beta_i \prod_{j=1}^n (\alpha_j y_j + y_n)^{\nu_{j,i}}
+\end{align*}
+<p>
+We can consider the <a href="20230905-monomial.html#ID-0c3d60db-952a-4c22-a40e-9b951ec409e7">monomials</a> with highest degree \(d\) and then get
+</p>
+\begin{align*}
+f(...) =& \sum \beta (\prod_{i \neq n} \alpha_i^k) y_n^d
+\end{align*}
+<p>
+with \(\beta \neq 0\).
+let
+</p>
+\begin{align*}
+f_d(\alpha_1,...,\alpha_{n-1}) \coloneqq \sum \beta (\prod_{i \neq n} \alpha_{i})
+\end{align*}
+<p>
+by construction, it is a <a href="20230905-homogeneous_polynomial.html#ID-43659155-fbcc-4058-b0b3-5ff0a9c911ac">homogeneous polynomial</a>, hence by <a href="20231127-homogeneous_polynomial_over_an_infinite_field_and_non_root.html#ID-2810e4ce-e15a-4e1a-8a18-ac18d604b4c8">homogeneous polynomial over an infinite integral domain and non-root</a> there exist \(\alpha_1,...,\alpha_{n-1}\) such that
+</p>
+\begin{align*}
+f_d(\alpha_1,...,\alpha_{n-1}) \neq 0
+\end{align*}
+
+<p>
+Thus for choosing \(\lambda = f_d(\alpha_1,...,\alpha_{n-1})^{-1}\), we get
+</p>
+\begin{align*}
+f' = y_n^d + \sum_{i=0}^{d-1} (\gamma) y_n^d \in (K[X_1,...,X_{n-1}])[X_n]
+\end{align*}
+<p>
+as monic
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

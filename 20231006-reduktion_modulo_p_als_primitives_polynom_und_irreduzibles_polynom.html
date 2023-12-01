@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Reduktion modulo p als primitives Polynom und irreduzibles Polynom</title>
+<title>Reduktion modulo p eines primitiven Polynoms und irreduzibilität über dem Ring</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -48,19 +48,47 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Reduktion modulo p als primitives Polynom und irreduzibles Polynom</h1>
+<h1 class="title">Reduktion modulo p eines primitiven Polynoms und irreduzibilität über dem Ring</h1>
 <div id="outline-container-orge1f8576" class="outline-2">
 <h2 id="orge1f8576"><span class="section-number-2">1.</span> Satz</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Sei \(R\) ein <a href="20221227223812-faktorieller_ring.html#ID-7bbf4bf1-38fd-4069-9816-6aa5aea3839f">faktorieller Ring</a>, \(p \in R\) ein <a href="20230426123442-primelement.html#ID-ffa743e1-94ee-49fe-9647-396eeb233982">Primelement</a> und \(f = \sum_{i=0}^{n} \alpha_i X^i \in R[X]\) ein vom <a href="20221223184351-nullpolynom.html#ID-3ecc5d53-e0d1-4b33-a9a8-12103316164a">Nullpolynom</a> verschiedened <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c-70182b7714f9">Polynom</a> mit \(p \nmid \alpha_n\)
 Für die <a href="20230428154125-reduktion_modulo_p.html#ID-d8aea803-06ef-4e22-8504-9e8c239606bb">Reduktion modulo p</a> \(f_p \coloneqq \pi_p(f) \in (R/(p))[X]\) gilt dann:
-Ist \(f_p\) <a href="20230722-primitives_polynom.html#ID-6e3269c2-5f47-463a-b6b4-23649b9775ec">primitiv</a> und irreduzibel, so ist \(f \in R[X]\) irreduzibel
+</p>
+
+<p>
+Ist \(f_p \in (R/(p))[X]\) <a href="20230722-primitives_polynom.html#ID-6e3269c2-5f47-463a-b6b4-23649b9775ec">primitiv</a> und <a href="20221226125836-irreduzibles_element.html#ID-0cc3140d-cb4c-48a2-8cb6-2d9801e34db0">irreduzibel</a>, so ist \(f \in R[X]\) irreduzibel.
 </p>
 </div>
 </div>
 <div id="outline-container-org21f0736" class="outline-2">
 <h2 id="org21f0736"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="20210305204929-beweis_durch_gegenbeispiel.html#ID-82f7f698-c489-4630-b2a1-ec7a6228b374">Beweis durch Kontraposition</a>
+</p>
+
+<p>
+Sei \(f \in R[X]\) reduzibel und primitiv.
+dann existieren \(g,h \in R[X] \setminus R[X]^{\times}\) mit \(g \cdot h = f\) und wegen der Primitivität gilt \(\mathrm{deg}(g), \mathrm{deg}(h) > 0\).
+Zudem gilt \(p \not\mid \alpha_n\) also insbesondere teilt \(p\) auch nicht die höchsten Koeffizienten von \(g,h\).
+Damit folgt
+</p>
+\begin{align*}
+\mathrm{deg}(\pi(g)), \mathrm{deg}(\pi(h)) > 0
+\end{align*}
+<p>
+und wegen <a href="20230814-units_in_a_polynomial_ring.html#ID-ddfe819e-f88c-44fb-aac7-56536c707923">units in a polynomial ring</a> und <a href="20230329081834-aquivalente_charakterisierungen_eines_primideals.html#ID-e4e6f25e-6d27-4bc1-8dd8-4de9325fd407">prime ideal and quotient ring as integral domain</a> sind \(\pi(g),\pi(h)\) keine <a href="20221226125808-einheit_ring.html#ID-a3b1e1af-c3e3-433c-a4dd-2ee2c6e1d69a">Einheiten</a>.
+Damit gilt dann
+</p>
+\begin{align*}
+\pi(f) = \pi(g) \cdot \pi(h)
+\end{align*}
+<p>
+also ist \(\pi(f)\) reduzibel
+</p>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">

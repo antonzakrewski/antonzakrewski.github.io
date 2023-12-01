@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Noether Normalisation</title>
+<title>simple Noether Normalisation</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -13,12 +13,125 @@
 <script type="text/javascript" id="MathJax-script" defer
 src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Noether Normalisation</h1>
+<h1 class="title">simple Noether Normalisation</h1>
 <div id="outline-container-org99d7966" class="outline-2">
 <h2 id="org99d7966"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(K\) be an <a href="20230826-infinite.html#ID-66aecdb2-720e-4e41-9a27-dab1700474fc">infinite</a> <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">field</a>, \(R\) a <a href="20230731-finitely_generated_a_algebra.html#ID-20861333-797d-4ab1-9ad5-375661f357fc">finitely generated K-Algebra</a> with generetors \(x_1,...,x_n\).
+Then there exists an <a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injective</a> <a href="20230116150103-algebrahomomorphismus.html#ID-cdf91cfa-1893-4da1-a8bb-ab86c709b515">K-algebra-homomorphism</a>
+</p>
+\begin{align*}
+\iota: K[z_1,...,z_r] \rightarrowtail R
+\end{align*}
+<p>
+such that \(R\) is a <a href="20230531104455-endlich_erzeugter_modul.html#ID-b8bbecb1-a067-40a2-a8c8-3c4119252b18">finitely generated module</a> over \(K[z_1,...,z_r]\) 
+</p>
+</div>
+</div>
+<div id="outline-container-orge59625b" class="outline-2">
+<h2 id="orge59625b"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+proof by induction
+</p>
+</div>
+<div id="outline-container-org09bf392" class="outline-3">
+<h3 id="org09bf392"><span class="section-number-3">2.1.</span> \(n = 0\)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Then we get
+</p>
+\begin{align*}
+K = K[\emptyset] = R
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgf9fd04c" class="outline-3">
+<h3 id="orgf9fd04c"><span class="section-number-3">2.2.</span> induction</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-orgc51f65c" class="outline-4">
+<h4 id="orgc51f65c"><span class="section-number-4">2.2.1.</span> \(x_1,...,x_n\) <a href="20230725-algebraically_independent.html#ID-2d9f2ebd-c68a-4b8e-a59f-4a5d4f6656d9">algebraically independent</a></h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+Then by assumption
+</p>
+\begin{align*}
+K[x_1,...,x_n] \rightarrowtail R
+\end{align*}
+<p>
+is injective
+</p>
+</div>
+</div>
+<div id="outline-container-org5e03129" class="outline-4">
+<h4 id="org5e03129"><span class="section-number-4">2.2.2.</span> \(x_1,...,x_n\) not algebraically independent</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+by assumption, there exists a <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c-70182b7714f9">polynomial</a> \(f \in K[X_1,...,X_n]\) different from the <a href="20221223184351-nullpolynom.html#ID-3ecc5d53-e0d1-4b33-a9a8-12103316164a">zero polynomial</a> such that
+</p>
+\begin{align*}
+f(x_1,...,x_n) = 0
+\end{align*}
+<p>
+by <a href="20231127-monicalization_of_a_polynomial.html#ID-0589f706-db11-43d5-86ec-1ee86da9bdef">simple monicalization of a multivariate polynomial over an infinite field</a>, there exist \(y_i \coloneqq  y_i + \alpha_i y_n\) and a \(\lambda \in K^{\times}\) such that
+</p>
+\begin{align*}
+g \coloneqq \lambda \cdot f(y_1,...,x_n)
+\end{align*}
+<p>
+is <a href="20221226010524-normiertes_polynom.html#ID-f17a0f11-0953-4728-91a6-9a81df943813">monic</a> in \(K[X_1,...,X_{n-1}][X_n]\)
+</p>
+
+<p>
+Note that \(y_i\) generate \(x_1,...,x_n\).
+</p>
+
+<p>
+Furthermore, \(y_n\) is <a href="20230726-integral_element_over_a_subring.html#ID-73648315-aa1e-4e87-a5e8-ce378a8a8015">integral</a> over \(K[y_1,...,y_{n-1}]\), as
+</p>
+\begin{align*}
+f(y_1 - \alpha_1 y_n,...,y_{n-1} - \alpha_{n-1} y_n, y_n) = f(x_1,...,x_n) = 0
+\end{align*}
+</div>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">

@@ -13,20 +13,177 @@
 <script type="text/javascript" id="MathJax-script" defer
 src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
 <h1 class="title">polynomial-like map and successor difference polynomial-like</h1>
-<div id="outline-container-orgdb3ad36" class="outline-2">
-<h2 id="orgdb3ad36"><span class="section-number-2">1.</span> Proposition</h2>
+<div id="outline-container-org28221bf" class="outline-2">
+<h2 id="org28221bf"><span class="section-number-2">1.</span> Proposition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Let 
+Let \(f: \mathbb{Z}  \rightarrow \mathbb{Q}\) be a <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">map</a>.
+</p>
+
+<p>
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol class="org-ol">
+<li>\(f\) is <a href="20231123-polynomial_like_map.html#ID-567bc93a-ed92-447c-af68-4b6d10b4234d">polynomial-like</a> on \(\mathbb{Z}\)</li>
+<li>\(\Delta f\) is polynomial like on \(\mathbb{N}\)</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgbb4295a" class="outline-2">
+<h2 id="orgbb4295a"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org2995c75" class="outline-3">
+<h3 id="org2995c75"><span class="section-number-3">2.1.</span> 1) \(\implies\) 2)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+by assumption, there exist \(g \in \mathbb{Q}[X]\) such that \(g(x) = f(x)\) for <a href="20221013222501-fast_alle.html#ID-a3da14cb-05c1-4f9e-a68a-a693980f5ede">almost all</a> \(x \in \mathbb{Q}\).
+Then 
+</p>
+\begin{align*}
+g(x + 1) - g(x) \in \mathbb{Q}[x]
+\end{align*}
+<p>
+is a <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c-70182b7714f9">polynomial</a>, such that
+</p>
+\begin{align*}
+\Delta f(x) =& f(x+1) - f(x) \\
+=& g(x +1) - g(x)
+\end{align*}
+<p>
+for almost all \(x \in \mathbb{Z}\)
 </p>
 </div>
 </div>
-<div id="outline-container-org28e7783" class="outline-2">
-<h2 id="org28e7783"><span class="section-number-2">2.</span> Proof</h2>
+<div id="outline-container-org6dcbe41" class="outline-3">
+<h3 id="org6dcbe41"><span class="section-number-3">2.2.</span> 2) \(\implies\) 1)</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+By assumption, there exists a polynomial \(g'(x) = \sum_{i=0}^{n-1} \alpha_i X^i \in \mathbb{Q}[X]\).
+Then consider the <a href="20220303181007-matrix.html#ID-3234cd94-0d93-470b-a319-75288f97326e">matrix</a> 
+</p>
+\begin{align*}
+A \coloneqq&
+\begin{pmatrix} 
+\binom{1}{1} & \binom{2}{2} & \binom{3}{m} & ... & \binom{n-1}{n-1} & \binom{n}{n} \\
+0 & \binom{2}{1} & \binom{3}{2} & ... & \binom{n-1}{n-2} & \binom{n}{n-1} \\
+0 & 0 & \binom{3}{1} & ... & \binom{n-1}{n-3} & \binom{n}{n-2} \\
+\vdots & & & \ddots & & \vdots \\
+0 & 0 & 0 & 0 & \binom{n-1}{1} & \binom{n}{2} \\
+0& 0 & 0 & 0 & 0 & \binom{n}{1} \\
+ \end{pmatrix} 
+\in \mathbb{Q}^{n \times n}
+\end{align*}
+<p>
+it is a <a href="20230227153105-vektorraumisomorphismus.html#ID-27b6dd7a-30ae-4eb8-b5c4-e1a268344d2e">vectorspace-isomorphism</a> (cf. <a href="20221126201331-determinante.html#ID-eb5c60bd-2e36-4d02-aa16-f58c8e846d07">determinant</a>, todo).
+</p>
+
+<p>
+Therefore, for the vector
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+v \coloneqq \begin{pmatrix} \alpha_0 & \alpha_1 & ... & \alpha_{n-1} \end{pmatrix}^{T} 
+\end{tikzcd}
+\end{displaymath}
+<p>
+there exists a unique solution \(x = (\beta_1, ...,\beta_{n}) \in \mathbb{Q}\)
+</p>
+\begin{align*}
+Ax = v
+\end{align*}
+
+<p>
+Let
+</p>
+\begin{align*}
+g = \sum_{i=1}^{n} \beta_i X^i
+\end{align*}
+<p>
+observe, that by construction
+</p>
+\begin{align*}
+g(x + 1) - g(x) = g'(x)
+\end{align*}
+
+<p>
+By assumption, there exists an \(n \in \mathbb{N}\) such that for all \(m \geq n\) it holds, that
+</p>
+\begin{align*}
+g'(m) = \Delta f(m)
+\end{align*}
+<p>
+Let \(\beta_0 \coloneqq f(n) - g(n)\)
+</p>
+</div>
+<div id="outline-container-org1991bd9" class="outline-4">
+<h4 id="org1991bd9"><span class="section-number-4">2.2.1.</span> claim</h4>
+<div class="outline-text-4" id="text-2-2-1">
+\begin{align*}
+g(m) + \beta_0 =& f(m) && m \geq n
+\end{align*}
+</div>
+<div id="outline-container-org4a16ed7" class="outline-5">
+<h5 id="org4a16ed7"><span class="section-number-5">2.2.1.1.</span> induction basis</h5>
+<div class="outline-text-5" id="text-2-2-1-1">
+<p>
+for \(m = n\):
+</p>
+\begin{align*}
+g(n) + \beta_0 =& g(n) + f(n) - g(n) \\
+=& f(n)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org797bc89" class="outline-5">
+<h5 id="org797bc89"><span class="section-number-5">2.2.1.2.</span> induction step</h5>
+<div class="outline-text-5" id="text-2-2-1-2">
+\begin{align*}
+g(x+1) + \beta_0 =& g(x+1) - g(x) + g(x) + \beta_0 \\ 
+=& g'(x) + f(x) \\
+=& \Delta f(x) + f(x) \\
+=& f(x + 1)
+\end{align*}
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">

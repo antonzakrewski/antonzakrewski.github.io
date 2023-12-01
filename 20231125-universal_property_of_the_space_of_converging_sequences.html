@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>universal property of the converging sequence space</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">universal property of the converging sequence space</h1>
+<div id="outline-container-orga946cae" class="outline-2">
+<h2 id="orga946cae"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \((X, \mathcal{T})\) be a <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological space</a>, \(\mathrm{Seq}\) the <a href="20231125-space_of_converging_sequences.html#ID-26bfafae-5130-480f-b32c-a5fad71dd924">converging sequence space</a>.
+Then a <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">map</a>
+</p>
+\begin{align*}
+f: \mathrm{Seq} \rightarrow& X \\
+0 \mapsto& x_0 \\
+\frac{1}{n} \mapsto& x_n \\
+\end{align*}
+<p>
+is <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a> if and only if \(x_n \rightarrow x_0\).
+</p>
+</div>
+</div>
+<div id="outline-container-orge991888" class="outline-2">
+<h2 id="orge991888"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org936c228" class="outline-3">
+<h3 id="org936c228"><span class="section-number-3">2.1.</span> continuous \(\implies\) converges</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Let \(U \subseteq X\) be an <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> <a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">neighbourhood</a> of \(x_0\).
+Then \(f^{-1}[U]\) is an open <a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">neighbourhood</a> of \(0\), hence contains by construction <a href="20221013222501-fast_alle.html#ID-a3da14cb-05c1-4f9e-a68a-a693980f5ede">almost all</a> \(\frac{1}{n} \in \mathrm{Seq}\).
+Thus almost all \(x_n \in U\) or
+</p>
+\begin{align*}
+\lim_{n \to \infty}\left(f(\frac{1}{n})\right) x_0
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org63a9179" class="outline-3">
+<h3 id="org63a9179"><span class="section-number-3">2.2.</span> converges \(\implies\) continuous</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Note that each point \(\frac{1}{n}\) is <a href="20230207075730-clopen_set.html#ID-f8defda0-b0fc-49cb-ab4f-21c64be93fe5">clopen</a>.
+Hence for an <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> set \(U \subseteq X\) with \(x_0 \not\in U\), it follows that \(f^{-1}[U]\) is open.
+</p>
+
+<p>
+Suppose \(x_n \rightarrow x_0\) converges, then for any <a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">neighbourhood</a> \(U\) of \(x_0\), almost all \(x_n\) lie in there.
+Hence \(f^{-1}[U]\) contains almost all \(\frac{1}{n}\) and is thus a <a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">neighbourhood</a> of \(0\).
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

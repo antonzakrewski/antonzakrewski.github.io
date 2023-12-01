@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>functor between 2-pullbacks of categories preserves essentially surjectivity under fully faithfullness</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">functor between 2-pullbacks of categories preserves essentially surjectivity under fully faithfullness</h1>
+<div id="outline-container-org450f646" class="outline-2">
+<h2 id="org450f646"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(\mathcal{C}_0, \mathcal{C}_1, \mathcal{C}_2\) and \(\mathcal{D}_0, \mathcal{D}_1, \mathcal{D}_2\) be <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">categories</a> and 
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{C}_1 \arrow[]{r}{\mathcal{F}_1} \arrow[]{d}{\mathcal{L}_1} & \mathcal{C}_0 \arrow[]{d}{\mathcal{L}_0} & \mathcal{C}_2 \arrow[swap]{l}{\mathcal{F}_2} \arrow[]{d}{\mathcal{L}_2}\\
+\mathcal{D}_1 \arrow[swap]{r}{\mathcal{G}_1}& \mathcal{D}_0 & \arrow[]{l}{\mathcal{G}_2}\mathcal{D}_2 \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+a <a href="20220821183856-diagramm_kategorientheorie.html#ID-ad9d3642-913a-4374-8605-52121d00b349">diagram</a>, such that \(\mathcal{L}_1, \mathcal{L}_2\) are <a href="20230420222307-essentially_surjective_functor.html#ID-84f987b7-b7b6-45e6-ace0-865d5f6d6812">essentially surjective</a> and \(\mathcal{L}_0\) is <a href="20230301211947-volltreuer_funktor.html#ID-85a359f5-50f6-4f57-ae10-c34278befc6c">fully faithful</a> 
+</p>
+
+<p>
+Then the canonical <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a> for the <a href="20231129-2_categorical_pullback.html#ID-360cf3dc-2746-40ac-85a2-42076cfde1f9">2-categorical pullback of a functor diagram</a> (cf. <a href="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor.html#ID-b241be81-727c-479d-9c23-cd73478c7471">diagram of 2-categorical pullbacks of functors implies functor</a>)
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{C}_1 \times_{\mathcal{C}_0} \mathcal{C}_2 \rightarrow \mathcal{D}_1 \times_{\mathcal{D}_0} \mathcal{D}_2
+\end{tikzcd}
+\end{displaymath}
+<p>
+is also <a href="20230420222307-essentially_surjective_functor.html#ID-84f987b7-b7b6-45e6-ace0-865d5f6d6812">essentially surjective</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org8c981f6" class="outline-2">
+<h2 id="org8c981f6"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Let \((X_1',X_2',\alpha)\) be <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">objects</a>.
+Then since \(X_i' \in \mathrm{Ob}(\mathcal{D}_i)\) and \(\mathcal{L}_i\) is essentially surjective, there exist \(X_1,X_2\) such that \(\mathcal{L}_i(X_i) \simeq X_i'\).
+Pick <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphisms</a> \(f_i: X_i' \rightarrow \mathcal{L}_i(X_i)\), then we get
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{G}_1(X_1) \arrow[swap]{d}{\mathcal{G}_1(f_1)} \arrow[]{r}{\alpha} & \mathcal{G}_2(X_2) \arrow[]{d}{\mathcal{G}_2(f_2)}\\
+\mathcal{G}_1(\mathcal{L}_1(X_1)) & \mathcal{G}_2(\mathcal{L}_2(X_2)) \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+Then we define an isomorphism 
+</p>
+\begin{align*}
+\beta \coloneqq \mathcal{G}_2(f_2) \circ \alpha \circ \mathcal{G}_1(f_1^{-1}): \mathcal{G}_1(\mathcal{L}_1(X_1)) \rightarrow \mathcal{G}_2(\mathcal{L}_2(X_2))
+\end{align*}
+<p>
+(cf. <a href="20230403175443-composition_of_isomorphisms_as_isomorphism.html#ID-78ba05fd-1e69-4b47-a799-d6810e68abc4">composition of isomorphisms as isomorphism</a>).
+Therefore
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{G}_1(X_1) \arrow[swap]{d}{\mathcal{G}_1(f_1)} \arrow[]{r}{\alpha} & \mathcal{G}_2(X_2) \arrow[]{d}{\mathcal{G}_2(f_2)}\\
+\mathcal{G}_1(\mathcal{L}_1(X_1)) \arrow[]{r}{\beta}& \mathcal{G}_2(\mathcal{L}_2(X_2)) \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+commutes by construction.
+</p>
+
+
+<p>
+By commutativity of
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{C}_1 \arrow[]{r}{\mathcal{F}_1} \arrow[]{d}{\mathcal{L}_1} & \mathcal{C}_0 \arrow[]{d}{\mathcal{L}_0} & \mathcal{C}_2 \arrow[swap]{l}{\mathcal{F}_2} \arrow[]{d}{\mathcal{L}_2}\\
+\mathcal{D}_1 \arrow[swap]{r}{\mathcal{G}_1}& \mathcal{D}_0 & \arrow[]{l}{\mathcal{G}_2}\mathcal{D}_2 \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+it holds, that
+</p>
+\begin{align*}
+\mathcal{G}_i \circ \mathcal{L}_i = \mathcal{L}_0 \circ \mathcal{F}_i
+\end{align*}
+
+<p>
+Hence
+</p>
+\begin{align*}
+\beta: \mathcal{L}_0(\mathcal{F}_1(X_1)) \rightarrow \mathcal{L}_0(\mathcal{F}_2(X_2)) 
+\end{align*}
+<p>
+Therefore, since \(\beta\) is fully faithful and hence <a href="20230404193851-conservative_functor.html#ID-86f87410-7730-4592-842c-278d9718aa2f">conservative</a> (cf. <a href="20231120-fully_faithful_functor_as_conservative_functor.html#ID-0c238a5b-cedb-4295-a31b-55f5cc73dd32">fully faithful functor as conservative functor</a>), there exists an isomorphism \(\gamma \in \mathrm{Hom}_{\mathcal{C}_0}(\mathcal{F}_1(X_1), \mathcal{F}_2(X_2))\), such that \(\mathcal{L}_0(\gamma) = \beta\).
+Thus
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{G}_1(X_1) \arrow[swap]{d}{\mathcal{G}_1(f_1)} \arrow[]{r}{\alpha} & \mathcal{G}_2(X_2) \arrow[]{d}{\mathcal{G}_2(f_2)}\\
+\mathcal{G}_1(\mathcal{L}_1(X_1)) \arrow[]{r}{\mathcal{L}_0(\gamma)}& \mathcal{G}_2(\mathcal{L}_2(X_2)) \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+commutes and hence we have a morphism
+</p>
+\begin{align*}
+(f_1,f_2): (X_1,X_2,\alpha) \rightarrow (\mathcal{L}_1(X_1), \mathcal{L}_2(X_2), \mathcal{L}_0(\gamma))
+\end{align*}
+<p>
+where
+</p>
+\begin{align*}
+\mathcal{L}(X_1,X_2,\gamma) = (\mathcal{L}_1(X_1), \mathcal{L}_2(X_2), \mathcal{L}_0(\gamma))
+\end{align*}
+
+
+<p>
+Furthermore, we have \((f_1^{-1}, f_2^{-1})\) as inverses, as
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{G}_1(X_1) \arrow[swap, bend right=85]{dd}{\mathrm{id}} \arrow[swap]{d}{\mathcal{G}_1(f_1)} \arrow[]{r}{\alpha} & \mathcal{G}_2(X_2) \arrow[]{d}{\mathcal{G}_2(f_2)} \arrow[bend left=85]{dd}{\mathrm{id}}\\
+\mathcal{G}_1(\mathcal{L}_1(X_1)) \arrow[]{r}{\mathcal{L}_0(\gamma)} \arrow[swap]{d}{\mathcal{G}_1(f_1^{-1})} & \mathcal{G}_2(\mathcal{L}_2(X_2)) \arrow[]{d}{\mathcal{G}_2(f_2^{-1})} \\
+\mathcal{G}_1(X_1)  \arrow[]{r}{\alpha} & \mathcal{G}_2(X_2) \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+and analogously for the other side
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

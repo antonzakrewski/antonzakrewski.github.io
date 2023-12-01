@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CW Pair as cofibration</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">CW Pair as cofibration</h1>
+<div id="outline-container-orgaa0cbf1" class="outline-2">
+<h2 id="orgaa0cbf1"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \((X,A)\) be a <a href="20231125-cw_pair.html#ID-27124d57-ceda-4141-a56c-2169e252018f">CW Pair</a>.
+Then \(\iota: A \rightarrow X\) is a <a href="20231124-cofibration.html#ID-05c7be72-ecee-40a2-a48e-8df8cada2404">cofibration</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgbf80e3a" class="outline-2">
+<h2 id="orgbf80e3a"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Since \(\iota: S^{n-1} \rightarrow D^n\) is a cofibration (cf. <a href="20231125-sphere_into_disk_as_cofibration.html#ID-74347dcc-bdc4-4d1b-97f7-7b36c767191e">sphere into disk as cofibration</a>), by <a href="20231124-cofibrations_under_coproducts.html#ID-afb16d51-b613-4be2-8237-7ce382286b1f">cofibrations under coproducts</a> it follows, that
+</p>
+\begin{align*}
+\coprod \iota: S^{n-1} \rightarrow D^n
+\end{align*}
+<p>
+is also cofibration.
+</p>
+
+<p>
+Since <a href="20231124-cofibration_under_pushouts.html#ID-3196c936-abd3-4895-8095-4e26adc2c585">cofibrations are mirrored under pushouts</a> it follows, that the <a href="20231122-attaching_maps_of_a_cw_complex.html#ID-67055fca-497b-48ef-8ae5-aa7bdb795252">attaching map</a>
+</p>
+\begin{align*}
+\iota': \mathrm{SK}_{n-1}(X) \rightarrow \mathrm{SK}_n(X)
+\end{align*}
+<p>
+is also a cofibration
+</p>
+
+\begin{displaymath}
+\begin{tikzcd}
+|[label={[label distance=-2mm]-45:\ulcorner}]|
+\coprod S^{n-1} \arrow[]{d}{\coprod \iota} \arrow[]{r}{\coprod \alpha_i} & \mathrm{SK}_n(X) \arrow[]{d}{\iota'}\\
+\coprod D^{n} \arrow[]{r}{\coprod \beta_i}& \mathrm{SK}_{n+1}(X) \\
+\end{tikzcd}
+\end{displaymath}
+
+
+<p>
+Let \(Z\) be a topological space and \(A \rightarrow Z\) a homotopy
+Then since each inclusion from \(\mathrm{SK}_n(X) \rightarrow \mathrm{SK}_{n+1}(X)\) is a cofibration
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+A \arrow[bend right]{rrrd}{} \arrow[]{r}{} & \arrow[]{rrd}{} \mathrm{Sk}_0(X) \arrow[]{r}{}& \mathrm{Sk}_1(X) \arrow[]{rd}{}\arrow[]{r}{} & ...  \\
+& &  & Z
+\end{tikzcd}
+\end{displaymath}
+<p>
+we can inductively construct homotopies $A &rarr; Z, \mathrm{SK}<sub>0</sub>(X) &rarr; Z, \mathrm{SK}<sub>1</sub>(X) &rarr; Z, &#x2026;$.
+Then we get a diagram, which commutes by construction and thus, by <a href="20231124-cofibration_and_currying.html#ID-fee1a39b-21e9-407f-a351-667767b6f80a">cofibration and currying lift</a>, we get by universal property a map
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+A \arrow[]{r}{} \arrow[]{d}{}& \mathrm{Map}([0,1], Z) \arrow[]{d}{}& \\
+\mathrm{SK}_0(X) \arrow[]{ru}{} \arrow[]{d}{} \arrow[]{r}{}& Z & \\
+\mathrm{SK}_1(X) \arrow[]{ruu}{}\arrow[]{d}{}&   & \\
+\vdots & & \\
+ & \mathrm{colim}(X) \arrow[dashed, bend right]{uuuu}{} & \\
+\end{tikzcd}
+\end{displaymath}
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

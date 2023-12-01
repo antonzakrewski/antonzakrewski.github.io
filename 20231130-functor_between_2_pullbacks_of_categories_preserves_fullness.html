@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>functor between 2-pullbacks of categories preserves fullness</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">functor between 2-pullbacks of categories preserves fullness</h1>
+<div id="outline-container-orgb7db6a5" class="outline-2">
+<h2 id="orgb7db6a5"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(\mathcal{C}_0, \mathcal{C}_1, \mathcal{C}_2\) and \(\mathcal{D}_0, \mathcal{D}_1, \mathcal{D}_2\) be <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">categories</a> and 
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{C}_1 \arrow[]{r}{\mathcal{F}_1} \arrow[]{d}{\mathcal{L}_1} & \mathcal{C}_0 \arrow[]{d}{\mathcal{L}_0} & \mathcal{C}_2 \arrow[swap]{l}{\mathcal{F}_2} \arrow[]{d}{\mathcal{L}_2}\\
+\mathcal{D}_1 \arrow[swap]{r}{\mathcal{G}_1}& \mathcal{D}_0 & \arrow[]{l}{\mathcal{G}_2}\mathcal{D}_2 \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+a <a href="20220821183856-diagramm_kategorientheorie.html#ID-ad9d3642-913a-4374-8605-52121d00b349">diagram</a>, such that \(\mathcal{L}_1,\mathcal{L}_2\) are <a href="20230301211925-voller_funktor.html#ID-300944ac-0e6d-4b27-99f1-176a261999aa">full</a> and \(\mathcal{L}_0\) is <a href="20230301211921-treuer_funktor.html#ID-28e54961-a758-4c55-ba93-95268bcebd92">faithful</a> 
+</p>
+
+<p>
+Then for the canonical <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a> for the <a href="20231129-2_categorical_pullback.html#ID-360cf3dc-2746-40ac-85a2-42076cfde1f9">2-categorical pullback of a functor diagram</a> (cf. <a href="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor.html#ID-b241be81-727c-479d-9c23-cd73478c7471">diagram of 2-categorical pullbacks of functors implies functor</a>)
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{C}_1 \times_{\mathcal{C}_0} \mathcal{C}_2 \rightarrow \mathcal{D}_1 \times_{\mathcal{D}_0} \mathcal{D}_2
+\end{tikzcd}
+\end{displaymath}
+<p>
+is also <a href="20230301211925-voller_funktor.html#ID-300944ac-0e6d-4b27-99f1-176a261999aa">full</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-org7cbbb87" class="outline-2">
+<h2 id="org7cbbb87"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Let \(\mathcal{L}_1(X_1), \mathcal{L}(X_2), \mathcal{L}_0(\alpha)\) and \(\mathcal{L}_1(Y_1), \mathcal{L}_2(Y_2), \mathcal{L}_2(\beta)\) be <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">objects</a> in \(\mathcal{D}_1 \times_{\mathcal{D}_0} \mathcal{D}_2\) and
+</p>
+\begin{align*}
+(f_1,f_2): \mathcal{L}_1(X_1), \mathcal{L}(X_2), \mathcal{L}_0(\alpha) \rightarrow \mathcal{L}_1(Y_1), \mathcal{L}_2(Y_2), \mathcal{L}_2(\beta)
+\end{align*}
+<p>
+be a <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphism</a>.
+Then by assumption, \(f_i \in \mathrm{Hom}_{\mathcal{D}_i}(\mathcal{L}_i(X_i),\mathcal{L}_i(Y_i))\), hence by fullness of \(\mathcal{L}_i\) there exist  \(f_i': X_i \rightarrow Y_i\) with \(\mathcal{G}_i \circ \mathcal{L}_i (f_i') = \mathcal{G}_i(f_i)\)
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{G}_1\mathcal{L}_1(X_1) \arrow[]{r}{\mathcal{L}_0(\alpha)} \arrow[swap]{d}{\mathcal{G}_1(\mathcal{L}_1(f_1'))} & \mathcal{G}_2\mathcal{L}_2(X_2) \arrow[]{d}{\mathcal{G}_2(\mathcal{L}_2(f_2'))} \\
+\mathcal{G}_1\mathcal{L}_1(Y_1) \arrow[]{r}{\mathcal{L}_0(\beta)} & \mathcal{G}_2\mathcal{L}_2(Y_2) \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+Furthermore, since \(\mathcal{L}_0 \circ \mathcal{F}_i (-) = \mathcal{G}_i \circ \mathcal{L}_i (-)\), we get
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{L}_0\mathcal{F}_1(X_1) \arrow[]{r}{\mathcal{L}_0(\alpha)} \arrow[swap]{d}{\mathcal{L}_0(\mathcal{F}_1(f_1'))} & \mathcal{L}_0\mathcal{F}_2(X_2) \arrow[]{d}{\mathcal{L}_0(\mathcal{F}_2(f_2'))} \\
+\mathcal{L}_0\mathcal{F}_1(Y_1) \arrow[]{r}{\mathcal{L}_0(\beta)} & \mathcal{L}_0\mathcal{F}_2(Y_2) \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+since \(\mathcal{L}_0\) is faithfull, the preimage
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{F}_1(X_1) \arrow[]{r}{\alpha} \arrow[swap]{d}{\mathcal{F}_1(f_1')} & \mathcal{F}_2(X_2) \arrow[]{d}{\mathcal{F}_2(f_2')}\\
+\mathcal{F}_1(Y_1) \arrow[]{r}{\beta} & \mathcal{F}_2(Y_2) \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+also commutes (cf. <a href="20231129-fully_faithful_functor_and_preimage_as_diagram.html#ID-772de4b2-358b-4608-ba2b-3fa26b17164f">faithful functor and preimage as diagram</a>)
+Hence
+</p>
+\begin{align*}
+(f_1',f_2'): (X_1,X_2, \alpha) \rightarrow (Y_1,Y_2,\beta)
+\end{align*}
+<p>
+is a <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">welldefined</a> morphism, such that by construction
+</p>
+\begin{align*}
+\mathcal{L}(f_1',f_2') = (f_1,f_2)
+\end{align*}
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>
