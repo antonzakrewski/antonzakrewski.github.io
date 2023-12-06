@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>product and cofibration</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">product and cofibration</h1>
+<div id="outline-container-org7c8b9eb" class="outline-2">
+<h2 id="org7c8b9eb"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(\iota_n: A_n \rightarrow X_n\) be <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">finitely</a> many <a href="20231124-cofibration.html#ID-05c7be72-ecee-40a2-a48e-8df8cada2404">cofibrations</a>.
+Then the <a href="20230404141718-categorical_product.html#ID-c6b25f4e-7486-4399-bea3-ace8da2a18c9">categorical product</a> 
+</p>
+\begin{align*}
+\prod \iota_n: \prod A_n \rightarrow \prod X_n
+\end{align*}
+<p>
+is also a cofibration
+</p>
+</div>
+</div>
+<div id="outline-container-org638a08c" class="outline-2">
+<h2 id="org638a08c"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="20231124-cofibration_and_retraction.html#ID-70c6038d-368d-40b6-a5d6-c3972a28fd8a">cofibration and retraction</a>
+Since a cofibration is precisely given by a <a href="20230331205855-retraction.html#ID-0563c33d-c1ad-4e65-9306-539b48627b86">retraction</a>
+</p>
+\begin{align*}
+\mathrm{Ret}_i: X_i \times [0,1] \rightarrow X_i \times \{0\} \cup A_i \times [0,1]
+\end{align*}
+<p>
+we construct a Retraction
+</p>
+\begin{align*}
+\mathrm{Ret}_n: \prod X_n \times [0,1] \rightarrow& \prod A_n \times [0,1] \cup \prod X_n \times \{0\} \\
+((x_n), t) \mapsto& ((\mathrm{pr}_1(\mathrm{Ret}_n(x_n,t)))_n, \sqrt[n]{\prod \mathrm{pr}_2 (\mathrm{Ret}_n(x_n,t))})
+\end{align*}
+
+<p>
+for a handpicked Retraction \(\mathrm{Ret}: X_j \times [0,1] \rightarrow A_j \times [0,1] \cup X_j \times \{0\}\)
+</p>
+</div>
+<div id="outline-container-org8e512a8" class="outline-3">
+<h3 id="org8e512a8"><span class="section-number-3">2.1.</span> welldefined codomain</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Suppose \(t \neq 0\), then by assumption, either all \(\mathrm{pr}_1(\mathrm{Ret}(x_n,t)) \in X_n\) or there exists an \(\mathrm{pr}_2(\mathrm{Ret}(x_n,t)) = 0\).
+In the first case, we land map into \(\prod A_i\), in the second we land inside \((\prod X_n) \times \{0\}\)
+</p>
+</div>
+</div>
+<div id="outline-container-orgc42fcd2" class="outline-3">
+<h3 id="orgc42fcd2"><span class="section-number-3">2.2.</span> continuous</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+follows from
+</p>
+<ol class="org-ol">
+<li>universal property of a <a href="20230211133152-produkttopologie.html#ID-32030f19-ac2a-4c46-aaed-1abb1cd6df9f">product topology</a></li>
+<li><a href="20230605-stetige_abbildung_und_stetigkeit_der_einschrankung_auf_das_bild.html#ID-7123411e-8618-4a46-ac5b-e87ed14e2604">continuous map and restriction to the image</a></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgee4cabb" class="outline-3">
+<h3 id="orgee4cabb"><span class="section-number-3">2.3.</span> retraction</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Suppose \((x_n) \in \prod A_n\), then by assumption, we get
+</p>
+\begin{align*}
+\mathrm{pr}_2(\mathrm{ret}_n(x_n,t) = t)
+\end{align*}
+<p>
+Thus \(\sqrt[n]{0} = 0\)
+</p>
+
+<p>
+Suppose \(t = 0\), then
+</p>
+\begin{align*}
+\mathrm{pr}_2(\mathrm{Ret}_n(x_n,0)) = 0
+\end{align*}
+<p>
+and thus the second component is \(0\)
+</p>
+
+<p>
+Note that our original retractions \(\mathrm{Ret}_n\) leave the first argument intact
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>
