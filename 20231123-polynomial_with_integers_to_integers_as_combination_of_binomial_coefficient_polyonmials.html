@@ -64,7 +64,7 @@ n \mapsto& f(n+1) - f(n)
 <a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
 </p>
 <ol class="org-ol">
-<li>\(f\) is a $\mathbb{Z}$-linear combination of <a href="20231123-binomial_coefficient_polynomial.html#ID-dc4f7557-36ad-4435-8850-12dbb1f6f57d">binomial coefficient polynomial</a></li>
+<li>\(f\) is a $\mathbb{Z}$-linear combination of <a href="20231123-binomial_coefficient_polynomial.html#ID-dc4f7557-36ad-4435-8850-12dbb1f6f57d">binomial coefficient polynomial</a>, \(Q_i(x)\)</li>
 <li>\(f\) is a <a href="20231126-numerical_polynomial.html#ID-07d9b5c0-38de-4d49-bff2-7085cc192d3a">numerical polynomial</a></li>
 <li>\(f(n) \in \mathbb{Z}\) for <a href="20221013222501-fast_alle.html#ID-a3da14cb-05c1-4f9e-a68a-a693980f5ede">almost all</a> \(n \in \mathbb{N}\)</li>
 <li>\(\Delta f\) is a $\mathbb{Z}$-linear combination of binomial coefficient polynomials and there exists an \(n \in \mathbb{N}\) with \(f(n) \in \mathbb{Z}\)</li>
@@ -95,17 +95,103 @@ special case
 </p>
 </div>
 </div>
-<div id="outline-container-orgc5682a3" class="outline-3">
-<h3 id="orgc5682a3"><span class="section-number-3">2.3.</span> 3) \(\implies\) 4)</h3>
+<div id="outline-container-org30df074" class="outline-3">
+<h3 id="org30df074"><span class="section-number-3">2.3.</span> 1) \(\implies\) 4)</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
-taking sufficiently large \(n\) results in \(f(n) \in \mathbb{Z}\)
+For each \(Q_l = \binom{n}{l}\), it holds, that
 </p>
+\begin{align*}
+\Delta (Q_l)(n) =& Q_l(n + 1) - Q_l(n) \\
+=& \binom{n+1}{l} - \binom{n}{l}
+\end{align*}
+<p>
+and by <a href="20220106222835-binomialkoeffizient_hilfssatz.html#ID-3f28b90e-18b5-420b-88e8-2794157bc002">recursion formula</a>, we conclude
+</p>
+\begin{align*}
+\binom{n+1}{l} - \binom{n}{l} =& \binom{n}{l-1} \\
+=& Q_{l-1}(n)
+\end{align*}
+<p>
+Hence
+</p>
+\begin{align*}
+\Delta Q_l = Q_{l-1}
+\end{align*}
 </div>
 </div>
 <div id="outline-container-orga99c83b" class="outline-3">
 <h3 id="orga99c83b"><span class="section-number-3">2.4.</span> 4) \(\implies\) 1)</h3>
 <div class="outline-text-3" id="text-2-4">
+<p>
+Let
+</p>
+\begin{align*}
+\Delta f =& \sum m_i Q_i(x)
+\end{align*}
+<p>
+Let
+</p>
+\begin{align*}
+g = \sum m_i Q_{i+1}(x)
+\end{align*}
+<p>
+Then by previous remark, we get
+</p>
+\begin{align*}
+\Delta g = \Delta f
+\end{align*}
+<p>
+and therefore, \(f - g\) is constant.
+Thus
+</p>
+\begin{align*}
+f = g + m && m \in \mathbb{Q}
+\end{align*}
+
+
+<p>
+Choose \(n \in \mathbb{N}\) with \(f(n) \in \mathbb{Z}\), then we get
+</p>
+\begin{align*}
+f(n) \in \mathbb{Z} \\
+g(n) \in \mathbb{Z} \\
+f(n) - g(n) = m \in \mathbb{Z}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgc5682a3" class="outline-3">
+<h3 id="orgc5682a3"><span class="section-number-3">2.5.</span> 3) \(\implies\) 4)</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+the second part is a special case,
+</p>
+
+<p>
+for the first part, <a href="20210305204948-beweis_durch_vollstandige_induktion.html#ID-c79953c3-855e-432d-9321-047dd5decac8">Proof by induction</a> for \(\mathrm{deg}(f)\)
+</p>
+</div>
+<div id="outline-container-org88daebf" class="outline-4">
+<h4 id="org88daebf"><span class="section-number-4">2.5.1.</span> base case</h4>
+<div class="outline-text-4" id="text-2-5-1">
+<p>
+Let \(\mathrm{deg}(f) \leq 0\), then \(f\) is constant,
+therefore, \(\Delta f = 0\).
+</p>
+</div>
+</div>
+<div id="outline-container-orgae83455" class="outline-4">
+<h4 id="orgae83455"><span class="section-number-4">2.5.2.</span> induction step</h4>
+<div class="outline-text-4" id="text-2-5-2">
+<p>
+By assumption, \(\Delta f(n) = f(n+1) - f(n) \in \mathbb{Z}\) for <a href="20221013222501-fast_alle.html#ID-a3da14cb-05c1-4f9e-a68a-a693980f5ede">almost all</a> \(n \in \mathbb{Z}\).
+Therefore, by induction hypothesis, \(\Delta \Delta f\) is a \(\mathbb{Z}\)-linear combination.
+</p>
+
+<p>
+Thus by 4) \(\implies\) 1) for \(\Delta \Delta f\), we conclude, that \(\Delta f\) is a \(\mathbb{Z}\)-linear combination
+</p>
+</div>
 </div>
 </div>
 </div>

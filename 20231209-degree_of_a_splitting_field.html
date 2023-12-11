@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>degree of a splitting field</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">degree of a splitting field</h1>
+<div id="outline-container-orgfcc9d20" class="outline-2">
+<h2 id="orgfcc9d20"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(K\) be a <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">field</a>, \(f \in K[X]\) a <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c-70182b7714f9">polynomial</a> of <a href="20220401194742-grad_polynom.html#ID-38057130-59af-422a-a717-372042339f5c">degree</a> \(n\) and \(L\) a <a href="20230723-zerfallungskorper.html#ID-4e827de3-231e-4dfc-8a60-60227e9ca3e8">splitting field</a>.
+Then for the <a href="20230722-grad_einer_korpererweiterung.html#ID-33c15990-df05-43a4-bfb7-ed9d17d629a5">degree of the field extension</a>, it holds, that
+</p>
+\begin{align*}
+[L : K] \mid n!
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org8210048" class="outline-2">
+<h2 id="org8210048"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="20221024165350-beweis_durch_vollstandige_induktion_mit_starkerer_induktionsvoraussetzung.html#ID-1534f6c1-e094-4672-8e87-f36eb0e54b8b">proof by strong induction</a> 
+</p>
+</div>
+<div id="outline-container-org9a5fabb" class="outline-3">
+<h3 id="org9a5fabb"><span class="section-number-3">2.1.</span> \(n = 1\)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+for \(n = 1\), our polynomial splits by assumption, hence we have \(K\) as splitting field and thus degree \(1\) or \(1 \mid 1 = 1!\)
+</p>
+</div>
+</div>
+<div id="outline-container-orge79f662" class="outline-3">
+<h3 id="orge79f662"><span class="section-number-3">2.2.</span> \(n \rightarrow n + 1\)</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Let \(f\) be a polynomial of degree \(n + 1\).
+</p>
+</div>
+<div id="outline-container-orgd6f31c5" class="outline-4">
+<h4 id="orgd6f31c5"><span class="section-number-4">2.2.1.</span> irreducible</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+Then choose a <a href="20220320113706-nullstelle.html#ID-b094e637-5f3c-42a2-a2c2-ae73bbbe29a2">root</a> \(\alpha\) in an <a href="20220814141200-abgeschlossenheit_einer_algebraischen_struktur.html#ID-8d0963bb-1256-4adb-9fb2-dad2e261f500">closure</a> \(\overline{K}\).
+Then \(f\) is up to scalar the <a href="20230723-minimalpolynom_eines_algebraischen_elements.html#ID-e76a1f34-1911-4281-a969-5abea577522a">minimal polynomial</a>, and hence \(K(\alpha)\) has degree \(n + 1\).
+Therefore,
+</p>
+\begin{align*}
+f = (X - \alpha) \cdot g
+\end{align*}
+<p>
+for some \(g\) with degree \(\mathrm{deg}(g) = n\)
+Hence by <a href="20230723-gradsatz.html#ID-78e48959-1d1c-4fb2-86eb-5fa51e549db0">Gradlemma</a> and induction hypothesis,
+</p>
+\begin{align*}
+[K(f) : K] =& [K(\alpha) : K] \cdot [K(g) : K(\alpha)]
+=& (n + 1) \cdot [K(g) : K(\alpha)] \mid (n + 1) \cdot n! = (n + 1)!
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgb792e0c" class="outline-4">
+<h4 id="orgb792e0c"><span class="section-number-4">2.2.2.</span> reducible</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+Let 
+</p>
+\begin{align*}
+f =& g_1 \cdot ... \cdot g_r \\
+=& g_1 \cdot f_2
+\end{align*}
+<p>
+with \(g_1,...,g_r\) <a href="20221226125836-irreduzibles_element.html#ID-0cc3140d-cb4c-48a2-8cb6-2d9801e34db0">irreducible</a> (cf. <a href="20230621-polynomring_uber_einem_korper_als_faktorieller_ringa.html#ID-a878db29-88e3-4b47-a635-dad17f2d7f59">Polynomring über einem Körper als faktorieller Ring</a>)
+</p>
+
+
+<p>
+Then since
+</p>
+\begin{align*}
+K(f) = K(g_1)(f_2)
+\end{align*}
+<p>
+(cf. <a href="20231209-splitting_field_of_a_reducible_polynomial.html#ID-9c309006-d26c-4bde-8521-b04eace65d44">splitting field of a product of polynomials</a>)
+</p>
+
+<p>
+by <a href="20230723-gradsatz.html#ID-78e48959-1d1c-4fb2-86eb-5fa51e549db0">Gradlemma</a> , we conclude, that
+</p>
+\begin{align*}
+[K(f) : K] =& [K(g_1)(f_2) : K] \\
+=& [K(g_1)(f_2) : K(g_1)] \cdot [K(g_1) : K]
+\end{align*}
+<p>
+where by induction hypothesis, \([K(g_1)(f_2) : K(g_1)] \mid (\mathrm{deg}(g_1))!, [K(g_1) : K] \mid \mathrm{deg}(f_2)!\)
+Therfore, by <a href="20231209-product_of_factorials_divides_factorial_of_the_sum.html#ID-f66ecc54-3c91-444a-84d7-ef6ea6dd188c">product of factorials divides factorial of the sum</a> and <a href="20230226190704-grad_von_polynomen_unter_multiplikation_in_einem_integritatsbereich.html#ID-ac8fc7ef-5b72-4a77-8057-2b3ad9241517">Grad von Polynomen unter Multiplikation in einem Integritätsbereich</a>  we conclude, that
+</p>
+\begin{align*}
+(\mathrm{deg}(g_1))! \cdot \mathrm{deg}(f_2)! \mid ( \mathrm{deg}(g_1) + \mathrm{deg}(f_2))! =& (\mathrm{deg}(g_1 \cdot f_2))! = (n+1)!
+\end{align*}
+<p>
+Hence by transitivity of \(\mid\)
+</p>
+\begin{align*}
+[K(f) : K] =& [K(g_1)(f_2) : K(g_1)] \cdot [K(g_1) : K] \mid (n+1)!
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>
