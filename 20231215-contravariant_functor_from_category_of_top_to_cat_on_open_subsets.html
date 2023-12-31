@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>contravariant functor from Category of Top to Cat on open Subsets</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">contravariant functor from Category of Top to Cat on open Subsets</h1>
+<div id="outline-container-org8bc916b" class="outline-2">
+<h2 id="org8bc916b"><span class="section-number-2">1.</span> Definition / Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Given <a href="20230225170221-kategorie_top.html#ID-55f8744f-3e21-4c41-889f-06a52add975b">category Top</a> and <a href="20230301211140-kategorie_der_kleinen_kategorien.html#ID-0974d48a-c50e-471e-9dab-61b60297d34b">Category Cat</a>, there exists the natural <a href="20220830173327-kontravarianter_funktor.html#ID-88bd5800-bc2d-4ad5-81d2-90240d062847">contravariant functor</a>
+</p>
+\begin{align*}
+\mathrm{Op}: \mathrm{Top} \rightarrow \mathrm{Cat} \\
+X \mapsto& \mathrm{Op}(X)
+(f: X \rightarrow Y) \mapsto& (\mathcal{F}_f: \mathrm{Op}(Y) \rightarrow \mathrm{Op}(X))
+\end{align*}
+<p>
+where \(X\) is the <a href="20230524151059-category_of_open_subsets.html#ID-e58a8573-76f2-449c-847a-219c2d3ca9a1">Category of Open Subsets</a> and \(\mathcal{F}_f\) is the <a href="20231215-contravariant_functor_from_category_of_top_to_cat_on_open_subsets.html#ID-5be283c3-c9b5-4c60-befc-7466a5892c6e">contravariant functor from Category of Top to Cat on open Subsets</a>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd0158cb" class="outline-2">
+<h2 id="orgd0158cb"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org1d935b9" class="outline-3">
+<h3 id="org1d935b9"><span class="section-number-3">2.1.</span> identity</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+follows from \(\mathcal{F}_{\mathrm{id}} = \mathrm{id}_{\mathrm{Op}(Y)}\) as <a href="20230603163658-identity_functor.html#ID-200e6f87-f474-45f8-956b-a79372ab1b3e">identity functor</a>  
+</p>
+</div>
+</div>
+<div id="outline-container-org83fb41f" class="outline-3">
+<h3 id="org83fb41f"><span class="section-number-3">2.2.</span> composition</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+follows from the definition, as for
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+f: X \rightarrow Y \\
+g: Y \rightarrow Z
+\end{tikzcd}
+\end{displaymath}
+<p>
+and \(O \substeq Z\)
+</p>
+
+\begin{align*}
+(\mathcal{F}_g \circ \mathcal{F}_f)[O] =& f^{-1} \circ g^{-1}[O] \\
+=& (g \circ f)^{-1}[O] \\
+=& \mathcal{F}_{(g \circ f)}[O]
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>
