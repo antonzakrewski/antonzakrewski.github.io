@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>sheaf on sets and equalizer</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">sheaf on sets and equalizer</h1>
+<div id="outline-container-orgd4f1dd2" class="outline-2">
+<h2 id="orgd4f1dd2"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(\mathcal{F}: \mathrm{Op}(X) \rightarrow \mathrm{Set}\) be a <a href="20230603-presheaf_of_sets.html#ID-d49e3c63-1428-4b98-9f00-238ae7770cbf">presheaf</a> for a <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological space</a> \(X\).
+</p>
+
+<p>
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol class="org-ol">
+<li>\(\mathcal{F}\) is a <a href="20231221-sheaf_of_sets.html#ID-1a69edd8-4449-48fe-bbcb-d0f9d8245b0e">sheaf of sets</a></li>
+<li>\(\mathcal{F}\) is a <a href="20231221-sheaf_and_equalizer.html#ID-37bb3474-c814-44cd-903e-1c2c03dadc32">equalizer sheaf</a></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgd940d1d" class="outline-2">
+<h2 id="orgd940d1d"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org454b890" class="outline-3">
+<h3 id="org454b890"><span class="section-number-3">2.1.</span> 1) \(\implies\) 2)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Suppose there exists a commuting diagram
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{F}(U) \arrow[]{r}{} & \prod \mathcal{F}(U_i) \arrow[shift left=1]{r}{} \arrow[shift right]{r}{}& \prod_{(i,j) \in I^2} \mathcal{F}(U_i \cap U_j) \\
+ X  \arrow[swap]{ru}{f}& & 
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+Then since \(f\) forms a <a href="20230804-fork.html#ID-ecc9c4d9-2d1d-44b1-a9c1-3c05ffc884d2">fork</a>, it follows, that \(f(x)^{U_i}_{\vert U_i \cap U_j} = f(x)^{U_j}_{\vert U_i \cap U_j}\) on their intersection.
+Hence by glueing, their exists a section \(s_x \in \mathcal{F}\) with \(\mathrm{res}_{\vert U_i}(s_x) = f(x)^{U_i}\).
+By locality, we conclude, that \(s\) is unique.
+</p>
+
+<p>
+Therefore, the <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">map</a> 
+</p>
+\begin{align*}
+g: X \rightarrow& \mathcal{F}(U) \\
+x \mapsto& s_x
+\end{align*}
+<p>
+is welldefined and furthermore unique with the property, that
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+|[label={[label distance=1mm]-45:\circlearrowleft}]| \mathcal{F}(U) \arrow[]{r}{} & \prod \mathcal{F}(U_i) \arrow[shift left=1]{r}{} \arrow[shift right]{r}{}& \prod_{(i,j) \in I^2} \mathcal{F}(U_i \cap U_j) \\
+X \arrow[]{u}{g}  \arrow[swap]{ru}{f} & {} & 
+\end{tikzcd}
+\end{displaymath}
+<p>
+commutes, since 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7829d35" class="outline-3">
+<h3 id="org7829d35"><span class="section-number-3">2.2.</span> 2) \(\implies\) 1)</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-org37712e8" class="outline-4">
+<h4 id="org37712e8"><span class="section-number-4">2.2.1.</span> <a href="20230827-locality_of_a_sheaf.html#ID-7c0202e8-3ecf-43ea-af6c-94e7061a3eb7">locality of a sheaf</a></h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+follows froms
+</p>
+<ul class="org-ul">
+<li><a href="20231221-monomorphism_in_set_as_injective_map.html#ID-c0559f46-e17a-46a5-8e6c-2eb122ed9e06">monomorphism in set as injective map</a></li>
+<li><a href="20231221-equalizer_and_monomorphism.html#ID-e770bfc0-f34f-425e-b4bc-034046094ffc">equalizer and monomorphism</a></li>
+</ul>
+<p>
+for 
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{F}(U) \arrow[]{r}{} & \prod \mathcal{F}(U_i)
+\end{tikzcd}
+\end{displaymath}
+</div>
+</div>
+<div id="outline-container-org0cba245" class="outline-4">
+<h4 id="org0cba245"><span class="section-number-4">2.2.2.</span> <a href="20230827-glueing_of_a_sheaf.html#ID-ab522f89-f8c0-4cc1-b73a-2948704402b4">glueing of a sheaf</a></h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+Suppose we have <a href="20230818-section_presheaf.html#ID-b721bbf8-7d5b-47a4-b6b1-24f9315227c4">sections</a> \(s_i\), which are compatible on their intersections.
+Then for the <a href="20220818180533-einselementige_menge.html#ID-7f90b39c-62bc-438f-b28f-82742cda6401">singleton</a> with the map \(f: * \rightarrow (s_i)\), we get a <a href="20230804-fork.html#ID-ecc9c4d9-2d1d-44b1-a9c1-3c05ffc884d2">fork</a>
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{F}(U) \arrow[]{r}{} & \prod \mathcal{F}(U_i) \arrow[shift left=1]{r}{} \arrow[shift right]{r}{}& \prod_{(i,j) \in I^2} \mathcal{F}(U_i \cap U_j) \\
+ * \arrow[swap]{rru}{f}& & 
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+hence by universal property, we get a mediating morphism
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{F}(U) \arrow[]{r}{} & \prod \mathcal{F}(U_i) \arrow[shift left=1]{r}{} \arrow[shift right]{r}{}& \prod_{(i,j) \in I^2} \mathcal{F}(U_i \cap U_j) \\
+ * \arrow[dashed]{u}{\exists! g} \arrow[swap]{ru}{f}& & 
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+Then taking the image \(g(*)\) results by commuting within a section with \(g(*)_{\vert U_i} = U_i\), 
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

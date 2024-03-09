@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>homotopy invariant functor and intervall</title>
+<title>homotopy invariant functor and interval</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -48,7 +48,7 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">homotopy invariant functor and intervall</h1>
+<h1 class="title">homotopy invariant functor and interval</h1>
 <div id="outline-container-org3253ed9" class="outline-2">
 <h2 id="org3253ed9"><span class="section-number-2">1.</span> Proposition</h2>
 <div class="outline-text-2" id="text-1">
@@ -61,8 +61,14 @@ Let \(\mathcal{C}\) be a <a href="20220816130308-kategorie_mathe.html#ID-3d36aef
 </p>
 <ol class="org-ol">
 <li>\(\mathcal{F}\) is <a href="20231110-homotopy_invariant_functor.html#ID-6b209ea7-423d-4c2f-9b41-08c86199a4be">homotopy invariant</a>.</li>
-<li>for a <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological space</a> \(X\) and the <a href="20230211133152-produkttopologie.html#ID-32030f19-ac2a-4c46-aaed-1abb1cd6df9f">product topology</a>, it follows, that \(\mathcal{F}(X) \sim \mathcal{F}(X \times [0,1])\)</li>
+<li>for a <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological space</a> \(X\) and the <a href="20230211133152-produkttopologie.html#ID-32030f19-ac2a-4c46-aaed-1abb1cd6df9f">product topology</a>, it follows, that the projection under the functor \(\mathcal{F}(X) \sim \mathcal{F}(X \times [0,1])\)</li>
 </ol>
+\begin{align*}
+\mathcal{F}(\pi): \mathcal{F}(X \times I) \rightarrow \mathcal{F}(X)
+\end{align*}
+<p>
+is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a> 
+</p>
 </div>
 </div>
 <div id="outline-container-org54375a5" class="outline-2">
@@ -71,9 +77,65 @@ Let \(\mathcal{C}\) be a <a href="20220816130308-kategorie_mathe.html#ID-3d36aef
 </div>
 <div id="outline-container-org6c19a86" class="outline-3">
 <h3 id="org6c19a86"><span class="section-number-3">2.1.</span> 1) \(\implies\) 2)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+sees <a href="20240218-product_with_the_intervall_homotopy_equivalent.html#ID-772df131-ff21-4817-b4ef-e0a0d7e8ef2f">product with the interval homotopy equivalent</a>
+</p>
+</div>
 </div>
 <div id="outline-container-orgd9ce27e" class="outline-3">
 <h3 id="orgd9ce27e"><span class="section-number-3">2.2.</span> 2) \(\implies\) 1)</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Let 
+</p>
+\begin{align*}
+\iota_t: X \rightarrow& X \times I \\
+x \mapsto& (x,t)
+\end{align*}
+
+<p>
+Then
+</p>
+\begin{align*}
+\pi \circ \iota_t = \mathrm{id} 
+\end{align*}
+<p>
+and hence
+</p>
+\begin{align*}
+\mathcal{F}(\mathrm{id}) =& \mathcal{F}(\pi \circ \iota_t)  \\
+=& \mathcal{F}(\pi) \circ \mathcal{F}(\iota_t) \\
+\end{align*}
+<p>
+Here by assumption, \(\mathcal{F}(\pi)\) is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a>, thus by <a href="20240218-left_inverse_of_an_isomorphism_as_right_inverse.html#ID-ba057637-8335-4728-9d5e-1f289aca1b88">right inverse of an isomorphism as left inverse</a> it follows, that \(\mathcal{F}(\iota_t)\) is an inverse.
+</p>
+
+<p>
+By assumption, there exists a homotopy
+</p>
+\begin{align*}
+H: X \times I \rightarrow Y
+\end{align*}
+<p>
+where
+</p>
+\begin{align*}
+H \circ \iota_0 =& f \\
+H \circ \iota_1 =& g
+\end{align*}
+
+<p>
+Hence
+</p>
+\begin{align*}
+\mathcal{F}(f) =& \mathcal{F}(H \circ \iota_0) \\
+=& \mathcal{F}(H) \circ \mathcal{F}(\iota_0) \\
+=& \mathcal{F}(H) \circ \mathcal{F}(\iota_1) \\
+=& \mathcal{F}(H \circ \iota_1) \\
+=& \mathcal{F}(g)
+\end{align*}
+</div>
 </div>
 </div>
 </div>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>cyclotomic polynomial as minimal polynomial in Q</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">cyclotomic polynomial as minimal polynomial in Q</h1>
+<div id="outline-container-orgdc15ca0" class="outline-2">
+<h2 id="orgdc15ca0"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(\varphi_n \in \overline{\mathbb{Q}}[X]\) be the <a href="20240120-cyclotomic_polynomial.html#ID-30319bc1-87ef-41e3-9ccb-be0b4d0c24f9">cyclotomic polynomial</a> and \(\zeta\) a <a href="20240120-primitiv_root_of_unity.html#ID-01732045-5503-4585-a4ab-1e354d9a3939">primitive root of unity</a>.
+Then \(\varphi_n\) is the <a href="20230723-minimalpolynom_eines_algebraischen_elements.html#ID-e76a1f34-1911-4281-a969-5abea577522a">minimal polynomial</a> of a <a href="20240120-primitiv_root_of_unity.html#ID-01732045-5503-4585-a4ab-1e354d9a3939">primitive root of unity</a> \(\zeta_i\)
+</p>
+</div>
+</div>
+<div id="outline-container-org75c8926" class="outline-2">
+<h2 id="org75c8926"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Let \(f_{\zeta_i}\) be the <a href="20230723-minimalpolynom_eines_algebraischen_elements.html#ID-e76a1f34-1911-4281-a969-5abea577522a">minimal polynomial of an algebraic element</a>.
+</p>
+
+<p>
+Note that \(\zeta_i\) is a root of \(X^n - 1\), hence 
+</p>
+\begin{align*}
+f_{\zeta_i} \mid X^{n} - 1
+\end{align*}
+
+<p>
+Therefore, there exists an \(h \in \mathbb{Q}[X]\) such that
+</p>
+\begin{align*}
+f_{\zeta_i} \cdot h = X^n - 1
+\end{align*}
+<p>
+by <a href="20240125-gauss_lemma_for_monic_polynomials.html#ID-4b65b5c1-77b4-4841-8329-88dad0a53713">gauss lemma for monic polynomials</a> it follows, since \(h\) is <a href="20221226010524-normiertes_polynom.html#ID-f17a0f11-0953-4728-91a6-9a81df943813">monic</a>, that
+</p>
+\begin{align*}
+h, f_{\zeta_i} \in \mathbb{Z}[X]
+\end{align*}
+
+<p>
+Let \(p \in \mathbb{P}\) be a <a href="20211228193940-primzahl.html#ID-d7857a86-c778-478d-aa48-7e239fcd8076">prime number</a> with \mathrm{gcd}(p,n) = 1$.
+</p>
+
+<p>
+Suppose \(\zeta_i^p\) is not a root of \(f_{\zeta_i}\).
+Then since \((\zeta_i)^{p}^n - 1 = ((\zeta_i)^n)^p - 1 = 1^p - 1 = 0\) it follows, that
+</p>
+\begin{align*}
+h(\zeta_i^p) = 0
+\end{align*}
+<p>
+and thus \(\zeta_i\) is a <a href="20220320113706-nullstelle.html#ID-b094e637-5f3c-42a2-a2c2-ae73bbbe29a2">root</a> of \(h(X^p)\) 
+</p>
+
+<p>
+Hence it follows, that
+</p>
+\begin{align*}
+f \mid h(X^p)
+\end{align*}
+<p>
+and thus there exists a polynomial \(g\) such that
+</p>
+\begin{align*}
+h(X^p) = f \cdot g
+\end{align*}
+
+<p>
+Again aplying the gauss lemma we conclude, that \(g\) is monic with \(g \in \mathbb{Z}[X]\) 
+</p>
+
+<p>
+Consider the induced <a href="20221226010233-ringhomomorphismus.html#ID-136298f7-3132-4bd7-934f-0eefaa48fcf9">ring-homomorphism</a>
+</p>
+\begin{align*}
+\pi: \mathbb{Z}[X] \rightarrow \mathbb{Z}/p \mathbb{Z}[X]
+\end{align*}
+
+<p>
+then applying <a href="20230227142040-freshman_s_dream.html#ID-9b094879-1b60-45f9-9786-5120f48ccfe3">Freshman's Dream</a> 
+</p>
+\begin{align*}
+\pi_p(f) \cdot \pi_p(g) =& \pi_p(h(X^p)) \\
+=& \pi_p(h(X)^p) \\
+=& \pi_p(h(X))^p
+\end{align*}
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

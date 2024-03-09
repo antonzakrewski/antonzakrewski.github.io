@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>connected groupoid equivalent to an object</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">connected groupoid equivalent to an object</h1>
+<div id="outline-container-org54e0304" class="outline-2">
+<h2 id="org54e0304"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(\tau\) be a <a href="20231111-connected_category.html#ID-663060d5-07ae-4dfc-b5d3-ed866fa75bdc">connected</a> <a href="20231128-groupoid.html#ID-faa255e1-0c3c-476f-9d08-78181da165c8">groupoid</a>.
+Then for \(A \in \mathrm{Ob}(\tau)\)
+</p>
+\begin{align*}
+\tau \simeq A
+\end{align*}
+<p>
+where \(A\) is <a href="20230225184516-volle_unterkategorie.html#ID-02c96fc8-ac4f-42b6-804d-bc08d25bfb2a">full subcategory</a> containing \(A\)
+</p>
+
+<p>
+<a href="20231007-uses_ac.html#ID-7265220a-8d13-431b-996e-7862faa0124c">Uses AC</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org804ceb4" class="outline-2">
+<h2 id="org804ceb4"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+using <a href="20230603-equivalence_of_categories_and_fully_faithful_and_essentially_surjective_functor.html#ID-52024b5e-fa8a-46b9-9fbb-ac9b36efd990">adjoint equivalence of categories and fully faithful and essentially surjective functor</a> 
+</p>
+</div>
+<div id="outline-container-org8afa179" class="outline-3">
+<h3 id="org8afa179"><span class="section-number-3">2.1.</span> construction</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Let
+</p>
+\begin{align*}
+\iota: A \rightarrowtail& \tau \\
+\end{align*}
+<p>
+be the natural inclusion.
+</p>
+
+<p>
+Furthermore by connectedness, for each \(B \in \mathrm{Ob}(\mathcal{C})\), choose a morphism \(f_B: B \rightarrow A\) or \(f_B: A \rightarrow B\) (here AC is used)
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> we may assume that \(f_B: A \rightarrow B\) and \(f_B\) is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a>, as \(\tau\) is a groupoid.
+</p>
+
+<p>
+Then we define a functor by 
+</p>
+\begin{align*}
+\mathcal{F}: \tau \rightarrow& A \\
+B \mapsto& A \\
+(g: C \rightarrow B) \mapsto& (f_{B}^{-1} \circ g \circ f_C)
+\end{align*}
+</div>
+<div id="outline-container-org369a9f1" class="outline-4">
+<h4 id="org369a9f1"><span class="section-number-4">2.1.1.</span> identity</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+for the identity \(\mathrm{id}_{C}\), it follows, that
+</p>
+\begin{align*}
+\mathcal{F}(\mathrm{id}_{C}) =& f_C^{-1} \circ \mathrm{id}_{C} \circ f_C \\
+=& f_C^{-1} \circ f_C \\
+=& \mathrm{id}_{A} 
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org759385a" class="outline-4">
+<h4 id="org759385a"><span class="section-number-4">2.1.2.</span> composition</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+Suppose we have \(g: B \rightarrow C\) and \(h: C \rightarrow D\).
+Then we get
+</p>
+\begin{align*}
+\mathcal{F}(h \circ g) =& f_D^{-1} \circ h \circ g \circ f_B \\
+=& f_D^{-1} \circ h \circ f_C \circ f_C^{-1} \circ g \circ f_B \\
+=& \mathcal{F}(h) \circ \mathcal{F}(g)
+\end{align*}
+</div>
+</div>
+</div>
+<div id="outline-container-orgdcd3be2" class="outline-3">
+<h3 id="orgdcd3be2"><span class="section-number-3">2.2.</span> <a href="20230420222307-essentially_surjective_functor.html#ID-84f987b7-b7b6-45e6-ace0-865d5f6d6812">essentially surjective</a></h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+follows immediatly, as each pair of <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">objects</a> is isomorphic in a connected groupoid 
+</p>
+</div>
+</div>
+<div id="outline-container-orgab3b15d" class="outline-3">
+<h3 id="orgab3b15d"><span class="section-number-3">2.3.</span> <a href="20230301211947-volltreuer_funktor.html#ID-85a359f5-50f6-4f57-ae10-c34278befc6c">fully faithful</a></h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+follows from:
+</p>
+<ul class="org-ul">
+<li><a href="20231110-precomposition_with_an_isomorphism_as_isomorphism.html#ID-3d4d7e9d-b450-46e0-b552-abc68242539f">precomposition with an isomorphism as isomorphism</a></li>
+<li><a href="20231110-postcomposition_with_an_isomorphism_as_isomorphism.html#ID-03771147-5e99-4539-802b-cbdb3fbbfb43">postcomposition with an isomorphism as isomorphism</a></li>
+</ul>
+
+<p>
+hence we have an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a> on <a href="20230403133054-hom_set.html#ID-1d0f0263-2498-4c3b-b9d1-e79b1fad0167">hom-sets</a>   
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

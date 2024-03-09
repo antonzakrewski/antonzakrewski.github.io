@@ -53,15 +53,94 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 <h2 id="org37465a9"><span class="section-number-2">1.</span> Proposition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Sei \((X_i)_{i \in I}\) eine <a href="20220823154734-mengenfamilie.html#ID-d5f647a4-b9c9-406e-82fc-ceeaacb27fd9">Familie</a> von <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Mengen</a>, dann ist das (kleine) <a href="20230404161607-categorical_coproduct.html#ID-25822c41-825b-480b-b8a6-eeb904ca5649">coproduct</a> definiert als
+Given <a href="20221216142701-kategorie_set.html#ID-dc78356f-1fcf-41e8-b05a-47cdd731513c">category set</a> and a <a href="20220823154734-mengenfamilie.html#ID-d5f647a4-b9c9-406e-82fc-ceeaacb27fd9">collection</a> of <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">sets</a> \((X_i)_{i \in I}\), then the <a href="20230404161607-categorical_coproduct.html#ID-25822c41-825b-480b-b8a6-eeb904ca5649">categorical coproduct</a> is given as <a href="20231220-disjoint_union.html#ID-042a4904-61d6-4474-8c57-a7baf5ecfe5c">disjoint union</a> 
+</p>
+
+\begin{align*}
+\coprod_{i \in I} X_i  \coloneqq \bigcup_{i \in I} X_} \times \{i\}
+\end{align*}
+<p>
+with the canonical inclusion
 </p>
 \begin{align*}
-\prod_{i \in I} X_i  \coloneqq \bigcup_{i \in I} X_} \times \{i\}
+\iota: X_i \rightarrow& \bigsqcup_{i \in I} X_} \times \{i\}
+x \mapsto& (x,i)
 \end{align*}
 </div>
 </div>
 <div id="outline-container-orge86aa11" class="outline-2">
 <h2 id="orge86aa11"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org99e922c" class="outline-3">
+<h3 id="org99e922c"><span class="section-number-3">2.1.</span> construction of a map</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Let \(A\) be a set and 
+</p>
+\begin{align*}
+f_i: X_i \rightarrow A
+\end{align*}
+<p>
+be a collection of <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">maps</a> 
+</p>
+
+<p>
+Then we define
+</p>
+\begin{align*}
+f: \coprod X_i \rightarrow A \\ 
+(x,i) \mapsto& f_i(x)
+\end{align*}
+
+<p>
+Then by construction
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+X_i \arrow[]{r}{\iota} \arrow[]{rd}{f_i} & \coprod X_i \arrow[]{d}{f}\\
+& A \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+<a href="20220824222939-kommutieren_eines_diagramms.html#ID-446e5d02-ed5b-4cbf-b40a-3ed58067ef7c">commutes</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-org658d40b" class="outline-3">
+<h3 id="org658d40b"><span class="section-number-3">2.2.</span> uniqueness</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Suppose there exists a map \(g\) making 
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+X_i \arrow[]{r}{\iota} \arrow[swap]{rd}{f_i} & \coprod X_i \arrow[]{d}{f}\\
+& A \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+commute
+Then for \((x,i) \in \coprod X_i\), it follows, that
+</p>
+\begin{align*}
+g((x,i)) = f_i(x)
+\end{align*}
+
+<p>
+therefore it follows, that
+</p>
+\begin{align*}
+g((x,i)) = f((x,i)) 
+\end{align*}
+<p>
+and since \((x,i)\) was arbitrary,
+</p>
+\begin{align*}
+g = f
+\end{align*}
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">

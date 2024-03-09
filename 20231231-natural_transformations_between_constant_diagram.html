@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>natural transformations between constant diagrams</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">natural transformations between constant diagrams</h1>
+<div id="outline-container-org59e41de" class="outline-2">
+<h2 id="org59e41de"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(\mathcal{C}\) be a <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a>, \(\mathcal{I}\) a <a href="20220824121232-leere_kategorie.html#ID-d3daa2e2-f5a2-498b-8478-b6ed8a51a5a5">nonempty</a>  index category.
+Then for an <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">object</a> \(A,B \in \mathrm{Ob}(\mathcal{C})\) <a href="20231231-constant_diagram_functor.html#ID-b6ebc577-14be-4b51-9c98-8edc3c3ea09f">constant diagram functors</a> \(\underline{A}, \underline{B}\), a <a href="20220821182915-naturliche_transformation_kategorientheorie.html#ID-4e6e50c0-c0df-44ff-a140-bebfa492ef7e">natural transformation</a> is precisely given by <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphism</a> \(f: A \rightarrow B\)
+</p>
+</div>
+</div>
+<div id="outline-container-org9c88110" class="outline-2">
+<h2 id="org9c88110"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgf106793" class="outline-3">
+<h3 id="orgf106793"><span class="section-number-3">2.1.</span> morphism \(\Rightarrow\) natural transformation</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+naturality follows from
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+I \arrow[]{d}{g} & & \underline{A}(I) = A \arrow[]{d}{\underline{A}(g) = \mathrm{id}_{A}} \arrow[]{r}{f} & B = \underline{B}(I) \arrow[]{d}{\underline{B}(g) = \mathrm{id}_{B}}\\
+J & & \underline{A}(I) = A \arrow[]{r}{f}& B = \underline{B}(J)\\
+\end{tikzcd}
+\end{displaymath}
+</div>
+</div>
+<div id="outline-container-orgae2cb78" class="outline-3">
+<h3 id="orgae2cb78"><span class="section-number-3">2.2.</span> natural transformation \(\Rightarrow\) morphism</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Let \(\eta: \underline{A}(C) \rightarrow \underline{B}(C)\) be a natural transformation.
+By assumption, there exists an \(I \in \mathrm{Ob}(\mathcal{I})\).
+Then \(\eta(I) \in \mathrm{Hom}_{\mathcal{C}}(\underline{A}(I), \underline{B}(I)) = \mathrm{Hom}_{\mathcal{C}}(A,B)\), hence \(\eta(I) = f\) for some \(f: A \rightarrow B\)
+</p>
+
+<p>
+furthermore, for \(J \in \mathcal{I}\) we get
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+I \arrow[]{d}{g} & & \underline{A}(I) = A \arrow[]{d}{\underline{A}(g) = \mathrm{id}_{A}} \arrow[]{r}{f} & B = \underline{B}(I) \arrow[]{d}{\underline{B}(g) = \mathrm{id}_{B}}\\
+J & & \underline{A}(I) = A \arrow[]{r}{\eta(J)}& B = \underline{B}(J)\\
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+Thus by naturality of the diagram, we get by evaluating \(\mathrm{id}\)
+</p>
+\begin{align*}
+\eta(J) = f
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

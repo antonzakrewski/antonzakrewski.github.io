@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>zeroth homotopy group not depending on the base point</title>
+<title>zeroth homotopy group as path components</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -48,18 +48,131 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">zeroth homotopy group not depending on the base point</h1>
+<h1 class="title">zeroth homotopy group as path components</h1>
 <div id="outline-container-org2548efd" class="outline-2">
 <h2 id="org2548efd"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \((X,x)\) be a <a href="20230331112759-based_space.html#ID-2b4bad5a-2a2b-4aac-8f24-1ed9951887f8">based space</a>, then the zeroth <a href="20230722-homotopy_group.html#ID-8aa4161f-9373-468e-90e1-7ab31641c24a">homotopy group</a> denotes the <a href="20230525114518-pfadkomponente.html#ID-3295510f-254c-4af2-a40d-2374ef5c9929">path components</a> up to canonical renaming
+</p>
 </div>
-
+</div>
 <div id="outline-container-orgd15e20c" class="outline-2">
 <h2 id="orgd15e20c"><span class="section-number-2">2.</span> Proof</h2>
 <div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgdf575e9" class="outline-3">
+<h3 id="orgdf575e9"><span class="section-number-3">2.1.</span> construction and continuity</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Note that the space of two points \(S^0\) is <a href="20230705-locally_compact_regular_space.html#ID-f89f4ba5-4eb9-448b-bf35-da8e5aeaa963">locally regular compact</a>.
+Hence the <a href="20231103-evaluation_map_as_continuous_map.html#ID-5122ea23-a013-43c9-87ef-7ec9229ab4d8">evaluation map from a locally compact as continuous map</a>
+</p>
 \begin{align*}
-\pi_0(X,x) \coloneqq \mathrm{Map}_{*}((S^0,1), (X,x)) \\
-\simeq X
+\mathrm{ev}: \mathrm{Map}_{*}(S^0,0), (X,x)) \times S^0 \rightarrow X
 \end{align*}
+<p>
+is <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a>
+</p>
+
+<p>
+Therefore, the <a href="20221026162005-einschrankung_abbildung.html#ID-c9f04287-e549-4811-8538-f4a3c521866f">restriction</a> is also continuous (cf. <a href="20230515195750-einschrankung_einer_stetigen_abbildung_als_stetige_abbildung.html#ID-1afa10bb-de7f-4315-bf07-1966ed96afe0">restriction of a continuous map as continuous map</a>)
+</p>
+\begin{align*}
+\mathrm{ev}_{1}: \mathrm{Map}_{*}(S^0,0), (X,x)) \times \{1\} \rightarrow X
+\end{align*}
+
+<p>
+Furthermore, by <a href="20231129-product_with_the_terminal_object_canonically_iso.html#ID-6d43f41a-fe3e-4b78-bfb1-a41786818a75">product with the terminal object canonically iso</a>, it holds, that
+</p>
+\begin{align*}
+\mathrm{Map}((S^0,0), (X,x)) \simeq \mathrm{Map}((S^0,0),(X,x)) \times \{1\}
+\end{align*}
+
+<p>
+Hence we get a continouus map
+</p>
+\begin{align*}
+\mathrm{Map}_{*}((S^0,0), (X,x)) \rightarrow X
+\end{align*}
+<p>
+evaluating at the point \(1\)
+</p>
+</div>
+</div>
+<div id="outline-container-org14fee96" class="outline-3">
+<h3 id="org14fee96"><span class="section-number-3">2.2.</span> bijection</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+It is a <a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">Bijection</a>, as each map \(f \in \mathrm{Map}_*((S^0,0), (X,x))\) is uniquely determined by the non-base point.
+</p>
+</div>
+</div>
+<div id="outline-container-orga118f3b" class="outline-3">
+<h3 id="orga118f3b"><span class="section-number-3">2.3.</span> open</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Let \(U \subseteq \mathrm{Map}_*((S^1,0), (X,x))\) be <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a>.
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> chosing an element of the <a href="20230211131537-subbasis_einer_topologie.html#ID-9d1f4366-7535-41ca-bb72-967675fb06ab">subbasis</a>, (cf. <a href="20231228-open_injective_map_and_subbasis.html#ID-54ad5cd7-8833-46c2-8af7-55c89695903e">open injective map and subbasis</a>).
+Then
+</p>
+\begin{align*}
+U = \mathcal{O}_{K,O}
+\end{align*}
+
+<p>
+we get following cases
+</p>
+</div>
+<div id="outline-container-orgab5bc92" class="outline-4">
+<h4 id="orgab5bc92"><span class="section-number-4">2.3.1.</span> \(0 \not\in K\)</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<p>
+if \(U\) is <a href="20220902125304-nichtleere_menge.html#ID-119fa0d9-a2b3-4b46-bb61-a6e590282321">nonempty</a>, then we can choose \(f \in U\) and map \(0\) to an arbitrary point, hence \(U = \mathrm{Map}_*((S^0,0), (X,x))\)
+</p>
+</div>
+</div>
+<div id="outline-container-org4f8ccd9" class="outline-4">
+<h4 id="org4f8ccd9"><span class="section-number-4">2.3.2.</span> \(x \in U, 1 \in K, 0 \in K\)</h4>
+<div class="outline-text-4" id="text-2-3-2">
+<p>
+Then evaluating results in \(\mathrm{ev}[U] = O\)
+</p>
+</div>
+</div>
+<div id="outline-container-org65ae0e5" class="outline-4">
+<h4 id="org65ae0e5"><span class="section-number-4">2.3.3.</span> \(x \not\in U, 1 \in K, 0 \in K\)</h4>
+<div class="outline-text-4" id="text-2-3-3">
+<p>
+then since our mapping space is pointed, it follows, that \(U = \emptyset\), hence \(\mathrm{ev}[U] = \emptyset\)
+</p>
+</div>
+</div>
+<div id="outline-container-org0c2de49" class="outline-4">
+<h4 id="org0c2de49"><span class="section-number-4">2.3.4.</span> \(1 \not\in K, 0 \in K\)</h4>
+<div class="outline-text-4" id="text-2-3-4">
+<p>
+Then evaluating results in \(\mathrm{ev}[U] = O\)
+</p>
+
+
+<p>
+Thus for each case, the image is open.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org8e20136" class="outline-3">
+<h3 id="org8e20136"><span class="section-number-3">2.4.</span> equality of path components</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+by functorality of the <a href="20231024-functor_from_top_to_the_set_of_path_components.html#ID-1bd97430-5ed1-404d-a2bb-e6813f079895">path component functor</a>, it follows by <a href="20230420221620-isomorphisms_under_functors.html#ID-c6c5ffcb-a860-453a-a71a-ddca7f8a9c7f">isomorphisms under functors</a>, that
+</p>
+\begin{align*}
+\pi_0(X,x) =& \pi_0(\mathrm{Map}_{*}(S^0,0)) \\
+\simeq& \pi_0(X)
+\end{align*}
+</div>
 </div>
 </div>
 </div>

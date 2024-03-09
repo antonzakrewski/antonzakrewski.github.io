@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>covering map induces natural transformation on monodromy functor</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">covering map induces natural transformation on monodromy functor</h1>
+<div id="outline-container-org6dc60f5" class="outline-2">
+<h2 id="org6dc60f5"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(B,E,E'\) be <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological spaces</a> and \(p: E \rightarrow B, p: E' \rightarrow B\) <a href="20230729-covering_map.html#ID-b817dc02-5dea-4e8d-8ccd-adf7ef14e6bc">covering maps</a> and \(f: (p: E \rightarrow B) \rightarrow (p': E' \rightarrow B)\) a <a href="20231210-map_of_covering.html#ID-92f224c5-7fd5-427d-b514-fb57c7b95d99">map of covering</a>.
+</p>
+
+<p>
+Then the canonical map
+</p>
+\begin{align*}
+f_{b}: \mathrm{Fib}_b^p \rightarrow& \mathrm{Fib}_b^{p'} \\
+e \mapsto& f(e) \in p^{-1}(b)
+\end{align*}
+
+<p>
+is a <a href="20220821182915-naturliche_transformation_kategorientheorie.html#ID-4e6e50c0-c0df-44ff-a140-bebfa492ef7e">natural transformation</a> for the <a href="20231212-monodromy_action_functor.html#ID-f2441a3e-5c6c-4e6d-af79-b5da3d91efcd">monodromy functors</a> 
+</p>
+\begin{align*}
+\tau_p, \tau_{p'}: \tau_{\leq 1}(B) \rightarrow& \mathrm{Set} 
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org649590f" class="outline-2">
+<h2 id="org649590f"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+We have to show, that for a <a href="20230308142118-weg.html#ID-7c6527d3-2217-4c14-85ab-d1545b889ba8">path</a> \(\gamma: b \leadsto b'\) the following diagram <a href="20220824222939-kommutieren_eines_diagramms.html#ID-446e5d02-ed5b-4cbf-b40a-3ed58067ef7c">commutes</a> 
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+b \arrow[]{d}{[\gamma]}  &  & \mathrm{Fib}_b^p \arrow[]{d}{\tau_{\gamma}^p(1)} \arrow[]{r}{f_{b}} & \mathrm{Fib}_{b}^{p'} \arrow[]{d}{\tau_{\gamma}^{p'}(1)} \\
+b'                       &  & \mathrm{Fib}_{b'}^p  \arrow[]{r}{f_{b'}} & \mathrm{Fib}_{b'}^{p'} \\
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+follows from <a href="20231209-unique_path_lifting_for_a_covering_map.html#ID-482c4ba5-a0ce-4c02-9206-89da32a10646">unique path lifting for a covering map</a>, where by assumption
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+& {[0,1]} \arrow[swap]{ld}{\tau_{\gamma}^p} \arrow[near start]{dd}{\gamma} \arrow[]{rd}{\tau_{\gamma}^{p'}} & \\
+E \arrow[near start]{rr}{f} \arrow[swap]{rd}{p} & & E \arrow[]{ld}{p'} \\
+& B & \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+commutes
+</p>
+
+\begin{align*}
+f \circ \tau_{\gamma}^{p} =& \tau_{\gamma} \circ f
+\end{align*}
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

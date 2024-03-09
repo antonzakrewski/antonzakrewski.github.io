@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>isomorphic quotients as G-Set and conjugation</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">isomorphic quotients as G-Set and conjugation</h1>
+<div id="outline-container-orgdb79e54" class="outline-2">
+<h2 id="orgdb79e54"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(G\) be a <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a>, \(G/H\) and \(G/K\) be <a href="20231205-g_set.html#ID-2e1771aa-7af3-4f27-8538-4f5a67ab9782">G-Sets</a> for <a href="20220911122242-untergruppe.html#ID-ded4020a-b34f-4433-9d64-2afa33a552d8">subgroups</a> \(H,K \subseteq G\)
+</p>
+
+<p>
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol class="org-ol">
+<li>\(G/H\) and \(G/K\) are <a href="20220928135729-gruppenisomorphsimus.html#ID-a0a02292-8a0b-4dc8-a2a8-1d592e5cb95b">isomorphic</a> as G-Sets</li>
+<li>there exists an \(g \in G\) such that</li>
+</ol>
+\begin{align*}
+g \circ H g^{-1} = K
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org4913528" class="outline-2">
+<h2 id="org4913528"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org3f571b8" class="outline-3">
+<h3 id="org3f571b8"><span class="section-number-3">2.1.</span> 1) \(\implies\) 2)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Choose a \(g \in G\) with
+</p>
+\begin{align*}
+\varphi([1]) = [g]
+\end{align*}
+<p>
+Then for arbitrary \(g' \in G\), it follows, that 
+</p>
+\begin{align*}
+\varphi([g']) =& \varphi([g' \cdot 1]) \\
+=&\varphi(g' \cdot [1]) \\
+=& g' \cdot \varphi([1]) \\
+=& g' \cdot [g] \\
+=& [g' \cdot g]
+\end{align*}
+
+
+<p>
+Then it follows, for \(h \in H\), that
+</p>
+\begin{align*}
+[g^{-1} h \cdot g] =& \varphi[g^{-1} h] \\
+=& \varphi[g^{-1}] \\
+=& [1] 
+\end{align*}
+<p>
+hence there exists an \(k \in K\) with \(g^{-1} h g = k\) resp.
+</p>
+\begin{align*}
+g^{-1} H g \subseteq K
+\end{align*}
+
+
+<p>
+Note that by analogous arguments, 
+</p>
+\begin{align*}
+\varphi^{-1}[x] =& \varphi^{-1}((x \cdot g^{-1}) \cdot [g]) \\
+=& (x \cdot g^{-1}) \cdot \varphi^{-1}([g]) \\
+=& (x \cdot g^{-1}) \cdot [1] \\
+=& [x \cdot g^{-1}]
+\end{align*}
+
+<p>
+and by similar arguments, it follows, that
+</p>
+\begin{align*}
+g K g^{-1} \subseteq H
+\end{align*}
+
+<p>
+Therefore, conjugation with \(g\) resp. \(g^{-1}\) are welldefined maps, which are inverse to each other
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org7cff14b" class="outline-3">
+<h3 id="org7cff14b"><span class="section-number-3">2.2.</span> 2) \(\implies\) 1)</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+let
+</p>
+\begin{align*}
+\varphi: G/H \rightarrow& G/K \\
+[x] \mapsto& [x g^{-1}]
+\end{align*}
+</div>
+<div id="outline-container-org4088fd0" class="outline-4">
+<h4 id="org4088fd0"><span class="section-number-4">2.2.1.</span> g-equivariant</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+follows from
+</p>
+\begin{align*}
+\varphi(g' \cdot [x]) =& \varphi([g' \cdot x]) \\
+=& [g' \cdot x \cdot g^{-1}] \\
+=& g' \cdot [x \cdot g^{-1}] \\
+=& g' \cdot \varphi([x]) 
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org232e9ae" class="outline-4">
+<h4 id="org232e9ae"><span class="section-number-4">2.2.2.</span> welldefined</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+Let \([x] = [x']\), then there exists an \(h \in H\) such that
+</p>
+\begin{align*}
+x = x' \cdot h
+\end{align*}
+<p>
+thus consider
+</p>
+\begin{align*}
+\varphi([x]) =& \varphi([x' \cdot h]) \\
+=& [x' \cdot h \cdot g^{-1}] \\
+=& [x' \cdot g^{-1} \cdot g h \cdot g^{-1}] \\
+=& [x' \cdot g^{-1} \cdot k] \\
+=& [x' \cdot g^{-1}]
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgf3361cc" class="outline-4">
+<h4 id="orgf3361cc"><span class="section-number-4">2.2.3.</span> injective</h4>
+<div class="outline-text-4" id="text-2-2-3">
+<p>
+Suppose that there exists \(x,y \in G\) such that
+</p>
+\begin{align*}
+\varphi([x]) =& \varphi([y]) \\
+[x \cdot g^{-1}] =& [y \cdot g^{-1}]
+\end{align*}
+<p>
+Then there exists an \(k \in K\) such that
+</p>
+\begin{align*}
+x \cdot g^{-1} = y \cdot g^{-1} k
+\end{align*}
+<p>
+Since conjugation is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a>, there exists an \(h \in H\) such that
+</p>
+\begin{align*}
+g \cdot h \cdot g^{-1} = k
+\end{align*}
+<p>
+and thus
+</p>
+\begin{align*}
+x \cdot g^{-1} =& y \cdot g^{-1} g \cdot h \cdot g^{-1} \\
+x \cdot g^{-1} =& y \cdot h \cdot g^{-1} \\
+x =& y \cdot h
+\end{align*}
+
+<p>
+Thus showing, that
+</p>
+\begin{align*}
+[x] = [y] \in G/H
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgd191a37" class="outline-4">
+<h4 id="orgd191a37"><span class="section-number-4">2.2.4.</span> surjective</h4>
+<div class="outline-text-4" id="text-2-2-4">
+<p>
+follows from \([x \cdot g]\)
+</p>
+
+<p>
+<a href="20240201-category_of_g_sets_as_balanced_category.html#ID-5d934011-554b-4834-be22-3fb1e92e5cfc">category of G-Sets as balanced category</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

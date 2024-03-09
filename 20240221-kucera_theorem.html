@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kucera Theorem</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Kucera Theorem</h1>
+<div id="outline-container-orgfabd0b3" class="outline-2">
+<h2 id="orgfabd0b3"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(\mathcal{C}\) be a <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a>.
+Then \(\mathcal{C}\) is the <a href="20240107-quotient_category.html#ID-16329e93-8d67-4141-8e7f-b54ed7ac143f">quotient category</a> of a <a href="20230402143946-concrete_category.html#ID-5445ec6b-bf83-4c73-a8d1-b2bd4e7e37a7">concrete category</a> 
+</p>
+
+<p>
+assumig <a href="20220817144037-neumann_bernays_godel_mengenlehre.html#ID-493a618c-7ac2-4caa-abad-56edc15b561c">NBG</a> and <a href="20240306-axiom_of_global_choice.html#ID-9102e714-3481-4efe-aa12-32aa2caba933">axiom of global choice</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-org84dbe83" class="outline-2">
+<h2 id="org84dbe83"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Choose a <a href="20240306-dense_order.html#ID-a1808df7-d617-436b-8708-49a5cc194355">dense</a> <a href="20220929195946-wohlordnung.html#ID-8f3e284b-c3c9-4aaf-8bf5-5eadc47faa78">well-order</a> \(\leq\) on \(\mathrm{Ob}(\mathcal{C})\)
+We define \(\mathcal{L}\) as <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a> containing
+</p>
+<ol class="org-ol">
+<li>\(\mathrm{Ob}(\mathcal{C})\) as <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">objects</a></li>
+<li>for objects \(A,B \in \mathrm{Ob}(\mathcal{L})\) the <a href="20230403133054-hom_set.html#ID-1d0f0263-2498-4c3b-b9d1-e79b1fad0167">hom-set</a> \(\mathrm{Hom}_{\mathcal{L}}(A,B)\) consists of pairs of <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphisms</a> \((f_1,f_2)\) where \(f_1: A \rightarrow H, f_2: H \rightarrow B\) for \(H \leq A, H \leq B\).</li>
+</ol>
+
+<p>
+The <a href="20220104114218-komposition.html#ID-7dbdf503-309d-418b-8b3d-5c2fe27bbfeb">composition</a> of \((f_1,f_2): A \rightarrow B, (g_1,g_2): B \rightarrow C\) for \(g_1: B \rightarrow K\) and \(f_1: A \rightarrow H\) is defined as
+</p>
+\begin{align*}
+(g_1,g_2) \circ (f_1,f_2) =& 
+    \begin{cases}
+ (f_1,g_2 \circ g_1 \circ f_2 ) & \mbox{if }  H < K\\
+  (g_1 \circ f_2 \circ f_1, g_2)  &  \mbox{if } H \geq K  \\ 
+    \end{cases}
+\end{align*}
+
+\begin{displaymath}
+\begin{tikzcd}
+A \arrow[]{drr}{} \arrow[]{r}{f_1} & H \arrow[]{r}{f_2} & B \arrow[]{d}{g_1}\\
+ & & K \arrow[]{d}{g_2}\\
+& & C \\
+\end{tikzcd}
+\end{displaymath}
+
+\begin{displaymath}
+\begin{tikzcd}
+A  \arrow[]{r}{f_1} & H \arrow[]{ddr}{} \arrow[]{r}{f_2} & B \arrow[]{d}{g_1}\\
+ & & K \arrow[]{d}{g_2}\\
+& & C \\
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+Then the identity is given by \(\mathrm{id}_{A} = (\mathrm{id}_{A} , \mathrm{id}_{A})\):
+</p>
+
+<p>
+It follows, that for \((f_1,f_2): A \rightarrow B\) with \(f_1: A \rightarrow K\), as \(K \leq A\), that
+</p>
+\begin{align*}
+(f_1,f_2) \circ \mathrm{id}_{A} =& (f_1,f_2) \circ (\mathrm{id}_{A}, \mathrm{id}_{A}) \\
+=& (f_1, f_2 )
+\end{align*}
+<p>
+resp.
+</p>
+\begin{align*}
+\mathrm{id}_{B} \circ (f_1,f_2) =&
+\end{align*}
+</div>
+<div id="outline-container-org8078580" class="outline-3">
+<h3 id="org8078580"><span class="section-number-3">2.1.</span> concrete</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Here it suffices to construct a <a href="20230301211921-treuer_funktor.html#ID-28e54961-a758-4c55-ba93-95268bcebd92">faithful</a> functor
+</p>
+\begin{align*}
+\mathcal{U}: \mathcal{L} \rightarrow \mathrm{Set}^{\mathrm{op}} \times \mathrm{Set}
+\end{align*}
+<p>
+as the <a href="20230302220438-hom_funktor.html#ID-188d17e0-5587-4a90-8927-2d8eb57adc90">hom-functor</a> \(\mathrm{Hom}_{\mathrm{Set}}: \mathrm{Set}^{\mathrm{op}} \times \mathrm{Set}^{\mathrm{op}} \rightarrow \mathrm{Set}\) is faithful and therefore also the composition \(\mathrm{Hom}_{\mathrm{Set}} \circ \mathcal{U}\)
+</p>
+
+<p>
+Let
+</p>
+\begin{align*}
+\mathcal{U}_1: \mathcal{L} \rightarrow \mathrm{Set}^{\mathrm{op}} \\
+A \mapsto& \bigcup_{H \leq A} \mathrm{Hom}_{\mathcal{C}}(A,H) \\
+(f: B \rightarrow A) \mapsto& f^{ \rightarrow}: \bigcup_{H \leq A} \mathrm{Hom}_{\mathcal{C}}(A,H) \rightarrow \bigcup_{H \leq A} \mathrm{Hom}_{\mathcal{C}}(B,H) 
+\mathcal{U}_2: \mathcal{L} \rightarrow \mathrm{Set} \\
+A \mapsto& \bigcup_{H \leq A} \mathrm{Hom}_{\mathcal{C}}(H,A) \\
+(f: A \rightarrow B) \mapsto& f^{ \rightarrow}: \bigcup_{H \leq A} \mathrm{Hom}_{\mathcal{C}}(H,A) \rightarrow \bigcup_{H \leq A} \mathrm{Hom}_{\mathcal{C}}(H,B) 
+\end{align*}
+
+<p>
+Thus by universal property of the <a href="20230226132904-produktkategorie.html#ID-2436c57b-cc38-4aaf-bf18-f6947cc3f35a">product category</a>, there exists a functor
+</p>
+\begin{align*}
+
+\end{align*}
+</div>
+</div>
+
+
+
+<div id="outline-container-orgd0dea02" class="outline-3">
+<h3 id="orgd0dea02"><span class="section-number-3">2.2.</span> relation</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+By the <a href="20240306-first_isomorphism_theorem_for_categories.html#ID-9c62a63f-b62a-4a83-aac6-b111f5c02b12">first isomorphism theorem for categories</a> it suffices to give a <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a> from \(\mathcal{L}\) to \(\mathcal{C}\)
+</p>
+
+<p>
+Here consider
+</p>
+\begin{align*}
+\mathcal{F}: \mathcal{L} \rightarrow& \mathcal{C} \\
+A \mapsto& A \\
+(f_1,f_2) \mapsto& \mathcal{F}(f_2 \circ f_1)
+\end{align*}
+
+<p>
+Then \(\mathcal{F}\) respects the identity and composition.
+</p>
+
+
+
+
+<p>
+source:
+</p>
+<ul class="org-ul">
+<li><a href="https://www.sciencedirect.com/science/article/pii/0022404971900041?via%3Dihub">https://www.sciencedirect.com/science/article/pii/0022404971900041?via%3Dihub</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

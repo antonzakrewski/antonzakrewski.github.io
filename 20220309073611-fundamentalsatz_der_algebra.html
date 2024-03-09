@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Fundamentalsatz der Algebra</title>
+<title>C as algebraicly closed field</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -48,7 +48,7 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Fundamentalsatz der Algebra</h1>
+<h1 class="title">C as algebraicly closed field</h1>
 <div id="outline-container-org761dd2a" class="outline-2">
 <h2 id="org761dd2a"><span class="section-number-2">1.</span> Satz</h2>
 <div class="outline-text-2" id="text-1">
@@ -60,9 +60,97 @@ Jedes <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c
 <div id="outline-container-org0482abd" class="outline-2">
 <h2 id="org0482abd"><span class="section-number-2">2.</span> Beweis</h2>
 <div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org27bc6be" class="outline-3">
+<h3 id="org27bc6be"><span class="section-number-3">2.1.</span> by algebraic topology</h3>
+<div class="outline-text-3" id="text-2-1">
 <p>
-todo
+Suppose \(P \in \mathbb{C}[X]\) with \(\mathrm{deg}(P) = n \geq 0\) 
+Suppose \(P\) has no <a href="20220320113706-nullstelle.html#ID-b094e637-5f3c-42a2-a2c2-ae73bbbe29a2">root</a>.
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> we may assume, that \(P\) is <a href="20221226010524-normiertes_polynom.html#ID-f17a0f11-0953-4728-91a6-9a81df943813">monic</a>, as division by the leading coefficient results in a rootless polynomial
 </p>
+
+<p>
+Therefore, the map
+</p>
+\begin{align*}
+x \mapsto& \frac{P(x)}{\| P(x) \|}
+\end{align*}
+<p>
+is a <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a> <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">map</a> from
+</p>
+\begin{align*}
+\mathbb{R}^2 \simeq \mathbb{C} \rightarrow S^1 
+\end{align*}
+
+<p>
+NOte that the restriction to \(S^1\) 
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org3dce7c0" class="outline-3">
+<h3 id="org3dce7c0"><span class="section-number-3">2.2.</span> panos' proof</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> we may assume, that \(f\) is <a href="20221226010524-normiertes_polynom.html#ID-f17a0f11-0953-4728-91a6-9a81df943813">monic</a>, otherwise division by the leading coefficient does not change the amount of roots.
+</p>
+
+<p>
+Suppose \(f\) does not have a root.
+Then the map 
+</p>
+\begin{align*}
+\varphi_{f}: \mathbb{C} \rightarrow& S^1 \subseteq \mathbb{C} \\ 
+x \mapsto \frac{f(x)}{\| f(x) \|}
+\end{align*}
+<p>
+is <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a>.
+</p>
+
+<p>
+Note that \(\varphi_{f}\) is not surjective on \(\mathbb{C} \simeq D^2\), hence the restriction has degree \(0\) (cf.<a href="20240110-nonzero_homological_degree_and_surjectivity_of_the_disk.html#ID-2498e365-d422-4d5f-bc52-e666f683a6d9">nonzero homological degree and surjectivity on the disk</a>)
+Therefore it is also <a href="20230331213346-nullhomotopic.html#ID-a7d1984d-81e7-4e03-ad95-59bc1cdaeda8">nullhomotopic</a>
+</p>
+
+<p>
+Consider
+</p>
+\begin{align*}
+P_t = \sum_{i=0}^{n} \alpha_i t^{n-i} X^i
+\end{align*}
+<p>
+with
+</p>
+\begin{align*}
+P_1 = f
+\end{align*}
+
+<p>
+Then 
+</p>
+\begin{align*}
+H: [0,1] \times S^1 \rightarrow& S^1 \\  
+(t,x) \mapsto \frac{P_t(x)}{\| P_t(x) \|}
+\end{align*}
+<p>
+is a homotopy from \(\varphi_f\) to
+</p>
+\begin{align*}
+P_0 = x^n
+\end{align*}
+
+<p>
+But
+</p>
+\begin{align*}
+\mathrm{deg}(x^n) = n \neq 0
+\end{align*}
+<p>
+(cf. <a href="20240110-singular_homological_degree_as_surjective_map.html#ID-c39e6645-608a-4a90-91b0-718108dd8004">singular homological degree as group epimorphism</a>)
+</p>
+</div>
 </div>
 </div>
 </div>

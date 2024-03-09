@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Anzahl der Sylowguppen gleich 1 mod p</title>
+<title>number of p-sylow-groups modulo p</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -48,7 +48,7 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Anzahl der Sylowguppen gleich 1 mod p</h1>
+<h1 class="title">number of p-sylow-groups modulo p</h1>
 <div id="outline-container-orgd685544" class="outline-2">
 <h2 id="orgd685544"><span class="section-number-2">1.</span> Satz</h2>
 <div class="outline-text-2" id="text-1">
@@ -64,6 +64,48 @@ s_p \equiv 1 && \mod{p}
 </div>
 <div id="outline-container-org3b34685" class="outline-2">
 <h2 id="org3b34685"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Sei \(X = \{P_1,...,P_{s_p}\}\) die <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">menge</a> der p-Sylow untergruppen.
+Sei \(P\) eine sylow p-Untergruppe (vgl. <a href="20221022204743-theorem_von_sylow.html#ID-2ff601f8-957e-4468-8455-10d9dbc40527">Sylowsatz über die Existenz einer p-Gruppe</a>).
+Durch die einschränkung auf die <a href="20220911122242-untergruppe.html#ID-ded4020a-b34f-4433-9d64-2afa33a552d8">Untergruppe</a> \(P \subseteq G\) (vgl. <a href="20240203-restriction_of_a_group_action_to_a_subgroup.html#ID-4e368a53-504d-44c0-89c7-c7dd1212704e">restriction of a group action to a subgroup</a>) und anwenden der <a href="20231005-disjunkte_zerlegung_durch_orbits.html#ID-00d40ece-8229-43c9-8752-b4de9ccae0b6">g-set as coproduct of orbits</a> auf die <a href="20211227215415-machtigkeit_menge.html#ID-a53ec5a2-0adb-4575-bf21-e3ac15eff75f">kardinalität</a> folgt
+</p>
+\begin{align*}
+\vert X \vert =& \sum \vert \mathcal{O}_{g P g^{-1} } \vert \\
+=& \sum \vert P : P_{gPg^{-1}} \vert 
+\end{align*}
+
+<p>
+Für \(P \in X\) gilt zudem wegen der multiplikativen abgeschlossenheit
+</p>
+\begin{align*}
+\mathcal{O}_{P} = \{P\}
+\end{align*}
+<p>
+und damit \(\vert P : P_P \vert = 1\) 
+</p>
+
+<p>
+Angenommen es existiert ein \(P'\) mit \(p P' p^{-1} = P'\) für beliebiges \(p \in P\), so folgt nach <a href="20231023-element_von_p_ordnung_und_konjugieren_als_automorphismus_fur_eine_sylowgruppe_impliziert_element_in_der_sylowgruppe.html#ID-a2be5eee-eb2c-4ad2-879f-b7cc41cf578c">Element von p-Ordnung und konjugieren als Automorphismus für eine Sylowgruppe impliziert Element in der Sylowgruppe</a> auch \(p \in P'\):
+Insbesondere hat \(p \in P\) auch \(\mathrm{ord}(p) = p^r\) wegen <a href="20240129-order_of_an_element_divides_order.html#ID-cbd9273a-809f-40c7-9245-a867d589822b">order of an element divides group order</a>.
+</p>
+
+<p>
+Da \(p \in P\) beliebig war gilt \(P \subseteq P'\) und wegen <a href="20221022191921-lemma_uber_die_aquivalenz_von_bijektivitat_surjektivitat_und_injektivitat_bei_gleich_machtigen_mengen.html#ID-5fb6982e-e7b5-48be-9fd3-0b3a7a7b4499">Äquivalenz von Bijektivität, Surjektivität und Injektivität bei gleich mächtigen, endlichen Mengen</a> auch \(P = P'\)
+</p>
+
+<p>
+Somit ist für \(P' \neq P\) auch \(\vert P : P_{P'} \vert \neq 1\) und da \(\vert P : P_{P'} \vert \mid \vert P \vert = p^r\) ist somit \(\vert P : P_{P'} \vert = p^l\) für ein \(l \geq 1\)
+</p>
+
+<p>
+Anwendung von modulo ergibt dann
+</p>
+\begin{align*}
+\vert X \vert \equiv& \sum \vert P : P_{P'} \vert \mod{p} \\
+s_p \equiv 1 \mod{p}
+\end{align*}
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
