@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>perfect field and frobenius as automorphism</title>
+<title>perfect field of prime characteristic and frobenius as automorphism</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -48,7 +48,7 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">perfect field and frobenius as automorphism</h1>
+<h1 class="title">perfect field of prime characteristic and frobenius as automorphism</h1>
 <div id="outline-container-org9e60cdf" class="outline-2">
 <h2 id="org9e60cdf"><span class="section-number-2">1.</span> Proposition</h2>
 <div class="outline-text-2" id="text-1">
@@ -67,6 +67,78 @@ Let \(K\) be a <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-a
 </div>
 <div id="outline-container-org06be148" class="outline-2">
 <h2 id="org06be148"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org4a47f77" class="outline-3">
+<h3 id="org4a47f77"><span class="section-number-3">2.1.</span> 1) \(\implies\) 2)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Suppose Frobenius is not surjective, then there exists an \(\alpha \in K\) with no \(p\)-th root in \(K\)
+Let \(L\) be the <a href="20230723-zerfallungskorper.html#ID-4e827de3-231e-4dfc-8a60-60227e9ca3e8">splitting field</a> for \(X^p - \alpha\) and let \(\beta\) be a <a href="20220320113706-nullstelle.html#ID-b094e637-5f3c-42a2-a2c2-ae73bbbe29a2">root</a> of \(X^p - \alpha\)
+</p>
+
+<p>
+Then
+</p>
+\begin{align*}
+(X - \beta)^p =& X^p - \beta^p \\
+=& X^p - \alpha \in K[X]
+\end{align*}
+
+<p>
+and hence the <a href="20230723-minimalpolynom_eines_algebraischen_elements.html#ID-e76a1f34-1911-4281-a969-5abea577522a">minimal polynomial</a> of \(\beta\) divides \((X - \beta)^p\).
+Since \(\beta \not \in K\), it follows, that
+</p>
+\begin{align*}
+f_{\beta} = (X - \beta)^k
+\end{align*}
+<p>
+for \(k \geq 2\).
+Therefore, \(\beta\) is a multiple root, contradiction to \(K\) being perfect and \(\beta\) separable
+</p>
+</div>
+</div>
+<div id="outline-container-orgacac660" class="outline-3">
+<h3 id="orgacac660"><span class="section-number-3">2.2.</span> 2) \(\implies\) 1)</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+<a href="20210305204929-beweis_durch_gegenbeispiel.html#ID-82f7f698-c489-4630-b2a1-ec7a6228b374">Proof by contraposition</a>
+</p>
+
+<p>
+Suppose \(f \in K[X]\) is <a href="20221226125836-irreduzibles_element.html#ID-0cc3140d-cb4c-48a2-8cb6-2d9801e34db0">irreducible</a> and not <a href="20230723-separables_polynom.html#ID-73a33f94-fb0c-44ad-9969-137a5f1b6ee0">separable</a> 
+Then by <a href="20240115-formal_derivation_in_characteristik_p_as_zero.html#ID-1c7a8551-72b4-4c97-9904-40d8de109f49">formal derivation in characteristik p as zero</a> and <a href="20231007-algebraische_ableitung_eines_irreduziblen_polynoms_und_mehrfache_nullstelle.html#ID-0d12ce10-bc31-4161-9367-093cd4b9612f">algebraische Ableitung eines irreduziblen Polynoms und mehrfache Nullstelle</a> it follows, that there exists an \(g \in K[X]\) such that
+</p>
+\begin{align*}
+f =& g(X^p)
+\sum_{i=0}^{n} \alpha_i X^{i \cdot p}
+\end{align*}
+<p>
+Since Frobenius is an <a href="20220818172827-automorphismus_eines_objekts.html#ID-d6ed25e6-8ebf-4836-b92b-57cc2f1f28c4">automorphism</a> and hence <a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjective</a>, there exist \(\beta_i \in K\) such that
+</p>
+\begin{align*}
+\beta_i^p = \alpha_i
+\end{align*}
+
+<p>
+Therefore
+</p>
+\begin{align*}
+f =& \sum \beta_i^p X^{i \cdot p} \\
+=& \sum (\beta_i X^i)^p
+\end{align*}
+<p>
+and by linearity of \(^p\) it follows,
+</p>
+\begin{align*}
+f =& (\sum \beta_i X^i)^p \\
+=& (\sum \beta_i X^i)^{p-1} \cdot (\sum \beta_i X^i)^1
+\end{align*}
+<p>
+showing that \(f\) is reducible, contradiction
+</p>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>reduced singular homology and wedge product</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">reduced singular homology and wedge product</h1>
+<div id="outline-container-orge8f3178" class="outline-2">
+<h2 id="orge8f3178"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \((X_i,x_i)\) be <a href="20230331112759-based_space.html#ID-2b4bad5a-2a2b-4aac-8f24-1ed9951887f8">based spaces</a>, which admit a <a href="20231110-pointed_contractible_space.html#ID-e5ffa53b-c574-44f4-b486-688b1d5113dd">pointed contractible</a> <a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">neighbourhood</a> of \(x_i\), and \(\tilde{H}_n\) the <a href="20240109-reduced_singular_homology.html#ID-96734d9f-cd02-4008-9e38-65e80f86bbf5">reduced singular homology</a>, then it holds for the <a href="20230905-exterior_algebra_of_a_module.html#ID-afd85e48-6e3c-476e-acff-4de6f836f615">wedge product</a> 
+</p>
+\begin{align*}
+\tilde{H}_n( \bigvee X_i) \simeq \bigoplus_{i \in I} \tilde{H}_n(X_i)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orge66e454" class="outline-2">
+<h2 id="orge66e454"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+By definition it holds, that
+</p>
+\begin{align*}
+\tilde{H_n}(\bigvee_{i \in I} X_i) = H_n( \vee X_i, *)
+\end{align*}
+
+<p>
+Then for each \(i \in I\), let \(U \coloneqq \bigvee U_i\) be the wedge product.
+It is open by definition of the <a href="20230223230317-quotiententopologie.html#ID-593cff5a-5f97-433d-b2d9-20f3aba02006">quotient topology</a> and furthermore by <a href="20240119-wedge_product_of_locally_contractible_spaces.html#ID-3980928e-6918-4a72-a5e4-9a35b0939def">wedge product of pointed contractible spaces as contractible space</a> the <a href="20230802-chain_map.html#ID-366c9675-ed47-4bc2-a01d-3d0c6911e226">chain map</a> \(\mathrm{const}: C_*(\bigvee U_i) \rightarrow C_*(*)\) is a <a href="20231212-quasi_isomorphism.html#ID-4d0430a5-c6db-4a21-8c43-cd224592d992">quasi-isomorphism</a> (cf. <a href="20240109-singular_homology_as_homotopy_invariant_functor.html#ID-9027d855-4e79-4f8d-a150-ee4c604686c7">singular homology as homotopy invariant functor</a>)
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+C_*(\bigvee U_i) \arrow[shift right=1, swap]{d}{0} \arrow[shift left=1]{d}{\iota} \arrow[]{r}{\mathrm{const}} & C_*(*)  \arrow[shift right=1, swap]{d}{0} \arrow[shift left=1]{d}{\iota}\\
+C_*(\bigvee X_i) & C_*(\bigvee X_i) \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+Then applying the <a href="20230817-homology_functor.html#ID-c35a52a1-7174-408f-8480-9746e1c374bc">homology functor</a> results in a commutative diagram
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+H_n(\bigvee U_i) \arrow[shift right=1, swap]{d}{0} \arrow[shift left=1]{d}{\iota} \arrow[]{r}{\mathrm{const}} & H_n(*)  \arrow[shift right=1, swap]{d}{0} \arrow[shift left=1]{d}{\iota}\\
+H_n(\bigvee X_i) \arrow[]{r}{\mathrm{id}_{} }& H_n(\bigvee X_i) \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+(trust me ?)
+</p>
+
+<p>
+Hence it follows, that their <a href="20230802-cokernel_of_a_group.html#ID-ae0db2f0-a65e-4920-a806-bd6bc5a3c168">cokernels</a> are naturally isomorphic (cf. <a href="20231017-colim_functor.html#ID-0b96cbbc-2a63-4980-b022-537651776cc8">colim functor</a>, <a href="20230420221620-isomorphisms_under_functors.html#ID-c6c5ffcb-a860-453a-a71a-ddca7f8a9c7f">isomorphisms under functors</a>)
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+H_n(\bigvee U_i) \arrow[shift right=1, swap]{d}{0} \arrow[shift left=1]{d}{\iota} \arrow[]{r}{\mathrm{const}} & H_n(*)  \arrow[shift right=1, swap]{d}{0} \arrow[shift left=1]{d}{\iota}\\
+H_n(\bigvee X_i) \arrow[]{r}{\mathrm{id}_{} }& H_n(\bigvee X_i) \\
+\mathrm{coker}(\iota) \arrow[]{r}{\exists! \varphi}& \mathrm{coker}(\iota) \\
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+Therefore we get
+</p>
+\begin{align*}
+H_n(\bigvee X_i, *) \simeq& H_n(\bigvee X_i, \bigvee U_i)
+\end{align*}
+<p>
+using <a href="20240128-relative_singular_homology_and_excision_theorem.html#ID-2aa73d86-0baf-4b30-b919-534fe82c5388">excision theorem</a> for \(*\) gives
+</p>
+\begin{align*}
+H_n(\bigvee X_i, \bigvee U_i) \simeq& H_n(\bigvee X_i \setminus *, \bigvee U_i \setminus *)
+\end{align*}
+
+<p>
+and the <a href="20230127080110-homeomorphismus.html#ID-9f615f4b-b7b4-4dd6-a222-b9ec170e4390">homeomorphism</a> 
+</p>
+\begin{align*}
+(\bigvee X_i) \setminus * \simeq \coprod (X_i \setminus *)
+\end{align*}
+<p>
+(cf. <a href="20240308-subspace_of_wedge_product_without_point_as_coproduct.html#ID-5b9cfb1a-5e0f-4beb-a3dd-94dfd2345a4d">subspace of wedge product without point as coproduct</a>) gives
+</p>
+\begin{align*}
+H_n(\bigvee X_i \setminus *, \bigvee U_i \setminus *) \simeq H_n(\coprod X_i \setminus *, \coprod U_i \setminus *)
+\end{align*}
+<p>
+applying <a href="20240112-singular_homology_preserves_coproducts.html#ID-bb34a30d-0fe6-465a-b95d-2d68fb2f1fa9">singular homology preserves coproducts</a> gives
+</p>
+\begin{align*}
+H_n(\coprod X_i \setminus *, \coprod U_i \setminus *) \simeq \bigoplus H_n(X_i \setminus *, U_i \setminus *)
+\end{align*}
+<p>
+again by excision, we get
+</p>
+\begin{align*}
+\bigoplus H_n(X_i \setminus *, U_i \setminus *) \simeq \bigoplus H_n(X_i, U_i)
+\end{align*}
+
+<p>
+and again by similar reasoning for the cokernel
+</p>
+\begin{align*}
+\bigoplus H_n(X_i, U_i) \simeq \bigoplus H_n(X_i, *)
+\end{align*}
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

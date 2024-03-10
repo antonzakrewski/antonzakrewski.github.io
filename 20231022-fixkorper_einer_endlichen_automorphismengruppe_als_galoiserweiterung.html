@@ -54,10 +54,10 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 <div class="outline-text-2" id="text-1">
 <p>
 Sei \(L\) ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a> und \(G \subseteq \mathrm{Aut}(L)\) eine <a href="20221023195400-endliche_gruppe.html#ID-74087339-5710-41fb-ac85-6160c00c4671">endliche</a> <a href="20220911122242-untergruppe.html#ID-ded4020a-b34f-4433-9d64-2afa33a552d8">Untergruppe</a> der <a href="20230302210538-automorphismengruppe.html#ID-ad2bea99-3395-41e7-84ca-c93a1fc0efab">Automorphismengruppe</a>.
-Dann ist für den <a href="20230805-fixkorper.html#ID-329c476b-3983-4a41-a893-d4c82f7df4e0">Fixkörper</a> \(K\) die <a href="20230603-field_extension.html#ID-afbdca38-90b9-4db1-9d10-cfd826cbfac6">Körpererweiterung</a>
+Dann ist für den <a href="20230805-fixkorper.html#ID-329c476b-3983-4a41-a893-d4c82f7df4e0">Fixkörper</a> \(L^G\) die <a href="20230603-field_extension.html#ID-afbdca38-90b9-4db1-9d10-cfd826cbfac6">Körpererweiterung</a>
 </p>
 \begin{align*}
-L/K
+L/L^G
 \end{align*}
 <p>
 eine <a href="20230725-galoiserweiterung.html#ID-7fff7689-4ad5-4b67-bba7-1367615c1d5d">Galoiserweiterung</a> 
@@ -66,6 +66,66 @@ eine <a href="20230725-galoiserweiterung.html#ID-7fff7689-4ad5-4b67-bba7-1367615
 </div>
 <div id="outline-container-org94d934f" class="outline-2">
 <h2 id="org94d934f"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org52c685e" class="outline-3">
+<h3 id="org52c685e"><span class="section-number-3">2.1.</span> normal</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Sei \(\alpha \in L\)
+Nach Annahme existiert eine <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">endliche</a>, maximale <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">Teilmenge</a> \(\{\sigma_1,...,\sigma_r\} \subseteq G\), so dass \(\sigma_i(\alpha)\) paarweise verschieden sind.
+</p>
+
+<p>
+Sei \(\sigma \in G\), so ist
+</p>
+\begin{align*}
+\sigma_{\vert \{\sigma_i(\alpha)\}}: \{\sigma_i(\alpha)\} \rightarrow \{\sigma_i(\alpha)\}
+\end{align*}
+<p>
+eine wohldefinierte <a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">Bijektion</a>, da die <a href="20220923144600-zielmenge.html#ID-d85b1698-8fce-41bb-a46d-947b20a638f6">codomain</a> maximal ist und insbesondere \(\sigma \circ \sigma_i \in G\) ein automorphismus ist.
+</p>
+
+<p>
+Somit ist
+</p>
+\begin{align*}
+f = \prod_{i = 1}^r (X - \sigma_i(\alpha))
+\end{align*}
+<p>
+ein Polynom mit einfachen <a href="20220320113706-nullstelle.html#ID-b094e637-5f3c-42a2-a2c2-ae73bbbe29a2">Nullstellen</a>.
+</p>
+
+<p>
+Ferner gilt für beliebiges \(\sigma \in G\) und die induzirete abbildung \(\sigma: L[X] \rightarrow L[X]\)
+</p>
+\begin{align*}
+\sigma(f) =& \sigma( \prod_{i=1}^r (X - \sigma_i(\alpha)) \\
+=& \prod_{i=1}^r \sigma(X - \sigma_i(\alpha)) \\
+=& \prod_{i=1}^r \left(\sigma(X) - \sigma(\sigma_i(\alpha)) \right) \\
+=& \prod_{i=1}^r X - \sigma_i(\alpha) \\
+=& f
+\end{align*}
+<p>
+Da die Nullstellen nur permutiert wurden.
+</p>
+
+<p>
+Somit liegt \(f\) als ausmultipliziertes Polynom in \(L^G[X]\).
+wegen \(\mathrm{id} = 1\in G\) ist auch \(\alpha\) eine Nullstelle, d.h. \(f\) wird vom <a href="20230723-minimalpolynom_eines_algebraischen_elements.html#ID-e76a1f34-1911-4281-a969-5abea577522a">Minimalpolynom</a> geteilt und nach <a href="20240113-teiler_eines_separablen_polynoms_als_separables_polynom.html#ID-6074d20f-4bef-4a50-85ae-3e9f767572eb">Teiler eines separablen Polynoms als separables Polynom</a> ist das Minimalpolynom ebenfalls ein separables Polynom.
+Somit ist \(L/L^g\) separabel.
+</p>
+</div>
+</div>
+<div id="outline-container-orge31109f" class="outline-3">
+<h3 id="orge31109f"><span class="section-number-3">2.2.</span> normal</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Nach Annahme liegen \(\sigma_i(\alpha) \in L\) und somit zerfällt \(f\) in \(L[X]\).
+Damit ist \(L/L^G\) nach Definition normal.
+</p>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">

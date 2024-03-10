@@ -60,7 +60,7 @@ Let \(B\) be a <a href="20230308142220-lokal_wegzusammenhangend.html#ID-440c77bf
 <a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
 </p>
 <ol class="org-ol">
-<li>there exists a <a href="20231228-simply_connected_covering.html#ID-0c400b21-d70e-41fa-991c-b6ac6c76a026">simply connected covering</a> \(\pi: \tilde{B} \rightarrow B\)</li>
+<li>there exists a (surjective ?) <a href="20231228-simply_connected_covering.html#ID-0c400b21-d70e-41fa-991c-b6ac6c76a026">simply connected covering</a> \(\pi: \tilde{B} \rightarrow B\)</li>
 <li>\(B\) is <a href="20231212-semi_locally_simply_connected_space.html#ID-e2aa2769-6b34-4028-aeba-b519dd2a6223">semi-locally simply connected space</a></li>
 </ol>
 </div>
@@ -71,9 +71,174 @@ Let \(B\) be a <a href="20230308142220-lokal_wegzusammenhangend.html#ID-440c77bf
 </div>
 <div id="outline-container-orgd505ce1" class="outline-3">
 <h3 id="orgd505ce1"><span class="section-number-3">2.1.</span> 1) \(\implies\) 2)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Let \(b \in B\) and \(U \subseteq B\) an open neighbourhood of \(b\) within the <a href="20231205-trivializang_open_cover.html#ID-009f7e8c-0ce5-4318-a22a-b453dcf28a95">trivializing open cover</a>.
+Then for \(\gamma \in \pi_1(U,b)\) take a fibre $b &isin; \(\tilde{B}\) and lift the path \(\gamma\) to \(p^{-1}[U]\) (cf. <a href="20231209-unique_path_lifting_for_a_covering_map.html#ID-482c4ba5-a0ce-4c02-9206-89da32a10646">unique path lifting</a>)
+Then it follows, that
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+p^{-1}[U] \arrow[]{d}{} \arrow[]{r}{\iota } & \tilde{B} \arrow[]{d}{}\\
+U \arrow[]{r}{} & B \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+commutes and therefore also
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\pi_1(p^{-1}[U],b') \arrow[]{d}{} \arrow[]{r}{\iota } & \pi_1(\tilde{B},b') \arrow[]{d}{}\\
+\pi_1(U,b) \arrow[]{r}{} & \pi_1(B,b) \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+since \(\pi_1(\tilde{B},b') = 0\) as \(\tilde{B}\) is simply connected, it follows, that \(\gamma \in \mathrm{Hom}_{\mathrm{Top}}([0,1], U)\) is nullhomotopic inside \(B\)
+</p>
+</div>
 </div>
 <div id="outline-container-orge22d4b7" class="outline-3">
 <h3 id="orge22d4b7"><span class="section-number-3">2.2.</span> 2) \(\implies\) 1)</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-org39261c8" class="outline-4">
+<h4 id="org39261c8"><span class="section-number-4">2.2.1.</span> set</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+Let
+</p>
+\begin{align*}
+\tilde{B} \coloneqq \coprod_{x \in b} \mathrm{Hom}_{\tau_{\leq 1}(B)}(b,x) = \{\text{paths from b modulo homotopy rel endpoints}\}
+\end{align*}
+<p>
+be the underlying <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">set</a>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd01b748" class="outline-4">
+<h4 id="orgd01b748"><span class="section-number-4">2.2.2.</span> topology</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+Let
+</p>
+\begin{align*}
+U \subseteq \tilde{B}
+\end{align*}
+<p>
+be <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> if for each \([\gamma] \in U\) there exists a path connected open space \(V_{\gamma} \subseteq B\) containing \(\gamma(1)\), such that for each path \(\gamma': [0,1] \rightarrow V\) with \(\gamma'(0) = \gamma(1)\) we get
+</p>
+\begin{align*}
+[\gamma' \cdot \gamma] \in U
+\end{align*}
+
+<p>
+Then \(\emptyset\) is open by <a href="20230825-vacuous_truth.html#ID-2d370e39-a87c-4fe2-8a86-ad513f02bdca">vacuous truth</a> and \(\tilde{B}\) is open by taking \(B\).
+</p>
+
+<p>
+Furthermore, the union of open sets is open, as taking \(V_{\gamma}\) suffices, since \([\gamma' \cdot \gamma] \subseteq U_i \subseteq \bigcup_i U_i\)
+</p>
+
+<p>
+Suppose \([\gamma] \in U_1 \cap U_2\) with \(U_1,U_2 \subseteq \tilde{B}\) open.
+then choose path connected open \(V_1,V_2 \subseteq B\).
+</p>
+
+<p>
+Then choose a path connected open set \(V \subseteq V_1 \cap V_2\) containing \(\gamma(1)\)
+</p>
+
+<p>
+Then for each \(\gamma': [0,1] \rightarrow V\) note that \(\gamma'\) is a path inside \(V_i\) and hence \([\gamma' \cdot \gamma] \in U_i\) and thus
+</p>
+\begin{align*}
+U_1 \cap U_2
+\end{align*}
+<p>
+is open
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd8107b2" class="outline-4">
+<h4 id="orgd8107b2"><span class="section-number-4">2.2.3.</span> covering</h4>
+<div class="outline-text-4" id="text-2-2-3">
+<p>
+Let the projection be
+</p>
+\begin{align*}
+\pi: \tilde{B} \rightarrow& B \\
+[\gamma] \mapsto& \gamma(1)
+\end{align*}
+
+<p>
+Let \(b' \in B\) and \(V\) be an open path connected neighbourhood of \(b'\) with the property, that for \(V \hookrightarrow B\) the induced map
+</p>
+\begin{align*}
+\pi_1(V,b') \rightarrow \pi_1(B,b)
+\end{align*}
+<p>
+is the <a href="20230402144657-zero_morphism.html#ID-6cb7ce09-7038-4581-bc67-91d231a2be10">zero morphism</a> 
+</p>
+
+<p>
+This can be done, as \(B\) is locally path connected and semi-locally simply connected
+</p>
+
+<p>
+Let
+</p>
+\begin{align*}
+F = \mathrm{Hom}_{\tau_{\leq 1}(B)}(b,b')
+\end{align*}
+<p>
+and \([\gamma] \in \pi^{-1}[V]\), i.e. \(\gamam(1) \in V\).
+</p>
+
+<p>
+Choose a path \(\alpha\) from \(\gamma(1)\) to \(b'\) in \(V\).
+Then define
+</p>
+\begin{align*}
+\theta([\gamma]) = [\alpha \cdot \gamma] \in \mathrm{Hom}_{\tau_{\leq 1}(B)}(b,b')
+\end{align*}
+
+<p>
+First this map is independent of the choice of \(\alpha\), as
+</p>
+\begin{align*}
+\alpha' \cdot \alpha^{-1} \in \pi_1(V,b) = \{1\}
+\end{align*}
+
+<p>
+Therefore,
+</p>
+\begin{align*}
+[\alpha \cdot \gamma] =& [\alpha' \cdot \alpha^{-1}] \cdot [\alpha \cdot \gamma] \\
+=& [\alpha' \cdot \gamma]
+\end{align*}
+
+<p>
+Then
+</p>
+\begin{align*}
+\theta: \pi^{-1}[V] \rightarrow& V \times F^{\delta} \\
+[\gamma] \mapsto& \alpha \cdot \gamma
+\end{align*}
+<p>
+is a <a href="20230127080110-homeomorphismus.html#ID-9f615f4b-b7b4-4dd6-a222-b9ec170e4390">homeomorphism</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org6a182cb" class="outline-4">
+<h4 id="org6a182cb"><span class="section-number-4">2.2.4.</span> bijective</h4>
+</div>
+<div id="outline-container-org30f6ae8" class="outline-4">
+<h4 id="org30f6ae8"><span class="section-number-4">2.2.5.</span> <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a></h4>
+</div>
+<div id="outline-container-org167b0e7" class="outline-4">
+<h4 id="org167b0e7"><span class="section-number-4">2.2.6.</span> <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a></h4>
+</div>
 </div>
 </div>
 </div>

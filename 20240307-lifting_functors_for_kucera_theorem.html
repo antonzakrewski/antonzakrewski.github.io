@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>lifting functors for kucera theorem</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">lifting functors for kucera theorem</h1>
+<div id="outline-container-org1357ddd" class="outline-2">
+<h2 id="org1357ddd"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+let \(\mathcal{C}, \mathcal{D}\) be <a href="20230225165858-lokal_kleine_kategorie.html#ID-29f14fa2-ae57-46d2-8e23-3f2924bc1ebe">locally small categories</a> and
+</p>
+\begin{align*}
+\mathcal{F}: \mathcal{C} \rightarrow \mathcal{D}
+\end{align*}
+<p>
+be a <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a>, which is <a href="20231129-object_injective_functor.html#ID-48d5a6f0-4a1d-4ab5-aaf5-c9b0110dc1be">object-injective</a> 
+</p>
+
+<p>
+Then there exist <a href="20230402143946-concrete_category.html#ID-5445ec6b-bf83-4c73-a8d1-b2bd4e7e37a7">concrete</a> categories
+</p>
+\begin{align*}
+\mathcal{L}_{\mathcal{C}},\mathcal{L}_{\mathcal{D}}
+\end{align*}
+<p>
+with <a href="20230301211925-voller_funktor.html#ID-300944ac-0e6d-4b27-99f1-176a261999aa">full</a> and <a href="20231111-surjective_functor.html#ID-ce6efc54-e4f5-4e0d-a8e8-959bd2de193a">object-surjective</a> <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functors</a> to \(\mathcal{C}\) resp. \(\mathcal{D}\) and a functor 
+</p>
+\begin{align*}
+\mathcal{F}': \mathcal{L}_{\mathcal{C}} \rightarrow \mathcal{L}_{\mathcal{D}}
+\end{align*}
+<p>
+making
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{L}_{\mathcal{C}} \arrow[twoheadrightarrow]{d}{} \arrow[dashed]{r}{\exists \mathcal{F}'}& \mathcal{L}_{\mathcal{D}} \arrow[twoheadrightarrow]{d}{}\\
+\mathcal{C} \arrow[]{r}{\mathcal{F}} & \mathcal{D} \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+commute
+</p>
+</div>
+</div>
+<div id="outline-container-orgbdc1fc9" class="outline-2">
+<h2 id="orgbdc1fc9"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Choose a <a href="20220929195946-wohlordnung.html#ID-8f3e284b-c3c9-4aaf-8bf5-5eadc47faa78">well order</a> \(<_{\mathcal{D}}\) with sets as bounded subclasses for \(\mathrm{Ob}(\mathcal{D})\).
+Then let
+</p>
+\begin{align*}
+A <_{\mathcal{C}} B \Leftrightarrow \mathcal{F}(A) <_{\mathcal{D}} \mathcal{F}(B)
+\end{align*}
+<p>
+be a well order on \(\mathrm{Ob}(\mathcal{C})\).
+</p>
+
+<p>
+Then by the steps in <a href="20240221-kucera_theorem.html#ID-1e87edac-9a56-40dd-985a-451bcdd57ee2">Kucera's Theorem</a>, there exist the concrete categories \(\mathcal{L}_{\mathcal{C}}, \mathcal{L}_{\mathcal{D}}\)
+</p>
+
+<p>
+Furthermore, we can define
+</p>
+\begin{align*}
+\mathcal{F}': \mathcal{L}_{\mathcal{C}} \rightarrow& \mathcal{L}_{\mathcal{D}} \\
+A \mapsto& \mathcal{F}(A) \\
+(f_1,f_2) \mapsto& (\mathcal{F}(f_1), \mathcal{F}(f_2))
+\end{align*}
+
+<p>
+It follows, that this is a welldefined functor, as it preserves the identity
+</p>
+\begin{align*}
+\mathcal{F}'( \mathrm{id}_{A}) =& \mathcal{F}'(\mathrm{id}_{A}, \mathrm{id}_{A}) \\
+=& (\mathcal{F}(\mathrm{id}_{A}), \mathcal{F}(\mathrm{id}_{A}) ) \\
+=& (\mathrm{id}_{\mathcal{F}(A)}, (\mathrm{id}_{\mathcal{F}(A)}) \\
+\end{align*}
+<p>
+and that it is compatible with composition, since \(\mathcal{F}'\) preserves the wellorder, hence
+</p>
+\begin{align*}
+\mathcal{F}((f_1,f_2) \circ (g_1,g_2)) =& (\mathcal{F}(f_1 \circ g_2 \circ g_1), \mathcal{F}(f_2))) \\
+=& (\mathcal{F}(f_1) \circ \mathcal{F}(g_2) \circ \mathcal{F}(g_1)), \mathcal{F}(f_2))) \\
+=& (\mathcal{F}(f_1), \mathcal{F}(f_2)) \circ (\mathcal{F}(g_1), \mathcal{F}(g_2)) \\
+=& \mathcal{F}'(f_1,f_2) \circ \mathcal{F}'(g_1,g_2)
+\end{align*}
+
+<p>
+or &lt;insert cases&gt;
+</p>
+\begin{align*}
+\mathcal{F}((f_1,f_2) \circ (g_1,g_2)) =& (\mathcal{F}(g_1), \mathcal{F}(f_2 \circ f_1 \circ g_2))) \\
+=& (\mathcal{F}(g_1), \mathcal{F}(f_2) \circ \mathcal{F}(_1)) \mathcal{F}(g_2))) \\
+=& (\mathcal{F}(f_1), \mathcal{F}(f_2)) \circ (\mathcal{F}(g_1), \mathcal{F}(g_2)) \\
+=& \mathcal{F}'(f_1,f_2) \circ \mathcal{F}'(g_1,g_2)
+\end{align*}
+
+<p>
+Here it follows, that
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{L}_{\mathcal{C}} \arrow[twoheadrightarrow]{d}{\pi_{\mathcal{C}}} \arrow[dashed]{r}{\exists \mathcal{F}'}& \mathcal{L}_{\mathcal{D}} \arrow[twoheadrightarrow]{d}{\pi_{\mathcal{D}}}\\
+\mathcal{C} \arrow[]{r}{\mathcal{F}} & \mathcal{D} \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+commutes, as by construction
+</p>
+\begin{align*}
+\pi_{\mathcal{D}}(\mathcal{F}'(A)) = \mathcal{F}(\pi_\mathcal{C}(A))
+\end{align*}
+<p>
+is true.
+</p>
+
+<p>
+Furthermore we have
+</p>
+\begin{align*}
+\pi_{\mathcal{D}}(\mathcal{F}'(f_1,f_2) =& \pi_{\mathcal{D}}(\mathcal{F}(f_1), \mathcal{F}(f_2)) \\
+=& \mathcal{F}(f_1) \circ \mathcal{F}(f_2) \\
+=& \mathcal{F}(f_1 \circ f_2) \\
+=& \mathcal{F}(\pi_{\mathcal{C}}(f_1,f_2))
+\end{align*}
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>
