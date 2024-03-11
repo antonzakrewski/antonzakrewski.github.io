@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>monodromy functor</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">monodromy functor</h1>
+<div id="outline-container-org0facc70" class="outline-2">
+<h2 id="org0facc70"><span class="section-number-2">1.</span> Definition / Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(B,E\) be <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological spaces</a>, \(p: E \rightarrow B\) a <a href="20230729-covering_map.html#ID-b817dc02-5dea-4e8d-8ccd-adf7ef14e6bc">covering map</a>
+Then the monodromy action functor is defined as
+</p>
+\begin{align*}
+\tau: \tau_{\leq 1}(B) \rightarrow& \mathrm{Set} \\
+b \mapsto& \mathrm{Fib}_b^p \\
+[\gamma] \mapsto& \tau_{\gamma}(1)
+\end{align*}
+<p>
+where \(\tau_\gamma(1)\) is the <a href="20231212-monodromy_action_of_a_path.html#ID-a23207ef-0f54-4b03-ab41-727f7a3672c9">monodromy action of</a> \(\gamma\)
+</p>
+</div>
+</div>
+<div id="outline-container-orgb016654" class="outline-2">
+<h2 id="orgb016654"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org1ea394c" class="outline-3">
+<h3 id="org1ea394c"><span class="section-number-3">2.1.</span> <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">welldefined</a></h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Suppose \([\gamma] = [\gamma']\).
+Then by assumption, \(\gamma\), and \(\gamma'\) are <a href="20231110-homotopy_relative_to_a_subset.html#ID-1bb0bedb-5fa3-4186-adab-5d5bc845b62a">homotopic relative to</a> their endpoints.
+by <a href="20231209-path_lifting_preserves_homotopy.html#ID-5fda1f5d-ec1b-45bd-8908-8ca76a307554">path lifting preserving homotopy</a>, we conclude, that the endpoints of the lifted \(\gamma, \gamma'\) stay the same.
+</p>
+
+<p>
+Since the construction of the monodromy action only depends on the endpoints, it follows, that
+</p>
+\begin{align*}
+\tau_{\gamma} = \tau_{\gamma'}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org4e93ba0" class="outline-3">
+<h3 id="org4e93ba0"><span class="section-number-3">2.2.</span> identity</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Given the identity of \(b\) in \(\tau_{\leq 1}(B)\), it is the homotopy class of the constant path.
+Thus lifting it with respect to \(e \in \mathrm{Fib}_b^p\) results uniquely (cf. <a href="20231209-unique_path_lifting_for_a_covering_map.html#ID-482c4ba5-a0ce-4c02-9206-89da32a10646">unique path lifting for a covering map</a>) in the constant path on \(e\).
+Hence
+</p>
+\begin{align*}
+\tau_{\gamma}(e) =& \overline{\gamma_e}(1) \\
+=& c_{e}(1) \\
+=& e
+\end{align*}
+<p>
+hence \(\tau_{\gamma}(e) = e\) and since \(e\) was arbitrary, we conclude, that
+</p>
+\begin{align*}
+\tau_{\gamma} = \mathrm{id}_{\mathrm{Fib}_b^p} 
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgcbf3277" class="outline-3">
+<h3 id="orgcbf3277"><span class="section-number-3">2.3.</span> composition</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Given paths \(\gamma,\gamma'\), it remains to show, that
+</p>
+
+\begin{align*}
+\tau_{\gamma * \gamma'} = \tau_{\gamma} * \tau_{\gamma'}
+\end{align*}
+
+<p>
+By unique path lifting, we conclude, that for $e &isin; 
+</p>
+\begin{align*}
+\overline{\gamma * \gamma'} =& \overline{\gamma} * \overline{\gamma'} \\
+\end{align*}
+<p>
+Hence it follows, that
+</p>
+\begin{align*}
+\tau_{\gamma * \gamma'}(e) =& 
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

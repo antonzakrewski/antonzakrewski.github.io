@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>algebraische Ableitung eines Polynoms und Nullstelle des ggT</title>
+<title>formal derivation and multiple root</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -48,12 +48,12 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">algebraische Ableitung eines Polynoms und Nullstelle des ggT</h1>
-<div id="outline-container-org726bac2" class="outline-2">
-<h2 id="org726bac2"><span class="section-number-2">1.</span> Satz</h2>
+<h1 class="title">formal derivation and multiple root</h1>
+<div id="outline-container-org7ec76b8" class="outline-2">
+<h2 id="org7ec76b8"><span class="section-number-2">1.</span> Satz</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Sei \(K\) ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a>, \(\overline{K}\) ein <a href="20230825-algebraic_closure.html#ID-764140fd-a4fc-4df7-a27e-a4373da7a514">Algebraischer Abschluss</a> und \(f \in K[X]\) ein nicht-konstantes <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c-70182b7714f9">Polynom</a> im <a href="20220303185921-polynomring.html#ID-1a010da5-5e8a-407f-87ba-85383825403f">Polynomring</a>.
+Sei \(R\) ein <a href="20221226125648-integritatsbereich.html#ID-d39ae041-9db9-423e-8655-20e929ceaf48">Integritätsbereich</a> (?) und \(f \in R[X]\) ein <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c-70182b7714f9">Polynom</a> verschieden vom <a href="20221223184351-nullpolynom.html#ID-3ecc5d53-e0d1-4b33-a9a8-12103316164a">Nullpolynom</a>
 </p>
 
 <p>
@@ -65,15 +65,88 @@ Sei \(K\) ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae
 </ol>
 </div>
 </div>
-<div id="outline-container-org4ee76ee" class="outline-2">
-<h2 id="org4ee76ee"><span class="section-number-2">2.</span> Beweis</h2>
+<div id="outline-container-orge07d7b3" class="outline-2">
+<h2 id="orge07d7b3"><span class="section-number-2">2.</span> Beweis</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgabf61b9" class="outline-3">
-<h3 id="orgabf61b9"><span class="section-number-3">2.1.</span> 1) \(\implies\) 2)</h3>
+<div id="outline-container-orga2077d5" class="outline-3">
+<h3 id="orga2077d5"><span class="section-number-3">2.1.</span> 1) \(\implies\) 2)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Nach <a href="20230110193456-ausklammern_von_nullstellen_von_polynomen.html#ID-3ce4a9e7-42fc-4fef-830e-2aeef8ca355b">Ausklammern von Nullstellen von Polynomen</a>, existiert ein \(g \in R[X]\), so dass gilt
+</p>
+\begin{align*}
+(x - \alpha)^m \cdot g = f
+\end{align*}
+<p>
+mit \(m \geq 2\).
+Durch die <a href="20231230-chain_rule_for_the_formal_derivation_of_a_polynomial.html#ID-efc8d084-2a27-4e70-b150-3f578768906e">Produktregel</a> folgt dann
+</p>
+\begin{align*}
+\frac{\mathrm{d}}{\mathrm{d}x}(x - \alpha)^{m-1} \cdot ((x - \alpha) \cdot g) =& (m - 1) (x - \alpha)^{m-2} \cdot (x - \alpha) \cdot g) + (x- \alpha)^{m-1} \cdot \frac{\mathrm{d}}{\mathrm{d}x}( (x - \alpha) g)
+\end{align*}
+<p>
+Auswerten von \(x = \alpha\) ergibt dann, dass beide summandene gleich null sind, d.h. \(x = \alpha\) ist eine nullstelle.
+wieder durch Ausklammern folgt dann, dass
+</p>
+\begin{align*}
+\frac{\mathrm{d}}{\mathrm{d}x}(g) = (x - \alpha) \cdot g'
+\end{align*}
+<p>
+und damit auch \((x - \alpha) \mid g, \frac{\mathrm{d}}{\mathrm{d}x}g\)
+</p>
+
+<p>
+Somit folgt für den <a href="20220906095223-großter_gemeinsamer_teiler.html#ID-d299c206-515e-44af-8ff5-e332312a896a">greatest common divisor</a> \((x - \alpha) \mid \mathrm{gcd}(f,f')\)
+</p>
 </div>
-<div id="outline-container-org4a4f415" class="outline-3">
-<h3 id="org4a4f415"><span class="section-number-3">2.2.</span> 2) \(\implies\) 1)</h3>
+</div>
+<div id="outline-container-orge8abd76" class="outline-3">
+<h3 id="orge8abd76"><span class="section-number-3">2.2.</span> 2) \(\implies\) 1)</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Sei \(\alpha\) eine Nullstelle, so folgt wieder durch Ausklammern (da \(f\) grad größer 1 hat), dass eine Darstellung
+</p>
+\begin{align*}
+f = (x - \alpha)^r \cdot g
+\end{align*}
+<p>
+für \(g(\alpha) \neq 0\) und \(r \geq 1\) existiert.
+</p>
+
+<p>
+Durch anwenden der Produktregel erhalten wir
+</p>
+\begin{align*}
+f' = (x - \alpha)^r \cdot g' + r \cdot (x - \alpha)^{r-1} \cdot g
+\end{align*}
+<p>
+und nach Annahme ist \(\alpha\) eine Nullstelle, d.h. 
+</p>
+\begin{align*}
+f'(\alpha) = 0 + r \cdot (\alpha - \alpha)^{r-1} \cdot g(\alpha)
+\end{align*}
+<p>
+Da \(R \neq 0\), folgt, dass für \(r = 0\) erst für \(r \geq 2\) folgen kann.
+</p>
+
+<p>
+Damit ist wegen \(g(\alpha) \neq 0\) auch 
+</p>
+\begin{align*}
+r \cdot (\alpha - \alpha)^{r - 1} = 0
+\end{align*}
+<p>
+bzw. \(r \geq 2\)
+</p>
+
+
+<p>
+TODO:
+merge with
+<a href="20231020-algebraische_ableitung_eines_polynoms_und_nullstelle_des_ggt.html#ID-54eea986-b9c5-4a35-a4fe-2d880239b65a">algebraische Ableitung eines Polynoms und Nullstelle des ggT</a>
+</p>
+</div>
 </div>
 </div>
 </div>

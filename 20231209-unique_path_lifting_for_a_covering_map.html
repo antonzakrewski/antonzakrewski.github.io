@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>unique path lifting for a covering map</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">unique path lifting for a covering map</h1>
+<div id="outline-container-org984c9c1" class="outline-2">
+<h2 id="org984c9c1"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(p: E \rightarrow B\) a <a href="20230729-covering_map.html#ID-b817dc02-5dea-4e8d-8ccd-adf7ef14e6bc">covering map</a> and \(\gamma: [0,1] \rightarrow B\) a <a href="20230308142118-weg.html#ID-7c6527d3-2217-4c14-85ab-d1545b889ba8">path</a> with \(\gamma(0) = b\) and \(e \in \mathrm{Fib}_b\) (see: <a href="20231205-fibre_of_a_covering_map.html#ID-263816c6-0782-4de9-9a0a-e4c68307965b">fibre of a covering map</a>)
+Then there exists a unique path
+</p>
+\begin{align*}
+\overline{\gamma}_e: [0,1] \rightarrow E
+\end{align*}
+<p>
+such that
+</p>
+<ol class="org-ol">
+<li>\(p \circ \overline{\gamma} = \gamma\)</li>
+<li>\(\overline{\gamma}(0) = e\)</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org931fd71" class="outline-2">
+<h2 id="org931fd71"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org7607e8d" class="outline-3">
+<h3 id="org7607e8d"><span class="section-number-3">2.1.</span> uniqueness</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+follows from <a href="20231209-connected_factorization_through_a_covering_map.html#ID-97055c6b-b84f-4390-ad3b-f5f08fe49394">connected factorization through a covering map</a>, as \([0,1]\) is connected and by assumption,\(\overline{\gamma(0)}\) is fixed
+</p>
+</div>
+</div>
+<div id="outline-container-org1c7e82c" class="outline-3">
+<h3 id="org1c7e82c"><span class="section-number-3">2.2.</span> existence</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Pick an <a href="20231205-trivializang_open_cover.html#ID-009f7e8c-0ce5-4318-a22a-b453dcf28a95">trivializing open cover</a> \(U_i\) of \(B\).
+Then \(\gamma^{-1}[U_i]\) is an open cover of \(U_i\).
+by <a href="20231211-open_covering_of_teh_interval_induces_closed_approximation.html#ID-97d9e44a-c316-41b9-af2c-cd107e512577">open covering of the interval induces closed inclusion</a>, there exists a decomposition
+</p>
+\begin{align*}
+[0,1] = [0,a_1] \cup [a_1,a_2] ... [a_{n-1}, 1]
+\end{align*}
+
+<p>
+Thus \(\gamma\) can be witten as <a href="20231027-concatenation_of_paths.html#ID-69795b31-728a-4219-8ac1-485e7952c233">concatenation of paths</a> \(\gamma_1,...\gamma_n\) with \(\gamma_j \subseteq U_i\) for some \(i \in I\).
+</p>
+
+<p>
+Therefore, it suffices to find a lift for \(\gamma_n\) respecting the endpoints of \(\gamma_{k-1}, \gamma_{k+1}\).
+Here the endpoint shall be inductively chosen in the same fiber as \(\gamma_{k-1}\).
+</p>
+
+<p>
+Since \(U_i\) is a trivializing cover, there exists a <a href="20230127080110-homeomorphismus.html#ID-9f615f4b-b7b4-4dd6-a222-b9ec170e4390">homeomorphism</a> 
+</p>
+\begin{align*}
+\varphi: F_i \times U_i \simeq p^{-1}[U_i]
+\end{align*}
+<p>
+hence
+</p>
+\begin{align*}
+\varphi_{f_i} \{f_i} \times U_i \rightarrow U_i
+\end{align*}
+<p>
+is also a homeomorphism
+</p>
+
+<p>
+Thus choosing \(\varphi_{f_i}^{-1} \circ \gamma_i\) is a suitable path
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

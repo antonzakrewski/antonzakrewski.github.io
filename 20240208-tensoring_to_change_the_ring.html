@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>tensoring to change the ring</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">tensoring to change the ring</h1>
+<div id="outline-container-org024553e" class="outline-2">
+<h2 id="org024553e"><span class="section-number-2">1.</span> Definition / Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(R,S\) be <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative</a> (<a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">rings</a>), \(\varphi: R \rightarrow S\) a <a href="20221226010233-ringhomomorphismus.html#ID-136298f7-3132-4bd7-934f-0eefaa48fcf9">ring-homomorphism</a> and \(M\) an \(R\)-<a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">module</a>.
+Then \(M\) is <a href="20231124-canonical.html#ID-432ff6c3-16fc-4a1f-83b1-c5e13ad20ea5">canonically</a> an \(S\)-module via
+</p>
+\begin{align*}
+S \otimes_{R} M
+\end{align*}
+<p>
+where \(S\) is regarded as \(R\)-module through <a href="20240122-restriction_of_scalars_functor.html#ID-ae7501dc-2c1b-4ad9-a4f4-cf9062905cce">restriction of scalars</a> for \(S\) as \(S\)-module (cf. <a href="20230303170343-ring_als_modul.html#ID-2c3b05e5-a5e9-4331-81bc-5d24d8c81648">ring as module</a>)
+see:
+</p>
+<ul class="org-ul">
+<li><a href="20230801-tensor_product.html#ID-42c4ecff-8f9a-40cf-bebc-70569ded24bf">tensor product</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org90567fe" class="outline-2">
+<h2 id="org90567fe"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org752cfe8" class="outline-3">
+<h3 id="org752cfe8"><span class="section-number-3">2.1.</span> \(1\)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Let \(1 \in R\), then we conclude for \(s \in S\)
+</p>
+\begin{align*}
+1_R \cdot_R s =& \varphi(1) \cdot_S s \\
+=& s \\
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org0a3e61f" class="outline-3">
+<h3 id="org0a3e61f"><span class="section-number-3">2.2.</span> associative</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Let \(r_1,r_2 \in R\), then it holds for \(s \in S\)
+</p>
+\begin{align*}
+r_1 \cdot_R (r_2 \cdot_R s) =&  r_1 \cdot_R (\varphi(r_2) \cdot s) \\
+=& (\varphi(r_1) \cdot_R (\varphi(r_2) \cdot_S s)) \\
+=& (\varphi(r_1) \cdot_S \varphi(r_2) \cdot_S s) \\
+=& (\varphi(r_1 \cdot r_2) \cdot s) \\
+=& (r_1 \cdot r_2) \cdot_R s
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org358168c" class="outline-3">
+<h3 id="org358168c"><span class="section-number-3">2.3.</span> distributive</h3>
+<div class="outline-text-3" id="text-2-3">
+\begin{align*}
+(r_1 + r_2) \cdot_R (s_1 + s_2) =& \varphi(r_1 + r_2) \cdot_S (s_1 + s_2) \\
+=& \varphi(r_1) \cdot_S s_1 + \varphi(r_2) \cdot_S s_1 + \varphi(r_1) \cdot_S s_2 + \varphi(r_2) \cdot_S s_2 \\
+=& r_1 \cdot_R s_1 + r_2 \cdot_R s_1 + r_1 \cdot_R s_2 + r_2 \cdot_R s_2
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

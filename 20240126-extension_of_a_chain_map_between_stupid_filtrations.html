@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>extension of a chain map</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">extension of a chain map</h1>
+<div id="outline-container-org0ef21eb" class="outline-2">
+<h2 id="org0ef21eb"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(\mathcal{A}\) be an <a href="20230827-abelian_category.html#ID-9003af72-f684-4897-b096-c1d8a681c624">abelian category</a> and \(\mathrm{Ch_*}(\mathcal{A})\) be the <a href="20230817-category_of_chain_complexes.html#ID-57e47ad9-c74a-47af-a261-31b1a6a74f8b">category of chain complexes</a>.
+Suppose \(P\) is a <a href="20240126-chain_complex_of_projectives.html#ID-3f92b779-9dc8-478d-98b6-06757efee7a8">chain complex of projectives</a> and \(M \in \mathrm{Ch_*}(\mathcal{A})\) another <a href="20230802-chain_complex.html#ID-e4c10be9-3796-4aff-9579-5cc0b5f47e36">chain complex</a>
+</p>
+
+<p>
+Assume given \(n \in \mathbb{Z}\) and a <a href="20230802-chain_map.html#ID-366c9675-ed47-4bc2-a01d-3d0c6911e226">chain map</a> \(\sigma_{\leq n}(f): \sigma_{\leq n}(P) \rightarrow \sigma_{\leq n}(M)\).
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+... \arrow[]{r}{} & P_{n+1} \arrow[]{r}{d_{n+1}} \arrow[dashed]{d}{\sigma_{n+1}} & P_n \arrow[]{r}{d_n} \arrow[]{d}{\sigma_{n}} & P_{n-1} \arrow[]{r}{} \arrow[]{d}{\sigma_{n-1}} &  ... \\
+... \arrow[]{r}{} & M_{n+1} \arrow[]{r}{d_{n+1}} & M_n \arrow[]{r}{d_n} & M_{n-1} \arrow[]{r}{} &  ...
+\end{tikzcd}
+\end{displaymath}
+<p>
+&rarr; 
+</p>
+
+<p>
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol class="org-ol">
+<li>this \(\sigma_{\leq n}(f)\) extends to a chain map \(\sigma_{\leq n+1}(f:): \sigma_{\leq n+1}(P) \rightarrow \sigma_{\leq n+1}(M)\)</li>
+<li>the map</li>
+</ol>
+\begin{align*}
+p_{n+1} \rightarrow H_n(M)
+\end{align*}
+<p>
+induced by
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+P_{n+1} \arrow[]{r}{d_{n+1}} & \mathrm{im}(d_{n+1}^P) \arrow[]{r}{\iota} & \mathrm{ker}(d_n)  \arrow[]{d}{\sigma_n} & \\
+ & & \mathrm{ker}(d_{n}) \arrow[]{r}{\pi} & H_{n}
+\end{tikzcd}
+\end{displaymath}
+<p>
+is the <a href="20230402144657-zero_morphism.html#ID-6cb7ce09-7038-4581-bc67-91d231a2be10">zero morphism</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-orgdc25bce" class="outline-2">
+<h2 id="orgdc25bce"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+somewhat sloppy written, todo with universal properties
+</p>
+</div>
+
+<div id="outline-container-orge101ff9" class="outline-3">
+<h3 id="orge101ff9"><span class="section-number-3">2.1.</span> 1) \(\implies\) 2)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Suppose there exists such a map \(\sigma_{n+1}\).
+Then it follows, that
+</p>
+\begin{align*}
+\sigma_n \circ d_{n+1} = d_{n+1} \circ \sigma_{n+1}
+\end{align*}
+<p>
+hence it follows, that
+</p>
+\begin{align*}
+\mathrm{im}(\sigma_{n} \circ d_{n+1}) = \mathrm{im}(d_{n+1} \circ \sigma_{n+1}) \hookrightarrow \mathrm{im}(d_{n+1}) \hookrightarrow \mathrm{ker}(d_n)
+\end{align*}
+<p>
+And thus composed with
+</p>
+\begin{align*}
+\mathrm{ker}(d_n) \twoheadrightarrow \mathrm{ker}(d_n)\mathrm{im}(d_{n+1})
+\end{align*}
+
+<p>
+results in the zero morphism
+</p>
+</div>
+</div>
+<div id="outline-container-org17ff8af" class="outline-3">
+<h3 id="org17ff8af"><span class="section-number-3">2.2.</span> 2) \(\implies\) 1)</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Suppose the morphism is the zero morphism.
+Then it follows, that
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+P_{n+1}  \arrow[]{r}{d_{n+1}} & \mathrm{im}(d_{n+1})  \arrow[]{d}{\sigma_{n, \vert \mathrm{im}(d_{n+1})}} \\
+M_{n+1} \arrow[twoheadrightarrow, ]{r}{d_{n+1}} & \mathrm{im}(d_{n+1}) \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+and thus by projectivity, there exists a map
+</p>
+\begin{align*}
+\sigma_{n+1}: P_{n+1} \rightarrow M_{n+1}
+\end{align*}
+<p>
+making the diagram commute, hence also making
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+& P_{n+1} \arrow[]{r}{d_{n+1}} \arrow[]{d}{\sigma_{n+1}} & P_n  \arrow[]{d}{\sigma_{n}}  \\
+& M_{n+1} \arrow[]{r}{d_{n+1}} & M_n   \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+commute.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

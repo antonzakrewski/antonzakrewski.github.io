@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>simple algebraic field extension and maximal ideal</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">simple algebraic field extension and maximal ideal</h1>
+<div id="outline-container-org03b1062" class="outline-2">
+<h2 id="org03b1062"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(K\) be a <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">field</a>, then there exists a 1-to 1 correspondence between
+</p>
+<ol class="org-ol">
+<li><a href="20230722-einfache_korpererweiterung.html#ID-1f5901ba-7187-46a1-95fa-c01ebba7ed29">simple field extensions</a> \(L\)</li>
+<li><a href="20230314223428-maximales_ideal.html#ID-9d76bba3-11a8-42c9-9bdb-f774da2bb06a">maximal ideals</a> \(K[X]/\mathfrak{m}\) for <a href="20230314223428-maximales_ideal.html#ID-9d76bba3-11a8-42c9-9bdb-f774da2bb06a">maximal ideals</a> \(\mathfrak{m} \subseteq K[X]\)</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org46de010" class="outline-2">
+<h2 id="org46de010"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgbbf38e4" class="outline-3">
+<h3 id="orgbbf38e4"><span class="section-number-3">2.1.</span> 1) \(\implies\) 2)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Let \(L = K(\alpha)\).
+</p>
+
+<p>
+Then for the <a href="20221226010643-einsetzungshomomorphismus.html#ID-714a456e-dcd8-4e03-906b-2b497bf77766">evaluation homomorphism</a>
+</p>
+\begin{align*}
+\varphi_{\alpha}: K[X] \rightarrow& L \\
+x \mapsto& \alpha
+\end{align*}
+<p>
+it follows  that 
+</p>
+\begin{align*}
+K[X]/\mathrm{ker}(\varphi) \simeq L
+\end{align*}
+<p>
+(cf. <a href="20221226125039-homomorphiesatz_fur_ringe.html#ID-755e30b6-bd5c-4c03-9e0f-29bb432fa474">fundamental theorem on ring homomorphisms</a>)
+</p>
+</div>
+</div>
+<div id="outline-container-org5a30a6c" class="outline-3">
+<h3 id="org5a30a6c"><span class="section-number-3">2.2.</span> 2) \(\implies\) 1)</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+since \(K[X]\) is a <a href="20221227223925-hauptidealring.html#ID-41717608-2c65-435a-aca7-549eff5b4ca2">principal ideal domain</a> (cf. <a href="20230316221258-polynomring_uber_einem_korper_als_hauptidealring.html#ID-d0a25f1c-b5b1-46e3-bda8-6f094c70cd88">polynomial ring as PID and coefficients as field</a>), we conclude, that there exists a <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c-70182b7714f9">polynomial</a> \(f \in K[X]\) such that \((f) = \mathfrak{m}\).
+furthermore, \(\lambda \not\in \mathfrak{m}\) for \(\lambda \in K^{\times}\) (since \(\mathfrak{m}\) is a <a href="20230427200359-echtes_ideal.html#ID-fa54a328-b081-4a6c-9106-4348783138df">strict ideal</a>)
+Therefore, \(K[X]/\mathfrak{m} \neq 0\) \(\pi \circ \iota: K \rightarrow K[X]/\mathfrak{m}\) is a welldefined ring homomorphism.
+By <a href="20230603-ringhomomorphism_from_an_field_as_monomorphism.html#ID-6a5285ef-17fa-42ec-ab60-880eace73f7b">ringhomomorphism from an field as monomorphism</a>, \(\iota\) is a ring-monomorphism and thus naturally a <a href="20230603-field_extension.html#ID-afbdca38-90b9-4db1-9d10-cfd826cbfac6">field extension</a> 
+</p>
+
+<p>
+Then \(K[X]/\mathfrak{m}\) is genereted by \(\pi(x)\) as <a href="20221125133249-k_algebra.html#ID-74ada59f-7a40-49a2-b525-be8af0628fe9">K-Algebra</a> 
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>
