@@ -13,16 +13,100 @@
 <script type="text/javascript" id="MathJax-script" defer
 src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
 <h1 class="title">filtered colimit of flat modules as flat module</h1>
 <div id="outline-container-org6c25dd1" class="outline-2">
 <h2 id="org6c25dd1"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(R\) be a <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a> and \(M\) an \(R\)-<a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">module</a>.
+Suppose \(F_i\) are <a href="20230801-flat_module.html#ID-1fec67f0-a4f2-444f-a53f-3e8e7fcfc491">flat modules</a> and \(I\) a <a href="20230911-filtered_diagram.html#ID-d7a0aa8f-14a1-4e10-a23f-6c8272011a55">filtered diagram</a>.
+Then the <a href="20230725-colimit.html#ID-581b1561-25d0-479a-b0cc-063c894e10be">colimit</a> \(\mathrm{colim}_I F_i\) is a flat module
+</p>
 </div>
-
+</div>
 <div id="outline-container-orga0abed0" class="outline-2">
 <h2 id="orga0abed0"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+By definition, we have to show, that
+</p>
+\begin{align*}
+- \otimes_R (\mathrm{colim}_I F_i)
+\end{align*}
+<p>
+is a <a href="20230903-covariant_left_exact_functor.html#ID-451552fa-0c6a-46d1-8bbd-9683937c52f3">left exact functor</a>.
+</p>
+
+<p>
+As the <a href="20240122-tensor_functor_as_left_adjoint.html#ID-4e790872-0ba7-49b1-93b6-7dbcec1fa9bd">tensor functor is a left adjoint</a>, it commutes with colimits (cf. <a href="20231014-left_adjoint_preserves_limits.html#ID-b74a606d-2b63-4e0c-8f74-d8983694896c">left adjoint preserves colimits</a>)
+</p>
+
+<p>
+Therefore, we have
+</p>
+\begin{align*}
+- \otimes_R (\mathrm{colim}_I F_i) \simeq \mathrm{colim}(- \otimes_R F_i)
+\end{align*}
+
+<p>
+here using <a href="20231219-limit_of_functors.html#ID-939b5ad3-3b40-45aa-be11-80bb50b71a54">limit of functors for a complete domain</a>, it follows, that
+</p>
+\begin{align*}
+(- \otimes_R F_i): \mathrm{RMod} \rightarrow \mathrm{Fun}(I, \mathrm{RMod})
+\end{align*}
+<p>
+is left exact.
+</p>
+
+<p>
+Furthermore, as \(\mathrm{RMod}\) is an <a href="20240308-ab5_category.html#ID-e7f6fe0a-037c-45e4-940a-37c6c1b068a3">Ab5</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a> (cf. <a href="20240308-category_rmod_as_ab5_category.html#ID-ba0c745c-218b-496a-8f25-eeddde0ca3e4">category RMod as Ab5 category</a>), it follows, that \(\mathrm{colim}_I\) is a left exact functor.
+</p>
+
+<p>
+Thus it follows from <a href="20240314-composition_of_left_exact_functors_as_left_exact_functor.html#ID-05efc23f-61e1-4320-ab5e-21dcd6c2e8c5">composition of left exact functors as left exact functor</a>, that
+</p>
+\begin{align*}
+- \otimes_R (\mathrm{colim}_I F_i)
+\end{align*}
+<p>
+is left exact
+</p>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">

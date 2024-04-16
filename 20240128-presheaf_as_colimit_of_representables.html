@@ -53,12 +53,55 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 <h2 id="org73f8b6e"><span class="section-number-2">1.</span> Proposition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Let $\mathcal{F}: 
+Let \(\mathcal{C}\) be a <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a> and \(\mathcal{F}: \mathcal{C}^{\mathrm{op}} \rightarrow \mathrm{Set}\) a set-valued <a href="20230603-presheaf_of_sets.html#ID-d49e3c63-1428-4b98-9f00-238ae7770cbf">presheaf</a> 
+Then there exists a canonical <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a> 
+</p>
+\begin{align*}
+\varphi: \mathrm{colim}_{X \in \mathcal{C}/\mathcal{F}} \rightarrow \mathrm{Hom}_{\mathcal{C}}(-, X)
+\end{align*}
+<p>
+where \(\mathcal{C}/\mathcal{F}\) is the <a href="20240326-coslice_category_by_yoneda.html#ID-cf2dde8f-d2b7-4ea7-8e09-f42b756190b4">slice category by yoneda</a> 
 </p>
 </div>
 </div>
 <div id="outline-container-orgb2162f5" class="outline-2">
 <h2 id="orgb2162f5"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Let \(\mathcal{G} \in \mathrm{Fun}(\mathcal{C}^{\mathrm{op}}, \mathrm{Set}\) be a functor.
+</p>
+
+<p>
+As the <a href="20231017-hom_functor_preserves_colimits.html#ID-5ff9ae3e-1b7d-4f39-99df-dab65b127f6a">contravariant hom-functor dualizes small colimits to limits</a>, it follows that
+</p>
+\begin{align*}
+\mathrm{Hom}_{\mathcal{P}(\mathcal{C})}(\mathrm{colim}_{X \in \mathcal{C}/\mathcal{F}}(-,X), \mathcal{G}(-)) \simeq& \lim_{X \in \mathcal{C}/\mathcal{F}} (\mathrm{Hom}_{\mathcal{P}(\mathcal{C})}(-,X)) \mathcal{G}(-)))
+\end{align*}
+<p>
+Using <a href="20240102-natural_transformation_from_contravariant_hom_functor_as_precomposition.html#ID-2879cce2-1bea-4614-8e01-601c41b997bc">contravaiant Yoneda</a>, this gives
+</p>
+\begin{align*}
+\lim_{X \in \mathcal{C}/\mathcal{F}} (\mathrm{Hom}_{\mathcal{P}(\mathcal{C})}(-,X)) \mathcal{G}(-))) \simeq& \lim_{X \in \mathcal{C}/\mathcal{F}} \mathcal{G}(X)
+\end{align*}
+
+<p>
+using the natural isomorphism
+</p>
+\begin{align*}
+\mathrm{lim}_{X \in \mathcal{C}/\mathcal{F}} \mathcal{G}(X) \simeq \mathrm{NatMorph}(\mathcal{F}, \mathcal{G})
+\end{align*}
+
+
+<p>
+this gives
+</p>
+\begin{align*}
+\mathrm{Hom}_{\mathcal{P}(\mathcal{C})}(\mathrm{colim}_{X \in \mathcal{C}/\mathcal{F}}(-,X), \mathcal{G}(-)) \simeq& \mathrm{Hom}_{\mathcal{P}(\mathcal{C})}(\mathcal{F}, \mathcal{G})
+\end{align*}
+<p>
+where by <a href="20240326-limit_of_yoneda_slices_and_evaluated_as_set_of_natural_transformations.html#ID-fe8d1caa-9169-400d-b9e8-da2b0e5bb28a">limit of yoneda slices and evaluated as set of natural transformations</a> 
+</p>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">

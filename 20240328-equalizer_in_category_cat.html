@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>equalizer in category cat</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">equalizer in category cat</h1>
+<div id="outline-container-orgd8e8fdb" class="outline-2">
+<h2 id="orgd8e8fdb"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(\mathcal{C}, \mathcal{D}\) be <a href="20220819181004-kleine_kategorie.html#ID-3c3f1c0d-53ad-476e-810a-756acd885263">small</a>  <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">categories</a> and
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{C} \arrow[shift right=1, swap]{r}{\mathcal{F}} \arrow[shift left=1]{r}{\mathcal{G}}& \mathcal{D}
+\end{tikzcd}
+\end{displaymath}
+<p>
+be a diagram.
+</p>
+
+<p>
+Then the equalizer is given by the category containing
+</p>
+<ol class="org-ol">
+<li><a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">objects</a> \(C \in \mathrm{Ob}(\mathcal{C})\) with \(\mathcal{F}(C) = \mathcal{G}(C)\)</li>
+<li><a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphisms</a> \(f \in \mathrm{Hom}_{\mathrm{Eq}}(C_1,C_2)\) with \(\mathcal{F}(f) = \mathcal{G}(C)\)</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org2ebc263" class="outline-2">
+<h2 id="org2ebc263"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org0888605" class="outline-3">
+<h3 id="org0888605"><span class="section-number-3">2.1.</span> welldefined category</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Associativity is inherited.
+Let \(C,C' \in \mathrm{Ob}(\mathrm{Eq})\)
+</p>
+</div>
+<div id="outline-container-orgb2aefb9" class="outline-4">
+<h4 id="orgb2aefb9"><span class="section-number-4">2.1.1.</span> identity</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+Follows from
+</p>
+\begin{align*}
+\mathcal{F}(\mathrm{id}_{C}) =& \mathrm{id}_{\mathcal{F}(C)}  \\
+=& \mathrm{id}_{\mathcal{G}(C)}  \\
+=& \mathcal{G}(\mathrm{id}_{C})
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgbb49433" class="outline-4">
+<h4 id="orgbb49433"><span class="section-number-4">2.1.2.</span> composition</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+Suppose \(f,g \in \mathrm{Mor}(\mathrm{Eq})\) with compatible domain/codomain.
+Then we get
+</p>
+\begin{align*}
+\mathcal{F}(f \circ g) =& \mathcal{F}(f) \circ \mathcal{F}(g) \\
+=& \mathcal{G}(f) \circ \mathcal{G}(g) \\
+=& \mathcal{G}(f \circ g) \\
+\end{align*}
+</div>
+</div>
+</div>
+<div id="outline-container-org5baee31" class="outline-3">
+<h3 id="org5baee31"><span class="section-number-3">2.2.</span> universal property</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Suppose there exists a category \(\mathcal{D}\) a <a href="20230804-fork.html#ID-ecc9c4d9-2d1d-44b1-a9c1-3c05ffc884d2">fork</a>
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{D} \arrow[bend left]{rr}{\mathcal{H}} & \mathcal{C} \arrow[shift right=1, swap]{r}{\mathcal{F}} \arrow[shift left=1]{r}{\mathcal{G}}& \mathcal{D}
+\end{tikzcd}
+\end{displaymath}
+<p>
+Then we define
+</p>
+\begin{align*}
+\mathcal{H}': \mathcal{D} \rightarrow& \mathrm{Eq} \\
+A \mapsto& \mathcal{H}(A) \\
+f \mapsto& \mathcal{H}(f)
+\end{align*}
+<p>
+where \(\mathrm{Eq}\) is interpreted as <a href="20220824221623-unterkategorie.html#ID-2165c92b-8025-4134-b3b1-4d523a8795a4">subcategory</a>. 
+</p>
+
+<p>
+This functor is welldefined, as 
+TODO
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

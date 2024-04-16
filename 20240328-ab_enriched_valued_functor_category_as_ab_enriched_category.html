@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ab-enriched valued functor category as ab-enriched category</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">ab-enriched valued functor category as ab-enriched category</h1>
+<div id="outline-container-orgedbc1f2" class="outline-2">
+<h2 id="orgedbc1f2"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(\mathcal{C}\) be a <a href="20220819181004-kleine_kategorie.html#ID-3c3f1c0d-53ad-476e-810a-756acd885263">small</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a> and \(\mathcal{A}\) an <a href="20230827-ab_enriched_category.html#ID-464e7983-8d86-4a83-b915-f926efada6c8">Ab-enriched category</a> 
+Then the <a href="20220825194828-funktorkategorie.html#ID-39ebe96a-b96d-4a11-8642-30527c1b92ea">functor category</a>
+</p>
+\begin{align*}
+\mathrm{Fun}(\mathcal{C}, \mathcal{A}) 
+\end{align*}
+<p>
+is also ab-enriched
+</p>
+</div>
+</div>
+<div id="outline-container-org702ca68" class="outline-2">
+<h2 id="org702ca68"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org3cf22f6" class="outline-3">
+<h3 id="org3cf22f6"><span class="section-number-3">2.1.</span> abelian group</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+For \(\mathcal{F}, \mathcal{G} \in \mathrm{Ob}(\mathrm{Fun}(\mathcal{C}, \mathcal{A}))\) we define  
+</p>
+\begin{align*}
+\iota: \mathrm{Hom}_{\mathrm{Fun}(\mathcal{C}, \mathcal{A})}(\mathcal{F},\mathcal{G}) \rightarrow& \prod_{C \in \mathrm{Ob}(\mathcal{C})} \mathrm{Hom}_{\mathrm{Fun}(\mathcal{C}, \mathcal{A})}(\mathcal{F}(C),\mathcal{G}(C)) \\
+\eta \mapsto& \prod_{C \in \mathrm{Ob}(\mathcal{C})} \eta(C)
+\end{align*}
+<p>
+This is a set-theoretic <a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injection</a> 
+</p>
+
+<p>
+Furthermore the <a href="20211230205458-bild_mengenlehre.html#ID-e7c4bebe-0c9a-4999-bd38-f1ceec101025">image</a> is an abelian group, as
+TODO
+</p>
+</div>
+</div>
+<div id="outline-container-org796ebe3" class="outline-3">
+<h3 id="org796ebe3"><span class="section-number-3">2.2.</span> composition</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Suppose there exist functors \(\mathcal{F},\mathcal{G},\mathcal{H}\) and natural transformations
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{F} \arrow[]{r}{\eta_1,\eta_2} & \mathcal{G} \arrow[]{r}{\nu_1,\nu_2}& \mathcal{H}
+\end{tikzcd}
+\end{displaymath}
+
+
+<p>
+Then consider
+</p>
+\begin{align*}
+(\eta_1 + \eta_2) \circ (\nu_1 + \nu_2)
+\end{align*}
+<p>
+Furthermore, for \(C \in \mathrm{Ob}(\mathcal{C})\), we get
+</p>
+\begin{align*}
+(\eta_1 + \eta_2) \circ (\nu_1 + \nu_2)(C) =& (\eta_1 + \eta_2)(C) \circ (\nu_1 + \nu_2)(C) \\
+=& (\eta_1(C) + \eta_2(C)) + (\nu_1(C) + \nu_2(C)) \\
+=& \eta_1(C) \nu_1(C) + \eta_1(C) \nu_2(C) + \eta_2(C) \nu_1(C) + \eta_2(C) \nu_2(C) \\
+=& (\eta_1 \nu_1)(C) + (\eta_1 \nu_2)(C) + (\eta_2 \nu_1)(C) + (\eta_2 \nu_2)(C) \\
+ \end{align*}
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

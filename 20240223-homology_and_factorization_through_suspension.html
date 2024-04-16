@@ -65,9 +65,100 @@ where \(\Sigma\) is the <a href="20230801-suspension_topology.html#ID-0d472330-2
 </p>
 </div>
 </div>
-
 <div id="outline-container-org474c944" class="outline-2">
 <h2 id="org474c944"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Consider the following commutative diagram of <a href="20230331113453-pair_of_spaces.html#ID-a5c438a8-0ae6-40b1-93a4-5f5b59a22cf3">pairs of spaces</a>
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+(C(\iota), C^+(A)) \arrow[]{r}{} & (\Sigma(A), C^+(A)) \\
+(\mathrm{Cyl}(\iota), A) \arrow[]{u}{\iota_1} \arrow[]{r}{} & \arrow[]{u}{\iota_2} (C^{-}(A), A)
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+for the inclusion
+</p>
+\begin{align*}
+\iota_1: \mathrm{Cyl}(\iota) \hookrightarrow \mathrm{Cyl}(\iota) \coprod_{A} C^+(A) \simeq C(\iota) \\ 
+\iota_2: C^{-}(A) \hookrightarrow C^{-}(A) \coprod_{A} C^+(A) \Sigma(A) 
+\end{align*}
+
+<p>
+and the collapse
+</p>
+\begin{align*}
+\pi: \mathrm{Cyl}(\iota) \rightarrow& \mathrm{Cyl}(\iota)/X \simeq C^{-}(A) \\
+\pi: C(\iota) \rightarrow& C(\iota)/X \simeq \Sigma(A)
+\end{align*}
+
+
+<p>
+Applying the <a href="20240123-relative_singular_homology_funct.html#ID-ebc22e92-b38a-4065-bd1f-5b8f288322ce">relative singular homology functor</a> results in
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+H_n(C(\iota), C^+(A)) \arrow[]{r}{} & H_n(\Sigma(A), C^+(A)) \\
+H_n(\mathrm{Cyl}(\iota),A) \arrow[]{r}{} \arrow[]{u}{\simeq} & H_n(C^-(A), A) \arrow[]{u}{\simeq}\\
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+these are <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphisms</a> by <a href="20240128-relative_singular_homology_and_excision_theorem.html#ID-2aa73d86-0baf-4b30-b919-534fe82c5388">excision theorem</a>, as
+???
+</p>
+
+<p>
+By <a href="20240311-mapping_cone_of_a_subspace_inclusion.html#ID-0d2d438f-0fe2-475a-8805-daa948b8d3fc">mapping cylinder of a subspace inclusion homotopy equivalent</a> this results in the isomorphism
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+H_n(X,A) \arrow[]{r}{\simeq} & H_n(\mathrm{Cyl}(\iota), A) 
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+Therefore, we get the commutative square
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+& H_n(C(\iota), C^+(A)) \arrow[]{r}{}& H_n(\Sigma(A), C^+(A)) \\
+H_n(X,A) \arrow[]{r}{\simeq} \arrow[]{d}{\partial} & H_n(\mathrm{Cyl}(\iota), A) \arrow[]{r}{} \arrow[]{u}{\simeq} \arrow[]{d}{\partial} & H_n(C^-(A), A) \arrow[]{u}{\simeq} \arrow[]{d}{\partial}\\
+H_{n-1}(A,*) \arrow[]{r}{\mathrm{id}} & H_{n-1}(A,*) \arrow[]{r}{\mathrm{id}} & H_{n-1}(A,*)
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+Here the lower map is the <a href="20240311-long_exact_sequence_of_a_pair_of_spaces.html#ID-816d72fa-99c6-4008-bd74-3b4fc255e490">long exact sequence of a pair of spaces</a> (?)
+</p>
+
+<p>
+then, as \(C^+(A)\) is <a href="20230330173711-kontraktibler_raum.html#ID-97035c96-d3da-46f5-afad-856a662cb0e5">contractible</a>, compatible with \(C(\iota), \Sigma(A)\), it follows that since the <a href="20240109-suspension_isomorphism.html#ID-ab4d055a-5f18-4fc7-bf3c-7a994ca20382">suspension isomorphism of singular homology</a> is given by
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+H_n(\Sigma(A) , *) \arrow[]{d}{\simeq} \arrow[bend left=70]{ddd}{\simeq} \\
+H_n(\Sigma(A), C^+(A)) \arrow[]{d}{\simeqd} \\
+H_n(C^{-}(A), A) \arrow[]{d}{\partial}\\
+H_{n-1}(A,*)
+\end{tikzcd}
+\end{displaymath}
+
+
+<p>
+This gives then a <a href="20230225172453-faktorisierung_eines_morphismus.html#ID-03fc6d28-e9bd-4fa3-8093-a113eaf06a6e">factorization</a>
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+& & H_{n(\Sigma(A), *) \arrow[]{d}{\simeq} \\
+& H_{n}(C(\iota),C^+(A)) \arrow[]{d}{\simeq} \arrow[]{r}{} & H_n(\Sigma(A), C^+(A)) \arrow[]{d}{} \\
+H_n(X,A) \arrow[swap]{rrd}{\partial} \arrow[]{r}{\simeq} & H_{n}(\mathrm{Cyl}(\iota), A) & H_n(C^n(A), A) \arrow[]{d}{\partial}\\
+& &  H_{n-1}(A,*) 
+\end{tikzcd}
+\end{displaymath}
+</div>
 </div>
 </div>
 <div id="postamble" class="status">

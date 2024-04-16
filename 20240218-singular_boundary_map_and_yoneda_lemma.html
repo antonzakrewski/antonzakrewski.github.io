@@ -13,15 +13,112 @@
 <script type="text/javascript" id="MathJax-script" defer
 src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
 <h1 class="title">singular boundary map and Yoneda Lemma</h1>
 <div id="outline-container-orgcf7ee67" class="outline-2">
 <h2 id="orgcf7ee67"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(\mathrm{Top}\) be the <a href="20230225170221-kategorie_top.html#ID-55f8744f-3e21-4c41-889f-06a52add975b">category Top</a> and
+</p>
+\begin{align*}
+d_n: C_{n}^{\mathrm{sing}}(X) \rightarrow \mathrm{C}_{n-1}^{\mathrm{sing}}(X)
+\end{align*}
+<p>
+be the boundary map
+</p>
+
+<p>
+Then \(d_n\) is a <a href="20220821182915-naturliche_transformation_kategorientheorie.html#ID-4e6e50c0-c0df-44ff-a140-bebfa492ef7e">natural transformation</a> given by
+</p>
+\begin{align*}
+\simga = \sum_{i=1}^{n} \iota(\partial \Delta_{\mathrm{top}}^n) \in C_{n-1}^{\mathrm{sing}}(\Delta_{n})
+\end{align*}
+
+<p>
+see
+</p>
+<ul class="org-ul">
+<li><a href="20230404222048-natural_transformations_of_a_hom_set_as_preceed_by.html#ID-f3d4340c-d14e-4ce6-9188-35f71fdacc85">natural transformation from covariant hom functor as element</a>e</li>
+</ul>
+</div>
 </div>
 <div id="outline-container-orgfac7080" class="outline-2">
 <h2 id="orgfac7080"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Since 
+</p>
+\begin{align*}
+C_n^{\mathrm{sing}}(-) = (\mathbb{Z}[\mathrm{Hom}_{\mathrm{Top}}(\Delta_n^{\mathrm{top}}, -)])
+\end{align*}
+<p>
+where \(\mathbb{Z}[]\) is the <a href="20231018-free_abelian_group_functor.html#ID-506c446f-dac9-45aa-aa71-32545b5eb2b8">free abelian group functor</a>, we conclude, that the <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphism</a>  \(d_n\) naturally corresponds to a morphism
+</p>
+\begin{align*}
+\mathrm{Hom}_{\mathrm{Top}}(\Delta_n^{\mathrm{top}}, -) \rightarrow \mathrm{Set}((\mathbb{Z}[\mathrm{Hom}_{\mathrm{Top}}(\Delta_{n-1}^{\mathrm{top}}, -)]))
+\end{align*}
+
+<p>
+using the yoneda lemma, this corresponds to a
+</p>
+\begin{align*}
+\sigma \in \mathrm{Set}(\mathbb{Z}[\mathrm{Hom}_{\mathrm{Top}}(\Delta_{n-1}^{\mathrm{top}}, \Delta_{n}^{\mathrm{top}})
+\end{align*}
+
+<p>
+Writing the down morphism, this gives the element
+</p>
+\begin{align*}
+\sigma = \sum_{i=1}^{n} \iota(\partial \Delta_{\mathrm{top}}^n) \in C_{n-1}^{\mathrm{sing}}(\Delta_{n})
+\end{align*}
+
+<p>
+As
+</p>
+\begin{align*}
+\eta_{X}(\tilde{\sigma}) =& \tilde{\sigma} \circ (\sum \iota(\partial \Delta_{n}^{\mathrm{top}}  \\
+=& \sum \partial \sigma \circ \Delta_n^{\mathrm{top}}
+=& \sum \partial \sigma
+\end{align*}
+<p>
+since taking the boundary of a simplex commutes with a map, as it depends on the domain.
+</p>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">

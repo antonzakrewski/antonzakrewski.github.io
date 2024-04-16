@@ -79,12 +79,144 @@ is \(\varphi\) up to canonical <a href="20220818172827-automorphismus_eines_obje
 <div id="outline-container-org98d2057" class="outline-2">
 <h2 id="org98d2057"><span class="section-number-2">2.</span> Proof</h2>
 <div class="outline-text-2" id="text-2">
+<p>
+using <a href="20240315-factorization_of_a_group_homomorphism_through_a_coproduct.html#ID-8fdafbb6-7171-4cd5-ad21-46650702fc90">factorization of a group homomorphism through a coproduct</a> 
+</p>
 </div>
-<div id="outline-container-org71b0be8" class="outline-3">
-<h3 id="org71b0be8"><span class="section-number-3">2.1.</span> </h3>
+<div id="outline-container-org09ead58" class="outline-3">
+<h3 id="org09ead58"><span class="section-number-3">2.1.</span> injective + free group</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Let
+</p>
+\begin{align*}
+\iota:wa
+G \rightarrow G \coprod \langle h_i\rangle
+\end{align*}
+<p>
+Then using the generators \(h_i\), consider the wedge \(\bigvee_{i \in I} S^1\) of <a href="20230413003915-einheitssphare.html#ID-5ad34a63-284c-4eec-919d-9a5a67d6b1ee">1-spheres</a>.
+</p>
+
+<p>
+Then attach the <a href="20231122-disk.html#ID-d95a6f79-ebdc-496f-8304-23393777df06">1-disk</a> \(D^1\) at the point, to get \(H \coloneqq D^1 \coprod_* \bigvee_{i \in I} S^1\) and choose the opposite point of \(D^1\) as base point
+It follows, that \(H\) is homotopy equivalent to \(\bigvee_{i \in I} S^1\) (cf. <a href="20240301-wedge_product_with_deformation_retractible_space.html#ID-cf5325d8-62ea-4190-8099-122b541a4d9d">wedge product with deformation retractible space homotopy equivalent</a>)
+</p>
+
+<p>
+Furthermore, consider the <a href="20230806-pushforward.html#ID-a4141d87-68ee-4337-8f80-997a6d4b4091">pushout</a> 
+\begin{displaymath}
+\begin{tikzcd}
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">[label={[label distance=-2mm]-45:\ulcorner}]</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="outline-container-org673f064" class="outline-3">
-<h3 id="org673f064"><span class="section-number-3">2.2.</span> </h3>
+</div>
+</div>
+<div id="outline-container-org5122749" class="outline-2">
+<h2 id="org5122749"><span class="section-number-2">3.</span> \arrow[]{r}{} \arrow[]{d}{} &amp; X \arrow[]{d}{} \\</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+H \arrow[]{r}{} &amp; ~{X}
+\end{tikzcd}
+\end{displaymath}
+</p>
+
+<p>
+Here \(\bigvee S^1 \vee [0,\frac{3}{4})\) and \(X \vee (\frac{1}{4},1]\) suffice as <a href="20221125072633-offene_uberdeckung.html#ID-f64293ce-3838-4f49-b45d-07666123c2c9">open cover</a> with <a href="20230118223336-zusammenhangender_raum.html#ID-bcc53507-bc5a-46d4-bd83-53e504f62b9d">connected</a> <a href="20230317161158-allgemeiner_schnitt.html#ID-d7547939-8d3f-48f8-b2fd-cfb5734ae78f">intersection</a>, namely \((\frac{1}{4}, \frac{3}{4})\)
+Thus by <a href="20230415004146-seifert_van_kampen_theorem.html#ID-4261a1ae-63e2-4c6e-94fa-73199a2b89c9">Seifert-Van kampen</a> we conclude, that
+</p>
+\begin{align*}
+\pi_1(\tilde{X},*) = \pi_1(\bigvee S^1 \vee [0,\frac{3}{4}) \coprod_* \pi_1(X \vee \left(\frac{1}{4}\right, 1]
+\end{align*}
+<p>
+here \(( \frac{1}{4}, \frac{3}{4})\) is <a href="20230330173711-kontraktibler_raum.html#ID-97035c96-d3da-46f5-afad-856a662cb0e5">contractible</a>, hence has trivial homotopy.
+</p>
+
+<p>
+Furthermore, \(X \vee (\frac{1}{4}, 1]\) is homotopy equivalent to \(X\) by using <a href="20231107-adjoint_for_the_mapping_space.html#ID-a64391d7-e1df-41bb-b846-18f26e63016e">product functor of topological spaces for a locally compact space as left adjoint</a> and <a href="20231014-left_adjoint_preserves_limits.html#ID-b74a606d-2b63-4e0c-8f74-d8983694896c">left adjoint preserves colimits</a> for 
+</p>
+\begin{align*}
+[0,1] \times X \vee ( \frac{1}{4}, 1] \simeq [0,1] \times X \copro_{* \times [0,1]} ( \frac{1}{4}, 1] \times [0,1]
+\end{align*}
+<p>
+and thus defining the maps by universal property through
+</p>
+\begin{align*}
+\mathrm{id}(\pi_2): [0,1] \times X \rightarrow X
+(t,x) \mapsto x
+\end{align*}
+<p>
+and
+</p>
+\begin{align*}
+H': (\frac{1}{4},1] \times [0,1] \rightarrow& (\frac{1}{4}, 1] \\
+(t,x) \mapsto& x + (1 - x) \cdot t
+\end{align*}
+
+<p>
+for
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+(\frac{1}{4},1] \times [0,1] \arrow[]{r}{H'}& (\frac{1}{4}, 1] \arrow[]{r}{\iota} &  D^1 \arrow[]{r}{} & \tilde{X}
+\end{tikzcd}
+\end{displaymath}
+</div>
+<div id="outline-container-org4c54a96" class="outline-3">
+<h3 id="org4c54a96"><span class="section-number-3">3.1.</span> surjective</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Choose generators \(g_i\) of the <a href="20221111200152-kern_algebra.html#ID-438e68de-0603-419c-8b21-5cb3b4add3a1">kernel</a>.
+Then consider the <a href="20230806-pushforward.html#ID-a4141d87-68ee-4337-8f80-997a6d4b4091">pushout</a> 
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+|[label={[label distance=-2mm]-45:\ulcorner}]|
+\bigvee S^1 \arrow[]{d}{\iota} \arrow[]{r}{} & X \arrow[]{d}{} \\
+\bigvee D^1 \arrow[]{r}{} & \tilde{X}
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+Let \(c\) denote the center of \(D^1\)
+</p>
+
+<p>
+Then we get a suitable covering by using \(\tilde{X} \setminus (\coprod c)\) and \(\bigvee D^1\).
+</p>
+
+<p>
+Here \(\bigvee D^1\) is contractible.
+</p>
+
+<p>
+Furthermore \(\tilde{X} \setminus (\coprod c)\) is homtopoy equivalent to \(\tilde{X}\) (todo)
+</p>
+
+<p>
+Thus we get the pushout of groups
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+|[label={[label distance=-2mm]-45:\ulcorner}]|
+\langle g_i\rangle \arrow[]{d}{} \arrow[]{r}{} & \pi_1(X,*) \arrow[dashed]{d}{} \\
+0 \arrow[dashed]{r}{} & H
+\end{tikzcd}
+\end{displaymath}
+<p>
+since \(g_1\) as gets identified with \(0\).
+</p>
+</div>
 </div>
 </div>
 </div>

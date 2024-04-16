@@ -13,16 +13,158 @@
 <script type="text/javascript" id="MathJax-script" defer
 src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
 <h1 class="title">chain homotopy equivalence and cone as contractible chain complex</h1>
 <div id="outline-container-orgac755e0" class="outline-2">
 <h2 id="orgac755e0"><span class="section-number-2">1.</span> Proposition</h2>
-</div>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(\mathcal{A}\) be an <a href="20230827-abelian_category.html#ID-9003af72-f684-4897-b096-c1d8a681c624">abelian category</a> and \(\mathrm{Ch_*}(\mathcal{A})\) be the <a href="20230817-category_of_chain_complexes.html#ID-57e47ad9-c74a-47af-a261-31b1a6a74f8b">category of chain complexes</a>.
+Suppose \(A_*,B_*\) are <a href="20230802-chain_complex.html#ID-e4c10be9-3796-4aff-9579-5cc0b5f47e36">chain complexes</a> and \(f: A_* \rightarrow B_*\) a <a href="20230802-chain_map.html#ID-366c9675-ed47-4bc2-a01d-3d0c6911e226">chain map</a>
+</p>
 
+<p>
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol class="org-ol">
+<li>\(f\) is a <a href="20240119-chain_homotopy_equivalence.html#ID-ce380f52-3fbd-47a1-8693-537006faaec5">chain homotopy equivalence</a></li>
+<li>the <a href="20231125-mapping_cone.html#ID-b6a442a6-edf9-436e-b610-661f16289760">mapping cone</a> \(C(f)\) is <a href="20240218-contractible_chain_complex.html#ID-e987a5ed-def4-4e4e-91bb-bb9051d8fd55">contractible chain complex</a></li>
+</ol>
+</div>
+</div>
 <div id="outline-container-org36b23bb" class="outline-2">
 <h2 id="org36b23bb"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org8c593ff" class="outline-3">
+<h3 id="org8c593ff"><span class="section-number-3">2.1.</span> 1) \(\implies\) 2)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Let \(g: D_n \rightarrow C_n\) be a homotopy inverse, \(h_1: D_n \rightarrow D_{n+1},h_2: C_n \rightarrow C_{n+1}\) the homotopies.
+</p>
+
+<p>
+Take 
+</p>
+\begin{align*}
+H_n = \begin{pNiceMatrix} h_1 & \\ g & h_2 \end{pNiceMatrix}: D_{n+1} \otimes C_{n} \rightarrow D_n \otimes C_{n-1}
+\end{align*}
+
+<p>
+Then as stated below, this suffices
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+D_{n+1} \otimes C_{n} \arrow[]{r}{\partial} & D_n \otimes C_{n-1} \arrow[]{r}{\partial} \arrow[]{d}{\mathrm{id}} \arrow[swap]{ld}{H_n}& D_{n-1} \otimes C_{n-2}  \arrow[swap]{ld}{H_{n-1}}\\
+D_{n+1} \otimes C_{n} \arrow[]{r}{\partial} & D_n \otimes C_{n-1} \arrow[]{r}{\partial} & D_{n-1} \otimes C_{n-2} \\
+\end{tikzcd}
+\end{displaymath}
+</div>
+</div>
+
+<div id="outline-container-orga768122" class="outline-3">
+<h3 id="orga768122"><span class="section-number-3">2.2.</span> 2) \(\implies\) 1)</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Suppose \(C(f)\) is contractible, then there exists a map
+</p>
+\begin{align*}
+H_n = \begin{pNiceMatrix} h_1 & g_2 \\ g_1 & h_2 \end{pNiceMatrix}: D_{n+1} \otimes C_{n} \rightarrow D_n \otimes C_{n-1}
+\end{align*}
+<p>
+for
+</p>
+\begin{align*}
+h_1: D_n \rightarrow& D_{n+1} \\
+h_2: C_n \rightarrow& C_{n+1} \\
+g_1: D_n \rightarrow& C_n \\
+g_2: C_{n-1} \rightarrow& D_{n+1} 
+\end{align*}
+
+\begin{displaymath}
+\begin{tikzcd}
+D_{n+1} \otimes C_{n} \arrow[]{r}{\partial} & D_n \otimes C_{n-1} \arrow[]{r}{\partial} \arrow[]{d}{\mathrm{id}} \arrow[swap]{ld}{H_n}& D_{n-1} \otimes C_{n-2}  \arrow[swap]{ld}{H_{n-1}}\\
+D_{n+1} \otimes C_{n} \arrow[]{r}{\partial} & D_n \otimes C_{n-1} \arrow[]{r}{\partial} & D_{n-1} \otimes C_{n-2} \\
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+satisfying
+</p>
+\begin{align*}
+(d,c) =& (\mathrm{id} - 0)(d,c) \\
+=& H(\partial(d) + f(c), - \partial(c)) + (\partial)(h_1(d) + g_2(c), h_2(c) + g_1(d)) \\
+=& (h_1(\partial (d)) + h_1(f(c)) - g_2(\partial (c)), - h_2(\partial (c)) + g_1(\partial (d)) + g_1(f(c))) + (\partial h_1(d)) + \partial(g_2(c)) + fh_2(c) + fg_1(d), - \partial h_2(c) - \partial g_1(d)) \\
+=& (h_1 \partial(d) + \partial h_1(d) - g_2(\partial (c)) + \partial (g_2(c)) + h_1f(c) + fh_2(c) + fg_1(d), g_1(\partial (d)) - \partial (g_1(d)) - \partial h_2(c) - h_2(\partial(c)) + g_1f(c)) \\
+\end{align*}
+
+<p>
+Since the \((d,-)\) is independent from \(c\), we conclude that
+</p>
+\begin{align*}
+g_2(\partial(c)) + \partial (g_2(c)) + h_1(f(c)) + fh_2(c) = 0
+\end{align*}
+<p>
+analogously
+</p>
+\begin{align*}
+g_1(\partial(d)) - \partial(g_1(d)) = 0
+\end{align*}
+
+<p>
+Showing
+</p>
+\begin{align*}
+(d,c) =& (h_1 (\partial(d)) + \partial (h_1(d)) + fg_1(d), - \partial h_2(c) - h_2(\partial(c)) + g_1f(c))
+\end{align*}
+
+<p>
+Here \(g_1: D_n \rightarrow C_n\) suffices as homotopy inverse for \(f\) with
+</p>
+\begin{align*}
+\mathrm{id}(d) - fg_1(d) =& h_1 \partial (d) + \partial h_1(d) \\
+\mathrm{id}(c) - g_1f(c) =& \partial (-h_2)(c) + (-h_2)(\partial(c)
+\end{align*}
+
+<p>
+<a href="20240119-chain_homotopy.html#ID-779721d8-47c9-4616-8c2e-eb6cc27f5de1">chain homotopy</a>
+</p>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
