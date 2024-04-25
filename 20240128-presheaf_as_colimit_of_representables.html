@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>presheaf as colimit of representables</title>
+<title>contravariant co-Yoneda Lemma</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -48,16 +48,16 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">presheaf as colimit of representables</h1>
+<h1 class="title">contravariant co-Yoneda Lemma</h1>
 <div id="outline-container-org73f8b6e" class="outline-2">
 <h2 id="org73f8b6e"><span class="section-number-2">1.</span> Proposition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Let \(\mathcal{C}\) be a <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a> and \(\mathcal{F}: \mathcal{C}^{\mathrm{op}} \rightarrow \mathrm{Set}\) a set-valued <a href="20230603-presheaf_of_sets.html#ID-d49e3c63-1428-4b98-9f00-238ae7770cbf">presheaf</a> 
+Let \(\mathcal{C}\) be a <a href="20220819181004-kleine_kategorie.html#ID-3c3f1c0d-53ad-476e-810a-756acd885263">small</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a> and \(\mathcal{F}: \mathcal{C}^{\mathrm{op}} \rightarrow \mathrm{Set}\) a set-valued <a href="20230603-presheaf_of_sets.html#ID-d49e3c63-1428-4b98-9f00-238ae7770cbf">presheaf</a> 
 Then there exists a canonical <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a> 
 </p>
 \begin{align*}
-\varphi: \mathrm{colim}_{X \in \mathcal{C}/\mathcal{F}} \rightarrow \mathrm{Hom}_{\mathcal{C}}(-, X)
+\varphi: \mathrm{colim}_{X \in \mathcal{C}/\mathcal{F}}  \mathrm{Hom}_{\mathcal{C}}(-, X) \rightarrow \mathcal{F}(-)
 \end{align*}
 <p>
 where \(\mathcal{C}/\mathcal{F}\) is the <a href="20240326-coslice_category_by_yoneda.html#ID-cf2dde8f-d2b7-4ea7-8e09-f42b756190b4">slice category by yoneda</a> 
@@ -68,39 +68,179 @@ where \(\mathcal{C}/\mathcal{F}\) is the <a href="20240326-coslice_category_by_y
 <h2 id="orgb2162f5"><span class="section-number-2">2.</span> Proof</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-Let \(\mathcal{G} \in \mathrm{Fun}(\mathcal{C}^{\mathrm{op}}, \mathrm{Set}\) be a functor.
+Abuse of notation.
+The natural transformation of \(a \in \mathcal{F}(A)\) is simply written as \(a\)
 </p>
-
-<p>
-As the <a href="20231017-hom_functor_preserves_colimits.html#ID-5ff9ae3e-1b7d-4f39-99df-dab65b127f6a">contravariant hom-functor dualizes small colimits to limits</a>, it follows that
-</p>
-\begin{align*}
-\mathrm{Hom}_{\mathcal{P}(\mathcal{C})}(\mathrm{colim}_{X \in \mathcal{C}/\mathcal{F}}(-,X), \mathcal{G}(-)) \simeq& \lim_{X \in \mathcal{C}/\mathcal{F}} (\mathrm{Hom}_{\mathcal{P}(\mathcal{C})}(-,X)) \mathcal{G}(-)))
-\end{align*}
-<p>
-Using <a href="20240102-natural_transformation_from_contravariant_hom_functor_as_precomposition.html#ID-2879cce2-1bea-4614-8e01-601c41b997bc">contravaiant Yoneda</a>, this gives
-</p>
-\begin{align*}
-\lim_{X \in \mathcal{C}/\mathcal{F}} (\mathrm{Hom}_{\mathcal{P}(\mathcal{C})}(-,X)) \mathcal{G}(-))) \simeq& \lim_{X \in \mathcal{C}/\mathcal{F}} \mathcal{G}(X)
-\end{align*}
-
-<p>
-using the natural isomorphism
-</p>
-\begin{align*}
-\mathrm{lim}_{X \in \mathcal{C}/\mathcal{F}} \mathcal{G}(X) \simeq \mathrm{NatMorph}(\mathcal{F}, \mathcal{G})
-\end{align*}
 
 
 <p>
-this gives
+By assumption we have a diagram of the form for \(f: B \rightarrow A\)
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+(\mathrm{Hom}_{\mathcal{C}}(-,A),a)  \arrow[]{rr}{f^{\leftarrow}}& & (\mathrm{Hom}_{\mathcal{C}}(-,B),b)\\
+\end{tikzcd}
+\end{displaymath}
+<p>
+for \(a \in \mathcal{F}(A), b \in \mathcal{F}(B)\) such that
 </p>
 \begin{align*}
-\mathrm{Hom}_{\mathcal{P}(\mathcal{C})}(\mathrm{colim}_{X \in \mathcal{C}/\mathcal{F}}(-,X), \mathcal{G}(-)) \simeq& \mathrm{Hom}_{\mathcal{P}(\mathcal{C})}(\mathcal{F}, \mathcal{G})
+\mathcal{F}(f)(a) = b
+\end{align*}
+
+<p>
+Then it follows that
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+(\mathrm{Hom}_{\mathcal{C}}(-,A),a) \arrow[]{rd}{a} \arrow[]{rr}{f^{\leftarrow}}& & (\mathrm{Hom}_{\mathcal{C}}(-,B),b) \arrow[swap]{ld}{b} \\
+ & \mathcal{F}(-) &
+\end{tikzcd}
+\end{displaymath}
+<p>
+<a href="20220824222939-kommutieren_eines_diagramms.html#ID-446e5d02-ed5b-4cbf-b40a-3ed58067ef7c">commutes</a>, as by yoneda
+</p>
+\begin{align*}
+f^{ \leftarrow}(a) = b
+\end{align*}
+
+<p>
+Suppose there exists a presheaf \(\mathcal{G}: \mathcal{C}^{\mathrm{op}} \rightarrow \mathrm{Set}\) 
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+(\mathrm{Hom}_{\mathcal{C}}(-,A),a) \arrow[swap, bend right]{rdd}{a_{\mathcal{G}}} \arrow[]{rd}{a} \arrow[]{rr}{f^{\leftarrow}}& & (\mathrm{Hom}_{\mathcal{C}}(-,B),b) \arrow[swap]{ld}{b} \arrow[bend left]{ldd}{b_{\mathcal{G}}}\\
+ & \mathcal{F}(-) & \\
+& \mathcal{G}(-) & 
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+Then we define
+</p>
+\begin{align*}
+\eta: \mathcal{F}(A) \rightarrow& \mathcal{G}(A) \\
+a \mapsto& a_{\mathcal{G}}
+\end{align*}
+</div>
+<div id="outline-container-org9ec84c1" class="outline-3">
+<h3 id="org9ec84c1"><span class="section-number-3">2.1.</span> naturality</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Let \(a \in \mathcal{F}(A)\) and \(f: B \rightarrow A\) a <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphism</a> between \((A,a) = (A, \mathcal{F}(f)(b)) \rightarrow (B,b)\)
+</p>
+
+<p>
+Then it remains to show that
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{F}(A) \arrow[]{d}{\tau(A)} \arrow[]{r}{\mathcal{F}(f)} & \mathcal{F}(B) \arrow[]{d}{\tau(B)}\\
+\mathcal{G}(A) \arrow[]{r}{\mathcal{G}(f)} & \mathcal{G}(B) \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+commutes.
+</p>
+
+<p>
+Then it follows that
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathrm{Hom}_{\mathcal{C}}(-,A) \arrow[]{d}{} \arrow[bend right]{dd}{}\\
+\mathcal{F}(-) \arrow[]{d}{\tau} \\
+\mathcal{G}(-)
+\end{tikzcd}
+\end{displaymath}
+<p>
+commutes elementwise for \(- = A\)
+</p>
+
+
+<p>
+Consider
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathrm{Hom}_{\mathcal{C}}(A,A) \arrow[]{d}{a} \arrow[bend right, swap]{dd}{a_{\mathcal{G}}} \arrow[]{r}{f^{ \rightarrow}} & \mathrm{Hom}_{\mathcal{C}}(B,A) \arrow[swap]{d}{a} \arrow[bend left]{dd}{a_\mathcal{G}} \\
+\mathcal{F}(A) \arrow[]{d}{\tau(A)} \arrow[]{r}{\mathcal{F}(f)} & \mathcal{F}(B) \arrow[swap]{d}{\tau(B)} \\
+\mathcal{G}(A) \arrow[]{r}{\mathcal{G}(f)} & \mathcal{G}(B) \\
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+Here it suffices to show that the outer square 
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathrm{Hom}_{\mathcal{C}}(A,A) \arrow[bend right, swap]{d}{a_{\mathcal{G}}} \arrow[]{r}{f^{ \rightarrow}} & \mathrm{Hom}_{\mathcal{C}}(B,A)  \arrow[bend left]{d}{a_\mathcal{G}} \\
+\mathcal{G}(A) \arrow[]{r}{\mathcal{G}(f)} & \mathcal{G}(B) \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+commutes, as
+</p>
+\begin{align*}
+a(\mathrm{id}_{A}) =& \mathrm{id}_{\mathcal{F}(A)}(a) \\
+=& a
 \end{align*}
 <p>
-where by <a href="20240326-limit_of_yoneda_slices_and_evaluated_as_set_of_natural_transformations.html#ID-fe8d1caa-9169-400d-b9e8-da2b0e5bb28a">limit of yoneda slices and evaluated as set of natural transformations</a> 
+and \(a \in \mathcal{F}(A)\) was choosen arbitrary.
 </p>
+
+<p>
+This follows by naturality of the yoneda lemma
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org7aa2307" class="outline-3">
+<h3 id="org7aa2307"><span class="section-number-3">2.2.</span> uniqueness</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Suppose there exists a \(\tau: \mathcal{F}(-) \rightarrow \mathcal{G}(-)\).
+Then for arbitrary \(a \in \mathcal{F}(A)\) it follows that
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+(\mathrm{Hom}_{\mathcal{C}}(A,A),a) \arrow[swap, bend right]{rdd}{a_{\mathcal{G}}} \arrow[]{rd}{a} & \\
+ & \mathcal{F}(A) \arrow[]{d}{\tau(A)} \\
+& \mathcal{G}(A)
+\end{tikzcd}
+\end{displaymath}
+<p>
+commutes.
+</p>
+
+<p>
+By yoneda it follows that 
+</p>
+\begin{align*}
+\tau(A)(a) =& \tau(A)(\mathrm{id}_{\mathcal{F}(A)}(a)) \\
+=& \tau(A)(\mathcal{F}(\mathrm{id}_{A})(a)) \\
+=& \tau(A)(a(\mathrm{id})) \\
+=& a_{\mathcal{G}}(\mathrm{id}) \\
+=& \mathcal{G}(\mathrm{id})(a_{\mathcal{G}}) \\
+=& \mathrm{id}_{\mathcal{G}(A)}(a_{\mathcal{G}}) \\
+=& a_{\mathcal{G}}
+\end{align*}
+
+<p>
+Hence \(\tau(A)\) maps \(a \in \mathcal{F}(A)\) uniquely.
+Thus \(\tau\) is unique.
+</p>
+
+
+
+<p>
+see:
+</p>
+<ul class="org-ul">
+<li><a href="https://cemulate.github.io/solutions_maclane/coyoneda.html">https://cemulate.github.io/solutions_maclane/coyoneda.html</a></li>
+</ul>
+</div>
 </div>
 </div>
 </div>

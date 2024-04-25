@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>delta functor</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">delta functor</h1>
+<div id="outline-container-org532efc2" class="outline-2">
+<h2 id="org532efc2"><span class="section-number-2">1.</span> Definition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(\mathcal{A}, \mathcal{B}\) be <a href="20230827-abelian_category.html#ID-9003af72-f684-4897-b096-c1d8a681c624">abelian</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">categories</a>.
+A \(\mathcal{B}\)-valued \(\delta\) functor on \(\mathcal{A}\) is a sequence of <a href="20230827-additive_functor.html#ID-194ea42e-600c-4119-8889-5b46998201e6">additive functors</a> 
+</p>
+\begin{align*}
+(\mathcal{F}_n: \mathcal{A} \rightarrow \mathcal{B})_{n \geq -1}
+\end{align*}
+<p>
+and <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphisms</a> 
+</p>
+\begin{align*}
+\partial_n^{A,B,C}: \mathcal{F}_{n}(C) \rightarrow \mathcal{F}_{n-1}(A)
+\end{align*}
+<p>
+for each <a href="20230722-short_exact_sequence.html#ID-7b01038e-f4c1-4e1e-ad52-a0c6a18008f3">short exact sequence</a> 
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+0 \arrow[]{r}{} & A \arrow[]{r}{} & B \arrow[]{r}{} & C \arrow[]{r}{} & 0
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+such that
+</p>
+<ol class="org-ol">
+<li>following sequence is exact</li>
+</ol>
+\begin{displaymath}
+\begin{tikzcd}
+... & \mathcal{F}_{n+1}(B) \arrow[]{r}{} & \mathcal{F}_{n+1}(C) \arrow[]{r}{\partial_n^{A,B,C}} & \mathcal{F}(A) \arrow[]{r}{} & \mathcal{F}(B) \arrow[]{r}{} & \mathcal{F}_n(C) \arrow[]{r}{} & ...
+\end{tikzcd}
+\end{displaymath}
+<ol class="org-ol">
+<li>for each morphism of exact sequences</li>
+</ol>
+\begin{displaymath}
+\begin{tikzcd}
+0 \arrow[]{r}{} & A \arrow[]{d}{f} \arrow[]{r}{} & B \arrow[]{d}{} \arrow[]{r}{} & C \arrow[]{d}{h} \arrow[]{r}{} & 0 \\
+0 \arrow[]{r}{} & A' \arrow[]{r}{} & B' \arrow[]{r}{}& C' \arrow[]{r}{} & 0 \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+the following diagram commutes   
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{F}_n(C) \arrow[]{r}{\partial_n} \arrow[]{d}{h} & \mathcal{F}_{n-1}(A) \arrow[]{d}{f} \\
+\mathcal{F}_n(C') \arrow[]{r}{\partial_n} & \mathcal{F}_{n-1}(A')
+\end{tikzcd}
+\end{displaymath}
+
+<ol class="org-ol">
+<li>\(F_{-1}\) is defined as <a href="20220830195220-constant_functor.html#ID-4ff6affe-14a3-4ed7-a0e3-1837838e8409">constant functor</a> to the <a href="20230402213821-zero_object.html#ID-9ea95c71-2120-411e-8447-87c82ba32c98">zero object</a></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

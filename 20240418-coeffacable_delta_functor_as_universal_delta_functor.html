@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>coeffacable delta functor as universal delta functor</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">coeffacable delta functor as universal delta functor</h1>
+<div id="outline-container-orgfffd529" class="outline-2">
+<h2 id="orgfffd529"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(\mathcal{A}, \mathcal{B}\) be <a href="20230827-abelian_category.html#ID-9003af72-f684-4897-b096-c1d8a681c624">abelian</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">categories</a> and \(\mathcal{F}_n: \mathcal{A} \rightarrow \mathcal{B}\) a <a href="20240416-delta_functor.html#ID-897b3b25-fd26-4c71-8a14-cdfb9d3021c5">delta functor</a>.
+suppose that \(\mathcal{F}_n\) is <a href="20240418-coeffacable.html#ID-0353340d-5f8b-4a00-bda8-39db65faf9ea">coeffacable</a> for \(n \geq 1\), then \((\mathcal{F}_n)\) is a <a href="20240416-universal_delta_functor.html#ID-0544d3b3-c211-41af-9bb5-dde407527669">universal delta functor</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-orgd1d2b75" class="outline-2">
+<h2 id="orgd1d2b75"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org3af59ba" class="outline-3">
+<h3 id="org3af59ba"><span class="section-number-3">2.1.</span> uniqueness of a morphism</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Let \(\mathcal{G}_n\) be another delta functor and \(\tau: \{\mathcal{G}_n\} \rightarrow \{\mathcal{F}_n\}\) be a <a href="20240416-morphism_of_delta_functors.html#ID-216a2494-d38e-4233-b02a-fbc7849a0dd0">morphism of delta functors</a>.
+Let \(A \in \mathcal{A}\) and pick an <a href="20220819135905-epimorphismus.html#ID-ad206194-a416-4910-a5c4-d72528ae5ba0">epimorphism</a> \(p: P \rightarrow A\) such that \(\mathcal{F}_n(p) = 0\)
+</p>
+
+<p>
+Then we get a <a href="20230722-short_exact_sequence.html#ID-7b01038e-f4c1-4e1e-ad52-a0c6a18008f3">short exact sequence</a> 
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+0 & \mathrm{ker}(p) & P & A & 0
+\end{tikzcd}
+\end{displaymath}
+<p>
+(see: <a href="20240122-exact_sequence_and_epimorphisms.html#ID-99671489-7994-4907-b310-ebbdc4c8e540">exact sequence and epimorphisms</a>)
+</p>
+
+<p>
+Thus we get
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{G}_n(P) \arrow[]{r}{\mathcal{G}(p)} \arrow[]{d}{\tau_n(P)} & \mathcal{G}_n(A) \arrow[]{d}{\tau_{n}(A)} \arrow[]{r}{\partial_n} & \mathcal{G}_{n-1}(\mathrm{ker}(p)) \arrow[]{d}{\tau_{n-1}(\mathrm{ker}(p))} \\
+\mathcal{F}_n(P) \arrow[]{r}{0} & \mathcal{F}_n(A) \arrow[rightarrowtail]{r}{\partial_n} & \mathcal{F}_{n-1}(\mathrm{ker}(p)) 
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+Then by exactness (since  \(\mathrm{im}(0) = 0\)) it follows, that \(\partial_n\) is a <a href="20220819135911-monomorphismus.html#ID-60b63797-32fa-4d4e-a577-7616faa010ba">monomorphism</a>.
+Therefore \(\tau_n(A)\) is uniquely (cf. <a href="20240115-postcomposition_with_a_morphism_as_injection_on_hom_sets_and_monomorphism.html#ID-b33ecdc7-8b2f-44a7-a403-97bd30fc6915">postcomposition with a morphism as injection on hom sets and monomorphism</a>) determined by
+</p>
+\begin{align*}
+\partial_n \circ \tau_n(A) = \tau_{n-1}(\mathrm{ker}(p)) \circ \partial_n
+\end{align*}
+<p>
+where by induction \(\tau_{n-1}\) is already given and \(\partial_n\) all the more.
+</p>
+
+<p>
+Hence if there exists an an extension \(\tau_n\) of \(\tau_0\), it is unique.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4de7ada" class="outline-3">
+<h3 id="org4de7ada"><span class="section-number-3">2.2.</span> existence of a morphism</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Let \(\tau_{0}: \mathcal{G}_0 \rightarrow \mathcal{F}_0\) be a natural transformation.
+Then we construct \(\tau\) be induction, so assume \(\tau_{n-1}\) is given.
+Then for \(A \in \mathrm{Ob}(\mathcal{A})\) choose an epi \(p: P \twoheadrightarrow A\) such that \(\mathcal{F}_n(p) = 0\).
+</p>
+
+<p>
+Then we get
+</p>
+
+\begin{displaymath}
+\begin{tikzcd}
+& \mathcal{G}_n(A) \arrow[]{r}{\partial} \arrow[]{rd}{g} \arrow[bend left]{rr}{0}& \mathcal{G}_{n-1}(\mathrm{ker}(p)) \arrow[]{r}{}  \arrow[]{d}{} & \arrow[]{d}{} \mathcal{G}_{n-1}(P) \\
+0 \arrow[]{r}{} & \mathcal{F}_n(A) \arrow[rightarrowtail]{r}{\partial} & \mathcal{F}_{n-1}(\mathrm{ker}(p)) \arrow[]{r}{} & \mathcal{F}_{n-1}(P) 
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+where \(\mathcal{F}(\iota) \circ g = 0\).
+Therefore there exists a morphism
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{G}_n(A) \arrow[dashed]{d}{}\arrow[swap, dashed]{rrd}{\exists!} \arrow[bend left]{rrrd}{g} \arrow[bend left]{rrrrd}{0}&  & & & \\
+\mathcal{F}_n(A) \arrow[]{r}{\simeq} & \mathrm{im}(\partial) \arrow[]{r}{\simeq} & \mathrm{ker}(\mathcal{F}(\iota)) \arrow[]{r}{} & \mathcal{F}_{n-1}(\mathrm{ker}(p)) \arrow[]{r}{\mathcal{F}(\iota)} & \mathcal{F}_{n-1}(P) \\
+\end{tikzcd}
+\end{displaymath}
+
+
+<p>
+<a href="20240419-image_of_a_monomorphism_isomorphic_to_the_domain.html#ID-fdd32b3c-b4cd-42de-9d6a-a4f97efff63a">image of a monomorphism isomorphic to the domain</a>
+</p>
+
+<p>
+<a href="20240419-lifting_property_for_a_short_exact_sequence.html#ID-aa973ec5-24f5-44f3-b7ab-d001ab9d4cfb">lifting property for a short exact sequence</a>
+</p>
+</div>
+<div id="outline-container-org218c0da" class="outline-4">
+<h4 id="org218c0da"><span class="section-number-4">2.2.1.</span> welldefined</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+Let \(q: Q \rightarrow A\) be another epi with \(\mathcal{F}_n(q) = 0\)
+Then consider the map
+</p>
+\begin{align*}
+p \sqcup q: P \sqcup Q \rightarrow A
+\end{align*}
+<p>
+as another epimorphsim with
+</p>
+\begin{align*}
+\mathcal{F}(p \sqcup q) =& \mathcal{F}(p) \sqcup \mathcal{F}(q) \\
+=& 0
+\end{align*}
+<p>
+(\(\mathcal{F}\) is an <a href="20230827-additive_functor.html#ID-194ea42e-600c-4119-8889-5b46998201e6">additive functor</a>)
+</p>
+
+<p>
+Then consider the diagram induced by
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+P \arrow[hookrightarrow, ]{d}{\iota} \arrow[]{r}{p} & A \arrow[]{d}{\mathrm{id}_{A}}\\
+P \oplus Q  \arrow[]{r}{p \coprod q} & A 
+\end{tikzcd}
+\end{displaymath}
+<p>
+and diagam chase to see that \(p\) and \(p + q\) induce the same map.
+TODO
+</p>
+
+<p>
+By symmetry of the argument it follows, that \(p\) and \(q\) induce the same map and hence \(\tau_n\) is welldefined
+</p>
+</div>
+</div>
+<div id="outline-container-orgef84543" class="outline-4">
+<h4 id="orgef84543"><span class="section-number-4">2.2.2.</span> naturality</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+Let \(f: A \rightarrow B\) be a morphism.
+Pick \(p: P \rightarrow A, q: Q \rightarrow B\) epis with \(\mathcal{F}_n(p) = 0, \mathcal{F}_n(q) = 0\)
+</p>
+
+<p>
+Then consider
+</p>
+\begin{align*}
+fp + q: P \oplus Q \rightarrow B
+\end{align*}
+<p>
+as epimorphism with \(\mathcal{F}(fp + q) = 0\)
+</p>
+
+<p>
+Consider the diagram induced by
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+P \arrow[hookrightarrow, ]{d}{\iota} \arrow[]{r}{p} & A \arrow[]{d}{f}\\
+P \oplus Q \arrow[]{r}{fp + q}& B 
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+and diagram chase to see that
+TODO
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathcal{G}_n(A) \arrow[]{r}{\mathcal{G}_n(f)} \arrow[]{d}{\tau_{n}}& \mathcal{G}_n(B) \arrow[]{d}{\tau_n} \\
+\mathcal{F}_n(A) \arrow[]{r}{\mathcal{F}_n(f)}& \mathcal{F}_n(B) \\
+\end{tikzcd}
+\end{displaymath}
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

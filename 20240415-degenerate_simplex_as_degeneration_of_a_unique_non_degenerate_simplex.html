@@ -57,16 +57,95 @@ Let \(X\) be a <a href="20240128-simplicial_set.html#ID-43a75466-c729-429a-a459-
 Then there exists an \(n < k\) and a unique non degenerate \(n\)-simplex \(x'\) such that
 </p>
 \begin{align*}
-d_{i_1} \circ ... \circ d_{i_{k-n}}(x') = x
+\partial_{i_1} \circ ... \circ \partial_{i_{k-n}}(x') = x
 \end{align*}
 </div>
 </div>
 <div id="outline-container-orge457da8" class="outline-2">
 <h2 id="orge457da8"><span class="section-number-2">2.</span> Proof</h2>
 <div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org7c77e24" class="outline-3">
+<h3 id="org7c77e24"><span class="section-number-3">2.1.</span> existence</h3>
+<div class="outline-text-3" id="text-2-1">
 <p>
-follows from the <a href="20220929195946-wohlordnung.html#ID-8f3e284b-c3c9-4aaf-8bf5-5eadc47faa78">well order</a> of \(\mathbb{N}\)
+follows from the <a href="20220929195946-wohlordnung.html#ID-8f3e284b-c3c9-4aaf-8bf5-5eadc47faa78">well order</a> of \(\mathbb{N}\), as for each degenerate simplex, there exists a preimage.
+Since \(\mathbb{N}\) is well-ordered and by definition each simplex in \((X)_0\) is non degenerate, choosing a preimage terminates in finitely many steps.
 </p>
+</div>
+</div>
+<div id="outline-container-org3dd9894" class="outline-3">
+<h3 id="org3dd9894"><span class="section-number-3">2.2.</span> uniqueness</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-orga5d92eb" class="outline-4">
+<h4 id="orga5d92eb"><span class="section-number-4">2.2.1.</span> same morphisms</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+follows from
+</p>
+<ul class="org-ul">
+<li><a href="20240419-degeneracy_map_of_an_object_as_split_epi.html#ID-fd830e53-f3fc-4ed0-b32d-6f2e5d3751cb">degeneracy map of an object as split mono</a></li>
+<li><a href="20230914-split_mono_as_monomorphism.html#ID-20349e6f-2310-4a97-9055-079d3f998514">split mono as monomorphism</a></li>
+<li><a href="20231221-monomorphism_in_set_as_injective_map.html#ID-c0559f46-e17a-46a5-8e6c-2eb122ed9e06">monomorphism in set as injective map</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcc4dbd4" class="outline-4">
+<h4 id="orgcc4dbd4"><span class="section-number-4">2.2.2.</span> morphisms same</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> it suffices to show, for a degenerate simplex with a preimage one level below,
+</p>
+
+<p>
+Suppose there exists \(y,y' \in X_{k-1}\) with
+</p>
+\begin{align*}
+\sigma_i(y) = \sigma_j(y)
+\end{align*}
+<p>
+wlog for \(i \leq j\)
+</p>
+
+<p>
+Proof by induction
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org0800897" class="outline-3">
+<h3 id="org0800897"><span class="section-number-3">2.3.</span> \(i = j\)</h3>
+</div>
+<div id="outline-container-orgf8de8e4" class="outline-3">
+<h3 id="orgf8de8e4"><span class="section-number-3">2.4.</span> \(i = j + n\) to \(i = j + n-1\)</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Using the <a href="20240112-degeneracy_after_face_map.html#ID-94b538c5-3c3d-4a0a-9fc7-bcf10bfffee2">simplicial identities of degeneracy after face map</a> we get
+</p>
+\begin{align*}
+y =& \sigma_j \partial_j(y) \\
+=& \sigma_j \partial_{j+n}(y') \\
+=& \partial_{j + n - 1} \sigma_j(y') \\
+=& \partial_{j + n - 1} \partial_{j+n} \sigma_{j+n} \sigma_j(y') 
+\end{align*}
+<p>
+using <a href="20230923-simplicial_identity.html#ID-a8356f41-d4b0-4938-a644-4bec285c20ff">simplicial identity of commuting face maps</a> gives and the identity equation
+</p>
+\begin{align*}
+\partial_{j + n - 1} \partial_{j+n} \sigma_{j+n} \sigma_j(y')  =& \partial_{j + n - 1} \partial_{j + n - 1} \sigma_{j+ n} \sigma_j(y') \\
+=& \partial_{j+ n -1} \mathrm{id} \sigma_j(y') \\
+=& \partial_{j+n - 1} \sigma_{j}(y')
+\end{align*}
+
+<p>
+Hence after \(n\) steps this reduces to
+</p>
+\begin{align*}
+y =& \partial_{j} \sigma_j(y') \\
+=& y'
+\end{align*}
+</div>
 </div>
 </div>
 </div>

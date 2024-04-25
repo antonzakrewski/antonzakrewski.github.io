@@ -13,16 +13,84 @@
 <script type="text/javascript" id="MathJax-script" defer
 src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
 <h1 class="title">left derived functor of an exact functor</h1>
 <div id="outline-container-org7770354" class="outline-2">
 <h2 id="org7770354"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(\mathcal{A}, \mathcal{B}\) be <a href="20230827-abelian_category.html#ID-9003af72-f684-4897-b096-c1d8a681c624">abelian</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">categories</a>, \(\mathcal{F}: \mathcal{A} \rightarrow \mathcal{B}\) an <a href="20230726-exact_functor.html#ID-9541d8fb-ddba-43d6-941a-32b3b3bd7086">exact functor</a>.
+Then the <a href="20240317-left_derived_functor.html#ID-e5bdb6a8-cbec-457d-9ca8-8114a4b4c9a0">left derived functor</a> is given by \(\mathcal{LF}_n = 0\) as <a href="20240424-zero_functor.html#ID-9cc1dedc-d8c3-4694-9315-85abdc896d49">zero functor</a> for \(n \geq 1\)
+</p>
 </div>
-
+</div>
 <div id="outline-container-org171d10c" class="outline-2">
 <h2 id="org171d10c"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+By assumption for a <a href="20230722-short_exact_sequence.html#ID-7b01038e-f4c1-4e1e-ad52-a0c6a18008f3">short exact sequence</a> 
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+0 \arrow[]{r}{} & A \arrow[]{r}{} & B \arrow[]{r}{} & C \arrow[]{r}{} & 0
+\end{tikzcd}
+\end{displaymath}
+<p>
+the resulting sequence
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+0 \arrow[]{d}{\simeq} & \mathcal{F}(A) \arrow[]{d}{\simeq} & \mathcal{F}(B) \arrow[]{d}{\simeq} & \mathcal{F}(C)\arrow[]{d}{\simeq} & 0  \\
+\mathcal{LF}_0(F,0) \arrow[]{r}{} & \mathcal{LF}_0(F,A) \arrow[]{r}{} & \mathcal{LF}_0(F,B) \arrow[]{r}{} & \mathcal{LF}_0(F,C) \arrow[]{r}{} & \mathcal{LF}_(F,0)
+\end{tikzcd}
+\end{displaymath}
+<p>
+is exact.
+</p>
+
+<p>
+Hence the zero functor suffices as <a href="20240416-delta_functor.html#ID-897b3b25-fd26-4c71-8a14-cdfb9d3021c5">delta functor</a> extending the sequence
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+... \arrow[]{r}{} & 0 \arrow[]{r}{} & \mathcal{LF}_0(F,0) \arrow[]{r}{} & \mathcal{LF}_0(F,A) \arrow[]{r}{} & \mathcal{LF}_0(F,B) \arrow[]{r}{} & \mathcal{LF}_0(F,C) \arrow[]{r}{} & \mathcal{LF}_(F,0)
+\end{tikzcd}
+\end{displaymath}
+</div>
 </div>
 </div>
 <div id="postamble" class="status">

@@ -49,122 +49,23 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 <body>
 <div id="content" class="content">
 <h1 class="title">left derived functor</h1>
-<div id="outline-container-org61d47cd" class="outline-2">
-<h2 id="org61d47cd"><span class="section-number-2">1.</span> Definiton</h2>
+<div id="outline-container-org362a80e" class="outline-2">
+<h2 id="org362a80e"><span class="section-number-2">1.</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Let \(\mathcal{A}, \mathcal{B}\) be <a href="20230827-abelian_category.html#ID-9003af72-f684-4897-b096-c1d8a681c624">abelian</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">categories</a> and \(\mathcal{F}: \mathcal{A} \rightarrow \mathcal{B}\) a <a href="20230903-right_exact_functor.html#ID-9af3df51-d300-4ca2-b340-8ac92cdd3fca">right exact functor</a>.
-Suppose \(\mathcal{A}\) admits <a href="20231212-enough_projectives.html#ID-8699327b-1cf6-41fc-9eda-522460057625">enough projectives</a>, then the left derived functor \(\mathcal{LF}_{i}\) for \(i \in \mathbb{N}\) is defined as following
-</p>
-</div>
-<div id="outline-container-orga190f6f" class="outline-3">
-<h3 id="orga190f6f"><span class="section-number-3">1.1.</span> object</h3>
-<div class="outline-text-3" id="text-1-1">
-<p>
-For an object \(A \in \mathcal{A}\) choose a <a href="20231212-projective_resolution.html#ID-0d6124f2-59f2-4f96-838a-e8b023821bc6">projective resolution</a> 
-</p>
-\begin{displaymath}
-\begin{tikzcd}
-P_2 \arrow[]{r}{} & P_1 \arrow[]{r}{} & A \arrow[]{r}{} & 0
-\end{tikzcd}
-\end{displaymath}
-
-<p>
-Then applying \(\mathcal{F}\) &#x2013; a right exact functor &#x2013; results in an exact sequence
-</p>
-\begin{displaymath}
-\begin{tikzcd}
-\mathcal{F}(P_2) \arrow[]{r}{} & \mathcal{F}(P_1) \arrow[]{r}{} & \mathcal{F}(A) \arrow[]{r}{} & \mathcal{F}(0)
-\end{tikzcd}
-\end{displaymath}
-
-<p>
-Then take the chain complex
-</p>
-\begin{displaymath}
-\begin{tikzcd}
-\mathcal{F}(P_2) \arrow[]{r}{} & \mathcal{F}(P_1) \arrow[]{r}{} & \mathcal{F}(0)
-\end{tikzcd}
-\end{displaymath}
-
-<p>
-And define 
+Let \(\mathcal{A}, \mathcal{B}\) be <a href="20230827-abelian_category.html#ID-9003af72-f684-4897-b096-c1d8a681c624">abelian</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">categories</a> and \(\mathcal{F}: \mathcal{A} \rightarrow \mathcal{B}\) an <a href="20230827-additive_functor.html#ID-194ea42e-600c-4119-8889-5b46998201e6">additive functor</a>.
+Then a left derived functor is a <a href="20240416-universal_delta_functor.html#ID-0544d3b3-c211-41af-9bb5-dde407527669">universal</a> <a href="20240416-delta_functor.html#ID-897b3b25-fd26-4c71-8a14-cdfb9d3021c5">delta functor</a> \(\{L \mathcal{F}_n\}_n\) with a <a href="20230404122456-natural_isomorphism.html#ID-0977f626-bc15-4197-93bd-092d014c8270">natural isomorphism</a> 
 </p>
 \begin{align*}
-\mathcal{LF}_i(A) = H(\mathcal{F}(P_{i+1}) \rightarrow \mathcal{F}(P_i) \rightarrow \mathcal{F}(P_{i-1}))
+\mathcal{F}_0 \simeq \mathcal{F}
 \end{align*}
-<p>
-through the <a href="20230817-homology_functor.html#ID-c35a52a1-7174-408f-8480-9746e1c374bc">homology functor</a>
-</p>
-</div>
-</div>
-<div id="outline-container-org7f652d5" class="outline-3">
-<h3 id="org7f652d5"><span class="section-number-3">1.2.</span> morphism</h3>
-<div class="outline-text-3" id="text-1-2">
-<p>
-for a <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphism</a> 
-</p>
-\begin{align*}
-f: A \rightarrow B
-\end{align*}
-<p>
-using <a href="20240327-morhpism_of_objects_and_projective_resolution.html#ID-8da21301-4eef-437f-8a4a-f23f6f571c49">morphism of objects and projective resolution</a> there exists a diagram
-</p>
-\begin{displaymath}
-\begin{tikzcd}
-... & P_2 \arrow[]{r}{} \arrow[]{d}{} & P_1 \arrow[]{r}{} \arrow[]{d}{} & A \arrow[]{r}{} \arrow[]{d}{} & 0 \arrow[]{d}{} \\
-... & P_2' \arrow[]{r}{} & P_1' \arrow[]{r}{} & B \arrow[]{r}{} & 0
-\end{tikzcd}
-\end{displaymath}
-<p>
-Thus applying \(\mathcal{F}\) and chopping results in
-</p>
-\begin{displaymath}
-\begin{tikzcd}
-... & \mathcal{F}(P_2) \arrow[]{r}{} \arrow[]{d}{} & \mathcal{F}(P_1) \arrow[]{r}{} \arrow[]{d}{}  & \mathcal{F}(0) \arrow[]{d}{} \\
-... & \mathcal{F}(P_2') \arrow[]{r}{} & \mathcal{F}(P_1') \arrow[]{r}{}  & \mathcal{F}(0)
-\end{tikzcd}
-\end{displaymath}
 
 <p>
-Then let
+see:
 </p>
-\begin{align*}
-\mathcal{LF}_i(f: A \rightarrow B) = H_i(f)
-\end{align*}
-<p>
-be the morphism induced by the homology functor
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-org513f5c2" class="outline-2">
-<h2 id="org513f5c2"><span class="section-number-2">2.</span> Proof</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org26c6d89" class="outline-3">
-<h3 id="org26c6d89"><span class="section-number-3">2.1.</span> welldefined on objects</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-Suppose there exist different projective resolutions.
-Then they are chain homotopy equivalent (cf. <a href="20240319-existence_of_a_projective_resolution_unique_up_to_homotopy_for_a_category_admitting_enough_projectives.html#ID-e5fb7f8a-3a4a-4537-af6c-f637e18a8eab">existence of a projective resolution unique up to homotopy for a category admitting enough projectives</a>)
-Applying \(\mathcal{F}\) preserves the chain homotopy (cf. <a href="20240223-right_exact_functor_preserves_chain_homotopies.html#ID-e882ffe6-a331-4689-8dfa-063fef8a2367">right exact functor preserves chain homotopies</a>)
-Using <a href="20240327-chopping_of_a_chain_homotopy.html#ID-7b72897b-6b55-49af-bf23-76939069ee5b">chopping of a chain homotopy</a>, they stay chain homotopic.
-</p>
-</div>
-</div>
-<div id="outline-container-org0804adf" class="outline-3">
-<h3 id="org0804adf"><span class="section-number-3">2.2.</span> welldefined on morphisms</h3>
-<div class="outline-text-3" id="text-2-2">
-<p>
-Suppose there exist two
-<a href="20240327-morhpism_of_objects_and_projective_resolution.html#ID-8da21301-4eef-437f-8a4a-f23f6f571c49">morphism of objects and projective resolution</a>
-<a href="20240223-right_exact_functor_preserves_chain_homotopies.html#ID-e882ffe6-a331-4689-8dfa-063fef8a2367">right exact functor preserves chain homotopies</a>
-</p>
-</div>
-</div>
-<div id="outline-container-org3fdfedd" class="outline-3">
-<h3 id="org3fdfedd"><span class="section-number-3">2.3.</span> functorality</h3>
+<ul class="org-ul">
+<li><a href="20240416-existence_of_a_left_derived_functor_for_a_category_with_enough_projectives.html#ID-c1501991-3112-40c8-b26e-4e760e6ee0bc">existence of a left derived functor for a category with enough projectives</a></li>
+</ul>
 </div>
 </div>
 </div>

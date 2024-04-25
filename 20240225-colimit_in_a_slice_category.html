@@ -13,6 +13,38 @@
 <script type="text/javascript" id="MathJax-script" defer
 src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
@@ -21,12 +53,142 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 <h2 id="orgde2355b"><span class="section-number-2">1.</span> Proposition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-<a href="https://ncatlab.org/nlab/show/over+category#LimitsAndColimits">https://ncatlab.org/nlab/show/over+category#LimitsAndColimits</a>
+Let \(\mathcal{C}\) be a <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a>, \(X \in \mathrm{Ob}(\mathcal{C})\) an <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">object</a> and \(\mathcal{C} / X\) the <a href="20230510092709-slice_category.html#ID-1e81c30c-0f74-4f7c-bf95-400bc8889156">slice category</a>.
+Let \(I: \mathcal{I} \rightarrow \mathcal{C} / X\) be a <a href="20220821183856-diagramm_kategorientheorie.html#ID-ad9d3642-913a-4374-8605-52121d00b349">diagram</a> and \(\mathrm{colim}\) a <a href="20230725-colimit.html#ID-581b1561-25d0-479a-b0cc-063c894e10be">colimit</a> after <a href="20231118-postcomposition_of_natural_transformations_with_functors.html#ID-152579f8-ccbe-4cc1-8fb7-640dcc9d466f">right whiskering</a> with the <a href="20240326-forgetful_functor_from_the_coslice_category.html#ID-2d62cdb3-fdf8-4a66-bf98-47456e716970">forgetful functor</a> \(\mathrm{Forget} \circ \mu\).
 </p>
+
+<p>
+Then \(\mathrm{colim}\) is also a colimit of the original diagram
+</p>
+\begin{align*}
+I: \mathcal{I} \rightarrow \mathcal{C}
+\end{align*}
 </div>
 </div>
 <div id="outline-container-org5565b8e" class="outline-2">
 <h2 id="org5565b8e"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orga2a87e2" class="outline-3">
+<h3 id="orga2a87e2"><span class="section-number-3">2.1.</span> construction</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Suppose the following diagram
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+C_1 \arrow[]{rdd}{} \arrow[]{r}{} & C_2 \arrow[]{dd}{} & C_3 \arrow[]{ddl}{}\\
+& & \\
+& \mathrm{colim} & \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+is a colimit.
+</p>
+
+<p>
+Then consider the original diagram
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+C_1  \arrow[bend right]{dddr}{} \arrow[]{r}{} & C_2 \arrow[]{ddd}{} & C_3 \arrow[]{dddl}{} \\
+& & \\
+& & \\
+& X & \\
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+Since the diagram commutes we get by universal property a unique morphism
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+C_1 \arrow[]{rd}{} \arrow[bend right]{dddr}{} \arrow[]{r}{} & C_2 \arrow[]{d}{} \arrow[bend left]{ddd}{} & C_3 \arrow[]{dl}{} \arrow[bend left]{dddl}{}\\
+& \mathrm{colim} \arrow[dashed]{dd}{} & \\
+& & \\
+& X & \\
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+Note that this is by universal property the only morphism making this diagram commute.
+Therefore \(\mathrm{colim} \rightarrow X\) had to be the original object before applying the forgetful functor
+</p>
+
+<p>
+Suppose furthermore there exists an object \(Y \rightarrow X\) and a diagram
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+C_1 \arrow[bend right]{ddr}{} \arrow[]{rd}{} \arrow[bend right]{dddr}{} \arrow[]{r}{} & \arrow[bend left]{dd}{} C_2 \arrow[]{d}{} \arrow[bend left]{ddd}{} & \arrow[bend left]{ddl}{} C_3 \arrow[]{dl}{} \arrow[bend left]{dddl}{}\\
+& \mathrm{colim} \arrow[bend right]{dd}{} & \\
+& Y \arrow[]{d}{} & \\
+& X & \\
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+Then by universal property there exists a unique morphism \(Y \rightarrow \mathrm{colim}\)
+</p>
+
+\begin{displaymath}
+\begin{tikzcd}
+C_1 \arrow[bend right]{ddr}{} \arrow[]{rd}{}  \arrow[]{r}{} & \arrow[bend left]{dd}{} C_2 \arrow[]{d}{}  & \arrow[bend left]{ddl}{} C_3 \arrow[]{dl}{} \\
+& \mathrm{colim} \arrow[dashed]{d}{}  & \\
+& Y  & \\
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+Thus there also exists diagram
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+C_1 \arrow[bend right]{ddr}{} \arrow[]{rd}{} \arrow[bend right]{dddr}{} \arrow[]{r}{} & \arrow[bend left]{dd}{} C_2 \arrow[]{d}{} \arrow[bend left]{ddd}{} & \arrow[bend left]{ddl}{} C_3 \arrow[]{dl}{} \arrow[bend left]{dddl}{}\\
+& \mathrm{colim} \arrow[]{d}{} \arrow[bend right]{dd}{} & \\
+& Y \arrow[]{d}{} & \\
+& X & \\
+\end{tikzcd}
+\end{displaymath}
+</div>
+</div>
+
+<div id="outline-container-orgbc6e23f" class="outline-3">
+<h3 id="orgbc6e23f"><span class="section-number-3">2.2.</span> commuting</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+It follows by uniqueness of the induced morphisms that every part, especially 
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+& \mathrm{colim} \arrow[]{d}{} \arrow[bend right]{dd}{} & \\
+& Y \arrow[]{d}{} & \\
+& X & \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+commutes
+</p>
+</div>
+</div>
+<div id="outline-container-org92b7b43" class="outline-3">
+<h3 id="org92b7b43"><span class="section-number-3">2.3.</span> uniqueness</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+It follows again by uniqueness of the induced morphisms that the morphism
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+& \mathrm{colim} \arrow[dashed]{d}{} \arrow[bend right]{dd}{} & \\
+& Y \arrow[]{d}{} & \\
+& X & \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+is unique
+</p>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
