@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>quasi isomorphism for a chain complex over a hereditary ring</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">quasi isomorphism for a chain complex over a hereditary ring</h1>
+<div id="outline-container-org482090b" class="outline-2">
+<h2 id="org482090b"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(R\) be a <a href="20240416-hereditary_ring.html#ID-af953fbd-d89c-467b-9483-606b250e1242">hereditary ring</a>, \(\mathrm{RMod}\) the <a href="20230225170152-kategorie_mod.html#ID-15b21b3a-18bb-4d60-a716-c69681d7222d">category RMod</a> and \(C\) a <a href="20230802-chain_complex.html#ID-e4c10be9-3796-4aff-9579-5cc0b5f47e36">chain complex</a> in \(\mathrm{Ch_*}(\mathrm{RMod})\).
+Then there exists a <a href="20240126-chain_complex_of_projectives.html#ID-3f92b779-9dc8-478d-98b6-06757efee7a8">chain complex of projectives</a> \(P\) and a <a href="20231212-quasi_isomorphism.html#ID-4d0430a5-c6db-4a21-8c43-cd224592d992">quasi-isomorphism</a>
+</p>
+\begin{align*}
+P \rightarrow& C \\
+P \rightarrow& H(C)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org149a77a" class="outline-2">
+<h2 id="org149a77a"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Choose <a href="20231212-projective_resolution.html#ID-0d6124f2-59f2-4f96-838a-e8b023821bc6">projective resolutions</a> 
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+0 & Q_n & P_n & H_n(C) & 0
+\end{tikzcd}
+\end{displaymath}
+<p>
+(cf. <a href="20240423-hereditary_ring_and_resolution_of_lenght_1.html#ID-ada7ad22-449a-48a1-ac45-406441c77151">hereditary ring and resolution of length 1</a>)
+</p>
+
+<p>
+Note that by projectivity
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+& Z_n \arrow[twoheadrightarrow]{d}{}\\
+P_n \arrow[]{r}{} \arrow[dashed]{ru}{\exists}& H_n(C) \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+there exists a lift
+</p>
+
+<p>
+Now consider
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+Q_n \arrow[]{d}{}& \\
+P_n \arrow[]{r}{} \arrow[]{d}{} & C_n \arrow[]{d}{}\\
+0 \arrow[]{r}{} & C_{n-1}
+\end{tikzcd}
+\end{displaymath}
+
+
+<p>
+Then
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+Q_n \arrow[bend right]{rrr}{0} \arrow[]{r}{} & P_n \arrow[]{r}{} & Z_n \arrow[]{r}{} & H_n(C)
+\end{tikzcd}
+\end{displaymath}
+<p>
+this lifts to a map
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+& & B_n \arrow[]{d}{} & \\
+Q_n \arrow[dashed]{rru}{} \arrow[bend right]{rrr}{0} \arrow[]{r}{} & P_n \arrow[]{r}{} & Z_n \arrow[]{r}{} & H_n(C) \\
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+Thus
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+Q_n \arrow[]{d}{} \arrow[]{r}{} & C_{n-1} \arrow[]{d}{}\\
+P_n \arrow[]{r}{} \arrow[]{d}{} & C_n \arrow[]{d}{}\\
+0 \arrow[]{r}{} & C_{n-1}
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+The above diagram devines a chain map which induces n iso in degree \(n\) and the homology of the domain is trivial in all other degrees
+</p>
+
+<p>
+This can be repeated over all degrees and then taken the <a href="20230404161607-categorical_coproduct.html#ID-25822c41-825b-480b-b8a6-eeb904ca5649">coproduct</a>, as <a href="20240308-category_rmod_as_ab4_category.html#ID-09c964e8-9bdb-4e66-bc50-0622b110726b">category RMod as Ab4 category</a> and hence by <a href="20240317-fernbahnhof_theorem_for_exact_functors.html#ID-f08afd2c-84d7-4c11-881f-e135011c48ac">Fernbahnhof theorem for exact functors</a> the homology commutes with \(\coprod -\).
+</p>
+
+<p>
+Hence
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+Q_n \arrow[]{r}{} & H_{n+1}(C) \\
+P_n \arrow[]{r}{} & H_{n+1}(C) \\
+0 \arrow[]{r}{} & H_{n+1}(C) \\
+\end{tikzcd}
+\end{displaymath}
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

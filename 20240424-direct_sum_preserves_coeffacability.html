@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>direct sum preserves coeffacability</title>
+<title>colimit preserves coeffacability</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -13,16 +13,90 @@
 <script type="text/javascript" id="MathJax-script" defer
 src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">direct sum preserves coeffacability</h1>
+<h1 class="title">colimit preserves coeffacability</h1>
 <div id="outline-container-org64a8d41" class="outline-2">
 <h2 id="org64a8d41"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(\mathcal{A}, \mathcal{B}\) be a sufficiently (<a href="20230923-cocomplete_category.html#ID-89cedbd1-199b-47a8-bc3f-574dd3accda9">cocomplete</a>) <a href="20230827-abelian_category.html#ID-9003af72-f684-4897-b096-c1d8a681c624">abelian</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">categories</a>, \(I: \mathcal{I} \rightarrow \mathrm{Fun}(\mathcal{A}, \mathcal{B})\)
+Then the <a href="20230404161607-categorical_coproduct.html#ID-25822c41-825b-480b-b8a6-eeb904ca5649">coproduct</a> of the functors is also coeffacable.
+</p>
+\begin{align*}
+\mathrm{colim} \mathcal{F}_n: \mathcal{A} \rightarrow \mathcal{B}
+\end{align*}
+<p>
+is also <a href="20240418-coeffacable.html#ID-0353340d-5f8b-4a00-bda8-39db65faf9ea">coeffacable</a>. 
+</p>
 </div>
-
+</div>
 <div id="outline-container-org70ca9e6" class="outline-2">
 <h2 id="org70ca9e6"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+It follows from <a href="20231219-colimit_of_functors.html#ID-b4a3da07-aa3b-45e9-bf50-48fe9bb5fc82">colimit of functors for a cocomplete codomain</a>, that \(\coprod_n\) exists and is given by
+</p>
+\begin{align*}
+\mathrm{colim}_n \mathcal{F}_n: \mathcal{A} \rightarrow \mathcal{B} \\
+A \mapsto& \mathrm{colim}_n \mathcal{F}_n(A)
+\end{align*}
+
+<p>
+Choose <a href="20220819135905-epimorphismus.html#ID-ad206194-a416-4910-a5c4-d72528ae5ba0">epimorphisms</a> \(f_n: P_n \rightarrow A\) such that \(\mathcal{F}(f_n) = 0\).
+Then consider
+</p>
+\begin{align*}
+A =& \mathrm{colim}_n P_n \\
+f =& \mathrm{colim}_n f_n
+\end{align*}
+<p>
+using <a href="20240327-colimit_functor_preserves_epimorphisms.html#ID-7b6b76be-51dd-4b9f-939a-35f4f9a3fa5c">colimit functor preserves epimorphisms</a> it follows that \(f\) is an epimorphism.
+</p>
+
+<p>
+Furthermore by <a href="20240425-colimit_of_initial_morphisms_as_initial_morphism.html#ID-5336a68c-f40d-4434-ad79-d3375dd82923">colimit of initial morphisms as initial morphism</a>, the map
+</p>
+\begin{align*}
+\mathrm{colim}(\mathcal{F}_n(f)) = 0
+\end{align*}
+<p>
+is the <a href="20230402144657-zero_morphism.html#ID-6cb7ce09-7038-4581-bc67-91d231a2be10">zero morphism</a> 
+</p>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">

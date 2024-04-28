@@ -59,8 +59,8 @@ then for a <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f0
 \begin{displaymath}
 \begin{tikzcd}
 \mathrm{ker}(f) \arrow[]{r}{} & A \arrow[]{d}{} \arrow[]{r}{f} & B \arrow[]{r}{} \arrow[]{d}{} & \mathrm{coker}(f) \\
-& \mathrm{im}(f) \arrow[dashed]{r}{\exists!} \arrow[]{d}{=}& \mathrm{Coim}(f) \arrow[]{d}{=} & &  \\
-& \mathrm{coker}(\mathrm{ker}(f) \rightarrow A) \arrow[dashed]{r}{\exists! }& \mathrm{ker}(B \rightarrow \mathrm{Coker}(f)) & & \\
+& \mathrm{coker}(\mathrm{ker}(f) \rightarrow A) \arrow[dashed]{r}{\exists! } \arrow[]{d}{=} & \arrow[]{d}{=} \mathrm{ker}(B \rightarrow \mathrm{Coker}(f)) & & \\
+& \mathrm{im}(f) \arrow[dashed]{r}{\exists!} & \mathrm{Coim}(f)  & &  \\
 \end{tikzcd}
 \end{displaymath}
 </div>
@@ -69,12 +69,58 @@ then for a <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f0
 <h2 id="orgbe329a7"><span class="section-number-2">2.</span> Proof</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-By 
+As
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathrm{ker}(f) \arrow[bend left]{rr}{0} \arrow[]{r}{\iota} & A \arrow[]{r}{f} & B
+\end{tikzcd}
+\end{displaymath}
+<p>
+commutes, by universal property there exists a morphism
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathrm{ker}(f) \arrow[]{r}{} & A \arrow[]{d}{} \arrow[]{r}{f} & B \arrow[]{r}{} \arrow[]{d}{} & \mathrm{coker}(f) \\
+& \mathrm{coker}(\mathrm{ker}(f) \rightarrow A) \arrow[dashed]{ru}{\exists! g_1}& \mathrm{ker}(B \rightarrow \mathrm{Coker}(f)) & & \\
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+Furthermore by <a href="20231221-coequalizer_and_epimorphism.html#ID-b2a5c372-3c71-48b6-80c0-dcf231f5bc5b">map into cokernel as epimorphism</a> we get
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathrm{ker}(f)  \arrow[]{r}{\pi} & A \arrow[bend left]{rr}{0} \arrow[twoheadrightarrow]{d}{} \arrow[]{r}{f} & B \arrow[]{r}{\pi'} \arrow[]{d}{} & \mathrm{coker}(f) \\
+& \mathrm{coker}(\mathrm{ker}(f) \rightarrow A) \arrow[dashed]{ru}{\exists! g_1} & \mathrm{ker}(B \rightarrow \mathrm{Coker}(f)) & & \\
+\end{tikzcd}
+\end{displaymath}
+\begin{align*}
+\pi' \circ g_1 \circ \pi =& \pi' f \\
+=& 0 \\
+=& 0 \circ \pi
+\end{align*}
+<p>
+and hence
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathrm{coker}(\mathrm{ker}(f)) \arrow[bend left]{rr}{0} \arrow[]{r}{g_1} & B \arrow[]{r}{\pi'}  &  \mathrm{coker}(f)
+\end{tikzcd}
+\end{displaymath}
+<p>
+commutes.
 </p>
 
 <p>
-Since \(A \rightarrow \mathrm{coker}(\mathrm{ker}(f) \rightarrow A)\) is an <a href="20220819135905-epimorphismus.html#ID-ad206194-a416-4910-a5c4-d72528ae5ba0">epimorphism</a> (cf. <a href="20231221-coequalizer_and_epimorphism.html#ID-b2a5c372-3c71-48b6-80c0-dcf231f5bc5b">coequalizer and epimorphism</a>)
+Thus by universal property there exists a morphism
 </p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathrm{ker}(f) \arrow[]{r}{} & A \arrow[]{d}{} \arrow[]{r}{f} & B \arrow[]{r}{} \arrow[]{d}{} & \mathrm{coker}(f) \\
+& \mathrm{coker}(\mathrm{ker}(f) \rightarrow A) \arrow[]{ru}{} \arrow[dashed]{r}{\exists! } & \mathrm{ker}(B \rightarrow \mathrm{Coker}(f)) & & \\
+\end{tikzcd}
+\end{displaymath}
 </div>
 </div>
 </div>

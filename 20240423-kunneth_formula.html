@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>kunneth formula</title>
+<title>algebraic kunneth formula</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -48,7 +48,7 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">kunneth formula</h1>
+<h1 class="title">algebraic kunneth formula</h1>
 <div id="outline-container-orgcd3c257" class="outline-2">
 <h2 id="orgcd3c257"><span class="section-number-2">1.</span> Proposition</h2>
 <div class="outline-text-2" id="text-1">
@@ -58,16 +58,192 @@ Then for \(n \geq 0\) ,there exists a natural <a href="20240216-split_exact_sequ
 </p>
 \begin{displaymath}
 \begin{tikzcd}
-0 \arrow[]{r}{} & H(C) \otimes_R H(D) \arrow[]{r}{} & H(C \otimes D) \arrow[]{r}{} & \mathrm{Tor}_1^R(H(C), H(D))[1] \arrow[]{r}{} & 0
+0 \arrow[]{r}{} & H(C) \otimes_R H(D) \arrow[]{r}{\mu} & H(C \otimes D) \arrow[]{r}{} & \mathrm{Tor}_1^R(H(C), H(D))[1] \arrow[]{r}{} & 0
 \end{tikzcd}
 \end{displaymath}
 <p>
-of <a href="20230904-graded_module.html#ID-5508d8a0-9b2a-476f-95ca-a6502e8eb0f9">graded modules</a>  (cf. <a href="20240417-forgetful_functor_from_chain_complexes_of_modules_to_graded_modules.html#ID-1d94920c-f7d9-4a8b-aac2-d9599441f3c1">forgetful functor from chain complexes of modules to graded modules</a>)
+of <a href="20230904-graded_module.html#ID-5508d8a0-9b2a-476f-95ca-a6502e8eb0f9">graded modules</a>  (cf. <a href="20240417-forgetful_functor_from_chain_complexes_of_modules_to_graded_modules.html#ID-1d94920c-f7d9-4a8b-aac2-d9599441f3c1">forgetful functor from chain complexes of modules to graded modules</a>) where
+</p>
+\begin{align*}
+\mu: H(C) \otimes_R H(D) \rightarrow H(C \otimes D)
+\end{align*}
+<p>
+is the <a href="20240416-map_out_of_the_tensor_of_homology_to_the_homology_of_the_tensor.html#ID-b0113c57-63b2-4bf6-ae9f-3b94fa81f4fb">map out of the tensor of homology to the homology of the tensor</a> 
 </p>
 </div>
 </div>
 <div id="outline-container-org067fba8" class="outline-2">
 <h2 id="org067fba8"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+An explicite description for each \(n\) is given by
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+0 \arrow[]{r}{} & \bigoplus_{p + q = n} H_p(C) \otimes_R H_q(D) \arrow[]{r}{} & H_n(C \otimes_R D) \arrow[]{r}{} & \bigoplus_{p + q = n - 1} \mathrm{Tor}_1^R(H_p(C), H(D))[1] \arrow[]{r}{} & 0
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+For a \(C\)
+<a href="20240425-boundary_cycle_short_exact_sequence.html#ID-91fe20a5-80cc-43ac-bf4d-53367b72bed3">boundary cycle short exact sequence</a>
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+0 \arrow[]{r}{} & Z \arrow[]{r}{} & C \arrow[]{r}{} & B[1] \arrow[]{r}{} & 0
+\end{tikzcd}
+\end{displaymath}
+
+
+<p>
+Since \(R\) is hereditary, each \(Z,B\) is a <a href="20240126-chain_complex_of_projectives.html#ID-3f92b779-9dc8-478d-98b6-06757efee7a8">chain complex of projectives</a> 
+</p>
+
+
+<p>
+Therefore
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+0 & Z \otimes_R D & C \otimes_R D & B[1] \otimes_R D & 0
+\end{tikzcd}
+\end{displaymath}
+<p>
+is exact (cf. <a href="20240216-projective_module_as_flat_module.html#ID-09d6dfa4-1297-43ee-885b-5b56c58cc541">projective module as flat module</a>)
+</p>
+
+<p>
+Using <a href="20240316-fundamental_theorem_of_short_exact_chain_complexes.html#ID-a93664bb-1f9c-4e81-bbae-5b744cced70d">fundamental theorem of short exact chain complexes</a> this gives a long exact
+</p>
+\begin{align*}
+H(B \otimes_R D) \arrow[]{r}{\partial} & H(Z \otimes_R D)
+\end{align*}
+
+\begin{displaymath}
+\begin{tikzcd}
+H(B \otimes_R D) \arrow[]{r}{\partial} & H(Z \otimes_R D) & H(C \otimes D) & H
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+since $B,Zfq are flat, we get
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+B \otimes H(D) \arrow[]{r}{} & Z \otimes H(D) \arrow[]{r}{} & H(C \otimes_R D) \arrow[]{r}{} & B[1] \otimes_R H(D) 
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+Then we obtain a <a href="20230722-short_exact_sequence.html#ID-7b01038e-f4c1-4e1e-ad52-a0c6a18008f3">short exact sequence</a> 
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+0 \arrow[]{r}{} & \mathrm{coker}(\partial) \arrow[]{r}{} & H(C \otimes_R D) \arrow[]{r}{} & \mathrm{ker}(\partial) \arrow[]{r}{} & 0
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+Then
+</p>
+\begin{align*}
+\partial: B \otimes H(D) & Z \otimes H(D) 
+\end{align*}
+<p>
+is given by 
+</p>
+\begin{align*}
+\iota \otimes \mathrm{id}
+\end{align*}
+<p>
+where \(\iota: B \rightarrow Z\) is the inclusion map
+</p>
+
+<p>
+Since
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+0 \arrow[]{r}{} & B \arrow[]{r}{} & Z \arrow[]{r}{} & H(C) \arrow[]{r}{} & 0
+\end{tikzcd}
+\end{displaymath}
+<p>
+is a projective resolution
+</p>
+
+<p>
+The homology of the chain complex
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+B \otimes_R H(D) \arrow[]{r}{\iota \otimes \mathrm{id}}  Z \otimes_R H(D)
+\end{tikzcd}
+\end{displaymath}
+
+
+<p>
+computse as
+</p>
+\begin{align*}
+\mathrm{Tor}_0^R(H(C), H(D)) \simeq& H_0(B \otimes_R H(D) \rightarrow Z \otimes_R H(D)) \\
+\simeq& \mathrm{coker}(\iota \otimes_R \mathrm{id}) 
+\end{align*}
+<p>
+and
+</p>
+\begin{align*}
+\mathrm{Tor}_0^R(H(C), H(D)) \simeq& H_1(B \otimes_R H(D) \rightarrow Z \otimes_R H(D)) \\
+\simeq& \mathrm{ker}(\iota \otimes_R \mathrm{id})
+\end{align*}
+
+<p>
+Thus we get a short exact sequence
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+0 \arrow[]{r}{} & H(C) \otimes_R H(D) \arrow[]{r}{\mu} \arrow[]{r}{} & H(C \otimes_R D) \arrow[]{r}{} & \mathrm{Tor}_1^R(H(C), H(D))[1] \arrow[]{r}{} & 0
+\end{tikzcd}
+\end{displaymath}
+</div>
+
+<div id="outline-container-org682004f" class="outline-3">
+<h3 id="org682004f"><span class="section-number-3">2.1.</span> partial</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Need to justify the claim \(\partial\)
+</p>
+
+<p>
+Consider
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+0 \arrow[]{r}{} & A_1 \arrow[]{r}{} & A_2 \arrow[]{r}{} & A_3 \arrow[]{r}{} & 0
+\end{tikzcd}
+\end{displaymath}
+<p>
+as short exact sequence.
+Then
+</p>
+
+
+<p>
+Unwinding this for
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\arrow[]{r}{} Z & B \arrow[]{r}{} & B[1]
+\end{tikzcd}
+\end{displaymath}
+<p>
+shows that \(\iota \circ \mathrm{id}\) is the boundary map 
+</p>
+
+<p>
+see: <a href="20230802-snake_lemma.html#ID-d1fa92c4-30dd-4e98-bb54-620596a2800e">Snake lemma for modules</a> 
+</p>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">

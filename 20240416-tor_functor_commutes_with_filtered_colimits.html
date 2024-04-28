@@ -60,7 +60,6 @@ Then for a <a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780
 \begin{align*}
 \mathrm{colim}_{i} \mathrm{Tor}_n^R(N_i,M) \rightarrow \mathrm{Tor}_n^R (\mathrm{colim}_{i} N_i, M) 
 \end{align*}
-
 <p>
 is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a> 
 </p>
@@ -69,12 +68,83 @@ is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-8
 <div id="outline-container-org7a88d4f" class="outline-2">
 <h2 id="org7a88d4f"><span class="section-number-2">2.</span> Proof</h2>
 <div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org52abbfe" class="outline-3">
+<h3 id="org52abbfe"><span class="section-number-3">2.1.</span> delta functor</h3>
+<div class="outline-text-3" id="text-2-1">
 <p>
-follows from  
-<a href="20240424-direct_sum_preserves_coeffacability.html#ID-c8900da4-996b-4d4e-9329-33a9bf961fed">direct sum preserves coeffacability</a>
-<a href="20240424-filtered_colimits_preserve_coeffacability.html#ID-e7d6eff8-679f-4099-a9b7-55d941864744">filtered colimits preserve coeffacability</a>
-<a href="20240423-left_derived_functor_commutes_with_coproducts.html#ID-7fee9162-2c25-4829-9ba5-c1ce9e96a821">left derived functor commutes with coproducts</a>
+We show that \(\mathrm{colim}_i \mathrm{Tor}_n^R(N_i, -)\) suffices as universal delta functor.
+For each <a href="20230722-short_exact_sequence.html#ID-7b01038e-f4c1-4e1e-ad52-a0c6a18008f3">short exact sequence</a> 
 </p>
+\begin{displaymath}
+\begin{tikzcd}
+0 \arrow[]{r}{} & A \arrow[]{r}{} & B \arrow[]{r}{} & C \arrow[]{r}{}& 0
+\end{tikzcd}
+\end{displaymath}
+<p>
+we get an <a href="20230722-exact_group_homomorphisms.html#ID-aa569635-5f4a-4c4a-9e9b-af9c577e377d">exact</a> sequence
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathrm{Tor}_n^R(N_i,A) \arrow[]{r}{} & \mathrm{Tor}_n^R(N_i,B) \arrow[]{r}{}& \mathrm{Tor}_n^R(N_i,C) \arrow[]{r}{} & \mathrm{Tor}_{n-1}^R(N_i,A) \arrow[]{r}{} & \mathrm{Tor}_{n-1}^R(N_i,B) \arrow[]{r}{} & \mathrm{Tor}_{n-1}^R(N_i,C) 
+\end{tikzcd}
+\end{displaymath}
+<p>
+As <a href="20240308-category_rmod_as_ab5_category.html#ID-ba0c745c-218b-496a-8f25-eeddde0ca3e4">RMod is Ab5</a>, filtered colimits are exact.
+</p>
+
+<p>
+Thus we get an exact sequence
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathrm{colim} \mathrm{Tor}_n^R(N_i,A) \arrow[]{r}{} & \mathrm{colim} \mathrm{Tor}_n^R(N_i,B) \arrow[]{r}{} & \mathrm{colim} \mathrm{Tor}_n^R(N_i,C) \arrow[]{r}{} & \mathrm{colim} \mathrm{Tor}_{n-1}^R(N_i,A) \arrow[]{r}{} & \mathrm{colim} \mathrm{Tor}_{n-1}^R(N_i,B) \arrow[]{r}{} & \mathrm{colim} \mathrm{Tor}_{n-1}^R(N_i,C) 
+\end{tikzcd}
+\end{displaymath}
+</div>
+</div>
+<div id="outline-container-org2c2addb" class="outline-3">
+<h3 id="org2c2addb"><span class="section-number-3">2.2.</span> natural</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+For a morphism of short exact sequences
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+0 \arrow[]{r}{} & A \arrow[]{d}{} \arrow[]{r}{} & B \arrow[]{d}{} \arrow[]{r}{} & C \arrow[]{d}{} \arrow[]{r}{}& 0 \\
+0 \arrow[]{r}{} & A' \arrow[]{r}{} & B' \arrow[]{r}{} & C' \arrow[]{r}{}& 0
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+We get natural morphisms
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathrm{Tor}_n^R(N_i,A)  \arrow[]{r}{} \arrow[]{d}{} & \mathrm{Tor}_n^R(N_i,A)  \arrow[]{d}{}\\
+\mathrm{Tor}_n^R(N_i,A') \arrow[]{r}{} \arrow[]{d}{\iota} & \mathrm{Tor}_n^R(N_i,A') \arrow[]{d}{\iota}\\
+\mathrm{colim} \mathrm{Tor}_n^R(N_i,A') \arrow[]{r}{} & \mathrm{colim}  \mathrm{Tor}_n^R(N_i,A') 
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+and hence by universal property also a unique morphism
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\mathrm{colim}\mathrm{Tor}_n^R(N,A) \arrow[]{r}{} & \mathrm{colim} \mathrm{Tor}_n^R(N,A') 
+\end{tikzcd}
+\end{displaymath}
+</div>
+</div>
+<div id="outline-container-orgb9d9d30" class="outline-3">
+<h3 id="orgb9d9d30"><span class="section-number-3">2.3.</span> universal</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+<a href="20240424-direct_sum_preserves_coeffacability.html#ID-c8900da4-996b-4d4e-9329-33a9bf961fed">colimit preserves coeffacability</a>
+<a href="20240418-coeffacable_delta_functor_as_universal_delta_functor.html#ID-a8626258-8deb-45f8-b802-17d26fdc995c">coeffacable delta functor as universal delta functor</a>
+</p>
+</div>
 </div>
 </div>
 </div>
