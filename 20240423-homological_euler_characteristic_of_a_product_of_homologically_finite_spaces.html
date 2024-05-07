@@ -13,16 +13,94 @@
 <script type="text/javascript" id="MathJax-script" defer
 src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
 <h1 class="title">homological euler characteristic of a product of homologically finite spaces</h1>
 <div id="outline-container-org9ab3e56" class="outline-2">
 <h2 id="org9ab3e56"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(X,Y\) be <a href="20240223-homologically_finite_topological_space.html#ID-b3b41cef-afdf-4070-ba0a-3fd50cd32fd2">homologically finite</a>  <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological spaces</a> and \(X \times Y\) their <a href="20230404141718-categorical_product.html#ID-c6b25f4e-7486-4399-bea3-ace8da2a18c9">product</a> 
+Then the <a href="20240223-euler_characteristic.html#ID-a1fa5115-e292-441f-a5b9-ea6a4f7faf25">homological euler characteristic</a> is given by
+</p>
+\begin{align*}
+\chi(X \times Y) =& \sum_{n\geq 0} (-1)^n  \sum_{0 \leq k \leq n} \mathrm{rank}(H_n(X)) \cdot \mathrm{rank}(H_{n-k}(Y)) \\
+& \chi(X) \cdot \chi(Y)
+\end{align*}
 </div>
-
+</div>
 <div id="outline-container-org5857983" class="outline-2">
 <h2 id="org5857983"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+by <a href="20240429-kunneth_formula_for_singular_homology.html#ID-ec9c615c-ee03-490e-8065-b2baa7140598">kunneth formula for singular homology</a> we know that
+</p>
+\begin{align*}
+H_n(X \times Y) \simeq (H(X) \otimes_R H(Y))_n \oplus \mathrm{Tor}([H_{n-1}(X), H_{n-1}(Y)])
+\end{align*}
+<p>
+here by <a href="20240430-rank_of_tor_of_a_finitely_generated_group.html#ID-5f9567a2-2eb8-46bd-ad4a-7defa734bfd9">rank of tor of a finitely generated abelian group</a> it suffices to determine \(\mathrm{rank}(H_n(X) \otimes_R H_n(Y))\)
+By <a href="20230801-rank_and_direct_sum.html#ID-0fe1ece4-5ddf-4144-a324-0532bce3dbe1">rank and direct sum</a> 
+</p>
+\begin{align*}
+\mathrm{rank}((H(X) \otimes_R H(Y))_n) = \sum_{0 \leq k \leq n} \mathrm{rank}(H_n(X) \otimes_\mathbb{Z} H_{n-k}(Y)) \\
+\end{align*}
+<p>
+By <a href="20240430-rank_and_tensor_product.html#ID-69a41372-32d9-4e60-b889-bcfdc6cdf4a8">rank and tensor product</a> it further follows that
+</p>
+\begin{align*}
+\sum_{0 \leq k \leq n} \mathrm{rank}(H_n(X) \otimes_\mathbb{Z} H_{n-k}(Y)) =& \sum_{0 \leq k \leq n} \mathrm{rank}(H_n(X)) \cdot \mathrm{rank}(H_{n-k}(Y))
+\end{align*}
+
+
+<p>
+then we get
+</p>
+\begin{align*}
+\chi(X \times Y) =& \sum_{n=0}^{\infty} (-1)^n \mathrm{rank}(H_n(X \times Y)) \\
+=& \sum_{k=0}^{\infty} (\sum_{p+q = n} (-1)^{p + q} \mathrm{rank}(X_p(X)) \cdot \mathrm{rank}(X_p(X))) \\
+=& \sum_{k=0}^{\infty} (\sum_{p+q = n} (-1)^{p} \mathrm{rank}(X_p(X)) \cdot (-1)^{q}\mathrm{rank}(X_p(X))) \\
+=& (\sum_{p=0}^{\infty} (-1)^p \mathrm{rank}(H_p(X)) \cdot (\sum_{q=0}^{\infty} (-1)^q \mathrm{rank}(H_q(Y)) \\
+=& \chi(X) \cdot \chi(Y)
+\end{align*}
+
+<p>
+showing the desired equality
+</p>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">

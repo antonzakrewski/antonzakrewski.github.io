@@ -64,27 +64,84 @@ Then \(\mathfrak{m}\) is <a href="20230329081717-primideal.html#ID-a8ae10f5-3b84
 <p>
 <a href="20210305204929-beweis_durch_gegenbeispiel.html#ID-82f7f698-c489-4630-b2a1-ec7a6228b374">Proof by contraposition</a>
 </p>
-
+</div>
+<div id="outline-container-orga394fa5" class="outline-3">
+<h3 id="orga394fa5"><span class="section-number-3">2.1.</span> construction</h3>
+<div class="outline-text-3" id="text-2-1">
 <p>
 Suppose there exist \(a,b \in A\) such that \(a \cdot b \in \mathfrak{m}\) but \(a,b \not\in \mathfrak{m}\).
-Then consider the <a href="20230722-erzeugendensystem_eines_ideals.html#ID-8fefc2d7-34d4-4591-91cc-67ebfdffb814">generated Ideal</a> \((\mathfrak{a},a)\) and \(\mathfrak{m}_{a}\) as the <a href="20240426-ideal_relative_to_an_element.html#ID-0d611d76-b9e0-4dff-98dd-4e62351daa12">ideal relative to</a> \(a\).
-It follows that \((\mathfrak{a},a), \mathfrak{m}_a \supsetneq \mathfrak{m}\) (cf. <a href="20240426-ideal_relative_to_an_element_as_superset.html#ID-7046a43e-7550-4d2c-a233-7ae5f28466de">ideal relative to a subset as superset</a>), since \(b \in \mathfrak{m}_a\)
+Then consider the <a href="20230722-erzeugendensystem_eines_ideals.html#ID-8fefc2d7-34d4-4591-91cc-67ebfdffb814">generated Ideal</a> \((\mathfrak{m},a)\) and \(\mathfrak{m}_{a}\) as the <a href="20240426-ideal_relative_to_an_element.html#ID-0d611d76-b9e0-4dff-98dd-4e62351daa12">ideal relative to</a> \(a\).
+It follows that \((\mathfrak{m},a), \mathfrak{m}_a \supsetneq \mathfrak{m}\) (cf. <a href="20240426-ideal_relative_to_an_element_as_superset.html#ID-7046a43e-7550-4d2c-a233-7ae5f28466de">ideal relative to a subset as superset</a>), since \(b \in \mathfrak{m}_a\)
 </p>
 
 <p>
-Therefore by maximality of \(\mathfrak{m}\) both \((\mathfrak{a},a), \mathfrak{m}_a\) are finitely generated.
-Furthermore by <a href="20240426-ideal_relative_to_a_subset_and_product.html#ID-ceb1d6f6-43b5-4138-b716-fb05805d51b0">ideal relative to a subset and product</a> it follows that
+Therefore by maximality of \(\mathfrak{m}\) both \((\mathfrak{m},a), \mathfrak{m}_a\) are finitely generated.
+</p>
+
+<p>
+We further may assume that 
 </p>
 \begin{align*}
-\mathfrak{m} = (\mathfrak{a}, a) \cdot \mathfrak{m}_a
+(\mathfrak{m}, a) = (a_i + r_i \cdot a)
 \end{align*}
 <p>
-where 
+for \(i \in \{1,..,n\}\) and 
+</p>
+\begin{align*}
+\mathfrak{m}_a = (s_j)
+\end{align*}
+<p>
+for \(j \in \{1,...,m\}\)
 </p>
 
 <p>
-Hence by <a href="20230814-finite_product_of_finitely_generated_ideals_finitely_generated.html#ID-26f58838-e1b3-471d-80c5-b5c0a6c93a35">finite product of finitely generated ideals finitely generated</a> we conclude that \(\mathfrak{m}\) is finitely generated, contradiction
+Then consider
 </p>
+\begin{align*}
+(a_i, s_j \cdot a)
+\end{align*}
+</div>
+<div id="outline-container-orgb54c95c" class="outline-4">
+<h4 id="orgb54c95c"><span class="section-number-4">2.1.1.</span> \((a_i, s_j \cdot a) \subseteq \mathfrak{m}\)</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+It follows from \((a) \cdot \mathfrak{m}_a \subseteq \mathfrak{m}\) that \((a_i, s_j \cdot a) \subseteq \mathfrak{m}\) (cf. <a href="20230803-sum_of_ideals_and_order.html#ID-66817b3f-fd7b-429d-bc0b-906e30a421c7">sum of ideals and order</a>)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6499010" class="outline-4">
+<h4 id="org6499010"><span class="section-number-4">2.1.2.</span> \((a_i, s_j \cdot a) \supseteq \mathfrak{m}\)</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+Let \(m \in \mathfrak{m}\).
+Then \(m \in \mathfrak{m} + (a), m \in \mathfrak{m}_a\) and thus there exist \(\alpha \in A\) such that \(\sum_{i} \alpha_{i} (a_i + r_i \cdot a) = m\)
+</p>
+
+<p>
+Then after subtracting \(m - \sum_i \alpha_i a_i\) it follows that \(\sum \alpha_i r_i \cdot a \in \mathfrak{m}\), showing that \((\sum \alpha_i r_i) \in \mathfrak{m}_a\).
+</p>
+
+<p>
+Therefore there exists a sum \(\beta_j s_j = (\sum \alpha_i r_i)\) and at last
+</p>
+\begin{align*}
+m = \sum_i \alpha_i (a_i + r_i \cdot a) + \sum_j \beta_j s_j \cdot a
+\end{align*}
+
+<p>
+showing that \(m \in (a_i, s_j \cdot a)\)
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org4b34d22" class="outline-3">
+<h3 id="org4b34d22"><span class="section-number-3">2.2.</span> conclusion</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Therefore \(\mathfrak{m}\) is finitely generated, contradiction.
+</p>
+</div>
 </div>
 </div>
 </div>
