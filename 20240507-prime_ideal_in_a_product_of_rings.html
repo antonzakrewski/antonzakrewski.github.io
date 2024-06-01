@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>prime ideal in a finite product of rings</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">prime ideal in a finite product of rings</h1>
+<div id="outline-container-org42f4f8a" class="outline-2">
+<h2 id="org42f4f8a"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(R_i\) be <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">rings</a> for \(i \in \{1,...,n\}\), \(\bigoplus R_i\) the finite <a href="20230118132937-direktes_produkt_von_ringen.html#ID-65a3746e-123a-4a98-8edf-3ff02e33750e">direct product of rings</a> and \(I\) an <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a>.
+</p>
+
+<p>
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol class="org-ol">
+<li>\(I\) is a <a href="20230426123442-primelement.html#ID-ffa743e1-94ee-49fe-9647-396eeb233982">prime</a> ideal</li>
+<li>\(I = \bigoplus_{i \neq m} R_i \oplus \mathfrak{p}_m\) for a prime ideal \(\mathfrak{p}_m \subseteq R_m\)</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgba964e7" class="outline-2">
+<h2 id="orgba964e7"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgf9ce414" class="outline-3">
+<h3 id="orgf9ce414"><span class="section-number-3">2.1.</span> 1) \(\implies\) 2)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+using <a href="20230725-image_of_an_epimorphism_and_prime_ideal.html#ID-262c5cd1-d00a-4208-a6ee-5141512eec9f">Image of an epimorphism and prime ideal</a> we get that the canonical map
+</p>
+\begin{align*}
+\pi: \bigoplus_{i=1}^n R_i \rightarrow R_l \oplus R_k
+\end{align*}
+<p>
+preserves prime ideals.
+</p>
+
+<p>
+Thus it suffices to show this for \(n = 2\).
+Let \((a_1,a_2) \in R_1 \oplus R_2\).
+Then consider
+</p>
+\begin{align*}
+(1,a_2) \cdot (a_1,1) = (a_1,a_2) \in I
+\end{align*}
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> we may assume that \((1,a_2) \in I\) hence also \((1,a_2) \cdot (1,0) = (1,0) \in I\).
+Furthermore by subtraction with \(a_1 \cdot (1,0)\) we conclude that \((0,a_2) \in I\)
+This shows that \(I = R \times I_2\) for some subset \(I_2 \subseteq R_2\).
+Since \(I\) is strict, it follows that that \(I_2 \subsetneq I_2\).
+By assumption of \(I\) prime we conclude that for \((0,b_2) \cdot (0,b_2') \in I\) that wlog \(b_2' \in I\).
+Hence \(I\) is a prime ideal
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5b6509f" class="outline-3">
+<h3 id="org5b6509f"><span class="section-number-3">2.2.</span> 2) \(\implies\) 1)</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Let \((a_i) \cdot (b_i) \in I\), then it follows that \(a_m \cdot b_m \in \mathfrak{p}_m\) and thus <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> \(a_m \in \mathfrak{p}_m\).
+Hence \((a_i) \in \bigoplus_{i \neq m} R_i \oplus \mathfrak{p}_m\)
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

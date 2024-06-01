@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>covariant hom functor for a finite product of modules preserves colimits</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">covariant hom functor for a finite product of modules preserves colimits</h1>
+<div id="outline-container-orgb995ef6" class="outline-2">
+<h2 id="orgb995ef6"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(R\) be a <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a> and \(\mathrm{RMod}\) the <a href="20230225170152-kategorie_mod.html#ID-15b21b3a-18bb-4d60-a716-c69681d7222d">category RMod</a>, \(R[X]\) a <a href="20231018-finite_product.html#ID-c04f6f55-98f0-4d28-8bbf-fb794ca72ff8">finite product</a>.
+Then the <a href="20240503-covariant_ab_hom_functor.html#ID-6f7d01ce-8a46-48d5-aea3-0cba4bbb2771">covariant ab-hom functor</a> / <a href="20230902-covariant_hom_functor_of_points.html#ID-c4e8849e-c055-49ed-9de1-b488d13d0dcf">covariant hom functor</a> <a href="20231014-functor_preserving_colimits.html#ID-3d77cdc9-e177-40d9-b57d-dc17d897d8a7">preserves colimits</a>.
+</p>
+\begin{align*}
+\mathrm{Hom}_{\mathrm{RMod}}(R[X], \mathrm{colim}(-)) \simeq& \prod \mathrm{Hom}_{\mathrm{RMod}}(R,\mathrm{colim}(-)) \\
+\simeq&
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org65a1f5a" class="outline-2">
+<h2 id="org65a1f5a"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgb132c13" class="outline-3">
+<h3 id="orgb132c13"><span class="section-number-3">2.1.</span> hom functor</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Since the <a href="20231017-hom_functor_preserves_limits.html#ID-ce491494-9921-4e52-9745-a80f36ec7b61">covariant hom-functor preserves small limits</a> we get
+</p>
+\begin{align*}
+\mathrm{Hom}_{\mathrm{RMod}}(R[X], \mathrm{colim}(-)) =& \mathrm{Hom}_{\mathrm{RMod}}(\coprod R, \mathrm{colim}(-)) \\
+\simeq& \prod \mathrm{Hom}_{\mathrm{RMod}}(R, \mathrm{colim}(-))
+\end{align*}
+<p>
+using the natural interpretation as set functor (cf. <a href="20240509-forgetful_set_functor_from_rmod_as_representable_functor.html#ID-2c5ceefd-526f-46d1-9595-bb07aebffb17">forgetful set functor from RMod as representable functor</a>) we conclude
+</p>
+\begin{align*}
+\prod \mathrm{Hom}_{\mathrm{RMod}}(R, \mathrm{colim}(-)) \simeq \prod \mathrm{Set}(\mathrm{colim}(-)) \\
+\end{align*}
+<p>
+as the <a href="20240416-forgetful_functor_from_rmod_preserves_filtered_colimits.html#ID-978d3eb4-a793-4146-9e9f-1df7d122a131">forgetful functor from RMod to Set preserves filtered colimits</a> we further get
+</p>
+\begin{align*}
+\prod \mathrm{Set}(\mathrm{colim}(-)) \simeq& \prod \mathrm{colim}(\mathrm{Set}(-)) 
+\end{align*}
+<p>
+and further by <a href="20240208-filtered_colimit_commute_with_finite_limits_in_set.html#ID-43c1fcda-84c1-4c1c-a260-213e4fd79ced">filtered colimits commute with finite limits in Set</a> 
+</p>
+\begin{align*}
+\prod \mathrm{colim}(\mathrm{Set}(-)) \simeq& \mathrm{colim} \prod (\mathrm{Set}(-))  \\
+\simeq& \mathrm{colim} \prod \mathrm{Hom}_{\mathrm{RMod}}(R, -) \\
+\simeq& \mathrm{colim} \mathrm{Hom}_{\mathrm{RMod}}(\coprod R, -) \\
+\simeq& \mathrm{colim} \mathrm{Hom}_{\mathrm{RMod}}(R[X], -) \\
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgcd720e4" class="outline-3">
+<h3 id="orgcd720e4"><span class="section-number-3">2.2.</span> ab-hom functor</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+follows as
+TODO
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

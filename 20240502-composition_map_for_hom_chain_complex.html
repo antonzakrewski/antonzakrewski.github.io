@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>composition map for hom chain complexes</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">composition map for hom chain complexes</h1>
+<div id="outline-container-org3cdae88" class="outline-2">
+<h2 id="org3cdae88"><span class="section-number-2">1.</span> Definition / Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(U,R,S,T\) be <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">rings</a>, \(C,D,E\) be <a href="20230802-chain_complex.html#ID-e4c10be9-3796-4aff-9579-5cc0b5f47e36">chain complex</a>es of <a href="20230825-bimodule.html#ID-5c24133d-ebe8-445c-bb1a-d2ec406c84f8">bimodules</a>, where
+</p>
+<ol class="org-ol">
+<li>\(C\) is a $(S,R) bimodule</li>
+<li>\(D\) is a \((T,R)\) bimodule</li>
+<li>\(E\) is a \((U,R)\) bimodule</li>
+</ol>
+
+<p>
+Then for the <a href="20240416-hom_chain_complex.html#ID-6bbbf89c-f279-45ae-a934-6b73a2924981">hom chain complexes</a> there exists a <a href="20230802-chain_map.html#ID-366c9675-ed47-4bc2-a01d-3d0c6911e226">chain map</a> of \(U,S\)-bimodules
+</p>
+
+\begin{align*}
+\kappa: \underline{\mathrm{Hom}_R}(D,E) \otimes_T \underline{\mathrm{Hom}_R}(C,D) \rightarrow& \underline{\mathrm{Hom}_R}(C,E) \\
+(\varphi_k)_k \otimes (\psi_k)k \mapsto& (\varphi_{k+q} \oplus \varphi_k)_k
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgb61c12d" class="outline-2">
+<h2 id="orgb61c12d"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgea46de0" class="outline-3">
+<h3 id="orgea46de0"><span class="section-number-3">2.1.</span> <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">welldefined</a> domain</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Note that by <a href="20240530-hom_chain_complex_of_bimodules.html#ID-d08e2a6d-fb2b-43bb-b09e-e69a6cc4597d">hom chain complex of bimodules</a>
+</p>
+<ol class="org-ol">
+<li>\(\underline{\mathrm{Hom}_{\mathrm{R-Mod}}}(D,E)\) is a chain complex of \((T,R)\) modules</li>
+<li>\(\underline{\mathrm{Hom}_{\mathrm{R-Mod}}}(C,D)\) is a chain complex of \((S,T)\) modules</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org6edceb0" class="outline-3">
+<h3 id="org6edceb0"><span class="section-number-3">2.2.</span> proof</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+There is a chain map $&varphi; = (&varphi;<sub>k</sub>)<sub>k</sub>
+</p>
+
+\begin{align*}
+(\kappa \circ d^{\otimes})((\psi_k)_k \otimes (\varphi_k)_k) =& \kappa(d^{\underline{\mathrm{Hom}}(D,E)(\psi) \otimes \varphi + (-1)^p \psi \otimes d^{\underline{\mathrm{Hom}}(C,D)}(\varphi) \\
+=& \kappa((d^E \circ \psi_k + (-1)^{p+1} \psi_{k-1} \circ d^D) \otimes (-1)^p \psi \otimes (d^D \circ \varphi_k + (-1)^{q + 1} \varphi_{k-1} \circ d^C)_k) \\
+=& \kappa(d^E \circ \psi_k + (-1)^{p+1}  \psi_{k-1} \circ d^D)_k \otimes \varphi + (-1)^p \psi \otimes (d^D \circ \varphi_k + (-1)^{q + 1} \varphi_{k-1} \circ d^C)_k) \\
+=& (d^E \circ \psi_{k+q} + (-1)^{p+1} \psi_{k+q - 1} d^D) \varphi_k + (-1)^{p} \psi_{k + q - 1} (d^D \circ \varphi_k + (-1)^{q+1} \varphi_{k-1} d^C)_k
+=& (d^E \circ \psi_{k+q} \circ \varphi_k + (-1)^{p + q + 1} \psi_{k+q-1} \varphi_{k-1} d^C))_k \\
+=& d^{\underline{\mathrm{Hom}}(C,E)}(\kappa(\psi \otimes \varphi))
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

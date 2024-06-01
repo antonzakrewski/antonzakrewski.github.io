@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>module as colimit of the coslice category of finitely generated modules</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="mathjax-config.js" defer></script>
+<script type="text/javascript" id="MathJax-script" defer
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">module as colimit of the coslice category of finitely generated modules</h1>
+<div id="outline-container-orgafbd58b" class="outline-2">
+<h2 id="orgafbd58b"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(R\) be a <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a>, \(M\) an \(R\)-<a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">module</a>, \(E(M)\) the <a href="20240416-coslice_category_of_finitely_generated_free_modulse.html#ID-d2c9a6d7-f7c2-4b3f-b8ad-d7e2f8dbb049">coslice category of finitely generated free modules</a>.
+Then 
+</p>
+\begin{align*}
+M \simeq \mathrm{colim}_{E(M)}(M_i)
+\end{align*}
+<p>
+is the <a href="20230725-colimit.html#ID-581b1561-25d0-479a-b0cc-063c894e10be">colimit</a> where \(E(M)\) is the indexing category and \(M_i = R^k\) the objects for \(R^k \rightarrow M\)
+</p>
+</div>
+</div>
+<div id="outline-container-org7cf9f90" class="outline-2">
+<h2 id="org7cf9f90"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+using <a href="20240326-isomorphism_between_covariant_hom_sets_and_objects.html#ID-bdbc2ae0-8c61-44ed-8544-f12ea89dfeb5">isomorphism between covariant hom-sets and objects</a> it suffices to show that
+</p>
+\begin{align*}
+\mathrm{Hom}_{\mathrm{RMod}}(M,N) !\overset{}{\simeq} \mathrm{Hom}_{\mathrm{RMod}}(\mathrm{colim}_{E(M)}(M_i),N)
+\end{align*}
+<p>
+for arbitrary \(N \in \mathrm{Ob}(\mathrm{RMod})\)
+</p>
+
+
+
+<p>
+Then as <a href="20231017-hom_functor_preserves_colimits.html#ID-5ff9ae3e-1b7d-4f39-99df-dab65b127f6a">contravariant hom-functor dualizes small colimits to limits</a> we conclude that
+</p>
+\begin{align*}
+\mathrm{Hom}_{\mathrm{RMod}}(\mathrm{colim}_{E(M)}(M_i),N) \simeq \mathrm{lim}_{E(M)} \mathrm{Hom}_{\mathrm{RMod}}(R^k,N)
+\end{align*}
+
+
+<p>
+by <a href="20240530-colimit_indexed_over_coslice_category_gives_natural_transformation.html#ID-5c84c580-e67c-43d2-b5bb-3d05bf81f967">colimit indexed over coslice category gives natural transformation</a> there exists a natural morphism
+</p>
+\begin{align*}
+\psi: \mathrm{Hom}_{\mathrm{RMod}}(M,N) \rightarrow \mathrm{Hom}_{\mathrm{RMod}}(\mathrm{colim}_{E(M)}(M_i),N) \simeq \mathrm{lim}_{E(M)} \mathrm{Hom}_{\mathrm{RMod}}(R^k,N)
+(\varphi: M \rightarrow N) \mapsto& (\varphi_i: e_i \mapsto \varphi(\alpha(e_1))
+\end{align*}
+
+<p>
+where
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+R^k \arrow[]{dd}{f} \arrow[]{rd}{\alpha}& \\
+& M \\
+R^l \arrow[]{ru}{\beta}
+\end{tikzcd}
+\end{displaymath}
+<p>
+is a snapshot of the diagram
+</p>
+</div>
+<div id="outline-container-orgdc24f85" class="outline-3">
+<h3 id="orgdc24f85"><span class="section-number-3">2.1.</span> <a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injective</a></h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Let \(\varphi: M \rightarrow N\) be a <a href="20230222204703-modulhomomorphismus.html#ID-bb388d52-298a-4714-b290-80d9ab79eb2e">module-homomorphism</a>.
+Then for each \(m \in M\) there exists by the <a href="20220825195614-adjunktion_kategorientheorie.html#ID-1f2a58d8-4093-4646-a6e0-d0ef764ca84b">adjoint</a> property of a <a href="20230222205257-freier_modul.html#ID-f31e26dc-9f62-4ff2-81db-88cd88c22229">free module</a> a morphism
+</p>
+\begin{align*}
+\alpha_m: R \rightarrow& M \\
+1 \mapsto& m
+\end{align*}
+
+<p>
+Therefore for \(\varphi \neq \psi \in \mathrm{Hom}_{\mathrm{RMod}}(M,N)\) there exist components
+</p>
+\begin{align*}
+\varphi(\alpha_{m}) \neq \psi(\alpha_m)
+\end{align*}
+<p>
+of \(\mathrm{lim} \mathrm{Hom}(M_i,N)\)
+where \(\varphi(m) \neq \psi(m)\)
+</p>
+
+<p>
+Therefore the map is injective
+</p>
+</div>
+</div>
+<div id="outline-container-org6e38e36" class="outline-3">
+<h3 id="org6e38e36"><span class="section-number-3">2.2.</span> <a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjective</a></h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Let \((n_{\alpha})_{\alpha} \in \mathrm{lim}_{\mathrm{RMod}}(R^k,N)\) be arbitrary.
+Then it remains to show that the map
+</p>
+\begin{align*}
+\varphi: M \rightarrow& N \\
+m \mapsto& n_{\alpha_{m}}
+\end{align*}
+<p>
+is a <a href="20230222204703-modulhomomorphismus.html#ID-bb388d52-298a-4714-b290-80d9ab79eb2e">module-homomorphism</a>
+and that an element \((n_{\alpha})_{\alpha}\) is fully determined by the objects of rank 1
+</p>
+\begin{align*}
+\alpha_m: R^1 \rightarrow M
+\end{align*}
+</div>
+
+
+<div id="outline-container-org92936a3" class="outline-4">
+<h4 id="org92936a3"><span class="section-number-4">2.2.1.</span> determined</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+Let \(\alpha: R^k \rightarrow M\) be a morphism.
+Then there exist inclusions
+</p>
+\begin{align*}
+\iota_i: R \hookrightarrow R^k
+\end{align*}
+<p>
+for \(i \in \{1,...,k\}\) and further a natural diagram
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+R \arrow[]{dd}{\iota_i}\arrow[]{rd}{\alpha \circ \iota_i} & \\
+& M \\
+R^k \arrow[]{ru}{} & \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+where \(\alpha \circ \iota_i\) corresponds to an element in \(R\) (cf. <a href="20240509-universal_property_of_a_ring_as_modul.html#ID-d2116c82-bbdc-4a85-aa60-efeeceb0c6eb">hom out of a ring</a>)
+</p>
+</div>
+</div>
+<div id="outline-container-org034cb0d" class="outline-4">
+<h4 id="org034cb0d"><span class="section-number-4">2.2.2.</span> module homomorphism</h4>
+<div class="outline-text-4" id="text-2-2-2">
+</div>
+<div id="outline-container-orgc3d1af2" class="outline-5">
+<h5 id="orgc3d1af2"><span class="section-number-5">2.2.2.1.</span> additive</h5>
+<div class="outline-text-5" id="text-2-2-2-1">
+<p>
+For \(m,m' \in M\) consider the morphisms
+</p>
+\begin{align*}
+\alpha_m: R \rightarrow M \\
+1 \mapsto& m \\
+\alpha_{m'}: R \rightarrow M \\
+1 \mapsto& m'
+\end{align*}
+
+<p>
+Then it follows that
+</p>
+\begin{align*}
+\alpha_{m + m'} =& (1 \mapsto m + m')
+=& ((1 \mapsto m) + (1 \mapsto m'))
+=& \alpha_m + \alpha_{m'}
+\end{align*}
+<p>
+hence showing
+</p>
+\begin{align*}
+n_{\alpha_{m + m'}} =& n_{\alpha_m + \alpha_{m'}}
+\end{align*}
+<p>
+Using the <a href="20231229-diagonal_morphism.html#ID-7cb52460-29ae-4b75-9d8f-3b991c740063">diagonal morphism</a> 
+</p>
+\begin{align*}
+R \arrow[]{r}{\Delta} \arrow[bend left]{rr}{\alpha_m + \alpha_{m'}}& R \oplus R \arrow[]{r}{\alpha_m \oplus \alpha_{m'}}& R 
+\end{align*}
+<p>
+and &lt;&gt; the we get
+</p>
+\begin{align*}
+n_{\alpha_{m} + \alpha_{m'}} =& n_{\alpha_m \olpus \alpha_{m'} \circ \Delta} \\
+=& n_{\alpha_m \oplus \alpha_{m'}} \circ \Delta
+\end{align*}
+
+<p>
+Since the map
+</p>
+\begin{align*}
+R \oplus R \rightarrow R
+\end{align*}
+<p>
+is fully determined by the restriction along \(\iota_1,\iota_2: R \rightarrow R \oplus R\) wtih
+</p>
+\begin{align*}
+n_{\alpha_m \oplus \alpha_{m'}} \circ \iota_1 = \alpha_m
+\end{align*}
+
+<p>
+it follows that
+</p>
+\begin{align*}
+n_{\alpha_m \oplus \alpha_{m'}} = (n_{\alpha_m} \oplus n_{\alpha_m'})
+\end{align*}
+<p>
+which implies
+</p>
+\begin{align*}
+n_{\alpha_{m} \olpus \alpha_{m'}} =& n_{\alpha_m} + n_{\alpha_{m'}}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org79b8a3a" class="outline-5">
+<h5 id="org79b8a3a"><span class="section-number-5">2.2.2.2.</span> linear</h5>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Anton Zakrewski</p>
+<p class="email">Email: <a href="mailto:anton.zakrewski@campus.lmu.de">anton.zakrewski@campus.lmu.de</a></p>
+</div>
+</body>
+</html>

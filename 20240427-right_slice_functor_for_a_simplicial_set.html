@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>right slice functor for a simplicial set</title>
+<title>left slice functor for a simplicial set</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -48,7 +48,7 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">right slice functor for a simplicial set</h1>
+<h1 class="title">left slice functor for a simplicial set</h1>
 <div id="outline-container-org00daebc" class="outline-2">
 <h2 id="org00daebc"><span class="section-number-2">1.</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
@@ -57,13 +57,26 @@ Let \(S\) be a <a href="20240128-simplicial_set.html#ID-43a75466-c729-429a-a459-
 Then the left slice functor is defined as <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a> 
 </p>
 \begin{align*}
--_{p/}: S / \mathrm{sSet} \rightarrow& \mathrm{sSet} \\
-(p: S \rightarrow X) \mapsto& 
-    \begin{cases}
-    n &\mapsto \mathrm{Hom}_{S/ \mathrm{sSet}}(S \star, \Delta^n \star X ) \\
-    (f: (p: S \rightarrow X) \rightarrow (p' \rightarrow Y)) &\mapsto f^{\rightarrow}: \mathrm{Hom}_{S / \mathrm{sSet}}(S, \Delta^n \star X) \rightarrow \mathrm{Hom}_{S / \mathrm{sSet}}(S, \Delta^n \star X)
-    \end{cases}
+-_{/-}: S / \mathrm{sSet} \rightarrow& \mathrm{sSet} \\
+(p: S \rightarrow X) \mapsto& X_{/p}
+(f: (p: S \rightarrow X) \mapsto (q: S \rightarrow Y)) \mapsto& f_{/-}
 \end{align*}
+
+<p>
+where
+</p>
+<ol class="org-ol">
+<li>\(X_{/p}\) is the <a href="20240413-simplicial_set_of_a_morphism.html#ID-ca0665bb-0d0f-492b-bdcf-7ebcc043bba0">right simplicial set of a morphism</a></li>
+<li>\(f_{/-}\) is the <a href="20240129-morphism_of_simplicial_objects.html#ID-1c4a03f5-0ed4-416f-b7d4-021b146efe89">morphism of simplicial sets</a> given by <a href="20231105-postcomposition.html#ID-22f84481-9574-4f6d-87a5-162a5512dd13">postcomposition</a></li>
+</ol>
+\begin{align*}
+f: X_{/p} \rightarrow& Y_{/p} \\
+n \mapsto& (f^{ \leftarrow}: \mathrm{Hom}_{\mathrm{sSet}}(\Delta^n \star S, X) \rightarrow \mathrm{Hom}_{\mathrm{sSet}}(\Delta^n \star S, Y))
+\end{align*}
+
+<p>
+Note that naturality follows from <a href="20240418-bifunctor_and_natural_transformation.html#ID-22f36782-2ff2-4836-b926-cef696681771">bifunctor and natural transformation</a> 
+</p>
 </div>
 </div>
 </div>

@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>right join slice adjunction</title>
+<title>left join slice adjunction</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -13,16 +13,101 @@
 <script type="text/javascript" id="MathJax-script" defer
 src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">right join slice adjunction</h1>
+<h1 class="title">left join slice adjunction</h1>
 <div id="outline-container-orge13cb63" class="outline-2">
 <h2 id="orge13cb63"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(\mathrm{sSet}\) be the <a href="20240128-category_sset.html#ID-e9c2723a-dd7e-48df-84af-05e865106a54">category sSet</a>, $S &isin; $ and \(S / \mathrm{sSet}\) the <a href="20230402145452-coslice_category.html#ID-bdbe4411-02d7-4534-8788-2843a7007af4">coslice category</a>
+Then the <a href="20240405-slice_join_functor.html#ID-581e37be-4884-4cd2-8ae0-55285b16e057">left coslice join functor</a> \(- \star S: \mathrm{sSet} \rightarrow S / \mathrm{sSet}\) is a <a href="20220831221344-linksadjungierte.html#ID-1e87e6b9-24df-41fb-bc1b-d35cfd2eaa7f">left adjoint</a> to the <a href="20240427-right_slice_functor_for_a_simplicial_set.html#ID-210cc30b-5281-451b-9f82-4b5fc18f0583">left slice functor</a> \(-_{/-}: S / \mathrm{sSet} \rightarrow \mathrm{sSet}\)
+</p>
 </div>
-
+</div>
 <div id="outline-container-org38283b0" class="outline-2">
 <h2 id="org38283b0"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+using 
+</p>
+<ul class="org-ul">
+<li><a href="20240505-left_adjoint_by_dense_subcategory.html#ID-6fbc45e4-abef-4598-b80e-d0f600b4b7ab">left adjoint by dense subcategory</a></li>
+<li><a href="20240128-presheaf_as_colimit_of_representables.html#ID-712129fd-4e4d-4cd0-a2f8-2cf69862f577">presheaf as colimit of representables</a></li>
+<li><a href="20240530-left_coslice_join_functor_preserves_colimits.html#ID-1e93c6cc-ffbd-4295-9419-9f8c5e73636c">left coslice join functor preserves colimits</a></li>
+</ul>
+
+<p>
+This reduces to show that there exists a <a href="20230404122456-natural_isomorphism.html#ID-0977f626-bc15-4197-93bd-092d014c8270">natural isomorphism</a> 
+</p>
+\begin{align*}
+\mathrm{Hom}_{S / \mathrm{sSet}}(\Delta^n \star S,-) \overset{!}{\simeq} \mathrm{Hom}_{\mathrm{sSet}}(\Delta^n, -_{/-})
+\end{align*}
+
+<p>
+Let \((p: S \rightarrow X)\) be an arbitrary object
+Then we get
+</p>
+\begin{align*}
+\mathrm{Hom}_{S / \mathrm{sSet}}(\Delta^n \star S,(p: S \rightarrow X)) \overset{!}{\simeq} \mathrm{Hom}_{\mathrm{sSet}}(\Delta^n, X_{/p})
+\end{align*}
+<p>
+using the <a href="20230404222048-natural_transformations_of_a_hom_set_as_preceed_by.html#ID-f3d4340c-d14e-4ce6-9188-35f71fdacc85">covariant Yoneda Lemma</a> an element
+</p>
+\begin{align*}
+\eta \in \mathrm{Hom}_{\mathrm{sSet}}(\Delta^n, X_{/p}) =& \mathrm{Hom}_{\mathrm{sSet}}(\mathrm{Fun}(\mathrm{Hom}_{\Delta^{\mathrm{op}}}([n],-)), X_{/p})
+\end{align*}
+<p>
+is naturally determined by
+</p>
+\begin{align*}
+X_{/p}([n])
+\end{align*}
+
+<p>
+By definition this evaluates as
+</p>
+\begin{align*}
+X_{/p}[n] = \mathrm{Hom}_{S / \mathrm{sSet}}(\Delta^n \star S, X)
+\end{align*}
+
+<p>
+This shows the natural isomorphis
+</p>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
