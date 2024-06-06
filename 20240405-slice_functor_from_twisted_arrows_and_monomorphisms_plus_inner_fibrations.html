@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>slice functor from twisted arrows and monomorphisms plus inner fibrations</title>
+<title>right slice functor from twisted arrows and monomorphisms plus inner fibrations</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -13,11 +13,109 @@
 <script type="text/javascript" id="MathJax-script" defer
 src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">slice functor from twisted arrows and monomorphisms plus inner fibrations</h1>
+<h1 class="title">right slice functor from twisted arrows and monomorphisms plus inner fibrations</h1>
+<div id="outline-container-org0c5e279" class="outline-2">
+<h2 id="org0c5e279"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(\mathrm{sSet}\) be the <a href="20240128-category_sset.html#ID-e9c2723a-dd7e-48df-84af-05e865106a54">category sSet</a>,
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+A \arrow[]{d}{i} & Y \\
+X \arrow[]{r}{\varphi} & X \arrow[]{u}{f} \\
+\end{tikzcd}
+\end{displaymath}
+<p>
+be <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphisms</a> such that
+</p>
+<ol class="org-ol">
+<li>\(i\) is a <a href="20220819135911-monomorphismus.html#ID-60b63797-32fa-4d4e-a577-7616faa010ba">monomorphism</a></li>
+<li>\(f\) is an <a href="20240327-inner_fibration.html#ID-1915e43c-9378-4583-b34c-5f4e084cb5a0">inner fibration</a></li>
+</ol>
 
+<p>
+Then the <a href="20240603-induced_map_for_the_slice_and_pushout.html#ID-3fa883a7-9fde-4698-875e-b7b71ff053d2">induced map for the slice and pushout</a> 
+</p>
+\begin{align*}
+X_{\varphi /} \rightarrow  X_{ \varphi i /} \times_{Y_{f \varphi i /}} X_{ f \varphi/ }
+\end{align*}
+
+<p>
+is a <a href="20240327-left_fibration.html#ID-bdbcb3cc-0793-4a96-9303-7f78702f03fb">left fibration</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgc930525" class="outline-2">
+<h2 id="orgc930525"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Given a lifting problem
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\Lambda_j^n \arrow[]{d}{} \arrow[]{r}{} & X_{\varphi/} \arrow[]{d}{} \\
+\Delta^n \arrow[dashed]{ru}{} \arrow[]{r}{}& X_{\varphi/} \times_{Y_{f \varphi \iota}
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+we may reduce it to 
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+B \arrow[]{r}{} \arrow[bend left]{rr}{} & A \star \Delta^n \coprod_{A \star \Lambda_j^n} B \star \Lambda_j^n \arrow[]{r}{} \arrow[]{d}{}& X \arrow[]{d}{}\\
+& B \star \Delta^n \arrow[dashed]{ru}{} \arrow[]{r}{} & Y
+\end{tikzcd}
+\end{displaymath}
+<p>
+(cf. <a href="20240602-bijection_between_lifting_problems_of_join_slice_adjunction.html#ID-b68d72b4-b0c8-4c42-aca3-84f5857c7cef">bijection between lifting problems of join slice adjunction</a>)
+</p>
+
+<p>
+since \(\iota: A \rightarrow B\) is by assumption a monomorphism and <a href="20240605-left_horn_inclusion_as_right_anodyne_map.html#ID-b91abdd2-a54a-488c-bff7-c830335eb162">left horn inclusion as right anodyne map</a>
+</p>
+
+<p>
+Therefore <a href="20240605-induced_map_for_the_slice_and_pushout_as_inner_anodyne.html#ID-066f9c4c-e9cf-4f0f-b085-748943faa0d6">induced map for the slice and pushout as inner anodyne</a> 
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Anton Zakrewski</p>
