@@ -69,6 +69,87 @@ Then there exists an \(a \in \mathfrak{a}\) such that
 </div>
 <div id="outline-container-org6d04dca" class="outline-2">
 <h2 id="org6d04dca"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Let \(m_1,...,m_n\) be generators of \(M\).
+Then by assumption, as \(\mathfrak{a}M = M\), each \(m_i\) can be written as \(m_i = \sum_{j=1}^{n} \alpha_{i,j} m_j\) with \(\alpha_{i,j} \in \mathfrak{a}\).
+Therefore also
+</p>
+\begin{align*}
+0 =& m_i - m_i \\
+=& \sum \alpha_{i,j} m_j - \delta_{i,j} m_i
+\end{align*}
+<p>
+where \(\delta_i\) is the <a href="20221009130718-kronecker_delta.html#ID-82f0b7a3-d217-4e5b-97e9-3f0b1fbe7e52">Kronecker-Delta</a>.
+</p>
+
+<p>
+Let \(B\) be the <a href="20220303181007-matrix.html#ID-3234cd94-0d93-470b-a319-75288f97326e">matrix</a> 
+</p>
+\begin{align*}
+B =& (\delta_{i,j} - \alpha_{i,j}) \\
+=& \begin{pNiceMatrix}
+1 - \alpha_{1,1} & - \alpha_{1,2} & ... & - \alpha_{1,n} \\
+- \alpha_{2,1} & - \alpha_{2,2} & \ddots & -\alpha_{2,n} \\
+\vdots & \ddots & \ddots & \vdots \\
+- \alpha_{n,1} & - \alpha_{n,2} & ... & 1 - \alpha_{n,n} \\
+ \end{pNiceMatrix} 
+\end{align*}
+<p>
+and \(d \coloneqq \mathrm{det}(B)\).
+</p>
+
+<p>
+Then
+</p>
+\begin{align*}
+d = 1 - a
+\end{align*}
+<p>
+for some \(a \in \mathfrak{a}\) since it is given by the ones in the diagonal and a linear combination where at least one factor is an leement of \(\mathfrak{a}\)
+</p>
+
+<p>
+It remains to show that \(d M= 0\).
+It suffices to show that \(d \cdot m_h  =0\) for a generator \(m_h\).
+</p>
+
+<p>
+Let \(\tilde{B} = (\tilde{b}_{i,j})\) be the <a href="20230118135322-adjunkte_matrix.html#ID-6d0c6d49-b018-49cf-991a-465d7dfe17a1">Adjunkte</a> with 
+</p>
+\begin{align*}
+\tilde{B} \cdot B = d \cdot E_n
+\end{align*}
+<p>
+(cf. <a href="20230131083334-multiplikation_einer_matrix_mit_der_adjunkte.html#ID-c9ff3ca9-2ea4-44d9-b05d-308524d47dc7">Multiplikation einer Matrix mit der Adjunkte</a> )
+</p>
+
+<p>
+Then the entry in the \(h,j\)-spot is given by \(\sum_{i=1}^n \tilde{b}_{h,i} b_{i,j} = d \delta_{h,j}\)
+</p>
+
+<p>
+This shows
+</p>
+\begin{align*}
+d m_h =& d E_n(m_h) \\
+=& d \tilde{B} B m_h \\
+=& \sum_{j=1}^n d \partial_{h,j} m_j \\
+=& \sum_{j=1}^n \sum_{i=1}^n \tilde{b}_{h,i} \cdot b_{i,j} m_j \\
+=& \sum_{i=1}^n \sum_{j=1}^n b_{i,j} m_j \tilde{b}_{h,i}
+\end{align*}
+
+<p>
+Since \(\sum_{j=1}^n b_{i,j} m_j = \sum_{j=1}^n (\partial_{i,j} - \alpha_{i,j}) m_j = 0\) this shows that
+</p>
+\begin{align*}
+d m_h = 0
+\end{align*}
+
+<p>
+and thus we are done.
+</p>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">

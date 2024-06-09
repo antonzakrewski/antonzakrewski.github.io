@@ -53,21 +53,39 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 <h2 id="orgdda052f"><span class="section-number-2">1.</span> Proposition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Let \(R\) be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative</a> <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a>, \(M,N,L\) \(R\)-<a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">modules</a> and \(f: M \rightarrow \mathrm{Hom}_{\mathrm{RMod}}(N,L)\) the <a href="20230314184131-menge_der_modulhomomorphismen_als_modul.html#ID-eb8892b0-db59-4d78-bd20-28deff7f6243">set of module homomorphisms over a commutative ring as module</a>.
-Then the <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">map</a> 
+Let \(R\) be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative</a> <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a>, \(M,N,L\) \(R\)-<a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">modules</a> and \(\mathrm{Hom}_{\mathrm{RMod}}(N,L)\) the <a href="20230314184131-menge_der_modulhomomorphismen_als_modul.html#ID-eb8892b0-db59-4d78-bd20-28deff7f6243">inner hom</a>.
+Then there exists a natural <a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">Bijection</a> between
 </p>
+<ol class="org-ol">
+<li><a href="20230222204703-modulhomomorphismus.html#ID-bb388d52-298a-4714-b290-80d9ab79eb2e">module-homomorphisms</a> \(f: M \rightarrow \mathrm{Hom}_{\mathrm{RMod}}(N,L)\)</li>
+<li><a href="20221003210458-bilineare_abbildung.html#ID-4a5036f7-358f-484f-88aa-638a29f2e1f7">bilinear maps</a></li>
+</ol>
 \begin{align*}
 g: M \times N \rightarrow& L \\
-(m,n) \mapsto& (f(m))(n)
 \end{align*}
+
 <p>
-is <a href="20221003210458-bilineare_abbildung.html#ID-4a5036f7-358f-484f-88aa-638a29f2e1f7">bilinear</a> 
+given by 
 </p>
+\begin{align*}
+\varphi: \mathrm{Hom}_{\mathrm{RMod}}(M, \mathrm{Hom}_{\mathrm{RMod}}(N,L)) \rightarrow& \mathrm{Hom}_{\mathrm{bilinear}}(M \times N, L) \\
+f \mapsto& \left( (m,n) \mapsto (f(m))(n) \right) \\
+\varphi^{-1}: \mathrm{Hom}_{\mathrm{bilinear}}(M \times N, L) \rightarrow&  \mathrm{Hom}_{\mathrm{RMod}}(M, \mathrm{Hom}_{\mathrm{RMod}}(N,L)) \\
+((m,n) \mapsto g(m,n)) \mapsto& (m \mapsto g(m,-_N)
+\end{align*}
 </div>
 </div>
 <div id="outline-container-orgdca3f3d" class="outline-2">
 <h2 id="orgdca3f3d"><span class="section-number-2">2.</span> Proof</h2>
 <div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgd4a3d9c" class="outline-3">
+<h3 id="orgd4a3d9c"><span class="section-number-3">2.1.</span> "elementary bilinear" to morphism into hom</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org0dcf09b" class="outline-4">
+<h4 id="org0dcf09b"><span class="section-number-4">2.1.1.</span> welldefined codomain</h4>
+<div class="outline-text-4" id="text-2-1-1">
 <p>
 Note that for \(m \in M\), by definition
 </p>
@@ -77,10 +95,14 @@ g(m)(-) \in \mathrm{Hom}_{\mathrm{RMod}}(N,L)
 <p>
 is a module homomorphism
 </p>
-
+</div>
+</div>
+<div id="outline-container-org1f1afcf" class="outline-4">
+<h4 id="org1f1afcf"><span class="section-number-4">2.1.2.</span> module homomorphism</h4>
+<div class="outline-text-4" id="text-2-1-2">
 <p>
-Hence it remains to show for \(n \in N\):
-Let \(m_1,m_2 \in M\) and \(r \in R\)
+Let \(m_1,m_2 \in M\) and \(r \in R\) and \(n\) a fixed \(n\)
+Then
 </p>
 \begin{align*}
 g((m_1 + r \cdot m_2),n) =& (f(m_1 + r \cdot m_2))(n) \\
@@ -88,6 +110,57 @@ g((m_1 + r \cdot m_2),n) =& (f(m_1 + r \cdot m_2))(n) \\
 =& f(m_1)(n) + r \cdot f(m_2)(n) \\
 =& g(m_1,n) + r \cdot g(m_2,n)
 \end{align*}
+
+<p>
+This shows that for each \(n \in N\)
+</p>
+\begin{align*}
+g(m_1 + r m_2,n) =& g(m_1)(n) + r \cdot g(m_2,n)
+\end{align*}
+<p>
+or equivalently
+</p>
+\begin{align*}
+g(m_1)(-) + r \cdot g(m_2)(-)
+\end{align*}
+</div>
+</div>
+</div>
+<div id="outline-container-org8d097a5" class="outline-3">
+<h3 id="org8d097a5"><span class="section-number-3">2.2.</span> morphism into hom to "elementary bilinear"</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Let \(m_1,m_2 \in M,n_1,n_2 \in N\) and \(r_1,r_2 \in R\).
+Then for a module homomorphism
+</p>
+\begin{align*}
+f: M \rightarrow \mathrm{Hom}_{\mathrm{RMod}}(N,L)
+\end{align*}
+<p>
+we get
+</p>
+\begin{align*}
+f(m_1 + r_1 \cdot m_2)(n_1 + r_2 n_2) =& f(m_1 + r_1 \cdot m_2)(n_1) + r \cdot f(m_1 + r_1 \cdot m_2)(n_2)
+\end{align*}
+<p>
+as \(f(m_1 + r_1 \cdot m_2)\) is a module homomorphism \(N \rightarrow L\).
+</p>
+
+<p>
+Furthermore it holds by definition of a module hommorophism \(M \rightarrow \mathrm{Hom}_{\mathrm{RMod}}(N,L)\)
+</p>
+\begin{align*}
+f(m_1 + r_1 \cdot n_1)(-) =& f(m_1)(-) + r_1 \cdot f(m_2)(-)
+\end{align*}
+
+<p>
+showing
+</p>
+\begin{align*}
+f(m_1 + r_1 \cdot m_2)(n_1 + r_2 n_2) =& f(m_1 + r_1 \cdot m_2)(n_1) + r \cdot f(m_1 + r_1 \cdot m_2)(n_2) \\
+=& f(m_1)(n_1) + r_1 \cdot f(m_2)(n_1) + r_2 \cdot f(m_1)(n_2) + r_1 r_2 \cdot f(m_2)(n_2) 
+\end{align*}
+</div>
 </div>
 </div>
 </div>
