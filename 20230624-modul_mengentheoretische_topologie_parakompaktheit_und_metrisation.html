@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 15:09 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Modul: mengentheoretische Topologie - Parakompaktheit und Metrisation</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Modul: mengentheoretische Topologie - Parakompaktheit und Metrisation</h1>
+<div id="outline-container-orged3aebb" class="outline-2">
+<h2 id="orged3aebb"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org604fd05" class="outline-3">
+<h3 id="org604fd05"><span class="section-number-3">1.1.</span> parakompakt</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20230330201224-lokalendliche_uberdeckung.html#ID-3d3c4568-277e-490d-a949-43ec881fd2ff">lokalendliche Überdeckung</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20230227163354-feinere_uberdeckung.html#ID-9d631e9c-c072-4bf1-9622-0e64ecda2b23">Verfeinerung einer Überdeckung</a></li>
+<li><a href="20230406114101-paracompact_space.html#ID-e335d767-4989-4ad5-ba4e-28c7559ae05a">paracompact space</a></li>
+<li><a href="20230620-abschluss_von_einer_lokalendlichen_vereinigung.html#ID-be0da928-a4de-4fdc-8fe7-829d2d974029">Abschluss von einer lokalendlichen Vereinigung</a></li>
+<li><a href="20230620-lokalendliches_mengensystem_unter_abschlussen.html#ID-38c83f9d-a0db-4136-bc47-b9d5e58c76bf">lokalendliches Mengensystem unter Abschlüssen</a></li>
+<li><a href="20230622-lokalkompakter_raum_i_a_nicht_parakompakt.html#ID-0aa32abd-5b9e-4cef-8d16-60767577d479">lokalkompakter Raum i.A. nicht parakompakt</a>  - todo</li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20230620-unterraume_parakompakter_raume_i_a_nicht_parakompakt.html#ID-36ce38d4-d392-481a-a972-2135d3c87cbc">Unterräume parakompakter Räume i.A. nicht parakompakt</a></li>
+<li><a href="20230624-parakompakter_hausdorff_raum_als_t3_raum.html#ID-3fc795c1-8c9a-47d9-8d30-409726a44679">parakompakter Hausdorff-Raum als T3-Raum</a></li>
+<li><a href="20230624-parakompakter_t3_raum_als_t4_raum.html#ID-86b535ae-a970-4ede-84c2-47965520435f">parakompakter Hausdorff-Raum als T4-Raum</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="20230620-parakompakte_raume_als_normale_raume.html#ID-ca12849c-ea14-45dc-83c6-273f2d57f97a">Parakompakte Räume als normale Räume</a></li>
+<li><a href="20230620-parakompakter_raum_als_regularer_raum.html#ID-7b3316d0-d18c-41ed-beb1-59f10e54ebe0">Parakompakter Hausdorff-Raum als regulärer Raum</a></li>
+<li></li>
+
+<li><a href="20230620-kompakte_raum_als_parakompakter_raum.html#ID-20ffe4aa-9aac-4e3e-b0c2-1e64c612d414">kompakte Raum als parakompakter Raum</a></li>
+<li><a href="20230624-zerlegung_der_eins.html#ID-10798e53-88ba-444d-8e06-c980d6ee8295">Zerlegung der Eins</a></li>
+<li><a href="20230624-lokal_endliche_zerlegung_der_eins.html#ID-66be19f8-2349-40fd-ae59-87cb96e1e865">lokal endliche Zerlegung der Eins</a></li>
+<li><a href="20230624-untergeordnete_partition_der_eins.html#ID-c043bd4e-d16e-4171-9fd9-653eb0dff1c6">untergeordnete Zerlegung der Eins</a></li>
+<li><a href="20230627-existenz_einer_untergeordneten_partition_der_eins_fur_einen_parakompakten_raum.html#ID-6adf2bbf-d753-49b6-a5c2-320255535c8a">Existenz einer untergeordneten Partition der Eins für einen parakompakten Raum</a>    - todo</li>
+<li><a href="20230624-existenz_einer_untergeordneten_partition_fur_einen_normalen_raum_und_eine_lokal_endliche_offene_uberdeckung.html#ID-d2204244-3643-466a-9715-3ed1829ca40b">Existenz einer untergeordneten Partition für einen normalen Raum und eine lokal endliche offene Überdeckung</a> - todo</li>
+
+<li><a href="20230620-kompakte_ausschopfung.html#ID-6565290e-a5f3-4db6-80d5-a5cc40cd0823">kompakte Ausschöpfung</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3b9676a" class="outline-3">
+<h3 id="org3b9676a"><span class="section-number-3">1.2.</span> Metrisation</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20230627-satz_von_stone.html#ID-99875e36-a8c8-4518-a312-a0727ededca5">Satz von Stone</a> - todo</li>
+<li><a href="20230627-sigma_lokalendlich.html#ID-a2cf2bf5-51e9-4a37-9281-de5d9c2f8b4f">sigma lokalendlich</a></li>
+<li><a href="20230627-sigma_lokalendliche_basis.html#ID-6fd9e1d8-1a41-4431-ad26-4637a1da8044">sigma lokalendliche Basis</a></li>
+
+<li><a href="20230627-existenz_einer_sigma_lokalendlichen_basis_fur_einen_metrischen_raum.html#ID-160ca4ce-b99a-45fc-ac7c-ad75a7df28cf">Existenz einer sigma lokalendlichen Basis für einen metrischen Raum</a></li>
+<li><a href="20230614-f_sigma_menge.html#ID-7a904f2e-2ec3-418e-a97c-9654839a7554">F-Sigma Menge</a></li>
+<li><a href="20230627-regularer_raum_mit_sigma_lokal_endlicher_basis_und_offene_menge_als_f_sigma_menge.html#ID-5350e1c3-b138-4f65-946e-7b9d622fffeb">regulärer Raum mit sigma-lokal endlicher Basis und offene Menge als F-sigma Menge</a> (todo)</li>
+<li><a href="20230627-endliche_vereinigung_von_lokalendlichen_mengensystemen_als_lokalendliches_mengensystem.html#ID-f6745979-647a-4266-b5a4-2560f8e85ec6">endliche Vereinigung von lokalendlichen Mengensystemen als lokalendliches Mengensystem</a> - todo</li>
+<li><a href="20230627-parakompakheit_und_sigma_lokalendliche_offene_verfeinerung.html#ID-b20eb346-05e3-40f7-88d9-119631efe590">Äquivalente Charakterisierung von regulärer Parakompaktheit</a> (- todo)</li>
+<li><a href="20230627-metrisationssatz_von_bing_nagata_smirnow.html#ID-87765a29-8e6d-45ea-b319-bef335352d50">Metrisationssatz von Bing, Nagata, Smirnow</a> - todo</li>
+<li><a href="20230629-erster_metrisationssatz_von_urysohn.html#ID-6cf541b5-9a85-4019-af8f-4d226af84a63">Erster Metrisationssatz von Urysohn</a></li>
+<li><a href="20230629-zweiter_metrisationssatz_von_urysohn.html#ID-358ef38b-5e50-428c-b33f-5b1ce0bde52a">Zweiter Metrisationssatz von Urysohn</a> - todo</li>
+<li><a href="20230629-zweitabzahlbarkeit_metrisation_der_alexandroff_kompaktifizierung_eines_lokalkompakten_raums.html#ID-986911ef-0778-4ab3-9a2c-116851701cdd">zweitabzählbarkeit und Metrisation der Alexandroff-Kompaktifizierung eines lokalkompakten Raums</a> - todo</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 15:09</p>
+</div>
+</body>
+</html>

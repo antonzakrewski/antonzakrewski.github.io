@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-15 Di 23:21 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>modul: simplicial objects and homological algebra</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">modul: simplicial objects and homological algebra</h1>
+<div id="outline-container-orga1e2551" class="outline-2">
+<h2 id="orga1e2551"><span class="section-number-2">1.</span> Aspects</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orga89aaf2" class="outline-3">
+<h3 id="orga89aaf2"><span class="section-number-3">1.1.</span> stuff</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>singular homology</li>
+<li><a href="20230923-face_map_category_theory.html#ID-33641221-7fdf-41b9-a328-6b1af414de0c">face map</a></li>
+<li><a href="20230923-degeneracy_map_category_theory.html#ID-f8817509-7551-4eeb-8d9d-a121ee359e75">degeneracy map</a></li>
+<li><a href="20240417-continuous_maps_from_simplices_as_simplicial_set.html#ID-3902b26e-d323-4d8b-9a95-de0bf2885b29">continuous maps from simplices as simplicial set</a> - TODO</li>
+<li><a href="20240129-geometric_realization_of_a_simplicial_set.html#ID-dd7fca72-80cd-4b4b-a63f-1ff75e2bccd0">geometric realization functor</a></li>
+<li><a href="20240417-dold_kan_correspondence.html#ID-81f6564c-96e1-47a9-b760-b96c43a8f5b2">dold-kan correspondence</a></li>
+<li><a href="20240417-eilenberg_maclane_space.html#ID-ea371170-ec9b-4f59-afe5-4dc951855bb3">Eilenberg-Maclane space</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd08a233" class="outline-3">
+<h3 id="orgd08a233"><span class="section-number-3">1.2.</span> recollection on abelian categories and homological algebra</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20230827-abelian_category.html#ID-9003af72-f684-4897-b096-c1d8a681c624">abelian category</a></li>
+<li><a href="20230828-pre_abelian_category.html#ID-594a1b99-3cab-4bfc-aba9-ca6668ee8b56">pre-abelian category</a></li>
+<li><a href="20240424-category_of_abelian_valued_sheaves_as_abelian_category.html#ID-e2f6eee2-9658-4ea0-a773-3cd8ff75b33b">category of abelian valued sheaves as abelian category</a></li>
+<li><a href="20240424-image_coimage_factorization.html#ID-84ce8a55-b37a-442c-84ed-5e1bfdb3651b">image coimage factorization</a></li>
+<li><a href="20240424-ab_category_implies_ab_enrichment.html#ID-727018c5-4982-41ad-9afe-dc6866069765">ab category implies ab-enrichment</a></li>
+<li><a href="20230722-short_exact_sequence.html#ID-7b01038e-f4c1-4e1e-ad52-a0c6a18008f3">short exact sequence</a></li>
+<li><a href="20230722-exact_group_homomorphisms.html#ID-aa569635-5f4a-4c4a-9e9b-af9c577e377d">exact</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20240427-image_coimage_implies_epimorphism_as_normal_epimorphism.html#ID-32c6fd9d-02dc-47de-b6d8-8a4d40d560f6">image coimage implies epimorphism as normal epimorphism</a></li>
+<li><a href="20240224-epimorphisms_mirrored_by_pullbacks_in_an_abelian_category.html#ID-4dedbccb-7087-42b0-8512-5408553eb3cf">epimorphisms mirrored by pullbacks in an abelian category</a></li>
+
+<li><a href="20240508-epimorphism_and_zero_morphism_in_an_additve_category.html#ID-1efb5de8-7775-4cdc-bc08-26761b199b14">epimorphism and zero morphism in an additve category</a></li>
+
+<li><a href="20230902-morphism_of_extensions.html#ID-87e104c2-b4a1-4879-98fe-76fad9896849">morphism of extensions</a></li>
+<li><a href="20230902-extension_in_an_abelian_category.html#ID-7dafd915-0dde-4748-9097-21c0ab8f71fe">Extension in an abelian category</a></li>
+<li><a href="20240508-morphism_of_extensions_as_isomorphism.html#ID-23debed5-d417-4643-b98a-9a69b4d8223b">morphism of extensions as isomorphism</a></li>
+
+<li><a href="20240508-equivalence_class_of_extensions_as_set.html#ID-d665438a-5f47-4ceb-b0e1-620c73041656">equivalence class of extensions up to isomorphism as set</a></li>
+<li><a href="20240508-family_of_generators_in_an_abelian_category.html#ID-32390646-90c4-40bc-9370-b1425d4a411c">family of generators in an abelian category</a></li>
+<li><a href="20240508-enough_projectives_and_family_of_generators_in_an_abelian_category.html#ID-26c3c4d2-2610-4229-b886-62191371bd56">enough projectives and family of generators in an abelian category</a></li>
+<li><a href="20240508-enough_inectives_and_family_of_cogenerators_in_an_abelian_category.html#ID-97689986-16c0-43f3-8e17-68701070ba4b">enough inectives and family of cogenerators in an abelian category</a></li>
+
+<li><a href="20230902-ext_functor.html#ID-2340be9f-a0cd-450b-9c17-88d439e9767f">Ext Functor</a></li>
+<li><a href="20240508-abelian_group_structure_on_ext_1.html#ID-63868f51-858f-4bd7-a307-32295fbdcef9">abelian group structure on Ext 1</a></li>
+<li><a href="20240216-split_exact_sequence.html#ID-32d696f6-9166-4967-88f4-35225b407928">split exact sequence</a></li>
+<li><a href="20230815-splitting_lemma.html#ID-076e37fe-2414-41d1-a0a6-59e323b13104">Splitting Lemma</a></li>
+<li>bounded</li>
+<li><a href="20240508-short_exact_sequence_in_general_not_split_exact.html#ID-3342d0ed-75e6-4265-8b2c-1dc5d3b550b8">short exact sequence in general not split exact</a></li>
+<li><a href="20240507-ext_1_of_two_finitely_generated_abelian_groups.html#ID-a6724e26-5bce-4dfa-9e76-cd1075c70c25">ext 1 of two finitely generated abelian groups</a></li>
+<li><a href="20240508-n_extension_in_an_abelian_category.html#ID-a38fcebc-3ec9-41c5-8089-c51b14d5ad98">n extension in an abelian category</a></li>
+<li><a href="20240508-elementary_equivalent_n_extensions_in_an_abelian_category.html#ID-a30bbab4-5b25-4f67-b803-2b685557f605">elementary equivalent n extensions in an abelian category</a></li>
+<li><a href="20240508-natural_diagram_of_n_extensions_in_general_not_an_isomorphism.html#ID-99dcb779-d689-4c80-8700-236a2797c981">natural diagram of n-extensions in general not an isomorphism</a></li>
+<li><a href="20240508-equivalence_class_of_extensions_as_set.html#ID-d665438a-5f47-4ceb-b0e1-620c73041656">equivalence class of extensions up to isomorphism as set</a></li>
+<li><a href="20240508-abelina_group_structure_on_ext_n.html#ID-721a6777-65e9-4675-a645-9c01b17dd4e7">abelian group structure on ext n</a></li>
+
+<li><a href="20240508-pullback_induces_group_homomorphism_between_ext.html#ID-5f3cfee2-18f6-4da3-8439-29f1b9b7ddca">pullback induces group homomorphism between ext</a></li>
+<li><a href="20240508-pushout_induces_group_homomorphism_on_ext.html#ID-ae2b3e42-0cf4-4624-9f5e-5548bf6bcfe4">pushout induces group homomorphism on ext</a></li>
+<li></li>
+
+<li><a href="20240508-duality_of_ext.html#ID-cccd3194-2152-478e-b522-237abe7052cf">duality of ext</a></li>
+<li><a href="20240503-ab_enriched_covariant_hom_functor_as_left_exact_functor.html#ID-8e5ec5af-0002-495c-a7f9-eabde35741f6">covariant ab-hom-functor as left-exact functor</a></li>
+<li><a href="20240503-contravariant_ab_hom_functor_as_left_exact_functor.html#ID-b02adbc4-f38c-45c1-91b8-3a80e569eb5c">contravariant ab-hom functor as left exact functor</a></li>
+<li><a href="20240508-boundary_map_of_ext_1.html#ID-2c9c4993-9080-4119-ab68-ba65d04a0ffd">boundary map of ext 1</a></li>
+<li></li>
+
+<li><a href="20240316-snake_lemma.html#ID-d0a9d4c0-e63c-454e-b1d2-fc1e66b34811">Snake Lemma</a></li>
+<li><a href="20230722-long_exact_sequence.html#ID-b074fb17-3243-4a76-a429-6825d2c95343">long exact sequence</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7465add" class="outline-3">
+<h3 id="org7465add"><span class="section-number-3">1.3.</span> chain complexes &amp; homological algebra</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20230802-chain_complex.html#ID-e4c10be9-3796-4aff-9579-5cc0b5f47e36">chain complex</a></li>
+<li><a href="20230817-homology_functor.html#ID-c35a52a1-7174-408f-8480-9746e1c374bc">homology functor</a></li>
+<li><a href="20230804-acyclic_chain_complex.html#ID-bcab293d-9b86-45d8-a2db-7246b96fa0fb">acyclic chain complex</a></li>
+<li><a href="20230827-additive_functor.html#ID-194ea42e-600c-4119-8889-5b46998201e6">additive functor</a></li>
+<li><a href="20240522-exact_functor_preserves_long_exact_sequences.html#ID-caddaea9-4699-4239-99c8-bd7aae5cf8e5">exact functor preserves long exact sequences</a> - TODO</li>
+<li><a href="20240221-additive_functor_induces_functor_on_chain_complexes.html#ID-59e68017-1a48-42c0-b223-1058ffb00208">additive functor induces functor on chain complexes</a></li>
+<li><a href="20230903-covariant_left_exact_functor.html#ID-451552fa-0c6a-46d1-8bbd-9683937c52f3">left exact functor</a></li>
+<li><a href="20230903-right_exact_functor.html#ID-9af3df51-d300-4ca2-b340-8ac92cdd3fca">right exact functor</a></li>
+<li><a href="20230903-covariant_half_exact_functor.html#ID-262cbe81-1b42-4d9e-bbbb-47a127bf2d27">half exact</a></li>
+<li><a href="20240522-ab_hom_functor_as_left_exact_functor.html#ID-5a0232f8-abb4-4f95-b958-2de59292cda3">ab-hom functor as left exact functor</a> - todo</li>
+<li><a href="20230903-tensor_functor_as_right_exact_functor.html#ID-f764fee4-70ed-43a7-8b99-f27aba83523d">tensor functor as right exact functor</a></li>
+<li><a href="20230814-cochain_complex.html#ID-8b85815b-360f-4a77-bebf-8f9b7457fa1b">cochain complex</a></li>
+<li><a href="20240119-chain_homotopy.html#ID-779721d8-47c9-4616-8c2e-eb6cc27f5de1">chain homotopy</a></li>
+<li><a href="20240218-contractible_chain_complex.html#ID-e987a5ed-def4-4e4e-91bb-bb9051d8fd55">contractible chain complex</a></li>
+<li><a href="20240417-composition_of_chain_homotopic_maps.html#ID-e23741d7-92d0-4d18-a905-6de36e85d6ca">composition of chain homotopic maps</a></li>
+<li><a href="20240522-homotopy_category_of_chain_complexes.html#ID-cb0c2ef3-7fa3-42d4-95f4-198864ecb6e3">homotopy category of chain complexes</a></li>
+<li><a href="20240119-homology_functor_invariant_under_chain_homotopy.html#ID-02cfe1ce-0797-427a-8f04-ddec1eefdb58">Homology functor invariant under chain homotopy</a></li>
+<li><a href="20231212-quasi_isomorphism.html#ID-4d0430a5-c6db-4a21-8c43-cd224592d992">quasi-isomorphism</a></li>
+<li><a href="20240119-homotopic_maps_and_quasi_isomorphism.html#ID-251abd33-b497-4e72-b97a-2d8aadd7f820">chain homotopy equivalence and quasi-isomorphism</a></li>
+<li><a href="20240119-quasi_isomorphism_in_general_not_a_chain_homotopy_equivalence.html#ID-050a0ae3-be6d-4070-8d89-9058cc753c70">quasi isomorphism in general not a chain homotopy equivalence</a></li>
+<li><a href="20240522-derived_category.html#ID-944ca246-1184-47bc-858b-76b6ff140f1d">derived category</a></li>
+<li><a href="20231111-localization_of_a_category.html#ID-85d80d2e-d195-492e-ad38-1c93a91972af">localization of a category</a></li>
+<li><a href="20240522-additive_functor_induces_functor_on_homotopy_categories.html#ID-301ae56a-6ad2-44d3-a388-4e7b00843e53">additive functor induces functor on homotopy categories</a></li>
+<li><a href="20240316-fundamental_theorem_of_short_exact_chain_complexes.html#ID-a93664bb-1f9c-4e81-bbae-5b744cced70d">zig-zag lemma</a></li>
+<li></li>
+
+
+<li><a href="20231212-projective_resolution.html#ID-0d6124f2-59f2-4f96-838a-e8b023821bc6">projective resolution of an object</a></li>
+<li><a href="20240129-resolution_and_quasi_isomorphism.html#ID-6a08b055-3e5b-4807-9f23-de4a2918697b">resolution and quasi isomorphism</a></li>
+<li><a href="20230727-projective_object.html#ID-605bb0c6-3cb5-44d6-bb3e-660f0fef14d1">projective object</a></li>
+<li><a href="20230903-injective_object.html#ID-7fbb0ef7-bb6c-4135-b65f-2d8fb5f2df00">injective object</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="20230801-projective_module_and_sum_as_free_module.html#ID-581d0e02-9070-46fa-8e3f-73377aff2ed4">projective module and sum as free module</a></li>
+<li><a href="20230801-projective_module_as_free_module_for_a_pid.html#ID-3fba905f-ddbd-4bd7-8940-e359901fd2d7">projective module as free module for a PID</a></li>
+<li><a href="20230803-group_as_injective_module_and_divisible_group.html#ID-0f5b4ace-2a38-4aed-aa09-1e69be9e14cb">group as injective module and divisible group</a></li>
+<li></li>
+
+
+<li><a href="20240611-divisible_abelian_group_as_injective_object.html#ID-e73b1920-b466-42c9-b5d6-e62dd48b47f5">divisible abelian group as injective object</a></li>
+<li><a href="20240612-rational_circle_group_as_cogenerator.html#ID-1474001a-15e1-4492-aa2a-a9065daf1463">rational circle group as cogenerator</a></li>
+<li><a href="20240612-grothendieck_theorem_about_ab3_category_with_generator.html#ID-115e4624-0e61-44b7-bc79-a543bb158bcb">grothendieck theorem about ab3 category with generators</a></li>
+<li><a href="20240612-enough_injectives_of_an_ab5_category_with_generators.html#ID-acc0442e-e5c4-49d6-8445-08b0ff1afa77">enough injectives of an ab5 category with generators</a></li>
+<li><a href="20231212-enough_injectives.html#ID-f93303c0-0da2-4014-aea8-4a271d5c74a4">enough injectives</a></li>
+<li><a href="20231212-enough_projectives.html#ID-8699327b-1cf6-41fc-9eda-522460057625">enough projectives</a></li>
+<li><a href="20240612-category_of_abelian_sheaves_with_enough_injectives.html#ID-b0a23b48-7893-4b6b-8380-ce9e4fd43af0">category of abelian sheaves with enough injectives</a>  - TODO</li>
+
+<li><a href="20240319-projective_resolution_and_enough_projcetives.html#ID-bbe0761b-5f20-4262-b2e1-23bca04be256">projective resolution and enough projectives</a></li>
+<li><a href="20240319-injective_resolution_and_enough_injectives.html#ID-8482f02f-cc0a-4e3e-b83d-47db045878c8">injective resolution and enough injectives</a></li>
+
+<li><a href="20240126-fundamental_theorem_of_homological_algebra.html#ID-a2335096-1701-412e-a7ed-210265abf8f0">fundamental theorem of homological algebra</a></li>
+<li><a href="20230827-additive_functor.html#ID-194ea42e-600c-4119-8889-5b46998201e6">additive functor</a></li>
+<li><a href="20240416-delta_functor.html#ID-897b3b25-fd26-4c71-8a14-cdfb9d3021c5">delta functor</a></li>
+<li><a href="20240220-additive_functor_and_biproduct.html#ID-3f789801-711b-4c7b-b7c8-7d977f60dbd7">additive functor and biproduct</a></li>
+<li><a href="20240317-left_derived_functor.html#ID-e5bdb6a8-cbec-457d-9ca8-8114a4b4c9a0">left derived functor</a></li>
+
+<li>something about derived categories + triangulated categories</li>
+<li><a href="20240619-additev_functor_from_cat_vec_as_exact_functor.html#ID-11c6be42-9559-4d89-9209-82bf1da79fca">additve functor from Cat Vec as exact functor</a></li>
+<li><a href="20240414-submodule_of_a_finitely_generated_free_module_over_a_pid_as_free_module.html#ID-860ab24a-3570-4ba3-86e1-689b64f1139f">submodule of a finitely generated free module over a PID as free module</a></li>
+<li><a href="20240619-submodule_of_a_free_module_over_a_pid_as_free_module.html#ID-69a9ab4a-0c83-4c54-91fe-545c59eecdb8">submodule of a free module over a pid as free module_</a></li>
+<li><a href="20240424-left_derived_functor_for_a_hereditary_ring.html#ID-d8fe9e4f-6bd7-4c58-8c9e-b0c074da1cad">left derived functor for a hereditary ring</a></li>
+<li><a href="20230902-tor_functor.html#ID-b722ea72-1c6d-45c9-bf92-84164a0b360a">Tor Functor</a></li>
+<li><a href="20240428-tor_functor_symmetric_for_a_commutative_ring.html#ID-64ffa9e8-d3bc-47c4-a8c8-9e8198350ff6">Tor functor symmetric for a commutative ring</a></li>
+<li><a href="20230902-tor_functor.html#ID-b722ea72-1c6d-45c9-bf92-84164a0b360a">Tor Functor</a></li>
+<li><a href="20240619-computing_tor_functor.html#ID-2f3d0cf1-d20d-45f2-acf8-0563a64ae3ba">computing tor functor independent of resolution of the left or right component</a></li>
+<li></li>
+
+<li><a href="20240619-biadditive_functor.html#ID-ee8b11fc-c783-4dc6-96ae-8fb57c503dfb">biadditive functor</a></li>
+<li><a href="20240619-proj_exact_bifunctor.html#ID-dbc175aa-18ef-4916-926a-c79150d4a3e1">projective exact bifunctor</a></li>
+<li><a href="20240619-injective_object_exact_functor.html#ID-f38e0c96-b176-4098-a027-f5685daf04b4">injective object exact functor</a></li>
+
+<li><a href="20240619-left_derived_functor_of_a_projective_object_exact_biadditive_functor.html#ID-c6092b6a-fa68-4fdd-a30b-9dc8b4272c79">left derived functor of a projective object exact biadditive functor</a></li>
+<li><a href="20240619-right_derived_functor_of_a_injective_object_exact_biadditive_functor.html#ID-edf0cba0-cf8a-489d-8164-791e7aee8a23">right derived functor of a injective object exact biadditive functor</a></li>
+<li><a href="20240619-submodule_of_a_free_module_over_a_pid_as_free_module.html#ID-69a9ab4a-0c83-4c54-91fe-545c59eecdb8">submodule of a free module over a pid as free module_</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orged3cd77" class="outline-3">
+<h3 id="orged3cd77"><span class="section-number-3">1.4.</span> simplicial objects and simplicial homotopy</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><a href="20240112-singular_chain_complex.html#ID-89340d41-82e3-496e-a834-b70a01659303">singular chain complex</a></li>
+<li><a href="20240619-singular_chain_complex_as_simplicial_abelian_group.html#ID-3b296637-3ec0-4804-9679-a7eaf32623eb">singular chain complex as simplicial abelian group</a></li>
+<li><a href="20230923-simplex_category.html#ID-2952609d-1bab-4ac4-bbd7-1c0814af1314">simplex category</a></li>
+<li><a href="20230923-simplicial_object.html#ID-1501453f-3753-43db-ab32-9f7cf332945d">simplicial object</a></li>
+<li><a href="20240129-category_of_simplicial_objects.html#ID-ff0605cb-57bc-4673-99ff-09425a72bb97">category of simplicial objects</a></li>
+<li><a href="20230923-cosimplicial_object.html#ID-8ab7b4cf-7aaf-4494-9013-8eb5532318c2">cosimplicial object</a></li>
+<li><a href="20240619-category_of_cosimplicial_objects.html#ID-05a31883-eade-497b-a400-c7bc23d3cb0e">category of cosimplicial objects</a></li>
+<li><a href="20230923-face_map_category_theory.html#ID-33641221-7fdf-41b9-a328-6b1af414de0c">face map</a> (auf coface ändern ?)</li>
+<li><a href="20230923-degeneracy_map_category_theory.html#ID-f8817509-7551-4eeb-8d9d-a121ee359e75">degeneracy map</a> (auf coface ändern ?)</li>
+
+<li><a href="20240415-face_map_of_a_simplicial_object.html#ID-e03155f6-f627-4185-96fa-feec1621ce47">face map of a simplicial object</a></li>
+<li><a href="20240415-degeneracy_map_of_a_simplicial_object.html#ID-0b3d24c5-ba87-4659-b755-a51dca4bc4c0">degeneracy map of a simplicial object</a></li>
+
+<li><a href="20240619-presentation_of_a_category.html#ID-84248bbb-8098-459b-8650-e12c6e053817">presentation of a category</a></li>
+<li><a href="20240619-presentation_of_the_simplex_category.html#ID-8ef1eb4b-d906-498e-bef6-a855c47ea0eb">presentation of the simplex category</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="20240128-represented_simplicial_set.html#ID-ecbc7b48-4158-40fc-8130-b3e8183a17e9">represented simplicial set</a></li>
+<li><a href="20240102-natural_transformation_from_contravariant_hom_functor_as_precomposition.html#ID-2879cce2-1bea-4614-8e01-601c41b997bc">contravariant Yoneda Lemma</a></li>
+<li><a href="20240430-representable_functor_as_projective_object_in_the_functor_category.html#ID-96fd0584-edde-4426-8648-ef710ddc6ff6">representable functor as projective object in the functor category</a></li>
+
+<li></li>
+
+<li></li>
+
+
+<li><a href="20220830195220-constant_functor.html#ID-4ff6affe-14a3-4ed7-a0e3-1837838e8409">constant functor</a></li>
+<li>?</li>
+
+<li><a href="20240422-homotopy_between_morphisms_of_simplicial_sets.html#ID-037a7313-6b02-4731-b0e2-2fd01fe9012e">homotopy between morphisms of simplicial sets</a></li>
+<li><a href="20240404-homotopy_category_of_simplicial_sets.html#ID-68292036-ae98-4d9a-aa38-a8fa60ee2104">homotopy category of simplicial sets</a></li>
+
+<li><a href="20240703-map_to_es_unique_up_to_homotopy.html#ID-41799f13-66f4-478d-8b90-1eaff2e048c7">map to es unique up to homotopy</a></li>
+
+<li><a href="20240703-es_as_contractible_simplicial_set.html#ID-65a6cc74-919c-4116-ae99-123e3e2218d2">Es as contractible simplicial set</a></li>
+<li><a href="20240703-es_as_contractible_simplicial_set.html#ID-65a6cc74-919c-4116-ae99-123e3e2218d2">Es as contractible simplicial set</a></li>
+
+<li>ES of a group is contractible</li>
+<li>\(G\) operates diagonaly on</li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="20240413-classifying_space_of_a_group.html#ID-d74dcae1-3540-4157-a431-6b2ac69aecec">classifying space of a group</a></li>
+<li></li>
+
+
+<li><a href="20240129-geometric_realization_of_a_simplicial_set.html#ID-dd7fca72-80cd-4b4b-a63f-1ff75e2bccd0">geometric realization functor</a></li>
+</ul>
+</div>
+
+<div id="outline-container-org5446229" class="outline-4">
+<h4 id="org5446229"><span class="section-number-4">1.4.1.</span> simplicial object in an abelian category</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<ul class="org-ul">
+<li><a href="20240417-dold_kan_correspondence.html#ID-81f6564c-96e1-47a9-b760-b96c43a8f5b2">dold-kan correspondence</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org8e2aad3" class="outline-3">
+<h3 id="org8e2aad3"><span class="section-number-3">1.5.</span> dold-kan-correspondence, eilenberg mac Lane spaces</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8a54826" class="outline-2">
+<h2 id="org8a54826"><span class="section-number-2">2.</span> references</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>Mac Lane Homology</li>
+<li>Simplicial object in algebraic topology</li>
+<li>simplicial homotoy theroy curtis</li>
+</ul>
+
+
+<p>
+re
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org30c60d9" class="outline-2">
+<h2 id="org30c60d9"><span class="section-number-2">3.</span> todo</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>TODO: some biadditive derived functor shit</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-15 Di 23:21</p>
+</div>
+</body>
+</html>

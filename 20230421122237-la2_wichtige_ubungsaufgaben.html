@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 22:26 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LA2: Übungsaufgaben</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">LA2: Übungsaufgaben</h1>
+<div id="outline-container-org9df28a9" class="outline-2">
+<h2 id="org9df28a9"><span class="section-number-2">1.</span> Übung</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orge2a50aa" class="outline-3">
+<h3 id="orge2a50aa"><span class="section-number-3">1.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org212bdd3" class="outline-4">
+<h4 id="org212bdd3"><span class="section-number-4">1.1.1.</span> Präsenz</h4>
+<div class="outline-text-4" id="text-1-1-1">
+</div>
+<div id="outline-container-orgfd822d1" class="outline-5">
+<h5 id="orgfd822d1"><span class="section-number-5">1.1.1.1.</span> Aufgabe 1</h5>
+<div class="outline-text-5" id="text-1-1-1-1">
+<ul class="org-ul">
+<li><a href="20230315113206-nilpotent.html#ID-e1be03af-ebb8-42d9-8caa-1fe3a1093c3f">nilpotent</a></li>
+<li><a href="20230421142812-summe_von_nilpotenten_elementen_sind_nilpotent.html#ID-80668bdd-085d-45eb-92f9-36c74eb32773">Summe von nilpotenten Elementen sind nilpotent</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org97c3689" class="outline-5">
+<h5 id="org97c3689"><span class="section-number-5">1.1.1.2.</span> Aufgabe 2</h5>
+<div class="outline-text-5" id="text-1-1-1-2">
+<ul class="org-ul">
+<li><a href="20230421143146-multiplikation_mit_einem_nilpotenten_element_als_nilpotentes_element.html#ID-60f71368-e8b4-4890-b271-782f945088e5">Multiplikation mit einem nilpotenten Element als nilpotentes Element</a></li>
+<li><a href="20230421143122-summe_eines_nilpotenten_elements_und_einer_einheit_als_einheit.html#ID-18a11fd6-bf09-4d15-a485-7ed80c5843bb">Summe eines nilpotenten Elements und einer Einheit als Einheit</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcee5904" class="outline-4">
+<h4 id="orgcee5904"><span class="section-number-4">1.1.2.</span> Abgabe</h4>
+<div class="outline-text-4" id="text-1-1-2">
+</div>
+<div id="outline-container-org0cbc31a" class="outline-5">
+<h5 id="org0cbc31a"><span class="section-number-5">1.1.2.1.</span> Aufgabe 1</h5>
+<div class="outline-text-5" id="text-1-1-2-1">
+<ul class="org-ul">
+<li>TODO</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd22db81" class="outline-5">
+<h5 id="orgd22db81"><span class="section-number-5">1.1.2.2.</span> Aufgabe 2</h5>
+<div class="outline-text-5" id="text-1-1-2-2">
+<ul class="org-ul">
+<li><a href="20230314164725-menge_der_einheiten_uber_einem_polynomring.html#ID-32cbf3d4-285b-4f84-8f8f-2bf3154e0dbc">Menge der Einheiten über einem Polynomring</a></li>
+<li><a href="20230421121825-endlicher_integritatsbereich_als_korper.html#ID-db48354b-1418-466e-891e-222aca35137d">endlicher Integritätsbereich als Körper</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgce0d6e1" class="outline-5">
+<h5 id="orgce0d6e1"><span class="section-number-5">1.1.2.3.</span> Aufgabe 3</h5>
+<div class="outline-text-5" id="text-1-1-2-3">
+<ul class="org-ul">
+<li><a href="20221226010643-einsetzungshomomorphismus.html#ID-714a456e-dcd8-4e03-906b-2b497bf77766">Einsetzungshomomorphismus</a></li>
+<li><a href="20230421143442-einsetzungsmonomorphismus_und_lineare_unabhangigkeit.html#ID-f08c498a-4789-42eb-8074-af8cbffde767">Einsetzungsmonomorphismus und lineare unabhängigkeit</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org42d19a0" class="outline-5">
+<h5 id="org42d19a0"><span class="section-number-5">1.1.2.4.</span> Aufgabe 4</h5>
+<div class="outline-text-5" id="text-1-1-2-4">
+<ul class="org-ul">
+<li><a href="20220906102828-euklidischer_algorithmus.html#ID-46ca0f33-0265-49a8-a689-91968fb88b56">euklidischer Algorithmus</a> und polynom in \(\mathbb{Q}[x]\)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org3b511b7" class="outline-3">
+<h3 id="org3b511b7"><span class="section-number-3">1.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-org0bc1bec" class="outline-4">
+<h4 id="org0bc1bec"><span class="section-number-4">1.2.1.</span> Präsenz</h4>
+<div class="outline-text-4" id="text-1-2-1">
+</div>
+<div id="outline-container-orgdfa845a" class="outline-5">
+<h5 id="orgdfa845a"><span class="section-number-5">1.2.1.1.</span> Aufgabe 1</h5>
+</div>
+<div id="outline-container-orgcf6b1ad" class="outline-5">
+<h5 id="orgcf6b1ad"><span class="section-number-5">1.2.1.2.</span> Aufgabe 2</h5>
+</div>
+</div>
+<div id="outline-container-orga24c7ea" class="outline-4">
+<h4 id="orga24c7ea"><span class="section-number-4">1.2.2.</span> Abgabe</h4>
+<div class="outline-text-4" id="text-1-2-2">
+</div>
+<div id="outline-container-orgd895ffb" class="outline-5">
+<h5 id="orgd895ffb"><span class="section-number-5">1.2.2.1.</span> 1)</h5>
+<div class="outline-text-5" id="text-1-2-2-1">
+<ul class="org-ul">
+<li><a href="20230428164635-charakteristische_polynom_und_spur.html#ID-0b0a017e-9546-4107-987e-6bbc5ec91427">Charakteristische Polynom und Spur</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgafde0de" class="outline-5">
+<h5 id="orgafde0de"><span class="section-number-5">1.2.2.2.</span> 2)</h5>
+<div class="outline-text-5" id="text-1-2-2-2">
+<ul class="org-ul">
+<li><a href="20230428164720-charakteristische_polynom_und_multiplikation.html#ID-96881394-3764-4998-b276-5e639d182568">Charakteristische Polynom und Multiplikation</a></li>
+<li><a href="20230428164939-charakteristische_polynom_unter_addition_einer_zentralen_matrix.html#ID-542a6016-37e7-4148-8ae3-9cdc6b059420">charakteristische Polynom unter Addition einer zentralen Matrix</a></li>
+<li><a href="20230428165035-charakteristische_polynom_fur_rang_1.html#ID-3b363403-5690-47d1-8313-5d3669cb6998">charakteristische Polynom für Rang 1</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgaffd59a" class="outline-5">
+<h5 id="orgaffd59a"><span class="section-number-5">1.2.2.3.</span> 3)</h5>
+<div class="outline-text-5" id="text-1-2-2-3">
+<ul class="org-ul">
+<li><a href="20230428180510-trigonalisierbarer_endomorphismus.html#ID-179077ce-7cd0-44c9-a418-134d710ddd4a">trigonalisierbarer Endomorphismus</a></li>
+<li><a href="20230428180556-trigonalisierbarkeit_und_zerfallen_des_charakteristischen_polynoms.html#ID-c9054b3d-5d66-487f-abbe-1b374c2f219c">Trigonalisierbarkeit und zerfallen des charakteristischen Polynoms</a></li>
+<li><a href="20230428180622-trigonalisierbarkeit_eines_endomorphismus_in_einem_algebraisch_abgeschlossenen_korper.html#ID-681debd6-f62c-4274-82ab-3bfce6234963">Trigonalisierbarkeit eines Endomorphismus in einem algebraisch abgeschlossenen Körper</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7afc47b" class="outline-5">
+<h5 id="org7afc47b"><span class="section-number-5">1.2.2.4.</span> 4)</h5>
+</div>
+</div>
+</div>
+<div id="outline-container-orgdd7619f" class="outline-3">
+<h3 id="orgdd7619f"><span class="section-number-3">1.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-org536d5c1" class="outline-4">
+<h4 id="org536d5c1"><span class="section-number-4">1.3.1.</span> Präsenz</h4>
+<div class="outline-text-4" id="text-1-3-1">
+</div>
+<div id="outline-container-org998e583" class="outline-5">
+<h5 id="org998e583"><span class="section-number-5">1.3.1.1.</span> Aufgabe 1</h5>
+<div class="outline-text-5" id="text-1-3-1-1">
+<ul class="org-ul">
+<li><a href="20230505193228-nilpotente_matrizen_in_abhangigkeit_der_dimension.html#ID-ec80a2fe-014e-4c8f-86b2-e9cc8699839c">nilpotente Matrizen in Abhängigkeit der Dimension</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6c229b4" class="outline-5">
+<h5 id="org6c229b4"><span class="section-number-5">1.3.1.2.</span> Aufgabe 2</h5>
+<div class="outline-text-5" id="text-1-3-1-2">
+<ul class="org-ul">
+<li>charakteristisches polynom und diagonalisierbarkeit</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org936ca6f" class="outline-4">
+<h4 id="org936ca6f"><span class="section-number-4">1.3.2.</span> Abgabe</h4>
+<div class="outline-text-4" id="text-1-3-2">
+</div>
+<div id="outline-container-org04814da" class="outline-5">
+<h5 id="org04814da"><span class="section-number-5">1.3.2.1.</span> Aufgabe 1</h5>
+<div class="outline-text-5" id="text-1-3-2-1">
+<ul class="org-ul">
+<li><a href="20230505193322-spur_von_matrizen_mit_determinante_1_unter_multiplikation.html#ID-f508f60d-6ebd-4f83-849e-b42b2bc21145">Spur von Matrizen mit Determinante 1 unter Multiplikation</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9d4e13a" class="outline-5">
+<h5 id="org9d4e13a"><span class="section-number-5">1.3.2.2.</span> Aufgabe 2</h5>
+<div class="outline-text-5" id="text-1-3-2-2">
+<ul class="org-ul">
+<li><a href="20230505193412-spur_von_matrizen_hoch_3.html#ID-41cfd200-e4be-44ec-a4f8-e1a8db7e5601">Spur von Matrizen hoch 3</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org048498e" class="outline-5">
+<h5 id="org048498e"><span class="section-number-5">1.3.2.3.</span> Aufgabe 3</h5>
+</div>
+<div id="outline-container-orgc6fb97a" class="outline-5">
+<h5 id="orgc6fb97a"><span class="section-number-5">1.3.2.4.</span> Aufgabe 4</h5>
+</div>
+</div>
+</div>
+<div id="outline-container-org203557e" class="outline-3">
+<h3 id="org203557e"><span class="section-number-3">1.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-orga5cd059" class="outline-4">
+<h4 id="orga5cd059"><span class="section-number-4">1.4.1.</span> Präsenz</h4>
+<div class="outline-text-4" id="text-1-4-1">
+</div>
+<div id="outline-container-org923aaf8" class="outline-5">
+<h5 id="org923aaf8"><span class="section-number-5">1.4.1.1.</span> Aufgabe 1</h5>
+<div class="outline-text-5" id="text-1-4-1-1">
+<ul class="org-ul">
+<li><a href="20230523161926-teilbarkeit_durch_11_und_alternierende_summe_der_ziffern.html#ID-a517b388-c8b7-49c0-9b52-edd111ba630c">Teilbarkeit durch 11 und alternierende Summe der Ziffern</a></li>
+<li><a href="20230523161753-teilbarkeit_durch_3_und_summe.html#ID-a9e2b3a9-3dfe-4d15-b3f4-d9ed3930e069">Teilbarkeit durch 3 und Summe der Ziffern</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6cc217a" class="outline-5">
+<h5 id="org6cc217a"><span class="section-number-5">1.4.1.2.</span> Aufgabe 2</h5>
+<div class="outline-text-5" id="text-1-4-1-2">
+<ul class="org-ul">
+<li><a href="20230423224858-einheit_und_nullteiler.html#ID-2dab0c61-fa50-4755-a1b6-0294e5b02d2f">Einheit und Nullteiler</a></li>
+<li><a href="20230518181606-multiplikative_inverse_in_einem_restklassenring.html#ID-40bf6a61-4b41-454a-bc24-d2d413a836dd">multiplikative Inverse in einem Restklassenring</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org69c4898" class="outline-4">
+<h4 id="org69c4898"><span class="section-number-4">1.4.2.</span> Abgabe</h4>
+<div class="outline-text-4" id="text-1-4-2">
+</div>
+<div id="outline-container-org106414d" class="outline-5">
+<h5 id="org106414d"><span class="section-number-5">1.4.2.1.</span> Aufgabe 1</h5>
+<div class="outline-text-5" id="text-1-4-2-1">
+<ul class="org-ul">
+<li>inverse berechnen in einem faktorring</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcebaf28" class="outline-5">
+<h5 id="orgcebaf28"><span class="section-number-5">1.4.2.2.</span> Aufgabe 2</h5>
+<div class="outline-text-5" id="text-1-4-2-2">
+<ul class="org-ul">
+<li><a href="20221130162103-gaußsche_ganze_zahlen.html#ID-f8690853-647c-4f05-9fc0-d11320762568">Gaußsche ganze Zahlen</a></li>
+<li><a href="20230518142546-gaußsche_ganze_zahlen_als_ring.html#ID-a27df0d2-edb4-492a-b7bd-5c8596239583">gaußsche ganze Zahlen als Ring_</a></li>
+<li><a href="20230419131549-gaußsche_ganzen_zahlen_als_euklidischer_ring.html#ID-850afd40-c230-4c7b-b5dc-ccde90c2da32">gaußsche ganzen Zahlen als euklidischer Ring</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc7c6bf5" class="outline-5">
+<h5 id="orgc7c6bf5"><span class="section-number-5">1.4.2.3.</span> Aufgabe 3</h5>
+<div class="outline-text-5" id="text-1-4-2-3">
+<ul class="org-ul">
+<li>Chinesischer Restsatz</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5e8d2f0" class="outline-5">
+<h5 id="org5e8d2f0"><span class="section-number-5">1.4.2.4.</span> Aufgabe 4</h5>
+<div class="outline-text-5" id="text-1-4-2-4">
+<ul class="org-ul">
+<li><a href="20230518142720-isomorphiesatz_fur_den_schnitt_eines_ideals_und_unterrings.html#ID-e89996eb-ecc6-469d-984f-223146ffa5de">Isomorphiesatz für den Schnitt eines Ideals und Unterrings</a></li>
+<li><a href="20230518142710-isomorphiesatz_fur_zwei_faktorringe.html#ID-2174a763-83ca-44b3-b3a3-003ac95d5c42">isomorphiesatz für zwei Faktorringe</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgac0dcda" class="outline-3">
+<h3 id="orgac0dcda"><span class="section-number-3">1.5.</span> 5)</h3>
+<div class="outline-text-3" id="text-1-5">
+</div>
+<div id="outline-container-orge71214d" class="outline-4">
+<h4 id="orge71214d"><span class="section-number-4">1.5.1.</span> Präsenz</h4>
+<div class="outline-text-4" id="text-1-5-1">
+</div>
+<div id="outline-container-org94c5d78" class="outline-5">
+<h5 id="org94c5d78"><span class="section-number-5">1.5.1.1.</span> Aufgabe 1</h5>
+</div>
+<div id="outline-container-org517cc9a" class="outline-5">
+<h5 id="org517cc9a"><span class="section-number-5">1.5.1.2.</span> Aufgabe 2</h5>
+</div>
+</div>
+<div id="outline-container-orge15e256" class="outline-4">
+<h4 id="orge15e256"><span class="section-number-4">1.5.2.</span> Abgabe</h4>
+<div class="outline-text-4" id="text-1-5-2">
+</div>
+<div id="outline-container-org2095f5a" class="outline-5">
+<h5 id="org2095f5a"><span class="section-number-5">1.5.2.1.</span> Aufgabe 1</h5>
+<div class="outline-text-5" id="text-1-5-2-1">
+<ul class="org-ul">
+<li><a href="20230525170851-großter_gemeinsamer_teiler_und_primzerlegung_in_einem_hauptidealring.html#ID-976562af-3605-44c7-9d06-948ca2cd3356">größter gemeinsamer Teiler und Primzerlegung in einem Hauptidealring</a></li>
+<li><a href="20230525181850-großter_gemeinsamer_teiler_von_einfachen_produkten_irreduzibler_elemente.html#ID-317d4885-1124-4bed-a295-1bfd4ad937da">größter gemeinsamer Teiler von einfachen Produkten irreduzibler Elemente</a></li>
+<li><a href="20230525165833-unendlich_viele_normierte_polynome_uber_einem_korper.html#ID-afa1c917-0f14-400f-bb9e-a537db8c25e1">unendlich viele normierte Polynome über einem Körper</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org82dcfeb" class="outline-5">
+<h5 id="org82dcfeb"><span class="section-number-5">1.5.2.2.</span> Aufgabe 2</h5>
+<div class="outline-text-5" id="text-1-5-2-2">
+<ul class="org-ul">
+<li><a href="20230525193812-multiplikation_mit_einer_variable_in_einem_modul_als_vektorraumendomorphismus.html#ID-bb77df76-6954-4468-9423-4f94e4471f19">Multiplikation mit einer Variable in einem Modul als Vektorraumendomorphismus</a></li>
+<li><a href="20230525190838-moduln_uber_einem_polynomring_isomorph_zur_menge_der_vektorraume_mit_punktiertem_endomorphismus.html#ID-48d4ec1b-d89b-42b1-8fca-a161d62ce920">Moduln über einem Polynomring isomorph zur Menge der Vektorräume mit punktiertem Endomorphismus</a></li>
+<li><a href="20230525190422-modul_eines_vektorraums_uber_einem_polynomrings_eindeutig_festgelegt.html#ID-6f48ea36-6f55-4260-b9a4-51b19c62c51f">Modul eines Vektorraums über einem Polynomrings eindeutig festgelegt</a></li>
+<li><a href="20230525191430-homomorphismus_von_moduln_uber_einem_polynomring.html#ID-8a14bfc1-2b62-4b1d-9613-e19b0c1a19f1">Homomorphismus von Moduln über einem Polynomring</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2a543f6" class="outline-5">
+<h5 id="org2a543f6"><span class="section-number-5">1.5.2.3.</span> Aufgabe 3</h5>
+</div>
+<div id="outline-container-org3bb992a" class="outline-5">
+<h5 id="org3bb992a"><span class="section-number-5">1.5.2.4.</span> Aufgabe 4</h5>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf470492" class="outline-3">
+<h3 id="orgf470492"><span class="section-number-3">1.6.</span> 6)</h3>
+<div class="outline-text-3" id="text-1-6">
+</div>
+<div id="outline-container-orgb27b46a" class="outline-4">
+<h4 id="orgb27b46a"><span class="section-number-4">1.6.1.</span> Präsenz</h4>
+<div class="outline-text-4" id="text-1-6-1">
+</div>
+<div id="outline-container-org1946232" class="outline-5">
+<h5 id="org1946232"><span class="section-number-5">1.6.1.1.</span> Aufgabe 1</h5>
+<div class="outline-text-5" id="text-1-6-1-1">
+<ul class="org-ul">
+<li><a href="20230531083756-nullideal_als_maximale_ideal_und_korper.html#ID-9ef89f23-8e17-4da7-9e63-08f96b5dcacd">Nullideal als maximale Ideal und Körper</a> und $r &sdot; - TODO</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8f38259" class="outline-5">
+<h5 id="org8f38259"><span class="section-number-5">1.6.1.2.</span> Aufgabe 2</h5>
+<div class="outline-text-5" id="text-1-6-1-2">
+<ul class="org-ul">
+<li><a href="20230531084257-menge_der_reellwertigen_stetigen_funktionen_und_maximales_ideal.html#ID-69df2aff-ec4a-4c24-8974-b3a03b7ebee8">Menge der reellwertigen stetigen Funktionen und maximales Ideal</a> - TODO</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org6869aee" class="outline-4">
+<h4 id="org6869aee"><span class="section-number-4">1.6.2.</span> Abgabe</h4>
+<div class="outline-text-4" id="text-1-6-2">
+</div>
+<div id="outline-container-orgbf6471a" class="outline-5">
+<h5 id="orgbf6471a"><span class="section-number-5">1.6.2.1.</span> Aufgabe 1</h5>
+<div class="outline-text-5" id="text-1-6-2-1">
+<ul class="org-ul">
+<li><a href="20230528090348-isomorphiesatz_fur_den_schnitt_eines_moduls_und_summe_zweier_moduln.html#ID-32531e0f-b610-4a13-9b51-5c697a6d2fe3">Isomorphiesatz für den Schnitt eines Moduls und Summe zweier Moduln</a></li>
+<li><a href="20230528091702-isomorphie_von_zwei_faktormoduln.html#ID-ad63da0d-7745-4936-920b-ccccadff1ac8">Isomorphie von zwei Faktormoduln</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge5050f5" class="outline-5">
+<h5 id="orge5050f5"><span class="section-number-5">1.6.2.2.</span> Aufgabe 2</h5>
+<div class="outline-text-5" id="text-1-6-2-2">
+<ul class="org-ul">
+<li><a href="20230528091757-existenz_einer_erweiterung_zu_einer_basis.html#ID-e64e5fd7-9a8b-4e37-867e-c02077f8cede">Existenz einer Erweiterung zu einer Basis</a></li>
+<li><a href="20230528091820-existenz_einer_basis_zu_einem_erzeugendensystem.html#ID-d83ab4e7-8992-446e-956c-9f02cb298d68">Existenz einer Basis für ein Erzeugendensystem</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org01c32d5" class="outline-5">
+<h5 id="org01c32d5"><span class="section-number-5">1.6.2.3.</span> Aufgabe 3</h5>
+</div>
+<div id="outline-container-orgee680f9" class="outline-5">
+<h5 id="orgee680f9"><span class="section-number-5">1.6.2.4.</span> Aufgabe 4</h5>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org473c3c7" class="outline-3">
+<h3 id="org473c3c7"><span class="section-number-3">1.7.</span> 7)</h3>
+</div>
+<div id="outline-container-orgb9c65da" class="outline-3">
+<h3 id="orgb9c65da"><span class="section-number-3">1.8.</span> 8)</h3>
+</div>
+<div id="outline-container-org23ef386" class="outline-3">
+<h3 id="org23ef386"><span class="section-number-3">1.9.</span> 9)</h3>
+<div class="outline-text-3" id="text-1-9">
+<ul class="org-ul">
+<li><a href="20230620-elementarteiler_eines_jordanblocks.html#ID-100d90ec-3a04-4e18-af45-2862f01b47b3">Elementarteiler eines Jordanblocks</a></li>
+<li><a href="20230706-berechnung_von_exponenten_unter_basiswechsel.html#ID-b5d075cc-ed1c-4a1c-be59-a0932599cba5">Berechnung von Exponenten unter Basiswechsel</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org944fd8f" class="outline-3">
+<h3 id="org944fd8f"><span class="section-number-3">1.10.</span> 10)</h3>
+<div class="outline-text-3" id="text-1-10">
+<ul class="org-ul">
+<li><a href="20230623-orthogonale_komplement_der_ungeraden_funktionen.html#ID-99b20677-c9be-4478-b77b-9cd1d68a01f1">orthogonale Komplement der ungeraden Funktionen</a></li>
+<li><a href="20230623-stetige_funktionenraum_als_direkte_summe_von_geraden_und_ungeraden_funktionen.html#ID-ab82e80b-34f9-4319-8955-ef4872c07719">Stetige Funktionenraum als direkte Summe von geraden und ungeraden Funktionen</a></li>
+<li><a href="20230623-orthogonale_komplement_eines_echten_unterraum_i_a_kein_echter_unterraum.html#ID-67e7a9ee-180a-4455-b753-45cef94b9799">orthogonale Komplement eines echten Unterraum i.A. kein echter Unterraum</a></li>
+<li><a href="20230623-unterraum_der_beschrankten_folgen_mit_reihenbildung_als_inneres_produkt.html#ID-2b6e7961-d9bd-461e-ad38-3f182230c1b9">Unterraum der beschränkten Folgen mit Reihenbildung als inneres Produkt</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org025c118" class="outline-3">
+<h3 id="org025c118"><span class="section-number-3">1.11.</span> 11)</h3>
+</div>
+<div id="outline-container-org4efebd0" class="outline-3">
+<h3 id="org4efebd0"><span class="section-number-3">1.12.</span> 12</h3>
+<div class="outline-text-3" id="text-1-12">
+</div>
+<div id="outline-container-org99bcea3" class="outline-4">
+<h4 id="org99bcea3"><span class="section-number-4">1.12.1.</span> Aufgabe 1</h4>
+</div>
+<div id="outline-container-orge83e0b9" class="outline-4">
+<h4 id="orge83e0b9"><span class="section-number-4">1.12.2.</span> Aufgabe 2</h4>
+<div class="outline-text-4" id="text-1-12-2">
+<ul class="org-ul">
+<li><a href="20230710-spiegelung_als_orthogonaler_endomorphismus.html#ID-294e5eaa-442e-47b6-b024-5eaee9e77dbe">Spiegelung als orthogonaler Endomorphismus</a></li>
+<li><a href="20230710-spiegelung_von_punkten_mit_gleicher_norm.html#ID-aac4eead-9a49-4699-9fcb-697e408db1a4">Spiegelung von Punkten mit gleicher Norm</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org553396c" class="outline-2">
+<h2 id="org553396c"><span class="section-number-2">2.</span> Skelett - Übung</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgd9a6a9e" class="outline-3">
+<h3 id="orgd9a6a9e"><span class="section-number-3">2.1.</span> )</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org8e1df23" class="outline-4">
+<h4 id="org8e1df23"><span class="section-number-4">2.1.1.</span> Präsenz</h4>
+<div class="outline-text-4" id="text-2-1-1">
+</div>
+<div id="outline-container-orgaf35647" class="outline-5">
+<h5 id="orgaf35647"><span class="section-number-5">2.1.1.1.</span> Aufgabe 1</h5>
+</div>
+<div id="outline-container-org08801f5" class="outline-5">
+<h5 id="org08801f5"><span class="section-number-5">2.1.1.2.</span> Aufgabe 2</h5>
+</div>
+</div>
+<div id="outline-container-orga2397f7" class="outline-4">
+<h4 id="orga2397f7"><span class="section-number-4">2.1.2.</span> Abgabe</h4>
+<div class="outline-text-4" id="text-2-1-2">
+</div>
+<div id="outline-container-org10c6501" class="outline-5">
+<h5 id="org10c6501"><span class="section-number-5">2.1.2.1.</span> Aufgabe 1</h5>
+</div>
+<div id="outline-container-org9bc7927" class="outline-5">
+<h5 id="org9bc7927"><span class="section-number-5">2.1.2.2.</span> Aufgabe 2</h5>
+</div>
+<div id="outline-container-orgb5092bb" class="outline-5">
+<h5 id="orgb5092bb"><span class="section-number-5">2.1.2.3.</span> Aufgabe 3</h5>
+</div>
+<div id="outline-container-org068718b" class="outline-5">
+<h5 id="org068718b"><span class="section-number-5">2.1.2.4.</span> Aufgabe 4</h5>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 22:26</p>
+</div>
+</body>
+</html>

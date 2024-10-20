@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 19:30 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>algebraic topology 1 - Seifert van Kampen</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">algebraic topology 1 - Seifert van Kampen</h1>
+<div id="outline-container-org2f07808" class="outline-2">
+<h2 id="org2f07808"><span class="section-number-2">1.</span> Aspects</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><a href="20231128-groupoid.html#ID-faa255e1-0c3c-476f-9d08-78181da165c8">groupoid</a></li>
+<li><a href="20231128-fundamental_groupoid_of_space.html#ID-e436d255-fa9c-4743-ac40-6d62f88116a3">fundamental groupoid of space</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20231128-isomorphism_between_automorphism_groups_in_a_groupoid.html#ID-731ea057-83b4-46ab-816a-88a9ab0c6914">isomorphism between automorphism groups in a groupoid</a></li>
+<li><a href="20231128-category_of_groupoids.html#ID-6d0f1091-fdfe-4866-a714-3b2ed9915b15">category of groupoids</a></li>
+<li><a href="20231128-groupoid_seifert_van_kampen.html#ID-a1058324-703c-4570-b466-c17527aac6e3">groupoid Seifert van Kampen</a> - todo</li>
+<li><a href="20230415004146-seifert_van_kampen_theorem.html#ID-4261a1ae-63e2-4c6e-94fa-73199a2b89c9">Seifert-Van Kampen Theorem</a> - todo</li>
+<li><a href="20231129-2_categorical_pullback.html#ID-360cf3dc-2746-40ac-85a2-42076cfde1f9">2-categorical pullback of a functor diagram</a> (todo:()</li>
+
+<li><a href="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor.html#ID-b241be81-727c-479d-9c23-cd73478c7471">diagram of 2-categorical pullbacks of functors implies functor</a></li>
+<li><a href="20231130-functor_between_2_pullbacks_of_categories_preserves_equivalences.html#ID-98cb4943-3c70-49b2-84ef-f0fe412cf9c5">functor between 2-pullbacks of categories preserves equivalences</a></li>
+<li><a href="20231129-functor_between_2_pullbacks_of_categories_preserves_essintially_surjectivity_under_fully_faithfullness.html#ID-a39c35da-b7a3-42e5-8b49-45dbdb53e29d">functor between 2-pullbacks of categories preserves essentially surjectivity under fully faithfullness</a></li>
+<li><a href="20231129-functor_between_2_pullbacks_of_categories_preserves_fully_faithfulness.html#ID-35637105-8ca5-4d38-91f7-b44b1a24ce8b">functor between 2-pullbacks of categories preserves fully faithfulness</a></li>
+<li><a href="20231130-functor_between_2_pullbacks_of_categories_preserves_fullness.html#ID-c1accd5a-1c61-4e4b-84f5-6fccc88e37e7">functor between 2-pullbacks of categories preserves fullness</a></li>
+<li><a href="20231130-functor_between_2_pullbacks_of_categories_preserves_faithfullness.html#ID-e69c1947-4ef9-4996-a897-2342b7cc0c88">functor between 2-pullbacks of categories preserves faithfullness</a></li>
+
+<li><p>
+<a href="20231129-isofibration.html#ID-e18efba3-d366-4455-92a2-d658931b3ce8">isofibration</a>   
+</p>
+
+<p>
+-<a href="20231129-precomposition_with_object_injective_functor_on_groups_as_isofibration_on_the_functor_category.html#ID-607b8e39-0c4a-4ba4-8118-49f8a871b989">precomposition with object-injective functor on groups as isofibration on the functor category</a>   
+</p></li>
+<li><a href="20231201-isofibration_induces_equivalence_of_2_pullback_and_pullback_in_cat.html#ID-320bf302-14d2-421d-8aa7-e41dfa3ef062">isofibration induces equivalence of 2-pullback and pullback in Cat</a></li>
+<li><a href="20231201-functor_category_commutes_with_pullbacks.html#ID-31d5b877-092f-4992-862b-a18c91c98536">functor category commutes with pullbacks</a> (???)</li>
+<li><a href="20240301-isofibration_for_precomposition_and_extension.html#ID-685951da-eb09-4c12-aad9-33ee96589a5a">isofibration for precomposition and extension</a></li>
+<li><a href="20240301-pullback_as_full_subcategory_of_2_categorical_pullback_in_cat.html#ID-32f6059b-e5a6-45ed-ac82-7dd12c5c1e8e">pullback as full subcategory of 2 categorical pullback in cat</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20231201-product_with_delta_1_as_left_adjoint.html#ID-ffe92a13-353d-47e8-bd70-b3f17e8d674b">product with interval category as left adjoint</a></li>
+<li><a href="20240229-functor_category_functor.html#ID-baa622d2-9f38-451a-858f-b03583e2270c">functor category functor</a></li>
+<li><a href="20231201-natural_transformation_as_funtcor_for_the_product.html#ID-cb835499-6270-4b7f-930c-afb08c9ba14a">natural transformation as functor for the product</a></li>
+<li><a href="20231201-functor_categories_for_groupoids_commutes_with_2_pullbacks_up_to_equivalence.html#ID-e92e8239-d954-4d9e-8df0-16c7a6ded997">functor categories for groupoids commutes with 2-pullbacks up to equivalence</a> - rm</li>
+
+<li><a href="20231201-isofibration_induces_equivalence_of_2_pullback_and_pullback_in_cat.html#ID-320bf302-14d2-421d-8aa7-e41dfa3ef062">isofibration induces equivalence of 2-pullback and pullback in Cat</a></li>
+<li><a href="20231129-natural_equivalence_between_groupoids_of_functor_category_and_2_pullback.html#ID-aa2a5b7d-dcbd-4bf2-b577-c594ffbd1e72">natural equivalence between groupoids of functor category and 2-pullback</a>    ????</li>
+<li><a href="20240301-functor_category_of_the_fundamental_groupoid_and_2_categorical_pullback.html#ID-e627bedb-bf29-4be6-82a7-4723f9e31774">functor category of the fundamental groupoid and 2 categorical pullback</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20231201-yoneda_lemma_for_equivalences.html#ID-04131353-ca6c-4052-888d-35e8eefe64a6">Yoneda Lemma for equivalences</a></li>
+<li><a href="20230415004146-seifert_van_kampen_theorem.html#ID-4261a1ae-63e2-4c6e-94fa-73199a2b89c9">Seifert-Van Kampen Theorem for groups</a></li>
+
+<li><a href="20231201-interval_category.html#ID-327bcd6b-853d-4154-b809-7f4d3cea2574">interval category</a></li>
+<li><a href="20230415004120-amalgamated_free_product.html#ID-22d875cf-0bbf-4da1-a0e3-d1bc87712623">amalgamated free product</a></li>
+<li><a href="20231203-fundamental_group_of_a_circle.html#ID-e58a94ff-faec-4d7e-aa6b-8f856ebb6cc9">fundamental group of a circle</a></li>
+
+<li><a href="20231201-fundamental_group_of_a_suspension.html#ID-5a1c68fc-2f6a-420b-b30c-3becdc13d18c">fundamental group of a suspension</a></li>
+<li><a href="20231201-fundamental_group_of_a_wedge.html#ID-68cb59df-d444-4880-b9b2-dcccc47f534e">fundamental group of a wedge for deformation retracts</a></li>
+
+<li><a href="20231203-presentation_complex.html#ID-d6399ec3-86cf-443d-b6bf-297971f50518">presentation complex</a></li>
+<li><a href="20240226-presentation_complex_of_z_2z.html#ID-ace3f595-a050-46fb-8bac-0e9659fe572b">presentation complex of Z/2Z</a></li>
+
+<li><a href="20240301-wedge_product_with_deformation_retractible_space.html#ID-cf5325d8-62ea-4190-8099-122b541a4d9d">wedge product with deformation retractible space homotopy equivalent</a></li>
+<li>this for cw complex</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 19:30</p>
+</div>
+</body>
+</html>

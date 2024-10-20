@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 21:38 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>t0: Vektorräume</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">t0: Vektorräume</h1>
+<div id="outline-container-org92bd35b" class="outline-2">
+<h2 id="org92bd35b"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><a href="20221106150036-k_n_vektorraum.html#ID-031566e0-1029-4a63-bd3a-457044d27a7b">\(K^n\) Vektorraum</a></li>
+<li><a href="20221009092141-linearer_funktionenraum.html#ID-81b8bc2e-4619-4831-99f4-9573b999cee6">linearer Funktionenraum</a></li>
+<li><a href="20221113212337-diskretisierter_linearer_funktionenraum.html#ID-9d22a0c7-7416-45f0-949c-85b6be9e9dc3">diskretisierter linearer Funktionenraum</a></li>
+<li><a href="20221113211840-mathbb_r_n.html#ID-a56aa214-7411-4d41-8395-567e4d8be169">\(\mathbb{R}^n\)</a></li>
+</ul>
+</div>
+<div id="outline-container-org634800d" class="outline-3">
+<h3 id="org634800d"><span class="section-number-3">1.1.</span> Allgemein</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">Vektorraum</a></li>
+<li><a href="20221009093139-span.html#ID-bdaacf9b-3be3-45ef-89c0-18c72b3b1699">Span</a></li>
+<li><a href="20220207224644-lineare_unabhangigkeit.html#ID-c4d1496f-6012-4ade-8b98-3e29dad89ded">Lineare Unabhängigkeit</a></li>
+<li><a href="20220207224704-lineare_abhangigkeit.html#ID-97e6b172-9da3-4ad6-a1b1-a589a41c8ec5">Lineare Abhängigkeit</a></li>
+<li><a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">Basis (Vektorraum)</a></li>
+<li><a href="20221113212113-standardbasis.html#ID-24542220-bbf5-4bba-80cb-327831396ed3">Standardbasis</a></li>
+<li><a href="20220102135318-dimension.html#ID-3e484fb0-c9a8-485a-999b-4f0052bd13e4">Dimension (Vektorraum)</a></li>
+<li><a href="20221031071248-einsteinsche_summenkonvention.html#ID-ecf2e882-41a0-4ad2-97e0-be5921de1f91">Einsteinsche Summenkonvention</a></li>
+<li><a href="20221105201215-isomorphismus_zwischen_verschiedenen_basen.html#ID-3869f001-2408-4124-9caa-6e7f31076071">Isomorphismus zwischen verschiedenen Basen</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0d190ec" class="outline-3">
+<h3 id="org0d190ec"><span class="section-number-3">1.2.</span> Euklidisch</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20221003093414-skalarprodukt.html#ID-edd2aca6-e8ec-4a59-9b4a-879e89845014">Skalarprodukt</a></li>
+<li><a href="20221003093645-standardskalarprodukt_im_euklidischen_raum.html#ID-cf7d3618-afe5-4518-8dc3-cbdfd03dde71">Standardskalarprodukt im Euklidischen Raum</a></li>
+<li><a href="20221009130718-kronecker_delta.html#ID-82f0b7a3-d217-4e5b-97e9-3f0b1fbe7e52">Kronecker-Delta</a></li>
+<li><a href="20211103175932-orthogonal.html#ID-84103ec1-5449-434b-b55c-3ac6ca47c90e">Orthogonalität</a></li>
+<li><a href="20220920053006-norm_eines_vektors.html#ID-445db843-5369-48de-a31f-f1f245833425">Norm eines Vektors</a></li>
+<li><a href="20221005101046-normierter_vektorraum.html#ID-2ba5953b-83c1-4e4f-8a82-198c6bbbd76a">normierter Vektorraum</a></li>
+<li><a href="20221003094912-cauchy_schwarz_ungleichung.html#ID-918045db-a394-490d-93a8-d735215cfad0">Cauchy-Schwarz Ungleichung</a></li>
+<li><a href="20221113212714-geometrische_interpretation_standardskalarprodukt.html#ID-f0022748-3156-4675-82f7-14fab55fce80">Geometrische Interpretation: Standardskalarprodukt</a></li>
+<li><a href="nonmath/20211226235726-kosinussatz.html#ID-faea035d-9504-4b7c-bb39-fdd759fcc4b6">Kosinussatz</a></li>
+<li><a href="20221005095728-einheitsvektor.html#ID-dfdf1608-364e-4b7e-b235-e8fd0355ea13">Einheitsvektor</a></li>
+<li><a href="20221113213002-orthonormalbasis.html#ID-0b12dce4-b595-4efc-9eec-157043948f68">Orthonormalbasis</a></li>
+<li><a href="20221105202031-berechnung_der_komponenten_bezuglich_einer_orthonormalbasis.html#ID-83a1577e-24a9-4e97-b016-0f2288135741">Berechnung der Komponenten bezüglich einer Orthonormalbasis</a></li>
+<li><a href="20221024135619-gram_schmidtsches_orthogonalisierungsverfahren.html#ID-4af8f824-6544-4092-822b-ca0fda310c6b">Gram-Schmidtsches Orthogonalisierungsverfahren</a></li>
+<li><a href="20221031195957-inneren_produkt.html#ID-98914861-db37-4206-807f-5f8e390ecf3d">inneres Produkt</a></li>
+<li><a href="20221113213157-berechnung_der_komponenten_bezuglich_einer_nicht_orthonormalen_basis.html#ID-5cf39faa-0f6c-4b77-a126-9a53cf921e05">Berechnung der Komponenten bezüglich einer nicht-orthonormalen Basis</a></li>
+<li>TODO 04</li>
+<li><a href="20221105202156-jacobi_identitat_beim_kreuzprodukt.html#ID-35ff90e4-0b63-4489-bef6-c53c1d82fefc">Jacobi-Identität beim Kreuzprodukt</a></li>
+<li><a href="20221106172347-berechnung_der_parallelen_komponente.html#ID-d59898b8-1b63-4233-8a62-2a6c56cf89a0">Berechnung der Parallelen Komponente</a></li>
+<li><a href="20221113212714-geometrische_interpretation_standardskalarprodukt.html#ID-f0022748-3156-4675-82f7-14fab55fce80">Geometrische Bedeutung: Standardskalarprodukt</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7405034" class="outline-3">
+<h3 id="org7405034"><span class="section-number-3">1.3.</span> Kreuzprodukt</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20221113213414-norm_des_kreuzprodukts.html#ID-2d1911bf-9ed1-4092-9a7c-4ff64f97d4e4">Norm des Kreuzprodukts</a></li>
+<li><a href="20221114071110-eigenschaften_kreuzprodukt.html#ID-1446f712-38ac-4618-b04e-9152a277b7de">Eigenschaften: Kreuzprodukt</a></li>
+<li><a href="20210225213951-kreuzprodukt.html#ID-8a98e3bc-dfba-43c5-819d-8d1c5e4a5a81">Kreuzprodukt</a></li>
+<li><a href="20221106113259-distributivitat_des_kreuzprodukts.html#ID-6d6da8d8-dfb5-4869-a476-62e4fec80bd1">Distributivität des Kreuzprodukts</a></li>
+<li><a href="20221106114252-kreuzprodukt_als_pseudovektor.html#ID-604bc067-bedd-4b49-8da7-35b6f0c9e632">Kreuzprodukt als Pseudovektor</a></li>
+<li><a href="20221106114317-antisymmetrie_des_kreuzprodukts.html#ID-defe0431-8557-4ef6-8f10-d801ec3d3298">Antisymmetrie des Kreuzprodukts</a></li>
+<li><a href="20210305100855-spatprodukt.html#ID-8cc35e7c-5584-4e62-a0b3-58261b853ac3">Spatprodukt</a></li>
+<li><a href="20221106192502-identitaten_fur_levi_civita.html#ID-1411c35a-c5fe-480b-a940-742541ec3fca">Identitäten für Levi Civita</a></li>
+<li><a href="20221106182229-darstellung_des_kreuzprodukts_mit_levi_civita.html#ID-063f72bf-3c3a-40a0-9776-337d19ab5b6d">Darstellung des Kreuzprodukts mit Levi-Civita</a></li>
+<li><a href="20221101092106-levi_civita_symbol.html#ID-facc31e8-0552-4fdf-af05-7e87817e0452">Levi-Civita-Symbol</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgced0809" class="outline-3">
+<h3 id="orgced0809"><span class="section-number-3">1.4.</span> </h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 21:38</p>
+</div>
+</body>
+</html>

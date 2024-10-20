@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-15 Di 23:15 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>zeroth left derived functor</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">zeroth left derived functor</h1>
+<div id="outline-container-orgb074337" class="outline-2">
+<h2 id="orgb074337"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20240327-zeroth_left_derived_functor_8bca0a22355f86c50b3e315a050fae8717462859.svg" alt="20240327-zeroth_left_derived_functor_8bca0a22355f86c50b3e315a050fae8717462859.svg" class="org-svg" /> be <a href="20230827-abelian_category.html#ID-9003af72-f684-4897-b096-c1d8a681c624">abelian</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">categories</a> and <img src="file:///home/anton/html/ltximg/20240327-zeroth_left_derived_functor_eee74a7cb92571c1d90c4aa53bfd97040b7a20e1.svg" alt="20240327-zeroth_left_derived_functor_eee74a7cb92571c1d90c4aa53bfd97040b7a20e1.svg" class="org-svg" /> a <a href="20230903-right_exact_functor.html#ID-9af3df51-d300-4ca2-b340-8ac92cdd3fca">right exact functor</a>.
+Then for the <a href="20240317-left_derived_functor.html#ID-e5bdb6a8-cbec-457d-9ca8-8114a4b4c9a0">left derived functor</a> it holds that
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240327-zeroth_left_derived_functor_de0c4560d7b6010a5437a82b65c060ef28eeda25.svg" alt="20240327-zeroth_left_derived_functor_de0c4560d7b6010a5437a82b65c060ef28eeda25.svg" class="org-svg" />
+</span>
+</div>
+<p>
+up to <a href="20230404122456-natural_isomorphism.html#ID-0977f626-bc15-4197-93bd-092d014c8270">natural isomorphism</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-org36c1b49" class="outline-2">
+<h2 id="org36c1b49"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgb7fc245" class="outline-3">
+<h3 id="orgb7fc245"><span class="section-number-3">2.1.</span> object</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+note that by construction 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240327-zeroth_left_derived_functor_c07c66efaa34442a4f818987a1d8f8b4e8effc61.svg" alt="20240327-zeroth_left_derived_functor_c07c66efaa34442a4f818987a1d8f8b4e8effc61.svg" class="org-svg" />
+</span>
+</div>
+<p>
+is <a href="20230722-exact_group_homomorphisms.html#ID-aa569635-5f4a-4c4a-9e9b-af9c577e377d">exact</a> and as <img src="file:///home/anton/html/ltximg/20240327-zeroth_left_derived_functor_f1aeb1ac71cce52f443892bfa958e0fd4a349772.svg" alt="20240327-zeroth_left_derived_functor_f1aeb1ac71cce52f443892bfa958e0fd4a349772.svg" class="org-svg" /> is right exact, so is
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240327-zeroth_left_derived_functor_447301b5a683be388915c8a23849d1ba8b3c0383.svg" alt="20240327-zeroth_left_derived_functor_447301b5a683be388915c8a23849d1ba8b3c0383.svg" class="org-svg" />
+</span>
+</div>
+<p>
+here <img src="file:///home/anton/html/ltximg/20240327-zeroth_left_derived_functor_93f512ea5d6d130a97c16d5ea7f9f87406cb8330.svg" alt="20240327-zeroth_left_derived_functor_93f512ea5d6d130a97c16d5ea7f9f87406cb8330.svg" class="org-svg" /> (see: <a href="20240130-right_exact_functor_preserves_zero_morphisms.html#ID-23df9d46-23fb-4343-9b4e-966745969850">right exact functor preserves zero morphisms</a>, <a href="20240130-functor_preserving_zero_morphism_and_preserving_zero_object.html#ID-072d0c06-5430-47a6-bc33-5142a1732a5f">functor preserving zero morphism and preserving zero object</a>)
+</p>
+
+<p>
+Thus by <a href="20240327-homology_of_a_chopped_short_exact_sequence.html#ID-938c8727-0c49-41d0-a906-af3f9a535ddb">Homology of a chopped short exact sequence</a> it follows that
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240327-zeroth_left_derived_functor_7fe4d6c3547a65ede93b4572dc8fb986403924f9.svg" alt="20240327-zeroth_left_derived_functor_7fe4d6c3547a65ede93b4572dc8fb986403924f9.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org9a5094a" class="outline-3">
+<h3 id="org9a5094a"><span class="section-number-3">2.2.</span> morphism</h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-15 Di 23:15</p>
+</div>
+</body>
+</html>

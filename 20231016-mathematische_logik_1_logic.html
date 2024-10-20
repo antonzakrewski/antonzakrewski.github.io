@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 18:38 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mathematische Logik 1 - Logic</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Mathematische Logik 1 - Logic</h1>
+<div id="outline-container-org67aa8d7" class="outline-2">
+<h2 id="org67aa8d7"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org23c0057" class="outline-3">
+<h3 id="org23c0057"><span class="section-number-3">1.1.</span> natural deduction</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20231016-starke_existenz.html#ID-e1b6881a-c950-4276-8052-4b4be54177b2">starke Existenz</a></li>
+<li><a href="20231016-klassische_existenz.html#ID-8c3e341c-3c6f-4342-b626-0d1b04f4b99e">klassische Existenz</a></li>
+<li><a href="20221222214629-klassische_logik.html#ID-36c2875c-1150-4d09-b196-138d3e42dbd7">klassische Logik</a></li>
+<li><a href="20231016-intuitionistische_disjunktion.html#ID-fd87f7ff-39e0-43ee-a910-250f9e9f253f">intuitionistische Disjunktion</a></li>
+<li><a href="20231016-klassische_disjunktion.html#ID-38b5ba8f-d02e-41fc-9a45-dec5e87b1520">klassische Disjunktion</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org98ed503" class="outline-3">
+<h3 id="org98ed503"><span class="section-number-3">1.2.</span> Terme und Formen</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20231016-variable.html#ID-b0b32c44-804e-4eac-8d1a-6bef0ca65a42">Variable</a></li>
+<li><a href="20231016-signature.html#ID-a4607828-5015-4ae4-9d0e-dad0ce333bf7">Signatur</a></li>
+<li><a href="20231016-first_order_language.html#ID-a2ba737e-683d-48a7-ae52-bb442fa232e3">first-order language</a></li>
+<li><a href="20231016-funktionssymbol.html#ID-fc0c9558-1948-495a-9877-25c440da002d">Funktionssymbol</a></li>
+<li><a href="20231016-relationssymbol.html#ID-efd21fd7-37c4-4660-bb22-7c6cf1281067">Relationssymbol</a></li>
+<li><a href="20230102151858-konstante_logik.html#ID-0d6c1469-f2b4-42d8-a8e5-86745ec31a9a">Konstante (Logik)</a></li>
+<li><a href="20230102152325-term_logik.html#ID-e10e8478-8107-420a-8054-7247f8680224">Term</a></li>
+<li><a href="20230102152428-atomare_formel.html#ID-3b5cf9ae-53b7-40ff-8e1a-59f6e978bf9f">atomare Formel</a></li>
+<li><a href="20230102152602-formel_logik.html#ID-c64a841a-b6f1-49fa-baa7-6b628b4e189d">Formel (Logik)</a></li>
+<li><a href="20231016-negation.html#ID-fb46cc03-609c-4e11-9636-b9a1f07234a5">Negation</a></li>
+<li><a href="20231016-hohe_einer_formel.html#ID-2690020c-3b32-4712-b664-69d9e8a4f5dd">Höhe einer Formel</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc327f5d" class="outline-3">
+<h3 id="orgc327f5d"><span class="section-number-3">1.3.</span> symbole</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20231026-implikation.html#ID-1c249756-0827-4044-b9da-8d1bbb4b7b5a">implication</a></li>
+<li><a href="20211223095538-konjunktion_logik.html#ID-4a71a4a5-377d-4e65-9e82-24d1e1957940">conjunction</a></li>
+<li><a href="20211223095503-disjunktion_logik.html#ID-efaa31dc-0565-4a79-9bae-a633992277d2">disjunction</a></li>
+<li><a href="20231016-negation.html#ID-fb46cc03-609c-4e11-9636-b9a1f07234a5">Negation</a></li>
+<li><a href="20210618082126-allquantor.html#ID-004532ff-eea7-4937-b1d5-2983f0afde4f">Allquantor</a></li>
+<li><a href="20210618082131-existenzquantor.html#ID-1bbdd566-703c-4386-90a2-480a054c3922">Existenzquantor</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org54b52fc" class="outline-3">
+<h3 id="org54b52fc"><span class="section-number-3">1.4.</span> Substitution</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><a href="20220821154256-gebundene_variable_pradikatenlogik.html#ID-74ce5516-c28d-4fa8-950d-0adf950c7286">gebundene Variable</a></li>
+<li><a href="20220821154247-freie_variable.html#ID-7419b0ec-ce78-43ff-9e56-0f54a66e7077">freie Variable</a></li>
+<li><a href="20231022-closed_formula.html#ID-b0eff2c3-a520-43b2-9a60-08f43209bb6b">closed Formula</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0428cba" class="outline-3">
+<h3 id="org0428cba"><span class="section-number-3">1.5.</span> teilformeln</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li><a href="20231018-subformula.html#ID-8699c116-1193-440c-bcb0-3072cd1638c2">subformula</a></li>
+<li><a href="20231018-negative_subformula.html#ID-17ac5086-36f1-43d8-9de3-8a58785690f5">negative subformula</a></li>
+<li><a href="20231018-positive_subformula.html#ID-c83fd8d8-70fb-467c-8025-332d756970cd">positive subformula</a></li>
+<li><a href="20231018-strictly_positive_subformula.html#ID-d3da5c2f-2db4-40fa-84c9-acb0849a84f3">strictly positive subformula</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd5c6532" class="outline-3">
+<h3 id="orgd5c6532"><span class="section-number-3">1.6.</span> beispiele logische herleitbarkeit</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li><a href="20231018-rechtsassoziativitat_der_implikation.html#ID-c1c39fdc-b323-4580-bbe0-16beb68dff63">rechtsassoziativität der Implikation</a></li>
+<li><a href="20231018-elimination_rule_for_the_implication.html#ID-bdfb4da3-00d2-41f9-8ada-eb04ad2dcfa7">elimination rule for the implication</a></li>
+
+<li><a href="20231018-derivable_formula.html#ID-c7f604a1-2e20-480b-8d5a-25af4ac6c1b0">derivable formula</a></li>
+<li><a href="20231018-derivable_formula_from_assumptions.html#ID-2ed8876d-9ca1-42a9-b848-d09a0cca2ecb">derivable formula from finitely many Assumptions</a></li>
+<li><a href="20231018-derivable_formula_from_assumptionss.html#ID-d1795bcb-6374-498b-8c9a-7bb438bf4af0">derivable formula from assumptions</a></li>
+<li><a href="20231018-derivation.html#ID-703b255d-be43-4ad6-8edf-28321435d45f">Derivation</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0f05bf9" class="outline-3">
+<h3 id="org0f05bf9"><span class="section-number-3">1.7.</span> <a href="20231026-natural_deduction.html#ID-8b7d0ee5-8665-474f-9a3e-79aa8ed32c2c">natural deduction</a></h3>
+<div class="outline-text-3" id="text-1-7">
+<ul class="org-ul">
+<li><a href="20230102150606-ex_falso_quodlibet.html#ID-dc6e2310-561f-40ba-86ac-9abb338717c7">Ex Falso Quodlibet</a></li>
+<li><a href="20231022-stability_axiom.html#ID-c32919e7-312e-461e-a9eb-5d79f365f08a">stability axiom</a></li>
+<li><a href="20231022-clasically_derivable.html#ID-da8ed6d6-05c9-4cfe-92f0-55a15d0fc02a">clasically derivable</a></li>
+<li><a href="20231022-intuitionistically_derivable.html#ID-220ffdf6-d84c-4cff-917d-77d679ee870a">intuitionistically derivable</a></li>
+<li><a href="20231016-negation.html#ID-fb46cc03-609c-4e11-9636-b9a1f07234a5">Negation</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org33c70a7" class="outline-3">
+<h3 id="org33c70a7"><span class="section-number-3">1.8.</span> Gentzen Schlachten</h3>
+<div class="outline-text-3" id="text-1-8">
+<ul class="org-ul">
+<li><a href="20231030-einfuhrung_einer_doppelten_negatino.html#ID-35d6d5ed-a5cc-4058-817e-4a93e15768e9">intuitionistische einführung einer doppelten Negation</a></li>
+<li><a href="20231023-prinzip_des_indirekten_beweisens.html#ID-d30a46d1-e832-481c-8953-3e72ab937595">Prinzip des indirekten Beweisens</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8b6c2cc" class="outline-3">
+<h3 id="org8b6c2cc"><span class="section-number-3">1.9.</span> todos</h3>
+<div class="outline-text-3" id="text-1-9">
+<ul class="org-ul">
+<li><a href="20231016-klassische_existenz.html#ID-8c3e341c-3c6f-4342-b626-0d1b04f4b99e">klassische Existenz</a></li>
+<li><a href="20231016-klassische_disjunktion.html#ID-38b5ba8f-d02e-41fc-9a45-dec5e87b1520">klassische Disjunktion</a></li>
+<li><a href="20231104-minimallogische_existenz_impliziert_klassische_existenz.html#ID-61f9bd72-8883-4eb9-8079-9985bf27522c">minimallogische Existenz impliziert klassische Existenz</a></li>
+<li><a href="20231104-minimallogische_disjunktion_impliziert_klassische_disjunktion.html#ID-4576e87c-c519-43bf-b268-d8d5115296dd">minimallogische Disjunktion impliziert klassische Disjunktion</a></li>
+<li><a href="20231106-stabilitat_impliziert_efq.html#ID-3209f4c1-ca2a-415a-ac15-9073d2950418">Stabilität impliziert EFQ</a></li>
+<li><a href="20231106-existenz_als_unendliches_oder.html#ID-8e1c5b1f-cb0d-4a2e-82c2-85e549a2e40c">Existenz als unendliches Oder</a></li>
+<li><a href="20231104-drinker_formula.html#ID-47eb92c1-0e6d-4b2f-8ede-b8998a83d669">drinker formula</a></li>
+
+<li><a href="20231106-klassische_disjunkttion_und_implikation_impliziert_konjunktion.html#ID-6188aff6-5e06-45e9-88df-d0c6dfc3be0f">klassische Disjunkttion und implikation impliziert Konjunktion</a></li>
+<li><a href="20231106-stabilitat_und_konjunktion_sowie_klassische_disjunktion_mit_implikation.html#ID-e28e5173-b170-446d-97d8-3b36ff5d7aa6">Stabilität und konjunktion sowie klassische disjunktion mit Implikation</a></li>
+<li><a href="20231106-efq_und_implikation_mit_klassischer_disjunktion.html#ID-c0ad4a84-dd98-40a2-b4e7-ffbb8fe41c50">EFQ und implikation mit klassischer Disjunktion</a></li>
+<li><a href="20231106-distributivgesetz_der_klassische_disjunktion_mit_der_implikation.html#ID-ae11a961-a928-437a-981e-39c87a1259f6">distributivgesetz der klassische Disjunktion mit der Implikation</a></li>
+<li><a href="20231106-stabilitat_und_konjunktion_sowie_klassische_disjunktion_mit_implikation.html#ID-e28e5173-b170-446d-97d8-3b36ff5d7aa6">Stabilität und konjunktion sowie klassische disjunktion mit Implikation</a></li>
+<li><a href="20231106-implikation_auflosbar_durch_disjunktion.html#ID-cac8a27f-67bc-4c7f-a013-b4faabc065b4">Implikation durch EFQ auflösbar durch Disjunktion</a></li>
+
+<li><a href="20231106-existenz_als_unendliches_oder.html#ID-8e1c5b1f-cb0d-4a2e-82c2-85e549a2e40c">Existenz als unendliches Oder</a></li>
+
+<li><a href="20231106-klassische_logik_und_de_morgan_gesetz_fur_konjunktion.html#ID-1331ef6f-db77-46e3-9fae-e76013c43f21">klassische Logik und de morgan Gesetz für Konjunktion</a></li>
+<li><a href="20231106-klassische_logik_und_auflosen_der_disjunktion_als_implikation.html#ID-ef82c318-aaf6-4cdc-b188-96a16405a8ed">klassische Logik und auflösen der Disjunktion als Implikation</a></li>
+<li><a href="20231106-klassische_logik_und_de_morgan_gesetz_fur_die_konjunktion_als_consequens.html#ID-3a1f59bf-660a-47c4-ac01-3426e53805ac">intuitionistische Logik und de morgan gesetz für die Konjunktion als consequens</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6d69d13" class="outline-3">
+<h3 id="org6d69d13"><span class="section-number-3">1.10.</span> Einführung / Beseitigung</h3>
+<div class="outline-text-3" id="text-1-10">
+<ul class="org-ul">
+<li><a href="20231106-einfuhrungsregel_fur_die_klassische_existenz.html#ID-cca1f9bd-d18e-495b-a59e-00cd36769782">Einführungsregel für die klassische Existenz</a></li>
+<li><a href="20231106-einfuhrungsregel_fur_die_klassische_disjunktion.html#ID-ef67488f-f24f-4b10-87aa-025e324257b7">Einführungsregel für die klassische Disjunktion</a></li>
+<li><a href="20231106-klassische_existenz_und_allquantor.html#ID-0d5aa6c2-3569-4c41-933d-29eb33b895b3">klassische existenz und allquantor</a></li>
+</ul>
+</div>
+<div id="outline-container-org7880f62" class="outline-4">
+<h4 id="org7880f62"><span class="section-number-4">1.10.1.</span> </h4>
+<div class="outline-text-4" id="text-1-10-1">
+<ul class="org-ul">
+<li><a href="20231106-gentzen_ubersetzung.html#ID-460eb1d5-03f9-4f39-a188-08031790aec0">Gentzen Übersetzung</a></li>
+<li><a href="20231106-stabilitat_der_gentzen_ubersetzung.html#ID-51fca562-b996-4931-9c0d-322d34cf484f">Stabilität der Gentzen-Übersetzung</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org853dcb8" class="outline-3">
+<h3 id="org853dcb8"><span class="section-number-3">1.11.</span> normale herleitungen</h3>
+<div class="outline-text-3" id="text-1-11">
+<ul class="org-ul">
+<li><a href="20230104092728-curry_howards_isomorphismus.html#ID-5bd4288e-134c-417e-81f4-f7de6fd374aa">Curry-Howards Isomorphismus</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcfd8c15" class="outline-2">
+<h2 id="orgcfd8c15"><span class="section-number-2">2.</span> Teaser</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li><a href="20231007-lem_und_fallunterscheidung.html#ID-2835529c-9339-4d5f-9fe6-6de20d33d1fc">LEM und Fallunterscheidung</a></li>
+<li><a href="20231016-existenz_von_irrationalen_zahlen_mit_rationaler_potenz.html#ID-2c44048a-d927-46b3-83b9-a69fc3b7d30b">Existenz von irrationalen Zahlen mit rationaler Potenz</a></li>
+<li><a href="20221222213710-law_of_the_excluded_middle.html#ID-524ddc36-d896-4dee-99b9-a24cdd38520e">Law of the excluded middle</a></li>
+<li><a href="20231016-alpha_gleichheit_von_formeln.html#ID-244a42fb-648f-4b8d-baa8-9426da00ec33">alpha-Gleichheit von Formeln</a> - todo</li>
+<li><a href="20231016-induktion_uber_die_hohe.html#ID-2c9f9a96-64aa-4fac-adbb-a46e77e9404e">Induktion über die Höhe</a> - todo</li>
+<li><a href="20230104092728-curry_howards_isomorphismus.html#ID-5bd4288e-134c-417e-81f4-f7de6fd374aa">Curry-Howards Isomorphismus</a> - todo ?</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 18:38</p>
+</div>
+</body>
+</html>

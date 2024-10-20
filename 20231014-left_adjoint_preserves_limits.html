@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 18:36 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>left adjoint preserves colimits</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">left adjoint preserves colimits</h1>
+<div id="outline-container-orgff976e0" class="outline-2">
+<h2 id="orgff976e0"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_2d5d1c2bfbb1a2fca757f722875cd0787290c048.svg" alt="20231014-left_adjoint_preserves_limits_2d5d1c2bfbb1a2fca757f722875cd0787290c048.svg" class="org-svg" /> be <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">categories</a>, <img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_e6ceafa3ac9fde58a6fe15369593bf0ad52851e7.svg" alt="20231014-left_adjoint_preserves_limits_e6ceafa3ac9fde58a6fe15369593bf0ad52851e7.svg" class="org-svg" /> <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functors</a> and <img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_91c5109da9ee31a4b4c881d6e0f6285a26dae669.svg" alt="20231014-left_adjoint_preserves_limits_91c5109da9ee31a4b4c881d6e0f6285a26dae669.svg" class="org-svg" /> <a href="20220825195614-adjunktion_kategorientheorie.html#ID-1f2a58d8-4093-4646-a6e0-d0ef764ca84b">adjoints</a> with <img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_cf6bf1aab868c8bfacb8fd9d7c1bd31022589360.svg" alt="20231014-left_adjoint_preserves_limits_cf6bf1aab868c8bfacb8fd9d7c1bd31022589360.svg" class="org-svg" /> as <a href="20220831221344-linksadjungierte.html#ID-1e87e6b9-24df-41fb-bc1b-d35cfd2eaa7f">left adjoint</a>.
+Then <img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_cf6bf1aab868c8bfacb8fd9d7c1bd31022589360.svg" alt="20231014-left_adjoint_preserves_limits_cf6bf1aab868c8bfacb8fd9d7c1bd31022589360.svg" class="org-svg" /> preserves <a href="20230725-colimit.html#ID-581b1561-25d0-479a-b0cc-063c894e10be">colimits</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-orgbba3f1c" class="outline-2">
+<h2 id="orgbba3f1c"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgd72bc0b" class="outline-3">
+<h3 id="orgd72bc0b"><span class="section-number-3">2.1.</span> construction and uniqueness</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Consider following <a href="20220902145849-kokegel_kategorientheorie.html#ID-05dbe76b-b880-4e2c-81fd-ea9a3c6ed3fd">cocone</a> in <img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_760824120891fc757bc0445145b027d09b237baa.svg" alt="20231014-left_adjoint_preserves_limits_760824120891fc757bc0445145b027d09b237baa.svg" class="org-svg" />, where <img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_2410cc5ec8ea70e423495e94d4de1f9fb2faa43e.svg" alt="20231014-left_adjoint_preserves_limits_2410cc5ec8ea70e423495e94d4de1f9fb2faa43e.svg" class="org-svg" /> is a <a href="20230725-colimit.html#ID-581b1561-25d0-479a-b0cc-063c894e10be">colimit</a>.
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_13dc13dc40bb8c809d4951b36cb05291ae39818b.svg" alt="20231014-left_adjoint_preserves_limits_13dc13dc40bb8c809d4951b36cb05291ae39818b.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Applying <img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_cf6bf1aab868c8bfacb8fd9d7c1bd31022589360.svg" alt="20231014-left_adjoint_preserves_limits_cf6bf1aab868c8bfacb8fd9d7c1bd31022589360.svg" class="org-svg" /> results in following cocone
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_21034ce7391b1821af9bd579f23087b115d89b36.svg" alt="20231014-left_adjoint_preserves_limits_21034ce7391b1821af9bd579f23087b115d89b36.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Suppose there exists an <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">object</a> <img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_c06b0a5a737e8840792537e3e805d3fddef870fc.svg" alt="20231014-left_adjoint_preserves_limits_c06b0a5a737e8840792537e3e805d3fddef870fc.svg" class="org-svg" /> and <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphisms</a> making following diagram commute
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_b7c02697825aa084d50daeec3d5bac9094a6250e.svg" alt="20231014-left_adjoint_preserves_limits_b7c02697825aa084d50daeec3d5bac9094a6250e.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Then we have to show, that there exists a unique morphism <img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_6e534dc2d90c34ddf5922e37195ef905cbc4221d.svg" alt="20231014-left_adjoint_preserves_limits_6e534dc2d90c34ddf5922e37195ef905cbc4221d.svg" class="org-svg" /> making the diagram commute.
+Applying <img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_80bcdeaf1615afbdb516cef4aaa7cb3aa7beb98f.svg" alt="20231014-left_adjoint_preserves_limits_80bcdeaf1615afbdb516cef4aaa7cb3aa7beb98f.svg" class="org-svg" /> results in
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_d62b1712ee574ee752c3005c284733275b695aa7.svg" alt="20231014-left_adjoint_preserves_limits_d62b1712ee574ee752c3005c284733275b695aa7.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+By adjointness, we get an <a href="20231015-adjunction.html#ID-a1ced857-b736-4a96-bd79-660f6da50654">adjunction</a> 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_9bdf11bae39652a146699bc3bcb39e5ac9292869.svg" alt="20231014-left_adjoint_preserves_limits_9bdf11bae39652a146699bc3bcb39e5ac9292869.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Let <img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_68c6d54b0d5bf34714fb67afe8e7b58708dde14f.svg" alt="20231014-left_adjoint_preserves_limits_68c6d54b0d5bf34714fb67afe8e7b58708dde14f.svg" class="org-svg" />.
+</p>
+
+<p>
+By naturalness of <img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_9485e48332c47acf9b1f77913ef6fd31df3dc164.svg" alt="20231014-left_adjoint_preserves_limits_9485e48332c47acf9b1f77913ef6fd31df3dc164.svg" class="org-svg" /> we get following commutative diagrams <sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup> 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_da12f4d72060f4403456f7fe4a5f8db81a2b625d.svg" alt="20231014-left_adjoint_preserves_limits_da12f4d72060f4403456f7fe4a5f8db81a2b625d.svg" class="org-svg" />
+</span>
+</div>
+<p>
+and precomposition
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_e9502a0a5e2a51149d68c508cc7c6c8d94e9967c.svg" alt="20231014-left_adjoint_preserves_limits_e9502a0a5e2a51149d68c508cc7c6c8d94e9967c.svg" class="org-svg" />
+</span>
+</div>
+<p>
+respectively
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_bd776405630a2ec21a846187eaac506a60be6358.svg" alt="20231014-left_adjoint_preserves_limits_bd776405630a2ec21a846187eaac506a60be6358.svg" class="org-svg" />
+</span>
+</div>
+
+
+<p>
+Thus applying to 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_6b3e23488aa875fb91042ac97f7c006962a68afc.svg" alt="20231014-left_adjoint_preserves_limits_6b3e23488aa875fb91042ac97f7c006962a68afc.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Hence 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_adfaf6264c8915ba35eca7d86c9c6b241a138f83.svg" alt="20231014-left_adjoint_preserves_limits_adfaf6264c8915ba35eca7d86c9c6b241a138f83.svg" class="org-svg" />
+</span>
+</div>
+<p>
+is a <a href="20220902145849-kokegel_kategorientheorie.html#ID-05dbe76b-b880-4e2c-81fd-ea9a3c6ed3fd">cocone</a> 
+By universal property of <img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_2410cc5ec8ea70e423495e94d4de1f9fb2faa43e.svg" alt="20231014-left_adjoint_preserves_limits_2410cc5ec8ea70e423495e94d4de1f9fb2faa43e.svg" class="org-svg" />, there exists a unique morphism
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_8bab8c593205cc2fbfff8ea672981bf69e4c82b6.svg" alt="20231014-left_adjoint_preserves_limits_8bab8c593205cc2fbfff8ea672981bf69e4c82b6.svg" class="org-svg" />
+</span>
+</div>
+<p>
+and by adjointness
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_cc10c02fb94d067292f92fb3661e2c24a2c82b94.svg" alt="20231014-left_adjoint_preserves_limits_cc10c02fb94d067292f92fb3661e2c24a2c82b94.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Thus there exists a unique morphism
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_faed8b83957cd6c994d2a22f138c5605cb8773e9.svg" alt="20231014-left_adjoint_preserves_limits_faed8b83957cd6c994d2a22f138c5605cb8773e9.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org9a5528a" class="outline-3">
+<h3 id="org9a5528a"><span class="section-number-3">2.2.</span> commuting</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> for
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_3ef5a28987de9fdaff889bad5d7d55981292eb19.svg" alt="20231014-left_adjoint_preserves_limits_3ef5a28987de9fdaff889bad5d7d55981292eb19.svg" class="org-svg" />
+</span>
+</div>
+<p>
+the other side follows analogue
+</p>
+
+<p>
+By assumption
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_8196f12f1ee127f7016471077f15794f3e20ceed.svg" alt="20231014-left_adjoint_preserves_limits_8196f12f1ee127f7016471077f15794f3e20ceed.svg" class="org-svg" />
+</span>
+</div>
+
+
+<p>
+By adjointness, we get following commuting diagram
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_d4c3d0e008a39d9b1447a34b7705267a323680e2.svg" alt="20231014-left_adjoint_preserves_limits_d4c3d0e008a39d9b1447a34b7705267a323680e2.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+and thus
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_330bc740573353d799c9043a48ae5f80804419bb.svg" alt="20231014-left_adjoint_preserves_limits_330bc740573353d799c9043a48ae5f80804419bb.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Furthermore, since
+</p>
+
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_e3731d526ed786f0cd664fb903d341f74d729bd7.svg" alt="20231014-left_adjoint_preserves_limits_e3731d526ed786f0cd664fb903d341f74d729bd7.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+we get
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_d3bf4fbae5783fca23f0980fafa431f636ce2ad9.svg" alt="20231014-left_adjoint_preserves_limits_d3bf4fbae5783fca23f0980fafa431f636ce2ad9.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Hence we finally get
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_669a51a31206ac4ca221a5eeba2aafe3676fbb8d.svg" alt="20231014-left_adjoint_preserves_limits_669a51a31206ac4ca221a5eeba2aafe3676fbb8d.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4fbe14e" class="outline-2">
+<h2 id="org4fbe14e"><span class="section-number-2">3.</span> Alternative short version</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_527be79e7e81f054b494c0f4e81e5b55519e0310.svg" alt="20231014-left_adjoint_preserves_limits_527be79e7e81f054b494c0f4e81e5b55519e0310.svg" class="org-svg" /> be a <a href="20230725-colimit.html#ID-581b1561-25d0-479a-b0cc-063c894e10be">colimit</a>.
+Then we get by definition of a left adjoint
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_dd3a0a22b74b5e933375e5f80de665c5f12cbd67.svg" alt="20231014-left_adjoint_preserves_limits_dd3a0a22b74b5e933375e5f80de665c5f12cbd67.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Using that <a href="20231017-hom_functor_preserves_colimits.html#ID-5ff9ae3e-1b7d-4f39-99df-dab65b127f6a">contravariant hom-functor dualizes small colimits to limits</a> we get
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_d992deb2be562de12c818a8f0281e00f8ee58c76.svg" alt="20231014-left_adjoint_preserves_limits_d992deb2be562de12c818a8f0281e00f8ee58c76.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Again applying the left-adjoint and dualizing of colimits gives 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_aa5ae18565724d6cfccbb67fd7af78e6e6fb1b22.svg" alt="20231014-left_adjoint_preserves_limits_aa5ae18565724d6cfccbb67fd7af78e6e6fb1b22.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+slight abuse of notation, formally we would compose with <img src="file:///home/anton/html/ltximg/20231014-left_adjoint_preserves_limits_5360d5e6a1bd3328c8d0716f6abd9aa5956b9e8a.svg" alt="20231014-left_adjoint_preserves_limits_5360d5e6a1bd3328c8d0716f6abd9aa5956b9e8a.svg" class="org-svg" /> on the other side.
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 18:36</p>
+</div>
+</body>
+</html>

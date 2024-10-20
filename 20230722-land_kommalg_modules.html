@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 15:20 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Land - KommAlg - modules</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Land - KommAlg - modules</h1>
+<div id="outline-container-org7a8376c" class="outline-2">
+<h2 id="org7a8376c"><span class="section-number-2">1.</span> aspects</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">module</a></li>
+<li><a href="20230222204739-untermodul.html#ID-72f8c93c-c8cd-4dd0-b1c4-81e2efb54d75">submodule</a></li>
+<li><a href="20230314181917-vektorraum_als_modul.html#ID-65bf2043-96ab-481a-b222-d7ca9ee679d3">Vektorraum als Modul</a></li>
+<li><a href="20230802-restriction_of_scalars_of_a_module_for_a_ringhomomorphism.html#ID-faf0c273-7fc3-4efc-b94e-b71877ae5c2b">restriction of scalars of a module for a ringhomomorphism</a></li>
+<li><a href="20230519124313-kern_eines_moduls_als_modul.html#ID-dcb97b63-83e6-400c-94cb-eab0550aa8b2">Kern eines Modulhomomorphismus als Untermodul</a></li>
+<li><a href="20230519124319-bild_eines_moduls_als_modul.html#ID-d53db8aa-6cc1-424e-a532-a705ab77ebed">Bild eines Modulhomomorphismus als Modul</a></li>
+<li><a href="20230222204643-faktormodul.html#ID-9f848ff8-95b8-4f0b-ad74-7997012399a0">Quotientenmodul</a></li>
+<li><a href="20230802-universal_property_of_a_quotient_module.html#ID-55840708-1224-4849-b08a-64b03c45d388">universal property of a quotient module</a></li>
+
+<li><a href="20230802-product_of_an_ideal_and_a_module_as_submodule.html#ID-1ad8c6e1-ea35-45f5-8b8c-eafba826071f">product of an ideal and a module as submodule</a> - todo</li>
+<li><a href="20230802-cokernel_of_a_module.html#ID-f15bd196-a72c-4106-b7d6-3b7b4d2d1f74">cokernel of a module</a></li>
+<li><a href="20230314222736-extern_direkte_summe_von_moduln.html#ID-36b95135-e3a0-4efe-9031-321743c9a6bc">externe direkte Summe von Moduln</a></li>
+<li><a href="20230519125728-direkte_produkt_von_moduln.html#ID-d4116c44-e0f9-4f13-8b0b-3c3cd0ecfbb7">direkte Produkt von Moduln</a></li>
+
+<li><a href="20230802-precomposition_of_a_module_homomorphism.html#ID-879dddb9-e8bc-470c-9495-05bbbc8adc62">precomposition of a module homomorphism</a> - todo</li>
+<li><a href="20230802-postcomposition_of_a_module_homomorphism.html#ID-0bdcc136-5c22-4076-9fc9-5f42367507dd">postcomposition of a module homomorphism</a>  - todo</li>
+<li><a href="20230811-combination_of_the_precomposition_and_postcomposition_functor.html#ID-d68a68b8-b60f-4a0e-b041-2ce62220a53b">combination of the precomposition and postcomposition Functor</a></li>
+<li>exercise: small limist, colimits, factor</li>
+
+<li><a href="20230531104455-endlich_erzeugter_modul.html#ID-b8bbecb1-a067-40a2-a8c8-3c4119252b18">finitely generated module</a></li>
+<li><a href="20230801-finitely_presented_module.html#ID-7ccb4638-bc9e-414e-a304-75a46e1f34f5">finitely presented module</a></li>
+<li><a href="20230726-noetherian_module.html#ID-a82bdcd4-bd89-4a2f-bf15-91a32a4bfd82">noetherian module</a></li>
+<li><a href="20230801-equivalent_characterization_of_a_noetherian_module.html#ID-c73c09b2-873d-4729-bcbe-90b54af03c4c">equivalent characterization of a noetherian module</a></li>
+<li><a href="20230802-finite_product_of_noetherian_modules_as_noetherian_module.html#ID-1ba5b713-788a-49fe-93c1-3193b7fa3f76">finite product of noetherian modules as noetherian module</a></li>
+<li></li>
+
+<li><a href="20221003210458-bilineare_abbildung.html#ID-4a5036f7-358f-484f-88aa-638a29f2e1f7">bilineare Abbildung</a></li>
+<li><a href="20230804-bilinear_maps_as_module.html#ID-fec50164-be14-4ae4-83cc-f4da4640ce95">bilinear maps as module</a> - todo</li>
+<li><a href="20230802-currying_of_module_homomorphisms.html#ID-55d0c8d5-c362-40c7-a75c-8fedc644b669">currying of module homomorphisms</a>    - todo</li>
+<li><a href="20230801-tensor_product.html#ID-42c4ecff-8f9a-40cf-bebc-70569ded24bf">tensor product</a> - todo</li>
+<li><a href="20230801-existence_of_a_tensor_product.html#ID-ec576c28-ae56-402f-8a0b-a9fd9127bc1e">Existence of a tensor product</a> - todo</li>
+<li><a href="20230801-uniqueness_of_a_tensor_product.html#ID-d6e6ac59-fef0-487d-ab04-724334d750f2">uniqueness of a tensor product</a> - todo</li>
+<li><a href="20230812-tensoring_functor.html#ID-761d2307-1593-44ac-8782-0398791c46ec">tensoring functor</a></li>
+
+<li><a href="20230811-universal_property_of_a_tensor_product.html#ID-e8ad1584-a66c-413b-980e-a3e797891dcf">universal property of a tensor product</a></li>
+<li><a href="20230802-elementary_tensor.html#ID-dfa3ac83-6b3c-4da9-a45e-4241edcaf0dd">elementary tensor</a></li>
+<li><a href="20230811-commutativity_of_an_elementary_tensor.html#ID-1e0ae091-b980-4673-9345-a065de16521e">commutativity of an elementary tensor</a></li>
+<li><a href="20230811-distributivity_of_an_elementary_tensor.html#ID-eac423cd-6cb2-468d-bac3-20f5844fa71c">distributivity of an elementary tensor</a></li>
+<li><a href="20230803-associativity_of_a_tensor_product.html#ID-e26d9092-9dbb-43a5-bcee-ded4bea0494d">associativity of a tensor product</a> - todo</li>
+<li><a href="20230803-commutativity_of_a_tensor_product.html#ID-a9b6b548-2cf4-4524-8f0d-bde685d197f3">commutativity of a tensor product</a>  - todo</li>
+<li>left adjoint</li>
+<li>6.14</li>
+<li>category theory stuff</li>
+<li></li>
+
+<li>TODO</li>
+<li><a href="20230803-chinese_remainder_theorem_for_a_module.html#ID-d2f02e0f-5694-443d-b61e-01aa621bd2e8">chinese remainder theorem for a module</a></li>
+<li><a href="20230802-chain_complex.html#ID-e4c10be9-3796-4aff-9579-5cc0b5f47e36">chain complex</a></li>
+<li><a href="20230804-chain_complex_of_modules.html#ID-d3a9b3ee-07df-4010-9015-9ef28e434786">chain complex of modules</a></li>
+<li><a href="20230724-exact_sequence_and_monomorphism.html#ID-2d122ce4-5d0f-4c82-8b6b-cb3d53b42d87">exact sequence and monomorphism</a></li>
+<li><a href="20230724-exact_sequence_and_epimorphism.html#ID-770d5ae6-a0e1-4862-a251-4b524095f0d8">exact sequence and epimorphism</a></li>
+<li><a href="20230804-homology_module.html#ID-d7e6ecab-9dd0-4b4e-a514-2fe6adfcb41c">homology module</a></li>
+<li><a href="20230804-acyclic_chain_complex_at_a_point.html#ID-d573eb62-ba3d-4007-9671-fb71073b134b">acyclic chain complex at a point</a></li>
+<li><a href="20230804-acyclic_chain_complex.html#ID-bcab293d-9b86-45d8-a2db-7246b96fa0fb">acyclic chain complex</a></li>
+<li><a href="20230804-acylic_chain_complex_as_exact_module.html#ID-3af0b2db-7ca2-43e7-b999-7f630ab8dfd7">acylic chain complex as exact module</a></li>
+<li></li>
+
+<li><a href="20230802-snake_lemma.html#ID-d1fa92c4-30dd-4e98-bb54-620596a2800e">Snake lemma</a></li>
+<li><a href="20230803-5_lemma.html#ID-fa3db9a5-91b8-446d-955f-158e123bc141">5-Lemma</a></li>
+
+<li><a href="20230727-projective_module.html#ID-d7827fce-3372-4b89-bd57-fafc2c16e937">projective module</a></li>
+<li><a href="20230803-injective_module.html#ID-c14a1ecb-aad5-402f-b835-7857c7b39dfb">injective module</a></li>
+<li><a href="20230801-flat_module.html#ID-1fec67f0-a4f2-444f-a53f-3e8e7fcfc491">flat module</a></li>
+<li><a href="20230803-faithfully_flat_module.html#ID-90fff949-02f7-46e7-beca-eacf14cbb932">faithfully flat module</a></li>
+<li><a href="20230803-finitely_generated_and_projective_module_as_finitely_presented_module.html#ID-d191782e-3886-44bf-8c7c-eb16addbe7a8">finitely generated and projective module as finitely presented module</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="20230804-self_injective_ring.html#ID-593ce0af-ecf7-4169-89d4-a8edeb5e29ea">self-injective ring</a></li>
+
+<li></li>
+
+
+<li><a href="20230804-vector_space_as_projective_module.html#ID-8a2389a9-2883-400c-b3e0-64533d480806">vector space as projective module</a></li>
+<li><a href="20230804-vector_space_as_injective_module.html#ID-12e79546-7cf7-4986-aeb6-c1f8814ab48b">vector space as injective module</a></li>
+<li></li>
+
+<li><a href="20230727-free_module_as_projective_module.html#ID-dc5e5a8e-fab5-4f2d-b555-f560b1ec7b4a">free module as projective module</a></li>
+<li><a href="20230803-free_module_as_flat_module.html#ID-49e5563a-0db2-4891-9038-5cebc1eaa962">free module as flat module</a></li>
+<li><a href="20230803-baer_s_criterion.html#ID-4c58f18b-4703-459c-84b7-ad513ef9d11d">Baer's criterion</a></li>
+<li><a href="20230803-group_as_injective_module_and_divisible_group.html#ID-0f5b4ace-2a38-4aed-aa09-1e69be9e14cb">group as injective module and divisible group</a></li>
+<li></li>
+
+
+<li><a href="20230803-finitely_presented_module_and_projective_flat_module.html#ID-509ed811-2f60-4e0f-b42c-36f1b71aa852">finitely presented module and projective / flat module</a></li>
+
+<li><a href="20230803-von_neumann_regular_ring.html#ID-2eb3bab2-7439-4dbd-ae53-951096e2956e">von neumann Regular Ring</a></li>
+<li><a href="20230803-field_as_von_neumann_regular_ring.html#ID-2a1ae981-d090-4cee-b418-50a6151443bb">field as von Neumann regular ring</a></li>
+<li><a href="20230803-product_of_von_neumann_regular_rings_as_von_neumann_regular_ring.html#ID-a0543eb6-a254-41c4-86ff-9f1b63b28cce">product of von neumann regular rings as von neumann regular ring</a></li>
+<li><a href="20230803-image_of_a_von_neumann_regular_ring_as_von_neumann_regular_ring.html#ID-9d4c4f9f-8caf-4404-a916-4b6b1a5f45da">image of a von neumann regular ring as von neumann regular ring</a></li>
+<li><a href="20230803-on_neumann_regular_ring_as_reduced_ring.html#ID-fc66d63f-845c-4132-bbef-7de4c511bf27">von neumann regular ring as reduced ring</a></li>
+<li><a href="20230803-von_neumann_regular_ring_as_domain.html#ID-6f4b315f-9c66-4c7c-8b41-d62d735254ae">von Neumann regular ring as domain</a></li>
+<li><a href="20230803-prime_ideal_of_a_von_neumann_regular_ring_as_maximal_ideal.html#ID-6a3f76e3-f638-444c-af5b-1dd70ab5c74d">prime ideal of a von neumann regular ring as maximal ideal</a></li>
+
+<li><a href="20230803-von_neumann_regular_ring_and_flat_modules.html#ID-5fa4ccb6-7f1e-407e-9240-8aff3694305f">von neumann regular ring and flat modules</a></li>
+
+<li><a href="20230803-nakayama_lemma.html#ID-5abe6681-6514-4bb1-84ae-09d96a08c20e">Nakayama Lemma</a></li>
+
+<li><a href="20230222205257-freier_modul.html#ID-f31e26dc-9f62-4ff2-81db-88cd88c22229">free module</a></li>
+
+<li><a href="20220207224644-lineare_unabhangigkeit.html#ID-c4d1496f-6012-4ade-8b98-3e29dad89ded">linearly independent</a></li>
+<li><a href="20230303171607-basis_eines_moduls.html#ID-4d94d36c-5d43-4344-a837-6c9705d279a1">basis of a module</a></li>
+<li>universal property of direct product: coproduct wird zu product (über homomorphismen)</li>
+<li><a href="20230801-isomorphism_between_module_homomorphisms_from_the_ring_and_module.html#ID-e53cbf23-bb9a-40c2-92b1-b6d1508662d1">Isomorphismie zwischen dem Modul und den Modulhomomorphismen vom Ring</a></li>
+<li><a href="20230222205528-isomorphie_von_moduln_uber_kommutativen_ringen_anhand_der_basis.html#ID-5483cc58-8fb1-4fd1-8b49-f3a039b64ad4">Isomorphie von Moduln über kommutativen Ringen anhand des Rangs</a></li>
+<li><a href="20230222205618-rang_eines_moduls.html#ID-32dff54d-1956-4458-9354-10f3d29e3ed4">Rang eines Moduls</a></li>
+<li><a href="20230118133027-direktes_produkt_algebra.html#ID-cd5fc934-6be0-49ad-8f4b-6706e8ee4971">direktes Produkt (Algebra)</a></li>
+<li><a href="20230801-rank_and_direct_sum.html#ID-0fe1ece4-5ddf-4144-a324-0532bce3dbe1">rank and direct sum</a></li>
+<li><a href="20230727-projective_module.html#ID-d7827fce-3372-4b89-bd57-fafc2c16e937">projective module</a></li>
+<li><a href="20230727-free_module_as_projective_module.html#ID-dc5e5a8e-fab5-4f2d-b555-f560b1ec7b4a">free module as projective module</a></li>
+<li></li>
+
+<li><a href="20230727-retract_group_theory.html#ID-ce5765c3-03d7-44f5-873d-ec30d79c8155">retract (group theory)</a></li>
+<li><a href="20230727-retract_of_a_module_as_direct_summand.html#ID-0b9b5b51-a4e6-43b5-8182-813c089b9163">retract of a group as direct summand</a></li>
+<li><a href="20230727-projective_module_as_direct_summand.html#ID-e6011839-481c-4a00-a385-17f7f17cc540">projective module as direct summand</a></li>
+<li><a href="20230222204832-direkte_summe_von_moduln.html#ID-e8bbb659-8f22-4f7b-bc98-3d4d09a07f32">interne direkte Summe von Moduln</a></li>
+<li><a href="20230727-projective_module_as_direct_summand.html#ID-e6011839-481c-4a00-a385-17f7f17cc540">projective module as direct summand</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20230801-projective_module_and_sum_as_free_module.html#ID-581d0e02-9070-46fa-8e3f-73377aff2ed4">projective module and sum as free module</a></li>
+<li><a href="20230801-projective_module_as_free_module_for_a_pid.html#ID-3fba905f-ddbd-4bd7-8940-e359901fd2d7">projective module as free module for a PID</a></li>
+<li><a href="20230801-projective_module_in_general_not_free.html#ID-147b4a85-f43a-4e51-89a0-8392a314ed3d">projective module in general not free</a></li>
+<li></li>
+
+
+<li><a href="20230608-torsionsmodul.html#ID-25ed3619-5b86-4220-9643-9b970abfb5f3">Torsionsmodul</a></li>
+<li><a href="20230222205807-torsionsfreier_modul.html#ID-46622402-49f7-4528-89d0-1f69bb8c8ca0">torsionsfreier Modul</a></li>
+<li><a href="20230801-flat_module_over_a_pid_and_torsion_free_module.html#ID-89a01cbe-c963-4be2-a316-893ddb844280">flat module over a PID and torsion free module</a></li>
+<li><a href="20230801-flat_module_as_torsion_free_module.html#ID-e155454e-0540-4509-afab-fac1426220e4">flat module as torsion free module</a></li>
+<li><a href="20230801-flat_module.html#ID-1fec67f0-a4f2-444f-a53f-3e8e7fcfc491">flat module</a></li>
+<li><a href="20230801-exact_sequence_and_preimage.html#ID-013ea2e9-d55c-41c8-8a6b-9bc07d7cb363">exact sequence and preimage</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 15:20</p>
+</div>
+</body>
+</html>

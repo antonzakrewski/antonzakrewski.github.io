@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 22:00 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>merkl ana2: Differentialrechnung mehrerer Variablen</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">merkl ana2: Differentialrechnung mehrerer Variablen</h1>
+<div id="outline-container-org4c2c8d2" class="outline-2">
+<h2 id="org4c2c8d2"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgb6a8590" class="outline-3">
+<h3 id="orgb6a8590"><span class="section-number-3">1.1.</span> <a href="20230228185101-visualisierung_von_reellwertigen_funktionen.html#ID-aee92d4b-3e6e-46b0-b178-0221a0e6376c">Visualisierung von reellwertigen Funktionen</a></h3>
+</div>
+<div id="outline-container-orgab9d874" class="outline-3">
+<h3 id="orgab9d874"><span class="section-number-3">1.2.</span> Partielle Ableitung TODO</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20220303084346-partielle_ableitung.html#ID-67ecd811-2335-4fe1-8693-87bf407cb057">Partielle Ableitung</a></li>
+<li><a href="20230301042854-partielle_differenzierbarkeit.html#ID-9f248317-772f-4539-9de2-b23ab30004e9">partielle differenzierbarkeit</a></li>
+<li><a href="20220303084101-richtungsableitung.html#ID-4bf38220-c604-4253-a2eb-7579626f53ac">Richtungsableitung</a></li>
+<li><a href="20230301043100-partielle_ableitung_und_stetigkeit.html#ID-b65be555-c187-46bd-b11e-cf697ea3ae61">partielle Ableitung und Stetigkeit</a></li>
+<li><a href="20230301043226-hessematrix.html#ID-5bbe6da9-9708-42e1-859a-bbdd8e050965">Hessematrix</a></li>
+<li><a href="20221121084353-laplace_operator.html#ID-15a0f109-f4bb-4598-81aa-a93625ed3b6b">Laplace-Operator</a></li>
+<li><a href="20221113194356-satz_von_schwarz.html#ID-4d8e8973-787e-45da-933d-8486b9f0f79d">Satz von Schwarz</a></li>
+<li><a href="20230301043636-multiindexnotation_fur_partielle_ableitungen.html#ID-03eedc33-45dc-408f-ae38-d5188d846460">Multiindexnotation für partielle Ableitungen</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2d75b7d" class="outline-3">
+<h3 id="org2d75b7d"><span class="section-number-3">1.3.</span> Differenzierbarkeit und Ableitung</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20230228185630-differenzierbarkeit_in_normierten_raumen.html#ID-641e1a60-353c-440e-b5a5-74e15f9d1def">differenzierbarkeit in normierten Räumen</a></li>
+<li><a href="20230228185207-differential.html#ID-b3b751f6-dbbb-457b-a7d7-a7fa262a7208">Differential</a></li>
+<li><a href="20230301043817-stetig_differenzierbar.html#ID-fc4f0898-2fd4-4c3e-aa2c-4af7108d5530">stetig differenzierbar</a></li>
+<li><a href="20230301044040-eindeutigkeit_der_ableitung.html#ID-b1133556-5bb8-47c1-9c96-793b65392a6d">Eindeutigkeit der Ableitung</a></li>
+<li><a href="20230301044142-stetig_partielle_differenzierbarkeit_impliziert_allgemeine_differenzierbarkeit.html#ID-8e65b156-29f6-4f23-9355-21de95444b27">stetig partielle differenzierbarkeit impliziert allgemeine differenzierbarkeit</a></li>
+<li><a href="20230301044253-kompositionsabbildung.html#ID-7132af3e-7407-4729-bc12-a23068dafad2">Kompositionsabbildung</a></li>
+<li><a href="20230301044302-ableitung_der_kompositionsabbildung.html#ID-a8dca286-986f-4212-88a4-c21ed6bc09dd">Ableitung der Kompositionsabbildung</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgec8d98c" class="outline-3">
+<h3 id="orgec8d98c"><span class="section-number-3">1.4.</span> Veranschaulichung der Ableitung mit Tangentialräumen</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><a href="20230301044425-tangentialraum.html#ID-230922aa-69cc-4795-a3aa-f23d1b7d1a3e">Tangentialraum</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcfee8a3" class="outline-3">
+<h3 id="orgcfee8a3"><span class="section-number-3">1.5.</span> Kettenregel</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li><a href="20230301044656-allgemeine_kettenregel.html#ID-f3221b38-dd9e-4905-9c29-25b9e4b3713b">allgemeine Kettenregel</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3f0ab11" class="outline-3">
+<h3 id="org3f0ab11"><span class="section-number-3">1.6.</span> multidimensionale Taylorformel</h3>
+</div>
+<div id="outline-container-org29ea708" class="outline-3">
+<h3 id="org29ea708"><span class="section-number-3">1.7.</span> Stationäre Punkte und lokale Extrema</h3>
+</div>
+<div id="outline-container-org58f98a9" class="outline-3">
+<h3 id="org58f98a9"><span class="section-number-3">1.8.</span> Die Räume</h3>
+</div>
+<div id="outline-container-orgc8e79ff" class="outline-3">
+<h3 id="orgc8e79ff"><span class="section-number-3">1.9.</span> Der lokale Umkehrsatz</h3>
+</div>
+<div id="outline-container-org43aaf5c" class="outline-3">
+<h3 id="org43aaf5c"><span class="section-number-3">1.10.</span> Umplizit definierte Funktionen</h3>
+</div>
+<div id="outline-container-org304b344" class="outline-3">
+<h3 id="org304b344"><span class="section-number-3">1.11.</span> Untermannigfaltigkeiten</h3>
+</div>
+<div id="outline-container-org7e19aa9" class="outline-3">
+<h3 id="org7e19aa9"><span class="section-number-3">1.12.</span> Stationäre Punkte unter Nebenbedingungen</h3>
+<div class="outline-text-3" id="text-1-12">
+<ul class="org-ul">
+<li><a href="20230120064714-lokales_minimum.html#ID-81c00b42-b645-4421-b6e4-38cf11933365">lokales Minimum</a></li>
+<li><a href="20230120064723-lokales_maximum.html#ID-c61077e5-41a6-461f-a18b-751b637be659">lokales Maximum</a></li>
+<li><a href="20230120064629-lokales_extremum.html#ID-f8eb7195-5e19-4b8f-84d4-b4d088216234">lokales Extremum</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org44c3279" class="outline-3">
+<h3 id="org44c3279"><span class="section-number-3">1.13.</span> 1-Formen und Kurvenintegrale</h3>
+<div class="outline-text-3" id="text-1-13">
+<ul class="org-ul">
+<li><a href="20230301045631-1_form.html#ID-2ecb6a9e-3db6-458d-9236-0496fd789bfb">1-Form</a></li>
+<li><a href="20230301045816-geschlossene_1_form.html#ID-a3d253ac-8faa-4ee7-bd95-0b670bdb826e">geschlossene 1-Form</a></li>
+<li><a href="20230301045831-exakte_1_form.html#ID-5050d3d5-a27d-4465-8529-de9c396e5a4b">exakte 1-Form</a></li>
+<li><a href="20230301050005-geschlossenheit_einer_exhkten_1_form.html#ID-6d944fe5-c28b-4216-9eae-04bb75dea634">Geschlossenheit einer exhkten 1-Form</a></li>
+<li><a href="20230301050046-ruckzug_einer_1_form.html#ID-c0bfcc6a-e2f0-403c-a8fe-409c8e3b27b8">Rückzug einer 1-Form</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9e2579a" class="outline-3">
+<h3 id="org9e2579a"><span class="section-number-3">1.14.</span> Das Lemma von Poincare und die erse de-Rham Kohomologie</h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 22:00</p>
+</div>
+</body>
+</html>

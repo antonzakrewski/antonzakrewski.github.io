@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 22:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mathe - todo - uni - old</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Mathe - todo - uni - old</h1>
+<div id="outline-container-orgd877aff" class="outline-2">
+<h2 id="orgd877aff"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org8664053" class="outline-3">
+<h3 id="org8664053"><span class="section-number-3">1.1.</span> Ana1</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org6f9aa4c" class="outline-4">
+<h4 id="org6f9aa4c"><span class="section-number-4">1.1.1.</span> unwichtig</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<ul class="org-ul">
+<li><a href="20221126204356-dedekindscher_rekursionssatz.html#ID-7d85fc1f-f8b8-493f-9a55-30d4a1a4e706">Dedekindscher Rekursionssatz</a></li>
+<li><a href="20230113084153-reihen_als_c_algebra.html#ID-0812fd29-130f-4228-ba07-99058a3595f8">Reihen als C-Algebra</a></li>
+<li><a href="20210618081314-naturliche_zahlen.html#ID-3b0f07cf-8ed5-43e1-96c5-9688c4afb0ca">Natürliche Zahlen</a></li>
+<li><a href="20220104175248-peano_axiome.html#ID-808d1ce2-9ae4-4b37-9078-cbef644bfa25">Peano axioms</a></li>
+<li><a href="20210702104458-ganze_zahlen.html#ID-179209f5-5cb0-426c-b035-470f9b3935a8">Ganze Zahlen</a></li>
+<li><a href="20210702104510-rationale_zahlen.html#ID-3db33e99-bceb-451d-804c-51a884630be1">Rationale Zahlen</a></li>
+<li><a href="20211228190928-gaußsche_summenformel.html#ID-f1981873-eaee-4f11-bb5b-9c56497377bf">Gaußsche Summenformel</a></li>
+<li><a href="20221103142030-wohlordnung_der_naturlichen_zahlen_unter_der_großer_kleiner_relation.html#ID-f078c173-7a20-4fc3-a0b7-34e255a5490e">Wohlordnung der natürlichen Zahlen unter der größer/kleiner Relation</a></li>
+<li><a href="20220912112332-dedekindscher_schnitt.html#ID-83b7b818-bd3a-4b0e-8fa1-939d7031e5a6">Dedekindscher Schnitt</a> (6)</li>
+<li><a href="20230116163452-stetigkeit_im_unendlichen.html#ID-78175fad-0e60-42da-9b00-c410fa10009b">Stetigkeit im Unendlichen</a></li>
+<li><a href="20230116161526-stetigkeit_in_pm_infty.html#ID-17ca2e0c-2274-4f05-8d2e-91eb7daa5394">Stetigkeit in \(\pm \infty\)</a></li>
+<li><a href="20221103141705-satz_uber_die_eindeutigkeit_und_existenz_des_ganzzahligen_anteiils_einer_reellen_zahl.html#ID-c3e7eb70-18f0-4dfb-8af8-1f4c51a6ac9e">Eindeutigkeit und Existenz des ganzzahligen Anteiils einer reellen Zahl</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf2cd899" class="outline-4">
+<h4 id="orgf2cd899"><span class="section-number-4">1.1.2.</span> mittelwichtig</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ul class="org-ul">
+<li><a href="20221212112245-binomialreihe.html#ID-65dfb476-0d6a-43f5-8ca3-33d57db27ec8">Binomialreihe</a>  - konvergenz</li>
+<li><a href="20220524224052-formel_geometrische_reihe.html#ID-35dc654e-57b4-4da5-8990-e7e19c65fd16">Formel: Geometrische Reihe</a>  / zerlegungsformel (vorlesung 2) verwenden</li>
+<li><a href="20220104211627-kombinatorische_bedeutung_binomialkoeffizient.html#ID-f23c84a5-bacd-4339-b9c9-d41c20fb14a1">Kombinatorische Bedeutung: Binomialkoeffizient</a></li>
+<li><a href="20230112091527-gleich_viele_teilmengen_mit_gerader_anzahl_wie_ungerader.html#ID-298ef37a-80b2-4449-be16-8a95b65dc899">Gleich viele Teilmengen mit gerader Anzahl wie ungerader</a> (vorlesung 4)</li>
+<li><a href="20221103141705-satz_uber_die_eindeutigkeit_und_existenz_des_ganzzahligen_anteiils_einer_reellen_zahl.html#ID-c3e7eb70-18f0-4dfb-8af8-1f4c51a6ac9e">Eindeutigkeit und Existenz des ganzzahligen Anteiils einer reellen Zahl</a> (6)</li>
+<li><a href="20230112093247-rationale_zahlen_dicht_in_den_reellen_zahlen.html#ID-5f371b3f-73d5-4f32-a965-63d456f22775">rationale Zahlen dicht in den reellen Zahlen</a></li>
+<li><a href="20230112095225-konstruktion_der_reellen_zahlen_durhc_dedekindsche_schnitte.html#ID-09fddeaa-2511-4825-a13f-86d9fc59f791">Konstruktion der reellen Zahlen durch Dedekindsche Schnitte</a> (6)</li>
+<li><a href="20230112095411-lucke_in_den_rationalen_zahlen.html#ID-73087d95-55a5-4165-b3af-c2d5fe156b8b">Lücke in den rationalen Zahlen</a></li>
+<li>ganzen vollständigkeitsaxiome äquivalenz zeigen</li>
+<li><a href="20230112180057-satz_von_bolzano_weierstrass_auf_den_erweiterten_reellen_zahlen_riemannschen_zahlenkugel.html#ID-8ffddac2-4bbf-4c8e-b74c-637c8e72be62">Satz von Bolzano-Weierstrass auf den erweiterten reellen Zahlen / riemannschen Zahlenkugel</a></li>
+<li><a href="20230112175743-auf_endlichdimensionale_vektorraume_verallgemeinerter_satz_von_bolzano_weierstrass.html#ID-07fe3837-10a0-4571-acc2-2ce700973fb4">auf endlichdimensionale Vektorräume verallgemeinerter Satz von Bolzano-Weierstrass</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge3ab406" class="outline-4">
+<h4 id="orge3ab406"><span class="section-number-4">1.1.3.</span> wichtiger</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<ul class="org-ul">
+<li><a href="20221202203420-satz_uber_die_konvergenz_von_einer_beschrankten_folge_in_abhangigkeit_von_haufungspunkten.html#ID-fee72e0c-1bd2-4d89-bf35-deca4d144e1e">Konvergenz von einer beschränkten Folge in Abhängigkeit von Häufungspunkten</a></li>
+<li><a href="20221221114533-satz_uber_die_konvergenz_einer_folge_durch_die_existenz_von_konvergenten_teilfolgen_fur_jede_teilfolge.html#ID-9a97638f-ae14-4e57-9790-56a1d2f8bb92">Konvergenz einer Folge durch die Existenz von konvergenten Teilfolgen für jede Teilfolge</a></li>
+<li><a href="20221212094433-konvergenz_einer_komplexen_folge_in_abhangigkeit_vom_real_und_imaginarteil.html#ID-08da691c-24a2-4c79-bcc4-86d810e71620">Konvergenz einer Komplexen Folge in Abhängigkeit vom Real- und Imaginärteil</a>  -</li>
+<li><a href="20221222151906-konvergenzverhalten_von_potenzreihen_auf_dem_rand.html#ID-0d912e94-bfab-46cb-8250-1766d0855e4b">Konvergenzverhalten von Potenzreihen auf dem Rand</a></li>
+<li><a href="20230109113143-cauchy_hadamard.html#ID-17b654bc-c8cb-402c-83a7-4f7787b83ebf">Cauchy Hadamard</a></li>
+<li><a href="20230109113759-quotientenkriterium_fur_den_konvergenzradius.html#ID-42080a8d-a9ce-4fb9-a185-e5633eb776e2">Quotientenkriterium für den Konvergenzradius</a></li>
+<li><a href="20221221125754-multiplikationssatz_fur_potenzreihen.html#ID-2ce61172-7654-4601-baf9-b20594af57e8">Multiplikationssatz für Potenzreihen</a></li>
+<li><a href="20221208113024-abschatzung_des_grenzwerts_fur_absolut_konvergente_reihen.html#ID-bf6c10a4-be25-405b-9166-f2e1aa1ce070">Abschätzung des Grenzwerts für absolut konvergente Reihen</a></li>
+<li><a href="20230116163604-aquivalenz_von_differenzierbarkeit_und_linearer_approximation_mit_restgliedabschatzung.html#ID-6ab48ed7-6236-4724-906e-1ab0d63582c0">Äquivalenz von Differenzierbarkeit und linearer Approximation mit Restgliedabschätzung</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgec9163b" class="outline-4">
+<h4 id="orgec9163b"><span class="section-number-4">1.1.4.</span> übungsaufgaben</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<ul class="org-ul">
+<li><a href="20230110073854-stetigkeit_von_gebrochen_rationalen_polynomen.html#ID-2cecba05-e296-4242-972c-7a748f855d25">Stetigkeit von gebrochen rationalen Polynomen</a></li>
+<li><a href="20230110072859-potenzreihenentwicklung_um_beliebige_punkte_in_der_konvergenzscheibe.html#ID-18885eeb-7f09-4442-9f9c-d3f12d735591">Potenzreihenentwicklung um beliebige Punkte in der Konvergenzscheibe</a></li>
+<li><a href="20221104120845-vandermonde_identitat.html#ID-2d2fcf38-9761-480a-b113-e2de1a9ecab2">Vandermonde Identität</a></li>
+<li><a href="20221222151906-konvergenzverhalten_von_potenzreihen_auf_dem_rand.html#ID-0d912e94-bfab-46cb-8250-1766d0855e4b">Konvergenzverhalten von Potenzreihen auf dem Rand</a></li>
+<li><a href="20230110103410-komplementbildung_unter_schnitt_und_vereinigung.html#ID-d6517940-4043-41d9-9063-12faf67aab22">Komplementbildung unter Schnitt und Vereinigung</a></li>
+<li><a href="20221031112304-ungleichung_des_quadratischen_arithmetischen_und_geometrischen_mittel.html#ID-2e89697d-11f7-4db2-a494-202220be9aee">Ungleichung des harmonischen, arithmetischen und geometrischen Mittel</a></li>
+<li><a href="20230110104941-approximation_des_geometrischen_mittels_durch_das_arithmetische_und_harmonische.html#ID-2798f7d9-c27d-44b8-a56c-b2a33ba96c37">Approximation des Geometrischen Mittels durch das arithmetische und harmonische</a></li>
+<li><a href="20220210110830-heronverfahren.html#ID-d0fe1045-2085-40d8-a128-dd2175a5451e">Heronverfahren</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5175afa" class="outline-4">
+<h4 id="org5175afa"><span class="section-number-4">1.1.5.</span> skript</h4>
+<div class="outline-text-4" id="text-1-1-5">
+<ul class="org-ul">
+<li><a href="20220719233717-zwischenwertsatz.html#ID-f17f7890-df11-47cf-81d3-ab463e3219ff">Zwischenwertsatz</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org68f0f7b" class="outline-4">
+<h4 id="org68f0f7b"><span class="section-number-4">1.1.6.</span> aktuell</h4>
+<div class="outline-text-4" id="text-1-1-6">
+<ul class="org-ul">
+<li><a href="20230123231918-schrankensatz.html#ID-ca451a9c-05f6-46db-8cc4-830bb1682fe2">Schrankensatz</a></li>
+<li><a href="20230123234327-verallgemeinerter_mittelwertsatz.html#ID-81e3bb77-8a95-4537-b91e-fb883e964720">Verallgemeinerter Mittelwertsatz</a></li>
+<li><a href="20230123234139-isolierter_extremwert.html#ID-08cf28d3-55c3-421f-85ec-c0de04db7245">isolierter Extremwert</a></li>
+<li><a href="20221015094153-satz_uber_die_stetigkeit_von_differenzierbaren_funktionen.html#ID-de2242ed-3381-43cc-8c0b-b28b3a717ba2">Satz über die Stetigkeit von differenzierbaren Funktionen</a></li>
+</ul>
+<p>
+<a href="20230116163604-aquivalenz_von_differenzierbarkeit_und_linearer_approximation_mit_restgliedabschatzung.html#ID-6ab48ed7-6236-4724-906e-1ab0d63582c0">Äquivalenz von Differenzierbarkeit und linearer Approximation mit Restgliedabschätzung</a>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgdf66b5e" class="outline-3">
+<h3 id="orgdf66b5e"><span class="section-number-3">1.2.</span> La1</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-org2dad70c" class="outline-4">
+<h4 id="org2dad70c"><span class="section-number-4">1.2.1.</span> wichtiger</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<ul class="org-ul">
+<li><a href="20230127181453-untere_schranke_des_rangs_einer_verknupfung.html#ID-3866ccf1-1cca-437d-a575-886ec8f34e08">untere Schranke des Rangs einer Verknüpfung</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7bf6c3e" class="outline-4">
+<h4 id="org7bf6c3e"><span class="section-number-4">1.2.2.</span> unwichtig</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<ul class="org-ul">
+<li><a href="20230115185831-uneindeutigkeit_des_komplement_eines_unterraums.html#ID-128c8196-321a-4d10-b30d-c343fd898f24">Uneindeutigkeit des Komplement eines Unterraums</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5e66fcb" class="outline-4">
+<h4 id="org5e66fcb"><span class="section-number-4">1.2.3.</span> stoff</h4>
+<div class="outline-text-4" id="text-1-2-3">
+</div>
+<div id="outline-container-orgab9835f" class="outline-5">
+<h5 id="orgab9835f"><span class="section-number-5">1.2.3.1.</span> wichtig</h5>
+<div class="outline-text-5" id="text-1-2-3-1">
+<ul class="org-ul">
+<li><a href="20221117141850-dimensionsformel.html#ID-89ca70c5-8ce9-4582-96cd-918ccb9b3ed4">Dimensionsformel</a></li>
+<li><a href="20221119181247-lemma_uber_die_basis_von_2_faktorraumen.html#ID-a9a52a43-4fe8-4f30-b1fd-ea107369adfd">Basis von 2 Faktorräumen</a></li>
+<li><a href="20221210173932-satz_uber_den_rang_bei_einer_invertierbaren_matrixmultiplikation.html#ID-b7dec568-3fdd-4015-8eaa-6f1c67b05d4f">Rang bei einer invertierbaren Matrixmultiplikation</a></li>
+<li><a href="20221210165610-transponieren_einer_matrix_als_isomorphismus.html#ID-2fbb14a6-5fde-469b-8e1e-7a4788542c41">Transponieren einer Matrix als Isomorphismus</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8cdde3a" class="outline-5">
+<h5 id="org8cdde3a"><span class="section-number-5">1.2.3.2.</span> 6</h5>
+</div>
+</div>
+<div id="outline-container-orgf04c2f8" class="outline-4">
+<h4 id="orgf04c2f8"><span class="section-number-4">1.2.4.</span> übungsaufgaben</h4>
+<div class="outline-text-4" id="text-1-2-4">
+</div>
+<div id="outline-container-org0116532" class="outline-5">
+<h5 id="org0116532"><span class="section-number-5">1.2.4.1.</span> current tut</h5>
+<div class="outline-text-5" id="text-1-2-4-1">
+<ul class="org-ul">
+<li><a href="20230117063818-konjugationsformel_symmetrische_gruppe.html#ID-21547d66-241e-40ef-be36-f2d4465df96e">Konjugationsformel (Symmetrische Gruppe)</a></li>
+<li><a href="20230117081746-1_isomorphiesatz.html#ID-33032151-e403-484c-96d5-ace837e8d29b">1. Isomorphiesatz</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7e39713" class="outline-5">
+<h5 id="org7e39713"><span class="section-number-5">1.2.4.2.</span> other</h5>
+<div class="outline-text-5" id="text-1-2-4-2">
+<ul class="org-ul">
+<li><a href="20221210165755-transponieren_einer_matrixmultiplikation.html#ID-ff6455f3-9bec-4b3f-8e7a-11b0871adcf3">Transponieren einer Matrixmultiplikation</a></li>
+<li><a href="20230110135218-lineare_unabhangigkeit_der_paarweise_gebildeten_summe_drei_linear_unabhangiger_vektoren.html#ID-3ab70dc1-145e-4bd9-aa4c-0be07bb792b3">Lineare Unabhängigkeit der paarweise gebildeten Summe drei linear unabhängiger Vektoren</a></li>
+<li><a href="20230110142239-zentrale_matrix_als_skalierte_identitatsmatrix.html#ID-f1ee8aad-a299-47b3-9ea9-d1be40a8313b">zentrale Matrix als skalierte Identitätsmatrix</a></li>
+<li><a href="20230110142129-zentrale_matrix.html#ID-65d43bd2-e4eb-46fe-a4d9-ecc2541c05a8">zentrale Matrix</a></li>
+<li><a href="20230111095939-dimension_vektorraum_uber_einem_unterkorper.html#ID-9416623b-e0db-4591-8449-ee6f1f013610">Dimension eines Vektorraums über einem Unterkörper</a></li>
+<li><a href="20230111100333-aquivalenz_von_trivialem_schnitt_linearen_unabhangigkeit_und_direkter_summe_zweier_vektorraumen.html#ID-7e657151-5604-4594-a622-cd0bda4f39ef">Äquivalenz von trivialem Schnitt, linearen unabhängigkeit und direkter Summe zweier Vektorräumen</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf86ef70" class="outline-4">
+<h4 id="orgf86ef70"><span class="section-number-4">1.2.5.</span> stoff</h4>
+<div class="outline-text-4" id="text-1-2-5">
+<p>
+nacharbeiten !
+</p>
+</div>
+<div id="outline-container-orgf30c74b" class="outline-5">
+<h5 id="orgf30c74b"><span class="section-number-5">1.2.5.1.</span> 9)</h5>
+<div class="outline-text-5" id="text-1-2-5-1">
+<p>
+???
+</p>
+</div>
+</div>
+<div id="outline-container-orgb8862d3" class="outline-5">
+<h5 id="orgb8862d3"><span class="section-number-5">1.2.5.2.</span> 10</h5>
+<div class="outline-text-5" id="text-1-2-5-2">
+<ul class="org-ul">
+<li><a href="20221224180209-multiplikativitat_der_determinante.html#ID-3755c9f1-a210-4ed2-981d-efabc6596635">Multiplikativität der Determinante</a></li>
+<li><a href="20221224175800-kastchensatz.html#ID-9d14c88c-6228-4ff0-a9fa-15695508ca09">Kästchensatz</a></li>
+<li><a href="20221224180415-laplace_entwicklung.html#ID-569e3b41-3b14-4775-922c-5a02533fbfdd">Laplace Entwicklung</a></li>
+<li><a href="20230110192134-determinante_entwicklung_nach_einer_zeile.html#ID-e93288f8-0365-4edb-8dfa-3632122ec510">Determinante: Entwicklung nach einer Zeile</a></li>
+<li><a href="20230110192119-determinante_entwicklung_nach_einer_spalte.html#ID-5c2cd85e-e01e-4c5a-a1ae-bc406636ffa9">Determinante: Entwicklung nach einer Spalte</a></li>
+<li><a href="20221126195729-aquivalenz_determinante_ungleich_null_und_regulare_matrix.html#ID-8ef0368a-9a6b-4776-9392-e07c1c404c3e">Äquivalenz: Determinante ungleich Null und reguläre Matrix</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge52f4da" class="outline-5">
+<h5 id="orge52f4da"><span class="section-number-5">1.2.5.3.</span> 11) dualraum</h5>
+<div class="outline-text-5" id="text-1-2-5-3">
+<ul class="org-ul">
+<li><a href="20221226135604-isomorphismus_von_dem_dualen_faktorraum_und_der_annullierung_der_linearform.html#ID-5e0ed00a-0d09-4be8-89c8-b6d6109ccf20">Isomorphismus von dem dualen Faktorraum und der Annullierung der Linearform</a></li>
+<li><a href="20221226161626-abbildung_auf_den_dualraum_des_dualraums.html#ID-31f52dd1-d205-41a1-b255-7537f188d532">Abbildung auf den Dualraum des Dualraums</a></li>
+<li><a href="20221227084404-dualitatssatz_fur_die_annullierung.html#ID-80388466-a535-44e2-9099-77a8a30b7182">Dualitätssatz für die Annullierung</a></li>
+<li><a href="20230110192407-unterraum_als_durchschnitt_von_affinen_hyperebenen.html#ID-a8de87c6-ba64-4e4e-b78f-8906ba4280b2">Unterraum als Durchschnitt von affinen Hyperebenen</a></li>
+<li><a href="20221226154416-satz_uber_den_kern_und_das_bild_der_dualen_abbildung.html#ID-6efa21b1-4f01-4a8c-86f1-ab313f4c0876">Kern und Bild der dualen Abbildung</a></li>
+<li><a href="20221226154549-satz_uber_surjektivitat_und_injektivitat_der_dualen_abbildung.html#ID-c931048c-14d8-4b42-8d4e-3a9917126398">Surjektivität und Injektivität der dualen Abbildung</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge43df1a" class="outline-5">
+<h5 id="orge43df1a"><span class="section-number-5">1.2.5.4.</span> 12</h5>
+<div class="outline-text-5" id="text-1-2-5-4">
+<ul class="org-ul">
+<li><a href="20221226010611-division_mit_rest_uber_polynome.html#ID-442ee103-8922-4f8e-864f-7e540dd7e5a7">Division mit Rest über Polynome</a></li>
+<li><a href="20230110201909-grad_einer_algebraischen_ableitung.html#ID-b0ec44a7-677b-4173-9d3b-5acbeb05ed60">Grad einer (algebraischen) Ableitung</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org82cc34a" class="outline-5">
+<h5 id="org82cc34a"><span class="section-number-5">1.2.5.5.</span> 13</h5>
+<div class="outline-text-5" id="text-1-2-5-5">
+<ul class="org-ul">
+<li><a href="20221227225148-schnitt_von_idealen_als_ideal.html#ID-dd0eaf4a-d395-492d-ae5c-c234c83088f7">Schnitt von Idealen als Ideal</a> TO</li>
+<li><a href="20221227225653-summe_von_idealen_als_ideal.html#ID-c2e2dcfe-340e-4364-8df3-746dd136f4cc">Summe von Idealen als Ideal</a> TO</li>
+<li><a href="20221227225706-komplexprodukt_von_idealen_als_ideal.html#ID-0b30a815-dc64-4136-92c3-7c9e29263b98">Komplexprodukt von Idealen als Ideal</a> TO</li>
+<li><a href="20221226124959-epimorphismus_auf_einen_faktorring.html#ID-a2c52231-66ca-4b9e-b4da-3ea671e69d51">Epimorphismus auf einen Faktorring</a> todo</li>
+<li><a href="20230110205252-multiplikation_mit_einem_polynom_als_ideal.html#ID-90e57230-c129-4084-a583-a4c99ffeee20">Multiplikation mit einem Polynom als Ideal</a></li>
+<li><a href="20221125102140-chinesischer_restsatz.html#ID-05fc3ed5-7651-4d5e-a7b9-9680b34859bc">Chinesischer Restsatz</a></li>
+<li><a href="20221228002146-epimorphismus_von_einem_ring_auf_das_direkte_produkt_von_faktorringen.html#ID-76368ad2-8db2-44c4-95e8-9ddc9de8c1cf">Epimorphismus von einem Ring auf das direkte Produkt von Faktorringen</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org88957d2" class="outline-5">
+<h5 id="org88957d2"><span class="section-number-5">1.2.5.6.</span> 14)</h5>
+<div class="outline-text-5" id="text-1-2-5-6">
+<ul class="org-ul">
+<li><a href="20230110210302-existenz_eines_großten_gemeinsamen_teilers_in_einem_hauptidealring.html#ID-b68bf5dd-9bd8-4168-89b7-c942e69aae90">Existenz eines größten gemeinsamen Teilers in einem Hauptidealring</a></li>
+<li><a href="20230110210416-erzeugung_eines_ideals_in_einem_hauptidealring_durch_den_großten_gemeinsamen_teiler.html#ID-fd48d559-9fa0-4eb9-a10f-b7445eaad95d">Erzeugung eines Ideals in einem Hauptidealring durch den größten gemeinsamen Teiler</a></li>
+<li><a href="20221229203933-von_elementen_erzeugte_hauptideal.html#ID-bd140f14-cad5-47f2-877f-23eb74ac441d">von Elementen erzeugte Hauptideal</a></li>
+<li><a href="20221229204432-verallgemeinertes_lemma_von_euklid.html#ID-ac2df039-3715-4029-b0d0-97cc5ffb65e5">Verallgemeinertes Lemma von Euklid</a></li>
+<li><a href="20221229204706-jeder_hauptidealring_ist_faktoriell.html#ID-50d657d3-6ac5-4bab-9f1f-432b16e587c6">Jeder Hauptidealring ist faktoriell</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga10fb2d" class="outline-2">
+<h2 id="orga10fb2d"><span class="section-number-2">2.</span> other</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>cauchy - konvergenz</li>
+</ul>
+</div>
+
+<div id="outline-container-orgfcf6b67" class="outline-3">
+<h3 id="orgfcf6b67"><span class="section-number-3">2.1.</span> la2</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org46b82df" class="outline-4">
+<h4 id="org46b82df"><span class="section-number-4">2.1.1.</span> </h4>
+<div class="outline-text-4" id="text-2-1-1">
+<ul class="org-ul">
+<li><a href="20230228170409-holder_ungleichung.html#ID-e1569ceb-c30b-4417-920e-e89d1fcf7ed4">Hölder-Ungleichung</a></li>
+<li><a href="20230223222837-minkowskische_ungleichung.html#ID-d02ec633-8ad6-450f-85d4-8dba1e8b668e">Minkowskische Ungleichung</a></li>
+<li><a href="20221003094912-cauchy_schwarz_ungleichung.html#ID-918045db-a394-490d-93a8-d735215cfad0">Cauchy-Schwarz Ungleichung im euklidischen Raum</a></li>
+<li><a href="20230428180556-trigonalisierbarkeit_und_zerfallen_des_charakteristischen_polynoms.html#ID-c9054b3d-5d66-487f-abbe-1b374c2f219c">Trigonalisierbarkeit und Zerfallen des charakteristischen Polynoms</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org9c7e38c" class="outline-3">
+<h3 id="org9c7e38c"><span class="section-number-3">2.2.</span> mengen-topo</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+</div>
+<div id="outline-container-orgff8324d" class="outline-3">
+<h3 id="orgff8324d"><span class="section-number-3">2.3.</span> ana2</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li><a href="20230706-quotientenregel_fur_linearformen.html#ID-a9df6eed-149f-4a01-a93f-e8ff339ecf21">Quotientenregel für Linearformen</a></li>
+<li><a href="20230706-k_homogene_abbildung.html#ID-d47e29ec-4943-426d-bb77-12a67f0202b6">k-homogene Abbildung</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgda04b41" class="outline-3">
+<h3 id="orgda04b41"><span class="section-number-3">2.4.</span> krypto</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li><a href="20220906102828-euklidischer_algorithmus.html#ID-46ca0f33-0265-49a8-a689-91968fb88b56">euklidischer Algorithmus</a></li>
+</ul>
+
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 22:07</p>
+</div>
+</body>
+</html>

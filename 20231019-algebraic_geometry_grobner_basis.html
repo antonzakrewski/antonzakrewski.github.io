@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 18:45 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Geldhauser: algebraic geometry - gröbner basis</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Geldhauser: algebraic geometry - gröbner basis</h1>
+<div id="outline-container-orge9a2525" class="outline-2">
+<h2 id="orge9a2525"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org6112cbc" class="outline-3">
+<h3 id="org6112cbc"><span class="section-number-3">1.1.</span> algebraische menge &amp; zariski topologie</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org28f9672" class="outline-4">
+<h4 id="org28f9672"><span class="section-number-4">1.1.1.</span> commutative algebra</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<ul class="org-ul">
+<li><a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a></li>
+<li><a href="20221017154133-algebraischer_abschluss.html#ID-ec785259-c20d-4d7a-af35-a0904d20d7b6">algebraisch abgeschlossen</a></li>
+<li><a href="20220303185921-polynomring.html#ID-1a010da5-5e8a-407f-87ba-85383825403f">Polynomring</a></li>
+<li><a href="20230722-korper_der_rationalen_funktionen.html#ID-3d41f8a5-e4e3-4aa5-8b48-fd4d55172e00">Körper der rationalen Funktionen</a> / <a href="20230605-field_of_rational_functionsa.html#ID-20d2a34a-0f6f-4f3c-aba4-5f1f56f0b9df">field of rational functions</a></li>
+<li><a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a> - notation \(\mathfrak{a} \triangleleft R\)</li>
+<li><a href="20230725-radical_of_an_ideal.html#ID-a5fd42b5-ba84-4c7e-8a5b-e36101a7fa1e">radical of an ideal</a></li>
+<li><a href="20230725-radical_ideal.html#ID-a09d853a-3453-49c0-82a0-5ee102e45c53">radical ideal</a></li>
+<li><a href="20231019-degree_of_homogeneous_polynomials_under_addition.html#ID-f31d2706-62f7-4d1b-9490-24e8a8f4f892">degree of homogeneous polynomials under addition</a></li>
+<li><a href="20230828-algebraic_set.html#ID-1dea3db8-b570-4133-a1da-b691ab956ee5">algebraic set</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20231019-zero_locus.html#ID-78bd19fb-0e3f-4a42-9e36-a58a2aeb9aa9">zero locus</a></li>
+<li><a href="20230725-weak_nullstellensatz.html#ID-a2ac6dc6-d919-4222-a12f-7400e1d68c8f">weak Nullstellensatz</a></li>
+<li><a href="20230810-strong_nullstellensatz.html#ID-f68ba662-b44f-4c1a-abaf-f5b3d0f6758f">strong nullstellensatz</a> - proof missing</li>
+<li><a href="20230725-hilberts_basissatz.html#ID-bafb9d38-4685-49aa-ae07-dd401c3ab8ba">Hilbert's basis theorem</a></li>
+<li><a href="20230828-union_of_algebraic_sets.html#ID-d8aeefad-1a8f-4af6-afa2-080410ee0d60">union of algebraic sets</a></li>
+<li><a href="20230725-intersection_of_affine_subvarieties.html#ID-00fe0266-8df3-4e84-86c9-6c54b58019a0">intersection of algebraic sets</a></li>
+<li><a href="20230730-vanishing_set_generated_ideal_and_intersection.html#ID-d941ff9c-3956-465a-b169-4b283f882cfe">vanishing set, generated ideal and intersection</a> - für algebraic sets</li>
+<li></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc8de899" class="outline-4">
+<h4 id="orgc8de899"><span class="section-number-4">1.1.2.</span> topology</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ul class="org-ul">
+<li><a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological space</a></li>
+<li><a href="20230302223115-hausdorffsche_umgebungsaxiome.html#ID-d51a27d2-064a-4b9f-90db-333f92d8da01">Hausdorffsche Umgebungsaxiome</a></li>
+<li><a href="20221124232157-dichte_menge_topologie.html#ID-921fe319-4945-4303-a9a5-3723804e0737">dense</a></li>
+<li><a href="20230118223336-zusammenhangender_raum.html#ID-bcc53507-bc5a-46d4-bd83-53e504f62b9d">zusammenhängender Raum</a></li>
+<li><a href="20230308122014-zusammenhanger_raum_und_offen_abgeschlossene_menge.html#ID-9f8f83d4-35d5-48a4-b72c-c796aacb5b5f">Zusammenhängender Raum und clopen set</a></li>
+<li><a href="20231019-zusamenhangender_raum_und_disjunkte_vereinigung_abgeschlossener_mengen.html#ID-f43ef42b-8635-4f4c-8c65-f58451af97fd">zusammenhängender Raum und disjunkte Vereinigung abgeschlossener Mengen</a></li>
+<li><a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a></li>
+<li><a href="20221002144647-diskrete_topologie.html#ID-c9466868-60fd-4b1f-ae1c-1bf7606f3ec7">diskrete Topologie</a></li>
+<li><a href="20230227174346-indiskrete_topologie.html#ID-9447f709-30a2-4b9a-b651-73909b037fad">indiskrete Topologie</a></li>
+<li><a href="20221122074811-hausdorff_raum.html#ID-f49f9b47-9f16-456f-837f-7b9656c46aba">Hausdorff-Raum</a></li>
+
+<li><a href="20230211132940-unterraumtopologie.html#ID-e38ab938-b4e6-4094-98a1-4a8dec808b54">subspace topology</a></li>
+<li><a href="20230211133152-produkttopologie.html#ID-32030f19-ac2a-4c46-aaed-1abb1cd6df9f">product topology</a></li>
+<li><a href="20230226044934-irreduzibler_topologischer_raum.html#ID-2c6c8d23-0c2a-4989-afcc-34a0c34d4f36">irreducible topological space</a></li>
+<li><a href="20230823-irreducible_space_as_connected_space.html#ID-e6a8a061-a6c3-495d-abba-01815940d4b2">irreducible space as connected space</a></li>
+<li><a href="20230824-open_set_as_irreducible_sets_in_an_irreducible_space.html#ID-be2a9e74-29d0-4034-a79b-5421268d5fbd">open set as irreducible sets in an irreducible space</a></li>
+<li><a href="20230822-irreducible_space_and_nonempty_intersection_of_open_sets.html#ID-ec5689ac-dce6-4311-bd94-f3c09e33714b">irreducible space and dense open set</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20230803-zariski_topology_on_an_affine_space.html#ID-d8613b77-205b-4ce6-b7b1-3ed5b97a35ce">zariski topology on an affine space</a></li>
+<li></li>
+
+
+<li><a href="20230730-vanishing_set_and_subsets.html#ID-5db809a7-070e-4f6d-be13-f7fa808346ae">Vanishing set and order reversing</a> - proof (?)</li>
+<li><a href="20230811-bijection_of_radical_ideals_and_affine_subvarieties_in_an_algebraically_closed_field.html#ID-849219ad-c8db-483d-b491-9887a6c02d79">Bijection of radical ideals and affine subvarieties in an algebraically closed field</a> - proof missing</li>
+<li>write for algebraic sets</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1569bdc" class="outline-4">
+<h4 id="org1569bdc"><span class="section-number-4">1.1.3.</span> affine algebraische geometrie</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<ul class="org-ul">
+<li><a href="20230313162316-affine_varietat.html#ID-d401938b-d6e1-4d50-a84a-73eb4e945380">affine variety</a></li>
+<li><a href="20230906-quasi_affine_variety.html#ID-3ef8df48-4b44-4453-a107-37c89deecacc">quasi-affine variety</a></li>
+<li><a href="20231026-g_m.html#ID-97a16acd-eedc-491a-938e-f4262ffe859a">G<sub>m</sub></a></li>
+<li>GL, SL</li>
+<li><a href="20230805-generated_ideal_of_a_union_and_sum.html#ID-a682ea10-db38-4090-b3f3-d0d4756f2edd">generated ideal of a union and sum</a></li>
+</ul>
+<p>
+n    
+</p>
+
+<ul class="org-ul">
+<li><a href="20230725-spectrum_for_a_subset.html#ID-a1a08852-83cc-4d99-a165-add55a10a4ef">Vanishing set</a></li>
+<li><a href="20231026-vanishing_set_of_the_generated_ideal_as_closure_in_the_zariski_topology.html#ID-da95d89b-e45a-4a49-bbb0-7aac1f9d29ad">vanishing set of the generated ideal as closure in the zariski topology</a> - todo</li>
+<li><a href="20231019-zero_locus.html#ID-78bd19fb-0e3f-4a42-9e36-a58a2aeb9aa9">zero locus</a></li>
+
+<li><a href="20231026-ideal_of_common_zeros.html#ID-c2fcce19-2d44-4af1-862e-40537958b663">ideal of common zeros</a>  / <a href="20230725-vanishing_ideal.html#ID-fadecab8-e770-4049-9226-525ea11f5cbc">vanishing ideal</a></li>
+<li><a href="20231019-zero_locus.html#ID-78bd19fb-0e3f-4a42-9e36-a58a2aeb9aa9">zero locus</a></li>
+
+<li><a href="20231018-generated_ideal_as_smallest_ideal.html#ID-41cfb14f-51ae-4296-bd9c-92881b6cb92d">generated ideal as smallest ideal</a></li>
+
+<li><a href="20230725-zariski_topology.html#ID-1535e0f9-be74-4d53-9ca1-c88439a2a34b">Zariski topology</a></li>
+<li><a href="20230725-zariski_spectrum.html#ID-be298171-f5f5-4ad4-8574-afe3257110d2">zariski spectrum</a></li>
+<li><a href="20231026-zariski_topology_on_maximal_spectrum.html#ID-4070a8fc-e86e-410e-a7f0-c69df6218977">zariski topology on maximal spectrum</a></li>
+
+<li><a href="20230828-affine_subvariety_as_irreducible_algebraic_set.html#ID-5221afa9-a0be-4dcf-b56f-23a6e4292478">affine subvariety as irreducible algebraic set</a>   - todo</li>
+<li><a href="20230329081717-primideal.html#ID-a8ae10f5-3b84-4fab-9e76-b006780ccc7f">prime ideal</a></li>
+
+<li><a href="20230726-prime_ideal_and_product.html#ID-ad41455a-9409-44cb-ba61-3797fdfeae95">prime ideal and product</a></li>
+
+<li><a href="20230811-affine_space_as_irreducible_space.html#ID-c0c418b0-8992-4a03-9a39-4a6b3a67a98b">affine space as irreducible space</a></li>
+<li></li>
+</ul>
+
+<p>
+umschreiben:
+</p>
+<ul class="org-ul">
+<li>hartshorne notation</li>
+
+<li><a href="20230725-coordinate_ring_of_an_affine_variety.html#ID-a8a51cad-5066-4ea6-b16e-eb4381a5dcae">coordinate ring</a></li>
+<li><a href="20230811-finitely_generated_reduced_algebra_isomorphic_to_a_coordinate_ring.html#ID-3f27ff34-0925-4df9-b887-221d584d5924">finitely generated reduced algebra isomorphic to a coordinate ring</a></li>
+<li><a href="20231026-coordinate_ring_as_integral_domain_and_irreducible_variety.html#ID-6ea26a6e-0630-43a5-b4cc-9367195e4bc5">coordinate ring as integral domain and irreducible variety</a></li>
+
+<li><a href="20230725-noetherian_topological_space.html#ID-1d59e55a-59a1-4e1e-b157-75b87455a75b">Noetherian topological space</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20230812-noetherian_ring_and_stabilizing_of_an_ascending_chain.html#ID-1979c802-a62e-4f34-ae9a-29cf48755eb1">noetherian ring and stabilizing of an ascending chain</a></li>
+
+<li><a href="20230725-spectrum_of_a_noetherian_ring_as_noetherian_space.html#ID-19d3b022-00a6-42ed-bc3e-50bacf356ee2">Spectrum of a noetherian ring as noetherian space</a></li>
+<li><a href="20230906-affine_space_as_noetherian_space.html#ID-60c0a061-a7e0-4989-9230-dfcf981b3f54">affine space as noetherian space</a> (?)</li>
+
+<li><a href="20230731-decomposition_of_a_closed_set_in_a_noetherian_space.html#ID-7793dc74-1079-4d35-b0d8-b848716e2e9f">existence of a decomposition of a closed set in a noetherian space</a></li>
+<li><a href="20230731-uniqueness_of_a_decomositino_of_closed_sets.html#ID-0389feb1-c256-4c65-92e9-1454f2484fd3">uniqueness of a decomosition of closed sets</a></li>
+<li><a href="20230725-irreducible_component.html#ID-d5ca7d96-afed-43ae-bfa1-591213976d3c">irreducible component</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="20230725-noetherian_space_and_minimal_closed_set.html#ID-21e823db-faab-4d3b-ae5b-11a0171f325c">noetherian space and minimal closed set</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="20231030-radical_ideal_in_an_noetherian_ring_as_unique_finite_intersection_of_prime_ideals.html#ID-078b3f89-c51a-4e0e-a267-af35a250d74c">radical ideal in an noetherian ring as unique, finite intersection of prime ideals</a></li>
+<li><a href="20230906-dimension_of_a_topological_space.html#ID-4c51d918-4f7a-4309-a3ec-96319157b3ad">Dimension of a topological space</a></li>
+
+<li><a href="20230906-height_of_a_prime_ideal.html#ID-81c0c250-629c-41d9-a9ff-871710796c92">height of a prime ideal</a></li>
+<li><a href="20230727-dimension_ring.html#ID-408db5e1-620d-44b5-9b16-e4483521ff4a">dimension of a ring</a></li>
+
+<li><a href="20230906-dimension_of_an_algebraic_set_and_dimension_of_a_coordinate_ring.html#ID-b03ee475-f6b5-40b4-956c-5ec4a1716f60">dimension of an algebraic set and dimension of a coordinate ring</a> - todo</li>
+<li><a href="20231030-dimension_of_the_affine_space.html#ID-8dfa5926-02fb-43d5-82fb-9a1ada5c9906">dimension of the affine space</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org13d0ac2" class="outline-3">
+<h3 id="org13d0ac2"><span class="section-number-3">1.2.</span> Monomordnungen und Euklidischer Algorithmus</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20231030-monomordnung.html#ID-6e957901-1e39-4a42-936c-cdb51c862a3c">Monomordnung</a></li>
+<li><a href="20231030-lexikographische_monomordnung.html#ID-b659fee1-ca8f-4fb9-91a3-41ca9ebe8e90">lexikographische Monomordnung</a></li>
+<li><a href="20231030-deglex.html#ID-1c911992-f3eb-4e46-b095-b7f9c5db5818">graded lexicographic order</a></li>
+<li><a href="20231030-graded_reverse_lexicographic_order.html#ID-3e324489-8649-47f6-bb63-d43fcdc7fa5d">graded reverse lexicographic order</a></li>
+<li><a href="20231030-multidegree.html#ID-21ca0a84-2650-4024-9515-825661563ebd">multidegree</a></li>
+<li><a href="20220820203635-leitkoeffizient.html#ID-73cc2e5f-4112-45a4-8819-89fe7ca47722">Leitkoeffizient</a></li>
+<li><a href="20231030-leitkoeffizient_einer_monomordnung.html#ID-d5c9cb6b-d182-4e92-a212-3ca24565dc36">leitkoeffizient einer Monomordnung</a></li>
+<li><a href="20231030-leitmonom.html#ID-71bb2d24-cad6-4ce3-84f1-89e0c4feac7e">Leitmonom</a></li>
+<li><a href="20231030-leitterm.html#ID-dd651610-0a3f-4d3a-a023-7054df6eec87">Leitterm</a></li>
+<li><a href="20231030-euklidischer_algorithmus_in_mehreren_variablen.html#ID-7732d500-1a32-4796-933e-da2fa5e2d906">Euklidischer Algorithmus in mehreren Variablen</a> - falsch ?</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6f240c4" class="outline-3">
+<h3 id="org6f240c4"><span class="section-number-3">1.3.</span> monomiale ideale</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20231030-monomial_ideal.html#ID-c4b6a15c-de9d-49d1-9632-66d3b0eb373f">monomial ideal</a></li>
+<li><a href="20231030-monomial_ideal_and_associate_elements.html#ID-3b9a52f7-1a7d-498b-9dbe-86a437473bf4">monomial ideal and divisible elements</a> (?)</li>
+<li><a href="20231030-monomial_ideal_and_additive_prime_condition.html#ID-dc2a46db-ed6a-4c46-a808-feafb330cc47">monomial ideal and additive prime condition</a></li>
+<li><a href="20231030-leitterm_eines_ideals.html#ID-6b3b4cd9-32d6-40cc-a2a9-80f11bd55c76">Leitterm eines Ideals</a></li>
+<li><a href="20231030-monomiales_ideal_erzeugt_durch_leitterme.html#ID-3fe81bd4-d13b-4d4f-9977-199d5566c72e">monomiales ideal erzeugt durch Leitterme</a></li>
+<li>&lt;&gt;</li>
+<li><a href="20231030-basis_eines_ideals_eines_polynomrings.html#ID-95191ba7-fe15-4130-906e-4940b384bce6">Basis eines Ideals eines Polynomrings</a></li>
+<li><a href="20231030-grobner_basis.html#ID-1743b7a4-d1c8-4e3e-96c0-6c2b208fdb47">gröbner basis</a></li>
+<li><a href="20231102-euklidischer_algorithmus_fur_eine_grobner_basis.html#ID-c1850d22-f6b2-40e1-8974-fa5eeeb8be3d">euklidischer Algorithmus für eine Gröbner Basis</a></li>
+<li><a href="20231102-grobner_basis_as_basis.html#ID-0d61a915-4c3c-4666-ac71-7320759a0e94">gröbner basis as basis</a></li>
+<li><a href="20231102-s_polynom.html#ID-8c85941a-bbde-4634-bd03-21f8275a7783">S-Polynom</a></li>
+<li><a href="20231102-darstellung_einer_linearkombination_von_polynomen_mit_gleichem_multidegree_durch_s_polynome.html#ID-dcfee77a-f426-41a1-835a-ab0dacc81880">Darstellung einer Linearkombination von Polynomen mit gleichem Multidegree durch S-Polynome</a></li>
+<li><a href="20231102-kleinerer_multidegree_des_s_polynoms_fur_ubereinstimmende_multidegrees.html#ID-076a492d-6aec-4383-bc46-59e589038e93">kleinerer Multidegree des S-Polynoms für übereinstimmende Multidegrees</a></li>
+<li><a href="20231102-buchberger_kriterium.html#ID-d17ddd88-a517-4f99-bc92-77f977eee676">Buchberger-Kriterium</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgedc7211" class="outline-3">
+<h3 id="orgedc7211"><span class="section-number-3">1.4.</span> algorithmus</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><a href="20231106-buchberger_algorithmus.html#ID-0761f5e0-5841-486f-9c82-fc9956d1f8ec">Buchberger-Algorithmus</a></li>
+<li><a href="20231106-existenz_einer_minimalen_grobner_basis.html#ID-559cfe4d-8978-409a-b7f2-c90022a3444e">existenz einer minimalen gröbner basis</a> - todo</li>
+<li><a href="20231106-minimale_grobner_basis.html#ID-2ad58a26-803e-4748-ba6c-2b8ae8106f78">minimale gröbner basis</a></li>
+<li><a href="20231106-reduzierte_grobner_basis.html#ID-46dbc58b-2b35-4c30-bb4c-091bdf277faf">reduzierte Gröbner Basis</a></li>
+<li><a href="20231106-reduzierte_grobner_basis_als_minimale_grobner_basis.html#ID-a8ef6172-5600-4c78-9cd9-13e6c2533639">reduzierte Gröbner Basis als minimale Gröbner Basis</a></li>
+<li><a href="20231106-eindeutigkeit_einer_reduzierten_grobner_basis.html#ID-2ab3f242-b933-4cdb-be0f-1d63cd93047b">Eindeutigkeit einer reduzierten Gröbner-Basis</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org93d38d3" class="outline-3">
+<h3 id="org93d38d3"><span class="section-number-3">1.5.</span> anwendungen</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li><a href="20231106-polynom_in_einem_ideal_und_grobner_basis.html#ID-b3d3c934-661e-4b60-9627-17523bb009ad">Polynom in einem ideal und gröbner basis</a></li>
+</ul>
+
+<p>
+Schöne an deglex:
+</p>
+<ul class="org-ul">
+<li>jeweils schrittweise elimination von variablen</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 18:45</p>
+</div>
+</body>
+</html>

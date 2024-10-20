@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 23:40 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>pullback induces functor for slice category</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">pullback induces functor for slice category</h1>
+<div id="outline-container-orgf6c4879" class="outline-2">
+<h2 id="orgf6c4879"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20231209-pullback_induces_functor_for_coslice_category_760824120891fc757bc0445145b027d09b237baa.svg" alt="20231209-pullback_induces_functor_for_coslice_category_760824120891fc757bc0445145b027d09b237baa.svg" class="org-svg" /> be a <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a>, <img src="file:///home/anton/html/ltximg/20231209-pullback_induces_functor_for_coslice_category_fdbaf93a86ea373a5e213db683649d3d48f8f189.svg" alt="20231209-pullback_induces_functor_for_coslice_category_fdbaf93a86ea373a5e213db683649d3d48f8f189.svg" class="org-svg" /> <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">objects</a> and <img src="file:///home/anton/html/ltximg/20231209-pullback_induces_functor_for_coslice_category_c3f441fb03553199574529a81ceac01957da3589.svg" alt="20231209-pullback_induces_functor_for_coslice_category_c3f441fb03553199574529a81ceac01957da3589.svg" class="org-svg" /> the <a href="20230510092709-slice_category.html#ID-1e81c30c-0f74-4f7c-bf95-400bc8889156">slice categories</a>.
+Suppose that <a href="20230806-pullback.html#ID-730c4312-492d-4b9c-a347-9281309d3e6f">pullbacks</a> exist in <img src="file:///home/anton/html/ltximg/20231209-pullback_induces_functor_for_coslice_category_760824120891fc757bc0445145b027d09b237baa.svg" alt="20231209-pullback_induces_functor_for_coslice_category_760824120891fc757bc0445145b027d09b237baa.svg" class="org-svg" />, then a morphism <img src="file:///home/anton/html/ltximg/20231209-pullback_induces_functor_for_coslice_category_fca8d9e386f018b4e2241455d2eab7b6c42c65b9.svg" alt="20231209-pullback_induces_functor_for_coslice_category_fca8d9e386f018b4e2241455d2eab7b6c42c65b9.svg" class="org-svg" /> induces a <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a> 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231209-pullback_induces_functor_for_coslice_category_eb911e857ede5b62938f75ff02a68ca97baef1ab.svg" alt="20231209-pullback_induces_functor_for_coslice_category_eb911e857ede5b62938f75ff02a68ca97baef1ab.svg" class="org-svg" />
+</span>
+</div>
+<p>
+<a href="20231007-uses_ac.html#ID-7265220a-8d13-431b-996e-7862faa0124c">Uses AC</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org70fa7cf" class="outline-2">
+<h2 id="org70fa7cf"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgefc67fb" class="outline-3">
+<h3 id="orgefc67fb"><span class="section-number-3">2.1.</span> <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">object</a></h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+for <img src="file:///home/anton/html/ltximg/20231209-pullback_induces_functor_for_coslice_category_7cf0c8cfa4e96e6f32c4c8c8f26d346a12987840.svg" alt="20231209-pullback_induces_functor_for_coslice_category_7cf0c8cfa4e96e6f32c4c8c8f26d346a12987840.svg" class="org-svg" /> we define 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231209-pullback_induces_functor_for_coslice_category_854b2a357b826e0202e6f7a482c410371577ff90.svg" alt="20231209-pullback_induces_functor_for_coslice_category_854b2a357b826e0202e6f7a482c410371577ff90.svg" class="org-svg" />
+</span>
+</div>
+<p>
+for the morphism
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231209-pullback_induces_functor_for_coslice_category_f546dc5ee469163538e343af1edfa882e1d772a2.svg" alt="20231209-pullback_induces_functor_for_coslice_category_f546dc5ee469163538e343af1edfa882e1d772a2.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Note that by assumption, the pullbacks exist, <img src="file:///home/anton/html/ltximg/20231209-pullback_induces_functor_for_coslice_category_c2f425763ab8460ae530cf4237b6227789d5513f.svg" alt="20231209-pullback_induces_functor_for_coslice_category_c2f425763ab8460ae530cf4237b6227789d5513f.svg" class="org-svg" /> is welldefined (choosing a pullback from the equivalence class)
+</p>
+</div>
+</div>
+<div id="outline-container-org29d9b1f" class="outline-3">
+<h3 id="org29d9b1f"><span class="section-number-3">2.2.</span> <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphism</a></h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-orgaa91558" class="outline-4">
+<h4 id="orgaa91558"><span class="section-number-4">2.2.1.</span> construction</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+Suppose we have a morphism, then 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231209-pullback_induces_functor_for_coslice_category_8c12111557c6f07d6f25b70d6be6243a7e12cc5c.svg" alt="20231209-pullback_induces_functor_for_coslice_category_8c12111557c6f07d6f25b70d6be6243a7e12cc5c.svg" class="org-svg" />
+</span>
+</div>
+<p>
+commutes
+</p>
+
+<p>
+Therefore
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231209-pullback_induces_functor_for_coslice_category_412f6f9879850f961788660e94532df0ca97fb21.svg" alt="20231209-pullback_induces_functor_for_coslice_category_412f6f9879850f961788660e94532df0ca97fb21.svg" class="org-svg" />
+</span>
+</div>
+<p>
+also commutes
+</p>
+
+<p>
+Hence by universal property, we get a unique morphism 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231209-pullback_induces_functor_for_coslice_category_10a49aa2577463538d553c02645a15eb37bd300b.svg" alt="20231209-pullback_induces_functor_for_coslice_category_10a49aa2577463538d553c02645a15eb37bd300b.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-orgedabde6" class="outline-4">
+<h4 id="orgedabde6"><span class="section-number-4">2.2.2.</span> welldefined morphisms in the slice category</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+By construction we got a commuting
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231209-pullback_induces_functor_for_coslice_category_a639d01d871898c98af93ceee3de863f3da4184f.svg" alt="20231209-pullback_induces_functor_for_coslice_category_a639d01d871898c98af93ceee3de863f3da4184f.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Thus especially also
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231209-pullback_induces_functor_for_coslice_category_da081e5fd019c0c5aa32c0c9b4e84104ec44a0bc.svg" alt="20231209-pullback_induces_functor_for_coslice_category_da081e5fd019c0c5aa32c0c9b4e84104ec44a0bc.svg" class="org-svg" />
+</span>
+</div>
+<p>
+commutes
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org4ce5d05" class="outline-3">
+<h3 id="org4ce5d05"><span class="section-number-3">2.3.</span> identity and <a href="20220817221033-komposition_von_morphismen.html#ID-72b71b59-7fac-4516-9115-9d589b47e0c3">composition</a></h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Since a morphism <img src="file:///home/anton/html/ltximg/20231209-pullback_induces_functor_for_coslice_category_37e513cee84c868132eef19d4638809dc90f2f04.svg" alt="20231209-pullback_induces_functor_for_coslice_category_37e513cee84c868132eef19d4638809dc90f2f04.svg" class="org-svg" /> in a slice category is a <a href="20220821182915-naturliche_transformation_kategorientheorie.html#ID-4e6e50c0-c0df-44ff-a140-bebfa492ef7e">natural transformation</a> 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231209-pullback_induces_functor_for_coslice_category_13a1dc56e83856b2b96a3d44fa30dad0030f789e.svg" alt="20231209-pullback_induces_functor_for_coslice_category_13a1dc56e83856b2b96a3d44fa30dad0030f789e.svg" class="org-svg" />
+</span>
+</div>
+<p>
+or furthermore extending
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231209-pullback_induces_functor_for_coslice_category_d460a8eabcec4f6b0daadc11799337ea0747c56e.svg" alt="20231209-pullback_induces_functor_for_coslice_category_d460a8eabcec4f6b0daadc11799337ea0747c56e.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Therefore <a href="20231209-restriction_of_a_functor.html#ID-f2ce99cd-a219-47a1-9c96-9d3d94abb788">restricting</a> the <a href="20231017-lim_functor.html#ID-f28b6497-b4ac-44c3-8c8b-b27932cd6ecc">lim functor</a> from
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231209-pullback_induces_functor_for_coslice_category_604d18d2fa0628038587d2530b9ef71e51826014.svg" alt="20231209-pullback_induces_functor_for_coslice_category_604d18d2fa0628038587d2530b9ef71e51826014.svg" class="org-svg" />
+</span>
+</div>
+<p>
+to the <a href="20220824221623-unterkategorie.html#ID-2165c92b-8025-4134-b3b1-4d523a8795a4">subcategory</a> of the <a href="20220825194828-funktorkategorie.html#ID-39ebe96a-b96d-4a11-8642-30527c1b92ea">functor category</a>, containing
+</p>
+<ol class="org-ol">
+<li>with <img src="file:///home/anton/html/ltximg/20231209-pullback_induces_functor_for_coslice_category_fca8d9e386f018b4e2241455d2eab7b6c42c65b9.svg" alt="20231209-pullback_induces_functor_for_coslice_category_fca8d9e386f018b4e2241455d2eab7b6c42c65b9.svg" class="org-svg" /> in the cospan</li>
+<li>only morphisms (natural transformations) <img src="file:///home/anton/html/ltximg/20231209-pullback_induces_functor_for_coslice_category_aa699af8b052820cdd98bf8bee54004084151ed7.svg" alt="20231209-pullback_induces_functor_for_coslice_category_aa699af8b052820cdd98bf8bee54004084151ed7.svg" class="org-svg" /> with</li>
+</ol>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231209-pullback_induces_functor_for_coslice_category_ad79dc1b86e95be0542a9a91249cc3b91b12c571.svg" alt="20231209-pullback_induces_functor_for_coslice_category_ad79dc1b86e95be0542a9a91249cc3b91b12c571.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+results in the map
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 23:40</p>
+</div>
+</body>
+</html>

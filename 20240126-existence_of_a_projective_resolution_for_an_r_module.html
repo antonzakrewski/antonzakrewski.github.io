@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-20 So 09:18 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>existence of a projective resolution unique up to homotopy for an R-Module</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">existence of a projective resolution unique up to homotopy for an R-Module</h1>
+<div id="outline-container-org702549b" class="outline-2">
+<h2 id="org702549b"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20240126-existence_of_a_projective_resolution_for_an_r_module_3680aac640862833b555899baa7a190a5a3899fe.svg" alt="20240126-existence_of_a_projective_resolution_for_an_r_module_3680aac640862833b555899baa7a190a5a3899fe.svg" class="org-svg" /> be an <img src="file:///home/anton/html/ltximg/20240126-existence_of_a_projective_resolution_for_an_r_module_89073d11f6b947f7741a40bd20dbd20aadcac38e.svg" alt="20240126-existence_of_a_projective_resolution_for_an_r_module_89073d11f6b947f7741a40bd20dbd20aadcac38e.svg" class="org-svg" />-<a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">module</a>.
+Then <img src="file:///home/anton/html/ltximg/20240126-existence_of_a_projective_resolution_for_an_r_module_24b6c90862aead94b3be65f5df36832e68c98ba2.svg" alt="20240126-existence_of_a_projective_resolution_for_an_r_module_24b6c90862aead94b3be65f5df36832e68c98ba2.svg" class="org-svg" /> admits a <a href="20231212-projective_resolution.html#ID-0d6124f2-59f2-4f96-838a-e8b023821bc6">projective resolution</a> <img src="file:///home/anton/html/ltximg/20240126-existence_of_a_projective_resolution_for_an_r_module_fd1472a0c5598eb6a270030624c42efdefddbe68.svg" alt="20240126-existence_of_a_projective_resolution_for_an_r_module_fd1472a0c5598eb6a270030624c42efdefddbe68.svg" class="org-svg" />, unique up to <a href="20240119-chain_homotopy_equivalence.html#ID-ce380f52-3fbd-47a1-8693-537006faaec5">chain homotopy equivalence</a>.
+</p>
+</div>
+</div>
+<div id="outline-container-org2218c17" class="outline-2">
+<h2 id="org2218c17"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgaa50527" class="outline-3">
+<h3 id="orgaa50527"><span class="section-number-3">2.1.</span> existence</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Pick $P<sub>0</sub> M <a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjective</a> with <img src="file:///home/anton/html/ltximg/20240126-existence_of_a_projective_resolution_for_an_r_module_fef25dde32c2055e4b489319bf7a593809409498.svg" alt="20240126-existence_of_a_projective_resolution_for_an_r_module_fef25dde32c2055e4b489319bf7a593809409498.svg" class="org-svg" /> projective, e.g. <img src="file:///home/anton/html/ltximg/20240126-existence_of_a_projective_resolution_for_an_r_module_fef25dde32c2055e4b489319bf7a593809409498.svg" alt="20240126-existence_of_a_projective_resolution_for_an_r_module_fef25dde32c2055e4b489319bf7a593809409498.svg" class="org-svg" /> <a href="20230222205257-freier_modul.html#ID-f31e26dc-9f62-4ff2-81db-88cd88c22229">free</a> over <img src="file:///home/anton/html/ltximg/20240126-existence_of_a_projective_resolution_for_an_r_module_24b6c90862aead94b3be65f5df36832e68c98ba2.svg" alt="20240126-existence_of_a_projective_resolution_for_an_r_module_24b6c90862aead94b3be65f5df36832e68c98ba2.svg" class="org-svg" /> (cf. <a href="20230727-free_module_as_projective_module.html#ID-dc5e5a8e-fab5-4f2d-b555-f560b1ec7b4a">free module as projective module</a>)
+</p>
+
+<p>
+inductively construct <img src="file:///home/anton/html/ltximg/20240126-existence_of_a_projective_resolution_for_an_r_module_a36c26a73c06448bf1df8f2f96abaad72f49420e.svg" alt="20240126-existence_of_a_projective_resolution_for_an_r_module_a36c26a73c06448bf1df8f2f96abaad72f49420e.svg" class="org-svg" /> as projective module (again e.g. free) with a <a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjection</a> 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240126-existence_of_a_projective_resolution_for_an_r_module_43f40c70dc168737e1a77fb07eaf33044b41c33d.svg" alt="20240126-existence_of_a_projective_resolution_for_an_r_module_43f40c70dc168737e1a77fb07eaf33044b41c33d.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Therefore, we get 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240126-existence_of_a_projective_resolution_for_an_r_module_914f99fb624544d0683bffb1a10aacb15d08a20a.svg" alt="20240126-existence_of_a_projective_resolution_for_an_r_module_914f99fb624544d0683bffb1a10aacb15d08a20a.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Hence there exists a series
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240126-existence_of_a_projective_resolution_for_an_r_module_023aff651a208156f7ca7647e6b51ebcc3316f87.svg" alt="20240126-existence_of_a_projective_resolution_for_an_r_module_023aff651a208156f7ca7647e6b51ebcc3316f87.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+and therefore also an <a href="20230722-exact_group_homomorphisms.html#ID-aa569635-5f4a-4c4a-9e9b-af9c577e377d">exact</a> sequence
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240126-existence_of_a_projective_resolution_for_an_r_module_7cc50f833ab03623c54ee9bead76f2f6dbe67de4.svg" alt="20240126-existence_of_a_projective_resolution_for_an_r_module_7cc50f833ab03623c54ee9bead76f2f6dbe67de4.svg" class="org-svg" />
+</span>
+</div>
+<p>
+since by construction, <img src="file:///home/anton/html/ltximg/20240126-existence_of_a_projective_resolution_for_an_r_module_a717748cb2fc87c6bf4dfa509a11d4b508abdd17.svg" alt="20240126-existence_of_a_projective_resolution_for_an_r_module_a717748cb2fc87c6bf4dfa509a11d4b508abdd17.svg" class="org-svg" />
+</p>
+</div>
+</div>
+<div id="outline-container-org6d5a370" class="outline-3">
+<h3 id="org6d5a370"><span class="section-number-3">2.2.</span> uniqueness up to chain homotopy equivalence</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Suppose <img src="file:///home/anton/html/ltximg/20240126-existence_of_a_projective_resolution_for_an_r_module_562ddeb297740b07a5cdcc92bef3e506d3540c67.svg" alt="20240126-existence_of_a_projective_resolution_for_an_r_module_562ddeb297740b07a5cdcc92bef3e506d3540c67.svg" class="org-svg" /> are projective resolutions of <img src="file:///home/anton/html/ltximg/20240126-existence_of_a_projective_resolution_for_an_r_module_24b6c90862aead94b3be65f5df36832e68c98ba2.svg" alt="20240126-existence_of_a_projective_resolution_for_an_r_module_24b6c90862aead94b3be65f5df36832e68c98ba2.svg" class="org-svg" />.
+Then for
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240126-existence_of_a_projective_resolution_for_an_r_module_5c239ee59914f9068aabc85ef206b98e0d35fdb7.svg" alt="20240126-existence_of_a_projective_resolution_for_an_r_module_5c239ee59914f9068aabc85ef206b98e0d35fdb7.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Then by the <a href="20240126-fundamental_theorem_of_homological_algebra.html#ID-a2335096-1701-412e-a7ed-210265abf8f0">fundamental theorem of homological algebra</a>, there exist <a href="20230802-chain_map.html#ID-366c9675-ed47-4bc2-a01d-3d0c6911e226">chain maps</a>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240126-existence_of_a_projective_resolution_for_an_r_module_bf87fab976f33421b652e31193850ee11d746fc9.svg" alt="20240126-existence_of_a_projective_resolution_for_an_r_module_bf87fab976f33421b652e31193850ee11d746fc9.svg" class="org-svg" />
+</span>
+</div>
+<p>
+unique up to <a href="20240119-chain_homotopy.html#ID-779721d8-47c9-4616-8c2e-eb6cc27f5de1">chain homotopy</a>, where the composition <img src="file:///home/anton/html/ltximg/20240126-existence_of_a_projective_resolution_for_an_r_module_c51082d8f0d970d2885466714269e836da5009be.svg" alt="20240126-existence_of_a_projective_resolution_for_an_r_module_c51082d8f0d970d2885466714269e836da5009be.svg" class="org-svg" /> is the identity
+</p>
+
+<p>
+Note that
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240126-existence_of_a_projective_resolution_for_an_r_module_a28f690f8fb9ccee95b8fda50868ed0cc882df60.svg" alt="20240126-existence_of_a_projective_resolution_for_an_r_module_a28f690f8fb9ccee95b8fda50868ed0cc882df60.svg" class="org-svg" />
+</span>
+</div>
+<p>
+satisfies that requirement, hence
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240126-existence_of_a_projective_resolution_for_an_r_module_c70762aeae85d9e1b22d0e92234fbe66feb698b9.svg" alt="20240126-existence_of_a_projective_resolution_for_an_r_module_c70762aeae85d9e1b22d0e92234fbe66feb698b9.svg" class="org-svg" />
+</span>
+</div>
+<p>
+up to chain homotopy
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-20 So 09:18</p>
+</div>
+</body>
+</html>

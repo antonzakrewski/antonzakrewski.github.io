@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 14:57 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LA2: Tutoriumsaufgaben</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">LA2: Tutoriumsaufgaben</h1>
+<div id="outline-container-org9886821" class="outline-2">
+<h2 id="org9886821"><span class="section-number-2">1.</span> Tutorium</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org6950cd8" class="outline-3">
+<h3 id="org6950cd8"><span class="section-number-3">1.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-orgef491f1" class="outline-4">
+<h4 id="orgef491f1"><span class="section-number-4">1.1.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<ul class="org-ul">
+<li>polynomdivision mit rest</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc8a197c" class="outline-4">
+<h4 id="orgc8a197c"><span class="section-number-4">1.1.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ul class="org-ul">
+<li>nachweis von unterringeigenschaften</li>
+<li><a href="20221226125820-menge_der_einheiten_als_gruppe.html#ID-49f0dc7a-5b14-45e3-bfa7-20a7eba79d30">Menge der Einheiten als Gruppe</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgba0bfa7" class="outline-4">
+<h4 id="orgba0bfa7"><span class="section-number-4">1.1.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<ul class="org-ul">
+<li><a href="20230427070950-ring_der_formalen_potenzreihen.html#ID-8c920542-3559-472f-8af9-c0d8690cf10a">Ring der formalen Potenzreihen</a></li>
+<li><a href="20230427071343-einheiten_des_rings_der_formalen_potenzreihen.html#ID-cbfa24e6-7e6b-4dea-8542-30d435eb8965">Einheiten des Rings der formalen Potenzreihen</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgab27f41" class="outline-4">
+<h4 id="orgab27f41"><span class="section-number-4">1.1.4.</span> 4)</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<ul class="org-ul">
+<li><a href="20230226205640-gleichheit_von_polynomen_anhand_deren_nullstellen.html#ID-838a20cf-f831-4533-800a-f8aba9b4a3f0">Gleichheit von Polynomen anhand hinreichend vieler Werte</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfe3a04d" class="outline-4">
+<h4 id="orgfe3a04d"><span class="section-number-4">1.1.5.</span> 5)</h4>
+<div class="outline-text-4" id="text-1-1-5">
+<ul class="org-ul">
+<li><a href="20230425173927-lagrange_interpolation_polynomial.html#ID-19f3f849-00a2-4f6f-a2ac-9080af2a9722">Lagrange Interpolation Polynomial</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf21964c" class="outline-3">
+<h3 id="orgf21964c"><span class="section-number-3">1.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-org0562ccd" class="outline-4">
+<h4 id="org0562ccd"><span class="section-number-4">1.2.1.</span> 1)</h4>
+</div>
+<div id="outline-container-orgdc7881b" class="outline-4">
+<h4 id="orgdc7881b"><span class="section-number-4">1.2.2.</span> 2)</h4>
+</div>
+<div id="outline-container-orgabe916d" class="outline-4">
+<h4 id="orgabe916d"><span class="section-number-4">1.2.3.</span> 3)</h4>
+</div>
+</div>
+<div id="outline-container-org5272d3b" class="outline-3">
+<h3 id="org5272d3b"><span class="section-number-3">1.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-org0289a73" class="outline-4">
+<h4 id="org0289a73"><span class="section-number-4">1.3.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<ul class="org-ul">
+<li><a href="20230510013639-idempotente_matrix_und_diagonalisierbarkeit.html#ID-ef95bf10-9990-4c0e-9773-aeaef40b0ebb">idempotente Matrix und diagonalisierbarkeit</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5a20502" class="outline-4">
+<h4 id="org5a20502"><span class="section-number-4">1.3.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<ul class="org-ul">
+<li><a href="20230509170410-minimalpolynom_eines_isomorphismus.html#ID-5200e797-e843-4537-b6ab-4b9259695def">Minimalpolynom eines Isomorphismus</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1ef4b6a" class="outline-4">
+<h4 id="org1ef4b6a"><span class="section-number-4">1.3.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-1-3-3">
+<ul class="org-ul">
+<li><a href="20230509171009-sum_of_ideals_in_a_principal_ideal_domain_and_greatest_common_divisor.html#ID-3d890ffe-4973-4b68-b25b-f97687333258">Sum of Ideals in a Principal Ideal Domain and greatest common divisor</a></li>
+<li><a href="20230410004550-product_of_coprime_ideals_equals_intersection.html#ID-e03799a6-13b3-42ff-b2fe-0808d2659c5e">Product of coprime Ideals equals Intersection</a></li>
+<li><a href="20221228001225-komplexprodukt_von_idealen_als_teilmenge_des_schnitts.html#ID-77901cfe-29aa-4816-afdb-99358c798b03">Komplexprodukt von Idealen als Teilmenge des Schnitts</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org146d8dd" class="outline-4">
+<h4 id="org146d8dd"><span class="section-number-4">1.3.4.</span> 4)</h4>
+<div class="outline-text-4" id="text-1-3-4">
+<ul class="org-ul">
+<li><a href="20230509171124-endlicher_vektorraum_als_direkte_summe_des_kerns_und_bildes_einer_diagonalisierbaren_matrix.html#ID-b74027f9-4d27-472d-8b7c-ddabf1230617">endlicher Vektorraum als direkte Summe des Kerns und Bildes einer diagonalisierbaren Matrix</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org6d75c99" class="outline-3">
+<h3 id="org6d75c99"><span class="section-number-3">1.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-orgbef88e1" class="outline-4">
+<h4 id="orgbef88e1"><span class="section-number-4">1.4.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<ul class="org-ul">
+<li><a href="20230419125655-einheiten_der_gaußschen_ganzen_zahlen.html#ID-c8b2f12d-1051-4a21-8d11-a36ecfa6b2c3">Einheiten der gaußschen ganzen Zahlen</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf67c15b" class="outline-4">
+<h4 id="orgf67c15b"><span class="section-number-4">1.4.2.</span> 2)</h4>
+</div>
+<div id="outline-container-org7383f98" class="outline-4">
+<h4 id="org7383f98"><span class="section-number-4">1.4.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-1-4-3">
+<ul class="org-ul">
+<li><a href="20230517094014-isomorphie_des_faktorrings_uber_ein_polynom_ersten_grades.html#ID-0af2479c-1a4e-4942-9d32-abc4a2af56f4">Isomorphie des Faktorrings über einem Polynom ersten Grades</a> (?)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org70c8200" class="outline-4">
+<h4 id="org70c8200"><span class="section-number-4">1.4.4.</span> 4)</h4>
+</div>
+<div id="outline-container-org5b1a175" class="outline-4">
+<h4 id="org5b1a175"><span class="section-number-4">1.4.5.</span> 5)</h4>
+</div>
+<div id="outline-container-org61026ff" class="outline-4">
+<h4 id="org61026ff"><span class="section-number-4">1.4.6.</span> 6)</h4>
+<div class="outline-text-4" id="text-1-4-6">
+<ul class="org-ul">
+<li><a href="20230426123612-primelement_als_irreduzibles_element.html#ID-887223b3-5e27-4b7f-8aee-77ddf2864e1c">Primelement als irreduzibles Element</a></li>
+<li><a href="20230426123641-irreduzibles_element_in_einem_hauptidealring_als_primelement.html#ID-9f97661e-12d1-4e24-b380-aff8b1393978">irreduzibles Element in einem Hauptidealring als Primelement</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgef97fa0" class="outline-3">
+<h3 id="orgef97fa0"><span class="section-number-3">1.5.</span> 5)</h3>
+<div class="outline-text-3" id="text-1-5">
+</div>
+<div id="outline-container-orgb1383e4" class="outline-4">
+<h4 id="orgb1383e4"><span class="section-number-4">1.5.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-1-5-1">
+</div>
+<div id="outline-container-orgf6a4bd3" class="outline-5">
+<h5 id="orgf6a4bd3"><span class="section-number-5">1.5.1.1.</span> a)</h5>
+<div class="outline-text-5" id="text-1-5-1-1">
+<ul class="org-ul">
+<li><a href="20230523163356-ideal_mal_modul_als_modul.html#ID-bb06dd64-8633-45dc-8966-7650e0835ec4">Modulideal</a></li>
+<li><a href="20230522202005-faktormodul_uber_einem_ideal_als_modul_uber_dem_faktorring.html#ID-ea83ca7f-53a7-40c4-8a88-30e6d1f924df">Faktormodul über einem Modulideal als Modul über dem Faktorring</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgde2614d" class="outline-5">
+<h5 id="orgde2614d"><span class="section-number-5">1.5.1.2.</span> b)</h5>
+<div class="outline-text-5" id="text-1-5-1-2">
+<ul class="org-ul">
+<li><a href="20230522201427-annihilator.html#ID-63ba0a41-8f52-40ac-9128-ae29c17b8cf2">Annihilator</a></li>
+<li><a href="20230522201851-annihilator_als_ideal.html#ID-bd476ed4-8890-4eb6-9eab-8e2b8860e7ef">Annihilator als Ideal</a></li>
+<li><a href="20230523164419-modul_uber_einem_ring_als_modul_uber_dem_faktorring_zum_annihilator.html#ID-9038c6c5-8506-43fd-88ea-761ca0c2cd8d">Modul über einem Ring als Modul über dem Faktorring zum Annihilator</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org971fdad" class="outline-5">
+<h5 id="org971fdad"><span class="section-number-5">1.5.1.3.</span> c)</h5>
+<div class="outline-text-5" id="text-1-5-1-3">
+<ul class="org-ul">
+<li><a href="20230522202124-externe_direkte_summe_einem_modul_als_modul_uber_dem_polynomring.html#ID-972c4693-dbd9-40d0-b8f0-1bd336b5e635">externe direkte Summe einem Modul als Modul über dem Polynomring</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgecfa5a2" class="outline-4">
+<h4 id="orgecfa5a2"><span class="section-number-4">1.5.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<ul class="org-ul">
+<li><a href="20230519133058-existenz_einer_basis_in_einem_vektorraum.html#ID-6766bd27-5554-4ea8-9163-372f68449a71">Existenz einer Basis in einem Vektorraum</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5c0eb0c" class="outline-4">
+<h4 id="org5c0eb0c"><span class="section-number-4">1.5.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-1-5-3">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org496697e" class="outline-4">
+<h4 id="org496697e"><span class="section-number-4">1.5.4.</span> 4)</h4>
+<div class="outline-text-4" id="text-1-5-4">
+<ul class="org-ul">
+<li><a href="20230523170925-homomorphismus_von_einem_restklassenring_auf_die_rationalen_zahlen_modulo_die_ganzen_zahlen.html#ID-6a6bc556-054a-4a61-b7a6-8902cac5fa09">Homomorphismus von einem Restklassenring auf die Rationalen Zahlen modulo die ganzen Zahlen</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org42617e8" class="outline-3">
+<h3 id="org42617e8"><span class="section-number-3">1.6.</span> 6)</h3>
+<div class="outline-text-3" id="text-1-6">
+</div>
+<div id="outline-container-org23c48fd" class="outline-4">
+<h4 id="org23c48fd"><span class="section-number-4">1.6.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<ul class="org-ul">
+<li><a href="20230531075602-menge_der_nilpotenten_element_als_ideal.html#ID-603c79c1-6511-45a3-898a-83df20df86ea">Menge der Nilpotenten Element als Ideal</a></li>
+<li><a href="20230531075652-faktorring_zum_ideal_der_nilpotenten_elemente_nur_mit_trivialem_nilpotentem_element.html#ID-081e231e-89e9-49c6-940a-dab33c137b67">Faktorring zum Ideal der nilpotenten Elemente nur mit trivialem nilpotentem Element</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd9c94ed" class="outline-4">
+<h4 id="orgd9c94ed"><span class="section-number-4">1.6.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-1-6-2">
+<ul class="org-ul">
+<li><a href="20230316221258-polynomring_uber_einem_korper_als_hauptidealring.html#ID-d0a25f1c-b5b1-46e3-bda8-6f094c70cd88">Polynomring über einem Körper als Hauptidealring</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbc04fb7" class="outline-4">
+<h4 id="orgbc04fb7"><span class="section-number-4">1.6.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-1-6-3">
+<ul class="org-ul">
+<li><a href="20230531080228-eindeutigkeit_eines_maximalen_ideals_und_invertierbarkeit_der_summe.html#ID-95674ee7-2af9-4b4d-9b31-52585d797aab">Eindeutigkeit eines maximalen Ideals und invertierbarkeit der Summe</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7f1f5cf" class="outline-4">
+<h4 id="org7f1f5cf"><span class="section-number-4">1.6.4.</span> 4)</h4>
+<div class="outline-text-4" id="text-1-6-4">
+<ul class="org-ul">
+<li><a href="20230531100302-machtigkeit_des_faktorrings_zu_den_ganzen_gaußschen_zahlen.html#ID-ca58f918-06a3-43be-bfbd-f44f6cdd2719">Mächtigkeit des Faktorrings zu den ganzen Gaußschen Zahlen</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org93607df" class="outline-3">
+<h3 id="org93607df"><span class="section-number-3">1.7.</span> 7)</h3>
+<div class="outline-text-3" id="text-1-7">
+</div>
+<div id="outline-container-orga57ab37" class="outline-4">
+<h4 id="orga57ab37"><span class="section-number-4">1.7.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-1-7-1">
+<ul class="org-ul">
+<li><a href="20230605-quotientenstruktur_bei_isomorphen_quotienten_i_a_nicht_isomorph.html#ID-20af18b0-9c04-4f33-b4e9-54914b4dba07">Quotientenstruktur bei isomorphen Quotienten i.A. nicht isomorph</a></li>
+<li><a href="20230605-multiplikation_im_gauß_algorithmus_fur_moduln.html#ID-3805436d-42c8-4b73-b25c-5c0f066fcb80">Multiplikation im Gauß-Algorithmus für Moduln</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org50f25c3" class="outline-4">
+<h4 id="org50f25c3"><span class="section-number-4">1.7.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-1-7-2">
+<ul class="org-ul">
+<li><a href="20230605-untermodul_als_ideal.html#ID-427ff5fc-dbae-44c1-bb26-714259fccd27">Untermodul als Ideal</a></li>
+<li><a href="20230605-hauptidealring_und_isomorphie_zu_einem_untermodul.html#ID-e70e49a6-9501-480a-8afa-c1016ac232af">Hauptidealring, Isomorphie des Rings zu einem Untermodul und freier Untermodul eines freien Ring</a></li>
+<li><a href="20230531104014-untermodul_eines_freien_moduls_als_freier_modul.html#ID-fe66bdc9-7fcf-4d98-aea5-bdc56e8518eb">Untermodul eines freien Moduls über einem Hauptidealring als freier Modul</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0042af4" class="outline-4">
+<h4 id="org0042af4"><span class="section-number-4">1.7.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-1-7-3">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge895a1c" class="outline-4">
+<h4 id="orge895a1c"><span class="section-number-4">1.7.4.</span> 4)</h4>
+</div>
+</div>
+<div id="outline-container-org5a72992" class="outline-3">
+<h3 id="org5a72992"><span class="section-number-3">1.8.</span> 8)</h3>
+</div>
+<div id="outline-container-org43736ef" class="outline-3">
+<h3 id="org43736ef"><span class="section-number-3">1.9.</span> 9)</h3>
+</div>
+<div id="outline-container-orgc303597" class="outline-3">
+<h3 id="orgc303597"><span class="section-number-3">1.10.</span> 10)</h3>
+<div class="outline-text-3" id="text-1-10">
+</div>
+<div id="outline-container-org4ad053f" class="outline-4">
+<h4 id="org4ad053f"><span class="section-number-4">1.10.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-1-10-1">
+<ul class="org-ul">
+<li><a href="20230626-mehrdimensionaler_satz_des_pythagoras.html#ID-f3cc2181-167d-4b55-bbe5-7544fd568fe9">mehrdimensionaler Satz des Pythagoras</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9f48c30" class="outline-4">
+<h4 id="org9f48c30"><span class="section-number-4">1.10.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-1-10-2">
+<ul class="org-ul">
+<li><a href="20230626-kosinus_und_standardskalarprodukt.html#ID-871c5004-220b-4001-b35a-1384eaa84769">Kosinus und Standardskalarprodukt</a></li>
+<li><a href="20230626-orthogonal_group.html#ID-d424a423-60ce-4b0a-a1ea-78bc03233834">orthogonal group</a></li>
+<li><a href="20230626-orthogonale_gruppe_und_standardskalarprodukt.html#ID-b27e425d-4626-4d61-83a9-bceb4a29a13a">orthogonale Gruppe und Standardskalarprodukt</a></li>
+<li><a href="20230626-standardskalarprodukt_und_matrixmultiplikation.html#ID-4be1d9ed-7de6-4882-9b9f-0f025923a3db">Standardskalarprodukt und Matrixmultiplikation</a></li>
+<li><a href="20230111121938-spezielle_lineare_gruppe.html#ID-47dc2fca-a551-4f15-84c1-47638b39a931">Special linear Group</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org8ec9a30" class="outline-3">
+<h3 id="org8ec9a30"><span class="section-number-3">1.11.</span> 11)</h3>
+<div class="outline-text-3" id="text-1-11">
+</div>
+<div id="outline-container-org69afaf9" class="outline-4">
+<h4 id="org69afaf9"><span class="section-number-4">1.11.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-1-11-1">
+<ul class="org-ul">
+<li>gram schmidt</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbe4a3d2" class="outline-4">
+<h4 id="orgbe4a3d2"><span class="section-number-4">1.11.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-1-11-2">
+<ul class="org-ul">
+<li><a href="20230703-idempotente_abbildung_und_direkte_summe_des_kerns_und_des_bildes.html#ID-5acb7684-8569-4749-8e16-700315162df0">idempotente Abbildung und direkte Summe des Kerns und des Bildes</a></li>
+<li><a href="20230703-idempotente_abbildung_als_selbstadjungierte_abbildung_und_orthogonalitat_vom_kern_und_bild.html#ID-103c2dd0-1efe-4462-b813-754c23b21177">Idempotente Abbildung als Selbstadjungierte Abbildung und Orthogonalität vom Kern und Bild</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf98ff18" class="outline-4">
+<h4 id="orgf98ff18"><span class="section-number-4">1.11.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-1-11-3">
+</div>
+<div id="outline-container-org53b6e7e" class="outline-5">
+<h5 id="org53b6e7e"><span class="section-number-5">1.11.3.1.</span> a)</h5>
+<div class="outline-text-5" id="text-1-11-3-1">
+<ul class="org-ul">
+<li><a href="20230703-kern_als_orthogonale_komplement_des_bildes_der_adjungierten.html#ID-a40572b5-6d1c-49d8-be33-6802c74dfd92">Kern als orthogonale Komplement des Bildes der Adjungierten</a></li>
+<li><a href="20230703-kern_einer_abbildung_und_kern_der_verknupfung_mit_der_adjunkte.html#ID-6209c814-bc13-4670-8fe1-af713dd9d21b">Kern eines Endomorphismus und Kern der Verknüpfung mit der adjungierten Abbildung</a></li>
+<li><a href="20230703-bild_eines_endomorphismus_und_bild_der_verknupfung_mit_der_adjungierten_abbildung.html#ID-0b38405f-6e9f-4ac0-ad71-b3d17071120a">Bild eines Endomorphismus und Bild der Verknüpfung mit der adjungierten Abbildung</a>  - todo (?)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga9968f6" class="outline-5">
+<h5 id="orga9968f6"><span class="section-number-5">1.11.3.2.</span> b)</h5>
+<div class="outline-text-5" id="text-1-11-3-2">
+<ul class="org-ul">
+<li><a href="20230705-eigenwerte_invariant_unter_kommutieren_mit_dem_adjungierten_endomorphismus.html#ID-7516be23-a071-48a8-8c6f-0d8f511fc5f9">Eigenwerte invariant unter Kommutieren mit dem adjungierten Endomorphismus</a> - todo ?</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga319530" class="outline-5">
+<h5 id="orga319530"><span class="section-number-5">1.11.3.3.</span> c)</h5>
+<div class="outline-text-5" id="text-1-11-3-3">
+<ul class="org-ul">
+<li><a href="20230703-normale_abbildung_und_kern.html#ID-3e063e62-bed6-4bab-881a-6c96e22eca0b">Normale Abbildung und Kern</a> - todo</li>
+<li><a href="20230703-normale_abbildung_und_bild.html#ID-ea9e2dfb-74c8-4892-94fc-da142527ba38">normale Abbildung und Bild</a> - todo</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org5755f35" class="outline-4">
+<h4 id="org5755f35"><span class="section-number-4">1.11.4.</span> 4)</h4>
+<div class="outline-text-4" id="text-1-11-4">
+<ul class="org-ul">
+<li><a href="20230703-summe_von_positiven_endomorphismen_als_positiver_endomorphismus.html#ID-7ecbe276-46a5-47e2-a386-76f708133098">Summe von positiven Endomorphismen als positiver Endomorphismus</a></li>
+<li><a href="20230703-quadrat_eines_selbstadjungierten_monomorphismus_als_positiver_endomorphismus.html#ID-fc52ccfd-ba3d-4bbb-8eba-91d88693a2cc">Quadrat eines Selbstadjungierten Monomorphismus als positiver Endomorphismus</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0fb8fe6" class="outline-2">
+<h2 id="org0fb8fe6"><span class="section-number-2">2.</span> Skelett - Tutorium</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org197d062" class="outline-3">
+<h3 id="org197d062"><span class="section-number-3">2.1.</span> )</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org8b58039" class="outline-4">
+<h4 id="org8b58039"><span class="section-number-4">2.1.1.</span> 1)</h4>
+</div>
+<div id="outline-container-org70b90d4" class="outline-4">
+<h4 id="org70b90d4"><span class="section-number-4">2.1.2.</span> 2)</h4>
+</div>
+<div id="outline-container-org597dbec" class="outline-4">
+<h4 id="org597dbec"><span class="section-number-4">2.1.3.</span> 3)</h4>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 14:57</p>
+</div>
+</body>
+</html>

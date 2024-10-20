@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 19:18 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Geldhauser: algebraic geometry - affine und projektive varietäten</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Geldhauser: algebraic geometry - affine und projektive varietäten</h1>
+<div id="outline-container-org2ad8d75" class="outline-2">
+<h2 id="org2ad8d75"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org0124334" class="outline-3">
+<h3 id="org0124334"><span class="section-number-3">1.1.</span> morphismen von affinen varietäten</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20231120-coordinate_ring_as_set_of_polynomial_maps.html#ID-8278b1bf-d105-4429-89e3-80b2e56fd133">coordinate ring as set of polynomial maps</a></li>
+<li><a href="20231120-polynomial_map_between_algebraic_sets.html#ID-2324bb89-67c1-434f-89c9-e80763255cdd">polynomial map</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20231125-perfect_field_and_frobenius_as_automorphism.html#ID-1c52bdf0-87e3-4397-a8f9-1c8c62d66453">perfect field and frobenius as automorphism</a></li>
+<li><a href="20231006-perfect_field.html#ID-c8e0d0aa-513a-4fcd-92f0-8df53355723b">perfect field</a></li>
+</ul>
+</div>
+<div id="outline-container-org18b2660" class="outline-4">
+<h4 id="org18b2660"><span class="section-number-4">1.1.1.</span> functorial</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<ul class="org-ul">
+<li><a href="20231120-precomposition_with_a_polynomial_map_for_the_coordinate_ring.html#ID-ef8f354e-156f-4b77-9a06-0c5167185c8c">precomposition with a polynomial map for the coordinate ring</a></li>
+<li><a href="20231120-category_of_algebraic_sets.html#ID-c4a93611-503a-4038-b7d0-5271672c2c5c">category of algebraic sets</a></li>
+<li><a href="20231120-functor_from_the_category_of_algebraic_sets_to_the_coordinate_rings.html#ID-110c3a4e-5630-45b3-8251-a68e20b9dfc8">functor from the category of algebraic sets to the coordinate rings</a></li>
+<li><a href="20231120-k_algebrahomomorphism_between_coordinate_rings_as_precomposition_with_a_regular_map.html#ID-24dc0d18-51df-4252-9fcf-c67507048631">K-Algebrahomomorphism between coordinate rings as precomposition with a regular map</a> - todo</li>
+<li><a href="20231120-functor_from_the_category_of_algebraic_sets_to_the_coordinate_rings_as_fully_faithful_embedding.html#ID-1258c642-e7b5-4190-a296-98f0caa72478">functor from the category of algebraic sets to the coordinate rings as fully faithful embedding</a> ???</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga6c7a11" class="outline-4">
+<h4 id="orga6c7a11"><span class="section-number-4">1.1.2.</span> </h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ul class="org-ul">
+<li><a href="20231120-isomorphic_coordinate_rings_and_isomorphic_algebraic_sets.html#ID-280ce3ef-9a89-4372-865d-1368a47e4063">isomorphic coordinate rings and isomorphic algebraic sets</a></li>
+<li><a href="20230404141718-categorical_product.html#ID-c6b25f4e-7486-4399-bea3-ace8da2a18c9">categorical product</a></li>
+<li><a href="20231120-tensor_product_as_coproduct.html#ID-c4180f06-150f-45ac-8df3-86237e96ed6d">tensor product as coproduct</a></li>
+<li><a href="20231120-fully_faithful_functor_as_conservative_functor.html#ID-0c238a5b-cedb-4295-a31b-55f5cc73dd32">fully faithful functor as conservative functor</a></li>
+<li><a href="20230402132313-embedding_functor.html#ID-eefd3030-7e43-4aea-b5d7-2b180cf1c66e">embedding</a></li>
+</ul>
+<p>
+TODO: add affine  
+</p>
+<ul class="org-ul">
+<li>unterscheidien ~&gt;</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd670374" class="outline-3">
+<h3 id="orgd670374"><span class="section-number-3">1.2.</span> rationale morphismen</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20230909-rational_map.html#ID-21c5c5dc-5ad6-4f25-bfd9-30c46f5f23bf">rational map</a> / <a href="20230909-rational_function.html#ID-3433e32e-b522-4427-8b11-a3ae6fc0b622">rational function</a></li>
+
+<li><a href="20230605-field_of_rational_functionsa.html#ID-20d2a34a-0f6f-4f3c-aba4-5f1f56f0b9df">field of rational functions</a></li>
+<li><a href="20231123-rational_functions_on_an_affine_variety.html#ID-20aff730-baed-4d94-b486-77094d5ba167">rational functions on an affine variety</a></li>
+<li><a href="20230907-regular_function_at_a_point.html#ID-89f68662-bef9-437c-b66a-c22ef1130984">regular function at a point (affine variety)</a></li>
+<li><a href="20231123-local_ring_of_an_affine_variety_at_a_point.html#ID-5ee9c8b6-d7d9-443b-be69-41bda6f54989">local ring of an affine variety at a point</a></li>
+<li><a href="20230916-ring_of_regular_functions.html#ID-aa223062-3fc0-4fc3-8d27-25754a4e50be">ring of regular functions</a></li>
+</ul>
+
+<ul class="org-ul">
+<li></li>
+
+<li><a href="20231123-domain_of_a_rational_functions_as_open_set.html#ID-6f3562f4-f2d9-440a-94d7-59bab5c04a92">domain of a rational functions as open set</a></li>
+<li><a href="20231123-domain_of_a_rational_function_as_dense_set.html#ID-e41f0b9e-6a98-44b0-85c4-10c5c2f5a647">domain of a rational function as dense set</a></li>
+<li><a href="20231123-whole_domain_of_a_rational_function_and_polynomial.html#ID-5b363ead-4777-484b-b012-4d596ebd1c68">whole domain of a rational function and polynomial</a></li>
+<li><a href="20231123-principal_open_set.html#ID-fc2c49b9-e60c-47fb-b770-13f1452afd8b">principal open set</a> - todo</li>
+<li><a href="20231123-principal_open_sets_as_basis.html#ID-0ecfdcfc-8d88-4a87-a17f-6ebab1c307bc">principal open sets as basis</a>   - todo</li>
+<li><a href="20230909-rational_map.html#ID-21c5c5dc-5ad6-4f25-bfd9-30c46f5f23bf">rational map</a></li>
+<li><a href="20230909-dominant_rational_map.html#ID-1b964f0e-1da7-4553-b7ce-0a9a19e0a76c">dominant rational map</a></li>
+<li><a href="20231123-precomposition_with_a_dominant_map.html#ID-370240d2-e17e-4c5a-883d-b1a2fe0cfec2">precomposition with a dominant map</a> - todo</li>
+<li><a href="20231123-domain_for_the_precomposition_with_a_dominant_map.html#ID-f887ce81-2360-4403-933f-8c4da9d105ff">domain for the precomposition with a dominant map</a> - todo</li>
+<li><a href="20231123-dominant_map_induces_precomposition_on_rational_functions.html#ID-c516c142-288a-4a14-a09c-eeade55f5f71">dominant map induces precomposition on field rational functions</a></li>
+<li><a href="20231123-field_homomorphism_on_rational_functions_induces_dominant_rational_map.html#ID-c4f2e5ec-cf81-4100-a897-f0f7cda74a08">field homomorphism on rational functions induces dominant rational map</a>   - todo</li>
+<li><a href="20231123-category_of_affine_varieties_and_dominant_maps.html#ID-0baa9164-20e1-4dc6-bc93-3a7202df517f">category of affine varieties and dominant maps</a></li>
+<li><a href="20231123-contravariant_functor_from_affine_varieties_to_the_function_fields.html#ID-7be994a2-9240-4e62-b1af-908cda4c31bb">contravariant functor from affine varieties to the function fields</a></li>
+<li><a href="20231127-contravariant_functor_from_affine_varieties_to_the_function_fields_as_fully_faithfull_functor.html#ID-10b751e8-593c-4656-8e16-2d7193ef8e29">contravariant functor from affine varieties to the function fields as fully faithfull functor</a></li>
+
+<li><a href="20231123-rational_functions_on_an_affine_variety.html#ID-20aff730-baed-4d94-b486-77094d5ba167">rational functions on an affine variety</a></li>
+<li><a href="20230909-birational_map.html#ID-b11ba760-2ecb-4af0-a75a-76718317381a">birational map</a></li>
+
+<li><a href="20231123-birational_varieties.html#ID-5c5ef39c-ed9d-49a6-a650-8f672624e78b">birational varieties</a></li>
+<li><a href="20231123-rational_variety.html#ID-9d51e57c-591f-4eb3-941c-9a41c63fbd3a">rational variety</a></li>
+<li><a href="20231123-birational_map_and_precomposition_as_isomorphism_on_function_fiends.html#ID-4234096b-50c7-4c08-92e1-545012677096">birational iso and precomposition as isomorphism on function fields</a></li>
+<li><a href="20231123-rational_variety_and_iso_on_the_function_field.html#ID-342df011-0ed4-4fa6-b726-4905cc05ce8b">rational variety and iso on the function field</a></li>
+<li><a href="20231123-dominant_map_and_injective_precomposition.html#ID-c3efb6a7-69d9-4446-87c3-f9496cec5742">dominant map and injective precomposition</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20231127-variety_birational_to_a_hyperplane.html#ID-04f80aac-135e-4e33-9719-257d02e23137">variety birational to a hyperplane</a></li>
+<li><a href="20231127-birational_map_and_open_subset.html#ID-68bd0c73-dde3-4e12-b26a-44720ff61789">birational map and open subset</a></li>
+<li><a href="20230906-quasi_affine_variety.html#ID-3ef8df48-4b44-4453-a107-37c89deecacc">simple quasi-affine variety</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20231127-birational_map_from_a_quasi_affine_variety.html#ID-1d0f0ab4-1529-4867-9363-3a23fdc0ecc1">birational map from a quasi-affine variety</a></li>
+<li><a href="20231127-quasi_affine_variety_isomorphic_to_an_affine_variety.html#ID-11143609-5282-439b-a05d-1a58c07d1248">quasi affine variety isomorphic to an affine variety</a></li>
+<li><a href="20231127-coordinate_ring_of_an_quasi_affine_variety.html#ID-0e5cf6e1-6c4b-4c38-a4b8-37f5a9b3ca17">coordinate ring of an quasi-affine variety</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge42c115" class="outline-3">
+<h3 id="orge42c115"><span class="section-number-3">1.3.</span> Projective Varietäten</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20230901-projective_variety.html#ID-15ff0e97-1d25-461a-aef8-dac9ace2de9c">projective variety</a></li>
+<li><a href="20230905-homogeneous_polynomial.html#ID-43659155-fbcc-4058-b0b3-5ff0a9c911ac">homogeneous polynomial</a></li>
+<li><a href="20230906-projective_space.html#ID-5be9c15d-808c-4350-a0ff-054c31dbc3c4">projective space</a></li>
+<li><a href="20231127-projective_space_as_set_of_lines_through_the_origin.html#ID-bd6beb3c-8901-4b01-a6e3-aa13d8ef6fe4">projective space as set of lines through the origin</a></li>
+<li><a href="20230904-homogeneous_ideal.html#ID-bf7064ae-9b25-4910-b7a4-01d852c3c7d3">homogeneous ideal</a></li>
+<li><a href="20230920-homogenous_ideal_and_generation_by_homogeneous_elements.html#ID-f808e09c-7ae6-40e2-9fe8-48b355a78f79">homogeneous ideal and generation by homogeneous elements</a></li>
+<li><a href="20230921-homogeneous_ideal_as_additive_prime_ideal.html#ID-00cd87fc-518a-416f-b925-81e41c3c2ba8">homogeneous ideal as additive prime ideal</a> - todo</li>
+<li><a href="20231127-projective_zero_locus.html#ID-8364d327-f96f-420b-aa58-8a17cce5d676">projective zero locus</a></li>
+<li><a href="20231127-projective_vanishing_ideal.html#ID-f10ee9dd-04ac-4f4d-9e80-ab7ebb6fdccd">projective vanishing ideal</a></li>
+<li><a href="20231127-zariski_topology_on_the_projective_space.html#ID-fc095c9e-4e44-4fd9-8cf2-fab5b81171f8">zariski topology on the projective space</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20231127-projective_nullstellensatz.html#ID-5c7ed6db-1484-442e-a3fb-34b96eb5925a">projective nullstellensatz</a></li>
+<li><a href="20231127-bijection_from_relevant_homogeneous_ideals_and_projective_algebraic_sets.html#ID-1a3c50fe-708e-4e41-aff7-d72d068eac42">bijection from relevant, homogeneous ideals and projective algebraic sets</a></li>
+<li><a href="20231127-bijection_from_relevant_prime_homogeneous_ideals_and_projective_varieties.html#ID-a3eff33e-c934-4ae2-9542-b4909c83a596">bijection from relevant, prime homogeneous ideals and projective varieties</a></li>
+<li><a href="20231128-projective_vanishing_set_of_the_generated_ideal_as_closure_in_the_zariski_topology.html#ID-3442e927-fb0e-432d-b10b-128501923260">projective vanishing set of the generated ideal as closure in the zariski topology</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20231127-affine_cone.html#ID-b3399ff6-a03b-4a36-aaee-a86029b9d537">affine cone</a></li>
+<li><a href="20230907-quasi_projective_variety.html#ID-7b70c39a-5b6f-4604-ad2c-e24b4d98ee60">quasi-projective variety</a></li>
+<li><a href="20230901-projective_variety.html#ID-15ff0e97-1d25-461a-aef8-dac9ace2de9c">projective variety</a></li>
+<li>dimension ~&gt; analog</li>
+<li></li>
+
+<li><a href="20231130-projective_field_of_functions.html#ID-585ca904-9239-4b4b-bd92-6ae0efa30f75">projective field of functions</a></li>
+<li><a href="20231016-decomposition_of_the_projective_space.html#ID-7e71532e-4eb3-4c1a-bcf4-8bd899b5abea">decomposition of the projective Space</a></li>
+<li><a href="20230909-regular_function_at_a_point_projective_variety.html#ID-668eafa0-0beb-4f70-ac22-d5e5a372c25e">regular function at a point (projective variety)</a></li>
+<li></li>
+</ul>
+<p>
+Domain
+</p>
+\begin{align*}
+\mathrm{dom}(f) = \{P \in Y \vert f \text{ regular in P}\} \subseteq Y
+\end{align*}
+<ul class="org-ul">
+<li>offen und dicht</li>
+</ul>
+
+<p>
+Unterring
+</p>
+\begin{align*}
+\mathcal{O}{Y,P} \coloneqq \{f \in K(Y) \vert f \text { regulär in P}\}
+\end{align*}
+
+<p>
+field 
+</p>
+<ul class="org-ul">
+<li><a href="20231130-domain_of_a_regular_function_between_projective_varieties.html#ID-e3601939-e907-4c94-8732-3c1c2860f329">domain of a regular function between projective varieties</a></li>
+<li></li>
+
+<li><a href="20231130-ring_of_regular_functions_of_a_projective_variety.html#ID-313f69c3-bd1b-4b52-81f4-62315b319583">ring of regular functions of a  projective variety</a></li>
+<li><a href="20231130-ring_of_regular_functions_of_a_projective_variety_as_constants.html#ID-3ac05f71-1534-4b45-85e5-7ccf1f2bbbc9">ring of regular functions of a projective variety as constants</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd1e9920" class="outline-3">
+<h3 id="orgd1e9920"><span class="section-number-3">1.4.</span> affine covering</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><a href="20231130-affine_covering_of_a_projective_space.html#ID-64c52d90-bb63-426b-97b8-de22b5f703bb">affine covering of a projective space</a></li>
+<li><a href="20231130-affine_covering_homeomorphic_to_affine_space.html#ID-cb403b85-b9e2-4a49-a96e-abb5908fb1d4">affine covering homeomorphic to affine space</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org0c0fbb5" class="outline-2">
+<h2 id="org0c0fbb5"><span class="section-number-2">2.</span> r</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li><a href="20231127-birational_map_and_isomorphism_of_quasi_affine_varieties.html#ID-13d46124-05fc-49f0-bdd1-2e03f9e1249f">birational map and isomorphism of quasi-affine varieties</a></li>
+<li><a href="20231127-transcendental_field_extension.html#ID-4e92e864-c0af-49df-9d46-3f92e32d5e68">transcendental field extension</a></li>
+<li><a href="20231127-affine_hyperplane.html#ID-3879b147-13e3-4121-ad26-702de03b2336">affine hyperplane</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 19:18</p>
+</div>
+</body>
+</html>

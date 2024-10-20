@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 18:31 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Algebra 1 - Galoistheorie</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Algebra 1 - Galoistheorie</h1>
+<div id="outline-container-org4c7f526" class="outline-2">
+<h2 id="org4c7f526"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org320a767" class="outline-3">
+<h3 id="org320a767"><span class="section-number-3">1.1.</span> galois</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20230725-galoiserweiterung.html#ID-7fff7689-4ad5-4b67-bba7-1367615c1d5d">Galoiserweiterung</a></li>
+<li><a href="20230805-galoisgruppe.html#ID-4c1b3e1a-1418-4ec4-b878-8903e671c272">Galoisgruppe</a></li>
+<li><a href="20240113-galoisgruppe_und_grad.html#ID-0af118e8-6b26-4359-bcd4-082aa0f07e96">Galoisgruppe und Grad</a></li>
+<li><a href="20231213-zwischenkorper_einer_galoiserweiterung_impliziert_eine_galoiserweiterung.html#ID-d8c89db1-5b50-483d-b54a-1d179dc7fb0f">Zwischenkörper einer Galoiserweiterung induziert eine Galoiserweiterung</a></li>
+<li><a href="20231006-galoisgruppe_eines_zwischenkorper_als_untergruppe.html#ID-ae01ed38-d946-42b7-85cf-9269eaabb80e">Galoisgruppe eines Zwischenkörper als Untergruppe</a></li>
+<li><a href="20231212-zwischenkorper_einer_normalen_korpererweiterung_als_normale_korpererweiterung.html#ID-bd350cb3-699a-4a30-88f6-90ba47f31743">zwischenkörper einer normalen Körpererweiterung induziert normale Körpererweiterung</a></li>
+<li><a href="20231006-beidseitig_galoisscher_zwischenkorper_induziert_gruppenepimorphismus_der_galoisgruppen.html#ID-0359efe2-fe4b-4fb3-b5e7-a0857fd2eaec">beidseitig galoisscher Zwischenkörper induziert Gruppenepimorphismus der Galoisgruppen</a></li>
+
+<li><a href="20230805-fixkorper.html#ID-329c476b-3983-4a41-a893-d4c82f7df4e0">Fixkörper</a></li>
+<li><a href="20231022-fixkorper_einer_endlichen_automorphismengruppe_als_galoiserweiterung.html#ID-f44886dd-fe6a-4fdf-b4ed-a162e673c3fc">Fixkörper einer endlichen Automorphismengruppe als Galoiserweiterung</a></li>
+<li><a href="20231022-fixkorper_einer_endlichen_automorphismengruppe_und_erweiterungsgrad.html#ID-117b7d4f-498a-492a-9c61-49154761aed6">Fixkörper einer endlichen Automorphismengruppe und Erweiterungsgrad</a></li>
+<li><a href="20240113-fixkorper_einer_endlichen_automorphismengruppe_und_galoisgruppe.html#ID-f8b552e7-f904-4700-af87-043c6a6a7283">Fixkörper einer endlichen Automorphismengruppe und Galoisgruppe</a></li>
+
+<li><a href="20231022-algebraische_korpererweiterung_uber_dem_fixkorper_impliziert_galoiserweiterung.html#ID-8d55925a-25e9-461d-8d63-689bb4d7912c">algebraische Körpererweiterung über dem Fixkörper impliziert Galoiserweiterung</a></li>
+<li><a href="20240113-algebraische_korpererweiterung_uber_einem_fixkorper_und_galoisgruppe_als_obergruppe.html#ID-f91c9dcc-98d5-4a86-992e-0376b6804f08">algebraische körpererweiterung über einem Fixkörper und Galoisgruppe als Obergruppe</a></li>
+
+<li><a href="20240113-automorphismengruppe_einer_normalen_korpererweiterung_als_galoisgruppe.html#ID-321104af-c802-45d9-bc79-1ac5aab30e92">Automorphismengruppe einer normalen Körpererweiterung als Galoisgruppe</a> - TODO</li>
+<li><a href="20240113-fixkorper_der_galoisgruppe_als_unterkorper.html#ID-3a772fbd-ab12-47bf-bc5e-17ea3299abb3">Fixkörper der Galoisgruppe gleich der Galoiserweiterung</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="20231022-fixkorper_als_normale_korpererweiterung_und_normale_untergruppe.html#ID-3ee2107e-3460-4d96-ab65-1eed5f0dae37">Fixkörper als normale Körpererweiterung und normale Untergruppe</a></li>
+<li><a href="20231022-fixkorper_als_galoiserweiterung_impliziert_gruppenepimorphismus_zwischen_der_galoisgruppen.html#ID-ac73ca2b-c45e-4946-a339-b36a5c574596">Fixkörper als Galoiserweiterung impliziert Gruppenepimorphismus zwischen der Galoisgruppen</a></li>
+
+<li><a href="20231022-galoiskorrespondenz.html#ID-4ec152b6-0922-4dce-8b06-76a613369739">Galoiskorrespondenz</a> - todo</li>
+<li><a href="20240120-galoiskorrespondenz_fur_beliebige_korpererweiterungen.html#ID-3d23932d-3da4-4c4a-991d-6668f81d379a">galoiskorrespondenz für beliebige Körpererweiterungen</a> - todo</li>
+<li><a href="20231022-fixkorper_als_normale_korpererweiterung_und_normale_untergruppe.html#ID-3ee2107e-3460-4d96-ab65-1eed5f0dae37">Fixkörper als normale Körpererweiterung und normale Untergruppe</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org09a4e60" class="outline-3">
+<h3 id="org09a4e60"><span class="section-number-3">1.2.</span> einheits und phi</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20240120-einheitswurzel.html#ID-f94fb25b-25e8-4cf2-94b7-7e899658a3fb">Einheitswurzel</a></li>
+<li><a href="20240120-einheitswurzeln_als_multiplikative_untergruppe.html#ID-6973771b-fe19-4f07-a43e-0713c9187190">Einheitswurzeln als multiplikative Untergruppe</a></li>
+<li><a href="20240120-einheitswurzeln_und_separables_polynom.html#ID-f531cc44-7ec5-49eb-a130-8d4a41e7ebbd">Einheitswurzeln und separables Polynom</a></li>
+
+<li><a href="20230503124954-eulersche_phi_funktion.html#ID-58c2b701-cb10-4918-89d7-cbdef5169ca1">Eulersche Phi Funktion</a></li>
+<li><a href="20230503125311-multiplikativitat_der_eulerschen_phi_funktion.html#ID-1aa57aa4-c469-4db3-93c5-95aca4edf83e">Multiplikativität der eulerschen Phi Funktion</a></li>
+<li><a href="20230503125400-eulersche_phi_funktion_fur_primzahlpotenzen.html#ID-f9dea7fb-190b-4ea3-a1c1-b69d0bcc1692">eulersche Phi Funktion für Primzahlpotenzen</a></li>
+<li><a href="20230503125509-eulersche_phi_funktion_fur_primzerlegungen.html#ID-a0971566-9b91-4c4d-bd8e-97084a34dc1c">eulersche Phi Funktion für Primzerlegungen</a></li>
+
+<li><a href="20231022-galoisgruppe_eines_polynoms.html#ID-9bb6b1e5-6ba5-446a-b3a7-600bbb167e14">Galoisgruppe eines polynoms</a></li>
+<li><a href="20231022-zerfallungskorper_eines_separablen_polynoms_als_galoiserweiterung.html#ID-51630518-ad26-4d01-97d8-ab6faf44eead">Zerfällungskörper eines separablen Polynoms als Galoiserweiterung</a></li>
+
+<li><a href="20240120-cyclotomic_polynomial.html#ID-30319bc1-87ef-41e3-9ccb-be0b4d0c24f9">cyclotomic polynomial</a></li>
+<li><a href="20240124-cyclotomic_polynomial_as_minimal_polynomial_in_q.html#ID-798e42e7-f934-474c-a625-db3f3867e2fb">cyclotomic polynomial as minimal polynomial in Q</a></li>
+<li><a href="20240125-coefficients_of_the_cyclotomic_polynomial.html#ID-7de07aba-bfc5-4c22-814d-98483fbc278e">coefficients of the cyclotomic polynomial</a> - todo</li>
+
+<li>&lt;&gt;</li>
+<li><a href="20240124-primitive_root_and_galois_extension.html#ID-5a9165e6-f0f8-424b-baea-be8c0fc9a40a">primitive root and galois extension</a> - todo</li>
+<li><a href="20240124-degree_of_a_simple_field_extension_with_a_primitive_root_of_unity.html#ID-6a00ab46-5514-406d-89f2-87de34c770b1">degree of a simple field extension with a primitive root of unity</a></li>
+<li><a href="20240124-galois_group_of_a_simple_field_extension_with_a_primitive_root_of_unity.html#ID-85a698de-4e52-47a1-abfa-edebf59bfc2b">galois group of a simple field extension with a primitive root of unity</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge9c0a6d" class="outline-3">
+<h3 id="orge9c0a6d"><span class="section-number-3">1.3.</span> radikalerweiterungen</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20240124-abelian_galois_extension.html#ID-69bec126-5aae-4628-b886-37f68453339c">abelian galois extension</a></li>
+<li><a href="20230603-tower_of_fields.html#ID-fbbd30f6-c54f-4775-b4fb-dbd9080335e6">tower of fields</a></li>
+<li><a href="20240124-radical_field_extension_as_finite_field_extension.html#ID-e29fc802-e68f-4cb5-9f13-886d1ff17af3">radical field extension as finite field extension</a></li>
+<li><a href="20240124-radikalerweiterung.html#ID-4f0963a4-0b90-4a6d-8b87-abcac4024c3b">radical extension</a></li>
+<li><a href="20240124-existence_of_galois_extension_for_a_radical_extension_in_characteristic_0.html#ID-549f430d-1227-4505-9ad0-0f4e06314ee4">existence of galois extension for a radical extension in characteristic 0</a> - todo</li>
+<li><a href="20240124-galois_group_of_a_radical_extension_as_solvable_group.html#ID-89942d86-e74e-4edf-a867-fde8a0230e11">galois group of a radical extension as quotient of a solvable group</a></li>
+
+<li><a href="20240129-durch_ein_radikal_losbares_polynom.html#ID-bbefb85c-71cf-4cd8-ac0c-6e55a0052cbb">durch ein radikal lösbares Polynom</a></li>
+<li><a href="20240129-galois_group_of_a_radical_solvable_polynomial.html#ID-67b7af30-d6a8-4b8c-b76e-d9bb62e4eac8">galois group of a radical solvable polynomial</a></li>
+<li><a href="20240129-solvable_galois_group_induces_radical_solvable_polynomial.html#ID-0581a17b-a677-4694-aad8-d2d62355680f">solvable galois group induces radical solvable polynomial</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 18:31</p>
+</div>
+</body>
+</html>

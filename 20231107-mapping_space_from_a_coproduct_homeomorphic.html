@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 19:05 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>mapping space from a coproduct homeomorphic</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">mapping space from a coproduct homeomorphic</h1>
+<div id="outline-container-orgf70b1bb" class="outline-2">
+<h2 id="orgf70b1bb"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(X_i\) be a <a href="20220823154734-mengenfamilie.html#ID-d5f647a4-b9c9-406e-82fc-ceeaacb27fd9">family</a> of <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological spaces</a> and \(Y\) also a topological space.
+Then for the <a href="20231103-compact_open_topology.html#ID-fcb63ee4-436d-4523-9277-bb9678883c5c">compact open</a> <a href="20220930230520-topologie_auf_einer_menge.html#ID-1ced2edb-806d-4fb8-ada3-ca97b7ea1d10">topology</a> of the <a href="20231103-mapping_space.html#ID-233d712d-03e8-4415-b86e-25bc8b6c3cef">mapping space</a>, it holds for the <a href="20230303000539-topologische_summe.html#ID-7c03dcbb-604d-4d61-9d6d-2d50e50aa5a6">topological sum</a> and <a href="20230211133152-produkttopologie.html#ID-32030f19-ac2a-4c46-aaed-1abb1cd6df9f">product topology</a>
+</p>
+\begin{align*}
+\mathrm{unglue}: \mathrm{Map}(\coprod_{i \in I} X_i, Y) \cong \prod_{i \in I} \mathrm{Map}(X_i, Y)
+\end{align*}
+<p>
+are canonically <a href="20230127080110-homeomorphismus.html#ID-9f615f4b-b7b4-4dd6-a222-b9ec170e4390">homeomorphic</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-org6fa988b" class="outline-2">
+<h2 id="org6fa988b"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Let
+</p>
+\begin{align*}
+\varphi: \mathrm{Map}(\coprod_{i \in I} X_i, Y) \rightarrow& \prod_{i \in I} \mathrm{Map}(X_i, Y)
+(f: a_i \mapsto f_i(a_i)) \mapsto& (f_i)
+\end{align*}
+</div>
+<div id="outline-container-org92f50a2" class="outline-3">
+<h3 id="org92f50a2"><span class="section-number-3">2.1.</span> <a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">Bijection</a></h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+follows from <a href="20230330152507-stetige_fortsetzung_von_abbildungen_einer_offenen_uberdeckung.html#ID-abdabede-ed97-4e05-9b53-a6c3184614e6">glueing lemma for an open covering</a>, as a <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a> <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">map</a> is precisely given by a covering (here \(X_i\)) with compatible covering (here \(\emptyset\), hence trivially satisfied)
+</p>
+
+<p>
+alternatively it follows from: <a href="20231017-hom_functor_preserves_colimits.html#ID-5ff9ae3e-1b7d-4f39-99df-dab65b127f6a">contravariant hom-functor dualizes small colimits to limits</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-org9cc72e9" class="outline-3">
+<h3 id="org9cc72e9"><span class="section-number-3">2.2.</span> <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a></h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+???
+Suppose \(\mathcal{O}_{K,U} \subseteq \prod_{i \in I} \mathrm{Map}(X_i, Y)\) is <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a>, then by <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> 
+</p>
+<ol class="org-ol">
+<li><a href="20230313165454-urbild_und_subbasis_einer_stetigen_funktion.html#ID-8a7fdcd8-db9e-4bd5-8456-6f738b2054ed">continuous map and subbasis</a></li>
+<li><a href="20240102-subbasis_and_product_of_subbasis.html#ID-1c406620-33fb-492a-b6f3-36fbf08e45fc">subbasis and product of subbasis</a></li>
+</ol>
+
+<p>
+it suffices, to show it for
+</p>
+\begin{align*}
+O =  \mathcal{O}_{K_i,O_i} \times \prod_{j \neq i} \mathrm{Map}(X_i,Y)
+\end{align*}
+
+<p>
+Then we get
+</p>
+\begin{align*}
+\mathrm{unglue}^{-1}[O] =& \{ f \vert f_{\vert X_i} \in \mathcal{O}_{K_i,O_i} \subseteq \mathrm{Map}(X_i,Y)\} \\
+=& \{f \vert f[K_i] \subseteq O_i\} \\
+=& \mathcal{O}_{K_i,O_i} \subseteq \mathrm{Map}(\coprod X_i, Y)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgd0d4202" class="outline-3">
+<h3 id="orgd0d4202"><span class="section-number-3">2.3.</span> <a href="20230227190111-offene_abbildung_topologie.html#ID-b42a4b40-0d77-444c-8385-4bfbb0e44c52">open map</a></h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Suppose \(O \subseteq \mathrm{Map}(\coprod X_i, Y)\) is <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a>.
+Then by <a href="20231228-open_injective_map_and_subbasis.html#ID-54ad5cd7-8833-46c2-8af7-55c89695903e">open injective map and subbasis</a>, we may assume <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> that we have an subbasis open set
+</p>
+\begin{align*}
+\mathcal{O}_{K,U}
+\end{align*}
+
+<p>
+Note that by <a href="20240102-compact_set_and_finite_intersection_with_disjoint_open_sets.html#ID-c3c7db90-6f43-44e3-bcef-bc1fe06245e9">compact set and finite intersection with disjoint open sets</a>, we have <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">finitely</a> many
+</p>
+\begin{align*}
+K_i \coloneqq X_i \cap K \neq \emptyset
+\end{align*}
+
+<p>
+Thus we get
+</p>
+\begin{align*}
+\mathcal{O}_{K,U} =& \{f \vert f_{K} \subseteq U\} \\
+=& \{f \vert f_{K_i} \subseteq U \forall i \in \{1,...,n\}\} \\
+=& \bigcap_{i=1}^n \{f \vert f_{K_i} \subseteq U\} \\
+=& \bigcap_{i \in I} \mathcal{O}_{K_i,U}
+\end{align*}
+<p>
+and applying our <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">map</a> 
+</p>
+\begin{align*}
+\mathrm{unglue}[\mathcal{O}_{K_i,U}] =& \mathcal{O}_{K_i,U} \times \prod_{j \neq i} \mathrm{Map}(X_j,Y)
+\end{align*}
+<p>
+hence an <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> set.
+</p>
+
+<p>
+by <a href="20231228-injective_image_and_intersection.html#ID-7835b9c1-6d8f-4750-a266-ccdf60645608">injective image and intersection</a>, we get
+</p>
+\begin{align*}
+\mathrm{unglue}[\bigcap_{i = 1}^n \mathcal{O}_{K_i,U}] =& \bigcap_{i=1}^n \mathcal{O}_{K_i,U} \times \prod_{j \neq i} \mathrm{Map}(X_j,Y)
+\end{align*}
+<p>
+where the latter is the finite intersection of open sets, hence also open
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 19:05</p>
+</div>
+</body>
+</html>

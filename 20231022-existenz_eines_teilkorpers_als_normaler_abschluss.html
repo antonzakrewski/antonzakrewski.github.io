@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 18:50 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Existenz eines Teilkörpers als normaler Abschluss</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Existenz eines Teilkörpers als normaler Abschluss</h1>
+<div id="outline-container-orgbfd9605" class="outline-2">
+<h2 id="orgbfd9605"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Seien <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_5295d90cad764ddee0d07b3b9e017681ab510a43.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_5295d90cad764ddee0d07b3b9e017681ab510a43.svg" class="org-svg" /> <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a>, so dass <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_f8d7396b04a79726866743846efebd76fd90cece.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_f8d7396b04a79726866743846efebd76fd90cece.svg" class="org-svg" /> eine <a href="20230722-algebraische_korpererweiterung.html#ID-434e42fe-1036-44f2-86e7-9dd391760e46">algebraische Körpererweiterung</a> ist und <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_55b8b5b918a77c8ab9b80fabd78a3e6b20f61fb4.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_55b8b5b918a77c8ab9b80fabd78a3e6b20f61fb4.svg" class="org-svg" /> eine <a href="20230723-normale_korpererweiterung.html#ID-2e8decef-eac5-46db-a814-aa1bb98d8df0">normale Körpererweiterung</a>.
+Dann existiert ein eindeutiger <a href="20231006-normaler_abschluss.html#ID-21c48548-8c08-4555-aa39-cf4f30c715c0">normaler Abschluss</a> <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_9321275f823094b102684fc957c60e04118a562c.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_9321275f823094b102684fc957c60e04118a562c.svg" class="org-svg" /> von <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_e8f7154cdc1a44141121fe95c19e8b6c98cb8afe.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_e8f7154cdc1a44141121fe95c19e8b6c98cb8afe.svg" class="org-svg" />.
+</p>
+</div>
+</div>
+<div id="outline-container-org60234fb" class="outline-2">
+<h2 id="org60234fb"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Sei 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_2c8124e9d905b4ffb7b79c7164b52a50a6368808.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_2c8124e9d905b4ffb7b79c7164b52a50a6368808.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Nach <a href="20231006-existenz_eines_normalen_abschlusses_fur_eine_algebraische_korpererweiterung.html#ID-446e6405-3cc9-49e6-bad6-64e2ce15910d">Existenz eines Normalen Abschlusses für eine algebraische Körpererweiterung</a> ist zu zeigen
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_9ad1131c4c84865471d1022d5ff09af4fd4096cb.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_9ad1131c4c84865471d1022d5ff09af4fd4096cb.svg" class="org-svg" />
+</span>
+</div>
+<p>
+für <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_2477edb575940affee3ee05cb74f7be88167b54b.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_2477edb575940affee3ee05cb74f7be88167b54b.svg" class="org-svg" /> als <a href="20230723-minimalpolynom_eines_algebraischen_elements.html#ID-e76a1f34-1911-4281-a969-5abea577522a">Minimalpolynom</a>  von <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_b5679de7792e0265d1c7856a53ddb4da9fd4f5b5.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_b5679de7792e0265d1c7856a53ddb4da9fd4f5b5.svg" class="org-svg" />
+</p>
+</div>
+
+<div id="outline-container-org08f5a86" class="outline-3">
+<h3 id="org08f5a86"><span class="section-number-3">2.1.</span> <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_4beae438a2fc4592192ba53ecd55cd5a26598405.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_4beae438a2fc4592192ba53ecd55cd5a26598405.svg" class="org-svg" /></h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Sei <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_94e0c4f2cca8d7c9c0da31cb4d35d799b3b7cddd.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_94e0c4f2cca8d7c9c0da31cb4d35d799b3b7cddd.svg" class="org-svg" />, so wird <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_9339d7e01d68ebe088aba117e0f285dd9c566c3a.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_9339d7e01d68ebe088aba117e0f285dd9c566c3a.svg" class="org-svg" /> durch <a href="20220320113706-nullstelle.html#ID-b094e637-5f3c-42a2-a2c2-ae73bbbe29a2">Nullstellen</a> <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_4bb00d2e888ad772cca89e4b8f0f86eacc488e91.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_4bb00d2e888ad772cca89e4b8f0f86eacc488e91.svg" class="org-svg" /> von Minimalpolynomen <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_2477edb575940affee3ee05cb74f7be88167b54b.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_2477edb575940affee3ee05cb74f7be88167b54b.svg" class="org-svg" /> erzeugt.
+Nach <a href="20231021-fortsetzung_einer_einfachen_algebraischen_korpererweiterung.html#ID-1bfbc766-a71a-4899-b179-2a29253f0dd2">Fortsetzung einer einfachen, algebraischen Körpererweiterung anhand einer Nullstelle</a> existiert für einen <a href="20230825-algebraic_closure.html#ID-764140fd-a4fc-4df7-a27e-a4373da7a514">Algebraischen Abschluss</a> <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_61b0ab04485f720faef1e3e487f0d4dc0bec2234.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_61b0ab04485f720faef1e3e487f0d4dc0bec2234.svg" class="org-svg" /> ein <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_6130778691cc89fe4e5c6de76b21a7bbeda5ad11.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_6130778691cc89fe4e5c6de76b21a7bbeda5ad11.svg" class="org-svg" />-Homomorphismus <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_3d28264f739be3c29b3d66d5932e9bebef244263.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_3d28264f739be3c29b3d66d5932e9bebef244263.svg" class="org-svg" /> mit <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_7dcf83bf169d0274861c7c107608c7bcf6f2f450.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_7dcf83bf169d0274861c7c107608c7bcf6f2f450.svg" class="org-svg" />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_96088aa111da7d077559f1b8d22c6366a62d6385.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_96088aa111da7d077559f1b8d22c6366a62d6385.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Ferner existiert nach dem <a href="20230805-fortsetzungssatz.html#ID-af23331d-05db-4aa9-b635-a1ccb64a8f9a">Fortsetzungssatz</a> ein <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_1b8ed5929e81ef6108a868ee0ff138ab8922dd4b.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_1b8ed5929e81ef6108a868ee0ff138ab8922dd4b.svg" class="org-svg" /> und nach <a href="20231021-normale_korpererweiterung_induziert_k_automorphismus.html#ID-6a95ef7a-68ed-4ecd-ace1-4aa3b7cff2f1">normale Körpererweiterung induziert K-Automorphismus</a> ein K-Homomorphismus <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_0f7d318626ea6b024f22480a93bd008cd7a4d758.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_0f7d318626ea6b024f22480a93bd008cd7a4d758.svg" class="org-svg" />.
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_e798eb54ad3ffde191b3a7ff96072baeb6925496.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_e798eb54ad3ffde191b3a7ff96072baeb6925496.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Somit folgt für
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_0040d73b16b3de36494006c5073294153d1c3404.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_0040d73b16b3de36494006c5073294153d1c3404.svg" class="org-svg" />
+</span>
+</div>
+<p>
+dass
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_e0c828d91ec80e04bbd6e8259a5d487b6312eb09.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_e0c828d91ec80e04bbd6e8259a5d487b6312eb09.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Nach Konstruktion folgt somit
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_f5dad1145caae8fb2e04ce441d89493df4bd2fe5.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_f5dad1145caae8fb2e04ce441d89493df4bd2fe5.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+und damit liegt <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_dad4082bbc1118217f19faa9972ffec26d754f9a.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_dad4082bbc1118217f19faa9972ffec26d754f9a.svg" class="org-svg" />
+</p>
+</div>
+</div>
+<div id="outline-container-org791c789" class="outline-3">
+<h3 id="org791c789"><span class="section-number-3">2.2.</span> <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_77aca234ca5b5ba7ff4a7211d9569bb83198b3be.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_77aca234ca5b5ba7ff4a7211d9569bb83198b3be.svg" class="org-svg" /></h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Sei <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_4e49663d0794f2f90b61e167d8e4a69a6e5a48d5.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_4e49663d0794f2f90b61e167d8e4a69a6e5a48d5.svg" class="org-svg" />, so wird <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_9339d7e01d68ebe088aba117e0f285dd9c566c3a.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_9339d7e01d68ebe088aba117e0f285dd9c566c3a.svg" class="org-svg" /> von <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_4c799b702f63e0342bcc1a93e457e7fcb90be727.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_4c799b702f63e0342bcc1a93e457e7fcb90be727.svg" class="org-svg" /> erzeugt mit <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_b5679de7792e0265d1c7856a53ddb4da9fd4f5b5.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_b5679de7792e0265d1c7856a53ddb4da9fd4f5b5.svg" class="org-svg" />
+Für das jeweilige Minimalpolynom <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_ac5274bc23d70ea3abcbfbaaac2cee6f59f109a1.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_ac5274bc23d70ea3abcbfbaaac2cee6f59f109a1.svg" class="org-svg" /> folgt, da <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_052c2c2f2f7639f68bae52ecf57348515617d7a4.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_052c2c2f2f7639f68bae52ecf57348515617d7a4.svg" class="org-svg" /> K-Homomorphismen sind nach <a href="20231212-root_under_a_algebra_homomorphisms.html#ID-ae9297aa-9dc9-49fe-ba79-f7d4e4fc5ee7">root under A-Algebra homomorphisms</a> auch, dass <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_db2779bedf1d125ff25fca21fb2fb931f5ece236.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_db2779bedf1d125ff25fca21fb2fb931f5ece236.svg" class="org-svg" /> eine nullstelle ist, d.h.
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_89944cb57f91d6b369f4270a12645131c2d2b283.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_89944cb57f91d6b369f4270a12645131c2d2b283.svg" class="org-svg" />
+</span>
+</div>
+<p>
+d.h. <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_ecd0481e7f3c7b3ae0000ec90170011c866cb6dc.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_ecd0481e7f3c7b3ae0000ec90170011c866cb6dc.svg" class="org-svg" /> folgt für eine normale Körpererweiterung <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_3e08e992c2c8dcfe7deb6aad43166dc06d2c6b4a.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_3e08e992c2c8dcfe7deb6aad43166dc06d2c6b4a.svg" class="org-svg" /> mit <img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_2041afa4298110e522067f6776dda4dfcc63a501.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_2041afa4298110e522067f6776dda4dfcc63a501.svg" class="org-svg" />
+</p>
+</div>
+</div>
+<div id="outline-container-orgaeb4f11" class="outline-3">
+<h3 id="orgaeb4f11"><span class="section-number-3">2.3.</span> eindeutigkeit</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+folgt aus der eindeutigkeit von der menge der Nullstellen von<img src="file:///home/anton/html/ltximg/20231022-existenz_eines_teilkorpers_als_normaler_abschluss_c83ffb8f80e12b5ac3e71e2ce8661b04b8a20e60.svg" alt="20231022-existenz_eines_teilkorpers_als_normaler_abschluss_c83ffb8f80e12b5ac3e71e2ce8661b04b8a20e60.svg" class="org-svg" /> 
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 18:50</p>
+</div>
+</body>
+</html>

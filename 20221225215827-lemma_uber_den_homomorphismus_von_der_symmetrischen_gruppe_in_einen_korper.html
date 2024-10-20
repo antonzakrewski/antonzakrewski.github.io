@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 21:46 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Homomorphismus von der Symmetrischen Gruppe in einen Körper</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Homomorphismus von der Symmetrischen Gruppe in einen Körper</h1>
+<div id="outline-container-org5bb0e64" class="outline-2">
+<h2 id="org5bb0e64"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(S_n\) die <a href="20221211194814-symmetrische_gruppe.html#ID-00bbd65b-c459-408d-a83c-306dee28d2f6">Symmetrische Gruppe</a> und \(K\) ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a>, dann gilt für einen <a href="20220928134932-gruppenhomomorphismus.html#ID-7d86b4b2-8f83-4da4-b1ef-08c3d37aa417">Homomorphismus</a>
+</p>
+\begin{align*}
+f: S_n \rightarrow K^{\times}
+\end{align*}
+<p>
+entweder:
+</p>
+</div>
+<div id="outline-container-orgaae79f9" class="outline-3">
+<h3 id="orgaae79f9"><span class="section-number-3">1.1.</span> a)</h3>
+<div class="outline-text-3" id="text-1-1">
+\begin{align*}
+f(\rho)  = 1 && \rho \in S_n
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org099f790" class="outline-3">
+<h3 id="org099f790"><span class="section-number-3">1.2.</span> b)</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+oder es gilt:
+</p>
+\begin{align*}
+\mathrm{char}(K) \neq 2 \\
+f = \mathrm{sgn}
+\end{align*}
+<p>
+siehe: <a href="20221030164602-charakteristik_eines_korpers.html#ID-857e2abc-6f76-404f-bf65-6822c05d6bd3">Charakteristik eines Körpers</a>, <a href="20221210210026-vorzeichen_einer_permutation.html#ID-481881eb-a9d5-4dbf-973a-d80d2ec89986">Vorzeichen einer Permutation</a> 
+</p>
+
+<p>
+D.h. der <a href="20221225141556-existenz_eines_epimorphismus_von_der_symmetrischen_gruppe_auf_das_vorzeichen.html#ID-33eba32a-8fed-4d84-9db3-5fa3018beb06">Epimorphismus von der Symmetrischen Gruppe auf das Vorzeichen</a> ist der einzige nichttriviale <a href="20220928134932-gruppenhomomorphismus.html#ID-7d86b4b2-8f83-4da4-b1ef-08c3d37aa417">Homomorphismus</a>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfded7f5" class="outline-2">
+<h2 id="orgfded7f5"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Sei \(f: S_n \rightarrow K^{\times}\) ein <a href="20220928134932-gruppenhomomorphismus.html#ID-7d86b4b2-8f83-4da4-b1ef-08c3d37aa417">Homomorphismus</a>, so folgt für eine <a href="20221211214007-transposition_kombinatorik.html#ID-2b1bc9e1-a857-4e1a-9927-02d30418930d">Transposition</a> \(\tau\):
+</p>
+\begin{align*}
+\tau^{2} =& \mathrm{id} \\
+\tau^{-1} =& \tau \\
+f(\tau^{2}) =& f(\tau)^2 \\
+=& 1 \\
+f(\tau) =& \pm 1
+\end{align*}
+<p>
+Da jede <a href="20221026161747-permutation_abbildung.html#ID-af424eae-548d-4d43-8ff0-3c2930186d7c">Permutation</a> / <a href="20220928140441-permutation.html#ID-01de1cf3-b2f6-4908-a06a-1e9479c0f756">Permutation</a> sich als <a href="20221224173940-lemma_uber_die_darstellung_einer_permutation_als_produkt_von_transpositionen.html#ID-35f9504d-a96b-46f8-a571-d79d7d35e65c">Produkt von Transpositionen</a> darstellen lässt, folgt:
+</p>
+\begin{align*}
+\mathrm{im}(f) = \{-1,1\}
+\end{align*}
+<p>
+Weiter gilt für zwei <a href="20221211214007-transposition_kombinatorik.html#ID-2b1bc9e1-a857-4e1a-9927-02d30418930d">Transpositionen</a> \(\tau = (i,j), \tau' = (i',j')\) die <a href="20230117063818-konjugationsformel_symmetrische_gruppe.html#ID-21547d66-241e-40ef-be36-f2d4465df96e">Konjugationsformel</a>, d.h. es existiert ein \(\rho \in S_n\), so dass gilt
+</p>
+\begin{align*}
+\tau' =& \rho \tau \rho^{-1} \\
+(i',j') =& (\rho(i), \rho(j))
+\end{align*}
+<p>
+und wegen \(f(\rho) = f(\rho^{-1})\)  folgt:
+</p>
+\begin{align*}
+f(\tau') =& f(\rho) \cdot f(\tau) \cdot f(\rho)
+\end{align*}
+<p>
+Durch fallunterscheidung folgt:
+</p>
+\begin{align*}
+f(\tau') =& f(\tau)
+\end{align*}
+<p>
+d.h. für \(f(\tau) = 1\) folgt der triviale <a href="20220928134932-gruppenhomomorphismus.html#ID-7d86b4b2-8f83-4da4-b1ef-08c3d37aa417">Homomorphismus</a>.
+Falls \(\mathrm{char}(K) = 2\) gilt, \(1 + 1 = 0\) und damit auch $% = -1$$1 = -1$, d.h. wir haben wieder den trivialen <a href="20220928134932-gruppenhomomorphismus.html#ID-7d86b4b2-8f83-4da4-b1ef-08c3d37aa417">Homomorphismus</a>.
+Für \(f(\tau) = -1\) folgt dann für \(\rho \in S_n\) und geeignete <a href="20221211214007-transposition_kombinatorik.html#ID-2b1bc9e1-a857-4e1a-9927-02d30418930d">Transpositionen</a> \(\rho = \tau_1 ... \tau_k\)
+</p>
+\begin{align*}
+f((\rho) =& \prod_{i=1}^{k} f(\tau_i) \\
+=& (-1)^k \\
+=&  \prod_{i=1}^{k} \mathrm{sgn}(\tau_i) \\
+=& \sgn(\rho)
+\end{align*}
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 21:46</p>
+</div>
+</body>
+</html>

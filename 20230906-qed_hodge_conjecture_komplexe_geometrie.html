@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 18:14 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>QED - Hodge Conjecture - Komplexe Geometrie</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">QED - Hodge Conjecture - Komplexe Geometrie</h1>
+<div id="outline-container-org02e5b92" class="outline-2">
+<h2 id="org02e5b92"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><a href="20230905-komplexe_topologische_mannigfaltigkeit_als_reelle_topologische_mannigfaltigkeit.html#ID-6565ed8c-2992-4398-8d7a-4ad286d6142a">komplexe topologische mannigfaltigkeit als reelle topologische Mannigfaltigkeit</a></li>
+<li><a href="20230905-komplex_differenzierbare_mannigfaltigkeit.html#ID-73078df1-9429-41be-af61-85d3e07b5b4e">komplex differenzierbare Mannigfaltigkeit</a></li>
+<li><a href="20230906-holomorphe_abbildung_zwischen_komplexen_vektorraumen.html#ID-9832d9c5-85b0-4963-bb1a-98e3a8ad1a65">holomorphe Abbildung zwischen komplexen Vektorräumen</a></li>
+<li><a href="20230906-holomorphe_abbildung_und_komplexe_partielle_richtungsableitungen.html#ID-8cea4917-f68b-472a-b5d5-89cfae395076">holomorphe Abbildung und komplexe partielle Richtungsableitungen</a></li>
+<li><a href="20230906-holomorpher_atlas.html#ID-b06537e6-ba98-4204-bcfa-4cca340ccc4c">holomorpher Atlas</a></li>
+<li><a href="20230905-komplex_differenzierbare_mannigfaltigkeit.html#ID-73078df1-9429-41be-af61-85d3e07b5b4e">complex manifold</a></li>
+<li><a href="20230906-graph_einer_holomorphen_funktion_als_komplexe_mannigfaltigkeit.html#ID-402df870-295a-45b7-9b4e-be50aa45c81a">Graph einer holomorphen Funktion als komplexe Mannigfaltigkeit</a></li>
+<li><a href="20230906-2_sphare_als_komplexe_mannigfaltigkeit.html#ID-5a2618e7-e44c-4744-9ba2-6073e06bb582">2-Sphäre als komplexe Mannigfaltigkeit</a></li>
+<li><a href="20221125074238-riemannsche_zahlenkugel.html#ID-35097b48-d707-48a1-bcc5-9e7266bbf9c5">Riemannsche Zahlenkugel</a></li>
+<li><a href="20230906-holomorphe_funktion_auf_einer_kompakten_komplexen_mannigfaltigkeit_als_konstante_funktion.html#ID-5e15b37d-b3cb-4ba4-80b8-9e88058ce496">holomorphe funktion auf einer kompakten, komplexen Mannigfaltigkeit als konstante Funktion</a></li>
+<li><a href="20230906-holomorphe_funktion_zwischen_komplexen_mannigfaltigkeit.html#ID-08865a84-728c-42da-a8ec-93fe1fa09040">holomorphe funktion zwischen komplexen Mannigfaltigkeit</a></li>
+<li></li>
+
+<li><a href="20230906-maximumsprinzip_fur_eine_holomorphe_komplex_vektorwertige_funktion.html#ID-fbae1063-418c-4655-ac02-0b1ee5244a66">Maximumsprinzip für eine holomorphe, komplex vektorwertige Funktion</a></li>
+<li><a href="20230906-elliptische_kurve_als_projektive_varietat.html#ID-ccd5fc54-8cfb-44c4-a68a-d2870c3da8d7">Elliptische Kurve als projektive Varietät</a></li>
+<li><a href="20230906-elliptische_kurve_als_komplexe_mannigfaltigkeit.html#ID-a4c0813f-da29-4429-8398-8a172be6e8f5">Elliptische Kurve als komplexe Mannigfaltigkeit</a></li>
+<li><a href="nonmath/git/20230906-elliptische_kurve_und_gitter.html#ID-1f73abd2-814c-47c1-bbdb-5160751c521b">Elliptische Kurve und Gitter</a></li>
+<li><a href="20230906-smooth_projective_variety.html#ID-d6d7018e-c65b-4ebb-b474-37ea9ea05de8">glatte projektive Varietät</a></li>
+<li><a href="nonmath/git/20230906-isomorphismus_zwischen_gitterdarstellung_darstellung_als_projektive_varietat_und_komplexe_struktur.html#ID-211529e1-19d4-4e76-9104-7b41cace39c0">Isomorphismus zwischen Gitterdarstellung, Darstellung als projektive Varietät und komplexe Struktur für eine elliptische Kurve</a></li>
+<li><a href="20230906-smooth_projective_variety_as_complex_manifold.html#ID-7836b83a-aacb-4b71-85d6-0c6b673617ff">smooth projective variety as complex manifold</a></li>
+<li><a href="20230906-projective_variety_as_complex_manifold.html#ID-24f2966e-a1f3-4eac-82b4-3aa63ea60057">projective space as complex manifold</a></li>
+<li><a href="20230906-abbildung_auf_das_inverse_als_holomorphe_funktion.html#ID-a1c54ff2-6dad-4151-9b38-df91f642f9c3">Abbildung auf das Inverse als holomorphe Funktion</a></li>
+<li><a href="nonmath/git/20230906-gitter.html#ID-10f7b724-2bc0-4b15-b65f-cb64d9659ad2">Lattice</a></li>
+<li><a href="20230906-verknupfung_von_holomorphen_funktionen_als_holomorphe_funktion.html#ID-f4ac2c9f-8d07-4a4d-be15-81cd2ad13cba">Verknüpfung von holomorphen Funktionen als holomorphe Funktion</a></li>
+<li><a href="20230906-komplexe_konjugation_nicht_holomorph.html#ID-c69dd02f-7fb1-452b-8bbe-caea98651b1a">komplexe Konjugation nicht holomorph</a></li>
+
+<li></li>
+
+<li><a href="20230906-genus_topology.html#ID-9d9516a4-659f-4d2c-9695-fb427c1d6040">genus (topology)</a></li>
+<li><a href="20230906-smooth_projective_variety.html#ID-d6d7018e-c65b-4ebb-b474-37ea9ea05de8">smooth projective variety</a></li>
+<li><a href="20230907-complex_vector_bundle.html#ID-da8d1a4c-853c-4faa-b4e4-a043ebc0a68a">complex vector bundle over a real topological space</a></li>
+<li><a href="20230907-holomorphic_vector_bundle.html#ID-e2b8d489-9044-4a2a-95d6-50676901492d">holomorphic vector bundle</a></li>
+
+<li><a href="20230905-complex_tangential_bundle.html#ID-6061445b-2f70-40f1-9683-75add981fc61">complex tangential bundle</a></li>
+<li><a href="20230907-konstruktion_von_holomorphen_vektorbundeln_durch_verklebung.html#ID-e2c9f5f9-0839-438f-af6f-9e3c07de5924">Konstruktion von holomorphen Vektorbündeln durch Verklebung</a></li>
+<li><a href="20230907-konstruktion_von_komplexen_vektorbundeln_durch_verklebung.html#ID-7c5707fa-eec1-4c5f-aa71-63bef0bb337a">Konstruktion von komplexen Vektorbündeln durch Verklebung</a></li>
+<li><a href="20230907-glatte_reelle_tangentialbundel_fur_eine_komplexe_mannigfaltigkeit.html#ID-c4aca2c9-0fec-4fcd-8a33-bb003a96b179">glatte, reelle Tangentialbündel fur eine komplexe Mannigfaltigkeit</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20230907-tensorn_von_einem_glatten_vektorbundel_mit_den_komplexen_zahlen.html#ID-8b66b376-d693-4430-b997-60038473cccf">komplexifizierung eines glatten Vektorbündel</a></li>
+<li><a href="20230907-komplexifizierte_tangentialbundel.html#ID-a1cb1a0b-2c95-4f07-ad2a-aeb994288187">komplexifizierte tangentialbündel</a></li>
+<li><a href="20230907-vektorbundel_der_glatten_k_formen_auf_einer_komplexen_mannigfaltigkeit.html#ID-210b6ca5-b139-464c-91de-bb913b9674fb">vektorbündel der glatten k-formen auf einer komplexen Mannigfaltigkeit</a></li>
+<li></li>
+
+<li><a href="20230907-holomorphe_k_form.html#ID-4b6c683e-5106-4054-81fd-dae00dc11ed2">holomorphe k-form</a></li>
+<li><a href="20230907-vektorbundel_der_holomorphen_k_formen_auf_einer_komplexen_mannigfaltigkeit.html#ID-14277713-b8b2-4530-9c79-1646f5c56b59">vektorbündel der holomorphen k-formen auf einer komplexen Mannigfaltigkeit</a></li>
+<li><a href="20230907-vektorbundel_der_komplexifizierten_k_formen_auf_einer_komplexen_mannigfaltigkeit.html#ID-677ad5d0-e734-4af8-9ee6-d3c3ad108af8">vektorbündel der komplexifizierten k-formen auf einer komplexen Mannigfaltigkeit</a></li>
+
+<li><a href="20230907-glatte_komplexwertige_k_form.html#ID-80296cc7-a5ee-4145-9ac8-89a78081e69d">glatte komplexwertige k-Form</a></li>
+<li></li>
+
+
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 18:14</p>
+</div>
+</body>
+</html>

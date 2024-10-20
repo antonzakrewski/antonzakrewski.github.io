@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 22:26 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Modul: mengentheoretische topologie - Übungsaufgaben</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Modul: mengentheoretische topologie - Übungsaufgaben</h1>
+<div id="outline-container-orge767cc0" class="outline-2">
+<h2 id="orge767cc0"><span class="section-number-2">1.</span> Aufgaben</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orga0fe7de" class="outline-3">
+<h3 id="orga0fe7de"><span class="section-number-3">1.1.</span> Blatt 1</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20230418114238-bilipschitzaquivalenz_als_aquivalenzrelation.html#ID-b0cada80-ceb6-4a27-b397-b1b653dae24f">Bilipschitzäquivalenz als Äquivalenzrelation</a></li>
+<li><a href="20230421085327-metrik_fur_endlich_viele_punkte_und_euklidischer_raum.html#ID-1607d97f-6c34-4bce-a540-bd7a591b4162">Metrik für endlich viele Punkte und euklidischer Raum</a></li>
+<li><a href="20230418205201-bilipschitzaquivalenz_von_metriken_impliziert_topologische_aquivalenz.html#ID-71320117-cf54-4c6d-ab8d-17b0e210e885">Bilipschitzäquivalenz von Metriken impliziert topologische Äquivalenz</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6eb3a8d" class="outline-3">
+<h3 id="org6eb3a8d"><span class="section-number-3">1.2.</span> Blatt 2</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-org1cfe37c" class="outline-4">
+<h4 id="org1cfe37c"><span class="section-number-4">1.2.1.</span> 1</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<ul class="org-ul">
+<li><a href="20230312155137-epsilon_delta_kriterium_der_stetigkeit_und_topologische_charakterisierung_von_stetigkeit.html#ID-fa303a45-ddfd-48fa-ab5e-1e05bd7c0632">Epsilon-Delta Kriterium der Stetigkeit und topologische Charakterisierung von Stetigkeit</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5a3fea9" class="outline-4">
+<h4 id="org5a3fea9"><span class="section-number-4">1.2.2.</span> 2</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<ul class="org-ul">
+<li><a href="20230302223257-kuratowskische_hullenaxiome.html#ID-1b1a8679-c597-4d9e-8b98-c6b5d78b1aa9">Kuratowskische Hüllenaxiome</a></li>
+<li><a href="20230312160220-bild_des_abschlusses_unter_stetigen_funktionen.html#ID-1b328ebc-2c0d-43c4-8581-da0f9579c217">Bild des Abschlusses unter stetigen Abbildungen</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org50ef0d6" class="outline-4">
+<h4 id="org50ef0d6"><span class="section-number-4">1.2.3.</span> 3</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<ul class="org-ul">
+<li><a href="20230430200855-produktregel_fur_den_rand_einer_produkttopologie.html#ID-eda4d564-29c8-48cb-b77c-cc98f409efea">Produktregel für den Rand einer Produkttopologie</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgebdca3d" class="outline-4">
+<h4 id="orgebdca3d"><span class="section-number-4">1.2.4.</span> 4</h4>
+<div class="outline-text-4" id="text-1-2-4">
+<ul class="org-ul">
+<li><a href="20230401154949-lower_limit_topology.html#ID-a879df90-f12e-4460-b9ff-f1b4831a84aa">Sorgenfrey line</a></li>
+<li><a href="20221002144647-diskrete_topologie.html#ID-c9466868-60fd-4b1f-ae1c-1bf7606f3ec7">diskrete Topologie</a></li>
+<li><a href="20230501192426-sorgenfrey_topologie_feiner_als_die_standardtopologie.html#ID-100adecf-506c-4871-ab2c-aa04cd5a28ec">Sorgenfrey Topologie feiner als die Standardtopologie</a></li>
+<li><a href="20230430222332-rationale_zahlen_dicht_in_der_sorgenfrey_topologie.html#ID-7a17b274-5fd9-4546-92fc-ad422f27e7e0">rationale zahlen dicht in der Sorgenfrey Topologie</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org7710915" class="outline-3">
+<h3 id="org7710915"><span class="section-number-3">1.3.</span> Blatt 3</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-org83a3b24" class="outline-4">
+<h4 id="org83a3b24"><span class="section-number-4">1.3.1.</span> 1</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<ul class="org-ul">
+<li><a href="20230330151432-stetige_fortsetzung_zweier_abbildungen_von_einer_uberdeckung.html#ID-43361c3e-7e6f-4ffb-a0ec-7988d859da0d">Verklebelemma für eine lokalendliche Überdeckung</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2ad7f04" class="outline-4">
+<h4 id="org2ad7f04"><span class="section-number-4">1.3.2.</span> 2</h4>
+<div class="outline-text-4" id="text-1-3-2">
+</div>
+<div id="outline-container-orgefd529a" class="outline-5">
+<h5 id="orgefd529a"><span class="section-number-5">1.3.2.1.</span> a)</h5>
+<div class="outline-text-5" id="text-1-3-2-1">
+<ul class="org-ul">
+<li><a href="20230507214107-b_adische_darstellung_der_ganzen_zahlen.html#ID-22e3300e-8b53-46ca-b394-f06e32f46dcf">B-Adische Darstellung der ganzen Zahlen</a></li>
+<li><a href="20230507224927-existenz_der_b_adischen_darstellung_der_ganzen_zahlen.html#ID-4626d58f-b16e-4f7f-bcc2-3da5f8bb1bb6">Existenz der B-Adischen Darstellung der ganzen Zahlen</a></li>
+<li><a href="20230507224950-eindeutigkeit_der_b_adischen_darstellung_der_ganzen_zahlen.html#ID-4e1bfde5-0693-45b4-9d0f-f29724e60ef1">Eindeutigkeit der B-Adischen Darstellung der ganzen Zahlen</a></li>
+<li><a href="20230507214145-fast_alle_koeffizienten_der_b_adischen_darstellung_sind_0.html#ID-d0051dcf-f5a6-4919-b264-f538ba3d7e4c">fast alle Koeffizienten der B-Adischen Darstellung sind 0</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgaa8089d" class="outline-5">
+<h5 id="orgaa8089d"><span class="section-number-5">1.3.2.2.</span> b)</h5>
+<div class="outline-text-5" id="text-1-3-2-2">
+<ul class="org-ul">
+<li><a href="20230504103426-reißverschluss_bijektion_der_ganzen_zahlen.html#ID-6bafa8cc-ecf6-4e4c-a0a0-c9358c0f010a">Reißverschluss-Bijektion der ganzen Zahlen</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3a1539b" class="outline-5">
+<h5 id="org3a1539b"><span class="section-number-5">1.3.2.3.</span> c)</h5>
+<div class="outline-text-5" id="text-1-3-2-3">
+<ul class="org-ul">
+<li><a href="20230508122503-b_adische_darstellung_von_ℤ_adjungiert_b.html#ID-cc796654-e450-40a1-b51b-1db821e9beb4">B-Adische Darstellung von ℤ adjungiert B</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgab1b073" class="outline-5">
+<h5 id="orgab1b073"><span class="section-number-5">1.3.2.4.</span> d)</h5>
+<div class="outline-text-5" id="text-1-3-2-4">
+<ul class="org-ul">
+<li><a href="20230508123333-reißverschluss_bijektion_von_ℤ_adjungiert_b.html#ID-285f9f39-e48e-4c57-8e0b-975815186f4e">Reißverschluss-Bijektion von ℤ adjungiert B</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org067296c" class="outline-5">
+<h5 id="org067296c"><span class="section-number-5">1.3.2.5.</span> e)</h5>
+<div class="outline-text-5" id="text-1-3-2-5">
+<ul class="org-ul">
+<li><a href="20230507231723-isotone_abbildung_von_einer_dichten_abzahlbaren_menge_auf_die_rationalen_zahlen.html#ID-7c69961e-eeb0-4f40-beb2-55709a4cfa89">Ordnungsisomorphismus von einer dichten, abzählbaren Menge auf die rationalen Zahlen</a> - TODO</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbff81b0" class="outline-5">
+<h5 id="orgbff81b0"><span class="section-number-5">1.3.2.6.</span> f)</h5>
+<div class="outline-text-5" id="text-1-3-2-6">
+<ul class="org-ul">
+<li><a href="20230508123446-erweiterung_eines_ordnungsisomorphismus_von_dichten_abzahlbaren_teilmengen_der_reellen_zahlen_auf_ℝ.html#ID-cac8a10b-0969-47b8-96d2-507523a41627">Erweiterung eines Ordnungsisomorphismus von dichten, abzählbaren Teilmengen der reellen Zahlen auf ℝ</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge1f16c4" class="outline-5">
+<h5 id="orge1f16c4"><span class="section-number-5">1.3.2.7.</span> g)</h5>
+<div class="outline-text-5" id="text-1-3-2-7">
+<ul class="org-ul">
+<li><a href="20230509073403-ganze_zahlen_adjungiert_b_1_dicht_in_den_rationalen_zahlen.html#ID-aead2548-f0a5-4cec-9449-ee445d966606">Ganze Zahlen adjungiert B<sup>-1</sup> dicht in den rationalen Zahlen</a></li>
+<li><a href="20230504104320-homeomorphie_der_rationalen_zahlen_und_dem_produkt_der_rationalen_zahlen.html#ID-d5e628d9-6ddd-4e0d-bfdb-6bac95b54fc7">Homeomorphie der rationalen Zahlen und dem Produkt der rationalen Zahlen</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfe065b0" class="outline-3">
+<h3 id="orgfe065b0"><span class="section-number-3">1.4.</span> Blatt 4</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-org7ee716e" class="outline-4">
+<h4 id="org7ee716e"><span class="section-number-4">1.4.1.</span> 1</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<ul class="org-ul">
+<li><a href="20230506204738-reelle_zahlen_sind_zusammenhangend.html#ID-ee797af8-7303-4ffb-b873-32b49fc0f64c">reelle Zahlen sind zusammenhängend</a></li>
+<li><a href="20230504132522-reelle_offene_intervalle_sind_zusammenhangend.html#ID-7574fbbc-be31-4bd9-850f-8099fcb02b53">reelle, offene Intervalle sind zusammenhängend</a></li>
+<li><a href="20230504132522-reelle_offene_intervalle_sind_zusammenhangend.html#ID-7574fbbc-be31-4bd9-850f-8099fcb02b53">reelle abgeschlossene Intervalle sind zusammenhängend</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org037d6b4" class="outline-4">
+<h4 id="org037d6b4"><span class="section-number-4">1.4.2.</span> 2</h4>
+<div class="outline-text-4" id="text-1-4-2">
+<ul class="org-ul">
+<li><a href="20230511111017-wegzusammenhang_der_reellen_ebene_ohne_der_rationalen_ebene.html#ID-7fd21a8e-f221-4113-beca-090a8d5dd8d7">Wegzusammenhang der reellen Ebene ohne der rationalen Ebene</a></li>
+<li><a href="20230516144459-wegzusammenhang_der_reellen_ebene_ohne_abzahlbar_vielen_punkten.html#ID-d695432e-20e6-44bb-970d-dcf0665d2f8b">Wegzusammenhang der reellen Ebene ohne abzählbar vielen Punkten</a> - TODO</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge7b6f49" class="outline-4">
+<h4 id="orge7b6f49"><span class="section-number-4">1.4.3.</span> 3</h4>
+<div class="outline-text-4" id="text-1-4-3">
+<ul class="org-ul">
+<li><a href="20230511105348-box_topology.html#ID-e87f103c-9792-4fac-8c67-7d88db561b45">Box-Topology</a></li>
+<li><a href="20230511112430-box_topology_uber_einem_unendlichen_produkt_als_nicht_zusammenhangend.html#ID-d362a3f8-f49b-4f33-8ff0-1313413ab7b9">Box Topology über einem unendlichen Produkt als nicht zusammenhängend</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge181e25" class="outline-4">
+<h4 id="orge181e25"><span class="section-number-4">1.4.4.</span> 4</h4>
+<div class="outline-text-4" id="text-1-4-4">
+<ul class="org-ul">
+<li><a href="20230515214715-cofinite_topologie_vereinigt_mit_einer_metrisch_induzierten_toploogie.html#ID-a0425239-263d-467f-9641-a6a60f1bac62">Kofinite Topologie vereinigt mit einer metrisch induzierten Topologie</a></li>
+<li><a href="20230515220948-kofinite_toploogie_auf_einer_unendlichen_menge_als_zusammenhangender_raum.html#ID-dc87cf99-f82d-4c60-96f2-5a50f354db10">Kofinite Toploogie auf einer unendlichen Menge als zusammenhängender Raum</a></li>
+<li><a href="20230511110531-rationale_zahlen_total_unzusammenhangend.html#ID-4a2c6bb1-bb47-4deb-9969-e3ed820575e5">Rationale Zahlen total unzusammenhängend</a></li>
+<li><a href="20230515210756-cofinite_topologie_grober_als_eine_metrisch_induzierte_topologie.html#ID-8e44a9ef-8575-455a-a8b3-207289a10e38">Cofinite Topologie gröber als eine metrisch induzierte Topologie</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb4b684b" class="outline-4">
+<h4 id="orgb4b684b"><span class="section-number-4">1.4.5.</span> 5</h4>
+<div class="outline-text-4" id="text-1-4-5">
+<ul class="org-ul">
+<li><a href="20230515175340-zusammenhang_und_einfache_finaltopologie.html#ID-d28c4a9d-341a-4f7f-a862-dc8cf44eab0a">Zusammenhang und einfache Finaltopologie</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org20f6080" class="outline-3">
+<h3 id="org20f6080"><span class="section-number-3">1.5.</span> Blatt 5</h3>
+<div class="outline-text-3" id="text-1-5">
+</div>
+<div id="outline-container-org577b5e1" class="outline-4">
+<h4 id="org577b5e1"><span class="section-number-4">1.5.1.</span> 1</h4>
+</div>
+<div id="outline-container-org8d29603" class="outline-4">
+<h4 id="org8d29603"><span class="section-number-4">1.5.2.</span> 2</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<ul class="org-ul">
+<li><a href="20230518190355-fibre_bundle.html#ID-dc574422-b64c-49fb-a5df-1b528aadd681">Fibre bundle</a></li>
+<li><a href="20230518190252-section_topology.html#ID-9ab6b6d3-72c2-488e-ae11-206351ec25df">Section (topology)</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3f6ba89" class="outline-4">
+<h4 id="org3f6ba89"><span class="section-number-4">1.5.3.</span> 3</h4>
+<div class="outline-text-4" id="text-1-5-3">
+<ul class="org-ul">
+<li><a href="20230523081048-urbild_einer_stetigen_injektion_eines_hausdorff_raums.html#ID-1892d6ff-e7fc-4697-9660-87cf11cc62c1">Urbild einer stetigen Injektion eines Hausdorff-Raums</a></li>
+<li><a href="20230517212415-produkt_von_hausdorff_raumen_als_hausdorff_raum.html#ID-11849ef0-9371-436f-a215-b736d98f5d95">Produkt von Hausdorff-Räumen als Hausdorff-Raum</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8b4eaa3" class="outline-4">
+<h4 id="org8b4eaa3"><span class="section-number-4">1.5.4.</span> 4</h4>
+<div class="outline-text-4" id="text-1-5-4">
+<ul class="org-ul">
+<li><a href="20230517212309-zusammenhang_einer_ordnungstopologie.html#ID-13ceeeea-d863-4dc2-be41-1a72f99ccab6">Zusammenhang einer Ordnungstopologie</a></li>
+<li><a href="20230518114347-dictionary_order_on_the_unit_square.html#ID-5435f5a6-8e84-458d-a83e-fa6159049cc9">dictionary order on the unit square</a> - TODO</li>
+<li><a href="20230518115048-stetiger_weg_auf_der_lexikographischen_ordnung.html#ID-8fc03610-bbfc-4274-8daa-64fde0135d56">stetiger Weg auf der Lexikographischen Ordnung</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org358fe1b" class="outline-3">
+<h3 id="org358fe1b"><span class="section-number-3">1.6.</span> Blatt 6</h3>
+<div class="outline-text-3" id="text-1-6">
+</div>
+<div id="outline-container-org13eaeb5" class="outline-4">
+<h4 id="org13eaeb5"><span class="section-number-4">1.6.1.</span> 1</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<ul class="org-ul">
+<li><a href="20230526063428-topologischer_raum_der_teiler.html#ID-de40a148-43ec-40ec-ac43-f5c19efd438f">Topologischer Raum der Teiler</a></li>
+<li><a href="20230527104646-raum_der_teiler_fur_die_naturlichen_zahlen_als_t0_raum.html#ID-4dbe983a-2db7-4eee-9ac5-68bb66e96a9a">Raum der Teiler für die natürlichen Zahlen als T0-Raum</a></li>
+<li><a href="20230527104747-raum_der_teiler_fur_die_naturlichen_zahlen_ist_nicht_t1_t2_t3.html#ID-14ac1758-dba7-44e3-bcbd-4a0cf918fbde">Raum der Teiler für die natürlichen Zahlen ist nicht T1,T2,T3</a></li>
+<li><a href="20230527104709-raum_der_teiler_fur_die_naturlichen_zahlen_als_t4_raum.html#ID-cd1c16e4-142f-47af-8e3e-2cf4e0769d27">Raum der Teiler für die natürlichen Zahlen als T4 Raum</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgff7ca54" class="outline-4">
+<h4 id="orgff7ca54"><span class="section-number-4">1.6.2.</span> 2</h4>
+<div class="outline-text-4" id="text-1-6-2">
+<ul class="org-ul">
+<li><a href="20230526173841-funktionenraum_beliebiger_reeller_funktionen_nicht_erstabzahlbar.html#ID-da802dc5-dcd5-434a-a24f-2b619853b7f3">Funktionenraum beliebiger reeller Funktionen nicht erstabzählbar</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org239857b" class="outline-4">
+<h4 id="org239857b"><span class="section-number-4">1.6.3.</span> 3</h4>
+<div class="outline-text-4" id="text-1-6-3">
+<ul class="org-ul">
+<li><a href="20230331172342-dense_map_in_a_hausdorff_space.html#ID-cf93c6db-3299-4e7b-b6d8-af224c40b3ca">Einschränkung einer stetigen Abbildung in einem Hausdorff Raum auf eine Dichte Teilmenge</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb874641" class="outline-4">
+<h4 id="orgb874641"><span class="section-number-4">1.6.4.</span> 4</h4>
+<div class="outline-text-4" id="text-1-6-4">
+<ul class="org-ul">
+<li><a href="20230526063029-potenzmenge_als_ring.html#ID-e078d694-03eb-484e-bf2a-a2491dd6a6ca">Potenzmenge als Ring</a></li>
+<li><a href="20230526063636-filter_als_echtes_ideal_auf_der_potenzmenge.html#ID-35d86a38-8bbd-43a6-8047-ebabb4517068">Filter als echtes Ideal auf der Potenzmenge</a></li>
+<li><a href="20230526063708-ultrafilter_als_maximales_ideal.html#ID-dab67084-ecc2-49a0-9025-ace1912688a4">Ultrafilter als maximales Ideal</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org2f6f9c7" class="outline-3">
+<h3 id="org2f6f9c7"><span class="section-number-3">1.7.</span> Blatt 7</h3>
+<div class="outline-text-3" id="text-1-7">
+</div>
+<div id="outline-container-orgf49a9d7" class="outline-4">
+<h4 id="orgf49a9d7"><span class="section-number-4">1.7.1.</span> 1</h4>
+<div class="outline-text-4" id="text-1-7-1">
+<ul class="org-ul">
+<li><a href="20230227205538-vollstandig_normaler_raum_topologie.html#ID-481f3549-db51-4ece-ad88-73dd7a36981f">vollständig normaler Raum (Topologie)</a></li>
+<li><a href="20230601152332-aquivalente_charakterisierung_eines_vollstandig_normalen_raumes.html#ID-ad0914c1-9c3a-4029-b333-0978154250cc">äquivalente charakterisierung eines vollständig normalen Raumes</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org255b6a2" class="outline-4">
+<h4 id="org255b6a2"><span class="section-number-4">1.7.2.</span> 2</h4>
+<div class="outline-text-4" id="text-1-7-2">
+<ul class="org-ul">
+<li><a href="20230331212738-retract.html#ID-ea3be0f1-d177-49e1-bcd7-4e2154dfe06f">Retract</a></li>
+<li><a href="20230601152414-abgeschlossenheit_eines_retrakts.html#ID-a8eff5ef-b6a7-402e-8360-5cff4cb2e3f3">Abgeschlossenheit eines Retrakts</a></li>
+<li><a href="20230601152532-einheitssphare_als_retrakt_des_euklidischen_raumes_ohne_ursprung.html#ID-b592dc0d-e55d-4b0a-8a6a-9124fff98609">Einheitssphäre als Retrakt des euklidischen Raumes ohne Ursprung</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge3a4b09" class="outline-4">
+<h4 id="orge3a4b09"><span class="section-number-4">1.7.3.</span> 3</h4>
+<div class="outline-text-4" id="text-1-7-3">
+<ul class="org-ul">
+<li></li>
+
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org18a249b" class="outline-3">
+<h3 id="org18a249b"><span class="section-number-3">1.8.</span> Blatt 8</h3>
+<div class="outline-text-3" id="text-1-8">
+</div>
+<div id="outline-container-org729bd64" class="outline-4">
+<h4 id="org729bd64"><span class="section-number-4">1.8.1.</span> 1</h4>
+<div class="outline-text-4" id="text-1-8-1">
+<ul class="org-ul">
+<li><a href="20230614-konvergente_folge_und_abschluss_in_erstabzahlbaren_raumen.html#ID-9991be66-ab35-4daf-8b5b-d68e67882d20">konvergente Folge und Abschluss in erstabzählbaren Räumen</a></li>
+<li><a href="20230319220347-konvergente_folgen_und_abgeschlossenen_mengen.html#ID-a89b2f81-bac7-4046-80e5-fa2309ba3b9a">Konvergente Folgen und Abgeschlossenen Mengen in erstabzählbaren Räumen</a></li>
+<li><a href="20230307213658-folgenstetigkeit_in_erstabzahlbaren_raumen.html#ID-6206de02-e83b-4430-ad43-5f59b7cffe35">Folgenstetigkeit in erstabzählbaren Räumen</a></li>
+<li><a href="20230509102335-haufungspunkt_und_existenz_einer_konvergenten_folge.html#ID-f412adc6-9c8e-44df-801b-c623e95f89f7">Häufungspunkt und Existenz einer konvergenten Folge</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc9f869e" class="outline-4">
+<h4 id="orgc9f869e"><span class="section-number-4">1.8.2.</span> 2</h4>
+<div class="outline-text-4" id="text-1-8-2">
+<p>
+Konstruktion von stetiger Funktion:
+</p>
+<ul class="org-ul">
+<li>komisch: exaktheit</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org40e1c8c" class="outline-4">
+<h4 id="org40e1c8c"><span class="section-number-4">1.8.3.</span> 3</h4>
+<div class="outline-text-4" id="text-1-8-3">
+<ul class="org-ul">
+<li><a href="20230613-standardtopologie_mit_diskreten_irrationalen_zahlen_als_vollstandig_normaler_raum.html#ID-9483c12c-c744-4ba0-a7de-4866323906df">Standardtopologie mit diskreten Irrationalen Zahlen als vollständig normaler Raum</a></li>
+<li><a href="20230613-standardtopologie_mit_diskreten_irrationalen_zahlen.html#ID-68209973-e902-4cff-9827-033dc4be8c9a">Standardtopologie mit diskreten Irrationalen Zahlen</a></li>
+<li><a href="20230613-produkt_vollstandig_normaler_raume_i_a_nicht_normal.html#ID-b7a288c4-8bff-4a8f-943f-2ed9d79b3ff2">Produkt vollständig normaler Räume i.A. nicht normal</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgade772b" class="outline-3">
+<h3 id="orgade772b"><span class="section-number-3">1.9.</span> Blatt 9</h3>
+<div class="outline-text-3" id="text-1-9">
+</div>
+<div id="outline-container-orgb834705" class="outline-4">
+<h4 id="orgb834705"><span class="section-number-4">1.9.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-1-9-1">
+<ul class="org-ul">
+<li><a href="20230428174548-hausdorff_abstand_auf_den_abgeschlossenen_mengen_als_metrik.html#ID-4c7d3c1b-ed8e-44a4-b697-4f34290d997d">Hausdorff-Abstand auf den abgeschlossenen Mengen als Metrik</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6bc8285" class="outline-4">
+<h4 id="org6bc8285"><span class="section-number-4">1.9.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-1-9-2">
+<ul class="org-ul">
+<li><a href="20230615-trennung_von_kompakten_mengen_von_abgeschlossenen_mengen_in_einem_t3_raum.html#ID-8c4eab70-6b39-4bea-96c3-e96648c0b18e">Trennung von kompakten Mengen von abgeschlossenen Mengen in einem T3-Raum</a></li>
+<li><a href="20230616-trennung_von_kompakten_mengen_von_abgeschlossenen_mengen_durch_stetige_abbildungen_in_einem_t3a_raum.html#ID-d2f11e91-1939-4d5a-a193-48631971b8ad">Trennung von kompakten Mengen von abgeschlossenen Mengen durch stetige Abbildungen in einem T3a-Raum</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org377c0e1" class="outline-4">
+<h4 id="org377c0e1"><span class="section-number-4">1.9.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-1-9-3">
+<ul class="org-ul">
+<li><a href="20230615-abgeschlossene_projektionsabbildung_und_kompaktheit.html#ID-65a036f1-62a7-42c3-a4f7-416cb65697de">abgeschlossene Projektionsabbildung und Kompaktheit</a></li>
+<li><a href="20230617-abgeschlossene_projektionsabbildung_fur_normale_raume_und_kompaktheit.html#ID-13c2aec0-cb76-4f51-a7d2-4e05cb2e0edc">abgeschlossene Projektionsabbildung für normale Räume und Kompaktheit</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org71301bb" class="outline-4">
+<h4 id="org71301bb"><span class="section-number-4">1.9.4.</span> 4)</h4>
+<div class="outline-text-4" id="text-1-9-4">
+<ul class="org-ul">
+<li>komisch</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc3915c6" class="outline-3">
+<h3 id="orgc3915c6"><span class="section-number-3">1.10.</span> Blatt 10</h3>
+<div class="outline-text-3" id="text-1-10">
+</div>
+<div id="outline-container-org6305614" class="outline-4">
+<h4 id="org6305614"><span class="section-number-4">1.10.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-1-10-1">
+<ul class="org-ul">
+<li><a href="20230416212630-first_countable_compact_space_as_sequentially_compact_space.html#ID-bd068d83-9e7f-4b96-a528-9d36ba513db4">first countable, compact space as sequentially compact space</a></li>
+<li><a href="20230417092229-countably_compact_space_as_limit_point_compact.html#ID-a7788483-1972-4e25-9da7-3aa6570df745">countably compact space as limit point compact</a></li>
+<li><a href="20230624-abzahlbar_kompakter_raum_und_schwache_folgenkompaktheit.html#ID-ab803dc5-85cc-4215-82c3-e408365121bd">abzählbar kompakter Raum und schwache Folgenkompaktheit</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8d100b7" class="outline-4">
+<h4 id="org8d100b7"><span class="section-number-4">1.10.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-1-10-2">
+<ul class="org-ul">
+<li><a href="20230622-abgeschlossener_unterraum_eines_parakompakten_raums_als_parakompakter_raum.html#ID-c6654246-1c8c-4284-93f7-e6f4352bfd1f">abgeschlossener Unterraum eines parakompakten Raums als parakompakter Raum</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga9e4440" class="outline-4">
+<h4 id="orga9e4440"><span class="section-number-4">1.10.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-1-10-3">
+<ul class="org-ul">
+<li><a href="20230622-sorgenfrey_gerade_als_lokalkompakter_raum.html#ID-e68f3f12-26b9-483f-b6a0-e44b3b433e6e">Sorgenfrey-Gerade nicht lokalkompakt</a></li>
+<li><a href="20230622-sorgenfrey_gerade_als_parakompakter_raum.html#ID-c4fe2796-6eff-4e5f-a4aa-cbc8e4b743e3">Sorgenfrey-Gerade als parakompakter Raum</a></li>
+<li><a href="20230622-sorgenfrey_gerade_nicht_zweitabzahlbar.html#ID-9c05e279-9a57-42a8-b479-2a795cc638ed">Sorgenfrey-Gerade nicht zweitabzählbar</a></li>
+<li><a href="20230622-produkt_parakompakter_raume_i_a_nicht_parakompakt.html#ID-210b07ec-fbdb-41fe-b12c-f28171c259a1">Produkt parakompakter Räume i.A. nicht parakompakt</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8d3c993" class="outline-4">
+<h4 id="org8d3c993"><span class="section-number-4">1.10.4.</span> 4)</h4>
+<div class="outline-text-4" id="text-1-10-4">
+<ul class="org-ul">
+<li><a href="20230627-ordinalzahlraum_als_schwach_folgenkompakter_raum.html#ID-8d08591e-307f-42b5-a033-21718405a1d7">abzählbarer Ordinalzahlraum als schwach folgenkompakter Raum</a></li>
+<li><a href="20230629-existenz_einer_minimalen_teiluberdeckung.html#ID-64832352-e9c7-45c0-99c0-e632409d86a6">Existenz einer minimalen Teilüberdeckung</a></li>
+<li><a href="20230627-existenz_einer_minimalen_uberdeckung_fur_den_abzahlbaren_ordinalzahlraum.html#ID-3e8f29d0-deaf-4932-b936-d9ab49dc40c0">Existenz einer minimalen Überdeckung für den abzählbaren Ordinalzahlraum</a>  - todo</li>
+<li><a href="20230627-abzahlbarer_ordinalzahlraum_nicht_parakompakt.html#ID-6ecb14f0-3596-4783-97ec-01780437ab2d">abzählbarer Ordinalzahlraum nicht parakompakt</a></li>
+<li><a href="20230622-lokalkompakter_raum_i_a_nicht_parakompakt.html#ID-0aa32abd-5b9e-4cef-8d16-60767577d479">lokalkompakter Raum i.A. nicht parakompakt</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbbb5aaf" class="outline-3">
+<h3 id="orgbbb5aaf"><span class="section-number-3">1.11.</span> Blatt 11</h3>
+<div class="outline-text-3" id="text-1-11">
+</div>
+<div id="outline-container-org429ab7f" class="outline-4">
+<h4 id="org429ab7f"><span class="section-number-4">1.11.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-1-11-1">
+<ul class="org-ul">
+<li><a href="20230628-metrik_fur_das_abzahlbare_produkt_metrisierbarer_raume.html#ID-18d9bd10-5b00-4c3a-bd4f-d34b99c8d3ae">Metrik für das abzählbare Produkt metrisierbarer Räume</a>wa</li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20230628-beschrankung_einer_metrik_durch_arkustangens.html#ID-a59a033d-98fc-4fd2-954e-08b080d1d586">Beschränkung einer Metrik durch Arkustangens</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6a7b1cb" class="outline-4">
+<h4 id="org6a7b1cb"><span class="section-number-4">1.11.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-1-11-2">
+<ul class="org-ul">
+<li><a href="20230628-sorgenfrey_gerade_nicht_metrisierbar.html#ID-adf39e99-91c9-436a-9112-a17ce6da11ee">sorgenfrey-Gerade nicht metrisierbar</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org335ea61" class="outline-4">
+<h4 id="org335ea61"><span class="section-number-4">1.11.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-1-11-3">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbf26455" class="outline-4">
+<h4 id="orgbf26455"><span class="section-number-4">1.11.4.</span> 4)</h4>
+<div class="outline-text-4" id="text-1-11-4">
+<ul class="org-ul">
+<li><a href="20230629-lokalkompaktes_bild_einer_stetigen_offenen_surjektiven_abbildung.html#ID-f8fbed56-6347-499f-aeae-5c7caba77fee">lokalkompaktes Bild einer stetigen, offenen, surjektiven Abbildung</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org01ab978" class="outline-3">
+<h3 id="org01ab978"><span class="section-number-3">1.12.</span> Blatt 12</h3>
+<div class="outline-text-3" id="text-1-12">
+</div>
+<div id="outline-container-org88f6a97" class="outline-4">
+<h4 id="org88f6a97"><span class="section-number-4">1.12.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-1-12-1">
+<p>
+a) <a href="20230706-uberabzahlbarkeit_der_reellen_zahlen_und_satz_von_baire.html#ID-c6809a02-8f6e-4f30-aee6-a764a65590fb">Überabzählbarkeit der Reellen Zahlen und Satz von Baire</a>
+b) <a href="20230706-reeller_polynomraum_nicht_vollstandig.html#ID-80ce7b29-db76-465b-8be9-74679c92c1da">Vektorraum der reellen Polynome nicht vollständig</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-orgc52c4bd" class="outline-4">
+<h4 id="orgc52c4bd"><span class="section-number-4">1.12.2.</span> 2)</h4>
+</div>
+<div id="outline-container-orgfe3f81d" class="outline-4">
+<h4 id="orgfe3f81d"><span class="section-number-4">1.12.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-1-12-3">
+<ul class="org-ul">
+<li><a href="20230706-stone_cech_kompaktifizierung_und_topologische_summe.html#ID-4b1b1010-d894-4697-b969-7600bd5c5d66">Stone-Cech-Kompaktifizierung und topologische Summe</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgce3862d" class="outline-4">
+<h4 id="orgce3862d"><span class="section-number-4">1.12.4.</span> 4)</h4>
+<div class="outline-text-4" id="text-1-12-4">
+<ul class="org-ul">
+<li><a href="20230706-extremal_unzusammenhangender_raum.html#ID-09800e1a-3df3-4bb9-8d21-5884aa4c17f4">extremal unzusammenhängender Raum</a>
+<ul class="org-ul">
+<li></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 22:26</p>
+</div>
+</body>
+</html>

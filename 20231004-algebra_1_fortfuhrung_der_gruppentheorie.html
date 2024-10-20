@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 18:31 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Algebra 1 - Fortführung der Gruppentheorie</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Algebra 1 - Fortführung der Gruppentheorie</h1>
+<div id="outline-container-orgb14f5eb" class="outline-2">
+<h2 id="orgb14f5eb"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orga363643" class="outline-3">
+<h3 id="orga363643"><span class="section-number-3">1.1.</span> gruppenwirkungen</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20230501095041-gruppenwirkung.html#ID-e8246fd3-cb62-4245-9ef1-59bc0326501a">Gruppenoperation</a></li>
+<li><a href="20231210-binary_operation_of_a_group_as_group_action.html#ID-5c7d78e6-d7f0-4ca4-be5a-ab03bc007f7e">binary operation of a group as group action</a></li>
+<li><a href="20230730-konjugation_als_gruppenwirkung.html#ID-99b9bcc0-41f5-4761-a4d5-7fb1ed4f9038">conjugation as group action</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20231005-gruppenwirkung_auf_den_nebenklassen.html#ID-5a3b7e46-b09b-4ee7-8b06-e217edd67c81">gruppenwirkung auf den Nebenklassen</a> / - <a href="20240109-quotient_of_a_group_and_subgroup_as_subset.html#ID-176ecb2a-c7e6-482e-a727-44e36634c835">quotient of subgroup as G-Set</a></li>
+<li><a href="20240127-galois_group_acts_on_roots.html#ID-1ee85327-5a9a-477d-abde-215a20a21d22">galois group acts on roots</a></li>
+
+<li><a href="20221221173558-orbit_gruppentheorie.html#ID-73c744de-33e1-4ea7-9b28-815229e1b186">orbit</a></li>
+<li><a href="20230730-stabilisator_gruppentheorie.html#ID-07c74a34-381e-4b4c-b58f-ab73bfd5107d">Stabilisator</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20231005-disjunkte_zerlegung_durch_orbits.html#ID-00d40ece-8229-43c9-8752-b4de9ccae0b6">disjunkte Zerlegung durch Orbits</a></li>
+<li><a href="20230730-stabilisator_gruppentheorie.html#ID-07c74a34-381e-4b4c-b58f-ab73bfd5107d">stabilizer</a></li>
+<li><a href="20231005-stabilisator_als_untergruppe.html#ID-73f5c382-cfcf-47fd-880a-56751143709d">Stabilisator als untergruppe</a></li>
+<li><a href="20231112-orbit_isomorphic_to_group_modulo_stabilizer.html#ID-0aa06d8e-98c7-420b-b8d3-a46b17c67b78">orbit isomorphic to group modulo stabilizer</a> - todo</li>
+
+<li><a href="20230226213449-zentrum_einer_gruppe.html#ID-1a8fbb74-8226-4029-90aa-f7f67bddbfb5">center</a></li>
+<li><a href="20240129-zentrum_as_stabilizer_of_conjugaiton.html#ID-ebcd00c2-309d-4c51-ab9f-d8fabafe7631">center as stabilizer of conjugation</a></li>
+<li><a href="20230227145052-zentrum_einer_gruppe_als_normalteiler.html#ID-eaa1c4bc-dd50-4822-88da-22ea537149e4">Zentrum einer Gruppe als Normalteiler</a></li>
+<li><a href="20231111-klassengleichung.html#ID-a6fff4d6-1226-43c9-98a6-9e25b695c941">Klassengleichung</a></li>
+
+<li><a href="20230730-zentrum_einer_p_gruppe_nichttrivial.html#ID-7159f05b-a311-4d86-8ae0-419f9246c2c1">Zentrum einer p-gruppe nichttrivial</a></li>
+
+<li><a href="20231112-bahnformel.html#ID-1fd1bc1a-24e0-4b7b-9c07-237d78f16967">Bahnformel</a></li>
+<li><a href="20231112-stabilizer_in_general_not_a_normal_subgroup.html#ID-539a7f30-350a-4dcc-a548-f94ac1312aeb">stabilizer in general not a normal subgroup</a> - todo</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc494249" class="outline-3">
+<h3 id="orgc494249"><span class="section-number-3">1.2.</span> sylow</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20230722-p_gruppe.html#ID-847c0e25-f5eb-45cd-bc0d-356b7bbe2497">p-Gruppe</a></li>
+<li><a href="20230722-p_sylow_gruppe.html#ID-6dc01061-42f1-44f1-9c11-b313099f13e2">p-Sylow-Gruppe</a></li>
+
+<li><a href="20221022204743-theorem_von_sylow.html#ID-2ff601f8-957e-4468-8455-10d9dbc40527">Existenz einer p-Gruppe</a></li>
+<li><a href="20231022-satz_von_cauchy.html#ID-bfecebd6-6f2d-46b4-aad8-2aa6817d04bd">Satz von Cauchy über die Gruppenordnung</a></li>
+<li><a href="20240129-gruppenwirkung_auf_der_potenzmenge.html#ID-459ffdae-e50a-489f-a807-b727bc9b5f1b">group action on the power set</a></li>
+
+<li><a href="20231022-konjugieren_einer_sylowgruppe.html#ID-c930b4d0-f873-4304-b870-3ce4840bf26a">Konjugieren einer Sylowgruppe</a></li>
+<li><a href="20231022-einzige_sylowgruppe_als_normalteiler.html#ID-c5b3da1a-abaf-457d-8390-d5dca06bb2c5">einzige Sylowgruppe als Normalteiler</a></li>
+
+<li><a href="20231022-anzahl_der_sylowgruppen_als_teiler.html#ID-6f76eb85-4adb-41dd-afd3-fb88ba27b327">Anzahl der Sylowgruppen als Teiler</a></li>
+<li><a href="20231022-anzahl_der_sylowguppen_gleich_1_mod_p.html#ID-a519f502-4fb4-41ba-999d-4763134e3137">Anzahl der Sylowguppen gleich 1 mod p</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org454dd6a" class="outline-3">
+<h3 id="org454dd6a"><span class="section-number-3">1.3.</span> constructions</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20230730-normalisator.html#ID-91bbb161-3cdc-4f11-9f84-7c7aa5169901">Normalizer</a></li>
+<li><a href="20230808-normalizer_and_normal_subgroup.html#ID-1ad10f81-25ee-4d96-a67c-4f38807fff70">normalizer and normal subgroup</a></li>
+
+<li><a href="20231023-element_im_normalizator_einer_sylowgruppe_und_ordnung_des_quotienten_impliziert_element_in_der_sylowgruppe.html#ID-75e6dc2d-3664-45ed-bf57-b172eb55310c">Element im Normalizator einer Sylowgruppe und Ordnung des Quotienten impliziert Element in der Sylowgruppe</a></li>
+<li><a href="20231023-element_von_p_ordnung_und_konjugieren_als_automorphismus_fur_eine_sylowgruppe_impliziert_element_in_der_sylowgruppe.html#ID-a2be5eee-eb2c-4ad2-879f-b7cc41cf578c">Element von p-Ordnung und konjugieren als Automorphismus für eine Sylowgruppe impliziert Element in der Sylowgruppe</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8cc234a" class="outline-3">
+<h3 id="org8cc234a"><span class="section-number-3">1.4.</span> preparation</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><a href="20230608-hauptsatz_uber_endlich_erzeugte_abelsche_gruppen.html#ID-8f2257ff-4702-461a-891b-b51d8eece7d7">Hauptsatz über endlich erzeugte abelsche Gruppen</a></li>
+<li><a href="20231216-presentation_of_a_group.html#ID-7d0819e4-381a-43e4-9f5e-8adb052b5c39">presentation of a group</a></li>
+
+<li><a href="20231005-quaternion_group.html#ID-4c00015e-9c96-4c2e-9b63-e3f357b35edf">quaternion group</a></li>
+<li><a href="20240201-quaternion_group_and_quaternions.html#ID-f66e1c57-9d8c-4b07-a231-230f25a53f20">quaternion group and quaternions</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orge9798f5" class="outline-3">
+<h3 id="orge9798f5"><span class="section-number-3">1.5.</span> <a href="20240131-group_classification.html#ID-d5411522-0845-4584-a4e6-1bd5325b0263">group classification</a></h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li><a href="20240129-group_of_order_p_as_cyclic_gorup.html#ID-5ecab0b0-f64a-4bf6-b733-3f0c493c12ca">classification of groups of order p</a></li>
+<li><a href="20240131-group_of_order_p_2_as_abelian_group.html#ID-677c9a41-d387-4130-a669-d7b9d6e27ad4">classification of groups of order p<sup>2</sup></a></li>
+<li><a href="20240131-group_of_order_2p_as_cyclic_group_or_diedergroup.html#ID-f1fc02ad-8efa-46f0-8970-09043b766a6d">classification of group of order 2p</a></li>
+<li><a href="20240131-characterization_of_groups_of_order_8.html#ID-c3d88b75-eb15-466a-9fd4-9f6748285804">classificaiton of groups of order 8</a></li>
+<li><a href="20240131-group_with_order_pq_as_cyclic_group.html#ID-c316e5f7-6e7d-44b3-9740-e9148987a886">classification of groups of order pq</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd820117" class="outline-3">
+<h3 id="orgd820117"><span class="section-number-3">1.6.</span> other</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li><a href="20230808-solvable_group.html#ID-f168e64c-10ea-4dde-b86a-75dfc1e0e190">solvable</a></li>
+
+<li><a href="20230808-normal_series.html#ID-d21f4eb8-0fd2-4ad5-9b21-e143578d9dc0">normal series</a></li>
+<li><a href="20230809-abelian_normal_series.html#ID-5e5c60c5-d4f7-446b-a205-b75ceb0428a0">abelian normal series</a></li>
+<li><a href="20231005-abelian_group_as_solvable_group.html#ID-014c89b7-f805-4089-9a40-feda0b212599">abelian group as solvable group</a></li>
+<li><a href="20240202-symmetric_group_and_solvability.html#ID-c9d0a084-3f10-48f1-8f22-1080183944a7">Symmetric group and solvability</a></li>
+<li><a href="20230808-solvable_group_and_quotient_group.html#ID-c9324e0e-0fc2-4b7d-8924-1bb6caa5adee">solvable group and quotient group</a></li>
+<li><a href="20231023-p_gruppe_als_auflosbare_gruppe.html#ID-b43662d1-c167-4d23-a433-f830fa1c0af5">p-Gruppe als auflösbare Gruppe</a> /</li>
+
+<li><a href="20240202-burnside_theorem.html#ID-1ba929dd-06d2-4bef-a03e-047acc53f26f">Burnside theorem</a></li>
+<li><a href="20240202-feit_thompson_theorem.html#ID-a37a1d6d-cfa5-43c3-84ce-7f3f29b57924">Feit-Thompson Theorem</a></li>
+<li><a href="20230111124119-einfache_gruppe.html#ID-bc233729-247e-4f7a-9b6d-de4a62435f6c">simple group</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="20231005-alternierende_gruppe_a5_als_einfache_gruppe.html#ID-1eacbceb-f5db-4032-b67f-d4d33bcd1957">alternierende Gruppe A5 als einfache Gruppe</a></li>
+<li><a href="20240202-a5_as_non_abelian_group.html#ID-65394dca-600c-4674-aaf8-93274aad4267">A5 as non abelian group</a></li>
+<li><a href="20240202-simple_non_abelian_group_as_non_solvable_group.html#ID-2058df93-dbee-4d3f-894b-64991432b6a5">simple non abelian group as non solvable group</a></li>
+<li><a href="20240202-special_linear_group_module_center_as_simple_group.html#ID-bda5a5b5-7b51-4cf4-9a04-de09c5f6e6a8">special linear group module center as simple group</a></li>
+<li><a href="20240202-a5_as_non_solvable_group.html#ID-f3c98152-118b-4492-9323-e23d9516018e">A<sub>n</sub> as non solvable group</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 18:31</p>
+</div>
+</body>
+</html>

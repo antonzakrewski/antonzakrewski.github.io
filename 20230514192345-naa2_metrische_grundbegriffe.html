@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 22:36 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ana2: metrische Grundbegriffe</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">ana2: metrische Grundbegriffe</h1>
+<div id="outline-container-orgc2fcebc" class="outline-2">
+<h2 id="orgc2fcebc"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><a href="20221002145259-metrischer_raum.html#ID-6b95a0b5-83e0-43cc-830f-05b416769fe1">metrischer Raum</a></li>
+<li><a href="20220716173517-metrik.html#ID-0aa21afc-5f24-4618-a61e-e5ebf2e9640c">Metrik</a></li>
+<li><a href="20230227170033-euklidische_metrik.html#ID-4572dba0-1140-48ba-be8e-10f35edff2bc">euklidische Metrik</a></li>
+<li><a href="20230223230431-supremumsmetrik.html#ID-49a9f965-52ab-4401-b776-1ebc3b6def67">Supremumsmetrik</a></li>
+<li><a href="20230211124408-p_adischer_betrag.html#ID-2a27295c-10b2-4c0b-a06c-81096800218b">p-adischer Betrag</a> / <a href="20230211123220-p_adische_metrik.html#ID-4ffbbc11-266d-4a0e-9947-ad66b70f7419">p-adische Metrik</a></li>
+<li><a href="20230227165525-diskrete_metrik.html#ID-2271f14b-7d25-4dec-b568-942b0d953f64">diskrete Metrik</a></li>
+<li><a href="20230228173622-aquivalente_semimetrik.html#ID-f879c26d-1ebe-4a19-bd21-1939a5ea3579">äquivalente Semimetrik</a> / <a href="20230418205307-aquivalente_metrik.html#ID-ab145629-f0c2-4e6d-b7dc-a5462cd470af">topologisch äquivalente Metrik</a></li>
+<li><a href="20230418113734-lipschitz_aquivalente_metriken.html#ID-56e3645d-7a57-4f92-9b09-dba47a55112f">Bilipschitz-äquivalente Metriken</a></li>
+<li><a href="20230418114238-bilipschitzaquivalenz_als_aquivalenzrelation.html#ID-b0cada80-ceb6-4a27-b397-b1b653dae24f">Bilipschitzäquivalenz als Äquivalenzrelation</a></li>
+<li><a href="20230418114555-metrischer_unterraum.html#ID-0d9c252f-1eb3-4e19-8bfc-8d544ecd6592">Metrischer Unterraum</a> / <a href="20230227170531-von_einer_metrik_auf_eine_teilmenge_induzierte_metrik.html#ID-276ff8ad-9e36-4653-b0be-258d8f6cab9c">von einer Metrik auf eine Teilmenge induzierte Metrik</a></li>
+<li><a href="20230211123845-metrik_auf_dem_produkt_zweier_metrischer_raume.html#ID-91f3a5b5-53b6-4053-8774-c1a01f26ceba">Summe von Metriken auf dem Produkt zweier metrischer Räume</a></li>
+<li><a href="20220309105605-sphare.html#ID-933db4af-dd73-41f9-bc03-6d03e19a438a">Sphäre</a></li>
+<li><a href="20221027092741-epsilon_umgebung.html#ID-b8422ae4-c20f-468f-8f66-aa736833f806">offener r-Ball</a></li>
+<li><a href="20230422114730-abgeschlossener_ball.html#ID-f08b45bd-f778-4858-948e-77c15e566788">abgeschlossener Ball</a></li>
+<li><a href="20230422121907-diameter_metric_space.html#ID-2feee508-fb83-4b80-9365-f6eed9de6952">Durchmesser (metrischer Raum)</a></li>
+<li><a href="20230420181125-abstand_metrik.html#ID-588c664d-539b-4b23-b541-f6d7372c1add">Abstand (Metrik)</a> / <a href="20230227172045-abstand_zweier_teilmengen.html#ID-76dd3f2f-291b-4a59-9628-e015fa507c7d">Abstand zweier Teilmengen</a></li>
+<li><a href="20230422122611-hausdorff_abstand.html#ID-0db6694c-4d2f-4b8f-9a04-2f19e42b4d36">Hausdorff-Abstand</a></li>
+<li><a href="20230422122759-hausdorff_abstand_als_pseudometrik.html#ID-bce4ab83-4f9c-4bf1-997d-79ee37ae0be3">Hausdorff-Abstand als Pseudometrik</a></li>
+<li><a href="20230422122826-hausdorff_abstand_auf_einer_endlichen_menge_als_metrik.html#ID-fccd681b-5403-4488-964d-4cb2ede72778">Hausdorff-Abstand auf einer endlichen Menge als Metrik</a> todo (?)</li>
+<li><a href="20230426085945-einheitsball.html#ID-cbaf30c1-7bec-4cb0-9179-72441c542c40">Einheitsball</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 22:36</p>
+</div>
+</body>
+</html>

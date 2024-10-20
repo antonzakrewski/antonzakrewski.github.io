@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 18:38 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>fundamental theorem of group homomorphism</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">fundamental theorem of group homomorphism</h1>
+<div id="outline-container-orgc65a7a5" class="outline-2">
+<h2 id="orgc65a7a5"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_e6ea90f93286d6ba483e07a608709f47e085e21a.svg" alt="20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_e6ea90f93286d6ba483e07a608709f47e085e21a.svg" class="org-svg" /> be a <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a> and <img src="file:///home/anton/html/ltximg/20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_2b8b475fee9b290ceec7be23bd1de2327d2d2e78.svg" alt="20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_2b8b475fee9b290ceec7be23bd1de2327d2d2e78.svg" class="org-svg" /> a <a href="20221210192900-normalteiler.html#ID-f971f946-d0ca-444a-a450-efbef237a278">normal subgroup</a> with <img src="file:///home/anton/html/ltximg/20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_714ea2b5d4f4e4790598abbe1372c6b2f9d83536.svg" alt="20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_714ea2b5d4f4e4790598abbe1372c6b2f9d83536.svg" class="org-svg" /> as canonical projection to the <a href="20221210201536-faktorgruppe.html#ID-37068c77-35dd-45c0-8051-01704f97222c">quotient group</a> 
+Given another group and a <a href="20220928134932-gruppenhomomorphismus.html#ID-7d86b4b2-8f83-4da4-b1ef-08c3d37aa417">group-homomorphism</a> <img src="file:///home/anton/html/ltximg/20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_6ee309f508a22ae21b452aafc71ac8afb3b5f696.svg" alt="20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_6ee309f508a22ae21b452aafc71ac8afb3b5f696.svg" class="org-svg" /> such that <img src="file:///home/anton/html/ltximg/20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_a40a5b3526e9af50877f6689ef3d023e6a111251.svg" alt="20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_a40a5b3526e9af50877f6689ef3d023e6a111251.svg" class="org-svg" />, there exists a unique homomorphism <img src="file:///home/anton/html/ltximg/20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_d3d04a732efb8563d6cf75aba640649a45617fa6.svg" alt="20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_d3d04a732efb8563d6cf75aba640649a45617fa6.svg" class="org-svg" /> such that following <a href="20220821183856-diagramm_kategorientheorie.html#ID-ad9d3642-913a-4374-8605-52121d00b349">diagram</a> <a href="20220824224824-kommutierendes_diagramm.html#ID-968cc45b-2492-4495-b9e3-261866c0901d">commutes</a> 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_496ac819f7e3574f0c8252381d157ffbada41c5e.svg" alt="20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_496ac819f7e3574f0c8252381d157ffbada41c5e.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org8bee1a7" class="outline-2">
+<h2 id="org8bee1a7"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgc06d371" class="outline-3">
+<h3 id="orgc06d371"><span class="section-number-3">2.1.</span> uniqueness</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Suppose we have <img src="file:///home/anton/html/ltximg/20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_85e0758714b8968697a5ccf62de8c43061fc9cf9.svg" alt="20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_85e0758714b8968697a5ccf62de8c43061fc9cf9.svg" class="org-svg" /> satisfying the condition.
+then we get
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_b6d604d29d969b6b6bdedc5a1106f57fc751567f.svg" alt="20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_b6d604d29d969b6b6bdedc5a1106f57fc751567f.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Since <img src="file:///home/anton/html/ltximg/20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_23eb926065f84471a319a36b6cdec9bebb87542f.svg" alt="20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_23eb926065f84471a319a36b6cdec9bebb87542f.svg" class="org-svg" /> is <a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjective</a>, by <a href="20230915-surjective_map_as_epimorphism.html#ID-d831c01c-18b3-4d6b-a9f0-9d80ad13344a">surjective map as epimorphism</a> we conclude, that <img src="file:///home/anton/html/ltximg/20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_23eb926065f84471a319a36b6cdec9bebb87542f.svg" alt="20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_23eb926065f84471a319a36b6cdec9bebb87542f.svg" class="org-svg" /> is an <a href="20220819135905-epimorphismus.html#ID-ad206194-a416-4910-a5c4-d72528ae5ba0">epimorphism</a>.
+Hence it follows, that
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_85288a6aa84b6a7ee18e4696c265ef77273ed8c7.svg" alt="20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_85288a6aa84b6a7ee18e4696c265ef77273ed8c7.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org4a8ee3a" class="outline-3">
+<h3 id="org4a8ee3a"><span class="section-number-3">2.2.</span> existence</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Let 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_739944323da14f0152a7f621f01ead5258a8af07.svg" alt="20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_739944323da14f0152a7f621f01ead5258a8af07.svg" class="org-svg" />
+</span>
+</div>
+</div>
+<div id="outline-container-orgccbe398" class="outline-4">
+<h4 id="orgccbe398"><span class="section-number-4">2.2.1.</span> <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">welldefined</a> map</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_4b04b14a5de845661a7d9ab3a8662b5fadf77e63.svg" alt="20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_4b04b14a5de845661a7d9ab3a8662b5fadf77e63.svg" class="org-svg" />.
+Then there exists an <img src="file:///home/anton/html/ltximg/20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_99e7a6305474661856799126151861a5c776f9af.svg" alt="20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_99e7a6305474661856799126151861a5c776f9af.svg" class="org-svg" /> such that <img src="file:///home/anton/html/ltximg/20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_54c1de4d754527343a8d666e83d969cbdda031d6.svg" alt="20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_54c1de4d754527343a8d666e83d969cbdda031d6.svg" class="org-svg" />.
+Therefore,
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_3f824f73a516bf1196989c5736af378d1be8170f.svg" alt="20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_3f824f73a516bf1196989c5736af378d1be8170f.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org8d1746b" class="outline-4">
+<h4 id="org8d1746b"><span class="section-number-4">2.2.2.</span> group homomorphism</h4>
+<div class="outline-text-4" id="text-2-2-2">
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_57850fcfb8957e5d66d37020da741d3453dda79b.svg" alt="20231016-fundamental_theorem_on_group_homomorphism_by_universal_property_57850fcfb8957e5d66d37020da741d3453dda79b.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org366b6ee" class="outline-4">
+<h4 id="org366b6ee"><span class="section-number-4">2.2.3.</span> commutes</h4>
+<div class="outline-text-4" id="text-2-2-3">
+<p>
+follows from construction
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 18:38</p>
+</div>
+</body>
+</html>

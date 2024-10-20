@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 21:38 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Satz von Schwarz</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Satz von Schwarz</h1>
+<div id="outline-container-orgbe2948c" class="outline-2">
+<h2 id="orgbe2948c"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(U \subseteq \mathbb{R}^m\) <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a> und \(F: U \rightarrow \mathbb{R}^n\) eine in \([a,b]\) nach \(\partial_1 \partial_2\) <a href="20230617-stetig_partiell_differenzierbar.html#ID-c5719e06-bde8-4b64-b046-09998ac8bfc6">stetig partiell differenzierbare</a> <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktion</a> 
+Dann gilt für die <a href="20220303084346-partielle_ableitung.html#ID-67ecd811-2335-4fe1-8693-87bf407cb057">Partielle Ableitung</a> 
+</p>
+\begin{align*}
+\frac{\partial^2}{\partial 1 \partial 2}f =& \frac{\partial^2}{\partial 2 \partial 1}f
+\end{align*}
+<p>
+d.h. auch, dass \(\partial_2 \partial_1 f\) existiert und <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">stetig</a> ist.
+</p>
+</div>
+</div>
+<div id="outline-container-orgbda5160" class="outline-2">
+<h2 id="orgbda5160"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org395681b" class="outline-3">
+<h3 id="org395681b"><span class="section-number-3">2.1.</span> spezial</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> für den fall \(\mathbb{R}^m = \mathbb{R}^2\) und \(f: U \rightarrow \mathbb{R}\)
+Der Allgemeine Fall folgt 1) durch wiederholte Anwendung bei der Vertauschung und 2) durch Gleichheit aller Komponenten
+</p>
+
+<p>
+Seien \(h,k\) hinreichend klein, d.h. \([a - h, a + h] \times [a - k, a + k] \subseteq U\).
+</p>
+\begin{align*}
+w(h,k) =& f(a + h, b + k) - f(a + h,b) - f(a,b+k) + f(a,b) 
+\end{align*}
+<p>
+einerseits als Funktion mit festem \(k,a,b\)
+</p>
+\begin{align*}
+f_k(x)  \coloneqq& f(a + x, b + k) - f(a + x,b) \\
+\Rightarrow w(h,k) =& f_h(h) - f_h(0)
+\end{align*}
+<p>
+andererseits als Funktion mit festem \(h,a,b\) aufgefasst werden kann
+</p>
+\begin{align*}
+f_h(x)  \coloneqq& f(a + h, b + x) - f(a,b + x) \\
+\Rightarrow w(h,k) =& f_k(k) - f_k(0)
+\end{align*}
+<p>
+Nach <a href="20230615-mittelwertsatz_fur_reellwertige_mehrdimensionale_funktionen.html#ID-80819ad0-a01c-4087-88a7-c300ab51f209">Mittelwertsatz für reellwertige, mehrdimensionale Funktionen</a> gilt, dass jeweils \(h_0,k_0\) bzw \(h_1,k_2\) existieren mit \(\vert h_0,h_1 \vert < h, \vert k_0,k_1 \vert < k\) und
+</p>
+\begin{align*}
+w(h,k) =& h_0 \cdot \partial_1 f_k(h_0) \\
+=& h \cdot \partial_1 f(a + h_0, b + k) - f(a + h_0, b) \\
+=& h \cdot \partial_1 f_{h_0}(k) - f_{h_0}(k)
+=& h \cdot k_1 \cdot \partial_1 \partial_2 f_{h_0}(k_1)
+w(h,k) =& k_0 \cdot \partial_2 f_h(k_0) \\
+=& k \cdot \partial_2 f(a + h, b + k_0) - f(a, b + k_0) \\
+=& k \cdot \partial_2 f_{k_0}(h) - f_{k_0}(0) \\
+=& k \cdot h \partial_2 \partial_1 f_{k_0}(h_1)
+\end{align*}
+<p>
+Damit folgt dann:
+</p>
+\begin{align*}
+h \cdot k \cdot \partial_1 \partial_2 f_{h_0}(k_1) =& k \cdot h \partial_2 \partial_1 f_{k_0}(h_1)  \\
+\partial_1 \partial_2 f(a + h_0, b + k_1) =& \partial_2 \partial_1 f(a + h_1, b + k_0)
+\end{align*}
+<p>
+Dabei ist nach Annahme \(\partial_1 \partial_2f(a,b)\) <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">stetig</a>, d.h. es folgt
+</p>
+\begin{align*}
+\lim_{k,h \to 0}\left(\partial_1 \partial_2 f(a + h_0, b + k_1)) =& \partial_1\partial_2 f(a,b) \\
+=& \lim_{k,h \to 0}\left(\right)  \partial_2 \partial_1 f(a + h_1, b + k_0) \right) \\
+=& \partial_2 \partial_1 f(a,b)
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org59efc46" class="outline-3">
+<h3 id="org59efc46"><span class="section-number-3">2.2.</span> Konstruktiv</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> für den fall \(\mathbb{R}^m = \mathbb{R}^2\) und \(f: U \rightarrow \mathbb{R}\)
+Der Allgemeine Fall folgt 1) durch wiederholte Anwendung bei der Vertauschung und 2) durch Gleichheit aller Komponenten
+</p>
+
+<p>
+Seien \(h,k\) hinreichend klein, d.h. \([a - h, a + h] \times [a - k, a + k] \subseteq U\).
+Dann lässt sich 
+</p>
+\begin{align*}
+w(h,k) =& f(a + h, b + k) - f(a + h,b) - f(a,b+k) + f(a,b) 
+\end{align*}
+<p>
+als Funktion mit festem \(k,a,b\)
+</p>
+\begin{align*}
+f_k(x)  \coloneqq& f(a + x, b + k) - f(a + x,b) \\
+\Rightarrow w(h,k) =& f_h(h) - f_h(0)
+\end{align*}
+<p>
+andererseits als Funktion mit festem \(h,a,b\) aufgefasst werden kann
+</p>
+\begin{align*}
+f_h(x)  \coloneqq& f(a + h, b + x) - f(a,b + x) \\
+\Rightarrow w(h,k) =& f_k(k) - f_k(0)
+\end{align*}
+<p>
+Nach <a href="20230615-mittelwertsatz_fur_reellwertige_mehrdimensionale_funktionen.html#ID-80819ad0-a01c-4087-88a7-c300ab51f209">Mittelwertsatz für reellwertige, mehrdimensionale Funktionen</a> gilt, dass jeweils \(h_0,k_0\) existieren mit \(\vert h_0, \vert < h, \vert k_0, \vert < k\) und
+</p>
+\begin{align*}
+w(h,k) =& h_0 \cdot \partial_1 f_k(h_0) \\
+=& h \cdot \partial_1 f(a + h_0, b + k) - f(a + h_0, b) \\
+=& h \cdot \partial_1 f_{h_0}(k) - f_{h_0}(k)
+=& h \cdot k \cdot \partial_1 \partial_2 f_{h_0}(k_0)
+=& h \cdot k \cdot \partial_1 \partial_2 f(a + h_0, b + k_0)
+\end{align*}
+
+<p>
+Sei \(\varepsilon > 0\) gegeben, so existiert wegen der <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">Stetigkeit</a> von \(\partial_1 \partial_2 f\) eine <a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">Umgebung</a> \(V' \subseteq U\) von \((a,b)\), so dass für \((h_1,k_1) \in V'\) gilt \(\vert \partial_1 \partial_2 f(b + h_1,a + k_1) - \partial_1 \partial_2 f(a,b) \vert < \varepsilon\)
+Damit folgt dann
+</p>
+\begin{align*}
+\vert \frac{1}{h_1 \cdot k_1} \cdot f(a + h_1, b + k_1) - f(a + h_1, b) - f(a,b+k_1) + f(a,b) - \partial_1\partial_2 f(a,b) \vert < \varepsilon
+\end{align*}
+<p>
+Dabei gilt auch
+</p>
+\begin{align*}
+\left(\frac{1}{h_1 \cdot k_1} \cdot f(a + h_1, b + k_1) - f(a + h_1, b) - f(a,b+k_1) + f(a,b) \right) =& \frac{1}{k_1} \cdot \left(\frac{f(a + h_1, b + k_1) - f(a,b + k_1)}{h_1} - \frac{f(a + h_1, b) - f(a,b)}{h_1}\right)
+\end{align*}
+<p>
+Sodass für \(h_1 \rightarrow 0\) folgt
+</p>
+\begin{align*}
+\lim_{h_1 \to 0} \frac{1}{k_1} \cdot \left(\frac{f(a + h_1, b + k_1) - f(a,b + k_1)}{h_1} - \frac{f(a + h_1, b) - f(a,b)}{h_1}\right) =& \frac{1}{h_1} \cdot (\partial_1 f(a,b + k_1) - \partial_1 f(a,b))
+\end{align*}
+<p>
+Damit folgt dann auch für hinreichend kleine \(k_1\):
+</p>
+\begin{align*}
+\vert \frac{\partial_1 f(a,b + k_1) - \partial_1 f(a,b)}{k} - \partial_1 \partial_2 f(a,b) \vert < \varepsilon
+\end{align*}
+<p>
+Damit folgt für \(h \rightarrow 0\) auch
+</p>
+\begin{align*}
+\partial_2 \partial_1 f(a,b) = \partial_1 \partial_2 f(a,b)
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 21:38</p>
+</div>
+</body>
+</html>

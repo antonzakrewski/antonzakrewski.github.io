@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 22:32 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Homeomorphie der rationalen Zahlen und dem Produkt der rationalen Zahlen</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Homeomorphie der rationalen Zahlen und dem Produkt der rationalen Zahlen</h1>
+<div id="outline-container-org9e2b446" class="outline-2">
+<h2 id="org9e2b446"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Es gilt für die Standardtopolgien auf
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20230504104320-homeomorphie_der_rationalen_zahlen_und_dem_produkt_der_rationalen_zahlen_036c274c2befa4e2485d42d3dd8f9cbb59b2020d.svg" alt="20230504104320-homeomorphie_der_rationalen_zahlen_und_dem_produkt_der_rationalen_zahlen_036c274c2befa4e2485d42d3dd8f9cbb59b2020d.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org6c9a7b9" class="outline-2">
+<h2 id="org6c9a7b9"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org6afb107" class="outline-3">
+<h3 id="org6afb107"><span class="section-number-3">2.1.</span> <img src="file:///home/anton/html/ltximg/20230504104320-homeomorphie_der_rationalen_zahlen_und_dem_produkt_der_rationalen_zahlen_762062be3a1b41bd9398320097f3440084ee6fa0.svg" alt="20230504104320-homeomorphie_der_rationalen_zahlen_und_dem_produkt_der_rationalen_zahlen_762062be3a1b41bd9398320097f3440084ee6fa0.svg" class="org-svg" /></h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Nach der Aussage über die <a href="20230509073403-ganze_zahlen_adjungiert_b_1_dicht_in_den_rationalen_zahlen.html#ID-aead2548-f0a5-4cec-9449-ee445d966606">Dichtheit der Ganze Zahlen adjungiert B<sup>-1</sup> in den rationalen Zahlen</a> und der <a href="20230507231723-isotone_abbildung_von_einer_dichten_abzahlbaren_menge_auf_die_rationalen_zahlen.html#ID-7c69961e-eeb0-4f40-beb2-55709a4cfa89">Ordnungsisomorphismus von einer dichten, abzählbaren Menge auf die rationalen Zahlen</a> erhalten wir einen <a href="20230127080110-homeomorphismus.html#ID-9f615f4b-b7b4-4dd6-a222-b9ec170e4390">Homeomorphismus</a> <img src="file:///home/anton/html/ltximg/20230504104320-homeomorphie_der_rationalen_zahlen_und_dem_produkt_der_rationalen_zahlen_549c705937234624f82bd1481df7536026c708a1.svg" alt="20230504104320-homeomorphie_der_rationalen_zahlen_und_dem_produkt_der_rationalen_zahlen_549c705937234624f82bd1481df7536026c708a1.svg" class="org-svg" />.
+Diesen können wir mit der <a href="20230508123333-reißverschluss_bijektion_von_ℤ_adjungiert_b.html#ID-285f9f39-e48e-4c57-8e0b-975815186f4e">Reißverschluss-Bijektion von ℤ adjungiert B<sup>-1</sup></a> <img src="file:///home/anton/html/ltximg/20230504104320-homeomorphie_der_rationalen_zahlen_und_dem_produkt_der_rationalen_zahlen_4708dca7fbd35ddf5db1b473600e63ac0ab6db5a.svg" alt="20230504104320-homeomorphie_der_rationalen_zahlen_und_dem_produkt_der_rationalen_zahlen_4708dca7fbd35ddf5db1b473600e63ac0ab6db5a.svg" class="org-svg" />, welcher ebenfalls ein <a href="20230127080110-homeomorphismus.html#ID-9f615f4b-b7b4-4dd6-a222-b9ec170e4390">Homeomorphismus</a> ist, <a href="20220104114218-komposition.html#ID-7dbdf503-309d-418b-8b3d-5c2fe27bbfeb">verknüpfen</a>.
+Zuletzt verknüpfen wir diese mit dem <a href="20230330185917-kartesische_produkt_von_abbildung.html#ID-f1da2392-1530-4ef2-8e07-0125d8a04a7f">kartesische Produkt</a> der <a href="20220927213528-umkehrabbildung.html#ID-6852cd17-4614-4655-ad66-85727c75b0f5">Umkehrabbildung</a> <img src="file:///home/anton/html/ltximg/20230504104320-homeomorphie_der_rationalen_zahlen_und_dem_produkt_der_rationalen_zahlen_15cc2d7a42cb384c33a4fadd953f20a1f0f1b672.svg" alt="20230504104320-homeomorphie_der_rationalen_zahlen_und_dem_produkt_der_rationalen_zahlen_15cc2d7a42cb384c33a4fadd953f20a1f0f1b672.svg" class="org-svg" />.
+Somit erhalten wir die <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a> <img src="file:///home/anton/html/ltximg/20230504104320-homeomorphie_der_rationalen_zahlen_und_dem_produkt_der_rationalen_zahlen_3dea99851da33e81f19710fe35ad7efb38988896.svg" alt="20230504104320-homeomorphie_der_rationalen_zahlen_und_dem_produkt_der_rationalen_zahlen_3dea99851da33e81f19710fe35ad7efb38988896.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20230504104320-homeomorphie_der_rationalen_zahlen_und_dem_produkt_der_rationalen_zahlen_0e9da763c0c3e4bda4b4550affaebc9e23f8a37b.svg" alt="20230504104320-homeomorphie_der_rationalen_zahlen_und_dem_produkt_der_rationalen_zahlen_0e9da763c0c3e4bda4b4550affaebc9e23f8a37b.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Diese ist als verknüpfung von <a href="20230127080110-homeomorphismus.html#ID-9f615f4b-b7b4-4dd6-a222-b9ec170e4390">Homeomorphismen</a> wieder ein Homeomorphismus
+</p>
+</div>
+</div>
+<div id="outline-container-orgd655717" class="outline-3">
+<h3 id="orgd655717"><span class="section-number-3">2.2.</span> allgemeiner fall</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Sei ein <a href="20220303180610-homomorphismus.html#ID-5e1268a2-6d70-4b5a-8706-0586bba62a21">Homomorphismus</a> <img src="file:///home/anton/html/ltximg/20230504104320-homeomorphie_der_rationalen_zahlen_und_dem_produkt_der_rationalen_zahlen_f84bf305e285092f4ed4d1a9fc8a16a665f0dca9.svg" alt="20230504104320-homeomorphie_der_rationalen_zahlen_und_dem_produkt_der_rationalen_zahlen_f84bf305e285092f4ed4d1a9fc8a16a665f0dca9.svg" class="org-svg" /> und <img src="file:///home/anton/html/ltximg/20230504104320-homeomorphie_der_rationalen_zahlen_und_dem_produkt_der_rationalen_zahlen_4afed9c7cc935d8c0e649d6130427f4120eafb8f.svg" alt="20230504104320-homeomorphie_der_rationalen_zahlen_und_dem_produkt_der_rationalen_zahlen_4afed9c7cc935d8c0e649d6130427f4120eafb8f.svg" class="org-svg" /> gegeben, so folgt der allgemeine Fall durch <a href="20210305204948-beweis_durch_vollstandige_induktion.html#ID-c79953c3-855e-432d-9321-047dd5decac8">Induktion</a>:
+Sei <img src="file:///home/anton/html/ltximg/20230504104320-homeomorphie_der_rationalen_zahlen_und_dem_produkt_der_rationalen_zahlen_7ee0bd7810b75c04b21088aca53edeb5d016c9c3.svg" alt="20230504104320-homeomorphie_der_rationalen_zahlen_und_dem_produkt_der_rationalen_zahlen_7ee0bd7810b75c04b21088aca53edeb5d016c9c3.svg" class="org-svg" /> so gilt:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20230504104320-homeomorphie_der_rationalen_zahlen_und_dem_produkt_der_rationalen_zahlen_1b24224d631f34885c61d03f08ad0d5fa2ee78fe.svg" alt="20230504104320-homeomorphie_der_rationalen_zahlen_und_dem_produkt_der_rationalen_zahlen_1b24224d631f34885c61d03f08ad0d5fa2ee78fe.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 22:32</p>
+</div>
+</body>
+</html>

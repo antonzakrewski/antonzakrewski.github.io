@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 22:11 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Urysohnsches Lemma</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Urysohnsches Lemma</h1>
+<div id="outline-container-orge936718" class="outline-2">
+<h2 id="orge936718"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(X\) ein <a href="20230522175136-t4_raum.html#ID-77ba69ea-9fa2-44a3-b922-2031bbb40d8d">T4-Raum</a> und \(A,B\) <a href="20211226220255-disjunkte_mengen.html#ID-2000e1f4-7e9e-45f9-91ed-16ded8a15190">disjunkte</a>, <a href="20220902125304-nichtleere_menge.html#ID-119fa0d9-a2b3-4b46-bb61-a6e590282321">nichtleere</a> <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossene Menge</a> in \(X\), so existiert eine <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">stetige</a> <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a>
+</p>
+\begin{align*}
+f: X \rightarrow [0,1] 
+\end{align*}
+<p>
+mit \(f[A] = \{0\}\) und \(f[B] = \{1\}\)
+</p>
+</div>
+</div>
+<div id="outline-container-org88851ee" class="outline-2">
+<h2 id="org88851ee"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org910fe3d" class="outline-3">
+<h3 id="org910fe3d"><span class="section-number-3">2.1.</span> konstruktion</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org316adf2" class="outline-4">
+<h4 id="org316adf2"><span class="section-number-4">2.1.1.</span> Hilfsfolge</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+Sei \(\alpha_n\) eine <a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">Folge</a> mit \(\alpha_0 = 0, \alpha_1 = 1, \alpha_2 = \frac{1}{2}, \alpha_3 = \frac{1}{4}, \alpha_4 = \frac{3}{4}\).
+D.h. man halbiert die Teilintrevalle ab \(\alpha_1\) und das \(\alpha_i\) ist jeweils ein Endpunkt, d.h. wir erhalten brüche mit Nenner \(2^n\) und ungeradem Zähler.
+sei \(D = \{a_i\} \subseteq (\mathbb{Q}, \leq)\)
+</p>
+
+<p>
+Induktiv konstruiert man für \(d \in D\) <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offene</a> Mengen \(G_d\), so dass der <a href="20230222175426-abschluss_in_einer_topologie.html#ID-9134c61c-5ec6-4cd6-8928-9ef53b6bfd37">Abschluss</a> \(\overline{G}_d \subseteq G_{d'}\) falls \(d < d'\) 
+</p>
+
+<p>
+Man wähle \(G_0\), mit \(A \subseteq G_0 \subseteq \overline{G_0} \subseteq X \setminus B\).
+Ferner \(\overline{G}_0 \sbuseteq G_1 \sbuseteq \overline{G_}1 \subseteq X \setminus B\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7fc4e20" class="outline-4">
+<h4 id="org7fc4e20"><span class="section-number-4">2.1.2.</span> induktive Konstruktion der <a href="20221023180638-subniveaumenge.html#ID-da9bae4b-9b64-41d8-94b1-797f3f770f9e">Subniveaumenge</a></h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+nach der <a href="20230521213147-aquivalente_charakterisierung_eines_t4_raums.html#ID-a1a17f8f-7de0-4fd6-8556-42ce77bfc735">Äquivalente Charakterisierung eines T4-Raums</a> existiert ein \(A \subseteq G_0 \subseteq \overline{G_0} \subseteq X \setminus B\)  
+</p>
+
+<p>
+Sei \(\alpha_k = b \in D\), so existieren \(n,q \in \mathbb{N}\) mit \(b = \frac{2q+1}{2^n}\).
+Das nächstkleinere Folgenglied vor \(\alpha_k\)  \(a = \frac{2q}{2^n} = \frac{q}{2^{n-1}}\)
+Das nächstgrößere Folgenglied vor \(\alpha_k\) hat die Form \(c = \frac{2q + 2}{2^n} = \frac{q+1}{2^{n-1}}\)
+</p>
+
+<p>
+Dabei sind \(G_a, G_c\) konstruiert.
+Gesucht ist ein \(G_b\) mit 
+</p>
+\begin{align*}
+\overline{G}_a \subseteq G_b \subseteq \overline{G}_b \sbuseteq G_c
+\end{align*}
+
+<p>
+Nach <a href="20230522175136-t4_raum.html#ID-77ba69ea-9fa2-44a3-b922-2031bbb40d8d">T4-Annahme</a> / <a href="20230521213147-aquivalente_charakterisierung_eines_t4_raums.html#ID-a1a17f8f-7de0-4fd6-8556-42ce77bfc735">Äquivalente Charakterisierung eines T4-Raums</a> existiert ein \(G_b\)
+</p>
+
+<p>
+Sei nun \(t \in [0,1]\).
+Dann setze \(G_t = \bigcap_{d \leq t} G_d\)
+Dann folgt
+</p>
+\begin{align*}
+\overline{G}_t \subseteq G_{t'}
+\end{align*}
+<p>
+für \(t < t'\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org22f00ce" class="outline-4">
+<h4 id="org22f00ce"><span class="section-number-4">2.1.3.</span> Konstruktion der Funktion</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<p>
+Wir definieren im folgenden:
+</p>
+\begin{align*}
+f: X \rightarrow& \mathbb{R}
+x \mapsto 
+    \begin{cases}
+    1 & \mbox{if } x \not\in G_1 \\
+ \mathrm{inf}\{t \vert x \in G_t \} & \mbox{if } x \in G_1  \\ 
+    \end{cases}
+\end{align*}
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb085d6e" class="outline-3">
+<h3 id="orgb085d6e"><span class="section-number-3">2.2.</span> Trennung</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Es gilt:
+</p>
+\begin{align*}
+f[A] = \{0\} \\
+f[A] = \{1\}
+\end{align*}
+<p>
+wegen \(B \cap g_1 = \emptyset\) und \(A \subseteq G_0\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd446547" class="outline-3">
+<h3 id="orgd446547"><span class="section-number-3">2.3.</span> <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">stetig</a></h3>
+<div class="outline-text-3" id="text-2-3">
+</div>
+<div id="outline-container-orgdc77b68" class="outline-4">
+<h4 id="orgdc77b68"><span class="section-number-4">2.3.1.</span> Lemma 1</h4>
+</div>
+<div id="outline-container-org6b79856" class="outline-4">
+<h4 id="org6b79856"><span class="section-number-4">2.3.2.</span> Lemma 2</h4>
+</div>
+<div id="outline-container-orgac844f1" class="outline-4">
+<h4 id="orgac844f1"><span class="section-number-4">2.3.3.</span> Korollar</h4>
+<div class="outline-text-4" id="text-2-3-3">
+<p>
+Sei \((a,b) \subseteq [0,1]\) <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a>.
+Nach der Aussage <a href="20230313165454-urbild_und_subbasis_einer_stetigen_funktion.html#ID-8a7fdcd8-db9e-4bd5-8456-6f738b2054ed">Urbild und Basis einer stetigen Abbildung</a>
+Sei <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> \(x \in f^{-1}[(a,b) \cap [0,1]]\).
+Wir zeigen, dass \(f^{-1}[(a,b)]\) eine <a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">Umgebung</a> ist, und damit nach der Aussage
+</p>
+
+
+<p>
+Man wähle \(a < p < f(x) < q < b\) und setze \(G_t = \emptyset\) falls \(t < 0\) und \(G_t = X\) wenn \(t > 1\)
+</p>
+
+<p>
+Es folgt, dass die Lemmata 1,2 weiterhin gelten
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 22:11</p>
+</div>
+</body>
+</html>

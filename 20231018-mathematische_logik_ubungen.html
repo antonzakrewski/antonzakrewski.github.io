@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 18:43 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>mathematische Logik - Übungen</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">mathematische Logik - Übungen</h1>
+<div id="outline-container-org90749ca" class="outline-2">
+<h2 id="org90749ca"><span class="section-number-2">1.</span> Blatt 1</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org78cf67a" class="outline-3">
+<h3 id="org78cf67a"><span class="section-number-3">1.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20220903104615-freie_variable.html#ID-d2ae9473-45b6-4c19-8c60-a8810ddf0514">Freie Variable</a></li>
+<li><a href="20231018-rekursive_definition_der_freien_variablen.html#ID-0fbb7aca-b57c-4cc8-9659-6b100aa8af03">rekursive definition der menge freien Variablen</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgedd4363" class="outline-3">
+<h3 id="orgedd4363"><span class="section-number-3">1.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20231018-length_of_a_formula.html#ID-0d0e88d1-4648-496b-a222-f126a71947af">Length of a Formula</a></li>
+<li><a href="20231018-abschatzung_der_lange_einer_formel.html#ID-511ae5c7-ee07-4865-aeca-bbdec210e867">Abschätzung der Länge einer Formel</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org012b1a9" class="outline-3">
+<h3 id="org012b1a9"><span class="section-number-3">1.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+übung zu:
+</p>
+<ul class="org-ul">
+<li><a href="20231018-positive_subformula.html#ID-c83fd8d8-70fb-467c-8025-332d756970cd">positive subformula</a></li>
+<li><a href="20231018-strictly_positive_subformula.html#ID-d3da5c2f-2db4-40fa-84c9-acb0849a84f3">s.p.p.</a></li>
+<li><a href="20231018-negative_subformula.html#ID-17ac5086-36f1-43d8-9de3-8a58785690f5">negative subformula</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga9ac41a" class="outline-3">
+<h3 id="orga9ac41a"><span class="section-number-3">1.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>relation ?</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org79fa54b" class="outline-2">
+<h2 id="org79fa54b"><span class="section-number-2">2.</span> Blatt 2</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgd0b1cf3" class="outline-3">
+<h3 id="orgd0b1cf3"><span class="section-number-3">2.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li><a href="20230102153417-substitution_von_freien_variablen_logik.html#ID-76903814-6bec-4dc7-8089-c4d1cae38ee4">Substitution von freien Variablen (Logik)</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org76f3a0e" class="outline-3">
+<h3 id="org76f3a0e"><span class="section-number-3">2.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li><a href="20231025-konstruktive_kontraposition.html#ID-843e02bd-f863-4162-8f43-32cf49acc5a6">konstruktive Kontraposition</a></li>
+<li><a href="20231025-negierte_implikation_impliziert_negation_der_folgerung.html#ID-9cf7e074-a19e-4128-afed-f40dc41d525f">negierte Implikation impliziert negation der Folgerung</a></li>
+<li><a href="20231026-distributivgesetz_der_doppelten_negation_einer_implikation.html#ID-034a466c-18c7-4bf2-801b-fad1fedb8c3f">distributivgesetz der doppelten negation einer Implikation</a></li>
+<li><a href="20231026-distributivgesetz_der_doppelten_negation_einer_implikation_unter_efq.html#ID-5b489921-e733-409d-9477-3f56003e7197">distributivgesetz der doppelten negation einer Implikation unter EFQ</a></li>
+<li><a href="20231026-doppelte_negation_und_allquantor.html#ID-f3e38b16-e576-459d-983f-4ff815394139">doppelte Negation und Allquantor</a> - todo</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1ef627b" class="outline-3">
+<h3 id="org1ef627b"><span class="section-number-3">2.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li><a href="20231025-konjunktion_und_implikation_zu_implikation_und_disjunktion.html#ID-4426898c-aed1-46f2-b1ac-4ddf972ae528">Disjunktion und Implikation zu Implikation und Konjunktion</a></li>
+<li><a href="20231025-disjunktion_und_implikation.html#ID-57f8d761-a70d-414f-abea-cf9940b910f2">Disjunktion und implikation</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org07fcdd4" class="outline-3">
+<h3 id="org07fcdd4"><span class="section-number-3">2.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgebfd557" class="outline-2">
+<h2 id="orgebfd557"><span class="section-number-2">3.</span> Blatt 3</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org0692b67" class="outline-3">
+<h3 id="org0692b67"><span class="section-number-3">3.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li>todo</li>
+<li><a href="20231106-cursed_existenz_und_allquantor.html#ID-2eebbf43-d1ad-4466-b6f9-f122aa7a0b68">cursed Existenz und Allquantor</a></li>
+<li><a href="20231105-stabilitat_und_konjunktion.html#ID-1c01e1f3-8f87-4cf4-a221-ca26b569de0e">Stabilität und Konjunktion</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7a6a67d" class="outline-3">
+<h3 id="org7a6a67d"><span class="section-number-3">3.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li><a href="20231104-schwaches_efq_impliziert_starkes_efq.html#ID-990db9a8-e956-40ef-950e-f9cf62eeab1a">schwaches EFQ impliziert starkes EFQ</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5a0f563" class="outline-3">
+<h3 id="org5a0f563"><span class="section-number-3">3.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-3-3">
+<ul class="org-ul">
+<li><a href="20231104-disjunktion_definiert_als_implikation.html#ID-65228aa5-9b05-41b2-be55-f30a4bda632d">Disjunktion definiert als Implikation</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org821e00a" class="outline-3">
+<h3 id="org821e00a"><span class="section-number-3">3.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-3-4">
+<ul class="org-ul">
+<li>siehe:</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org6ad0d41" class="outline-2">
+<h2 id="org6ad0d41"><span class="section-number-2">4.</span> Blatt 4</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orga5d142f" class="outline-3">
+<h3 id="orga5d142f"><span class="section-number-3">4.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li><a href="20231111-naturliche_zahlen_als_typ.html#ID-36ab6379-e549-4e0f-bb2f-de9dfb04b4c4">natürliche zahlen als Typ</a>  - todo</li>
+<li><a href="20231111-induction_over_natural_numbers.html#ID-f788faf3-0baf-47c6-a9e5-c06fc71a1463">induction over natural numbers</a>   - todo</li>
+<li><a href="20231111-0_1_as_efq_for_natural_numbers.html#ID-84ff1043-846c-4507-834a-8620e4779a40">0 = 1 as EfQ for Natural Numbers</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2d24fd1" class="outline-3">
+<h3 id="org2d24fd1"><span class="section-number-3">4.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-4-2">
+<ul class="org-ul">
+<li><a href="20231111-stabilitat_und_efq_spielerei.html#ID-b3db1385-8a3a-4679-bf40-8f7dada8a761">stabilität und efq spielerei</a></li>
+<li><a href="20231111-stabilitat_und_schwache_konjunktion_spielerei.html#ID-70fbccf1-d5b1-4a61-a97c-7cbe5ac20e8d">stabilität und schwache Konjunktion spielerei</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7f4f1f9" class="outline-3">
+<h3 id="org7f4f1f9"><span class="section-number-3">4.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-4-3">
+<ul class="org-ul">
+<li><a href="20231113-substitution_durch_eine_formel.html#ID-a6f642ec-e909-4b13-86a8-7e1b02f412cc">Substitution durch eine Formel</a></li>
+<li><a href="20231114-substitution_von_formeln_erhalt_herleitungen.html#ID-96eeaa19-274d-4095-b8c5-f644ec45f600">Substitution von Formeln erhält Herleitungen</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org01bd407" class="outline-3">
+<h3 id="org01bd407"><span class="section-number-3">4.4.</span> 4)</h3>
+</div>
+</div>
+
+<div id="outline-container-org8640985" class="outline-2">
+<h2 id="org8640985"><span class="section-number-2">5.</span> Blatt 5</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org6cafc38" class="outline-3">
+<h3 id="org6cafc38"><span class="section-number-3">5.1.</span> Aufgabe 1</h3>
+<div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li><a href="20231115-limited_principle_of_omniscience.html#ID-79e41a37-a337-40b7-ac03-998228fa65c9">Limited principle of omniscience</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org17b5c3f" class="outline-3">
+<h3 id="org17b5c3f"><span class="section-number-3">5.2.</span> Aufgabe 2</h3>
+<div class="outline-text-3" id="text-5-2">
+<ul class="org-ul">
+<li><a href="20231115-churchnumeral.html#ID-cb6a8beb-953a-4495-b458-01372042357e">churchnumeral</a></li>
+<li><a href="20231115-addition_von_churchnumeralen.html#ID-6ca7518c-3d8c-436f-9233-9777d0a920c0">Addition von Churchnumeralen</a></li>
+</ul>
+</div>
+<div id="outline-container-orge439235" class="outline-4">
+<h4 id="orge439235"><span class="section-number-4">5.2.1.</span> a) church numeralen</h4>
+<div class="outline-text-4" id="text-5-2-1">
+</div>
+<div id="outline-container-orge9f74aa" class="outline-5">
+<h5 id="orge9f74aa"><span class="section-number-5">5.2.1.1.</span> 0</h5>
+<div class="outline-text-5" id="text-5-2-1-1">
+\begin{prooftree}
+\hypo{[x: R]}
+\infer1[ $\rightarrow^+ x$]{$R \rightarrow R$}
+\infer1[ $\rightarrow^+ f$]{$(R \rightarrow R) \rightarrow R \rightarrow R$}
+\end{prooftree}
+<p>
+oder
+</p>
+\begin{align*}
+\underline{0} =& \lambda_f \lambda_x N_0 \\
+=& \lambda_f \lambda_x x^R
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org0007c12" class="outline-5">
+<h5 id="org0007c12"><span class="section-number-5">5.2.1.2.</span> 1</h5>
+<div class="outline-text-5" id="text-5-2-1-2">
+\begin{prooftree}
+\hypo{[f: $R \rightarrow R$]}
+\hypo{[x: R]}
+\infer2[ $\rightarrow^-$]{R}
+\infer1[ $\rightarrow^+$ x]{$R \rightarrow R$}
+\infer1[ $\rightarrow^+$ f]{$(R \rightarrow R) \rightarrow R \rightarrow R$}
+\end{prooftree}
+<p>
+oder
+</p>
+\begin{align*}
+\underline{1} =& \lambda_f \lambda_x N_0 \\
+=& \lambda_f \lambda_x f^{R \rightarrow R} (\lambda_f \lambda_x x^R)^R
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-orgff709b1" class="outline-5">
+<h5 id="orgff709b1"><span class="section-number-5">5.2.1.3.</span> 2</h5>
+<div class="outline-text-5" id="text-5-2-1-3">
+\begin{prooftree}
+\hypo{[f: $R \rightarrow R$]}
+\hypo{[f: $R \rightarrow R$]}
+\hypo{[x: R]}
+\infer2[ $\rightarrow^-$]{R}
+\infer2[ $\rightarrow^-$]{R}
+\infer1[ $\rightarrow^+$ x]{$R \rightarrow R$}
+\infer1[ $\rightarrow^+$ f]{$(R \rightarrow R) \rightarrow R \rightarrow R$}
+\end{prooftree}
+
+<p>
+oder
+</p>
+\begin{align*}
+\underline{2} =& \lambda_f \lambda_x N_0 \\
+=& \lambda_f \lambda_x f^{R \rightarrow R}  (\lambda_f \lambda_x f^{R \rightarrow R} (\lambda_f \lambda_x x^R)^R)^R
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgd0d7204" class="outline-5">
+<h5 id="orgd0d7204"><span class="section-number-5">5.2.1.4.</span> 3</h5>
+<div class="outline-text-5" id="text-5-2-1-4">
+\begin{prooftree}
+\hypo{[f: $R \rightarrow R$]}
+\hypo{[f: $R \rightarrow R$]}
+
+\hypo{[f: $R \rightarrow R$]}
+\hypo{[x: R]}
+\infer2[ $\rightarrow^-$]{R}
+\infer2[ $\rightarrow^-$]{R}
+\infer2[ $\rightarrow^-$]{R}
+\infer1[ $\rightarrow^+$ x]{$R \rightarrow R$}
+\infer1[ $\rightarrow^+$ f]{$(R \rightarrow R) \rightarrow R \rightarrow R$}
+\end{prooftree}
+
+<p>
+oder
+</p>
+\begin{align*}
+\underline{0} =& \lambda_f \lambda_x N_0 \\
+=& \lambda_f \lambda_x f^{R \rightarrow R}   (\lambda_f \lambda_x f^{R \rightarrow R}  (\lambda_f \lambda_x f^{R \rightarrow R} (  \lambda_f \lambda_x x^R)^R)^R)^R
+\end{align*}
+</div>
+</div>
+</div>
+<div id="outline-container-org1a63b8c" class="outline-4">
+<h4 id="org1a63b8c"><span class="section-number-4">5.2.2.</span> b)</h4>
+<div class="outline-text-4" id="text-5-2-2">
+</div>
+<div id="outline-container-orgd5c401c" class="outline-5">
+<h5 id="orgd5c401c"><span class="section-number-5">5.2.2.1.</span> 1 + 1</h5>
+<div class="outline-text-5" id="text-5-2-2-1">
+\begin{prooftree}
+\hypo{f: $R \rightarrow R$}
+\hypo{x: 
+\end{prooftree}
+<p>
+oder
+</p>
+\begin{align*}
+\lambda_f \lambda_x ((\lambda_x f^{R \rightarrow R} x^R)^{R \rightarrow R} (f^{R \rightarrow R} x^R)^R )
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org1ee1515" class="outline-5">
+<h5 id="org1ee1515"><span class="section-number-5">5.2.2.2.</span> 2 + 3</h5>
+</div>
+</div>
+</div>
+<div id="outline-container-org163c081" class="outline-3">
+<h3 id="org163c081"><span class="section-number-3">5.3.</span> Aufgabe 3</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+<a href="20231115-gentzen_ubersetzung_schwacher.html#ID-52d89b13-0c57-4dc0-b44b-715bc2b24acd">Gentzen-Übersetzung schwächer</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org7f7e703" class="outline-3">
+<h3 id="org7f7e703"><span class="section-number-3">5.4.</span> Aufgabe 4</h3>
+<div class="outline-text-3" id="text-5-4">
+<p>
+<a href="20231115-topologie_auf_den_formeln.html#ID-98796e9b-6a96-464c-95cd-a75532056bc8">topologie auf den Formeln</a>
+<a href="20231120-ordnung_und_topologie_der_formeln.html#ID-66288ba8-d5d4-4f39-a460-0bdd91bcc853">Ordnung und Topologie der Formeln</a>
+<a href="20231120-aquivalenz_von_formeln_und_topologie_auf_den_formeln.html#ID-ea3afe66-0fb6-4a9d-aff1-558919ce3be7">äquivalenz von formeln und topologie auf den formeln</a>
+<a href="20231115-gentzen_ubersetzung_als_stetige_abbildung.html#ID-153331e8-5e13-417b-bcdd-023abcb94ea7">Gentzen-Übersetzung als stetige Abbildung</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 18:43</p>
+</div>
+</body>
+</html>

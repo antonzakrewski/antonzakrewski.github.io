@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-19 Sa 21:58 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>algebraic topology 1 - homological algebra</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">algebraic topology 1 - homological algebra</h1>
+<div id="outline-container-org8215753" class="outline-2">
+<h2 id="org8215753"><span class="section-number-2">1.</span> Aspects</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org81493b1" class="outline-3">
+<h3 id="org81493b1"><span class="section-number-3">1.1.</span> abelian categories</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20231215-pointed_category.html#ID-0783589b-3d52-46d9-a7ad-fb1c3130a223">pointed category</a></li>
+<li><a href="20230827-preadditive_category.html#ID-119377f5-8122-4d8e-8805-df30859be0ac">preadditive category</a></li>
+<li><a href="20230827-additive_category.html#ID-e50cd553-69ee-4360-bd27-43b73e7a9945">additive category</a></li>
+
+<li><a href="20240121-category_rmod_as_abelian_category.html#ID-a90a3e9b-c446-46cd-b119-d551c6ec22dd">Category Rmod as abelian category</a></li>
+
+<li><a href="20230727-projective_object.html#ID-605bb0c6-3cb5-44d6-bb3e-660f0fef14d1">projective object</a></li>
+<li><a href="20230817-homology_functor.html#ID-c35a52a1-7174-408f-8480-9746e1c374bc">homology functor</a></li>
+
+<li><a href="20240121-abelian_category_and_coimage_isomorphic_to_image.html#ID-10e02e7a-e4b3-4188-b3d9-4bff035f7f06">abelian category and coimage isomorphic to image</a></li>
+<li><a href="20230827-abelian_category.html#ID-9003af72-f684-4897-b096-c1d8a681c624">abelian category</a></li>
+<li><a href="20240121-abelian_category_and_image_of_a_monomorphism_coimage_of_an_epimorphism.html#ID-66002ab8-9215-429b-873c-7031d94bfb29">abelian category and image of a monomorphism / coimage of an epimorphism</a></li>
+
+<li><a href="20240121-category_of_chain_complexes_as_abelian_category.html#ID-59bdddae-a963-4e4a-9fbc-4e3ead927d79">category of chain complexes as abelian category</a></li>
+<li><a href="20240121-category_of_double_complexes.html#ID-5b211192-198d-4e3f-8e0c-4c01fbd57ff0">category of double complexes</a></li>
+<li><a href="20231212-quasi_isomorphism.html#ID-4d0430a5-c6db-4a21-8c43-cd224592d992">quasi-isomorphism</a></li>
+<li><a href="20230802-chain_map.html#ID-366c9675-ed47-4bc2-a01d-3d0c6911e226">chain map</a></li>
+<li><a href="20240119-chain_homotopy.html#ID-779721d8-47c9-4616-8c2e-eb6cc27f5de1">chain homotopy</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf69333f" class="outline-3">
+<h3 id="orgf69333f"><span class="section-number-3">1.2.</span> topology</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20230801-existence_of_a_tensor_product.html#ID-ec576c28-ae56-402f-8a0b-a9fd9127bc1e">Existence of a tensor product</a></li>
+<li><a href="20230802-elementary_tensor.html#ID-dfa3ac83-6b3c-4da9-a45e-4241edcaf0dd">elementary tensor</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="20230802-chain_complex.html#ID-e4c10be9-3796-4aff-9579-5cc0b5f47e36">chain complex</a></li>
+<li><a href="20230817-homology_functor.html#ID-c35a52a1-7174-408f-8480-9746e1c374bc">homology functor</a> / <a href="20231212-chain_homology_functor.html#ID-1b36f8c9-0045-4eb8-9329-6e6f71ac71ba">chain homology functor</a></li>
+<li><a href="20240119-long_exact_sequence_as_chain_complex.html#ID-efa74382-e021-4ab9-82bd-47df722f5a71">long exact sequence as chaincomplex</a></li>
+<li><a href="20240119-chain_complex_and_kernel_and_image.html#ID-a07d506b-f377-4d7f-95fd-2789af30c8e6">chain complex and kernel and image</a></li>
+<li><a href="20230722-short_exact_sequence.html#ID-7b01038e-f4c1-4e1e-ad52-a0c6a18008f3">short exact sequence</a></li>
+<li><a href="20230724-exact_sequence_and_monomorphism.html#ID-2d122ce4-5d0f-4c82-8b6b-cb3d53b42d87">exact sequence and injective homomorphism</a></li>
+<li><a href="20230724-exact_sequence_and_epimorphism.html#ID-770d5ae6-a0e1-4862-a251-4b524095f0d8">exact sequence and surjective homomorphism</a></li>
+<li><a href="20240122-exact_sequence_and_epimorphisms.html#ID-99671489-7994-4907-b310-ebbdc4c8e540">exact sequence and epimorphisms</a></li>
+<li><a href="20240119-short_exact_sequence_and_isomorphism.html#ID-9e6ee09c-b000-484d-bc25-0aea36b3a0e1">short exact sequence and isomorphism</a></li>
+<li><a href="20240112-singular_chain_complex.html#ID-89340d41-82e3-496e-a834-b70a01659303">singular chain complex</a></li>
+<li>&lt;relative singular homology&gt;</li>
+<li><a href="20230817-chain_morphism.html#ID-10d6cd59-0a7f-4243-a8fa-4344d40d0e8f">chain morphism</a></li>
+<li><a href="20230817-homology_functor.html#ID-c35a52a1-7174-408f-8480-9746e1c374bc">homology functor</a></li>
+<li><a href="20240119-isomorphism_of_chain_complexes_and_isomorphism_of_points.html#ID-038c0ae5-b7a0-43a5-9e3c-281a44a55d95">isomorphism of chain complexes and isomorphism of points</a></li>
+<li><a href="20231212-quasi_isomorphism.html#ID-4d0430a5-c6db-4a21-8c43-cd224592d992">quasi-isomorphism</a></li>
+<li><a href="20240119-chain_homotopy.html#ID-779721d8-47c9-4616-8c2e-eb6cc27f5de1">chain homotopy</a></li>
+<li><a href="20240119-isomorphism_of_chain_complexes_as_quasi_isomorphism.html#ID-59f4a07f-79ef-48d6-a80e-dba65d25adb4">isomorphism of chain complexes as quasi isomorphism</a></li>
+<li>&lt;derived category&gt;</li>
+<li><a href="20240119-homology_of_an_exact_sequence.html#ID-9956bfba-78ba-4046-bf80-7eb0e1d67e13">homology of an exact sequence</a>  - TODO</li>
+<li><a href="20240119-chain_homotopy_equivalence.html#ID-ce380f52-3fbd-47a1-8693-537006faaec5">chain homotopy equivalence</a></li>
+<li><a href="20240119-homotopic_maps_and_quasi_isomorphism.html#ID-251abd33-b497-4e72-b97a-2d8aadd7f820">chain homotopy equivalence and quasi-isomorphism</a></li>
+<li><a href="20240119-homology_functor_invariant_under_chain_homotopy.html#ID-02cfe1ce-0797-427a-8f04-ddec1eefdb58">Homology functor invariant under chain homotopy</a>-</li>
+<li><a href="20240119-morphism_induces_trivial_chain_complex.html#ID-cc1080dd-e152-4961-8a33-4cc24a71b15a">morphism induces trivial chain complex</a></li>
+<li><a href="20240119-quasi_isomorphism_in_general_not_a_chain_homotopy_equivalence.html#ID-050a0ae3-be6d-4070-8d89-9058cc753c70">quasi isomorphism in general not a chain homotopy equivalence</a></li>
+<li>&lt;T-tsructure&gt;</li>
+<li>&lt;quasi free ~&gt; modules -&gt; homotoyp equivlaence&gt;</li>
+<li><a href="20240119-starshaped_subset_and_chain_homotopy.html#ID-c7ea5e38-5ac3-44e0-9392-4a55d02c6635">starshaped subset and chain homotopy</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org35e2fb0" class="outline-2">
+<h2 id="org35e2fb0"><span class="section-number-2">2.</span> stuff</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li><a href="20240126-stupid_filtration.html#ID-e8015b0a-382a-4657-8da0-fcd0ada384ea">stupid filtration</a></li>
+<li><a href="20240126-extension_of_a_chain_map_between_stupid_filtrations.html#ID-55b19632-1acd-4c51-8305-5407b7cb4dd8">extension of a chain map</a></li>
+<li><a href="20240126-extension_of_chain_homotopies.html#ID-1d2b88da-70b7-4768-8fcd-63fe73a89a15">extension of a chain homotopy</a></li>
+<li><a href="20240126-fundamental_theorem_of_homological_algebra.html#ID-a2335096-1701-412e-a7ed-210265abf8f0">fundamental theorem of homological algebra</a></li>
+<li><a href="20240126-existence_of_a_projective_resolution_for_an_r_module.html#ID-2656f554-1cbe-47ba-9d35-d1a69f277243">existence of a projective resolution for an R-Module</a></li>
+<li><a href="20231212-projective_resolution.html#ID-0d6124f2-59f2-4f96-838a-e8b023821bc6">projective resolution of an object</a></li>
+<li><a href="20231212-injective_resolution.html#ID-3ea4f469-bd86-4331-a44a-bb839119edd5">injective resolution of an object</a></li>
+<li><a href="20240224-existence_of_an_injective_resolution_unique_up_to_homotopy_for_an_r_module.html#ID-f0fccf89-8943-4430-9edc-be6c302c4698">existence of an injective resolution unique up to homotopy for an R-Module</a> - todo ?</li>
+<li><a href="20240224-module_and_injection_into_a_injective_modlue.html#ID-6ff57547-6492-48b1-97df-e6ccb0d37d64">module and injection into a Injective module</a></li>
+<li><a href="20240126-fundamental_theorem_of_homological_algebra.html#ID-a2335096-1701-412e-a7ed-210265abf8f0">fundamental theorem of homological algebra</a></li>
+<li><a href="20240224-quasi_isomorphism_between_chain_complexes_of_projcetives_and_homtoopy.html#ID-26abf03a-0198-45bb-a906-41df6d71c838">quasi isomorphism between chain complexes of projcetives and homotopy</a>  - TODO</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-19 Sa 21:58</p>
+</div>
+</body>
+</html>

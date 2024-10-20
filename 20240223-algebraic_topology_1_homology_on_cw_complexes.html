@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-14 Mo 09:08 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>algebraic topology 1 - homology on CW complexes</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">algebraic topology 1 - homology on CW complexes</h1>
+<div id="outline-container-org5911180" class="outline-2">
+<h2 id="org5911180"><span class="section-number-2">1.</span> Aspects</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><a href="20240224-isomorphism_of_homology_for_a_pushout.html#ID-11a2bf37-d2f0-424e-bd46-c275c03664cd">isomorphism of homology for a pushout of cells</a>  ?</li>
+<li><a href="20240224-exact_sequence_of_homology_for_cw_complexes.html#ID-d8081e6b-661d-4537-a2a7-8802968da300">exact sequence of homology for a pushout of cells</a></li>
+<li><a href="20240311-singular_chain_complexes_for_pushout_of_cells_quasi_isomorphic.html#ID-c9386dcf-f6c8-4813-840a-2dc514becd53">singular chain complexes for pushout of cells quasi isomorphic</a></li>
+<li><a href="20240224-colimit_of_singular_chain_complexes_for_a_cw_complex.html#ID-0f4ab03b-5eb8-4b0d-9286-35ebccc32259">singular chain complex of a cw complex as colimit of skeletons</a></li>
+<li><a href="20240224-homology_of_a_cw_complex_as_colimit_of_skeleta.html#ID-6fa0fba7-6e25-4d47-98aa-b8c14ad20f38">homology of a cw complex as colimit of skeletons</a></li>
+<li><a href="20240311-homology_of_n_dimensional_cw_complex.html#ID-1c226c1c-0889-4a31-815b-acd649601e85">homology of n-dimensional cw-complex</a></li>
+<li><a href="20240223-n_th_homology_of_a_n_dimensional_cw_complex_torsion_free.html#ID-7534ad0c-83dd-413c-8094-c6f8a9400635">n-th Homology of a n-dimensional CW complex torsion free</a></li>
+<li><a href="20240223-n_th_homology_of_a_n_dimensional_cw_complex_as_free_abelian.html#ID-bfa3d02e-8399-4a3c-96a6-e844e79c1376">n-th homology of a n-dimensional CW complex as free abelian</a></li>
+<li></li>
+
+<li><a href="20240218-reduced_singular_homology_and_wedge_product.html#ID-19178f5d-614a-4c87-baa0-8c929e5b94ee">reduced singular homology and wedge product</a></li>
+
+<li><a href="20240312-singular_homology_of_a_real_projective_space.html#ID-1651c711-8dd5-4061-84be-501348cb2c7b">singular homology of a real projective space</a></li>
+<li><a href="20240312-singular_homology_of_a_complex_projective_space.html#ID-bbdddaea-f363-47e8-9e84-9050e84b6cc5">singular homology of a complex projective space</a></li>
+<li><a href="20240312-singular_homology_of_the_quaternionic_projective_space.html#ID-3e49d3b1-7b64-4b15-8ebd-5b3aa2f8199d">singular homology of the quaternionic projective space</a></li>
+
+<li><a href="20240304-map_between_spheres_and_restriction_to_a_homeomorphism_and_degree.html#ID-41b73858-2363-4609-abc9-a6f4caa516de">map between spheres and restriction to a homeomorphism and degree</a> - todo</li>
+<li><a href="20240223-local_degree_of_a_map.html#ID-42fb6f36-bd61-4a21-a291-bbba0dfd6bfe">local degree of a map</a></li>
+<li><a href="20240304-local_degree_as_unit.html#ID-0b934b34-afd0-4f30-8318-824ac5c875f1">local degree as unit</a></li>
+<li><a href="20240304-degre_and_local_degree.html#ID-6796517d-ab3e-4f35-a48a-64fccafd639c">degre and local degree</a></li>
+<li>4.83</li>
+
+<li><a href="20240223-cellular_homology_as_chain_complex.html#ID-90f2836c-ce78-417a-9adb-40807c1a5ba8">cellular chain complex</a></li>
+<li><a href="20240223-n_th_singular_chain_complex_of_a_cw_complex.html#ID-a730f652-bfad-4088-b6cf-ae0cf0742480">component of a cellular chain complex</a></li>
+<li><a href="20240223-cellular_homology.html#ID-101b45f2-d2e9-4249-9c2e-1cbb264c0be4">cellular homology</a></li>
+<li><a href="20240311-cellular_homology_and_coefficients.html#ID-9cc876dd-1786-4ac3-8cbc-4deb2ed52d3b">cellular homology and coefficients</a></li>
+<li><a href="20240223-cellular_homology_isomorphic_to_singular_homology.html#ID-dfc72de3-ffac-4784-a3f2-277438a3ee4e">cellular homology isomorphic to singular homology</a></li>
+<li><a href="20240312-cellular_homology_independent_of_cw_structure.html#ID-c03ac854-54de-4808-ad46-90be0ec51816">cellular homology independent of CW Structure</a></li>
+
+<li><a href="20240223-n_th_homology_of_a_n_dimensional_cw_complex_as_free_abelian.html#ID-bfa3d02e-8399-4a3c-96a6-e844e79c1376">n-th homology of a n-dimensional CW complex as free abelian</a></li>
+<li><a href="20240223-n_th_homology_of_a_cw_complex_without_n_cell.html#ID-ce42f2cb-83b0-4887-95f3-fb9db531a26f">n-th homology of a CW complex without n-cell</a></li>
+<li><a href="20240223-n_th_homology_of_a_n_dimensional_cw_complex_torsion_free.html#ID-7534ad0c-83dd-413c-8094-c6f8a9400635">n-th Homology of a n-dimensional CW complex torsion free</a></li>
+<li><a href="20240304-homology_with_alternating_cells.html#ID-60359556-ebf1-4b82-9d82-671d7ccbbb14">homology with alternating cells</a></li>
+
+<li><a href="20240331-1_boundary_map_of_a_cellular_chain_complex.html#ID-2ad37cdd-792a-46ee-841d-2f9fbc2c958d">1-boundary map of a cellular chain complex</a></li>
+<li><a href="20240304-boundary_map_of_cellular_chain_complexes.html#ID-d85dcc11-1482-4c41-9e9b-a014a654b34c">boundary map of cellular chain complexes</a></li>
+<li><a href="20240312-cw_structure_on_a_lens_space.html#ID-bde95ba9-d9bf-4083-a7ef-ac52401482dd">cw structure on a lens space</a></li>
+<li><a href="20240312-homology_of_a_lens_space.html#ID-be6a6d18-3071-499e-96b1-810a1de8298d">homology of a lens space</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-14 Mo 09:08</p>
+</div>
+</body>
+</html>

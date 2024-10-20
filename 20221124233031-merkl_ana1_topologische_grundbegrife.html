@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 21:41 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>merkl ana1: topologische Grundbegriffe</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">merkl ana1: topologische Grundbegriffe</h1>
+<div id="outline-container-org7eacf80" class="outline-2">
+<h2 id="org7eacf80"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><a href="20221027092741-epsilon_umgebung.html#ID-b8422ae4-c20f-468f-8f66-aa736833f806">epsilon-Umgebung (metrischer Raum)</a></li>
+<li><a href="20221027100809-topologische_klassifikation_von_punkten.html#ID-355f8626-9cbd-41fe-9dca-f024adab0b81">topologische Klassifikation von Punkten</a> 
+<ul class="org-ul">
+<li><a href="20221027080050-innerer_punkt.html#ID-0e0b3053-63c0-4dea-9ce2-a419979c1f2b">innerer Punkt (metrischer Raum)</a></li>
+<li><a href="20221027080056-außerer_punkt.html#ID-c6d289dd-f630-4c88-8577-ec968d120df3">äußerer Punkt (metrischer Raum)</a></li>
+<li><a href="20221027080132-beruhrpunkt.html#ID-21e408e7-6547-44c9-a947-4e70bd2a2444">Berührpunkt (metrischer Raum)</a></li>
+<li><a href="20221027093545-randpunkt_metrischer_raum.html#ID-ee1465f1-f4ff-401d-9297-b4e0b3731d38">Randpunkt (metrischer Raum)</a></li>
+</ul></li>
+<li><a href="20221124232014-inneres_einer_topologie.html#ID-85128b09-97b8-44ca-9ff0-99de899da123">Inneres einer Topologie</a></li>
+<li><a href="20221124232018-abschluss_einer_topologie.html#ID-f3b659ca-d0b0-42eb-b1f3-95d71770d594">Abschluss einer Topologie</a></li>
+<li><a href="20221124232025-randpunkte_einer_topologie.html#ID-20b0ffdf-39b8-4488-b69d-905292300923">Rand einer Topologie</a></li>
+<li><a href="20221124232157-dichte_menge_topologie.html#ID-921fe319-4945-4303-a9a5-3723804e0737">dichte Menge (Topologie)</a></li>
+<li><a href="20221002145218-offene_menge.html#ID-9e570743-0f44-46f7-9660-c51f31581ef6">offene Menge</a> (<a href="20221002145550-offene_menge_in_einem_metrischen_raum.html#ID-48a9cdb7-4398-449e-b008-2c0fe06b2d00">offene Menge in einem metrischen Raum</a>)</li>
+<li><a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossene Menge (Topologie)</a></li>
+<li><a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">Umgebung (Topologie)</a></li>
+<li><a href="20221125072907-relativ_offene_menge.html#ID-8ebd7f60-af60-4217-8bb8-e873368e3068">relativ offene Menge</a></li>
+<li><a href="20221125122525-relativ_abgeschlossene_menge.html#ID-370f4d08-08b3-434f-a335-b9d39a54bdd1">relativ abgeschlossene Menge</a></li>
+<li><a href="20221002144355-abgeschlossenheit_gegenuber_vereinigung_topologie.html#ID-05b0c7bf-2407-4963-9c14-63deb190d8a9">Abgeschlossenheit gegenüber Vereinigung (Topologie)</a></li>
+<li><a href="20221125122810-satz_uber_die_offenheit_eines_punktes_bezuglich_des_komplements.html#ID-1a7cb83f-c65b-4d1b-ac75-56b80dea0e9a">Satz über die Offenheit eines Punktes bezüglich des Komplements</a></li>
+<li><a href="20221002202031-satz_uber_die_offenheit_einer_teilmenge_topologie.html#ID-f3e60159-0394-49ce-81c4-7366b58cc460">Satz über die Offenheit einer Teilmenge (Topologie)</a></li>
+<li><a href="20221125122905-offenheit_einer_epsilon_umgebung.html#ID-13ccfa5c-58f1-484e-b656-8ea18cee3da9">Offenheit einer Epsilon-Umgebung</a></li>
+<li></li>
+
+<li><a href="20221224153528-abgeschlossenheit_der_leeren_menge.html#ID-eaf4ce07-3f70-498c-b720-b5a0ec5f6cfc">Abgeschlossenheit der leeren Menge</a></li>
+<li><a href="20221224153324-abgeschlossenheit_vom_durchschnitt.html#ID-1bb320cf-5118-4a33-8390-982ef2fbc2e2">Abgeschlossenheit vom Durchschnitt</a></li>
+<li><a href="20221224153548-abgeschlossenheit_des_gesamten_topologischen_raumes.html#ID-e1a99263-a1bb-4acb-9222-df82c1990530">Abgeschlossenheit des gesamten topologischen Raumes</a></li>
+<li><a href="20221224153225-offenheit_von_vereinigungen.html#ID-9c720a57-bfb3-46a7-9743-a470afba0eae">Offenheit von Vereinigungen</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20221224153504-offenheit_der_leeren_menge.html#ID-5ced46e6-77fc-4fea-8198-d4b06ecd04f3">Offenheit der leeren Menge</a></li>
+<li><a href="20221224153516-offenheit_des_gesamten_topologischen_raumes.html#ID-8c38d518-e0df-43cf-88cf-3bd5c7c6b9c4">Offenheit des gesamten topologischen Raumes</a>0</li>
+<li></li>
+
+<li><a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topologischer Raum</a></li>
+<li><a href="20220930230520-topologie_auf_einer_menge.html#ID-1ced2edb-806d-4fb8-ada3-ca97b7ea1d10">Topologie</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 21:41</p>
+</div>
+</body>
+</html>

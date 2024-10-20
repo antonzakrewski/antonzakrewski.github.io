@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 21:47 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LA2: Moduln über Hauptidealringen (16)</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">LA2: Moduln über Hauptidealringen (16)</h1>
+<div id="outline-container-org98b9856" class="outline-2">
+<h2 id="org98b9856"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org20aee1c" class="outline-3">
+<h3 id="org20aee1c"><span class="section-number-3">1.1.</span> Einführung von Begriffen</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20230222204150-linksmodul.html#ID-cd148654-9fb3-4209-b838-a4fc7c8ccadb">Linksmodul</a> / <a href="20230222204153-rechtsmodul.html#ID-b4579bba-aa97-4b06-87b2-67eb2b3fa759">Rechtsmodul</a></li>
+<li><a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">Modul</a></li>
+<li><a href="20230521133345-abelsche_gruppe_als_modul.html#ID-fa19faac-609a-4e5a-bee4-95a59efcd0ad">Abelsche Gruppe als Modul</a></li>
+<li><a href="20230522102809-isomorphie_der_z_moduln_und_der_abelschen_gruppen.html#ID-886103b0-fdf7-4cf0-84a0-176d3ed4ce03">Isomorphie der Z-Moduln und der abelschen Gruppen</a> - todo</li>
+<li><a href="20230303170343-ring_als_modul.html#ID-2c3b05e5-a5e9-4331-81bc-5d24d8c81648">Ring als Modul</a></li>
+<li><a href="20230519121931-ideal_als_modul.html#ID-30c86f3c-2f34-4b2e-8003-4bf39b01c528">Ideal als Modul</a></li>
+<li><a href="20230314181917-vektorraum_als_modul.html#ID-65bf2043-96ab-481a-b222-d7ca9ee679d3">Vektorraum als Modul</a></li>
+<li><a href="20230314183441-vektorraum_als_modul_uber_dem_polynomkorper.html#ID-85e871e9-02b2-4380-87d7-48b528972860">Monul als Modul über dem Polynomkörper</a></li>
+<li><a href="20230302220041-freie_abelsche_gruppe.html#ID-42cd7600-d3fd-4c7d-b34f-fcc264bee308">freie abelsche Gruppe</a> todo - 16.2 b)</li>
+<li><a href="20230222204739-untermodul.html#ID-72f8c93c-c8cd-4dd0-b1c4-81e2efb54d75">Untermodul</a></li>
+<li><a href="20230222204643-faktormodul.html#ID-9f848ff8-95b8-4f0b-ad74-7997012399a0">Faktormodul</a></li>
+<li><a href="20230314184007-faktormodul_als_modul.html#ID-8620e5c0-c473-48f9-bbd4-33b87f77e49e">Faktormodul als Modul</a> - todo</li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20230517113714-faktorring_als_modul.html#ID-a1dfa3ed-e263-48b4-82d1-5d0203a6e30b">Faktorring als Modul</a></li>
+<li><a href="20230222204703-modulhomomorphismus.html#ID-bb388d52-298a-4714-b290-80d9ab79eb2e">Modulhomomorphismus</a></li>
+<li><a href="20230522103741-menge_der_modulhomomorphismen_als_abelsche_gruppe.html#ID-3853b0fb-3cde-4ba5-af10-908c21850520">Menge der Modulhomomorphismen als abelsche Gruppe</a></li>
+<li><a href="20230314184131-menge_der_modulhomomorphismen_als_modul.html#ID-eb8892b0-db59-4d78-bd20-28deff7f6243">Menge der Modulhomomorphismen als Modul</a> (?)</li>
+<li><a href="20230519124417-homomorphiesatz_fur_moduln.html#ID-ef7ea8ca-b1bc-49ee-911c-541a54efb432">Homomorphiesatz für Moduln</a></li>
+<li><a href="20230303171226-von_einer_teilmenge_erzeugtes_untermodul.html#ID-7a1c171e-168f-4a3d-bf27-920c9a282582">von einer Teilmenge erzeugtes Untermodul</a></li>
+<li><a href="20230314222736-extern_direkte_summe_von_moduln.html#ID-36b95135-e3a0-4efe-9031-321743c9a6bc">externe direkte Summe von Moduln</a></li>
+<li><a href="20230222204832-direkte_summe_von_moduln.html#ID-e8bbb659-8f22-4f7b-bc98-3d4d09a07f32">interne direkte Summe von Moduln</a></li>
+<li><a href="20230314222736-extern_direkte_summe_von_moduln.html#ID-36b95135-e3a0-4efe-9031-321743c9a6bc">externe direkte Summe von Moduln</a></li>
+<li><a href="20230303170548-modulisomorphismus.html#ID-808e406f-ac3b-433c-a704-4f83909ef60d">Modulisomorphismus</a></li>
+<li><a href="20230222204703-modulhomomorphismus.html#ID-bb388d52-298a-4714-b290-80d9ab79eb2e">Modulhomomorphismus</a></li>
+<li><a href="20230303170514-modulepimorphismus.html#ID-8658ea5e-6f26-4544-a083-aec8a247284f">Modulepimorphismus</a></li>
+<li><a href="20230303170539-modulmonomorphismus.html#ID-bf69176f-1b85-40c5-a8b7-fb306539c238">Modulmonomorphismus</a></li>
+<li><a href="20230303170543-modulendomorphismus.html#ID-aaf585e5-45c4-42bb-a746-dd1a179db8bb">Modulendomorphismus</a></li>
+<li><a href="20230519124319-bild_eines_moduls_als_modul.html#ID-d53db8aa-6cc1-424e-a532-a705ab77ebed">Bild eines Moduls als Modul</a></li>
+<li><a href="20230519124313-kern_eines_moduls_als_modul.html#ID-dcb97b63-83e6-400c-94cb-eab0550aa8b2">Kern eines Moduls als Modul</a></li>
+<li><a href="20230222205257-freier_modul.html#ID-f31e26dc-9f62-4ff2-81db-88cd88c22229">freier Modul</a></li>
+<li><a href="20230519125019-trivialer_schnitt_und_direktes_produkt_von_moduln.html#ID-a1bd1ef5-dcc7-41fb-82da-8110139351f4">Trivialer Schnitt und direktes Produkt von Moduln</a>  - todo</li>
+<li><a href="20230303171607-basis_eines_moduls.html#ID-4d94d36c-5d43-4344-a837-6c9705d279a1">Basis eines Moduls</a> - todo</li>
+<li><a href="20230314222736-extern_direkte_summe_von_moduln.html#ID-36b95135-e3a0-4efe-9031-321743c9a6bc">externe direkte Summe von Moduln</a></li>
+<li><a href="20230519125728-direkte_produkt_von_moduln.html#ID-d4116c44-e0f9-4f13-8b0b-3c3cd0ecfbb7">direkte Produkt von Moduln</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2b32a28" class="outline-3">
+<h3 id="org2b32a28"><span class="section-number-3">1.2.</span> wohldefiniertheit des rangs für kommutative Ringe</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20220817195600-lemma_von_zorn.html#ID-8afc287e-b64f-49e8-9479-83cedc5e7f0a">Lemma von Zorn</a></li>
+<li><a href="20220817224852-halbordnung.html#ID-b8039fe5-626d-4ba3-93c7-71167141f163">partielle Ordnung</a></li>
+<li><a href="20230222205150-kette.html#ID-0b38d50a-42b8-4d13-9f40-0248f887ca7d">Kette</a></li>
+<li><a href="20230222205154-induktive_kette.html#ID-fae75338-a090-491a-9f68-eb8f727929f7">induktive Kette</a></li>
+<li><a href="20230314223428-maximales_ideal.html#ID-9d76bba3-11a8-42c9-9bdb-f774da2bb06a">maximales Ideal</a></li>
+<li><a href="20230314223206-existenz_eines_maximalen_ideals.html#ID-028984d3-9095-4e31-ad1f-5acfc2e4c3c8">Existenz eines maximalen Ideals</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20230315003350-maximales_ideal_und_faktorring_als_korper.html#ID-069612e5-9aa8-4a4d-bd69-1ed717b5a892">maximales Ideal und Faktorring als Körper</a></li>
+<li><a href="20230222205528-isomorphie_von_moduln_uber_kommutativen_ringen_anhand_der_basis.html#ID-5483cc58-8fb1-4fd1-8b49-f3a039b64ad4">Isomorphie von Moduln über kommutativen Ringen anhand des Rangs</a>  todo</li>
+<li><a href="20230610-maximales_ideal_und_irreduzibilitat_in_einem_hauptidealring.html#ID-c55e7cec-6583-4944-8be5-4320fe3ad93a">maximales Ideal und irreduzibilität in einem Hauptidealring</a> - todo</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5b2a6f2" class="outline-3">
+<h3 id="org5b2a6f2"><span class="section-number-3">1.3.</span> klassifikation</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20230222205618-rang_eines_moduls.html#ID-32dff54d-1956-4458-9354-10f3d29e3ed4">Rang eines Moduls</a></li>
+<li><a href="20230315004410-existenz_eines_eindeutigen_modulhomomorphismus_von_einem_freien_r_modul.html#ID-314d3db0-a044-4588-aca6-c289620cc3c7">Existenz eines eindeutigen Modulhomomorphismus von einem freien R-Modul</a></li>
+<li><a href="20230315005008-existenz_eines_isomorphismus_fur_die_direkte_summe_aufgrand_eines_modulepimorphismus.html#ID-76d84909-c196-4a0b-a479-f452f9f4a13b">Existenz eines Isomorphismus für die direkte Summe aufgrund eines Modulepimorphismus</a></li>
+<li><a href="20230531104014-untermodul_eines_freien_moduls_als_freier_modul.html#ID-fe66bdc9-7fcf-4d98-aea5-bdc56e8518eb">Untermodul eines freien Moduls über einem Hauptidealring als freier Modul</a> - TODO</li>
+<li><a href="20230531104339-torsionsfreiheit_und_freiheit_eines_endlich_erzeugten_moduls.html#ID-e75f2e69-17d6-49a3-b457-48ddb4f822d2">Torsionsfreiheit und Freiheit eines endlich erzeugten Moduls</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8355b74" class="outline-3">
+<h3 id="org8355b74"><span class="section-number-3">1.4.</span> torsion</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><a href="20230222205653-torsionselement.html#ID-8529376b-0b2f-4bc4-94e1-b111293af63c">Torsionselement</a></li>
+<li><a href="20230531102433-isomorphie_des_produkts_des_torsionsmodul_und_eines_freien_moduls.html#ID-835f230d-9371-4e19-9ff3-90b8dd82c0da">Isomorphie des Produkts des Torsionsmodul und eines Freien Moduls</a></li>
+<li><a href="20230303172128-torsionselemente_als_untermodul.html#ID-0155629f-8767-4238-9c0b-ae5aeb2f7349">Torsionsuntermodul</a></li>
+<li><a href="20230222205807-torsionsfreier_modul.html#ID-46622402-49f7-4528-89d0-1f69bb8c8ca0">torsionsfreier Modul</a></li>
+<li><a href="20230303172128-torsionselemente_als_untermodul.html#ID-0155629f-8767-4238-9c0b-ae5aeb2f7349">Menge der Torsionselemente als Untermodul</a></li>
+<li><a href="20230303172224-faktormodul_zum_torsionsmodul_als_torsionsfreier_modul.html#ID-e6dd0acf-2d41-4a70-8f70-276052cf657b">Faktormodul zum Torsionsmodul als torsionsfreier Modul</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20230531104014-untermodul_eines_freien_moduls_als_freier_modul.html#ID-fe66bdc9-7fcf-4d98-aea5-bdc56e8518eb">Untermodul eines freien Moduls über einem Hauptidealring als freier Modul</a></li>
+<li><a href="20230531104339-torsionsfreiheit_und_freiheit_eines_endlich_erzeugten_moduls.html#ID-e75f2e69-17d6-49a3-b457-48ddb4f822d2">Torsionsfreiheit und Freiheit eines endlich erzeugten Moduls</a></li>
+<li><a href="20230531102433-isomorphie_des_produkts_des_torsionsmodul_und_eines_freien_moduls.html#ID-835f230d-9371-4e19-9ff3-90b8dd82c0da">Isomorphie des Produkts des Torsionsmodul und eines Freien Moduls</a></li>
+<li><a href="20230606-torsionsmodul_i_a_kein_direkter_summand.html#ID-c6c0c5ed-e6a1-4e33-91ee-9187f18ae612">Torsionsmodul i.A. kein direkter Summand</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgab642c2" class="outline-3">
+<h3 id="orgab642c2"><span class="section-number-3">1.5.</span> Elementarteiler</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li><a href="20230531112726-elementarteilersatz.html#ID-2e15a877-524a-4743-915c-df7fc2122486">konstruktiver Elementarteilersatz für euklidische Ringe</a></li>
+<li><a href="20230610-algorithmischer_elementarteilersatz_fur_moduln_uber_euklidische_ringe.html#ID-ccc45228-1dd6-40e5-a706-20180852a181">algorithmischer Elementarteilersatz für Moduln über euklidische Ringe</a></li>
+<li>16.8</li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20230709-zerlegung_eines_moduls_durch_elementarteiler.html#ID-45cd3e40-d85f-43e4-9f80-015d177b8163">Zerlegung eines Moduls durch Elementarteiler</a></li>
+<li><a href="20230709-zerlegung_eines_moduls_durch_invariantenteiler.html#ID-76fc646b-27b4-4c0d-92ba-4d5310d7ea7e">Zerlegung eines Moduls durch Invariantenteiler</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5a74576" class="outline-2">
+<h2 id="org5a74576"><span class="section-number-2">2.</span> other</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li><a href="20230531112726-elementarteilersatz.html#ID-2e15a877-524a-4743-915c-df7fc2122486">konstruktiver Elementarteilersatz für euklidische Ringe</a></li>
+<li><a href="20230608-elementarteiler.html#ID-5a0af13d-e134-4b63-96f8-19f9a128e3cf">Elementarteiler</a></li>
+<li><a href="20230608-zerlegung_eines_moduls_durch_irreduzble_elemente_in_einem_hauptidealring.html#ID-a0732c55-7b8d-46ac-8fab-141f8d205849">Zerlegung eines Moduls durch irreduzble Elemente in einem Hauptidealring</a> (CR)</li>
+
+<li><a href="20230525190838-moduln_uber_einem_polynomring_isomorph_zur_menge_der_vektorraume_mit_punktiertem_endomorphismus.html#ID-48d4ec1b-d89b-42b1-8fca-a161d62ce920">Moduln über einem Polynomring isomorph zur Menge der Vektorräume mit punktiertem Endomorphismus</a></li>
+<li><a href="20230608-pi_torsionsmodul.html#ID-347ece95-2b4b-484e-8c2e-1fae9698217a">pi-Torsionsmodul</a></li>
+<li><a href="20230608-hauptsatz_uber_endlich_erzeugte_abelsche_gruppen.html#ID-8f2257ff-4702-461a-891b-b51d8eece7d7">Hauptsatz über endlich erzeugte abelsche GRuppen</a></li>
+<li></li>
+
+
+<li><a href="20230316230326-kriterium_fur_ein_untermodul.html#ID-af1ef44d-7af7-4941-8c03-09945ea9f71d">Kriterium für ein Untermodul</a></li>
+<li><a href="20230316231741-einheit_kein_torsionselement.html#ID-6343970c-2e0e-4820-9360-809d2749f75e">Einheit kein Torsionselement</a></li>
+<li><a href="20230316224355-untermodul_fur_ein_irreduzibles_element.html#ID-352dd226-c8c2-4b22-b8e8-cd9ad17e97b5">Untermodul für ein irreduzibles Element</a></li>
+<li><a href="20230316231027-torsionsuntermodul_als_direkte_summe_der_untermoduln_der_irreduziblen_elemente.html#ID-c240e2ae-a1d9-47ff-94fd-6eb566a3bf7b">Torsionsuntermodul als direkte Summe der Untermoduln der irreduziblen Elemente</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 21:47</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 19:06 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Geldhauser: algebraic geometry - dimension of local noetherian rings</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Geldhauser: algebraic geometry - dimension of local noetherian rings</h1>
+<div id="outline-container-orgbfd7012" class="outline-2">
+<h2 id="orgbfd7012"><span class="section-number-2">1.</span> Aspects</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><a href="20230724-localization_of_a_ring.html#ID-0b26fdfb-9d28-4981-acde-2ea1ea96837d">localization</a></li>
+<li><a href="20230726-localization_behind_a_prime_ideal_as_local_ring.html#ID-e7004e33-37c7-453f-b666-0312e8b8201c">localization at a prime ideal as local ring</a></li>
+<li><a href="20230726-length_of_a_module.html#ID-1404f565-6eb1-4b6b-bfab-c19c67c6d235">length of a module</a></li>
+<li><a href="20230726-length_of_a_chain_of_modules.html#ID-bcdd2b06-2f37-42ec-aae7-98c1b7701f5b">length of a chain of submodules</a>,</li>
+<li><a href="20230726-simple_module.html#ID-659c4f01-8fc4-44e2-a341-17690ba85449">simple module</a> / <a href="20230726-simple_module_and_quotient_module.html#ID-654c04f5-0d72-4db8-8f96-f3356d15fa58">simple module and quotient module</a></li>
+<li><a href="20230726-composition_series.html#ID-bb2a9dbf-be6c-4185-a9bc-5107282850ad">composition series</a></li>
+<li><a href="20231109-composition_series_and_maximal_length.html#ID-25884c9b-6210-4248-aced-02ad2637d29a">composition series and maximal length</a> - todo</li>
+<li><a href="20231109-primary_ideal.html#ID-31c88ba2-9577-4b73-b19a-364e0e7b01c9">primary ideal</a></li>
+<li><a href="20231109-primary_ideal_and_zero_divisor_as_nilpotent_element.html#ID-da484162-5920-410a-9197-2b661faf3339">primary ideal and zero divisor as nilpotent element</a></li>
+<li><a href="20231109-primary_ideal_and.html#ID-e4c14cb8-2f92-4f47-b67a-3bb694f35b1b">primary ideal and similar definition</a></li>
+<li><a href="20231109-primarey_ideal_in_general_not_a_power_of_a_prime_ideal.html#ID-3ac1abe5-3075-4115-84df-1a6d5a7dd593">primary ideal in general not a power of a prime ideal</a></li>
+<li><a href="20231109-power_of_a_prime_ideal_in_general_not_primary.html#ID-dbd89a63-e8fa-4506-be83-6e7856ecf733">power of a prime ideal in general not primary</a></li>
+<li><a href="20231109-maximal_ideal_and_power_as_primary_ideal.html#ID-77bc106e-91dc-4360-b611-68e4799f19f0">maximal ideal and power as primary ideal</a></li>
+<li><a href="20231109-radical_as_maximal_ideal_and_priary_ideal.html#ID-d3703f21-d1ad-4b81-b701-3fe1292db7bc">radical as maximal ideal and priary ideal</a></li>
+<li><a href="20230920-graded_ring.html#ID-934737de-8f00-4050-b210-c984897d335d">graded ring</a></li>
+<li><a href="20231109-first_component_of_a_noetherian_graded_ring_as_noetherian_ring.html#ID-d77983e2-e97e-4c03-9eb9-7f179278c62b">first component of a noetherian graded ring as noetherian ring</a></li>
+<li><a href="20230811-noetherian_ring_as_noetherian_module.html#ID-6a43b56f-926d-4aeb-9b8e-c7fd64fa5432">noetherian ring as noetherian module</a></li>
+<li><a href="20231112-graded_noetherian_ring_and_nonzero_part_as_finitely_generated_module.html#ID-4425ae9f-8b85-4248-8c47-7f828e0695bb">graded noetherian ring and nonzero part as finitely generated module</a></li>
+<li><a href="20230904-graded_module.html#ID-5508d8a0-9b2a-476f-95ca-a6502e8eb0f9">graded module</a></li>
+<li><a href="20230904-graded_module_as_r_0_module.html#ID-e73893cc-959f-4814-9857-d3053881034d">graded Module as R<sub>0</sub>-module</a></li>
+<li><a href="20231112-finitely_generated_graded_module_over_a_noetherian_ring_and_component_as_finitely_generated_modules.html#ID-ac3c3f4b-eab0-455c-8eda-04a4fce9b5bd">finitely generated graded module over a noetherian ring and component as finitely generated modules</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20231113-graded_ring_as_graded_module.html#ID-044b472e-3d33-4fe6-af8f-383b511fef86">graded ring as graded module</a></li>
+</ul>
+
+
+<p>
+Let \(R = \bigoplus_{n \in \mathbb{N}_0} R_n\) be a <a href="20230904-graded_ring.html#ID-4b5d1725-b787-457e-ab10-5ff5daf130e6">graded ring</a> and \(M = \bigoplus_{n \in \mathbb{N}_0}\) a <a href="20230904-graded_module.html#ID-5508d8a0-9b2a-476f-95ca-a6502e8eb0f9">graded module</a>.
+Suppose \(\lambda\) is a &lt;additive funktion&gt; mit werten in \(\mathbb{Z}\) auf der Klasse aller endlich erzeugten \(A_0\)-Moduln
+</p>
+
+<p>
+Biespiel: \(A_0\) ist ein Körper, \(\lambda\) ist die Dimension
+oder \(A_0\) artinsch, \(\lambda\) länge eines moduls
+</p>
+
+<p>
+globale annahme: \(A\) als \(A_0\)-algebra endlich erzeugt:
+</p>
+<ul class="org-ul">
+<li>von homogenen elementen \(x_1,...,x_s\) von grad \(1\) erzeugt</li>
+</ul>
+
+<p>
+Dann:
+</p>
+<ul class="org-ul">
+<li>Poincare Reihe von \(M\)</li>
+
+<li><a href="20231113-poincare_series.html#ID-40388f8c-392d-4055-9b57-0cb69492d801">Hilbert-Poincare series</a></li>
+<li><a href="20231113-hilbert_serre_theorem.html#ID-20fc43b8-123c-48c6-8b24-f11a3f1c452f">hilbert serre theorem</a>   
+<ul class="org-ul">
+<li>atiyah &amp; macdonald !</li>
+</ul></li>
+<li><a href="20231109-radical_as_maximal_ideal_and_priary_ideal.html#ID-d3703f21-d1ad-4b81-b701-3fe1292db7bc">radical as maximal ideal and primary ideal</a> - todo</li>
+<li><a href="20231113-chevalley_dimension.html#ID-1edd2817-02d6-4d37-8d4a-a460b249a8ef">chevalley dimension</a></li>
+<li><a href="20231113-poincare_dimension.html#ID-8ae22fd6-7a95-49d1-877f-48fcba3e3d67">poincare dimension</a></li>
+<li><a href="20231113-lokaler_dimensionssatz.html#ID-6dfada5c-811f-4cb4-8755-033aa831e948">lokaler Dimensionssatz</a></li>
+<li><a href="20231113-power_of_an_ideal.html#ID-3ac570c7-aa22-4838-a7d9-8a7e51a278b6">power of an ideal</a></li>
+<li><a href="20231113-tangentialkegel_eines_rings.html#ID-4ba3240e-2adc-450e-81b8-1a888027e350">tangentialkegel eines Rings</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20231113-transcendental_dimension_of_an_affine_variety.html#ID-cecc0253-b12f-4c7c-a859-e9fa12be67b2">transcendental dimension of an affine variety</a></li>
+<li><a href="20230725-algebraically_independent.html#ID-2d9f2ebd-c68a-4b8e-a59f-4a5d4f6656d9">algebraically independent</a></li>
+<li><a href="20231113-affine_hilbert_funktion_eines_polynoms.html#ID-180ef87f-0fdf-42f2-942f-d334c72f13ef">Affine Hilbert-Funktion eines Ideals</a></li>
+
+<li><a href="20231116-graded_monomial_order.html#ID-b98b4c5d-fbed-4f8f-ad57-3fdca9512f64">graded monomial order</a></li>
+<li><a href="20231116-satz_von_macaulay.html#ID-56b4a685-7d31-4d49-a674-2e4e3c60f8ab">Satz von Macaulay</a></li>
+<li><a href="20231116-affine_hilbert_funktion_als_polynom.html#ID-f2061ede-6af2-41e2-abe3-b3bd14ae8927">Affine Hilbert-Funktion als rationales Polynom</a></li>
+<li><a href="20231116-affine_hilbert_polynom.html#ID-12fa3b01-5cc5-4768-a354-82bf7673980e">Affine Hilbert-Polynom</a></li>
+<li><a href="20231116-grad_des_affinen_hilbert_polynoms_und_leerer_schnitt.html#ID-e1bc47fa-5286-471f-8d97-791cceaaf78c">grad des affinen Hilbert-Polynoms und leerer schnitt</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 19:06</p>
+</div>
+</body>
+</html>

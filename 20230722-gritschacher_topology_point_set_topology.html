@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 15:19 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gritschacher Topology - point-set topology</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Gritschacher Topology - point-set topology</h1>
+<div id="outline-container-orgc4d17ca" class="outline-2">
+<h2 id="orgc4d17ca"><span class="section-number-2">1.</span> Aspects</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org97c580d" class="outline-3">
+<h3 id="org97c580d"><span class="section-number-3">1.1.</span> topo</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20220930230520-topologie_auf_einer_menge.html#ID-1ced2edb-806d-4fb8-ada3-ca97b7ea1d10">topology</a></li>
+<li><a href="20230302223343-axiome_fur_abgeschlossene_mengen.html#ID-cc51a852-1b46-479d-b47e-72bec5a84d20">Axiome für abgeschlossene Mengen</a></li>
+<li><a href="20230227174346-indiskrete_topologie.html#ID-9447f709-30a2-4b9a-b651-73909b037fad">indiscrete topology</a></li>
+<li><a href="20221002144647-diskrete_topologie.html#ID-c9466868-60fd-4b1f-ae1c-1bf7606f3ec7">discrete topology</a></li>
+<li><a href="20230207074108-finite_closed_topology.html#ID-faed368d-25e5-4118-b24c-807a634c9771">cofinite topology</a></li>
+<li><a href="20221002152517-basis_einer_topologie.html#ID-1a5a6999-876a-4b54-b786-acafe4968fd6">Basis (topology)</a></li>
+<li><a href="20230722-basis_and_neighbourhoods.html#ID-96059de2-6a07-400c-ad90-85395a7692d9">basis and neighbourhoods</a> (todo)</li>
+<li><a href="20220716173517-metrik.html#ID-0aa21afc-5f24-4618-a61e-e5ebf2e9640c">Metrik</a></li>
+<li><a href="20230222171645-von_einer_metrik_induzierte_topologie.html#ID-69ce8957-4373-4cbd-ae36-9da730675f0d">von einer Metrik induzierte Topologie</a></li>
+<li><a href="20230227170033-euklidische_metrik.html#ID-4572dba0-1140-48ba-be8e-10f35edff2bc">euklidische Metrik</a></li>
+<li><a href="20230418114555-metrischer_unterraum.html#ID-0d9c252f-1eb3-4e19-8bfc-8d544ecd6592">Metrischer Unterraum</a></li>
+<li><a href="20230613-metrischer_unterraum_und_topologischer_unterraum.html#ID-6a87f70e-92c9-4723-b8a8-e0fa8d2b94d5">metrischer Unterraum und topologischer Unterraum</a></li>
+<li><a href="20230418205307-aquivalente_metrik.html#ID-ab145629-f0c2-4e6d-b7dc-a5462cd470af">topologisch äquivalente Metrik</a></li>
+<li><a href="20221002152033-metrisierbarer_topologischer_raum.html#ID-1efd811d-97cd-4201-a254-1cb23e32d10a">Metrisierbarer topologischer Raum</a></li>
+<li><a href="20230211132940-unterraumtopologie.html#ID-e38ab938-b4e6-4094-98a1-4a8dec808b54">Unterraumtopologie</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5789cea" class="outline-3">
+<h3 id="org5789cea"><span class="section-number-3">1.2.</span> continuous</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a></li>
+<li><a href="20220719203620-epsilon_delta_kriterium_der_stetigkeit.html#ID-5e1dc3b4-6c4b-47e2-a859-a3269fa5baa0">Epsilon-Delta Kriterium der Stetigkeit</a></li>
+<li><a href="20230312155137-epsilon_delta_kriterium_der_stetigkeit_und_topologische_charakterisierung_von_stetigkeit.html#ID-fa303a45-ddfd-48fa-ab5e-1e05bd7c0632">Epsilon-Delta Kriterium der Stetigkeit und topologische Charakterisierung von Stetigkeit</a></li>
+<li><a href="20230722-identity_as_continuous_map.html#ID-18983ec6-f8fe-42d6-990e-b78ac0557fe6">identity as continuous map</a></li>
+<li><a href="20230211130603-verknupfung_stetiger_funktionen_topologisch.html#ID-38904452-396a-414e-97f8-6a26807e8626">Komposition stetiger Abbildungen</a></li>
+<li><a href="20230313225606-unterraumtopologie_als_grobste_topologie_fur_eine_stetige_inklusionsabbildung.html#ID-8db739f4-f5b1-4f6f-ae1e-0bfdde8c4451">Unterraumtopologie als gröbste Topologie für eine stetige Inklusionsabbildung</a></li>
+<li><a href="20230509104846-stetigkeit_einer_einschrankung.html#ID-e626f952-da99-478f-a548-faf562f76266">Stetigkeit einer Einschränkung</a></li>
+<li><a href="20230605-stetige_abbildung_und_stetigkeit_der_einschrankung_auf_das_bild.html#ID-7123411e-8618-4a46-ac5b-e87ed14e2604">stetige Abbildung und stetigkeit der Einschränkung auf das Bild</a></li>
+<li><a href="20221125072633-offene_uberdeckung.html#ID-f64293ce-3838-4f49-b45d-07666123c2c9">offene Überdeckung</a></li>
+<li><a href="20230330152507-stetige_fortsetzung_von_abbildungen_einer_offenen_uberdeckung.html#ID-abdabede-ed97-4e05-9b53-a6c3184614e6">glueing lemma for an open covering</a></li>
+<li><a href="20230330151432-stetige_fortsetzung_zweier_abbildungen_von_einer_uberdeckung.html#ID-43361c3e-7e6f-4ffb-a0ec-7988d859da0d">glueing lemma for a locally finite, closed covering</a></li>
+<li><a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">neighbourhood</a></li>
+<li><a href="20230312160241-umgebung_unter_stetigen_abbildungen.html#ID-c6f80ab6-d1da-404e-af9e-fd1b9d40f1fe">Urbilder von Umgebungen unter stetigen Abbildungen</a></li>
+<li><a href="20230127080110-homeomorphismus.html#ID-9f615f4b-b7b4-4dd6-a222-b9ec170e4390">homeomorphism</a></li>
+<li><a href="20230227204932-kriterium_fur_einen_homeomorphismus.html#ID-053d2bdc-9e30-4459-85c0-19777a5140da">Homeomorphismus als stetig abgeschlossene/offene Bijektion</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgebff95f" class="outline-3">
+<h3 id="orgebff95f"><span class="section-number-3">1.3.</span> product</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20230211133152-produkttopologie.html#ID-32030f19-ac2a-4c46-aaed-1abb1cd6df9f">Produkttopologie</a></li>
+<li><a href="20230313234248-produkttopologie_als_grobste_topologie_fur_stetige_projektionen.html#ID-a6f851d9-e856-4fd2-b3a4-112ec329bc05">Produkttopologie als gröbste Topologie für stetige Projektionen bzw. Initialtopologie der Projektionen</a></li>
+<li><a href="20230314152727-produkttopologie_als_initialtopologie_fur_die_projektion.html#ID-126770aa-188d-424d-ba78-e52b81583e46">Produkttopologie als Initialtopologie für die Projektion</a></li>
+<li><a href="20230722-eindeutigkeit_der_produkttopologie.html#ID-424dc4eb-1c6a-4919-9d74-52293e5879a9">uniqueness of the product topology</a></li>
+<li><a href="20230314153713-existenz_einer_eindeutigen_initialtopologie.html#ID-0a54b46a-fe8f-4525-993a-c0c1f34b422f">Existenz einer eindeutigen Initialtopologie</a></li>
+<li><a href="20230303000539-topologische_summe.html#ID-7c03dcbb-604d-4d61-9d6d-2d50e50aa5a6">topologische Summe</a></li>
+<li><a href="20230617-topologische_summe_als_koprodukt.html#ID-1f8cfb50-b96f-43e1-8db3-b6fbe9444848">topologische Summe als Koprodukt</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgdd50254" class="outline-3">
+<h3 id="orgdd50254"><span class="section-number-3">1.4.</span> connected</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><a href="20230118223336-zusammenhangender_raum.html#ID-bcc53507-bc5a-46d4-bd83-53e504f62b9d">zusammenhang</a></li>
+<li><a href="20230308142118-weg.html#ID-7c6527d3-2217-4c14-85ab-d1545b889ba8">Weg</a></li>
+<li><a href="20230308142110-wegzusammenhangender_raum_topologie.html#ID-09b1d548-9ac2-461c-8b3e-f72097f54a99">Wegzusammenhang</a></li>
+<li><a href="20230308142455-zusammenhang_eines_wegzusammenhangenden_raumes.html#ID-9c70f942-db03-480d-bfe3-1e3993ba0494">Zusammenhang eines wegzusammenhängenden Raumes</a></li>
+<li><a href="20230525114518-pfadkomponente.html#ID-3295510f-254c-4af2-a40d-2374ef5c9929">Wegzusammenhangskomponente</a></li>
+<li><a href="20230308142726-zusammenhangskomponente.html#ID-1428682d-f6f4-4d4c-b52c-bc0087485f33">Zusammenhangskomponente</a></li>
+<li><a href="20230308142856-zusammenhangskomponente_als_abgeschlossene_menge.html#ID-6684b7b8-a17a-4e74-a539-0b518d5446db">Zusammenhangskomponente als abgeschlossene Menge</a></li>
+<li><a href="20230308142220-lokal_wegzusammenhangend.html#ID-440c77bf-ffb1-45dc-92a4-b1fd98e19cb1">lokal wegzusammenhängend</a></li>
+<li><a href="20230526232144-zusammenhang_impliziert_i_a_keinen_wegzusammenhang.html#ID-c637b858-8b90-42d6-9e8e-76a153160a61">Zusammenhang impliziert i.A. keinen Wegzusammenhang</a></li>
+<li><a href="20230617-pfadkomponente_gleich_der_wegzusammenhangskomponente_in_einem_lokal_wegzusammenhangenden_raum.html#ID-e51ae780-922d-4ca6-a271-7b20284cc3ed">Pfadkomponente gleich der Wegzusammenhangskomponente in einem lokal wegzusammenhängenden Raum</a></li>
+<li><a href="20230722-topological_space_as_coproduct_of_the_path_components.html#ID-0a59d43c-ca04-43a3-a29e-5736a55f29f6">topological space as coproduct of the path components</a> (todo)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf29db86" class="outline-3">
+<h3 id="orgf29db86"><span class="section-number-3">1.5.</span> compact</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li><a href="20230412003456-compact_set.html#ID-d09ae6d2-2b5c-41c1-a54d-3259d3e2f0f0">compact</a></li>
+<li><a href="20230112110346-kompaktheit_des_bildes_einer_kompakten_menge_einer_stetigen_funktion.html#ID-a2b585a8-d9b6-4663-be20-3eea36a6495a">stetiges Bild einer kompakten Menge als kompakte Menge</a></li>
+<li><a href="20230519090021-satz_von_tychonoff.html#ID-30c83690-820b-4f4f-ac1b-5019fde136a9">Satz von Tychonoff</a></li>
+<li><a href="20230511112853-abgeschlossene_mengen_kompakter_raume_sind_kompakt.html#ID-2b714bee-6153-4623-8e5a-6c46e87e3474">Abgeschlossene Mengen kompakter Räume sind kompakt</a></li>
+<li><a href="20221122074811-hausdorff_raum.html#ID-f49f9b47-9f16-456f-837f-7b9656c46aba">Hausdorff-Raum</a></li>
+<li><a href="20230517212415-produkt_von_hausdorff_raumen_als_hausdorff_raum.html#ID-11849ef0-9371-436f-a215-b736d98f5d95">Produkt von T2-Räumen als T2-Raum</a></li>
+<li><a href="20230518091728-hausdorff_raum_und_unterraum.html#ID-67f424d4-d476-49e5-9e89-414978341c38">Vererbung der T2-Eigenschaft</a></li>
+<li><a href="20230511112904-abgeschlossenheit_von_kompakten_mengen.html#ID-77b86d0c-e901-449a-9147-602be657eae5">Abgeschlossenheit von kompakten Mengen in Hausdorff Räumen</a></li>
+<li><a href="20230615-stetige_bijiktion_von_einem_kompakten_raum_auf_einen_hausdorff_raum_als_homeomorphismus.html#ID-4c26d15c-6c1e-4e12-b8f0-fc48603ce0aa">stetige Bijiktion von einem kompakten Raum auf einen Hausdorff-Raum als Homeomorphismus</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgec7c7ed" class="outline-3">
+<h3 id="orgec7c7ed"><span class="section-number-3">1.6.</span> quotient</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li><a href="20211227225754-aquivalenzrelation_mengenlehre.html#ID-bf83e0aa-4df1-48a5-b910-2837942bdd19">Äquivalenzrelation (Mengenlehre)</a></li>
+<li><a href="20230223230317-quotiententopologie.html#ID-593cff5a-5f97-433d-b2d9-20f3aba02006">Quotiententopologie</a></li>
+<li><a href="20230722-vererbung_des_zusammenhangs_fur_eine_quotiententopologie.html#ID-0ec93638-e19b-493b-9a31-e3ca0c4a152b">Vererbung des Zusammenhangs für eine Quotiententopologie</a></li>
+<li><a href="20230722-vererbung_des_wegzusammenhangs_einer_quotiententopologie.html#ID-d90658af-2646-4796-803a-c3f0646a96b8">Vererbung des Wegzusammenhangs einer Quotiententopologie</a></li>
+<li><a href="20230722-vererbung_der_kompaktheit_fur_eine_quotiententopologie.html#ID-f987a2e7-a3ba-4d0b-84ef-a384be4797fa">Vererbung der Kompaktheit für eine Quotiententopologie</a></li>
+<li>&lt;projektiver raum&gt;</li>
+<li><a href="20230604-kollaps_eines_topologischen_raums.html#ID-a6c84a23-6bfe-4089-b94e-bae9c0cf25a9">Kollaps eines topologischen Raums</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge0bc93d" class="outline-3">
+<h3 id="orge0bc93d"><span class="section-number-3">1.7.</span> pushout</h3>
+<div class="outline-text-3" id="text-1-7">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 15:19</p>
+</div>
+</body>
+</html>

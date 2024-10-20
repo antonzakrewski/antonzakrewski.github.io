@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 19:06 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Modul: categories for the working philosopher</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Modul: categories for the working philosopher</h1>
+<div id="outline-container-org17e31e5" class="outline-2">
+<h2 id="org17e31e5"><span class="section-number-2">1.</span> Aspects</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgec55f97" class="outline-3">
+<h3 id="orgec55f97"><span class="section-number-3">1.1.</span> cartesian products</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20211226220618-kartesische_produkt.html#ID-0dd71736-db78-4510-8588-7811037d0796">Cartesian product</a></li>
+<li><a href="20221019113533-n_tupel_mengentheoretische_fundierung.html#ID-3a4709ab-a0ac-465b-9750-3d5a9c34a6ff">n-tuple</a></li>
+<li>equivalent definitions of ordered tupels</li>
+<li><a href="20230404141718-categorical_product.html#ID-c6b25f4e-7486-4399-bea3-ace8da2a18c9">categorical product</a></li>
+<li>permutations as iso's in set</li>
+<li><a href="20230923-universal_property_unique_up_to_unique_isomorphism.html#ID-5de248ae-5722-436d-a84a-984b0c1b811b">universal property unique up to unique isomorphism</a></li>
+<li><a href="20230404141326-uniqueness_of_a_categorical_product_up_to_isomorphism.html#ID-e3f4c544-edbd-47cb-817d-068eda4c3176">uniqueness of a categorical product up to isomorphism</a></li>
+<li><a href="20231109-associativity_of_the_categorical_product.html#ID-2a8cf882-24f1-41d5-adb3-3481001317fa">associativity of the categorical product</a> - todo</li>
+<li><a href="20230404161607-categorical_coproduct.html#ID-25822c41-825b-480b-b8a6-eeb904ca5649">categorical coproduct</a></li>
+<li><a href="20231109-de_morgan_rule_for_categorical_products_and_coproducts.html#ID-6e9afa3f-11de-44e0-b55a-c456ea442175">de morgan rule for categorical products and coproducts</a> - is it true ?</li>
+<li>cardinality as classification of isomorphic objects in set</li>
+<li><a href="20231110-category_of_propositions.html#ID-71e5b5fe-6418-4f30-a55b-793d7d1149e9">category of propositions</a></li>
+<li><a href="20231110-coproduct_in_the_category_of_propositions_as_disjuncton.html#ID-96280f71-1f35-450d-b18c-426a13e269ab">coproduct in the category of propositions as disjunction</a> - todo</li>
+<li><a href="20231110-product_in_the_ctaegory_of_propositions_as_conjunction.html#ID-e2f117e8-8d93-4b5f-9a3c-a22b4ea6f48b">product in the ctaegory of propositions as conjunction</a> - todo</li>
+<li><a href="20220825145505-initiales_objekt.html#ID-7ad29aa1-f819-4a5b-8ef9-24c92a84802f">initial object</a></li>
+<li><a href="20220825145511-terminales_objekt.html#ID-16825b5e-51d8-4e5e-ac19-2a05cd9fb110">terminal object</a></li>
+<li><a href="20230827-partially_ordered_set_as_category.html#ID-0f6d0690-68f0-4695-ba6d-d417aa9eb938">partially ordered set as category</a>   
+<ul class="org-ul">
+<li>product as infimum, coproduct as supremum</li>
+</ul></li>
+<li><a href="20230804-equalizer.html#ID-b6f325ea-2d24-43be-977b-2981baad9524">equalizer</a> / <a href="20230804-coequalizer.html#ID-d3115a7d-90e1-453f-a6c2-3209ee1f5be7">coequalizer</a></li>
+<li><a href="20230806-pullback.html#ID-730c4312-492d-4b9c-a347-9281309d3e6f">pullback</a> / <a href="20230806-pushforward.html#ID-a4141d87-68ee-4337-8f80-997a6d4b4091">pushout</a></li>
+<li><a href="20231110-natural_number_object.html#ID-180309e1-0ce5-4ebb-bb8c-5bb27a8ebfe1">natural number object</a></li>
+<li><a href="20231110-subobject_classifier.html#ID-a23a349d-210b-4e5a-baa0-966df77fb31e">subobject classifier</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org95316d3" class="outline-3">
+<h3 id="org95316d3"><span class="section-number-3">1.2.</span> maps</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20230404215213-preceed_by_morphism.html#ID-2cd9081c-653f-4dee-9da3-b78d6ed6c4d2">precomposition</a></li>
+<li><a href="20231105-postcomposition.html#ID-22f84481-9574-4f6d-87a5-162a5512dd13">postcomposition</a></li>
+<li><a href="20231110-precomposition_commutes_with_postcomposition.html#ID-df1a004b-5977-429b-96d5-8f2de45cef1d">precomposition commutes with postcomposition</a></li>
+</ul>
+
+<p>
+product category / 
+</p>
+<ul class="org-ul">
+<li><a href="20231110-coproduct_of_categories.html#ID-ad43e6fa-d40c-4eed-ab0b-337137272a2b">coproduct of categories</a> - todo</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org10ef018" class="outline-3">
+<h3 id="org10ef018"><span class="section-number-3">1.3.</span> functor</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20220821182915-naturliche_transformation_kategorientheorie.html#ID-4e6e50c0-c0df-44ff-a140-bebfa492ef7e">natural transformation</a></li>
+<li><a href="20230603163658-identity_functor.html#ID-200e6f87-f474-45f8-956b-a79372ab1b3e">identity functor</a></li>
+
+<li><a href="20230402143648-contravariant_power_set_functor.html#ID-35901485-4c5d-4286-9eaf-f02fa82dcda9">contravariant power set functor</a></li>
+<li><a href="20231109-covariant_power_set_functor.html#ID-73d502b5-fa2e-4302-9acf-317124f7487f">covariant power set functor</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb546d30" class="outline-3">
+<h3 id="orgb546d30"><span class="section-number-3">1.4.</span> category</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a></li>
+<li><a href="20220817230235-diskrete_kategorie.html#ID-77d5dcbb-96b0-4e9d-b130-0c021d8b3398">discrete category</a></li>
+<li><a href="20230510092709-slice_category.html#ID-1e81c30c-0f74-4f7c-bf95-400bc8889156">slice category</a></li>
+<li><a href="20230402145452-coslice_category.html#ID-bdbe4411-02d7-4534-8788-2843a7007af4">coslice category</a></li>
+<li><a href="20231017-monoid_as_single_object_category.html#ID-639058af-3579-4457-b612-83b5eaa67edf">monoid as single-object category</a></li>
+<li><a href="20220819181004-kleine_kategorie.html#ID-3c3f1c0d-53ad-476e-810a-756acd885263">small category</a></li>
+<li><a href="20220817165031-identitatsmorphismus.html#ID-18d8207c-a2f4-499b-ab59-b7efe4858e31">identity morphism</a></li>
+<li><a href="20220817221258-assoziativitat_von_morphismen.html#ID-6e4a49da-dad1-4aaa-b86c-6ac18cc77d84">associativity of the composition of morphisms</a></li>
+<li><a href="20221216142701-kategorie_set.html#ID-dc78356f-1fcf-41e8-b05a-47cdd731513c">category set</a></li>
+<li></li>
+
+<li><a href="20230923-inaccessible_cardinal.html#ID-2332c906-78f1-4512-9d94-7a59453b52e4">inaccessible cardinal</a></li>
+<li><a href="20230402175422-small_set.html#ID-6f42c88c-bd66-4d85-9be5-2f9fa901a8cc">small set</a></li>
+<li><a href="20231110-category_of_small_sets.html#ID-4de947e7-3057-4e65-a52a-e7db424894c6">category of small sets</a></li>
+<li><a href="20230226132904-produktkategorie.html#ID-2436c57b-cc38-4aaf-bf18-f6947cc3f35a">product category</a></li>
+<li><a href="20220825194828-funktorkategorie.html#ID-39ebe96a-b96d-4a11-8642-30527c1b92ea">functor category</a></li>
+<li><a href="20220830192239-duale_kategorie.html#ID-711d7a6e-e765-4a59-90a2-baeee955dea1">opposite category</a></li>
+<li><a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a></li>
+<li><a href="20230915-isomorphism_as_bijective_map.html#ID-a0a7e22a-f8e1-4751-b67c-59008d642a92">Isomorphism as bijective map</a></li>
+<li><a href="20230403175130-uniqueness_of_a_two_sided_inverse_morphism.html#ID-eeec873b-3ed0-43a8-a312-f9097223acc0">uniqueness of a two-sided inverse morphism</a></li>
+
+<li><a href="20230404215213-preceed_by_morphism.html#ID-2cd9081c-653f-4dee-9da3-b78d6ed6c4d2">precomposition</a></li>
+<li><a href="20231105-postcomposition.html#ID-22f84481-9574-4f6d-87a5-162a5512dd13">postcomposition</a></li>
+
+<li><a href="20231110-precomposition_with_an_isomorphism_as_isomorphism.html#ID-3d4d7e9d-b450-46e0-b552-abc68242539f">precomposition with an isomorphism as isomorphism</a></li>
+<li><a href="20231110-postcomposition_with_an_isomorphism_as_isomorphism.html#ID-03771147-5e99-4539-802b-cbdb3fbbfb43">postcomposition with an isomorphism as isomorphism</a></li>
+<li><a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a></li>
+<li><a href="20220830173327-kontravarianter_funktor.html#ID-88bd5800-bc2d-4ad5-81d2-90240d062847">contravariant functor</a></li>
+<li><a href="20220830173246-kovarianter_funktor.html#ID-c5286004-d249-4969-86d5-c75655b7f5d3">covariant functor</a></li>
+
+<li><a href="20230301211128-komposition_von_funktoren.html#ID-5ee8a050-4131-40f2-b848-aefb92e03228">composition of functors as functor</a></li>
+<li><a href="20230301211140-kategorie_der_kleinen_kategorien.html#ID-0974d48a-c50e-471e-9dab-61b60297d34b">Kategorie der kleinen Kategorien</a></li>
+<li><a href="20230420221620-isomorphisms_under_functors.html#ID-c6c5ffcb-a860-453a-a71a-ddca7f8a9c7f">isomorphisms under functors</a></li>
+<li><a href="20231111-isomorphism_in_category_cat.html#ID-d5d77d82-4cd6-4e1e-bba5-056672a4dbc2">isomorphism in category cat</a> - todo</li>
+<li></li>
+
+<li><a href="20230924-opposite_functor.html#ID-8206c170-5e55-4a16-8d25-2de905a1ffab">opposite functor</a></li>
+<li><a href="20231118-object_functor_from_cat.html#ID-84079afe-f051-4d48-b2ae-00b7e7bc2cc6">object functor from cat</a></li>
+<li><a href="20220819181004-kleine_kategorie.html#ID-3c3f1c0d-53ad-476e-810a-756acd885263">small category</a></li>
+
+<li><a href="20231111-connected_components_functor_from_cat.html#ID-44a690d9-5d81-4c40-8275-640288f84a32">connected components functor from Cat</a> - todo</li>
+<li><a href="20231111-forgetful_functor_from_cat.html#ID-a701967b-5b2c-4350-ad44-8757e304f947">forgetful functor from Cat</a></li>
+<li><a href="20230510094601-comma_category.html#ID-0addf6a9-2d3d-4dca-8c8d-8ced810651ff">comma category</a> - todo</li>
+<li><a href="20220825194828-funktorkategorie.html#ID-39ebe96a-b96d-4a11-8642-30527c1b92ea">functor category</a></li>
+<li><a href="20230302220536-yoneda_einbettung.html#ID-2c5ce71f-77fc-435d-b268-d9715ee0a2a4">yoneda embedding</a></li>
+<li><a href="20231111-evaluation_functor_from_the_functor_category.html#ID-30adf351-f54a-4fd7-a6ea-55bc19db41fd">evaluation functor from the functor category</a> - todo</li>
+<li><a href="20231111-natural_isomorphism_and_isomorphism_on_the_objects.html#ID-db7bc60d-3b95-402f-9606-c66ec355e9df">natural isomorphism and isomorphism on the objects</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="20231110-category_of_small_categories_with_respect_to_an_inaccessible_cardinal.html#ID-5cf51906-16e8-408e-b083-1ee66425d78e">category of small categories with respect to an inaccessible cardinal</a> - reasonable ?</li>
+<li><a href="20231110-small_category_with_respect_to_an_inaccessible_cardinal.html#ID-463e1dcd-8a79-41e4-a2aa-f1c15c481c88">small category with respect to an inaccessible cardinal</a></li>
+<li><a href="20220821182915-naturliche_transformation_kategorientheorie.html#ID-4e6e50c0-c0df-44ff-a140-bebfa492ef7e">natural transformation</a></li>
+<li><a href="20231017-identity_natural_transformation.html#ID-c8ccbb51-f801-49b6-a648-c950b1c95c57">identity natural transformation</a></li>
+<li><a href="20231017-composition_of_natural_transformations_as_natural_transformation.html#ID-472195df-b3b3-4c32-acff-c6fd05a5c3df">composition of natural transformations as natural transformation</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org59fd977" class="outline-3">
+<h3 id="org59fd977"><span class="section-number-3">1.5.</span> representability</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li><a href="20231021-representable_functor.html#ID-31b596c9-5984-4672-900f-de9718d2e524">representable functor</a></li>
+<li><a href="20231123-representation_of_a_functor.html#ID-0994a159-32b4-433a-8642-9baa7a99b3e6">representation of a functor</a></li>
+<li># identity functor representable</li>
+
+<li><a href="20231110-precomposition_with_an_isomorphism_as_isomorphism.html#ID-3d4d7e9d-b450-46e0-b552-abc68242539f">precomposition with an isomorphism as isomorphism</a>  - todo</li>
+<li><a href="20231110-postcomposition_with_an_isomorphism_as_isomorphism.html#ID-03771147-5e99-4539-802b-cbdb3fbbfb43">postcomposition with an isomorphism as isomorphism</a>   - todo</li>
+<li><a href="20220821183114-yoneda_funktor.html#ID-19d8c3f0-cdaf-4770-91df-251aa8e441c4">Yoneda-Funktor</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgce5fd9c" class="outline-3">
+<h3 id="orgce5fd9c"><span class="section-number-3">1.6.</span> equivalence of categories</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li><a href="20230301211925-voller_funktor.html#ID-300944ac-0e6d-4b27-99f1-176a261999aa">full functor</a></li>
+<li><a href="20230301211921-treuer_funktor.html#ID-28e54961-a758-4c55-ba93-95268bcebd92">faithful functor</a></li>
+<li><a href="20230420222307-essentially_surjective_functor.html#ID-84f987b7-b7b6-45e6-ace0-865d5f6d6812">essentially surjective functor</a></li>
+<li><a href="20231118-equivalent_categories.html#ID-d2d200ae-2245-4c21-9176-69127a40fc80">equivalent categories</a></li>
+<li><a href="20231118-equivalence_of_categories.html#ID-9f984af9-949c-46b1-9221-7ba43cdae897">equivalence of categories</a></li>
+<li><a href="20231118-equivalence_of_categories_as_equivalence_relation.html#ID-bd3f3c6d-ec46-4c62-a3b5-b4e7519212d1">equivalence of categories as equivalence relation</a></li>
+<li><a href="20231118-precomposition_of_natural_transformations_with_functors.html#ID-a0fbfb74-8446-462b-9fee-1a83f78406fc">precomposition of natural transformations with functors</a></li>
+<li><a href="20231118-postcomposition_of_natural_transformations_with_functors.html#ID-152579f8-ccbe-4cc1-8fb7-640dcc9d466f">postcomposition of natural transformations with functors</a></li>
+<li><a href="20231118-adjoint_equivalence.html#ID-f07a5d5f-fce3-4482-8019-0afae1c3f197">adjoint equivalence</a></li>
+<li><a href="20231118-adjoint_equivalence_and_triangle_identity.html#ID-d7c9577f-b267-4aa5-a904-15909073ac0f">adjoint equivalence and triangle identity</a></li>
+
+<li><a href="20231124-equivalence_of_categories_implies_full_functor.html#ID-c19d2447-feb6-4bda-bae6-d452c072b564">equivalence of categories implies full functor_</a></li>
+<li><a href="20231124-equivalence_of_categories_implies_faithful_functor.html#ID-e124ca6f-c257-40ab-b5c1-312422f390f5">equivalence of categories implies faithful functor_</a></li>
+<li><a href="20231124-equivalence_of_categories_implies_essentially_surjective_functor.html#ID-25ceec83-5363-4039-96d2-347eaa8b2523">equivalence of categories implies essentially surjective functor_</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="20230603-equivalence_of_categories_and_fully_faithful_and_essentially_surjective_functor.html#ID-52024b5e-fa8a-46b9-9fbb-ac9b36efd990">equivalence of categories and fully faithful and essentially surjective functor</a></li>
+<li><a href="20231124-fully_faithful_and_essentially_surjective_functor_with_axiom_of_choice_implies_an_adjoint_equivalence.html#ID-4413ddf9-8749-4e34-a373-ec73adc46b17">fully faithful and essentially surjective functor with Axiom of Choice implies an adjoint equivalence</a></li>
+<li></li>
+
+
+<li><a href="20231124-two_out_of_three.html#ID-a380b402-5b65-4f0e-b1c1-8c6ecaf08b57">two out of three</a></li>
+<li><a href="20231124-class_of_isomorphisms_satisfy_two_out_of_three.html#ID-850c1b6f-ad86-4a77-8624-5f6afaaff81b">class of isomorphisms satisfy two out of three</a></li>
+
+<li><a href="20231124-composition_of_faithful_functors.html#ID-2d9fcce8-3470-4066-87de-37ce4c373921">composition of faithful functors</a></li>
+<li><a href="20231124-composition_as_faithful_functor_and_first_part.html#ID-e85e780e-48dd-453d-bc82-cd998b12ba6b">composition as faithful functor and first part</a></li>
+
+<li><a href="20231124-composition_of_full_functors.html#ID-6606d216-3553-4126-8179-bd83330fa9e4">composition of full functors</a></li>
+<li><a href="20231124-full_composition_and_essentially_surjective_implies_full_functor.html#ID-78220d55-66fe-434a-ace2-8e0137cf3e95">full composition and essentially surjective implies full functor</a></li>
+
+<li><a href="20231124-composition_of_essentially_surjective_functors.html#ID-190177b9-2750-4e49-9328-483f941a777d">composition of essentially surjective functors</a></li>
+<li><a href="20231124-composition_as_essentially_surjective_functor_and_second_part.html#ID-ea15aeed-bd5c-434c-a55c-05bc56990bef">composition as essentially surjective functor and second part</a></li>
+
+<li></li>
+
+<li>dually ?</li>
+</ul>
+
+<ul class="org-ul">
+<li>pre + postcomposition and universal property</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga58e994" class="outline-3">
+<h3 id="orga58e994"><span class="section-number-3">1.7.</span> monoidal category</h3>
+<div class="outline-text-3" id="text-1-7">
+<ul class="org-ul">
+<li><a href="20210702075710-monoid.html#ID-ebccfd45-6c4b-4a93-818a-8f6848600874">monoid</a></li>
+<li><a href="20231018-free_monoid.html#ID-17a60093-aa3e-4cb7-999c-2bc23aed7942">free monoid</a></li>
+<li><a href="20231124-power_set_with_union_as_monoid_wit.html#ID-0a4c3593-1137-42d5-b9ba-f235a5898c4c">power set with union as monoid</a></li>
+<li><a href="20231124-power_set_with_the_intersection_as_monoid.html#ID-736a9e2d-5e05-4928-919f-33b609498497">power set with the intersection as monoid</a></li>
+<li><a href="20230722-monoidhomomorphismus.html#ID-d97d8a1c-6fdb-446c-9006-22f08dae62f6">monoid-homomorphism</a></li>
+<li><a href="20231018-free_monoid_functor_as_left_adjoint.html#ID-fb85dccc-6d1d-4447-af49-39e3c75d64a7">free monoid functor as left adjoint</a></li>
+<li><a href="20231017-monoid_as_single_object_category.html#ID-639058af-3579-4457-b612-83b5eaa67edf">monoid as single-object category</a> - endomorphism monoid of \(X\)</li>
+<li></li>
+
+<li><a href="20231201-free_object.html#ID-113b5c2b-ba69-4b87-9545-37cec59c528d">free object</a></li>
+<li><a href="20231201-motivation_of_a_free_object.html#ID-29322054-ce73-4b24-8f6e-e2d5098d95c9">free object functor</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="20221223192944-monoidal_category.html#ID-e7314567-2c1d-4ebd-8aa0-323b3145b541">monoidal category</a></li>
+<li><a href="20231201-strict_monoidal_category.html#ID-0bb6c5b2-6788-4e28-9e2c-7e2d7492b57a">strict monoidal category</a></li>
+<li><a href="20231201-cartesian_monoidal_category.html#ID-5be7b25c-9925-4427-82fb-859d029ba7d1">cartesian monoidal category</a> / <a href="20231204-cocartesian_monoidal_category.html#ID-63c168ff-edde-48d5-926b-e6ea9dc49dae">cocartesian monoidal category</a> - todo</li>
+<li><a href="20231104-triangle_identity_of_a_monoidal_category.html#ID-9450a7a9-62a1-4ac3-acf5-112ea4016eaf">triangle identity of a monoidal category</a></li>
+<li><a href="20231204-left_triangle_identity_of_a_monoidal_category.html#ID-4fba79da-024a-443a-976d-8908fd943a11">left triangle identity of a monoidal category</a> - todo</li>
+<li><a href="20231204-right_triangle_identity_of_a_monoidal_category.html#ID-2d551050-b2ff-45a3-b572-81ad48ddbcfc">right triangle identity of a monoidal category</a> - todo</li>
+<li><a href="20231201-endofunctor_category_as_strict_monoidal_category.html#ID-5d6aaf94-b08c-48ae-b293-7a99d2a9106d">endofunctor category as strict monoidal category</a> - (todo)</li>
+<li><a href="20231205-left_unitor_and_right_unitor_for_the_tensor_unit.html#ID-fa8b79ab-fd71-4bf9-b985-ed06a0bbdcdc">left unitor and right unitor for the tensor unit</a> - todo</li>
+<li><a href="20231205-tensor_unit_unique_up_to_unique_isomorphism.html#ID-0f8b5da8-dd8e-44fa-9565-e837298f6ee6">tensor unit unique up to unique isomorphism</a> - todo</li>
+<li><a href="20231201-left_unitor_and_right_unitor_as_equivalence_of_monoidal_categories.html#ID-395988fe-da66-4eb6-a8ed-6bdeacea79a6">tensor product with unit as adjoint equivalence of monoidal categories</a></li>
+<li><a href="20231201-monoid_as_monoidal_category.html#ID-acf0cf19-377e-4e1b-926a-946105a1fa30">monoid as monoidal category</a></li>
+<li><a href="20231201-set_with_cartesian_product_as_monoidal_category.html#ID-fb48a006-f7a0-4b16-b10a-afc2e02a4415">Set with cartesian product as monoidal category</a></li>
+</ul>
+</div>
+<div id="outline-container-org51e65f3" class="outline-4">
+<h4 id="org51e65f3"><span class="section-number-4">1.7.1.</span> monoidal functor</h4>
+<div class="outline-text-4" id="text-1-7-1">
+<ul class="org-ul">
+<li><a href="20231201-monoidal_functor.html#ID-768b7017-fee0-405e-ad69-f267f651b648">monoidal functor</a></li>
+<li><a href="20231201-identity_functor_as_monoidal_functor.html#ID-d9714c22-e2a7-49cd-a81f-10cbe9067f8f">identity functor as strict monoidal functor</a></li>
+<li><a href="20231201-composition_of_monoidal_functors_as_monoidal_functor.html#ID-36fbb0eb-20da-4296-8917-103e6dcfe18e">composition of monoidal functors as monoidal functor</a></li>
+<li><a href="20231201-category_of_monoidal_categories.html#ID-cf42fb8b-3f79-42c6-86df-7b60956c4cd1">MonCat</a></li>
+<li><a href="20231201-category_of_monoidal_categories.html#ID-cf42fb8b-3f79-42c6-86df-7b60956c4cd1">category of monoidal categories</a></li>
+<li><a href="20231201-endofunctor_category_as_strict_monoidal_category.html#ID-5d6aaf94-b08c-48ae-b293-7a99d2a9106d">endofunctor category as strict monoidal category</a></li>
+<li><a href="20231205-opposite_category_of_a_monoidal_category_as_monoidal_category.html#ID-4b55a76c-3417-4b05-80ea-9f4cb5b612e7">opposite category of a monoidal category as monoidal category</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf95a3ea" class="outline-4">
+<h4 id="orgf95a3ea"><span class="section-number-4">1.7.2.</span> natural trans</h4>
+<div class="outline-text-4" id="text-1-7-2">
+<ul class="org-ul">
+<li><a href="20231201-monoidal_natural_transformation.html#ID-ed6bdb97-fc77-48ef-8661-7fdbf38b6459">monoidal natural transformation</a></li>
+<li><a href="20231017-identity_natural_transformation.html#ID-c8ccbb51-f801-49b6-a648-c950b1c95c57">identity natural transformation</a></li>
+<li><a href="20231205-composition_of_monoidal_natural_transformations_as_monoidal_natural_transformation.html#ID-3480a6ed-abed-4f84-84d6-fd7dfb4ae241">composition of monoidal natural transformations as monoidal natural transformation</a></li>
+<li><a href="20231205-adjoint_of_a_monoidal_functor_as_monoidal_funtcor.html#ID-792e0bb7-a252-4294-bbd5-8be66309a43d">adjoint of a monoidal functor as monoidal functor</a></li>
+<li><a href="20231204-triangle_identity_of_a_monoidal_natural_transformation.html#ID-11dd5755-3a79-43d1-be09-cfcb25429a6a">triangle identity of a monoidal natural transformation</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0d1c8b0" class="outline-4">
+<h4 id="org0d1c8b0"><span class="section-number-4">1.7.3.</span> monoidal strictification</h4>
+<div class="outline-text-4" id="text-1-7-3">
+<ul class="org-ul">
+<li><a href="20231209-covering_map_induces_group_monomorphism_for_fundamental_groups.html#ID-000031a6-dd1e-495f-8d7e-5bc0e1cc350a">covering map induces group monomorphism for fundamental groups</a></li>
+<li><a href="20231209-skeleton_of_a_category.html#ID-31835e76-42be-4631-b31a-cf858a8235c1">skeleton of a category</a></li>
+<li><a href="20231209-skeletal_category.html#ID-42454f42-75d0-40bf-a32c-f416d13f9961">skeletal category</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orga9e9722" class="outline-2">
+<h2 id="orga9e9722"><span class="section-number-2">2.</span> RNG</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li><a href="20240202-structuralist_view_of_mathematics.html#ID-3e0bafe1-4a18-4f9d-bc05-4f8bd1315146">structuralist view of mathematics</a></li>
+<li><a href="20240202-category_theory_and_structure.html#ID-d324587d-fccf-428e-bc23-dbd90dfd5ed9">category theory and structure</a></li>
+<li><a href="20240202-category_theory_and_equality.html#ID-d5cc05bc-5d9a-40fd-9c56-b1d5d8ef9c4f">category theory and equality</a></li>
+<li><a href="20240202-category_theory_not_very_constructive.html#ID-aeedaaf9-3dc7-40da-955b-ea01d3066fd3">category theory not very constructive</a></li>
+<li><a href="20240202-category_theory_not_very_constructive.html#ID-aeedaaf9-3dc7-40da-955b-ea01d3066fd3">category theory not very constructive</a></li>
+
+<li><a href="20240202-foundation_and_priority_of_insight.html#ID-cf5cf966-1714-44e3-9c71-13b081b7a176">foundation and priority of insight</a></li>
+<li><a href="20240202-categorical_insights_about_set_theory.html#ID-8474c01a-3289-4434-be1d-a07855a7c221">categorical insights about set theory</a></li>
+
+<li><a href="20240202-axiomatic_method.html#ID-c6ae9dd4-b6c8-4d68-a25d-5f5940512d37">axiomatic method</a></li>
+<li><a href="20240202-genetic_method.html#ID-b428d179-728b-4f83-aba1-0fd9218dfd78">genetic method</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 19:06</p>
+</div>
+</body>
+</html>

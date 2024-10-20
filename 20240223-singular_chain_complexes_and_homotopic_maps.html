@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-14 Mo 09:12 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>singular chain complex functor and homotopy for the interval</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">singular chain complex functor and homotopy for the interval</h1>
+<div id="outline-container-org6e6488f" class="outline-2">
+<h2 id="org6e6488f"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_73eed9b29d43fbfeded6554d9fef135ba7ec0f7b.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_73eed9b29d43fbfeded6554d9fef135ba7ec0f7b.svg" class="org-svg" /> be a <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological space</a> <img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_f9a3afdc3528002146e996d8837b616ca1c5d11e.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_f9a3afdc3528002146e996d8837b616ca1c5d11e.svg" class="org-svg" /> the <a href="20230404141718-categorical_product.html#ID-c6b25f4e-7486-4399-bea3-ace8da2a18c9">product</a> and
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_d358f3d4b2da5da3c0746091b167c7bb89d60592.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_d358f3d4b2da5da3c0746091b167c7bb89d60592.svg" class="org-svg" />
+</span>
+</div>
+<p>
+be the inclusion.
+</p>
+
+<p>
+Then for the <a href="20240130-relative_singular_chain_complex_functor.html#ID-45052929-7738-4c4e-93cd-bb0e9aa57ab1">relative singular chain complex functor</a>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_7057ba2a7eb0599487b1cc58e91cea01e4282457.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_7057ba2a7eb0599487b1cc58e91cea01e4282457.svg" class="org-svg" />
+</span>
+</div>
+<p>
+are <a href="20220821182915-naturliche_transformation_kategorientheorie.html#ID-4e6e50c0-c0df-44ff-a140-bebfa492ef7e">naturally</a> <a href="20240119-chain_homotopy.html#ID-779721d8-47c9-4616-8c2e-eb6cc27f5de1">chain homotopic</a>, i.e. there exists a chain homotopy
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_5f61a8dac1226f8642769d2b5fcb1ac19b21ebaa.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_5f61a8dac1226f8642769d2b5fcb1ac19b21ebaa.svg" class="org-svg" />
+</span>
+</div>
+<p>
+such that for any <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a> <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">map</a>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_0acd3b588d79f2f07ab9a903f585cdcc66a71f44.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_0acd3b588d79f2f07ab9a903f585cdcc66a71f44.svg" class="org-svg" />
+</span>
+</div>
+<p>
+and all <img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_bbf6f7dc7fe0e92f188e25e7a561584be3c0caf2.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_bbf6f7dc7fe0e92f188e25e7a561584be3c0caf2.svg" class="org-svg" /> the <a href="20220821183856-diagramm_kategorientheorie.html#ID-ad9d3642-913a-4374-8605-52121d00b349">diagram</a> 
+</p>
+
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_daa85a671c0ce4b92ea51eb45464ca5061d13b8a.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_daa85a671c0ce4b92ea51eb45464ca5061d13b8a.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfb9bb35" class="outline-2">
+<h2 id="orgfb9bb35"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org6d0ce89" class="outline-3">
+<h3 id="org6d0ce89"><span class="section-number-3">2.1.</span> projective object</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+using <a href="20230923-large_cardinal_axiom.html#ID-205da6b3-f04c-49ca-8633-6b99480704e3">large cardinal axiom</a> it follows, that for sufficient large <a href="20220823154014-grothendieck_universum.html#ID-1cb9b9a2-aec0-49da-aacf-9783a08f6c85">grothendieck unvierse</a> <img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_2bf79d7822ea2b69809288ddd0c1b37fd4f482d8.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_2bf79d7822ea2b69809288ddd0c1b37fd4f482d8.svg" class="org-svg" /> the <a href="20220825194828-funktorkategorie.html#ID-39ebe96a-b96d-4a11-8642-30527c1b92ea">functor category</a>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_89baddd81780550ab1fcd3bdb13a2b43fbdebff5.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_89baddd81780550ab1fcd3bdb13a2b43fbdebff5.svg" class="org-svg" />
+</span>
+</div>
+<p>
+is an $V$-small <a href="20230827-abelian_category.html#ID-9003af72-f684-4897-b096-c1d8a681c624">abelian category</a>.
+</p>
+
+<p>
+Then
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_5d19e2a8e800cade9b64fb454e2b4da2a1077967.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_5d19e2a8e800cade9b64fb454e2b4da2a1077967.svg" class="org-svg" />
+</span>
+</div>
+<p>
+with
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_d29a4a344058fdfedf77cfbda6333b3ee3849bc0.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_d29a4a344058fdfedf77cfbda6333b3ee3849bc0.svg" class="org-svg" />
+</span>
+</div>
+<p>
+is an <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">object</a> of
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_731403f4cb8569a22d4d24a7211e0d532ea85ae7.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_731403f4cb8569a22d4d24a7211e0d532ea85ae7.svg" class="org-svg" />
+</span>
+</div>
+<p>
+where each <img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_bb4dcc7832fc6c9decf8eb2eaa695bb4cda7c7d0.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_bb4dcc7832fc6c9decf8eb2eaa695bb4cda7c7d0.svg" class="org-svg" /> is a <a href="20230727-projective_object.html#ID-605bb0c6-3cb5-44d6-bb3e-660f0fef14d1">projective object</a>:
+</p>
+
+<p>
+Suppose there exist <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functors</a> <img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_9ec617f983ce3dfe4b75d8d8a17981fe2afe3dfb.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_9ec617f983ce3dfe4b75d8d8a17981fe2afe3dfb.svg" class="org-svg" /> with
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_63edbc986afe1323f48cadc602a8c9165c63dc9a.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_63edbc986afe1323f48cadc602a8c9165c63dc9a.svg" class="org-svg" />
+</span>
+</div>
+<p>
+where <img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_48ef11455d869295bb15e0375df3c7aaf134bee2.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_48ef11455d869295bb15e0375df3c7aaf134bee2.svg" class="org-svg" /> is an <a href="20220819135905-epimorphismus.html#ID-ad206194-a416-4910-a5c4-d72528ae5ba0">epimorphism</a>.
+Then <img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_03546eaaf8a2ee0e42d1ffa6f8bedae9d4f50394.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_03546eaaf8a2ee0e42d1ffa6f8bedae9d4f50394.svg" class="org-svg" /> is an epi for <img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_eee30226078b1e476f0ab6256f24b336a44579e0.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_eee30226078b1e476f0ab6256f24b336a44579e0.svg" class="org-svg" /> (cf. <a href="20240223-natural_transformation_and_maps_as_epimorphism.html#ID-4345649d-7dab-4fa3-9e21-2c1ee433afb5">natural transformation and morphisms as epimorphism</a>, <a href="20240121-category_rmod_as_bicomplete_category.html#ID-67c0756a-2b56-4c30-954d-8d03eabed0e2">Category RMod as bicomplete category</a>)
+</p>
+
+<p>
+By definition of a free abelian group as <a href="20220831221344-linksadjungierte.html#ID-1e87e6b9-24df-41fb-bc1b-d35cfd2eaa7f">left adjoint</a>, we conclude, that <img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_5f965d0a56374955f8a17da7129fa95cde5a6603.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_5f965d0a56374955f8a17da7129fa95cde5a6603.svg" class="org-svg" /> corresponds naturally to a <a href="20220821182915-naturliche_transformation_kategorientheorie.html#ID-4e6e50c0-c0df-44ff-a140-bebfa492ef7e">natural transformation</a> 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_53415eb6a940a11d410d695dc6c2fe47a9217fb8.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_53415eb6a940a11d410d695dc6c2fe47a9217fb8.svg" class="org-svg" />
+</span>
+</div>
+<p>
+which in turn corresponds by <a href="20231230-yoneda_by_natural_transformations.html#ID-84d5f0dc-7efb-41e1-9ba4-5d7fefd681d4">Yoneda by natural transformations from Hom-Sets to a presheaf</a> to an element
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_f0d00de4eeb216ef747f556a4210d9cb48aca00f.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_f0d00de4eeb216ef747f556a4210d9cb48aca00f.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+By similar reasoning, a natural transformation
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_c3e1a4c6c4eff8bcc6a5430d2b92fe3130630691.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_c3e1a4c6c4eff8bcc6a5430d2b92fe3130630691.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+corresponds analogously to an element <img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_66b11343bcfb3718cdefc5b32167c9b7cad33c54.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_66b11343bcfb3718cdefc5b32167c9b7cad33c54.svg" class="org-svg" />.
+</p>
+
+<p>
+Then the diagram commutes <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_d9a05e306334c8cc5cfc99d5e2a772cdd1d759c6.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_d9a05e306334c8cc5cfc99d5e2a772cdd1d759c6.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Since <img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_224d6ba9db532b34f6ed3914cf5449ff7fe5e742.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_224d6ba9db532b34f6ed3914cf5449ff7fe5e742.svg" class="org-svg" /> is objectwise an <a href="20220819135905-epimorphismus.html#ID-ad206194-a416-4910-a5c4-d72528ae5ba0">epimorphism</a> these exists (cf. <a href="20240224-epimorphism_in_ab_as_surjection.html#ID-a8a1bbf4-4d2d-43c4-8543-7a620974ab7f">epimorphism in Ab as surjection</a>)
+</p>
+
+<p>
+Therefore <img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_a31f1aec3c59b79d7a3a5fb02dfda119d46709ca.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_a31f1aec3c59b79d7a3a5fb02dfda119d46709ca.svg" class="org-svg" /> is a <a href="20240126-chain_complex_of_projectives.html#ID-3f92b779-9dc8-478d-98b6-06757efee7a8">chain complex of projectives</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-org0d5e288" class="outline-3">
+<h3 id="org0d5e288"><span class="section-number-3">2.2.</span> proof</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Consider
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_dcfadb69557570f43524a01c5ddb2e5d9a21d0ac.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_dcfadb69557570f43524a01c5ddb2e5d9a21d0ac.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+where
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_7d758153cf299e896ef046918218b09c62dd6cab.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_7d758153cf299e896ef046918218b09c62dd6cab.svg" class="org-svg" />
+</span>
+</div>
+<p>
+resp. the map corresponding to <img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_0da2fc2ba4568c68d0c9373efb95f0fb1f9e8aad.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_0da2fc2ba4568c68d0c9373efb95f0fb1f9e8aad.svg" class="org-svg" />
+</p>
+
+<p>
+Thus the composite is
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_803356f6c50039faf300e7dbad03bf1e52ab1a71.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_803356f6c50039faf300e7dbad03bf1e52ab1a71.svg" class="org-svg" />
+</span>
+</div>
+
+
+<p>
+Then <img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_d2e422d442fc3b2214bb390d33daa9d3fb84c1dd.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_d2e422d442fc3b2214bb390d33daa9d3fb84c1dd.svg" class="org-svg" /> can be extended to a natural chain homotopy between <img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_c24d38376177181f14156cf7d79866ea7d0a376c.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_c24d38376177181f14156cf7d79866ea7d0a376c.svg" class="org-svg" />
+This requires, that for <img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_053e7725cd6a7354946da5b845bf249f37260bd3.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_053e7725cd6a7354946da5b845bf249f37260bd3.svg" class="org-svg" /> certain maps 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_a44cab5044e3f67ca96e54fa11bc43b95f4ff1da.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_a44cab5044e3f67ca96e54fa11bc43b95f4ff1da.svg" class="org-svg" />
+</span>
+</div>
+<p>
+vanish.
+</p>
+
+<p>
+By yoneda, such maps are given characterized by elements in 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_a11bae16ef7373f4813b3b61d70fa982cef6a873.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_a11bae16ef7373f4813b3b61d70fa982cef6a873.svg" class="org-svg" />
+</span>
+</div>
+<p>
+which is the trivial group, as <img src="file:///home/anton/html/ltximg/20240223-singular_chain_complexes_and_homotopic_maps_e69b92749858bccacfc38f899357289771a1c236.svg" alt="20240223-singular_chain_complexes_and_homotopic_maps_e69b92749858bccacfc38f899357289771a1c236.svg" class="org-svg" /> is <a href="20230330173711-kontraktibler_raum.html#ID-97035c96-d3da-46f5-afad-856a662cb0e5">contractible</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-14 Mo 09:12</p>
+</div>
+</body>
+</html>

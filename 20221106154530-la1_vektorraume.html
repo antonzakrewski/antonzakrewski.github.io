@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 21:37 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LA1: Vektorräume (4)</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">LA1: Vektorräume (4)</h1>
+<div id="outline-container-org593e012" class="outline-2">
+<h2 id="org593e012"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">K-Vektorraum</a></li>
+<li><a href="20221009092955-unterraum.html#ID-854e21c6-b2ac-4d8c-b859-7797b3ddb35e">Unterraum</a></li>
+<li><a href="20221115090943-kriterium_fur_einen_unterraum.html#ID-6fee0613-0e77-44a1-872a-955d530394ab">Kriterium für einen Unterraum</a></li>
+<li><a href="20221206084011-kriterium_fur_eine_menge_von_vektoren_als_korper.html#ID-76e19fa0-a64e-4d4f-9930-bb1cbce66afa">Kriterium für eine Menge von Vektoren als Körper</a></li>
+<li><a href="20221106150036-k_n_vektorraum.html#ID-031566e0-1029-4a63-bd3a-457044d27a7b">\(K^n\) Vektorraum</a></li>
+<li><a href="20221211164515-rechenregeln_fur_vektorraume.html#ID-68a62a93-c03b-4ab4-8cb7-c09f70f08906">Rechenregeln für Vektorräume</a> (todo)</li>
+<li><a href="20221106144907-nullraum.html#ID-f597a3a2-475c-4bb8-849f-d464dfaef9b9">Nullraum</a></li>
+<li><a href="20221106150436-polynomraum.html#ID-5cbc774e-a16e-4356-9803-256b05a002f1">Polynomraum</a></li>
+<li><a href="20221106150742-unterkorper_als_vektorraum.html#ID-c61e6842-9288-4fa6-aaa1-0e8a3ed598e4">Unterkörper als Vektorraum</a></li>
+<li><a href="20221105170616-von_einem_vektor_erzeugter_linearer_unterraum.html#ID-59a5b028-6707-4aff-b8fa-f470e1cd1234">von einem Vektor erzeugter linearer Unterraum</a></li>
+<li><a href="20221106152549-erzeugendensystem.html#ID-f76ea8a6-1176-46cf-a300-c2312e60e6d8">Erzeugendensystem</a></li>
+<li><a href="20221106152525-triviale_erzeugendensystem.html#ID-3d77175a-4067-4011-abe6-fc0356a0b6ff">triviale Erzeugendensystem</a></li>
+<li><a href="20221106151731-lemma_uber_den_schnitt_von_vektorraumen_als_vektorraum.html#ID-4c9917bb-5d6a-495a-b50e-6a2b3b52acee">Schnitt von Vektorräumen als Vektorraum</a></li>
+<li><a href="20221211165125-lemma_uber_das_erzeugendensystem_als_kleinster_unterraum_mit_der_menge.html#ID-52340ee7-85f8-4c37-8cd1-ad9aa81a2bdc">Erzeugendensystem als kleinster Unterraum mit der Menge</a></li>
+<li><a href="20220207224704-lineare_abhangigkeit.html#ID-97e6b172-9da3-4ad6-a1b1-a589a41c8ec5">Lineare Abhängigkeit</a></li>
+<li><a href="20220207224644-lineare_unabhangigkeit.html#ID-c4d1496f-6012-4ade-8b98-3e29dad89ded">Lineare Unabhängigkeit</a></li>
+<li><a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">Basis (Vektorraum)</a></li>
+<li><a href="20221109121448-eindeutigkeit_der_dimension.html#ID-ae004b2b-ae54-4bd3-943c-cbaa98711376">Eindeutigkeit der Dimension</a></li>
+<li><a href="20221109111932-satz_uber_die_existenz_einer_basis_in_einem_endlich_erzeugten_vektorraum.html#ID-545e0404-237c-4981-816c-ae700b4998a2">Existenz einer Basis in einem endlich erzeugten Vektorraum</a></li>
+<li><a href="20221211171225-satz_uber_die_aquivalenz_von_basis_minimales_erzeugendensystem_und_maximal_linear_unabhangige_teilmenge.html#ID-c340bcf8-acfa-464f-a3d5-ad947a2d1efd">Äquivalenz von Basis, minimales Erzeugendensystem und maximal linear unabhängige Teilmenge</a></li>
+<li><a href="20221109111900-austauschlemma_einer_basis.html#ID-53f7b204-62ec-401e-96c1-bbc1cdd7bbec">Austauschlemma einer Basis</a></li>
+<li><a href="20221109113020-austauschsatz_von_steinitz.html#ID-860f3c52-9845-4cae-9b24-ac2a07a653e0">Austauschsatz von Steinitz</a></li>
+<li><a href="20221109121448-eindeutigkeit_der_dimension.html#ID-ae004b2b-ae54-4bd3-943c-cbaa98711376">Eindeutigkeit der Dimension</a></li>
+<li><a href="20220102135318-dimension.html#ID-3e484fb0-c9a8-485a-999b-4f0052bd13e4">Dimension (Vektorraum)</a></li>
+<li><a href="20221113212113-standardbasis.html#ID-24542220-bbf5-4bba-80cb-327831396ed3">Standardbasis</a></li>
+<li><a href="20221117141526-lemma_uber_die_existenz_eines_unterraums_als_komplement.html#ID-744d297c-07d1-43d2-b5e3-a8c6f8ee117e">Existenz eines Unterraums als Komplement</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20230115185831-uneindeutigkeit_des_komplement_eines_unterraums.html#ID-128c8196-321a-4d10-b30d-c343fd898f24">Uneindeutigkeit des Komplement eines Unterraums</a></li>
+<li><a href="20230115185134-maximale_machtigkeit_einer_linear_unabhangigen_menge_in_abhangigkeit_von_der_basis.html#ID-5cdf7d2e-16e3-48a1-b412-1c0921be7c7a">Maximale Mächtigkeit einer linear Unabhängigen Menge in Abhängigkeit von der Basis</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 21:37</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-15 Di 23:04 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>lifting functors for kucera theorem</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">lifting functors for kucera theorem</h1>
+<div id="outline-container-org9225e8d" class="outline-2">
+<h2 id="org9225e8d"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20240307-lifting_functors_for_kucera_theorem_2d5d1c2bfbb1a2fca757f722875cd0787290c048.svg" alt="20240307-lifting_functors_for_kucera_theorem_2d5d1c2bfbb1a2fca757f722875cd0787290c048.svg" class="org-svg" /> be <a href="20230225165858-lokal_kleine_kategorie.html#ID-29f14fa2-ae57-46d2-8e23-3f2924bc1ebe">locally small categories</a> and
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240307-lifting_functors_for_kucera_theorem_6778db234aa51145cae22d63fe74a816772d2792.svg" alt="20240307-lifting_functors_for_kucera_theorem_6778db234aa51145cae22d63fe74a816772d2792.svg" class="org-svg" />
+</span>
+</div>
+<p>
+be a <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a>, which is <a href="20231129-object_injective_functor.html#ID-48d5a6f0-4a1d-4ab5-aaf5-c9b0110dc1be">injective on objects</a> 
+</p>
+
+<p>
+Then there exist <a href="20230402143946-concrete_category.html#ID-5445ec6b-bf83-4c73-a8d1-b2bd4e7e37a7">concrete</a> categories
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240307-lifting_functors_for_kucera_theorem_fc59dde3ab7f6463801561ffcc0ed1388854e702.svg" alt="20240307-lifting_functors_for_kucera_theorem_fc59dde3ab7f6463801561ffcc0ed1388854e702.svg" class="org-svg" />
+</span>
+</div>
+<p>
+with <a href="20230301211925-voller_funktor.html#ID-300944ac-0e6d-4b27-99f1-176a261999aa">full</a> and <a href="20231111-surjective_functor.html#ID-ce6efc54-e4f5-4e0d-a8e8-959bd2de193a">surjective on object</a> <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functors</a> to <img src="file:///home/anton/html/ltximg/20240307-lifting_functors_for_kucera_theorem_760824120891fc757bc0445145b027d09b237baa.svg" alt="20240307-lifting_functors_for_kucera_theorem_760824120891fc757bc0445145b027d09b237baa.svg" class="org-svg" /> resp. <img src="file:///home/anton/html/ltximg/20240307-lifting_functors_for_kucera_theorem_7e27669eaf03480bc8270e46d054b5bee8696749.svg" alt="20240307-lifting_functors_for_kucera_theorem_7e27669eaf03480bc8270e46d054b5bee8696749.svg" class="org-svg" /> and a functor 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240307-lifting_functors_for_kucera_theorem_2b3ec60c719476155288c44faf660a8097272a7c.svg" alt="20240307-lifting_functors_for_kucera_theorem_2b3ec60c719476155288c44faf660a8097272a7c.svg" class="org-svg" />
+</span>
+</div>
+<p>
+making
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240307-lifting_functors_for_kucera_theorem_d3042b87264a8b445d62616e2006c3782f850ae0.svg" alt="20240307-lifting_functors_for_kucera_theorem_d3042b87264a8b445d62616e2006c3782f850ae0.svg" class="org-svg" />
+</span>
+</div>
+<p>
+commute
+</p>
+</div>
+</div>
+<div id="outline-container-orgecb63fd" class="outline-2">
+<h2 id="orgecb63fd"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Choose a <a href="20220929195946-wohlordnung.html#ID-8f3e284b-c3c9-4aaf-8bf5-5eadc47faa78">well order</a> <img src="file:///home/anton/html/ltximg/20240307-lifting_functors_for_kucera_theorem_705bf566b4c55049624189802b52ea2014720304.svg" alt="20240307-lifting_functors_for_kucera_theorem_705bf566b4c55049624189802b52ea2014720304.svg" class="org-svg" /> with sets as bounded subclasses for <img src="file:///home/anton/html/ltximg/20240307-lifting_functors_for_kucera_theorem_1e83948455da6286edf82c9ff637f52e716dc4c4.svg" alt="20240307-lifting_functors_for_kucera_theorem_1e83948455da6286edf82c9ff637f52e716dc4c4.svg" class="org-svg" />.
+Then let
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240307-lifting_functors_for_kucera_theorem_7c3c68fbf2dd0506797767716e1bde7f973feaf5.svg" alt="20240307-lifting_functors_for_kucera_theorem_7c3c68fbf2dd0506797767716e1bde7f973feaf5.svg" class="org-svg" />
+</span>
+</div>
+<p>
+be a well order on <img src="file:///home/anton/html/ltximg/20240307-lifting_functors_for_kucera_theorem_c43a3b294950fa88d16be61c426250dc7c34b07e.svg" alt="20240307-lifting_functors_for_kucera_theorem_c43a3b294950fa88d16be61c426250dc7c34b07e.svg" class="org-svg" />.
+</p>
+
+<p>
+Then by the steps in <a href="20240221-kucera_theorem.html#ID-1e87edac-9a56-40dd-985a-451bcdd57ee2">Kucera's Theorem</a>, there exist the concrete categories <img src="file:///home/anton/html/ltximg/20240307-lifting_functors_for_kucera_theorem_9df7a3bb5f6521544c235885b22e7fc8b518a917.svg" alt="20240307-lifting_functors_for_kucera_theorem_9df7a3bb5f6521544c235885b22e7fc8b518a917.svg" class="org-svg" />
+</p>
+
+<p>
+Furthermore, we can define
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240307-lifting_functors_for_kucera_theorem_38ed1e22c5f99d9ed18bd4e0396851398acc9a65.svg" alt="20240307-lifting_functors_for_kucera_theorem_38ed1e22c5f99d9ed18bd4e0396851398acc9a65.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+It follows, that this is a welldefined functor, as it preserves the identity
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240307-lifting_functors_for_kucera_theorem_3b09dbd169c24161fdd2edb2db18dff64515829e.svg" alt="20240307-lifting_functors_for_kucera_theorem_3b09dbd169c24161fdd2edb2db18dff64515829e.svg" class="org-svg" />
+</span>
+</div>
+<p>
+and that it is compatible with composition, since <img src="file:///home/anton/html/ltximg/20240307-lifting_functors_for_kucera_theorem_ace49a839ea0881fb621d3e6703c754c68cb04e4.svg" alt="20240307-lifting_functors_for_kucera_theorem_ace49a839ea0881fb621d3e6703c754c68cb04e4.svg" class="org-svg" /> preserves the wellorder, hence
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240307-lifting_functors_for_kucera_theorem_9ee6115d85ecac4b4de163ba279bb546cd843b83.svg" alt="20240307-lifting_functors_for_kucera_theorem_9ee6115d85ecac4b4de163ba279bb546cd843b83.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+or &lt;insert cases&gt;
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240307-lifting_functors_for_kucera_theorem_ecd7655b3f6f9e600ac1746f079b997d5e25a02f.svg" alt="20240307-lifting_functors_for_kucera_theorem_ecd7655b3f6f9e600ac1746f079b997d5e25a02f.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Here it follows, that
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240307-lifting_functors_for_kucera_theorem_e7e9339de73b64cb774b06ea3e7ea4613e4cbecc.svg" alt="20240307-lifting_functors_for_kucera_theorem_e7e9339de73b64cb774b06ea3e7ea4613e4cbecc.svg" class="org-svg" />
+</span>
+</div>
+<p>
+commutes, as by construction
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240307-lifting_functors_for_kucera_theorem_638bef3842269757f3ce445ceddbec36a0b91ab2.svg" alt="20240307-lifting_functors_for_kucera_theorem_638bef3842269757f3ce445ceddbec36a0b91ab2.svg" class="org-svg" />
+</span>
+</div>
+<p>
+is true.
+</p>
+
+<p>
+Furthermore we have
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240307-lifting_functors_for_kucera_theorem_41a8d0b11375aeddd9c5679ecb8a68f752e8dbd7.svg" alt="20240307-lifting_functors_for_kucera_theorem_41a8d0b11375aeddd9c5679ecb8a68f752e8dbd7.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-15 Di 23:04</p>
+</div>
+</body>
+</html>

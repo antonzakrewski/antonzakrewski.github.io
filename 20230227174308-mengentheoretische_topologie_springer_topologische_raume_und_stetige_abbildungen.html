@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 22:03 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mengentheoretische Topologie (Springer) - Topologische Räume und stetige Abbildungen</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Mengentheoretische Topologie (Springer) - Topologische Räume und stetige Abbildungen</h1>
+<div id="outline-container-org9874b8c" class="outline-2">
+<h2 id="org9874b8c"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org6ed048a" class="outline-3">
+<h3 id="org6ed048a"><span class="section-number-3">1.1.</span> <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topologische Räume</a></h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20220930230520-topologie_auf_einer_menge.html#ID-1ced2edb-806d-4fb8-ada3-ca97b7ea1d10">Topologie</a></li>
+<li><a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topologischer Raum</a></li>
+<li><a href="20230227174346-indiskrete_topologie.html#ID-9447f709-30a2-4b9a-b651-73909b037fad">indiskrete Topologie</a></li>
+<li><a href="20221002144647-diskrete_topologie.html#ID-c9466868-60fd-4b1f-ae1c-1bf7606f3ec7">diskrete Topologie</a></li>
+<li><a href="20230227174434-naturliche_topologie.html#ID-956b4fb0-31c8-4401-a276-04d1e04a0d36">natürliche Topologie</a></li>
+<li><a href="20230225212410-ordnungstopologie.html#ID-01b4bc63-62e3-4d71-9c78-1255941c1837">Ordnungstopologie</a></li>
+<li><a href="20230207074108-finite_closed_topology.html#ID-faed368d-25e5-4118-b24c-807a634c9771">cofinite topology</a></li>
+<li><a href="20230227174716-right_order_topology.html#ID-c9d8303e-fb5d-4162-8e20-2f1f4edb7398">right order topology</a></li>
+<li><a href="20230227174722-left_order_topology.html#ID-69fd3a83-0108-411c-a1e3-3664cb016d4a">left order topology</a></li>
+<li><a href="20230225212410-ordnungstopologie.html#ID-01b4bc63-62e3-4d71-9c78-1255941c1837">Ordnungstopologie</a></li>
+<li><a href="20230227174857-kriterium_fur_die_gleiche_topologie_zweier_metriken.html#ID-b5069ff6-cd88-4ef8-87ea-5b8d7e1a59bc">Kriterium für die gleiche Topologie zweier Metriken</a> TODO</li>
+<li><a href="20221002152517-basis_einer_topologie.html#ID-1a5a6999-876a-4b54-b786-acafe4968fd6">Basis einer Topologie</a></li>
+<li><a href="20230211131537-subbasis_einer_topologie.html#ID-9d1f4366-7535-41ca-bb72-967675fb06ab">Subbasis einer Topologie</a></li>
+<li><a href="20230211131931-basis_der_abgeschlossenen_mengen.html#ID-a27e5b1a-13ef-482e-8254-c921689ef21d">Basis der abgeschlossenen Mengen</a></li>
+<li><a href="20230312232049-existenz_einer_eindeutigen_topologie_zu_einer_basis.html#ID-d7225d0d-1d41-472f-a0a8-a884eed01c06">Existenz einer eindeutigen Topologie zu einer Basis</a></li>
+</ul>
+</div>
+<div id="outline-container-org76b4c68" class="outline-4">
+<h4 id="org76b4c68"><span class="section-number-4">1.1.1.</span> <span class="todo TODO">TODO</span> </h4>
+<div class="outline-text-4" id="text-1-1-1">
+<ul class="org-ul">
+<li><a href="20230313000053-existenz_einer_eindeutigen_topologie_zur_basis_der_abgeschlossenen_mengen.html#ID-2de6d74f-7d77-403c-abfe-2152e0b87cdf">Existenz einer eindeutigen Topologie zur Basis der abgeschlossenen Mengen</a></li>
+<li><a href="20230313000035-existenz_einer_eindeutigen_topologie_zu_einer_subbasis.html#ID-cc400e87-17ce-4b6a-ad7c-f7ba320c6cf7">Existenz einer eindeutigen Topologie zu einer Subbasis</a></li>
+<li><a href="20230312232147-bedingung_fur_eine_basis_der_abgeschlossenen_mengen_einer_topologie.html#ID-ab21eeb5-fe8e-4961-b48c-fe00a8d53f2b">Bedingung für eine Basis der abgeschlossenen Mengen einer Topologie</a></li>
+<li><a href="20230312232134-bedingung_fur_eine_basis_einer_topologie.html#ID-b8f08e4a-d1b7-40ba-a9e7-aa6757d00f13">Bedingung für eine Basis einer Topologie</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org86aa4fa" class="outline-3">
+<h3 id="org86aa4fa"><span class="section-number-3">1.2.</span> Umgebung</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">Umgebung</a></li>
+<li><a href="20230222170555-umgebungssystem.html#ID-ee740e55-cc2b-4121-9acb-73fead769bb9">Umgebungssystem</a></li>
+<li><a href="20230222170300-offenheit_und_umgebung_aller_punkte.html#ID-a6a5b663-7773-4622-9bfa-8b870e5e381f">Offenheit und Umgebung aller Punkte</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20230222170745-abgeschlossenheit_des_umgebunggsystems_unter_durchschnitt.html#ID-1f498475-e454-4b98-9d9a-59716b58d5aa">Abgeschlossenheit des Umgebunggsystems unter Durchschnitt</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20230307205358-umgebungsfilter.html#ID-3c344219-7a09-499a-972e-d2ee27f45aa5">Umgebungsfilter</a></li>
+<li><a href="20230313094652-existenz_einer_eindeutigen_topologie_zu_einem_umgebungssystem.html#ID-cf44b4ce-c5ac-485f-b58a-b6166e46e93c">Existenz einer eindeutigen Topologie zu einem Umgebungssystem</a> (todo) 2.9</li>
+<li><a href="20230211132320-umgebungsbasis.html#ID-24c84114-5d59-4fa3-87fb-10baabcc5faa">Umgebungsbasis</a></li>
+<li><a href="20230211132406-erste_abzahlbarkeitsaxiom.html#ID-8ec08cf5-0668-49c6-a8f3-7ec959f31636">erste Abzählbarkeitsaxiom</a></li>
+<li><a href="20230211132410-zweite_abzahlbarkeitsaxiom.html#ID-155a3f29-5e48-4647-a11e-5bc32b501755">zweite Abzählbarkeitsaxiom</a></li>
+<li><a href="20230222171544-erste_abzahlbarkeitsaxiom_in_metrischen_raumen.html#ID-03e88cab-5832-4ecd-a005-84ce1036be99">erste Abzählbarkeitsaxiom in metrischen Räumen</a></li>
+<li><a href="20230222171916-erste_abzahlbarkeitsaxiom_als_folgerung_des_zweiten.html#ID-a01a9241-a3ed-48f9-91bc-1db2fc308fa4">erste Abzählbarkeitsaxiom als Folgerung des zweiten</a> TODO</li>
+<li><a href="20230222172815-innerer_punkt_topologischer_raum.html#ID-47791b32-716b-4159-94e7-31c4f0b9e4cd">innerer Punkt (topologischer Raum)</a></li>
+<li><a href="20230222174058-randpunkt_topologie.html#ID-8e438d10-6a6c-4087-9ebe-4b53f3b7e420">Randpunkt (Topologie)</a></li>
+<li><a href="20230222172752-inneres_einer_topologie.html#ID-14daf62f-ca16-4f9a-a71f-a84e86b23c1c">Inneres in einer Topologie</a></li>
+<li><a href="20230222175938-beruhrungspunkt_in_einer_topologie.html#ID-fced629d-ec3c-40b6-ad93-18351037c458">Berührungspunkt in einer Topologie</a></li>
+<li><a href="20230222175426-abschluss_in_einer_topologie.html#ID-9134c61c-5ec6-4cd6-8928-9ef53b6bfd37">Abschluss in einer Topologie</a></li>
+<li><a href="20221124232157-dichte_menge_topologie.html#ID-921fe319-4945-4303-a9a5-3723804e0737">dichte Menge (Topologie)</a></li>
+<li><a href="20230222172146-nirgends_dicht_topologie.html#ID-022a1587-f478-44ec-a8c6-3ecb6fcc6ad8">nirgends dicht (Topologie)</a></li>
+<li><a href="20230222175746-abschluss_als_kleinste_abgeschlossene_menge.html#ID-ece59b8c-3cad-4e6f-9dd4-63d68892e3dc">Abschluss als kleinste abgeschlossene Menge</a></li>
+<li><a href="20230222173339-innere_einer_topologie_als_großte_offene_menge.html#ID-351982c5-c63f-4633-926c-bbeb9fe84be2">Innere einer Topologie als größte offene Menge</a></li>
+<li><a href="20230222175348-rand_als_abschluss_ohne_innerem.html#ID-0891d934-11df-462b-92bf-74654d0310b6">Rand als Abschluss ohne Innerem</a></li>
+</ul>
+</div>
+
+<div id="outline-container-org3ff6c23" class="outline-4">
+<h4 id="org3ff6c23"><span class="section-number-4">1.2.1.</span> TODO</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<ul class="org-ul">
+<li><a href="20230112111122-cantor_menge.html#ID-69aa2fcf-2337-4a36-868f-6ba79e8f37ec">Cantor Menge</a></li>
+<li><a href="20230227184325-cantor_menge_als_abgeschlossene_menge.html#ID-d41749f6-bfe0-47b0-b073-94e64bbd972a">Cantor Menge als abgeschlossene Menge</a></li>
+<li><a href="20230227184346-uberabzahlbarkeit_der_cantor_menge.html#ID-881e211b-0c9b-494d-9cfd-dd966335fa9b">Überabzählbarkeit der Cantor Menge</a></li>
+<li><a href="20230227184409-cantor_menge_als_nirgends_dichte_menge.html#ID-b50266c2-2aa7-477f-92cd-554064257796">Cantor Menge als nirgends dichte Menge</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org39c2637" class="outline-3">
+<h3 id="org39c2637"><span class="section-number-3">1.3.</span> stetig</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">stetig</a></li>
+<li><a href="20230227184616-charakterisierung_der_diskreten_topologie_anhand_der_stetigkeit.html#ID-11444ebf-4239-4bb1-8a5f-baad267831d7">Charakterisierung der diskreten Topologie anhand der stetigkeit</a></li>
+<li><a href="20230227184712-charakterisierung_der_indiskreten_topologie_anhand_der_stetigkeit.html#ID-0ff036c5-ae57-48f8-9657-2cddee1d998a">Charakterisierung der indiskreten Topologie anhand der Stetigkeit</a></li>
+<li><a href="20230228171900-metrische_charakterisierungen_der_stetigkeit.html#ID-d1e93e0b-cf6e-48e4-a187-eada7f66c3b0">metrische charakterisierungen der Stetigkeit</a></li>
+<li>2.19d) ???</li>
+<li><a href="20230211130603-verknupfung_stetiger_funktionen_topologisch.html#ID-38904452-396a-414e-97f8-6a26807e8626">Verknüpfung stetiger Funktionen (topologisch)</a></li>
+<li><a href="20230228051544-aquivalente_charakterisierungen_einer_stetigen_abbildung_topologie.html#ID-9d12f153-de79-4958-be55-ef19e0f321c7">Äquivalente Charakterisierungen einer stetigen Abbildung (Topologie)</a></li>
+<li><a href="20230307213658-folgenstetigkeit_in_erstabzahlbaren_raumen.html#ID-6206de02-e83b-4430-ad43-5f59b7cffe35">Folgenstetigkeit in erstabzählbaren Räumen</a></li>
+<li><a href="20230227185527-feinere_topologie.html#ID-38a15a0c-913a-425c-b5d0-457bf916adcd">feinere Topologie</a></li>
+<li><a href="20230227185536-grobere_topologie.html#ID-d1de74ec-bfab-434e-bdc3-1d301dfd09be">gröbere Topologie</a></li>
+<li><a href="20230313193949-feinere_topologie_und_identitatsabbildung.html#ID-90ffe82e-f945-4229-8bbb-59caedb1c535">Feinere Topologie und Identitätsabbildung</a></li>
+<li><a href="20230227185804-stetigkeit_in_einem_punkt_topologie.html#ID-415665d1-cda9-465e-87f0-9def9ccacd53">Stetigkeit in einem Punkt (Topologie)</a></li>
+<li><a href="20230227190123-abgeschlossene_abbildung_topologie.html#ID-007193f7-4fbb-4a0b-9e26-1bd7c7dcb6c3">abgeschlossene Abbildung (Topologie)</a></li>
+<li><a href="20230227190111-offene_abbildung_topologie.html#ID-b42a4b40-0d77-444c-8385-4bfbb0e44c52">offene Abbildung (Topologie)</a></li>
+<li><a href="20230227204932-kriterium_fur_einen_homeomorphismus.html#ID-053d2bdc-9e30-4459-85c0-19777a5140da">Homeomorphismus als stetig abgeschlossene/offene Bijektion</a></li>
+</ul>
+</div>
+
+<div id="outline-container-org9810048" class="outline-4">
+<h4 id="org9810048"><span class="section-number-4">1.3.1.</span> <span class="todo TODO">TODO</span> </h4>
+<div class="outline-text-4" id="text-1-3-1">
+<ul class="org-ul">
+<li><a href="20230313214927-offene_abbildung_und_umgebungsbasis.html#ID-86f3ae30-5daf-4c9b-bed3-00aef62433a0">offene Abbildung und Umgebungsbasis</a></li>
+<li><a href="20230313214900-abgeschlossene_abbildung_und_basis_der_abgeschlossenen_mengen.html#ID-3cfdc8ac-8498-4b29-ae61-0d4996ae2da7">abgeschlossene Abbildung und Basis der abgeschlossenen Mengen</a></li>
+<li></li>
+
+<li><a href="20230313214747-offene_menge_und_leerer_schnitt_mit_dem_rand.html#ID-b8157da8-5f36-401d-bd02-70eb38d165f4">Offene Menge und leerer Schnitt mit dem Rand</a></li>
+<li><a href="20230313215514-hullenoperator.html#ID-1fd31bd2-0929-48bd-a70e-ccd3d14ba4ef">Hüllenoperator</a> (fertig)</li>
+<li><a href="20230313215553-existenz_einer_eindeutigen_topologie_fur_einen_hullenoperator_als_abschluss.html#ID-7dcad629-2eb4-43b7-a564-b3a093576a66">Existenz einer eindeutigen Topologie für einen Hüllenoperator als Abschluss</a></li>
+<li><a href="20230313220506-nirgends_dicht_und_uberall_dicht_des_komplements.html#ID-b65902e6-22f7-4a04-885f-f993d1684e85">nirgends dicht einer Abgeschlossenen Menge und Dichte des Komplements</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 22:03</p>
+</div>
+</body>
+</html>

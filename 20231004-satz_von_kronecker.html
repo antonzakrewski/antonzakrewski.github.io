@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 18:32 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Satz von Kronecker über die Körpererweiterung</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Satz von Kronecker über die Körpererweiterung</h1>
+<div id="outline-container-orgb01163e" class="outline-2">
+<h2 id="orgb01163e"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei <img src="file:///home/anton/html/ltximg/20231004-satz_von_kronecker_0f7a7b74ed40a122d0be79fe262f3ce2607b5a96.svg" alt="20231004-satz_von_kronecker_0f7a7b74ed40a122d0be79fe262f3ce2607b5a96.svg" class="org-svg" /> ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a> und <img src="file:///home/anton/html/ltximg/20231004-satz_von_kronecker_d232654ff823bd4fc0ed154c1e43defa27a9f78d.svg" alt="20231004-satz_von_kronecker_d232654ff823bd4fc0ed154c1e43defa27a9f78d.svg" class="org-svg" /> ein <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c-70182b7714f9">Polynom</a> von <a href="20220401194742-grad_polynom.html#ID-38057130-59af-422a-a717-372042339f5c">grad</a> <img src="file:///home/anton/html/ltximg/20231004-satz_von_kronecker_02dd52ad707f1409f11ae6644b944ec7c803ad90.svg" alt="20231004-satz_von_kronecker_02dd52ad707f1409f11ae6644b944ec7c803ad90.svg" class="org-svg" />.
+Dann existiert eine <a href="20230722-endliche_korpererweiterung.html#ID-beb16d13-f091-4e15-ba94-4f4f2db12011">endliche Körpererweiterung</a> <img src="file:///home/anton/html/ltximg/20231004-satz_von_kronecker_e8f7154cdc1a44141121fe95c19e8b6c98cb8afe.svg" alt="20231004-satz_von_kronecker_e8f7154cdc1a44141121fe95c19e8b6c98cb8afe.svg" class="org-svg" />, so dass <img src="file:///home/anton/html/ltximg/20231004-satz_von_kronecker_5461866a7289ba4c56a10a82a5622bfbdcb4ae22.svg" alt="20231004-satz_von_kronecker_5461866a7289ba4c56a10a82a5622bfbdcb4ae22.svg" class="org-svg" /> eine <a href="20220320113706-nullstelle.html#ID-b094e637-5f3c-42a2-a2c2-ae73bbbe29a2">Nullstelle</a> hat.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc1505c7" class="outline-2">
+<h2 id="orgc1505c7"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> sei <img src="file:///home/anton/html/ltximg/20231004-satz_von_kronecker_5461866a7289ba4c56a10a82a5622bfbdcb4ae22.svg" alt="20231004-satz_von_kronecker_5461866a7289ba4c56a10a82a5622bfbdcb4ae22.svg" class="org-svg" /> <a href="20221226010524-normiertes_polynom.html#ID-f17a0f11-0953-4728-91a6-9a81df943813">normiert</a> und <a href="20221226125836-irreduzibles_element.html#ID-0cc3140d-cb4c-48a2-8cb6-2d9801e34db0">irreduzibel</a> bzw. <a href="20230426123442-primelement.html#ID-ffa743e1-94ee-49fe-9647-396eeb233982">prim</a> (vgl. <a href="20230316221258-polynomring_uber_einem_korper_als_hauptidealring.html#ID-d0a25f1c-b5b1-46e3-bda8-6f094c70cd88">Polynomring in einer Variable über einem Körper und Polynomring als Hauptidealring</a>, <a href="20230426123641-irreduzibles_element_in_einem_hauptidealring_als_primelement.html#ID-9f97661e-12d1-4e24-b380-aff8b1393978">irreduzibles Element in einem Hauptidealring als Primelement</a>) <sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>
+Dann ist <img src="file:///home/anton/html/ltximg/20231004-satz_von_kronecker_427f035ad9edb51209396f57b439fc6c2eaa8f29.svg" alt="20231004-satz_von_kronecker_427f035ad9edb51209396f57b439fc6c2eaa8f29.svg" class="org-svg" /> ein <a href="20230329081717-primideal.html#ID-a8ae10f5-3b84-4fab-9e76-b006780ccc7f">Primideal</a> und sogar <a href="20230314223428-maximales_ideal.html#ID-9d76bba3-11a8-42c9-9bdb-f774da2bb06a">maximal</a> (vgl. <a href="20230725-prime_ideal_and_maximal_ideal_in_a_pid.html#ID-3ca9da07-da61-4501-991f-e5322b61e1b5">prime ideal and maximal ideal in a PID</a>)
+Damit ist <img src="file:///home/anton/html/ltximg/20231004-satz_von_kronecker_b94634e6b81bbf5d962a5ef4cf19abec0549cc89.svg" alt="20231004-satz_von_kronecker_b94634e6b81bbf5d962a5ef4cf19abec0549cc89.svg" class="org-svg" /> ein Körper (vgl. <a href="20230315003350-maximales_ideal_und_faktorring_als_korper.html#ID-069612e5-9aa8-4a4d-bd69-1ed717b5a892">maximales Ideal eines kommutativen Rings und Faktorring als Körper</a>).
+</p>
+
+<p>
+Sei die natürliche Identifikation 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231004-satz_von_kronecker_585de09e76f6a1c55a4a211618177a36108312c1.svg" alt="20231004-satz_von_kronecker_585de09e76f6a1c55a4a211618177a36108312c1.svg" class="org-svg" />
+</span>
+</div>
+<p>
+gegeben 
+Diese ist wegen <img src="file:///home/anton/html/ltximg/20231004-satz_von_kronecker_80e066d607935527e8943a27f8406c76a186d40e.svg" alt="20231004-satz_von_kronecker_80e066d607935527e8943a27f8406c76a186d40e.svg" class="org-svg" /> auch <a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injektiv</a>, da <img src="file:///home/anton/html/ltximg/20231004-satz_von_kronecker_d84e899846c742cc0fe17507c0b24e302db63d81.svg" alt="20231004-satz_von_kronecker_d84e899846c742cc0fe17507c0b24e302db63d81.svg" class="org-svg" /> gilt (vgl. <a href="20230725-field_and_ring_monomorphism.html#ID-4d4c1582-43f6-46a1-9fbd-314860613f48">field and ring monomorphism</a>, <a href="20230314174015-von_einer_einheit_erzeugtes_ideal.html#ID-cf419725-19a8-46df-bd48-e2b7c58b7996">von einer Einheit erzeugtes Ideal und triviales Ideal</a>)  
+</p>
+
+<p>
+Für <img src="file:///home/anton/html/ltximg/20231004-satz_von_kronecker_fe017db1ede876ddb632a62193f66d1d9a718ab9.svg" alt="20231004-satz_von_kronecker_fe017db1ede876ddb632a62193f66d1d9a718ab9.svg" class="org-svg" /> sei 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231004-satz_von_kronecker_3f9ac7f66283172fc53e9a4e8c397ec8ae2b377e.svg" alt="20231004-satz_von_kronecker_3f9ac7f66283172fc53e9a4e8c397ec8ae2b377e.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Dann gilt für den <a href="20221226010643-einsetzungshomomorphismus.html#ID-714a456e-dcd8-4e03-906b-2b497bf77766">evaluation homomorphism</a> auch
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231004-satz_von_kronecker_e8f028045a0fcc5ae3329e042342bda5b4ffbe58.svg" alt="20231004-satz_von_kronecker_e8f028045a0fcc5ae3329e042342bda5b4ffbe58.svg" class="org-svg" />
+</span>
+</div>
+<p>
+(sloppy notation)
+</p>
+
+<p>
+Damit ist <img src="file:///home/anton/html/ltximg/20231004-satz_von_kronecker_73eed9b29d43fbfeded6554d9fef135ba7ec0f7b.svg" alt="20231004-satz_von_kronecker_73eed9b29d43fbfeded6554d9fef135ba7ec0f7b.svg" class="org-svg" /> <a href="20230722-algebraisches_element.html#ID-727032cc-fa68-42ed-94b6-2721810dee73">algebraisch</a> mit <a href="20230723-minimalpolynom_eines_algebraischen_elements.html#ID-e76a1f34-1911-4281-a969-5abea577522a">Minimalpolynom</a> <img src="file:///home/anton/html/ltximg/20231004-satz_von_kronecker_1db39ac22e60f50bba56cb277b5591a1f20a1b63.svg" alt="20231004-satz_von_kronecker_1db39ac22e60f50bba56cb277b5591a1f20a1b63.svg" class="org-svg" />.
+</p>
+
+<p>
+Nach <a href="20231004-grad_der_algebraischen_korpererweiterung_und_grad_des_minimalpolynom.html#ID-9277f9d3-05d7-4b89-bf3d-c8e961f7dea9">Grad der algebraischen Körpererweiterung und Grad des Minimalpolynom</a> folgt dann für den <a href="20230722-grad_einer_korpererweiterung.html#ID-33c15990-df05-43a4-bfb7-ed9d17d629a5">Grad der Körpererweiterung</a> auch
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231004-satz_von_kronecker_eb0c740d83ccaee8d0489da041143b27068ecf8c.svg" alt="20231004-satz_von_kronecker_eb0c740d83ccaee8d0489da041143b27068ecf8c.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+die Existenz folgt aus
+</p>
+<ul class="org-ul">
+<li><a href="20230314223206-existenz_eines_maximalen_ideals.html#ID-028984d3-9095-4e31-ad1f-5acfc2e4c3c8">Existenz eines maximalen Ideals</a></li>
+<li><a href="20230427192101-primelement_und_primideal.html#ID-177751ec-dc30-42c1-b885-683786afd0e9">Primelement und erzeugte Primideal</a></li>
+<li><a href="20230426123612-primelement_als_irreduzibles_element.html#ID-887223b3-5e27-4b7f-8aee-77ddf2864e1c">prime implies irreducible</a></li>
+</ul></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 18:32</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,979 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-15 Di 23:19 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>modul: simplicial homotopy theory and infinity categories</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">modul: simplicial homotopy theory and infinity categories</h1>
+<div id="outline-container-orge521e4b" class="outline-2">
+<h2 id="orge521e4b"><span class="section-number-2">1.</span> Aspects</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orge765703" class="outline-3">
+<h3 id="orge765703"><span class="section-number-3">1.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20230923-simplex_category.html#ID-2952609d-1bab-4ac4-bbd7-1c0814af1314">simplex category</a></li>
+<li>\(d^i: [k] \rightarrow [k+1]\), injective, \(i\) not in the image</li>
+</ul>
+
+<ul class="org-ul">
+<li>???
+<ul class="org-ul">
+<li>new name for degeneracy ?</li>
+</ul></li>
+
+<li><a href="20240415-factorization_of_a_surjection_as_degeneracy_maps.html#ID-2cbeb18d-c948-40f6-aba3-8ec7a37f0410">factorization of a surjection as degeneracy maps</a></li>
+<li><a href="20240415-factorization_of_an_injective_morphism_as_face_maps.html#ID-2bdd647c-75b0-4d79-b9d3-a71ecc0a6bd8">factorization of an injective morphism as face maps</a></li>
+<li><a href="20240415-factorization_of_a_morphism_in_delta.html#ID-4fdce562-136f-4f92-a6ef-043585fa6c18">factorization of a morphism in Delta</a></li>
+<li><a href="20240129-category_of_simplicial_objects.html#ID-ff0605cb-57bc-4673-99ff-09425a72bb97">category of simplicial objects</a></li>
+<li><a href="20240128-simplicial_set.html#ID-43a75466-c729-429a-a459-56f226b81262">simplicial set</a></li>
+<li><a href="20240415-category_of_simplicial_sets.html#ID-3747c77f-e3a2-4729-b662-582f86ef98d4">category of simplicial sets</a></li>
+<li><a href="20240415-object_of_k_simplices.html#ID-75072dcc-6886-4b87-81c5-80e911624665">object of k-simplices</a></li>
+
+<li><a href="20230923-face_map_category_theory.html#ID-33641221-7fdf-41b9-a328-6b1af414de0c">face map</a></li>
+<li><a href="20230923-degeneracy_map_category_theory.html#ID-f8817509-7551-4eeb-8d9d-a121ee359e75">degeneracy map</a></li>
+<li><a href="20240415-face_map_of_a_simplicial_object.html#ID-e03155f6-f627-4185-96fa-feec1621ce47">face map of a simplicial object</a></li>
+<li><a href="20240415-degeneracy_map_of_a_simplicial_object.html#ID-0b3d24c5-ba87-4659-b755-a51dca4bc4c0">degeneracy map of a simplicial object</a></li>
+
+<li><a href="20240128-set_of_n_simplices.html#ID-aca7dc6e-27f0-4de2-85f2-a5e375540215">Set of n-simplices</a></li>
+<li><a href="20240128-degenerate_simplex.html#ID-a8d00e55-15cb-42c8-b4b7-95590690f708">degenerate simplex</a></li>
+<li><a href="20240415-degenerate_simplex_as_degeneration_of_a_unique_non_degenerate_simplex.html#ID-a735eb52-267c-4254-9b00-d58a3ed5567d">degenerate simplex as degeneration of a unique non degenerate simplex</a></li>
+<li><a href="20240415-k_simplex.html#ID-ad3b30bb-1fe0-470a-a1a0-d201b206b397">k-simplex</a></li>
+<li><a href="20240415-maps_between_simplicial_sets_and_non_degenerate_simplices.html#ID-56a43ef1-129d-41db-885d-1dcc7c960225">maps between simplicial sets and non degenerate simplices</a></li>
+<li><a href="20240128-represented_simplicial_set.html#ID-ecbc7b48-4158-40fc-8130-b3e8183a17e9">represented simplicial set</a></li>
+<li><a href="20240415-non_degenerate_simplex_of_the_standard_n_simplex.html#ID-d80b00b6-5a83-46f8-83ed-0eef8685fcf6">non degenerate simplex of the standard n-simplex</a></li>
+<li><a href="20240415-degenerate_simplex_of_the_standard_n_simplex.html#ID-11a11f82-dd1d-483a-97e4-4ba930bb3e83">degenerate simplex of the standard n-simplex_</a></li>
+<li><a href="20240415-face_of_a_non_degenerate_simplex_as_non_degenerate_simplex.html#ID-16ce9464-919c-4545-8bd9-e78fc76e8913">face of a non-degenerate simplex as non-degenerate simplex</a></li>
+
+<li>Properties of sSet:</li>
+<li><a href="20240128-category_sset_bicomplete.html#ID-41074a6a-e65a-4cee-b084-cf7c2f7e0f40">category sSet bicomplete</a></li>
+<li><a href="20240415-yoneda_embedding_of_the_simplex_category_into_sset.html#ID-341c9647-b2bf-49f7-81d6-b6ac03118eb3">yoneda embedding of the simplex category into sSet</a></li>
+<li><a href="20240128-presheaf_as_colimit_of_representables.html#ID-712129fd-4e4d-4cd0-a2f8-2cf69862f577">presheaf as colimit of representables</a></li>
+<li><a href="20240128-simplicial_set_and_set_of_simplices.html#ID-c5c27807-561d-4a8b-807e-85c097c6d9fe">simplicial set and set of simplices</a></li>
+<li><a href="20240415-functor_category_out_of_simplicial_sets_and_simplex_category.html#ID-d503da6a-80d4-4966-9574-6276f92c8f6a">colimit preserving functor category out of simplicial sets and simplex category</a></li>
+<li><a href="20240129-geometric_realization_of_a_simplicial_set.html#ID-dd7fca72-80cd-4b4b-a63f-1ff75e2bccd0">geometric realization of a simplicial set</a></li>
+<li><a href="20240419-geometric_realization_of_the_n_cube.html#ID-a0086390-c92e-40d7-b5ef-6c0183d5614c">geometric realization of the n-cube</a></li>
+<li><a href="20240419-geometric_realization_preserves_finite_products.html#ID-d2e81f6c-59bc-4b74-abb0-4685ce5c1d81">geometric realization preserves finite products</a> - todo</li>
+<li><a href="20240415-boundary_of_a_standard_simplex.html#ID-cc470ff6-e532-4565-834d-ca64b04efd7d">boundary of a standard simplex</a></li>
+<li><a href="20240415-simplex_category_leq_n.html#ID-8b0fddb4-5920-42ac-bc1b-c04f30bb48d1">simplex category leq n</a></li>
+
+<li><a href="20240415-n_skeleton_functor.html#ID-59f99a8f-8e72-46fb-b457-16734c486958">n skeleton functor</a></li>
+<li><a href="20240415-counit_of_a_n_skeleton_as_bijection_up_to_degree_n.html#ID-c066786e-ab6c-4e61-a2ce-30b89b4c089c">counit of a n skeleton as bijection up to degree n</a></li>
+<li><a href="20240415-n_1_skeleton_of_a_standard_simplex_as_boundary.html#ID-4bae9da8-ae53-4088-bbe5-1f9fc91c5799">n-1 skeleton of a standard simplex as boundary</a></li>
+<li><a href="20240415-n_skeleton_of_a_standard_simplex_as_standard_simplex.html#ID-979ec56d-c28b-49f4-91bf-947c8619c3d2">n skeleton of a n standard simplex as standard simplex</a></li>
+<li><a href="20240415-comparison_map_for_the_skeleton.html#ID-4273680b-afa4-41fe-b9d8-cfbdfad83545">comparison map for the skeleton</a></li>
+
+<li><a href="20240415-simplicial_set_as_colimit_over_skeleta.html#ID-b256348b-f315-4a18-8f27-135bdfe3fb05">simplicial set as colimit over skeleta</a></li>
+<li><a href="20240415-n_1_skeleton_as_pushout.html#ID-f677d3d6-d16f-40aa-a43a-3cabb44240ca">n+1 skeleton as pushout</a></li>
+<li><a href="20240415-geometric_realization_of_a_boundary_as_n_sphere.html#ID-a6a0901e-7007-4566-b498-848882ac7921">geometric realization of a boundary as n-sphere</a></li>
+<li><a href="20240415-geometric_realization_of_a_simplicial_set_as_cw_complex.html#ID-264e92c3-b288-4d33-9677-021506a9df05">geometric realization of a simplicial set as cw complex</a></li>
+<li><a href="20240404-nerve_functor.html#ID-58aa8832-2a0e-4d75-bac7-d8ad17d20a63">nerve functor</a></li>
+<li><a href="20240415-nerve_of_n_as_category.html#ID-4dfdd807-c321-4b11-aeee-7c059464a99e">nerve of n as category</a></li>
+<li>motivation: what is the image</li>
+<li><a href="20240128-s_horn.html#ID-ccf633b1-1524-4205-8d23-a65e1b88145e">S-horn</a></li>
+<li><a href="20240128-inner_horn.html#ID-9f3066a1-77af-4de4-b1f9-331f8aa919e8">inner horn</a></li>
+<li><a href="20240128-outer_horn.html#ID-36a25d96-1404-4357-a19b-5cbf12214485">outer horn</a></li>
+<li><a href="20240415-simplicial_set_as_nerve_and.html#ID-d0070bd7-3092-460f-9ff9-4cf713adb5e7">simplicial set as nerve and</a> - todod</li>
+<li><a href="20240404-left_horn.html#ID-306d5f03-d203-4943-8592-559252e44954">left horn</a></li>
+<li><a href="20240404-right_horn.html#ID-5b345097-a9ce-413a-8ec6-c3bfcd799e26">right horn</a></li>
+<li><a href="20240128-inner_horn.html#ID-9f3066a1-77af-4de4-b1f9-331f8aa919e8">inner horn</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org966f738" class="outline-3">
+<h3 id="org966f738"><span class="section-number-3">1.2.</span> VL 2</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20240129-geometric_realization_of_a_simplicial_set.html#ID-dd7fca72-80cd-4b4b-a63f-1ff75e2bccd0">geometric realization functor</a></li>
+<li><a href="20240422-geometric_realization_as_left_adjoint.html#ID-2451576a-b59a-421b-bbc5-ea0414761bf6">geometric realization as left adjoint</a></li>
+<li><a href="20240417-continuous_maps_from_simplices_as_simplicial_set.html#ID-3902b26e-d323-4d8b-9a95-de0bf2885b29">singular simplicial set of a space</a></li>
+<li><a href="20240422-singular_simplicial_set_functor.html#ID-08557652-af17-40bc-8e83-4728d0c83069">singular simplicial set functor</a></li>
+<li><a href="20240422-singular_simplicial_set_functor_as_right_adjoint.html#ID-13c01a41-15eb-4f49-b13c-24a5bc568de9">singular simplicial set functor as right adjoint</a></li>
+<li><a href="20240326-kan_complex.html#ID-ee0dffb7-ca44-444d-84a4-492e65c05e84">Kan complex</a></li>
+
+<li><a href="20240422-retract_and_hom_set.html#ID-7ed98125-eb71-4943-b08e-fe0ad10a6324">retract and hom set</a></li>
+<li><a href="20240422-quasicategory.html#ID-004ed508-3a84-4869-b5e6-618763186c2b">quasicategory</a></li>
+
+<li><a href="20240128-pi_0_of_a_simplicial_set.html#ID-4a8d553e-0629-4235-b333-b356ac47f24a">pi<sub>0</sub> of a simplicial set</a></li>
+
+<li><a href="20240404-homotopic_maps_of_simplicial_sets.html#ID-5e2f12ae-d457-4488-a4a8-0409d2319c60">homotopic maps of simplicial sets</a> / <a href="20240422-homotopy_between_morphisms_of_simplicial_sets.html#ID-037a7313-6b02-4731-b0e2-2fd01fe9012e">homotopy between morphisms of simplicial sets</a></li>
+<li><a href="20240423-homotopy_of_1_morphisms.html#ID-77af6896-60f2-41a9-a7b3-1c626bc26cd1">homotopy of 1-morphisms</a></li>
+<li></li>
+
+<li><a href="20240404-homotopy_category_of_simplicial_sets.html#ID-68292036-ae98-4d9a-aa38-a8fa60ee2104">homotopy category of simplicial sets</a></li>
+<li><a href="20240422-sub_simplicial_set.html#ID-2e012cf6-41e5-4630-9cd6-ca3a5d43dd29">sub simplicial set</a></li>
+<li>&lt;kan extension pointwise&gt;</li>
+
+<li><a href="20240331-join_of_a_simplicial_set.html#ID-227017d8-1330-4443-a579-4b23bf49a296">join of a simplicial set</a></li>
+<li><a href="20240422-functor_between_quasi_categories.html#ID-a24ae1a9-1806-443b-bab1-1d8b0d723388">functor between quasi-categories</a></li>
+<li><a href="20240422-inner_hom_of_simplicial_sets.html#ID-9d1a0f56-0a1f-4ba3-a69b-78dd8994973d">inner hom of simplicial Sets</a></li>
+<li><a href="20240422-product_with_a_simplicial_set_as_left_adjoint.html#ID-320df756-10a0-43a7-b341-37684fd63d80">product with a simplicial set as left adjoint</a></li>
+<li><a href="20240422-inner_hom_as_right_adjoint.html#ID-c91a9494-435c-4251-89b0-6027bed16c92">inner Hom as right adjoint</a></li>
+<li><a href="20240422-inner_hom_with_a_quasicategory_as_codomain_as_quasicategory.html#ID-7ebe3dff-5614-4d81-942a-b013732c0477">inner hom with a quasicategory as codomain as quasicategory</a></li>
+
+<li><a href="20240422-inner_hom_with_a_quasicategory_as_codomain_as_quasicategory.html#ID-7ebe3dff-5614-4d81-942a-b013732c0477">inner hom with a quasicategory as codomain as quasicategory</a></li>
+<li><a href="20240422-inner_hom_and_contractible_fibres.html#ID-9590f2b5-828e-4177-9bc1-7c596ddeb6d3">inner hom and contractible fibres</a></li>
+<li><a href="20240422-fiber_of_inner_hom_as_kan_complex.html#ID-374bfcf6-ac15-4566-b0ec-ae22eddc19d6">fiber of inner hom as kan complex</a></li>
+
+<li><a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence in a quasi-category</a></li>
+<li><a href="20240422-equivalence_of_quasi_categories.html#ID-d2e9f12b-4ace-49c0-89a4-0638ff60eb23">natural equivalence of quasi categories</a></li>
+<li><a href="20240422-natural_tranrsformation_between_morphisms_of_quasi_categories.html#ID-2c8265e6-03a0-46bc-aec7-4720a3caa249">natural tranrsformation between morphisms of quasi categories</a></li>
+<li><a href="20240422-natural_equivalence_for_a_simplicial_set_and_quasi_category.html#ID-a79aef08-af86-4010-a495-3f035d34f3a5">natural equivalence for a simplicial set and quasi category</a></li>
+
+<li><a href="20240423-simplicial_homotopy_equivalence.html#ID-8c9e05e4-4626-4bad-91da-7d99541981f4">simplicial homotopy equivalence</a></li>
+<li><a href="20240423-simplicial_homotopy_equivalence_as_weak_equivalance.html#ID-a8a0139a-22a5-4ce9-a6a5-934827fbe278">simplicial homotopy equivalence as weak equivalance</a></li>
+
+<li><a href="20240422-kan_complex_as_quasi_category.html#ID-edf772b6-3cdb-4d61-802d-634286fe5482">kan complex as quasi category</a></li>
+<li><a href="20240422-quasi_hom.html#ID-b1ec5cca-6097-4dfa-97e3-b3d38962f879">quasi hom</a></li>
+<li><a href="20240422-quasi_hom_as_kan_complex.html#ID-8bcad0ac-5961-4b47-a455-638b80fff8a5">quasi hom as kan complex</a></li>
+<li><a href="20240331-infinity_groupoid_as_kan_complex.html#ID-9beb8578-7505-4b2d-a8f8-b4d1a1fb4151">infinity-groupoid as Kan complex</a></li>
+
+<li><a href="20240422-weak_equivalence_between_simplicial_sets.html#ID-71168553-4d87-432c-8cb6-b371c3614b96">weak equivalence between simplicial sets</a></li>
+<li><a href="20240423-weak_homotopy_equivalence_between_kan_complexes_as_homotopy_equivalence.html#ID-032dfff0-ef09-4d9c-976d-dce347d12b96">weak homotopy equivalence between Kan complexes as homotopy equivalence</a></li>
+<li><a href="20240423-pi_0_of_a_kan_complex.html#ID-62547942-f241-4a94-834f-061d296a3b4c">pi<sub>0</sub> of a kan complex and 1-morphism</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgab85364" class="outline-3">
+<h3 id="orgab85364"><span class="section-number-3">1.3.</span> talk 3</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-org85c18c5" class="outline-4">
+<h4 id="org85c18c5"><span class="section-number-4">1.3.1.</span> recall</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<ul class="org-ul">
+<li><a href="20240415-geometric_realization_of_a_boundary_as_n_sphere.html#ID-a6a0901e-7007-4566-b498-848882ac7921">geometric realization of a boundary as n-sphere</a></li>
+<li><a href="20240327-right_lifting_property.html#ID-d782de36-512e-44c3-8cbc-1106a79a58a6">right lifting property</a></li>
+<li><a href="20240404-left_lifting_property.html#ID-79b76b6b-ee9c-4690-ab83-c4323b803152">left lifting property</a></li>
+
+<li><a href="20240429-fibration.html#ID-c42d3a0b-e90e-496a-8cd6-cd40974f9972">fibration</a></li>
+<li><a href="20240327-left_fibration.html#ID-bdbcb3cc-0793-4a96-9303-7f78702f03fb">left fibration</a></li>
+<li><a href="20240327-right_fibration.html#ID-cab43683-f467-4a4d-8c8e-9635ca3f01f1">right fibration</a></li>
+
+<li><a href="20240429-kan_fibration.html#ID-1869d74a-d2cf-4e24-bd3a-10bb92fa3a49">kan fibration</a></li>
+
+<li><a href="20240429-boxtensor_of_morphisms.html#ID-009efabf-6ba7-4845-a3f9-07ce51b7fa72">boxtensor of morphisms</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="20240429-small_object_argument.html#ID-0a364142-4409-4bbd-92ae-07e5dab4643b">small object argument</a></li>
+
+<li><a href="20240429-anodyne_extension_for_a_simplicial_set_into_a_kan_complex.html#ID-a5aa45c2-01d1-44d6-b799-f6bcd66d1a1f">anodyne extension for a simplicial set into a kan complex</a></li>
+
+<li></li>
+</ul>
+
+<p>
+Let \(f: X \rightarrow Y\) a <a href="20240129-morphism_of_simplicial_objects.html#ID-1c4a03f5-0ed4-416f-b7d4-021b146efe89">morphism of simplicial sets</a>.
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol class="org-ol">
+<li>\(f\) is a <a href="20240327-left_fibration.html#ID-bdbcb3cc-0793-4a96-9303-7f78702f03fb">left fibration</a></li>
+<li>\(f\) has the <a href="20240327-right_lifting_property.html#ID-d782de36-512e-44c3-8cbc-1106a79a58a6">right lifting property</a> with respect to <a href="20240404-left_horn.html#ID-306d5f03-d203-4943-8592-559252e44954">left horn</a> inclusions</li>
+</ol>
+
+
+<p>
+Let \(f: X \rightarrow Y\) a <a href="20240129-morphism_of_simplicial_objects.html#ID-1c4a03f5-0ed4-416f-b7d4-021b146efe89">morphism of simplicial sets</a>.
+</p>
+<ol class="org-ol">
+<li>\(f\) is a <a href="20240327-right_fibration.html#ID-cab43683-f467-4a4d-8c8e-9635ca3f01f1">right fibration</a></li>
+<li>\(f\) has the <a href="20240327-right_lifting_property.html#ID-d782de36-512e-44c3-8cbc-1106a79a58a6">right lifting property</a> with respect to the <a href="20240404-right_horn.html#ID-5b345097-a9ce-413a-8ec6-c3bfcd799e26">right horn</a> inclusion</li>
+</ol>
+
+
+<ul class="org-ul">
+<li><a href="20240327-left_anodyne_map.html#ID-5d6a9c9d-3b6b-4dbd-930b-b6eab541565f">left anodyne map</a></li>
+<li><a href="20240327-right_anodyne_map.html#ID-eb1ada66-cba3-4202-9ad9-dda3033b88b7">right anodyne map</a></li>
+<li><a href="20240327-anodyne_map.html#ID-c73a8608-7cfc-48d8-81dd-e63f43f453bd">inner anodyne map</a></li>
+
+<li><a href="20240429-equivalent_characterization_of_a_right_fibratino.html#ID-dffa66cb-06b4-4679-afdd-d050fcf36549">equivalent characterization of a right fibration</a></li>
+<li><a href="20240429-equivalanct_characterization_of_left_fibrations.html#ID-6f20f8bb-8781-4390-866f-5e8ff998182b">equivalant characterization of left fibrations</a></li>
+<li><a href="20240429-equivalent_characterization_of_a_kan_fibration.html#ID-96f2fc30-8022-43c6-a84f-793748e72a4c">equivalent characterization of a kan fibration</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6b1e59a" class="outline-3">
+<h3 id="org6b1e59a"><span class="section-number-3">1.4.</span> talk 4</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><a href="20240506-pullback_of_a_left_anodyne_and_cofibration.html#ID-83279abb-1a5e-48d8-bc40-1e33be5004db">pullback of a left anodyne and cofibration</a></li>
+<li><a href="20240506-pullback_of_a_left_anodyne_with_the_identity_as_left_anodyne.html#ID-a28c5986-4d0a-409e-bd50-005223ce8c8e">pullback of a left anodyne with the identity as left anodyne</a></li>
+<li><a href="20221223192944-monoidal_category.html#ID-e7314567-2c1d-4ebd-8aa0-323b3145b541">Monoidal category</a></li>
+<li></li>
+
+<li><a href="20240506-inner_hom_of_a_monoidal_category.html#ID-51259d89-25c3-4295-a9da-d1b1e7232780">inner hom of a monoidal category</a></li>
+<li><a href="20240506-closed_monoidal_category.html#ID-2c471a85-1f2f-4cc4-b03d-b1f530462cb8">closed monoidal category</a></li>
+<li><a href="20240506-inner_hom_cofibration_and_kan_fibration.html#ID-89b360c8-6639-4e0a-b907-185657253cbd">inner hom, cofibration and kan fibration</a></li>
+<li><a href="20240506-inner_hom_cofibration_and_kan_fibration.html#ID-89b360c8-6639-4e0a-b907-185657253cbd">inner hom, cofibration and kan fibration</a></li>
+<li><a href="20240506-postcompositino_with_a_cofibration_as_kan_fibration.html#ID-0d35ca0b-94dd-4c6e-8df2-a8ed5fcc584f">postcompositino with a cofibration as kan fibration</a></li>
+<li><a href="20240506-precomposition_with_a_cofibration_as_kan_fibration.html#ID-27a3420f-2bdf-4e03-b392-5fc9f5ee455d">precomposition with a cofibration as kan fibration</a></li>
+
+<li><a href="20240506-homotopy_group_of_kan.html#ID-1f7ff4f8-7081-4ce6-b114-76bacebba05f">homotopy group of kan</a></li>
+<li><a href="20240506-homotopy_group_of_kan.html#ID-1f7ff4f8-7081-4ce6-b114-76bacebba05f">homotopy group of kan</a></li>
+<li><a href="20240331-infinity_groupoid_as_kan_complex.html#ID-9beb8578-7505-4b2d-a8f8-b4d1a1fb4151">infinity-groupoid and Kan complex</a></li>
+<li><a href="20240506-homotopy_group_of_kan.html#ID-1f7ff4f8-7081-4ce6-b114-76bacebba05f">homotopy group of kan</a></li>
+<li><a href="20240506-homotopy_category_of_a_kan_complex_as_groupoid.html#ID-928767b6-ac7e-4964-bfda-467c8ae258fb">homotopy category of a kan complex as groupoid</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org08d548e" class="outline-3">
+<h3 id="org08d548e"><span class="section-number-3">1.5.</span> </h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li><a href="20240422-quasicategory.html#ID-004ed508-3a84-4869-b5e6-618763186c2b">quasicategory</a></li>
+<li><a href="20240404-functor_between_infinity_categories.html#ID-7428dc84-9acd-49bc-8e93-b1541326a6b9">functor between infinity categories</a></li>
+</ul>
+</div>
+<div id="outline-container-orgb6d31b5" class="outline-4">
+<h4 id="orgb6d31b5"><span class="section-number-4">1.5.1.</span> theory of inner fibrations</h4>
+<div class="outline-text-4" id="text-1-5-1">
+<ul class="org-ul">
+<li><a href="20240327-inner_fibration.html#ID-1915e43c-9378-4583-b34c-5f4e084cb5a0">inner fibration</a></li>
+<li><a href="20240327-anodyne_map.html#ID-c73a8608-7cfc-48d8-81dd-e63f43f453bd">inner anodyne map</a></li>
+
+<li>1.3.33 <a href="20240603-inner_horn_inclusion_as_retract.html#ID-be78c68b-8612-480e-9860-0d7b3e690e90">inner horn inclusion as retract</a></li>
+<li>1.3.34:</li>
+<li><a href="20240603-inner_anodyne_maps_generated_by_inner_horn_inclusions.html#ID-90a10b43-1b5b-4d04-a096-932fd6f0bc5a">inner anodyne maps generated by inner horn inclusions</a></li>
+<li><a href="20240603-s2_or_monomorphisms_generates_inner_anodyne_maps.html#ID-13f8e322-5f76-4a4a-9910-8f669920e4d7">S2 or monomorphisms generates inner anodyne maps</a></li>
+<li><a href="20240603-s3_of_boundary_inclusions_generates_inner_anodyne_maps.html#ID-1bb77bd5-3820-479c-84b2-35693f00c312">S3 of boundary inclusions generates inner anodyne maps</a></li>
+<li><a href="20240603-s4_of_monomorphism_generates_inner_anodynes.html#ID-4bff44d0-6efa-4124-967c-5693255efe08">S4 of monomorphism generates inner anodynes</a></li>
+
+<li><a href="20240603-boxtensor_as_inner_anodyne_and_component_as_inner_an.html#ID-5dfa1b03-6c0e-43eb-a7ac-6622164a63e4">boxtensor as inner anodyne and component as inner-an</a> - which - 1.3.31</li>
+<li><a href="20240603-inner_hom_of_monomorphism_and_inner_fibration.html#ID-332ee5f9-4e1a-48a7-8a5e-2a656ca4e838">inner hom of monomorphism and inner fibration</a></li>
+<li><a href="20240603-inner_hom_of_a_monomorhpism_and_left_fibration.html#ID-b02bfbc0-4805-4675-9e0b-ee1b91b0f52b">inner hom of a monomorhpism and left fibration</a></li>
+<li><a href="20240603-inner_hom_of_a_monomorphism_and_right_fibration.html#ID-603bbeae-76bc-4ef1-9817-114e8a399329">inner hom of a monomorphism and right fibration</a></li>
+
+<li><a href="20240603-trivial_fibration.html#ID-e6f29863-7f0d-4ac3-aa0b-f3d104146c24">trivial fibration</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf7b2e5a" class="outline-2">
+<h2 id="orgf7b2e5a"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li><a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence in a quasi-category</a></li>
+<li><a href="20240423-equivalance_between_quasicategories_and_pointwise_equivalance.html#ID-7dbe8c6f-a08c-47e4-9741-5b64bc95b9c7">equivalence between quasicategories and pointwise equivalence</a></li>
+</ul>
+</div>
+
+
+<div id="outline-container-org54198e5" class="outline-3">
+<h3 id="org54198e5"><span class="section-number-3">2.1.</span> old</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li><a href="20240331-join_of_categories.html#ID-a20786ca-67b0-44e2-911b-5fe830a237c3">join of categories</a></li>
+<li><a href="20240413-nerve_commutes_with_join.html#ID-1553bb05-b301-4ad0-8239-550cc5c53e68">nerve commutes with join</a></li>
+<li><a href="20240413-join_of_represented_simplicial_sets.html#ID-f3b3aa7c-8a28-456e-a013-f915b477e63e">join of represented simplicial sets</a></li>
+</ul>
+
+<p>
+(- <a href="20240413-simplicial_set_of_a_morphism.html#ID-ca0665bb-0d0f-492b-bdcf-7ebcc043bba0">simplicial set of a morphism</a>  ??? redundant ?)
+</p>
+
+
+
+
+<ul class="org-ul">
+<li><a href="20240405-slice_join_functor.html#ID-581e37be-4884-4cd2-8ae0-55285b16e057">slice join functor</a></li>
+<li><a href="20240413-coslice_join_functor.html#ID-39f5bd98-2c30-47da-bac0-4356d8f76d71">coslice join functor</a></li>
+
+<li><a href="20240413-simplicial_set_of_a_morphism.html#ID-ca0665bb-0d0f-492b-bdcf-7ebcc043bba0">simplicial set of a morphism</a></li>
+<li><a href="20240422-simplicial_set_of_a_morphism_2.html#ID-bb956dc1-c61c-4a85-bf09-0c9adbb10f7a">dual simplicial set of a morphism</a></li>
+
+<li><a href="20240427-left_slice_functor_for_a_simplicial_set.html#ID-dfb12d39-5637-407f-ab79-c464bddda4bc">left slice functor for a simplicial set</a></li>
+<li><a href="20240427-right_slice_functor_for_a_simplicial_set.html#ID-210cc30b-5281-451b-9f82-4b5fc18f0583">right slice functor for a simplicial set</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="20240405-twisted_arrow_category.html#ID-3acc6115-031c-4d44-a137-dd72615022e7">twisted arrow category</a></li>
+<li><a href="20240530-functor_with_natural_transformation_and_hom_functor_determines_functor_from_twisted_arrows.html#ID-73ae42f2-3352-4f8b-b4f3-cb989fc8b04d">endofunctor with natural transformation and hom functor of coslice determines functor from twisted arrows</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="20240601-induced_map_from_twisted_arrow_functor.html#ID-8ade8c1c-297e-4f41-a0ae-bd1b6116842f">induced map from twisted arrow functor to left slice functor</a></li>
+<li><a href="20240601-induced_map_for_twisted_arrow_functor_to_the_left_slice.html#ID-c5f53efe-073a-47b5-8911-c1ed941517aa">induced map for twisted arrow functor to the left slice</a></li>
+
+<li><a href="20240405-slice_functor_from_twisted_arrows_and_left_fibration.html#ID-7e7864c3-a196-40b7-bd93-3c2ded5e75b8">coslice functor from twisted arrows and left fibration</a></li>
+<li><a href="20240405-slice_functor_from_twisted_arrows_and_left_fibration.html#ID-7e7864c3-a196-40b7-bd93-3c2ded5e75b8">coslice functor from twisted arrows and left fibration</a></li>
+<li></li>
+
+<li>1.4.13</li>
+<li>1.4.14</li>
+<li>1.4.23</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgf81bf02" class="outline-2">
+<h2 id="orgf81bf02"><span class="section-number-2">3.</span> gustav</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li><a href="20240331-conservative_functor_between_infinity_categories.html#ID-37cd5c52-6d86-4178-9721-6908bb0a3087">conservative functor between infinity categories</a></li>
+<li><a href="20240617-left_fibration_as_conservative_functor.html#ID-05ca0991-a27c-4dc5-a574-515e36c7f5dc">left fibration as conservative functor</a></li>
+<li><a href="20240405-right_fibration_between_infinity_categories_as_conservative_functor.html#ID-ae7c926d-969c-4fa7-a5ee-9969d171b536">right fibration between infinity categories as conservative functor</a></li>
+
+<li><a href="20240405-isofibration_between_infinity_categories.html#ID-1b53e4b6-37d1-4052-9cd9-d832a02aa3a8">isofibration between infinity categories</a></li>
+<li><a href="20240617-left_fibration_as_isofibration.html#ID-ffe1d309-87d6-412e-a28c-67b88066da4e">left fibration as isofibration</a></li>
+<li><a href="20240617-right_fibration_as_isofibration.html#ID-965b5c90-5378-421e-8df0-c90fa031cb0d">right fibration as isofibration</a></li>
+
+<li>TODO 
+<ul class="org-ul">
+<li>dual version von 1)</li>
+</ul></li>
+
+<li><a href="20240617-joyal_lifting_critereon.html#ID-9d7c98e9-f6bd-465d-9ea3-b67eb926eebd">joyal lifting critereon</a></li>
+<li><a href="20240617-left_horn_inclusion_isomorphic_to.html#ID-76df63b3-9159-4b44-a438-11b47649b0cf">left horn inclusion isomorphic to</a></li>
+
+<li>Let \(\mathcal{C} \rightarrow \mathcal{D}\) be an <a href="20240327-inner_fibration.html#ID-1915e43c-9378-4583-b34c-5f4e084cb5a0">inner fibration</a> between <a href="20240404-simplicial_set_as_infinity_category.html#ID-4635a6ee-1ad5-44cb-8e36-4a934f5ae4bf">infinity category</a></li>
+</ul>
+
+<p>
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol class="org-ol">
+<li>Then \(\mathcal{F}\) is a <a href="20240331-conservative_functor_between_infinity_categories.html#ID-37cd5c52-6d86-4178-9721-6908bb0a3087">conservative functor between infinity categories</a></li>
+<li>each lifting problem</li>
+</ol>
+\begin{displaymath}
+\begin{tikzcd}
+\Delta^{0,1} \arrow[bend left]{rr}{\varphi} \arrow[]{r}{} \arrow[]{d}{}& \Lambda_0^n \arrow[]{r}{}& \mathcal{C} \arrow[]{d}{p}\\
+& \Delta^n \arrow[]{r}{} \arrow[dashed]{ru}{}& \mathcal{D}
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+such that \(p \circ \varphi\) is an <a href="20240404-equivalence_between_infinity_categories.html#ID-1347b93e-df3b-474a-9584-1f024dc375de">equivalence between infinity categories</a>, then it has a solution
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc710922" class="outline-2">
+<h2 id="orgc710922"><span class="section-number-2">4.</span> Proof</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org29151d2" class="outline-3">
+<h3 id="org29151d2"><span class="section-number-3">4.1.</span> 1) \(\implies\) 2)</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Note that by conservativeness \(\varphi\) is an equivalence
+Hence <a href="20240617-joyal_lifting_critereon.html#ID-9d7c98e9-f6bd-465d-9ea3-b67eb926eebd">joyal lifting critereon</a> applies
+</p>
+</div>
+</div>
+<div id="outline-container-org4820dd0" class="outline-3">
+<h3 id="org4820dd0"><span class="section-number-3">4.2.</span> 2) \(\implies\) 1)</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Let \(\varphi: \Delta^1 \rightarrow \mathcal{C}\) be a morphism such that \(p \circ \varphi\) is an equivalence.
+Then consider the
+</p>
+\begin{align*}
+\Lambda_0^2 \rightarrow \mathcal{C}
+\end{align*}
+<p>
+given by
+</p>
+
+\begin{displaymath}
+\begin{tikzcd}
+& 1
+0 \arrow[]{rr}{\mathrm{id}} \arrow[]{ru}{\varphi} & &  2
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+Then the lifting problem
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\Lambda_0^2 \arrow[]{r}{} \arrow[]{d}{} & \mathcal{C} \arrow[]{d}{p}\\
+\Delta^2 \arrow[]{r}{} \arrow[dashed]{ru}{}& \mathcal{D}
+\end{tikzcd}
+\end{displaymath}
+<p>
+has a solution
+</p>
+
+<p>
+then \(\varphi\) has a left inverse.
+As before \(\varphi\) is an equivalence
+(cf. <a href="20240617-left_fibration_as_conservative_functor.html#ID-05ca0991-a27c-4dc5-a574-515e36c7f5dc">left fibration as conservative functor</a>)
+</p>
+
+
+
+
+<p>
+equivalence and
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org3293df8" class="outline-2">
+<h2 id="org3293df8"><span class="section-number-2">5.</span> </h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li><a href="20240617-conservative_functor_between_infinity_categories_and_lifting_left_horn_inclusion.html#ID-52f61466-f924-4336-95c5-dba78f7f672f">conservative functor between infinity categories and lifting left horn inclusion</a></li>
+<li><a href="20240617-conservative_functor_between_infinity_categories_and_lifting_right_horn_inclusions.html#ID-59f2fc96-01c3-4924-8e8c-8b7a967afb48">conservative functor between infinity categories and lifting right horn inclusions</a></li>
+
+<li><a href="20240331-infinity_groupoid_as_kan_complex.html#ID-9beb8578-7505-4b2d-a8f8-b4d1a1fb4151">infinity-groupoid and Kan complex</a></li>
+
+<li><a href="20240617-mapping_space_as_kan_complex.html#ID-53bed205-4aba-4cc8-84d1-a99c182ca5a1">mapping space as kan complex</a></li>
+
+<li></li>
+</ul>
+
+
+
+<p>
+Let \(\mathcal{C}\) be an <a href="20240404-simplicial_set_as_infinity_category.html#ID-4635a6ee-1ad5-44cb-8e36-4a934f5ae4bf">infinity category</a> and \(f: \Delta^1 \rightarrow \mathcal{C}\) a <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphism</a> 
+</p>
+
+<p>
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol class="org-ol">
+<li>\(f\) is an  <a href="20240404-equivalence_between_infinity_categories.html#ID-1347b93e-df3b-474a-9584-1f024dc375de">equivalence between infinity categories</a></li>
+<li>\(\Delta^1 \rightarrow \mathcal{C}\) extends over the <a href="20240129-nerve_of_a_category.html#ID-753bb512-d7c2-4f44-bf03-2ade251eaa72">nerve</a> of the <a href="20231128-groupoid.html#ID-faa255e1-0c3c-476f-9d08-78181da165c8">groupoid</a></li>
+</ol>
+\begin{displaymath}
+\begin{tikzcd}
+ * \arrow[bend left]{r}{h_1} & \arrow[bend left]{l}{h_2} * 
+\end{tikzcd}
+\end{displaymath}
+<p>
+where \(h_2 \circ h_1 = \mathrm{id}\)
+</p>
+</div>
+</div>
+<div id="outline-container-org25149d5" class="outline-2">
+<h2 id="org25149d5"><span class="section-number-2">6.</span> Proof</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org0772453" class="outline-3">
+<h3 id="org0772453"><span class="section-number-3">6.1.</span> 1) \(\implies\) 2)</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+Conversely let \(f\) be an an equivalence and \(\mathcal{C}^{\sime}\) the <a href="20240404-maximal_infinity_subgroupoid.html#ID-4286671c-233d-4d74-b2bb-78db759b6b41">maximal infinity-subgroupoid</a>
+Then given
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\Delta^n \arrow[bend left]{rr}{} \arrow[dashed]{r}{} & \mathcal{C}^{\cong} \arrow[]{r}{}& \mathcal{C}
+\end{tikzcd}
+\end{displaymath}
+<p>
+this factors <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> all &lt;&gt;
+</p>
+
+<p>
+Then \(f\) factors as thorugh the maximal infinity-subgroupoid.
+This results in the lifting problem
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\Delta^1 \arrow[]{r}{} \arrow[]{d}{}& \mathcal{C}^{\cong} \arrow[]{d}{} \\
+J \arrow[]{r}{} \arrow[dashed]{ru}{} & * \\
+\end{tikzcd}
+\end{displaymath}
+
+<p>
+Suppose \(f\) has a solution.
+Then using the inclusion
+</p>
+\begin{displaymath}
+\begin{tikzcd}
+\Delta^1 \arrow[]{r}{} \arrow[]{d}{}& \mathcal{C}^{\cong} \arrow[]{d}{} \arrow[]{r}{}& \mathcal{C}\\
+J \arrow[]{r}{} \arrow[dashed]{ru}{} & * \\
+\end{tikzcd}
+\end{displaymath}
+
+
+<p>
+Note that by <a href="20240331-infinity_groupoid_as_kan_complex.html#ID-9beb8578-7505-4b2d-a8f8-b4d1a1fb4151">infinity-groupoid and Kan complex</a> \(\mathcal{C}^{\cong}\) is a <a href="20240326-kan_complex.html#ID-ee0dffb7-ca44-444d-84a4-492e65c05e84">Kan complex</a> and
+</p>
+\begin{align*}
+\Delta^1 \rightarrow J
+\end{align*}
+<p>
+is &lt;anodyne map&gt;
+</p>
+
+<p>
+Then \(\Delta^1 \rightarrow J\) is injective, hence a cofibraiton
+Since \(\Delta^1, J\) are contractibel
+</p>
+
+<p>
+Then the &lt;category&gt; is equivalent to point
+</p>
+<ul class="org-ul">
+<li>nerve construction preserves equvialences</li>
+</ul>
+
+<p>
+therefore both ar eweak equivalences  
+</p>
+
+<p>
+Then 
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-org69c13f2" class="outline-3">
+<h3 id="org69c13f2"><span class="section-number-3">6.2.</span> 2) \(\implies\) 1)</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+Assume that \(f\) extends over \(J\).
+Then the \(1\)-simplices represented by \(f\) lies in the image of a map from an infinity groupoid
+</p>
+
+<p>
+Hence it is an equivalence
+</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgf8b1649" class="outline-2">
+<h2 id="orgf8b1649"><span class="section-number-2">7.</span> Proposition</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Let \(p: \mathcal{C} \rightarrow \mathcal{D}\) be an <a href="20240327-inner_fibration.html#ID-1915e43c-9378-4583-b34c-5f4e084cb5a0">inner fibration</a>.
+</p>
+
+<p>
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol class="org-ol">
+<li>\(p\) is an <a href="20240405-isofibration_between_infinity_categories.html#ID-1b53e4b6-37d1-4052-9cd9-d832a02aa3a8">isofibration between infinity categories</a></li>
+<li>the induced map</li>
+</ol>
+\begin{align*}
+p^{\cong}: \mathcal{C}^{\cong} \rightarrow \mathcal{D}^{\cong}
+\end{align*}
+<p>
+is a <a href="20240429-kan_fibration.html#ID-1869d74a-d2cf-4e24-bd3a-10bb92fa3a49">kan fibration</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgffe26c2" class="outline-2">
+<h2 id="orgffe26c2"><span class="section-number-2">8.</span> Proof</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org3df5cf6" class="outline-3">
+<h3 id="org3df5cf6"><span class="section-number-3">8.1.</span> 1) \(\implies\) 2)</h3>
+<div class="outline-text-3" id="text-8-1">
+<p>
+Suppose \(p\) is an isofibration
+Then
+</p>
+</div>
+<div id="outline-container-orge23bf71" class="outline-4">
+<h4 id="orge23bf71"><span class="section-number-4">8.1.1.</span> a)</h4>
+<div class="outline-text-4" id="text-8-1-1">
+<p>
+The induced map
+</p>
+
+<p>
+<a href="20240617-infinity_subgroupoid_functor_sends_isofibration_to_inner_fibration.html#ID-3dfbc98a-4ced-4c98-a9b8-92fb5cd21253">infinity subgroupoid functor sends isofibration to inner fibration</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org1e289a1" class="outline-4">
+<h4 id="org1e289a1"><span class="section-number-4">8.1.2.</span> b)</h4>
+<div class="outline-text-4" id="text-8-1-2">
+<p>
+<a href="20240617-infinity_subgroupoid_functor_sends_isofibration_to_isofibrations.html#ID-7c96059e-c103-4bad-a2f9-731bdc1df69b">infinity subgroupoid functor sends isofibration to isofibrations</a>
+<a href="20240617-morphism_between_infinity_groupoids_as_coneservative_morphism.html#ID-edc6a244-d6cd-4b80-a4a6-fb702f2ce5d7">morphism between infinity groupoids as coneservative morphism</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgb3491e1" class="outline-4">
+<h4 id="orgb3491e1"><span class="section-number-4">8.1.3.</span> c)</h4>
+</div>
+</div>
+
+
+<div id="outline-container-org660b5ca" class="outline-3">
+<h3 id="org660b5ca"><span class="section-number-3">8.2.</span> 2) \(\implies\) 1)</h3>
+<div class="outline-text-3" id="text-8-2">
+\begin{displaymath}
+\begin{tikzcd}
+& \mathcal{C}^{\cong} \arrow[]{rd}{} & \\
+\{0\} \arrow[]{rr}{} \arrow[]{ru}{} \arrow[]{d}{} & & \mathcal{C} \arrow[]{d}{} \\
+\Delta^n \arrow[]{rd}{} \arrow[]{rr}{} \arrow[dashed]{rru}{} & & \mathcal{D} \\
+& \mathcal{D}^{\cong} \arrow[dashed]{ruu}{} \arrow[]{ru}{}& 
+\end{tikzcd}
+\end{displaymath}
+
+
+
+<ul class="org-ul">
+<li><a href="20240617-maximal_infinity_subgroupoid_functor.html#ID-d142a2df-d779-422e-93b1-0687d1b8b2bc">maximal infinity-subgroupoid functor</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org63bb39c" class="outline-2">
+<h2 id="org63bb39c"><span class="section-number-2">9.</span> ole</h2>
+<div class="outline-text-2" id="text-9">
+</div>
+<div id="outline-container-org4385773" class="outline-3">
+<h3 id="org4385773"><span class="section-number-3">9.1.</span> reminder</h3>
+<div class="outline-text-3" id="text-9-1">
+<ul class="org-ul">
+<li><a href="20240617-joyal_lifting_critereon.html#ID-9d7c98e9-f6bd-465d-9ea3-b67eb926eebd">joyal lifting critereon</a></li>
+<li><a href="20240624-special_horn.html#ID-cc0a3fed-46e8-4c85-9b0b-f18abe56fa17">special horn</a></li>
+<li><a href="20240617-conservative_functor_between_infinity_categories_and_lifting_left_horn_inclusion.html#ID-52f61466-f924-4336-95c5-dba78f7f672f">conservative functor between infinity categories and lifting left horn inclusion</a></li>
+<li><a href="20240617-conservative_functor_between_infinity_categories_and_lifting_right_horn_inclusions.html#ID-59f2fc96-01c3-4924-8e8c-8b7a967afb48">conservative functor between infinity categories and lifting right horn inclusions</a></li>
+<li><a href="20240624-conservative_inner_fibrations_closed_under_pullback.html#ID-cf5929db-5569-4a59-901c-2b17286dfdfa">conservative inner fibrations closed under pullbacks</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9c73be0" class="outline-3">
+<h3 id="org9c73be0"><span class="section-number-3">9.2.</span> other</h3>
+<div class="outline-text-3" id="text-9-2">
+</div>
+<div id="outline-container-org7ac0861" class="outline-4">
+<h4 id="org7ac0861"><span class="section-number-4">9.2.1.</span> GOAL 1)</h4>
+<div class="outline-text-4" id="text-9-2-1">
+<ul class="org-ul">
+<li></li>
+
+<li><a href="20240624-natural_transformation_between_functors_of_infinity_categories.html#ID-1bf3c0ae-aa9c-4c2f-99b2-984072543d82">natural transformation between functors of infinity categories</a></li>
+<li><a href="20240624-natural_transformation_between_functors_of_infinity_categories_as_morphism_out_of_the_product_with_delta_1.html#ID-5d9e8e7c-dd97-4b9a-bd46-0862c418281e">natural transformation between functors of infinity categories as morphism out of the product with delta<sup>1</sup></a></li>
+<li><a href="20240423-equivalance_between_quasicategories_and_pointwise_equivalance.html#ID-7dbe8c6f-a08c-47e4-9741-5b64bc95b9c7">equivalence between quasicategories and pointwise equivalence</a></li>
+<li><a href="20240624-functor_bijective_on_0_simplices_and_conservative_precomposition.html#ID-95db3801-beb5-4941-8919-116e0600fc4e">functor bijective on 0-simplices and conservative precomposition</a></li>
+
+<li><a href="20240331-infinity_groupoid_as_kan_complex.html#ID-9beb8578-7505-4b2d-a8f8-b4d1a1fb4151">infinity-groupoid and Kan complex</a></li>
+<li><a href="20240617-mapping_space_as_kan_complex.html#ID-53bed205-4aba-4cc8-84d1-a99c182ca5a1">mapping space as kan complex</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2c74b57" class="outline-4">
+<h4 id="org2c74b57"><span class="section-number-4">9.2.2.</span> GOAL 2)</h4>
+<div class="outline-text-4" id="text-9-2-2">
+<ul class="org-ul">
+<li><a href="20240331-joyal_equivalence.html#ID-becd28b9-3c0f-4ba5-bdca-5ffd97ef50f0">joyal equivalence</a></li>
+<li><a href="20240624-joyal_equivalence_and_homotopy_equivalence_for_kan_complexes.html#ID-d3827339-d05a-4efa-9b1a-06c43ee4210a">joyal equivalence and homotopy equivalence for kan complexes</a></li>
+<li><a href="20240624-joyal_equivalence_and_path_component.html#ID-4d82ed1f-b59e-4e64-9735-24e6a582eea6">joyal equivalence and path component</a></li>
+
+<li><a href="20240608-trivial_fibration_and_right_lifting_property_against_monomorphisms.html#ID-d248568f-3d93-4343-8527-287fda1451f9">trivial fibration and right lifting property against monomorphisms</a></li>
+<li><a href="20240603-trivial_fibration.html#ID-e6f29863-7f0d-4ac3-aa0b-f3d104146c24">trivial fibration</a></li>
+<li><a href="20240624-infinity_subgroupoid_functor_sends_isofibration_to_kan_fibration.html#ID-202880ec-31cb-44fb-ab55-92a019bd199c">infinity subgroupoid functor sends isofibration to kan-fibration</a></li>
+
+<li><a href="20240624-isofibration_and_lifting_problem.html#ID-e2fcd186-8470-4b3e-a2e6-3896c2d5fef6">isofibration and lifting problem</a></li>
+<li><a href="20240513-kan_fibration_and_weak_equivalence_and_right_lifting_property.html#ID-17799437-2f68-4da6-8a20-a2eaa9c5da15">kan fibration and weak equivalence and right lifting property</a></li>
+
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge1df32d" class="outline-2">
+<h2 id="orge1df32d"><span class="section-number-2">10.</span> gustav 2</h2>
+<div class="outline-text-2" id="text-10">
+</div>
+<div id="outline-container-org5942db9" class="outline-3">
+<h3 id="org5942db9"><span class="section-number-3">10.1.</span> def</h3>
+<div class="outline-text-3" id="text-10-1">
+<ul class="org-ul">
+<li><a href="20240701-fully_faithful_functor_between_infinity_categories.html#ID-bb0d3e0e-92a5-4687-999c-a99d4043ea38">fully faithful functor between infinity categories</a></li>
+<li><a href="20240701-essentially_surjective_functor_between_infinity_categories.html#ID-5ac08772-563a-4b4c-8dbf-e734628e4351">essentially surjective functor between infinity categories</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org959c311" class="outline-3">
+<h3 id="org959c311"><span class="section-number-3">10.2.</span> lemma</h3>
+<div class="outline-text-3" id="text-10-2">
+<ul class="org-ul">
+<li><a href="20240701-inner_hom_of_infinity_categories_and_natural_transformation.html#ID-098ceeee-aa56-45a3-98b6-5203e83514ba">inner hom of infinity categories and natural transformation</a></li>
+<li><a href="20240701-inner_hom_of_infinity_categories_and_natural_equivalence.html#ID-5809b453-d27d-4149-b3f1-4b68b61cffa9">inner hom of infinity categories and natural equivalence</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1a690a7" class="outline-3">
+<h3 id="org1a690a7"><span class="section-number-3">10.3.</span> thm</h3>
+<div class="outline-text-3" id="text-10-3">
+<ul class="org-ul">
+<li><a href="20240701-joyal_equivalence_as_fully_faithful_essentially_surjective_functor.html#ID-4ba2ad1a-429c-4790-90dc-bbbab760ab58">joyal equivalence as fully faithful essentially surjective functor</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge113286" class="outline-3">
+<h3 id="orge113286"><span class="section-number-3">10.4.</span> lemma</h3>
+<div class="outline-text-3" id="text-10-4">
+<ul class="org-ul">
+<li><a href="20240701-fully_faithful_functor_between_infinity_categories_as_conservative_functor.html#ID-b1caf2fb-a7ed-47ab-8662-0ddf8b32302d">fully faithful functor between infinity categories as conservative functor</a></li>
+<li><a href="20240701-infinity_fully_faithful_essentially_surjective_functor_and_groupoid_core.html#ID-4e818f5b-a28d-49cf-9337-0b42bbb5dd70">infinity fully faithful essentially surjective functor and groupoid core</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-15 Di 23:19</p>
+</div>
+</body>
+</html>

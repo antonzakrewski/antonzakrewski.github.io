@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 18:34 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Satz vom primitiven Element</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Satz vom primitiven Element</h1>
+<div id="outline-container-org87002c5" class="outline-2">
+<h2 id="org87002c5"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(L/K\) eine <a href="20230722-endliche_korpererweiterung.html#ID-beb16d13-f091-4e15-ba94-4f4f2db12011">endliche</a>, <a href="20230725-separable_korpererweiterung.html#ID-82d230aa-aac1-4a4f-8040-f2506ad8cb26">separable</a> <a href="20230603-field_extension.html#ID-afbdca38-90b9-4db1-9d10-cfd826cbfac6">Körpererweiterung</a>.
+Dann ist \(L/K\) eine <a href="20230722-einfache_korpererweiterung.html#ID-1f5901ba-7187-46a1-95fa-c01ebba7ed29">einfache Körpererweiterung</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-org43f2b78" class="outline-2">
+<h2 id="org43f2b78"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org255c673" class="outline-3">
+<h3 id="org255c673"><span class="section-number-3">2.1.</span> \(K\) <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">endlich</a></h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Dann ist \(L\) ein <a href="20221109121525-endlich_erzeugter_vektorraum.html#ID-477797e9-4b4d-4886-9606-6e1c5f378a4f">endlich dimensionaler</a> Vektorraum über einem <a href="20230110203253-endlicher_korper.html#ID-621e7dbb-a704-44aa-9aba-112f6bc27a5f">endlichen Körper</a>.
+Somit ist \(L\) selbst endlich, und \(L^{\times} \subseteq L\) ist eine endliche (die triviale) <a href="20220911122242-untergruppe.html#ID-ded4020a-b34f-4433-9d64-2afa33a552d8">Untergruppe</a> der Multiplikativen Untergruppe.
+nach <a href="20231007-endliche_untergruppe_der_einheitengruppe_als_zyklische_gruppe.html#ID-f6fea7df-118b-4c92-a30b-e2489514c1a2">endliche Untergruppe der Einheitengruppe als zyklische Gruppe</a> ist somit \(L\) <a href="20230127191852-zyklische_gruppe.html#ID-dce4ae88-c1e1-4fcc-aa58-ea917d0e197f">zyklisch</a>.
+</p>
+
+<p>
+Damit existiert ein \(\alpha \in L\) mit \(\langle \alpha \rangle = L^\times\)
+Somit folgt wegen \(L = L^{\times} \cup 0\) auch
+</p>
+\begin{align*}
+K(\alpha) = L
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orge084295" class="outline-3">
+<h3 id="orge084295"><span class="section-number-3">2.2.</span> \(K\) <a href="20230826-infinite.html#ID-66aecdb2-720e-4e41-9a27-dab1700474fc">unendlich</a></h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Sei <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> \(L = K(\alpha, \beta)\), der allgemeine fall folgt durch <a href="20210305204948-beweis_durch_vollstandige_induktion.html#ID-c79953c3-855e-432d-9321-047dd5decac8">vollständige Induktion</a>.
+</p>
+
+<p>
+Sei \(n \coloneqq [L : K]_s\) der <a href="20231006-separabilitatsgrad_einer_algebraischen_korpererweiterung.html#ID-8e1121c9-442f-49d1-b22b-583e5cab9081">Separabilitätsgrad</a>, insbesondere ist \(n\) <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">endlich</a> (vgl. <a href="20231021-endliche_separable_korpererweiterung_und_grad_als_separabilitatsgrad.html#ID-bb65192f-9b0d-4180-a4e7-ba6e05ef6a11">endliche, separable körpererweiterung und grad als separabilitätsgrad</a>), und \(\sigma_1,...,\sigma_n\) die paarweise verschiedenen elemente von 
+</p>
+\begin{align*}
+\mathrm{Hom}_{K}(L, \overline{K})
+\end{align*}
+
+<p>
+Sei folgendes Polynom definiert
+</p>
+\begin{align*}
+p = \prod_{i \neq j} \left((\sigma_{i}(\alpha) - \sigma_j(\alpha)) + \sigma_i(\beta) - \sigma_j(\beta))X\right) \in \overline{K}[X
+\end{align*}
+
+<p>
+Da ein Element \(\sigma \in \mathrm{Hom}_{K}(K(\alpha,\beta), \overline{K})\) vollständig durch \(\sigma(\alpha), \sigma(\beta)\) definiert ist und \(\sigma_i, \sigma_j\) paarweise verschieden sind, folgt für \(i \neq j\) mindestens \(\sigma_i(\alpha) \neq \sigma_{j}(\alpha)\) oder \(\sigma_i(\beta) \neq \sigma_j(\beta)\)
+Somit ist \(p\) auch nicht das nullpolynom, da jeder faktor ungleich null ist und \(\overline{K}\) als körper ein <a href="20221226125648-integritatsbereich.html#ID-d39ae041-9db9-423e-8655-20e929ceaf48">Integritätsbereich</a> ist.
+</p>
+
+<p>
+Damit hat \(p\) maximal \(\mathrm{deg}(p) = n\) viele nullstellen (vgl. <a href="20230621-grad_eines_polynoms_und_maximale_anzahl_an_nullstellen.html#ID-cb0ef2c3-2474-4227-8e8c-bf3370322792">Grad eines Polynoms und maximale Anzahl an Nullstellen</a>) und wegen \(\vert K \vert = \infty\) existiert ein \(c \in K\) mit 
+</p>
+\begin{align*}
+p(c) \neq 0
+\end{align*}
+
+<p>
+Einsetzen ergibt
+</p>
+\begin{align*}
+p(c) =& \prod_{i \neq j} \left(( \sigma_{i}(\alpha) -  \sigma_j(\alpha)) + (\sigma_i(\beta) - \sigma_j(\beta)) c\right) \\
+=& \prod_{i \neq j} \left(( \sigma_{i}(\alpha) +  c \cdot \sigma_i(\beta)) - (\sigma_j(\alpha) + c \cdot \sigma_j(\beta)) \right) \\
+\end{align*}
+<p>
+damit sind für \(i = 1,...,n\)
+</p>
+\begin{align*}
+\sigma_j(\alpha + c \beta) 
+\end{align*}
+<p>
+paarweise verschieden wegen
+</p>
+\begin{align*}
+\sigma_i(\alpha) + c \sigma_i(\beta) = \sigma_i(\alpha + c \beta)
+\end{align*}
+<p>
+und \(p(c) \neq 0\)
+</p>
+
+<p>
+Sei \(f \in K[X]\) das <a href="20230723-minimalpolynom_eines_algebraischen_elements.html#ID-e76a1f34-1911-4281-a969-5abea577522a">Minimalpolynom</a> von \(\alpha + c \beta\), so gilt \(\mathrm{deg}(f) \geq n\), da \(\sigma_i(\alpha + c \beta)\) allesamt nullstellen sind (vgl. <a href="20231212-root_under_a_algebra_homomorphisms.html#ID-ae9297aa-9dc9-49fe-ba79-f7d4e4fc5ee7">root under A-Algebra homomorphisms</a>)
+</p>
+
+<p>
+Damit folgen die ungleichnugen
+</p>
+\begin{align*}
+[L: K]_s = n \leq \mathrm{deg}(f) = [K(\alpha + c \beta) : K] \leq [L : K]
+\end{align*}
+<p>
+und wegen
+</p>
+\begin{align*}
+[L:K] = [L : K]_s = n
+\end{align*}
+<p>
+(vgl. <a href="20231021-endliche_separable_korpererweiterung_und_grad_als_separabilitatsgrad.html#ID-bb65192f-9b0d-4180-a4e7-ba6e05ef6a11">endliche, separable körpererweiterung und grad als separabilitätsgrad</a>) folgt damit \(K(\alpha + c \beta) = L\)
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 18:34</p>
+</div>
+</body>
+</html>

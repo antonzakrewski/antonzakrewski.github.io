@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-15 Di 23:21 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>commutative algebra 1 - rings and ideals</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">commutative algebra 1 - rings and ideals</h1>
+<div id="outline-container-org996f6cd" class="outline-2">
+<h2 id="org996f6cd"><span class="section-number-2">1.</span> Aspects</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org8fdfe74" class="outline-3">
+<h3 id="org8fdfe74"><span class="section-number-3">1.1.</span> 2.1</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a></li>
+<li><a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org200c870" class="outline-3">
+<h3 id="org200c870"><span class="section-number-3">1.2.</span> 2.2</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20221226010233-ringhomomorphismus.html#ID-136298f7-3132-4bd7-934f-0eefaa48fcf9">ring-homomorphism</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga2c7f1c" class="outline-3">
+<h3 id="orga2c7f1c"><span class="section-number-3">1.3.</span> 2.3</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20230227130935-unterring.html#ID-157d533b-1650-499e-be1d-341b1fa8fa15">Subring</a></li>
+<li><a href="20230227124301-bild_eines_ringhomomorphismus_als_unterring.html#ID-7a10b1ca-76f7-46ea-9787-f311ef4715eb">image of a ring homomorphism as ring</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org037391c" class="outline-3">
+<h3 id="org037391c"><span class="section-number-3">1.4.</span> 2.4</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><a href="20230722-a_algebra.html#ID-c3ba0b73-5545-48cc-9e90-81fda7909b5f">A-Algebra</a></li>
+<li><a href="20231018-free_algebra.html#ID-a87c71c7-5e1f-4097-be70-4f3bd41392b1">free algebra</a></li>
+<li><a href="20220303185921-polynomring.html#ID-1a010da5-5e8a-407f-87ba-85383825403f">polynomial ring</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1b991a6" class="outline-3">
+<h3 id="org1b991a6"><span class="section-number-3">1.5.</span> 2.5</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li><a href="20230726-universal_property_of_a_polynomial_ring.html#ID-4f94edc3-f629-47bb-96e0-1715c115beb1">universal property of a polynomial ring</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc51abb7" class="outline-3">
+<h3 id="orgc51abb7"><span class="section-number-3">1.6.</span> 2.6</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li></li>
+
+<li><a href="20230226184405-gruppenring.html#ID-2c9cf75a-3151-48a9-b3f7-4b0239f4a068">group ring</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0cd8829" class="outline-3">
+<h3 id="org0cd8829"><span class="section-number-3">1.7.</span> 2.7</h3>
+<div class="outline-text-3" id="text-1-7">
+<ul class="org-ul">
+<li><a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a></li>
+<li><a href="20221226123347-kern_eines_ringhomomorphismus_als_ideal.html#ID-07a48368-dbbd-4930-9024-9b64ecbf3510">Kern eines Ringhomomorphismus als Ideal</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9874438" class="outline-3">
+<h3 id="org9874438"><span class="section-number-3">1.8.</span> 2.8</h3>
+<div class="outline-text-3" id="text-1-8">
+<ul class="org-ul">
+<li><a href="20221226124908-faktorring.html#ID-302f063f-b9f6-4806-b78a-47d210d78bcb">quotient ring</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8dbc8fc" class="outline-3">
+<h3 id="org8dbc8fc"><span class="section-number-3">1.9.</span> 2.9</h3>
+<div class="outline-text-3" id="text-1-9">
+<ul class="org-ul">
+<li><a href="20221226125328-nullteiler.html#ID-dc985755-3df5-4b03-929e-659ee65ad000">zero divisor</a></li>
+<li><a href="20221226125808-einheit_ring.html#ID-a3b1e1af-c3e3-433c-a4dd-2ee2c6e1d69a">unit</a></li>
+<li><a href="20230314174015-von_einer_einheit_erzeugtes_ideal.html#ID-cf419725-19a8-46df-bd48-e2b7c58b7996">unit and trivial ideal</a></li>
+<li><a href="20221226125648-integritatsbereich.html#ID-d39ae041-9db9-423e-8655-20e929ceaf48">Integral domain</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3a2d306" class="outline-3">
+<h3 id="org3a2d306"><span class="section-number-3">1.10.</span> 2.10</h3>
+<div class="outline-text-3" id="text-1-10">
+<ul class="org-ul">
+<li><a href="20230314164505-korper_als_integritatsbereich.html#ID-572018e5-87f0-4b94-8b79-b3ca9db3d4d1">field as integral domain</a></li>
+<li><a href="20230725-field_and_ring_monomorphism.html#ID-4d4c1582-43f6-46a1-9fbd-314860613f48">field and ring monomorphism</a></li>
+<li><a href="20230725-field_and_ideals.html#ID-503b6414-bea1-4157-9079-fbc47c9c6958">field and ideals</a></li>
+<li><a href="20221227230103-komplexprodukt_von_idealen.html#ID-3b33d732-713a-4420-83bc-b934074e04ce">product of ideals</a></li>
+<li><a href="20221228001225-komplexprodukt_von_idealen_als_teilmenge_des_schnitts.html#ID-77901cfe-29aa-4816-afdb-99358c798b03">product of ideals as subset of the intersection</a></li>
+<li><a href="20221227230017-summe_von_idealen.html#ID-8fcb0697-1dd7-4175-a951-968ebcde200a">sum of ideals</a></li>
+<li><a href="20230410004550-product_of_coprime_ideals_equals_intersection.html#ID-e03799a6-13b3-42ff-b2fe-0808d2659c5e">Product of coprime Ideals equals Intersection</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org08a504d" class="outline-3">
+<h3 id="org08a504d"><span class="section-number-3">1.11.</span> 2.11</h3>
+</div>
+<div id="outline-container-org8548a8c" class="outline-3">
+<h3 id="org8548a8c"><span class="section-number-3">1.12.</span> 2.12</h3>
+<div class="outline-text-3" id="text-1-12">
+<ul class="org-ul">
+<li><a href="20230410004341-coprime_ideal.html#ID-b5d829a1-26dc-4274-a072-42fd3f2cba7c">coprime Ideals</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6f3215f" class="outline-3">
+<h3 id="org6f3215f"><span class="section-number-3">1.13.</span> 2.13</h3>
+</div>
+<div id="outline-container-orgad1bd20" class="outline-3">
+<h3 id="orgad1bd20"><span class="section-number-3">1.14.</span> 2.14</h3>
+<div class="outline-text-3" id="text-1-14">
+<ul class="org-ul">
+<li><a href="20230802-general_chinese_remainder_theorem.html#ID-2b073d0b-35d3-4862-baf2-dea9af563b8b">general chinese remainder theorem</a></li>
+<li><a href="20240416-chinese_remainder_theorem_about_surjectivity.html#ID-30ad8680-54b1-43fd-8a63-dca059b051fb">chinese remainder theorem about surjectivity</a></li>
+<li><a href="20240416-chinese_remainder_theorem_about_injectivity.html#ID-c493b333-751e-45a1-86fb-8179286f7ef0">chinese remainder theorem about injectivity</a> - todo</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org29f8a8d" class="outline-3">
+<h3 id="org29f8a8d"><span class="section-number-3">1.15.</span> 2.15</h3>
+</div>
+<div id="outline-container-orgad455f2" class="outline-3">
+<h3 id="orgad455f2"><span class="section-number-3">1.16.</span> 2.16</h3>
+<div class="outline-text-3" id="text-1-16">
+<ul class="org-ul">
+<li><a href="20230723-urbild_eines_ideals.html#ID-368eb159-1214-4cc3-8cba-86ea3ce6c43c">contraction of an ideal</a></li>
+<li><a href="20231213-extension_of_an_ideal.html#ID-bf04c3ff-92df-4ae7-bbed-5c3e6c2aae2b">extension</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf1e60f2" class="outline-3">
+<h3 id="orgf1e60f2"><span class="section-number-3">1.17.</span> 2.17 + 2.18</h3>
+<div class="outline-text-3" id="text-1-17">
+<ul class="org-ul">
+<li><a href="20231213-extension_of_the_contraction_as_a_subset.html#ID-0cd03b5b-f6fc-4222-9ac9-b091b91206f9">extension of the contraction as a subset</a></li>
+<li><a href="20240417-extension_of_the_contraction_in_general_not_equal.html#ID-205514d1-eb47-4387-a5af-e906ebfb9694">extension of the contraction in general not equal</a></li>
+
+<li><a href="20240417-contraction_of_the_extension_in_general_not_equal.html#ID-eed09b14-6bf5-4d77-9537-62fb852f34af">contraction of the extension in general not equal</a></li>
+<li><a href="20231213-contraction_of_the_extension_as_superset.html#ID-7a25c080-1263-4c26-8202-e8c2898f7470">contraction of the extension as superset</a></li>
+
+<li><a href="20231213-cancelling_contraction_and_retraction.html#ID-7c58a09b-f476-43ff-9858-8bbe6fd0fbbe">cancelling contraction and extension</a></li>
+<li><a href="20230810-ideal_of_a_quotient_ring_and_ideal_containing_the_quotient.html#ID-9c43b79b-0355-4c2e-9cbb-20365510412a">correspondence theorem for ideals and quotient rings</a></li>
+
+<li><a href="20231213-extension_of_a_sum_of_ideals.html#ID-cb29a45f-b361-4c1d-b27f-ffe0e2f2b440">extension of a sum of ideals</a></li>
+<li><a href="20231213-contraction_and_sum.html#ID-eba8b17a-9d82-439b-b82d-68a6771d7c81">contraction and sum</a></li>
+<li><a href="20240417-contraction_and_sum_in_general_not_equal.html#ID-0614d8ff-09d9-4a45-b42e-a29d102f6238">contraction and sum in general not equal</a></li>
+
+<li><a href="20231213-contraction_and_intersection.html#ID-d6c3e794-8b73-45e3-8c96-ea72a4b7ebcf">contraction and intersection</a></li>
+<li><a href="20231213-extension_and_intersection.html#ID-49b42bcc-f945-4412-b485-129fbabe124d">extension and intersection</a></li>
+<li><a href="20240417-extension_and_intersection_dont_commute_in_general.html#ID-67e68a3b-5cd7-4975-b596-242f5fd6d6c8">extension and intersection dont commute in general</a> - schwierig</li>
+
+<li><a href="20231213-extension_and_product.html#ID-7661f07c-4ad3-4c0c-a09b-73867abafd31">extension and product</a></li>
+<li><a href="20231213-contraction_of_a_product.html#ID-9de28d44-8be2-470e-9bd9-85f27a005ac1">contraction of a product</a></li>
+<li><a href="20240417-contraction_and_product_dont_commute_in_general.html#ID-7de670db-c93f-4958-92cf-3cc0ac93f2e7">contraction and product dont commute in general</a> - schwierig</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-15 Di 23:21</p>
+</div>
+</body>
+</html>

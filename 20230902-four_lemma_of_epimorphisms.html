@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 18:05 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Four-Lemma of modules of epimorphisms</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Four-Lemma of modules of epimorphisms</h1>
+<div id="outline-container-orge2f310b" class="outline-2">
+<h2 id="orge2f310b"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_eb04be82533afa6bcab2b0d2106fd2828974c0d1.svg" alt="20230902-four_lemma_of_epimorphisms_eb04be82533afa6bcab2b0d2106fd2828974c0d1.svg" class="org-svg" /> be an <a href="20230827-abelian_category.html#ID-9003af72-f684-4897-b096-c1d8a681c624">abelian</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a> (resp. <a href="20230225135520-kategorie_group.html#ID-5a96a492-9173-4be0-8064-24cc3715f31c">category Group</a>) and the following <a href="20230225171831-kommutatives_diagramm.html#ID-dec6825e-9e76-43d2-84af-db4360758ca2">commutative diagram</a> in <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_eb04be82533afa6bcab2b0d2106fd2828974c0d1.svg" alt="20230902-four_lemma_of_epimorphisms_eb04be82533afa6bcab2b0d2106fd2828974c0d1.svg" class="org-svg" />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_a7335e50b6f8111e748a31a5c1fb0e98f6238da8.svg" alt="20230902-four_lemma_of_epimorphisms_a7335e50b6f8111e748a31a5c1fb0e98f6238da8.svg" class="org-svg" />
+</span>
+</div>
+<p>
+where <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_156aecb9570e3fface5101e045e99d8bfe37501f.svg" alt="20230902-four_lemma_of_epimorphisms_156aecb9570e3fface5101e045e99d8bfe37501f.svg" class="org-svg" /> are <a href="20220819135905-epimorphismus.html#ID-ad206194-a416-4910-a5c4-d72528ae5ba0">epimorphisms</a> and <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_a837dbb68f3eecab8db26231173c18dccf92a840.svg" alt="20230902-four_lemma_of_epimorphisms_a837dbb68f3eecab8db26231173c18dccf92a840.svg" class="org-svg" /> is a <a href="20220819135911-monomorphismus.html#ID-60b63797-32fa-4d4e-a577-7616faa010ba">monomorphism</a>.
+Suppose the rows are <a href="20230722-exact_group_homomorphisms.html#ID-aa569635-5f4a-4c4a-9e9b-af9c577e377d">exact</a>, then <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_5347581bce152d59cb7774124fb0bcc7843f54fd.svg" alt="20230902-four_lemma_of_epimorphisms_5347581bce152d59cb7774124fb0bcc7843f54fd.svg" class="org-svg" /> is an <a href="20220819135905-epimorphismus.html#ID-ad206194-a416-4910-a5c4-d72528ae5ba0">epimorphism</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-orge4187b2" class="outline-2">
+<h2 id="orge4187b2"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> we continue to assume that <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_85a1c209be2f5608d32da6a8f889acfe6f7f40df.svg" alt="20230902-four_lemma_of_epimorphisms_85a1c209be2f5608d32da6a8f889acfe6f7f40df.svg" class="org-svg" />.
+The general case follows from <a href="20240114-mitchell_s_embedding_theorem.html#ID-cbc85e4e-94bf-4b65-895c-806159236f2a">Mitchell's embedding theorem</a>
+</p>
+</div>
+
+<div id="outline-container-orgf305fef" class="outline-3">
+<h3 id="orgf305fef"><span class="section-number-3">2.1.</span> <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_3612c160dfbc0e2b1e426b205c62c3dd26125dbc.svg" alt="20230902-four_lemma_of_epimorphisms_3612c160dfbc0e2b1e426b205c62c3dd26125dbc.svg" class="org-svg" /></h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Then by exactnesss and <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_c3b8d944e3a7b8ea79934e3ca140144765364692.svg" alt="20230902-four_lemma_of_epimorphisms_c3b8d944e3a7b8ea79934e3ca140144765364692.svg" class="org-svg" /> there exists an <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_1fc0707bf0bb9c9c9b90ef71008671f2ba1a0d05.svg" alt="20230902-four_lemma_of_epimorphisms_1fc0707bf0bb9c9c9b90ef71008671f2ba1a0d05.svg" class="org-svg" /> such that
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_5e04d1f26f4ac12807c69e7fb7f69b55f27890ba.svg" alt="20230902-four_lemma_of_epimorphisms_5e04d1f26f4ac12807c69e7fb7f69b55f27890ba.svg" class="org-svg" />
+</span>
+</div>
+<p>
+By surjectivity of <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_859651dd223e3186ca08f6b7dfe9172edb4420b7.svg" alt="20230902-four_lemma_of_epimorphisms_859651dd223e3186ca08f6b7dfe9172edb4420b7.svg" class="org-svg" />, there exists an <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_83af3dec20aa987a651b514cef58029da7f94cda.svg" alt="20230902-four_lemma_of_epimorphisms_83af3dec20aa987a651b514cef58029da7f94cda.svg" class="org-svg" /> with <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_9c194b1ba9f7fa1970ddd140525bc7d941160c2e.svg" alt="20230902-four_lemma_of_epimorphisms_9c194b1ba9f7fa1970ddd140525bc7d941160c2e.svg" class="org-svg" />.
+</p>
+
+<p>
+Then by commutativity,
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_11915c66e744cf0369be0d2d8e19850b0edc619e.svg" alt="20230902-four_lemma_of_epimorphisms_11915c66e744cf0369be0d2d8e19850b0edc619e.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+hence <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_3cbb38373fbf601f39699dbf2eb50b45dabed7fd.svg" alt="20230902-four_lemma_of_epimorphisms_3cbb38373fbf601f39699dbf2eb50b45dabed7fd.svg" class="org-svg" />
+</p>
+</div>
+</div>
+<div id="outline-container-org6d3a163" class="outline-3">
+<h3 id="org6d3a163"><span class="section-number-3">2.2.</span> <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_4922f502ccaef13381129e9a64df1749ba114e56.svg" alt="20230902-four_lemma_of_epimorphisms_4922f502ccaef13381129e9a64df1749ba114e56.svg" class="org-svg" /></h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Suppose <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_7f2503c21b45a19d5924bef269e2079c9788e1f6.svg" alt="20230902-four_lemma_of_epimorphisms_7f2503c21b45a19d5924bef269e2079c9788e1f6.svg" class="org-svg" />, then <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_da8d0062bf8d1cd413979d1fdd639397e1da0cec.svg" alt="20230902-four_lemma_of_epimorphisms_da8d0062bf8d1cd413979d1fdd639397e1da0cec.svg" class="org-svg" /> and thus by surjectivity of <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_2a55f72ec92dddc6b953ae93811a986f9b59c844.svg" alt="20230902-four_lemma_of_epimorphisms_2a55f72ec92dddc6b953ae93811a986f9b59c844.svg" class="org-svg" /> there exists an <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_4b636a58759cba5bd44ed97d7fe4d514c6a9d411.svg" alt="20230902-four_lemma_of_epimorphisms_4b636a58759cba5bd44ed97d7fe4d514c6a9d411.svg" class="org-svg" /> such that <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_81d0407a870b93a6be716d3b28e8f2d9f0c0e101.svg" alt="20230902-four_lemma_of_epimorphisms_81d0407a870b93a6be716d3b28e8f2d9f0c0e101.svg" class="org-svg" />
+Furthermore by exactness, it holds that <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_a32335cd38a6de9fdd4e1f6a8443f11a0d32487a.svg" alt="20230902-four_lemma_of_epimorphisms_a32335cd38a6de9fdd4e1f6a8443f11a0d32487a.svg" class="org-svg" /> and thus also by commutativity
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_d3993e2c4c03b2e092d2b66ecefd43f09e62bd44.svg" alt="20230902-four_lemma_of_epimorphisms_d3993e2c4c03b2e092d2b66ecefd43f09e62bd44.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Since <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_0997a97ddb15b96c40558492849d139571ab66f4.svg" alt="20230902-four_lemma_of_epimorphisms_0997a97ddb15b96c40558492849d139571ab66f4.svg" class="org-svg" />, as <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_a837dbb68f3eecab8db26231173c18dccf92a840.svg" alt="20230902-four_lemma_of_epimorphisms_a837dbb68f3eecab8db26231173c18dccf92a840.svg" class="org-svg" /> is injective, we conclude that <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_892def09758d483ca4f46c8c6e57356120810ddd.svg" alt="20230902-four_lemma_of_epimorphisms_892def09758d483ca4f46c8c6e57356120810ddd.svg" class="org-svg" /> and therefore <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_2f419c60d24fc12a63e0e2ee5a790cd02bfbf7e1.svg" alt="20230902-four_lemma_of_epimorphisms_2f419c60d24fc12a63e0e2ee5a790cd02bfbf7e1.svg" class="org-svg" /> or by exactness
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_76899630428d6178ccb7dfd0ab82f9c2d9aee0cc.svg" alt="20230902-four_lemma_of_epimorphisms_76899630428d6178ccb7dfd0ab82f9c2d9aee0cc.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Thus there exists an <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_422b97670f0d4ddd42765c47ce60d96bb2b12a04.svg" alt="20230902-four_lemma_of_epimorphisms_422b97670f0d4ddd42765c47ce60d96bb2b12a04.svg" class="org-svg" /> such that
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_d254c2239d596952bd8e33fa150888fa688110a3.svg" alt="20230902-four_lemma_of_epimorphisms_d254c2239d596952bd8e33fa150888fa688110a3.svg" class="org-svg" />
+</span>
+</div>
+<p>
+or by commutativity
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_49a5f94035340982439536c7c49ab28c9dd59c98.svg" alt="20230902-four_lemma_of_epimorphisms_49a5f94035340982439536c7c49ab28c9dd59c98.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Hence
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_30237a17ac9a1c1384b638fb1bab001212d186e8.svg" alt="20230902-four_lemma_of_epimorphisms_30237a17ac9a1c1384b638fb1bab001212d186e8.svg" class="org-svg" />
+</span>
+</div>
+<p>
+and by choosing <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_e191728fcf11d1f298f254f22fb873796eace24a.svg" alt="20230902-four_lemma_of_epimorphisms_e191728fcf11d1f298f254f22fb873796eace24a.svg" class="org-svg" /> with <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_aef277127fab2d5afbf1555fa20834b64098db98.svg" alt="20230902-four_lemma_of_epimorphisms_aef277127fab2d5afbf1555fa20834b64098db98.svg" class="org-svg" /> we get
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_df84f84dc9141857c8aa2516a41d5b13c29c4cd1.svg" alt="20230902-four_lemma_of_epimorphisms_df84f84dc9141857c8aa2516a41d5b13c29c4cd1.svg" class="org-svg" />
+</span>
+</div>
+<p>
+or <img src="file:///home/anton/html/ltximg/20230902-four_lemma_of_epimorphisms_618a4d8f33487e972a36f91f01f7f14fd2a293de.svg" alt="20230902-four_lemma_of_epimorphisms_618a4d8f33487e972a36f91f01f7f14fd2a293de.svg" class="org-svg" />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 18:05</p>
+</div>
+</body>
+</html>

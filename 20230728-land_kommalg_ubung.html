@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 15:30 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Land - KommAlg - Übung</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Land - KommAlg - Übung</h1>
+<div id="outline-container-orge1c74cc" class="outline-2">
+<h2 id="orge1c74cc"><span class="section-number-2">1.</span> Aspects</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org8204411" class="outline-3">
+<h3 id="org8204411"><span class="section-number-3">1.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-orgaeadd82" class="outline-4">
+<h4 id="orgaeadd82"><span class="section-number-4">1.1.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<ul class="org-ul">
+<li><a href="20221228001225-komplexprodukt_von_idealen_als_teilmenge_des_schnitts.html#ID-77901cfe-29aa-4816-afdb-99358c798b03">Komplexprodukt von Idealen als Teilmenge des Schnitts</a></li>
+<li><a href="20230410004550-product_of_coprime_ideals_equals_intersection.html#ID-e03799a6-13b3-42ff-b2fe-0808d2659c5e">Product of coprime Ideals equals Intersection</a></li>
+<li><a href="20230410084858-product_of_pairwise_coprime_ideals_and_sum_with_another_coprime_ideal_are_coprime.html#ID-27bf91dc-e1c4-4731-90cb-e3d3cf033413">Product of pairwise coprime ideals and sum with another coprime ideal are coprime</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2c076f4" class="outline-4">
+<h4 id="org2c076f4"><span class="section-number-4">1.1.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ul class="org-ul">
+<li><a href="20230531092007-ideale_unter_homomorphismen.html#ID-74859086-2238-4f10-b087-d9ba7b5cbf4c">surjektives Bild eines Ideals als Ideal</a></li>
+<li><a href="20230518142710-isomorphiesatz_fur_zwei_faktorringe.html#ID-2174a763-83ca-44b3-b3a3-003ac95d5c42">2. Isomorphiesatz (Ring)</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd4715ff" class="outline-4">
+<h4 id="orgd4715ff"><span class="section-number-4">1.1.3.</span> 3)</h4>
+</div>
+<div id="outline-container-org53d345f" class="outline-4">
+<h4 id="org53d345f"><span class="section-number-4">1.1.4.</span> 4)</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<ul class="org-ul">
+<li><a href="20230814-intersection_of_a_ring_with_a_prime_ideal_of_the_polynomial_ring.html#ID-f9f80b67-23b6-4795-a6ff-7fdaa93664ec">intersection of an integral domain with a prime ideal of the polynomial ring</a></li>
+<li><a href="20240505-classification_of_prime_ideals_in_the_polynomial_ring_over_an_integral_domain.html#ID-36223df7-3117-4fba-83e0-b9561ebee8fa">classification of prime ideals in the polynomial ring over a pid</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf5fa1b5" class="outline-3">
+<h3 id="orgf5fa1b5"><span class="section-number-3">1.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-orgf68e9f0" class="outline-4">
+<h4 id="orgf68e9f0"><span class="section-number-4">1.2.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<ul class="org-ul">
+<li><a href="20230725-equal_characteristic_of_a_local_ring.html#ID-f50d4487-71a7-4ecf-bc68-48106084ebfb">equal characteristic of a ring</a></li>
+<li><a href="20230725-mixed_charakteristic_of_a_local_ring.html#ID-c7f4118c-2d95-4b3a-96b6-1639e6963e69">mixed charakteristic</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org952037e" class="outline-4">
+<h4 id="org952037e"><span class="section-number-4">1.2.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+<a href="20230427071343-einheiten_des_rings_der_formalen_potenzreihen.html#ID-cbfa24e6-7e6b-4dea-8542-30d435eb8965">Einheiten des Rings der formalen Potenzreihen</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org68ae55a" class="outline-4">
+<h4 id="org68ae55a"><span class="section-number-4">1.2.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<p>
+<a href="20230725-irreducible_subspace_and_closure.html#ID-849828f4-28a7-4d9b-be04-d609f06563ff">irreducible subspace and closure</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org05e50d4" class="outline-4">
+<h4 id="org05e50d4"><span class="section-number-4">1.2.4.</span> 4)</h4>
+<div class="outline-text-4" id="text-1-2-4">
+<p>
+<a href="20230812-noetherian_ring_and_existence_of_a_maximal_ideal_for_any_set_of_ideals.html#ID-d5be3e8c-2e1d-4750-8d91-f4030063db9c">noetherian ring and existence of a maximal ideal for any set of ideals</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orge071b03" class="outline-4">
+<h4 id="orge071b03"><span class="section-number-4">1.2.5.</span> 5)</h4>
+<div class="outline-text-4" id="text-1-2-5">
+<ul class="org-ul">
+<li><a href="20230804-zariski_topology_as_compact_space.html#ID-a91469c8-6643-4bf9-a384-f98b6d84779d">zariski topology as compact space</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org5c11d5a" class="outline-3">
+<h3 id="org5c11d5a"><span class="section-number-3">1.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20230814-polynomialring_with_integer_zeros_not_noetherian.html#ID-b7a94f40-9152-4ada-9c39-2590bdc1c2fb">polynomialring with integer zeros not noetherian</a> - todo</li>
+<li><a href="20230814-maximal_element_for_the_set_of_non_finitely_generated_ideals.html#ID-0400f20e-9e9c-4440-aa36-f0a911b35c5b">maximal element for the set of non finitely generated ideals</a></li>
+<li><a href="20230814-noetherian_ring_and_finite_generation_of_prime_ideals.html#ID-85751a02-8f78-4fdc-b07c-a082f123d88c">noetherian ring and finite generation of prime ideals</a> - todo</li>
+<li><a href="20230814-units_in_a_polynomial_ring.html#ID-ddfe819e-f88c-44fb-aac7-56536c707923">units in a polynomial ring</a></li>
+<li><a href="20230814-nilpotent_element_in_a_polynomial_ring.html#ID-905f0a99-f845-4388-a323-48d51adadb15">nilpotent element in a polynomial ring</a> (ausschreiben)</li>
+<li><a href="20230731-radical_of_an_ideal_and_intersection_of_rabinowitsch_spectrum.html#ID-0b5e4afc-8f2b-403e-9a6d-6600b53ee1a5">radical of an ideal and intersection of rabinowitsch spectrum</a></li>
+<li><a href="20230525165833-unendlich_viele_normierte_polynome_uber_einem_korper.html#ID-afa1c917-0f14-400f-bb9e-a537db8c25e1">unendlich viele normierte, irreduzible Polynome über einem Körper</a>wa</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org114a392" class="outline-3">
+<h3 id="org114a392"><span class="section-number-3">1.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-orge406fa0" class="outline-4">
+<h4 id="orge406fa0"><span class="section-number-4">1.4.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<p>
+todo
+</p>
+</div>
+</div>
+<div id="outline-container-orge2be4d4" class="outline-4">
+<h4 id="orge2be4d4"><span class="section-number-4">1.4.2.</span> 2)</h4>
+</div>
+<div id="outline-container-org71b2cb4" class="outline-4">
+<h4 id="org71b2cb4"><span class="section-number-4">1.4.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-1-4-3">
+<p>
+<a href="20230802-finite_product_of_noetherian_modules_as_noetherian_module.html#ID-1ba5b713-788a-49fe-93c1-3193b7fa3f76">finite product of noetherian modules as noetherian module</a>
+<a href="20230814-finite_product_of_noetherian_rings_as_noetherian_ring.html#ID-6c04e689-cb5e-4915-9d9a-9325e6f17c51">finite product of noetherian rings as noetherian ring</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgd6592a7" class="outline-4">
+<h4 id="orgd6592a7"><span class="section-number-4">1.4.4.</span> 4)</h4>
+</div>
+<div id="outline-container-orgc861c46" class="outline-4">
+<h4 id="orgc861c46"><span class="section-number-4">1.4.5.</span> 5)</h4>
+</div>
+</div>
+<div id="outline-container-orgc27424e" class="outline-3">
+<h3 id="orgc27424e"><span class="section-number-3">1.5.</span> 5)</h3>
+</div>
+<div id="outline-container-org32225a7" class="outline-3">
+<h3 id="org32225a7"><span class="section-number-3">1.6.</span> 6)</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li><a href="20230801-flat_module_as_torsion_free_module.html#ID-e155454e-0540-4509-afab-fac1426220e4">flat module as torsion free module</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd1bee6e" class="outline-3">
+<h3 id="orgd1bee6e"><span class="section-number-3">1.7.</span> 7)</h3>
+</div>
+<div id="outline-container-orgccdc2c3" class="outline-3">
+<h3 id="orgccdc2c3"><span class="section-number-3">1.8.</span> 8)</h3>
+</div>
+<div id="outline-container-org6fe330e" class="outline-3">
+<h3 id="org6fe330e"><span class="section-number-3">1.9.</span> 9)</h3>
+</div>
+<div id="outline-container-org1ba63eb" class="outline-3">
+<h3 id="org1ba63eb"><span class="section-number-3">1.10.</span> 10)</h3>
+</div>
+<div id="outline-container-orgedf65c3" class="outline-3">
+<h3 id="orgedf65c3"><span class="section-number-3">1.11.</span> 11)</h3>
+</div>
+<div id="outline-container-orge7d8053" class="outline-3">
+<h3 id="orge7d8053"><span class="section-number-3">1.12.</span> 12)</h3>
+<div class="outline-text-3" id="text-1-12">
+<p>
+e
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 15:30</p>
+</div>
+</body>
+</html>

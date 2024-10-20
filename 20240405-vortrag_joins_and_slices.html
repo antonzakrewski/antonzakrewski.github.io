@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-15 Di 23:21 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Talk: Joins and Slices</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Talk: Joins and Slices</h1>
+<div id="outline-container-orgcfe9540" class="outline-2">
+<h2 id="orgcfe9540"><span class="section-number-2">1.</span> Liste</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org3006099" class="outline-3">
+<h3 id="org3006099"><span class="section-number-3">1.1.</span> important aims</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org943d2ea" class="outline-4">
+<h4 id="org943d2ea"><span class="section-number-4">1.1.1.</span> 1.4.14</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<ul class="org-ul">
+<li><a href="20240421-coslice_category_of_a_category_admitting_i_shaped_limits.html#ID-4bd11306-b118-46d4-ae0a-7c44c5889b1f">coslice category of a category admitting I shaped limits</a></li>
+<li><a href="20240421-slice_category_of_a_category_admitting_i_shaped_colimits.html#ID-5412ad0a-7ae3-4263-85a1-d23b2fd440b0">slice category of a category admitting I shaped colimits</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20240421-coslice_category_of_a_cocomplete_category_as_cocomplete_category.html#ID-529c8c5b-9846-4d7c-a450-6ac883a56b83">coslice category of a cocomplete category as cocomplete category</a></li>
+<li><a href="20240421-coslice_category_of_a_complete_category_as_complete_category.html#ID-7f1ec80e-dd19-4dd2-9da9-ad79248743ad">coslice category of a complete category as complete category</a></li>
+
+<li><a href="20240331-slice_category_of_a_cocomplete_category_as_cocomplete_category.html#ID-f0bb6c5a-40a2-4b3e-8028-e1f386c763d0">slice category of a cocomplete category as cocomplete category</a></li>
+<li><a href="20240421-slice_category_of_a_complete_category_as_complete_category.html#ID-297cb41d-06be-4cda-a9ed-2d811afee822">slice category of a complete category as complete category</a></li>
+
+<li><a href="20240413-forgetful_functor_from_the_slice_category_preserves_colimits.html#ID-cdfc6c3f-46c8-4571-b33b-57ccc55b35fc">forgetful functor from the slice category preserves colimits</a></li>
+<li><a href="20240413-forgetful_functor_from_the_coslice_category_preserves_limits.html#ID-0eb8ed63-1b3f-4df7-b102-3458c7195dcd">forgetful functor from the coslice category preserves limits</a></li>
+
+<li><a href="20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits.html#ID-c829408c-4336-4a55-b4a5-9fbe146366b3">forgetful functor from the coslice category preserves connected colimits</a></li>
+<li><a href="20240413-forgetful_functor_from_the_slice_category_preserves_connected_limits.html#ID-d4fc9247-0e80-45a3-af9b-85ca12e0649b">forgetful functor from the slice category preserves connected limits</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="20240421-underlying_category_of_a_cocomplete_slice_category_in_general_not_cocomplete.html#ID-e85501b5-73bc-43c8-bf14-0641ce2e9813">underlying category of a cocomplete slice category in general not cocomplete</a></li>
+<li><a href="20240421-underlying_category_of_a_complete_coslice_category_in_general_not_complete.html#ID-655e5a41-76d9-4969-b040-8521ea5b6dcb">underlying category of a complete coslice category in general not complete</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga067f53" class="outline-4">
+<h4 id="orga067f53"><span class="section-number-4">1.1.2.</span> 1.4.8</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ul class="org-ul">
+<li><a href="20240331-join_of_a_simplicial_set.html#ID-227017d8-1330-4443-a579-4b23bf49a296">join of simplicial sets</a></li>
+<li><a href="20240602-join_bifunctor_of_sset.html#ID-a8575284-e60a-4ac3-aac1-5d8ea629fe0a">join bifunctor of sSet</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf6acdfd" class="outline-4">
+<h4 id="orgf6acdfd"><span class="section-number-4">1.1.3.</span> exercise 71</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<ul class="org-ul">
+<li><a href="20240603-boundary_of_a_n_simplex_joined_with_delta_n.html#ID-8f106bbd-8b71-4eac-8f89-5ffd89a3b850">boundary of a n simplex joined with delta n</a></li>
+<li><a href="20240603-i_horn_joined_with_delta_n.html#ID-23a84806-c71e-4366-8ef5-ab8d84bc00fb">i-horn joined with delta n</a></li>
+<li><a href="20240603-j_horn_as_union_of_joins.html#ID-1e30f1b1-23c8-4044-9d70-f79bbe48f182">j horn as union of joins</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org97da7f1" class="outline-4">
+<h4 id="org97da7f1"><span class="section-number-4">1.1.4.</span> 1.4.13</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<ul class="org-ul">
+<li><a href="20240405-slice_join_functor.html#ID-581e37be-4884-4cd2-8ae0-55285b16e057">left coslice join functor</a></li>
+<li><a href="20240413-coslice_join_functor.html#ID-39f5bd98-2c30-47da-bac0-4356d8f76d71">right coslice join functor</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20240505-left_adjoint_by_dense_subcategory.html#ID-6fbc45e4-abef-4598-b80e-d0f600b4b7ab">left adjoint by dense subcategory</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org14eeef2" class="outline-4">
+<h4 id="org14eeef2"><span class="section-number-4">1.1.5.</span> 1.4.17</h4>
+<div class="outline-text-4" id="text-1-1-5">
+<ul class="org-ul">
+<li><a href="20240530-right_coslice_join_functor_preserves_colimits.html#ID-cc74285b-aad4-4aff-aa07-f20c87a2fc0f">right coslice join functor preserves colimits</a></li>
+<li><a href="20240530-left_coslice_join_functor_preserves_colimits.html#ID-1e93c6cc-ffbd-4295-9419-9f8c5e73636c">left coslice join functor preserves colimits</a></li>
+
+<li><a href="20240414-left_join_slice_adjunction.html#ID-50d9f13f-bb9a-4009-a24b-5acabc0645b4">right join coslice adjunction</a></li>
+<li><a href="20240414-right_join_slice_adjunction.html#ID-ce626ece-0578-435b-a8f2-c51d7fb37f37">left join slice adjunction</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2dc7b7f" class="outline-4">
+<h4 id="org2dc7b7f"><span class="section-number-4">1.1.6.</span> 1.4.21</h4>
+<div class="outline-text-4" id="text-1-1-6">
+<ul class="org-ul">
+<li><a href="20240603-bifunctor_and_pair_of_morphisms_induces_morphism_from_pushout.html#ID-68e9ebca-d330-472f-b1e7-830fbcc2c3a7">bifunctor and pair of morphisms induces morphism from pushout</a></li>
+<li><a href="20240603-bifunctor_and_pair_of_morphism_induces_morphism_to_the_pullback.html#ID-b686ffb3-2189-4966-83b9-e6ed32e357f8">bifunctor and pair of morphism induces morphism to the pullback</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="20240602-bijection_between_lifting_problems_of_join_slice_adjunction.html#ID-b68d72b4-b0c8-4c42-aca3-84f5857c7cef">bijection between lifting problems of join slice adjunction</a></li>
+
+<li><a href="20240608-bijection_between_lifting_problems_for_adjoints.html#ID-b9dda910-aefc-4aaf-aac7-9e4c249d0207">bijection between lifting problems for adjoints</a></li>
+<li><a href="20240608-bijection_between_pushout_pullback_diagrams_for_an_adjoint.html#ID-461bd178-7639-44fb-879c-d28966a6c1d1">bijection between pushout / pullback diagrams for adjoints</a></li>
+
+<li><a href="20240530-functor_with_natural_transformation_and_hom_functor_determines_functor_from_twisted_arrows.html#ID-73ae42f2-3352-4f8b-b4f3-cb989fc8b04d">endofunctor with natural transformation and hom functor of coslice determines functor from twisted arrows</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2a620aa" class="outline-4">
+<h4 id="org2a620aa"><span class="section-number-4">1.1.7.</span> 1.4.22</h4>
+<div class="outline-text-4" id="text-1-1-7">
+<ul class="org-ul">
+<li><a href="20240609-set_with_inducde_pushout_right_join_morphism_admitting_lift_as_saturated_set.html#ID-51925dae-a53b-45ad-ba06-b3dedbbf22a1">set with induced pushout right join morphism admitting lift as saturated set</a></li>
+<li><a href="20240609-set_with_induced_pushout_join_morphism_as_anodyne_as_saturated_set.html#ID-c0bb8ff0-2f52-43b9-a99f-6036e232786b">set with induced pushout left join morphism admitting lift as saturated set</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="20240603-induced_map_for_the_slice_and_pushout.html#ID-3fa883a7-9fde-4698-875e-b7b71ff053d2">induced map for the slice and pushout</a></li>
+<li><a href="20240603-induced_map_for_the_slice_and_pushout_of_monomorphisms_as_monomorphism.html#ID-763ea93e-cf0e-43c2-a569-ce1496e38e62">induced map for the slice and pushout of monomorphisms as monomorphism</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20240605-induced_map_for_the_slice_and_pushout_as_inner_anodyne.html#ID-066f9c4c-e9cf-4f0f-b085-748943faa0d6">induced map for the slice and pushout as inner anodyne</a></li>
+<li><a href="20240605-induced_map_for_the_slice_and_pushout_as_left_anodyne.html#ID-667914be-1c3e-4711-bf33-5616f99bc258">induced map for the slice and pushout as left anodyne</a></li>
+<li><a href="20240605-induced_map_for_the_slice_and_pushout_as_right_anodyne.html#ID-171249db-e5df-40f9-809b-f01938e0fc4a">induced map for the slice and pushout as right anodyne</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6290116" class="outline-4">
+<h4 id="org6290116"><span class="section-number-4">1.1.8.</span> 1.4.23</h4>
+<div class="outline-text-4" id="text-1-1-8">
+<ul class="org-ul">
+<li><a href="20240603-induced_map_for_the_slice_and_pushout.html#ID-3fa883a7-9fde-4698-875e-b7b71ff053d2">induced map for the slice and pushout</a></li>
+<li><a href="20240603-induced_map_for_the_slice_and_pushout_of_monomorphisms_as_monomorphism.html#ID-763ea93e-cf0e-43c2-a569-ce1496e38e62">induced map for the slice and pushout of monomorphisms as monomorphism</a></li>
+</ul>
+
+<ol class="org-ol">
+<li><a href="20240405-slice_functor_from_twisted_arrows_and_monomorphisms_plus_inner_fibrations.html#ID-42eef005-2524-4126-a899-5f0e50876b38">slice functor from twisted arrows and monomorphisms plus inner fibrations</a></li>
+<li><a href="20240405-slice_functor_from_twisted_arrows_and_left_fibration.html#ID-7e7864c3-a196-40b7-bd93-3c2ded5e75b8">coslice functor from twisted arrows and left fibration</a></li>
+<li><a href="20240405-slice_functor_from_twisted_arrows_and_trivial_fibration.html#ID-52671eb4-cdba-4355-a16c-a8972062c03e">slice functor from twisted arrows and trivial fibration out of right-anodyne</a></li>
+<li><a href="20240405-slice_functor_from_twisted_arrows_and_trivial_fibration_out_of_trivial_fibraiton.html#ID-18c39409-72ec-467f-902d-919ad67ee412">slice functor from twisted arrows and trivial fibration out of trivial fibration</a></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-15 Di 23:21</p>
+</div>
+</body>
+</html>

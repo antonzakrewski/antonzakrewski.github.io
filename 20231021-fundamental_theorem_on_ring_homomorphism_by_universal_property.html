@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 18:48 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>fundamental theorem of ring homomorphism</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">fundamental theorem of ring homomorphism</h1>
+<div id="outline-container-org8a5fb19" class="outline-2">
+<h2 id="org8a5fb19"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_6130b692b4d58a44d70e323b9432701598ebebee.svg" alt="20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_6130b692b4d58a44d70e323b9432701598ebebee.svg" class="org-svg" /> be a <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a>, <img src="file:///home/anton/html/ltximg/20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_822d79428f8902abf88fbbf28730d9b61b78316c.svg" alt="20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_822d79428f8902abf88fbbf28730d9b61b78316c.svg" class="org-svg" /> an <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a> and <img src="file:///home/anton/html/ltximg/20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_cf1e9c3c1268659ee37a1f3c9b0b0b2ed71c903f.svg" alt="20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_cf1e9c3c1268659ee37a1f3c9b0b0b2ed71c903f.svg" class="org-svg" /> the canonical projection to the <a href="20221226124908-faktorring.html#ID-302f063f-b9f6-4806-b78a-47d210d78bcb">quotient ring</a>.
+Given another <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a> <img src="file:///home/anton/html/ltximg/20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_ac8714a8e572f776592e141bede62cfe72a80cda.svg" alt="20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_ac8714a8e572f776592e141bede62cfe72a80cda.svg" class="org-svg" /> and a <a href="20221226010233-ringhomomorphismus.html#ID-136298f7-3132-4bd7-934f-0eefaa48fcf9">ring-homomorphism</a> <img src="file:///home/anton/html/ltximg/20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_308efb816b93c1d556481baf2f91068646f1d99a.svg" alt="20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_308efb816b93c1d556481baf2f91068646f1d99a.svg" class="org-svg" /> such that <img src="file:///home/anton/html/ltximg/20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_7aa62bcec79091075ab8c686354f72d5867d0563.svg" alt="20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_7aa62bcec79091075ab8c686354f72d5867d0563.svg" class="org-svg" />, there exists a unique homomorphism <img src="file:///home/anton/html/ltximg/20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_cffe3c7f4af07a2b7344af468742642bacd6dbdf.svg" alt="20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_cffe3c7f4af07a2b7344af468742642bacd6dbdf.svg" class="org-svg" />, such that following <a href="20220821183856-diagramm_kategorientheorie.html#ID-ad9d3642-913a-4374-8605-52121d00b349">diagram</a> <a href="20220824224824-kommutierendes_diagramm.html#ID-968cc45b-2492-4495-b9e3-261866c0901d">commutes</a> 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_42fb65b029b30ab249eb5d882960294faece771d.svg" alt="20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_42fb65b029b30ab249eb5d882960294faece771d.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org6d4305f" class="outline-2">
+<h2 id="org6d4305f"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org613c705" class="outline-3">
+<h3 id="org613c705"><span class="section-number-3">2.1.</span> uniqueness</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Suppose we have <img src="file:///home/anton/html/ltximg/20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_85e0758714b8968697a5ccf62de8c43061fc9cf9.svg" alt="20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_85e0758714b8968697a5ccf62de8c43061fc9cf9.svg" class="org-svg" /> satisfying the condition.
+then we get
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_b6d604d29d969b6b6bdedc5a1106f57fc751567f.svg" alt="20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_b6d604d29d969b6b6bdedc5a1106f57fc751567f.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Since <img src="file:///home/anton/html/ltximg/20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_23eb926065f84471a319a36b6cdec9bebb87542f.svg" alt="20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_23eb926065f84471a319a36b6cdec9bebb87542f.svg" class="org-svg" /> is <a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjective</a>, by <a href="20230915-surjective_map_as_epimorphism.html#ID-d831c01c-18b3-4d6b-a9f0-9d80ad13344a">surjective map as epimorphism</a> we conclude, that <img src="file:///home/anton/html/ltximg/20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_23eb926065f84471a319a36b6cdec9bebb87542f.svg" alt="20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_23eb926065f84471a319a36b6cdec9bebb87542f.svg" class="org-svg" /> is an <a href="20220819135905-epimorphismus.html#ID-ad206194-a416-4910-a5c4-d72528ae5ba0">epimorphism</a>.
+Hence it follows, that
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_85288a6aa84b6a7ee18e4696c265ef77273ed8c7.svg" alt="20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_85288a6aa84b6a7ee18e4696c265ef77273ed8c7.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org13f2d4a" class="outline-3">
+<h3 id="org13f2d4a"><span class="section-number-3">2.2.</span> existence</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Let 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_1c30ddc6e2b59aa0df18657c3007fbcc41024b39.svg" alt="20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_1c30ddc6e2b59aa0df18657c3007fbcc41024b39.svg" class="org-svg" />
+</span>
+</div>
+</div>
+<div id="outline-container-org5fa1c4e" class="outline-4">
+<h4 id="org5fa1c4e"><span class="section-number-4">2.2.1.</span> <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">welldefined</a> map</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_9f6a14327f7558352f4e151166354e046ed5201d.svg" alt="20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_9f6a14327f7558352f4e151166354e046ed5201d.svg" class="org-svg" />.
+Then there exists an <img src="file:///home/anton/html/ltximg/20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_a89ca23ffc2e181c38947ad1f13656c57d351b60.svg" alt="20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_a89ca23ffc2e181c38947ad1f13656c57d351b60.svg" class="org-svg" /> such that <img src="file:///home/anton/html/ltximg/20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_a9b016039276f22f92ac5d46fd1705d54d4c6bc1.svg" alt="20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_a9b016039276f22f92ac5d46fd1705d54d4c6bc1.svg" class="org-svg" />.
+Therefore,
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_e4a45ad33d5a282085fd20791ff1a43edbd9bfb1.svg" alt="20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_e4a45ad33d5a282085fd20791ff1a43edbd9bfb1.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org1ff32db" class="outline-4">
+<h4 id="org1ff32db"><span class="section-number-4">2.2.2.</span> ring homomorphism</h4>
+<div class="outline-text-4" id="text-2-2-2">
+</div>
+<div id="outline-container-org07eb1e2" class="outline-5">
+<h5 id="org07eb1e2"><span class="section-number-5">2.2.2.1.</span> additive</h5>
+<div class="outline-text-5" id="text-2-2-2-1">
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_8741fc4cfbbc322721b55cc806a03063673ee5ac.svg" alt="20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_8741fc4cfbbc322721b55cc806a03063673ee5ac.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbe1bc92" class="outline-5">
+<h5 id="orgbe1bc92"><span class="section-number-5">2.2.2.2.</span> multiplication</h5>
+<div class="outline-text-5" id="text-2-2-2-2">
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_84efbe020f092d0833217c1995ac10f376c9649f.svg" alt="20231021-fundamental_theorem_on_ring_homomorphism_by_universal_property_84efbe020f092d0833217c1995ac10f376c9649f.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcd479d9" class="outline-4">
+<h4 id="orgcd479d9"><span class="section-number-4">2.2.3.</span> commutes</h4>
+<div class="outline-text-4" id="text-2-2-3">
+<p>
+follows from construction
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 18:48</p>
+</div>
+</body>
+</html>

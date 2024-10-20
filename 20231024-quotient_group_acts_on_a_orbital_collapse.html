@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 18:54 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>quotient group acts on the orbital collapse</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">quotient group acts on the orbital collapse</h1>
+<div id="outline-container-orgdc72b95" class="outline-2">
+<h2 id="orgdc72b95"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_ce3bc4665eb9c7af2bd44c7a6e1873ae2ccada40.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_ce3bc4665eb9c7af2bd44c7a6e1873ae2ccada40.svg" class="org-svg" /> be a <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological space</a>, <img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_e6ea90f93286d6ba483e07a608709f47e085e21a.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_e6ea90f93286d6ba483e07a608709f47e085e21a.svg" class="org-svg" /> a <a href="20230226210828-topologische_gruppe.html#ID-0aa20bcb-5c3d-4d06-aeee-e61b46a46e48">topological group</a> and <img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_6dc2df551c2b3288a542e5faa238350767dda84e.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_6dc2df551c2b3288a542e5faa238350767dda84e.svg" class="org-svg" /> a <a href="20231020-topological_group_action.html#ID-38e7118c-8f31-4e4f-b958-9af22f05af15">topological group action</a>.
+Then for a <a href="20221210192900-normalteiler.html#ID-f971f946-d0ca-444a-a450-efbef237a278">normal subgroup</a> <img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_fa9889a51bdde79f3395f9b1e61d7aa135f9e6a2.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_fa9889a51bdde79f3395f9b1e61d7aa135f9e6a2.svg" class="org-svg" /> there exists a canonical, <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a> <a href="20230501095041-gruppenwirkung.html#ID-e8246fd3-cb62-4245-9ef1-59bc0326501a">Group Action</a> 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_307ad8d5ae91eb0d8bedd600872c16e93ce200d1.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_307ad8d5ae91eb0d8bedd600872c16e93ce200d1.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf3ef557" class="outline-2">
+<h2 id="orgf3ef557"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org427fb00" class="outline-3">
+<h3 id="org427fb00"><span class="section-number-3">2.1.</span> <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">welldefined</a></h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Suppose there exist <img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_151e5288c19952abc9b30f2a95aa95ca436e0ceb.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_151e5288c19952abc9b30f2a95aa95ca436e0ceb.svg" class="org-svg" /> and <img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_323170d0a741e035033db065036c321c3f7de091.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_323170d0a741e035033db065036c321c3f7de091.svg" class="org-svg" /> such that
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_f7e53fe12a5a1ab583ced33aaf058c95ebd3a5a1.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_f7e53fe12a5a1ab583ced33aaf058c95ebd3a5a1.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Then there exist <img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_d76e6d9dd8f616183d2bafaed99c14c22271c5bd.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_d76e6d9dd8f616183d2bafaed99c14c22271c5bd.svg" class="org-svg" /> such that
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_15975810c9158a9539cbe00797a077c45b6d75c2.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_15975810c9158a9539cbe00797a077c45b6d75c2.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Then we get
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_72f79a8539d624e84b160bd78e9fc0eab6aea858.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_72f79a8539d624e84b160bd78e9fc0eab6aea858.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Let <img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_ea4f00f56e617d8248a1bbf491417ca64b77ad93.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_ea4f00f56e617d8248a1bbf491417ca64b77ad93.svg" class="org-svg" />.
+Since <a href="20221210184658-konjugation_als_gruppenautomorphismus.html#ID-c7875082-7fa8-4e5c-9d18-24de646cfe37">conjugation is a group automorphism</a> and <img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_c0e81f777daa870154e9b593b0de237c0d0b77c6.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_c0e81f777daa870154e9b593b0de237c0d0b77c6.svg" class="org-svg" /> is a <a href="20221210192900-normalteiler.html#ID-f971f946-d0ca-444a-a450-efbef237a278">normal subgroup</a>, we conclude that there exists an <img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_7b1330be86a33abc8d991dc7c3024285aaa8aad2.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_7b1330be86a33abc8d991dc7c3024285aaa8aad2.svg" class="org-svg" /> such that 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_fdaa99c2ef8a9bd45cbf184460fa262df9f3b94d.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_fdaa99c2ef8a9bd45cbf184460fa262df9f3b94d.svg" class="org-svg" />
+</span>
+</div>
+<p>
+thus 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_8cdc0be0b67b998141d5ced8353f92b82ff903ff.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_8cdc0be0b67b998141d5ced8353f92b82ff903ff.svg" class="org-svg" />
+</span>
+</div>
+<p>
+and by construction, 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_14829c65bd5e4cdb743187a325a6ba051c478cbf.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_14829c65bd5e4cdb743187a325a6ba051c478cbf.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Thus
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_5768f76e873f354b8b55667cfedb5637b5514bd5.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_5768f76e873f354b8b55667cfedb5637b5514bd5.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Or equivalently
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_140070516d5f45d3797718d59330f00bf3b1005f.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_140070516d5f45d3797718d59330f00bf3b1005f.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org4581557" class="outline-3">
+<h3 id="org4581557"><span class="section-number-3">2.2.</span> <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a></h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+By welldefinedness, this diagram commutes
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_38423664c9774c0c9815fb62a176a7c58a8b3153.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_38423664c9774c0c9815fb62a176a7c58a8b3153.svg" class="org-svg" />
+</span>
+</div>
+<p>
+By construction of a <a href="20230223230317-quotiententopologie.html#ID-593cff5a-5f97-433d-b2d9-20f3aba02006">quotient topology</a>, <img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_94b4d2b4063b4c343db1e2d5f51722877b004cdf.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_94b4d2b4063b4c343db1e2d5f51722877b004cdf.svg" class="org-svg" /> is continuous <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> $&circ; &pi;<sub>H</sub>{<sup>2</sup>} =  &pi;<sub>H</sub> &circ; $ is continuous, where <img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_abc1d84eb6984de550b1ea461bb81296c1252dfc.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_abc1d84eb6984de550b1ea461bb81296c1252dfc.svg" class="org-svg" /> is continuous as <a href="20220104114218-komposition.html#ID-7dbdf503-309d-418b-8b3d-5c2fe27bbfeb">composition</a> of continuous maps.
+</p>
+
+<p>
+Furthermore, by universal property of a quotient topology <img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_092c7b3b8f96fa5f2ea1c9f8e7e204108d01b8e8.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_092c7b3b8f96fa5f2ea1c9f8e7e204108d01b8e8.svg" class="org-svg" />, the (pseudo-)identity from <img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_6a1b7b0e6614467870da10d4d6b7aaa503254a31.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_6a1b7b0e6614467870da10d4d6b7aaa503254a31.svg" class="org-svg" /> to <img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_092c7b3b8f96fa5f2ea1c9f8e7e204108d01b8e8.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_092c7b3b8f96fa5f2ea1c9f8e7e204108d01b8e8.svg" class="org-svg" /> is continuous
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231024-quotient_group_acts_on_a_orbital_collapse_80774483cef5742a74d4c8d26fafa213bfa1dff2.svg" alt="20231024-quotient_group_acts_on_a_orbital_collapse_80774483cef5742a74d4c8d26fafa213bfa1dff2.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 18:54</p>
+</div>
+</body>
+</html>

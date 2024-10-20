@@ -1,0 +1,855 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 22:26 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ana2: Übungsaufgaben</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">ana2: Übungsaufgaben</h1>
+<div id="outline-container-orgb329cb0" class="outline-2">
+<h2 id="orgb329cb0"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org32279aa" class="outline-3">
+<h3 id="org32279aa"><span class="section-number-3">1.1.</span> 0-Tutorium</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org5519e9a" class="outline-4">
+<h4 id="org5519e9a"><span class="section-number-4">1.1.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<ul class="org-ul">
+<li><a href="20230428133207-minimumsmetrik.html#ID-74069492-c2fb-4b4f-a525-1cd31b1ff0cb">Minimumsmetrik</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1850833" class="outline-4">
+<h4 id="org1850833"><span class="section-number-4">1.1.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ul class="org-ul">
+<li><a href="20230428171320-abschatzung_der_1_2_und_maximumsnorm.html#ID-c8e90a18-82e8-4b7f-b57f-1d5d45696e96">Abschätzung der 1-,2- und Maximumsnorm</a></li>
+<li><a href="20230428133818-scharfe_ungleichung.html#ID-6d6ad36b-cbb0-4a58-83e0-66da6c4ccb34">scharfe Ungleichung</a></li>
+<li>mittelpunkt</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1599a31" class="outline-4">
+<h4 id="org1599a31"><span class="section-number-4">1.1.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<ul class="org-ul">
+<li><a href="20230418114238-bilipschitzaquivalenz_als_aquivalenzrelation.html#ID-b0cada80-ceb6-4a27-b397-b1b653dae24f">Bilipschitzäquivalenz als Äquivalenzrelation</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga5c3663" class="outline-4">
+<h4 id="orga5c3663"><span class="section-number-4">1.1.4.</span> 4)</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<ul class="org-ul">
+<li><a href="20230422122759-hausdorff_abstand_als_pseudometrik.html#ID-bce4ab83-4f9c-4bf1-997d-79ee37ae0be3">Hausdorff-Abstand als Pseudometrik</a></li>
+<li><a href="20230428174548-hausdorff_abstand_auf_den_abgeschlossenen_mengen_als_metrik.html#ID-4c7d3c1b-ed8e-44a4-b697-4f34290d997d">Hausdorff-Abstand auf den abgeschlossenen Mengen als Metrik</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org6426f6c" class="outline-3">
+<h3 id="org6426f6c"><span class="section-number-3">1.2.</span> 01</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-orge3a0e52" class="outline-4">
+<h4 id="orge3a0e52"><span class="section-number-4">1.2.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<ul class="org-ul">
+<li><a href="20230421214837-sprungstetige_funktion_in_hochstens_abzahlbar_vielen_punkten_unstetig.html#ID-03119790-64ba-43cd-9d8f-4d4f48d3fabf">sprungstetige Funktion in höchstens abzählbar vielen Punkten unstetig</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2e87824" class="outline-4">
+<h4 id="org2e87824"><span class="section-number-4">1.2.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<ul class="org-ul">
+<li><a href="20230204212252-jensensche_ungleichung.html#ID-a261abb3-ed9f-4938-8f2e-34cfaa850a1e">Jensensche Ungleichung</a> (!)</li>
+<li><a href="20230421214923-allgemeine_ungleichung_zwischen_gewichtetem_arithmetischen_und_geometrischen_mittel.html#ID-a8c714f2-bc4d-45f7-8608-d072573fd5ca">allgemeine Ungleichung zwischen gewichtetem arithmetischen und geometrischen Mittel</a></li>
+<li><a href="20230228170409-holder_ungleichung.html#ID-e1569ceb-c30b-4417-920e-e89d1fcf7ed4">Hölder-Ungleichung für \(l^p\)</a></li>
+<li><a href="20230223222837-minkowskische_ungleichung.html#ID-d02ec633-8ad6-450f-85d4-8dba1e8b668e">Minkowskische Ungleichung</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org953df3c" class="outline-4">
+<h4 id="org953df3c"><span class="section-number-4">1.2.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org52d4a9e" class="outline-4">
+<h4 id="org52d4a9e"><span class="section-number-4">1.2.4.</span> 4)</h4>
+<div class="outline-text-4" id="text-1-2-4">
+<ul class="org-ul">
+<li><a href="20230421211255-sncf_metrik.html#ID-1061b37f-7e19-4410-9ffc-8ab1f3dfa245">SNCF-Metrik</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org93a7649" class="outline-3">
+<h3 id="org93a7649"><span class="section-number-3">1.3.</span> 02</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-org4610bee" class="outline-4">
+<h4 id="org4610bee"><span class="section-number-4">1.3.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<ul class="org-ul">
+<li><a href="20230428181640-norm_auf_dem_funktionenraum_einer_beschrankten_menge.html#ID-45fca025-2e09-4a26-8ebe-51ca2d08470d">Supremumsnorm auf dem Funktionenraum einer beschränkten Menge</a></li>
+<li><a href="20230428181738-supremumsnorm_der_funktion_und_der_ableitung_auf_dem_funktionenraum_einer_beschrankten_menge.html#ID-fe7f2de4-ef4c-49a6-ace4-6d588452e1f1">Supremumsnorm der Funktion und der Ableitung auf dem Funktionenraum einer beschränkten Menge</a></li>
+<li><a href="20230429112943-supremumsnorm_und_supremumsnorm_mit_der_ableitung_nicht_topologisch_aquivalent.html#ID-6db859ef-b6b5-42f9-99c6-6697ccf10cd1">Supremumsnorm und Supremumsnorm mit der Ableitung nicht topologisch äquivalent</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9c3d1af" class="outline-4">
+<h4 id="org9c3d1af"><span class="section-number-4">1.3.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-1-3-2">
+</div>
+<div id="outline-container-orgb58d5cf" class="outline-5">
+<h5 id="orgb58d5cf"><span class="section-number-5">1.3.2.1.</span> </h5>
+<div class="outline-text-5" id="text-1-3-2-1">
+<ul class="org-ul">
+<li><a href="20230429081022-abschluss_des_offenen_balls_als_teilmenge_des_abgeschlossenen_balles.html#ID-58e9c999-f49f-4167-b469-36a1574b6726">Abschluss des offenen Balls als Teilmenge des abgeschlossenen Balles</a></li>
+<li><a href="20230429081040-offener_ball_als_teilmenge_des_inneren_des_abgeschlossenen_balles.html#ID-50dca5e7-2671-4d7c-92f9-57f81e957f42">offener Ball als Teilmenge des inneren des Abgeschlossenen Balles</a></li>
+<li><a href="20230429081055-rand_des_offenen_balls_als_teilmenge_der_sphare.html#ID-459175a5-b5f7-4bd2-965f-6fc73895066a">Rand des offenen Balls als Teilmenge der Sphäre</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orge9ff91e" class="outline-4">
+<h4 id="orge9ff91e"><span class="section-number-4">1.3.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-1-3-3">
+</div>
+<div id="outline-container-orgb4e9f57" class="outline-5">
+<h5 id="orgb4e9f57"><span class="section-number-5">1.3.3.1.</span> a)</h5>
+<div class="outline-text-5" id="text-1-3-3-1">
+<ul class="org-ul">
+<li></li>
+
+<li><a href="20230418210403-aquivalente_charakterisierung_von_einer_metrisch_induzierten_feineren_topologie.html#ID-354e8585-f96d-4f32-b40e-47485d926569">Äquivalente Charakterisierung von einer metrisch induzierten, feineren Topologie</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0b2cc9a" class="outline-5">
+<h5 id="org0b2cc9a"><span class="section-number-5">1.3.3.2.</span> b)</h5>
+</div>
+</div>
+<div id="outline-container-org0bfa837" class="outline-4">
+<h4 id="org0bfa837"><span class="section-number-4">1.3.4.</span> 4)</h4>
+<div class="outline-text-4" id="text-1-3-4">
+</div>
+<div id="outline-container-org5323534" class="outline-5">
+<h5 id="org5323534"><span class="section-number-5">1.3.4.1.</span> a)</h5>
+<div class="outline-text-5" id="text-1-3-4-1">
+<ul class="org-ul">
+<li><a href="20230207074108-finite_closed_topology.html#ID-faed368d-25e5-4118-b24c-807a634c9771">cofinite topology</a></li>
+<li><a href="20230428181255-kofinite_topologie_ist_nicht_hausdorff.html#ID-7f28a615-a56c-43cf-bc75-315e8b918859">Kofinite Topologie ist nicht Hausdorff</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org32a53c2" class="outline-5">
+<h5 id="org32a53c2"><span class="section-number-5">1.3.4.2.</span> b)</h5>
+<div class="outline-text-5" id="text-1-3-4-2">
+<ul class="org-ul">
+<li><a href="20230121142600-kompaktheit_topologie.html#ID-58037a78-9969-4077-ad91-ce5e70c6c32c">Kompaktheit</a></li>
+<li><a href="20230428181346-kompaktifizierung_einer_metrisch_induzierten_topologie.html#ID-f51944d6-8531-4916-896e-f7a1aab3e23f">Kompaktifizierung einer metrisch induzierten Topologie</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7eda18d" class="outline-3">
+<h3 id="org7eda18d"><span class="section-number-3">1.4.</span> 03</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-orgcb4ff1b" class="outline-4">
+<h4 id="orgcb4ff1b"><span class="section-number-4">1.4.1.</span> Aufgabe 1</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<ul class="org-ul">
+<li><a href="20230302231225-abschluss_von_einer_vereinigung.html#ID-0bfc0a83-013b-4392-96b6-4572628bb9e5">Abschluss von einer endlichen Vereinigung</a></li>
+<li><a href="20230405160845-interior_of_an_intersection.html#ID-0004f314-8d1b-4bbd-8638-55ce2b37d3e7">interior of a finite intersection</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga5fb485" class="outline-4">
+<h4 id="orga5fb485"><span class="section-number-4">1.4.2.</span> Aufgabe 2</h4>
+<div class="outline-text-4" id="text-1-4-2">
+<ul class="org-ul">
+<li><a href="20230505185334-metrik_durch_eine_streng_monoton_steigende_funktion_auf_den_reellen_zahlen.html#ID-f490cd67-1607-4725-8429-4764f6a158b3">Metrik durch eine streng monoton steigende Funktion auf den reellen Zahlen</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6569992" class="outline-4">
+<h4 id="org6569992"><span class="section-number-4">1.4.3.</span> Aufgabe 3</h4>
+<div class="outline-text-4" id="text-1-4-3">
+<ul class="org-ul">
+<li><a href="20230505185913-metrisch_vollstandiger_unterraum_und_abgeschlossene_menge.html#ID-3a5f3478-ae4c-4db6-819c-c7f2bc08882d">metrisch vollständiger Unterraum und abgeschlossene Menge</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2f8989e" class="outline-4">
+<h4 id="org2f8989e"><span class="section-number-4">1.4.4.</span> Aufgabe 4</h4>
+<div class="outline-text-4" id="text-1-4-4">
+<ul class="org-ul">
+<li><a href="20230505190236-menge_der_stetigen_funktionen_auf_einem_abgeschlossenen_intervall_ist_vollstandig_bezuglich_der_supremumsmetrik.html#ID-053dc1df-5a1d-4672-ba35-ebd205d5d3fb">Menge der stetigen Funktionen auf einem abgeschlossenen Intervall ist vollständig bezüglich der Supremumsmetrik</a></li>
+<li><a href="20230505190458-menge_der_stetigen_funktionen_auf_einem_abgeschlossenen_intervall_erfullt_nicht_bolzano_weierstraß.html#ID-d0839d31-6809-4684-b3bf-0a372fd65ff0">Menge der stetigen Funktionen auf einem abgeschlossenen Intervall erfüllt nicht Bolzano Weierstraß</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org2e13523" class="outline-3">
+<h3 id="org2e13523"><span class="section-number-3">1.5.</span> 04</h3>
+<div class="outline-text-3" id="text-1-5">
+</div>
+<div id="outline-container-org80c701f" class="outline-4">
+<h4 id="org80c701f"><span class="section-number-4">1.5.1.</span> 1</h4>
+<div class="outline-text-4" id="text-1-5-1">
+</div>
+<div id="outline-container-org1b4d673" class="outline-5">
+<h5 id="org1b4d673"><span class="section-number-5">1.5.1.1.</span> a)</h5>
+<div class="outline-text-5" id="text-1-5-1-1">
+<ul class="org-ul">
+<li><a href="20230513211358-kompaktheit_einer_endlichen_vereinigung_von_kompakta.html#ID-e5efa035-8cd1-46f3-b879-7137c53f4500">Kompaktheit einer endlichen Vereinigung von Kompakta</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org27edea8" class="outline-5">
+<h5 id="org27edea8"><span class="section-number-5">1.5.1.2.</span> b)</h5>
+<div class="outline-text-5" id="text-1-5-1-2">
+<ul class="org-ul">
+<li><a href="20230513211428-kompaktheit_vom_durchschnitt_abgeschlossener_kompakter_mengen.html#ID-4a64aa8f-0bd4-412a-8417-2bb8f19b8e69">Kompaktheit des Durchschnitts abgeschlossener, kompakter Mengen</a></li>
+<li><a href="20230513213428-kompaktheit_des_durchschnitts_von_kompakten_mengen_in_einem_hausdorff_raum.html#ID-38348824-130c-4f06-affa-469f3b969d28">Kompaktheit des Durchschnitts von kompakten Mengen in einem Hausdorff-Raum</a></li>
+<li><a href="20230513213911-kompaktheit_des_durchschnitts_von_kompakten_mengen_in_einem_metrischen_raum.html#ID-570a75dd-d4d9-432e-959c-8e26377cd586">Kompaktheit des Durchschnitts von kompakten Mengen in einem metrischen Raum</a></li>
+<li><a href="20230511112904-abgeschlossenheit_von_kompakten_mengen.html#ID-77b86d0c-e901-449a-9147-602be657eae5">Abgeschlossenheit von kompakten Mengen in Hausdorff Räumen</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbd5377c" class="outline-4">
+<h4 id="orgbd5377c"><span class="section-number-4">1.5.2.</span> 2</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<ul class="org-ul">
+<li><a href="20230513220424-epsilon_separierte_menge.html#ID-7249f4be-213f-4e5e-8ed2-d86fdbf2f210">epsilon-separierte Menge</a></li>
+<li><a href="20230513220716-endlichkeit_einer_epsilon_separierten_menge_in_einem_kompakten_raum.html#ID-ebd1fdcb-bf43-4810-8083-ed060d5f93aa">Endlichkeit einer epsilon-separierten Menge in einem kompakten Raum</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgeab8989" class="outline-4">
+<h4 id="orgeab8989"><span class="section-number-4">1.5.3.</span> 3</h4>
+<div class="outline-text-4" id="text-1-5-3">
+<ul class="org-ul">
+<li><a href="20230506133356-stetigkeit_einer_metrik.html#ID-2708579b-c1d2-4dfc-b2f4-aa1d81a229c5">Stetigkeit einer Metrik</a></li>
+<li><a href="20230513221912-abstand_zu_einer_menge_und_abstand_zum_abschluss.html#ID-3fdc15bc-99c3-49a8-a98f-f793513ee4df">Abstand zu einer Menge und Abstand zum Abschluss</a></li>
+<li><a href="20230320163744-positiver_abstand_zu_einer_abgeschlosenen_menge.html#ID-4cec4a2b-75eb-431a-ac92-9c4fe3e8619c">positiver Abstand zu einer Abgeschlosenen Menge</a></li>
+<li><a href="20230515122817-abstand_zu_einer_menge_als_1_lipschitzt.html#ID-e2eb2dc5-df91-4bae-8a07-cba502d32111">Abstand zu einer Menge als 1-Lipschitz</a></li>
+<li><a href="20230420132847-umgekehrte_dreiecksungleichung.html#ID-7b5a2782-1ef3-49b0-a51a-c9751470aaeb">umgekehrte Dreiecksungleichung</a></li>
+<li><a href="20230312222306-metrische_raume_als_normale_raume.html#ID-500ad07f-64e8-43c8-b92c-aeb202f7c822">Metrische Räume als Normale Räume</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org11526a2" class="outline-4">
+<h4 id="org11526a2"><span class="section-number-4">1.5.4.</span> 4</h4>
+<div class="outline-text-4" id="text-1-5-4">
+<ul class="org-ul">
+<li><a href="20230515132945-komposition_von_lipschitzstetigen_funktionen.html#ID-e7ff9503-1962-45d7-9af0-ff75259f33c0">Komposition von lipschitzstetigen Funktionen</a></li>
+<li><a href="20230515132959-komposition_von_lokal_lipschitzstetigen_funktionen.html#ID-84d24b17-c175-41bc-ad02-3ae278113778">Komposition von lokal lipschitzstetigen Funktionen</a></li>
+<li><a href="20230515133043-produkt_von_lipschitzstetigen_funktionen_als_lokal_lipschitzstetig.html#ID-e2b04a99-34d7-4a7a-809b-03d00e1c27a2">Produkt von lipschitzstetigen Funktionen als lokal lipschitzstetig</a></li>
+<li><a href="20230515133113-lineare_abbildungen_auf_endlich_dimensionalen_vektorraumen_als_lipschitzstetig.html#ID-d3166af7-eefd-457b-9c14-12bbe3f4963a">lineare Abbildungen auf endlich dimensionalen Vektorräumen als Lipschitzstetig</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org61bf877" class="outline-3">
+<h3 id="org61bf877"><span class="section-number-3">1.6.</span> 05</h3>
+<div class="outline-text-3" id="text-1-6">
+</div>
+<div id="outline-container-org6e9d73f" class="outline-4">
+<h4 id="org6e9d73f"><span class="section-number-4">1.6.1.</span> 1</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<ul class="org-ul">
+<li><a href="20230506203847-homeomorphie_eines_offenen_intervalls_zu_den_reellen_zahlen.html#ID-9554d1b6-d5ae-47be-9f19-114bceb816c2">Homeomorphie eines offenen Intervalls zu den reellen Zahlen</a></li>
+<li><a href="20230330151432-stetige_fortsetzung_zweier_abbildungen_von_einer_uberdeckung.html#ID-43361c3e-7e6f-4ffb-a0ec-7988d859da0d">Verklebelemma für eine lokalendliche, abgeschlossene Überdeckung</a></li>
+<li><a href="20230330190523-stetigkeit_des_kartesischen_produkt_von_stetigen_abbildungen.html#ID-e7360579-492d-47c6-8925-44ae932d48bb">Stetigkeit des Kartesischen Produkt von stetigen Abbildungen</a></li>
+<li><a href="20230519221206-offenheit_des_endlichen_produkts_offener_abbildungen.html#ID-6bfe3ba6-4e4d-495f-a51f-4a6b553d0f79">Offenheit des endlichen Produkts offener Abbildungen</a></li>
+<li><a href="20230313230709-projektioni_von_einer_produkttopologie_als_stetig_offene_abbildung.html#ID-6b558892-f635-4c73-9b71-56962a218519">Projektion von einer Produkttopologie als stetig offene Abbildung</a></li>
+<li><a href="20230519221914-offenheit_des_produkts_surjektiver_offener_abbildungen.html#ID-0adc40f2-0312-49ef-985b-8b14a1a6aa6d">Offenheit des Produkts surjektiver offener Abbildungen</a></li>
+<li><a href="20230227204932-kriterium_fur_einen_homeomorphismus.html#ID-053d2bdc-9e30-4459-85c0-19777a5140da">Homeomorphismus als stetig abgeschlossene/offene Bijektion</a></li>
+<li><a href="20230520144213-komposition_von_homeomorphismen_als_homeomorphismus.html#ID-f4d8adb5-a1a6-4086-8954-e7522993025f">Komposition von Homeomorphismen als Homeomorphismus</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga00fed8" class="outline-4">
+<h4 id="orga00fed8"><span class="section-number-4">1.6.2.</span> 2</h4>
+<div class="outline-text-4" id="text-1-6-2">
+<ul class="org-ul">
+<li><a href="20230520120738-fehlerabschatzung_fur_eine_fixpunktiteration_banachscher_fixpunktsatz.html#ID-c6d68b9f-4348-42d9-8970-ecd0317af93a">Fehlerabschätzung für eine Fixpunktiteration (Banachscher Fixpunktsatz)</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2294a4b" class="outline-4">
+<h4 id="org2294a4b"><span class="section-number-4">1.6.3.</span> 3</h4>
+<div class="outline-text-4" id="text-1-6-3">
+<ul class="org-ul">
+<li><a href="20230519214722-kompakte_mengen_in_hausdorff_raumen_sind_normal.html#ID-06ca8b10-f91a-4a9d-89cd-c4075300cc91">kompakte Mengen in Hausdorff-Räumen sind normal</a></li>
+<li><a href="20230520151831-trennung_von_endlich_vielen_paarweise_disjunkten_abgeschlossenen_mengen_in_einem_normalen_raum.html#ID-a467cced-d7ce-4054-a28d-a11cc24c0a5f">Trennung von endlich vielen, paarweise disjunkten abgeschlossenen Mengen in einem normalen Raum</a></li>
+<li><a href="20230520151754-kompakte_hausdorff_raume_als_normale_raume.html#ID-6cac1c00-5942-483c-8199-945bc3e3c848">kompakte Hausdorff-Räume als normale Räume</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org411f964" class="outline-4">
+<h4 id="org411f964"><span class="section-number-4">1.6.4.</span> 4</h4>
+<div class="outline-text-4" id="text-1-6-4">
+<ul class="org-ul">
+<li><a href="20230313234248-produkttopologie_als_grobste_topologie_fur_stetige_projektionen.html#ID-a6f851d9-e856-4fd2-b3a4-112ec329bc05">Produkttopologie als gröbste Topologie für stetige Projektionen bzw. Initialtopologie der Projektionen</a></li>
+<li><a href="20230519085857-kompaktheit_des_endlichen_produkts_kompakter_raume.html#ID-5fabdc00-9d1c-4359-877d-5133d919d03a">Kompaktheit des endlichen Produkts kompakter Räume</a></li>
+<li><a href="20230520083637-kompaktheit_und_basis.html#ID-c056e94d-20bb-465d-b091-21fee919ab5c">Kompaktheit und Basis</a></li>
+<li><a href="20230314153635-initialtopologie_als_grobste_topologie.html#ID-2ac777c3-97c7-433c-94f4-11ac9d64c637">Initialtopologie als gröbste Topologie für die Stetigkeit der Abbildungen</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbe701a7" class="outline-3">
+<h3 id="orgbe701a7"><span class="section-number-3">1.7.</span> 06</h3>
+<div class="outline-text-3" id="text-1-7">
+</div>
+<div id="outline-container-orgb298cf8" class="outline-4">
+<h4 id="orgb298cf8"><span class="section-number-4">1.7.1.</span> 1</h4>
+<div class="outline-text-4" id="text-1-7-1">
+<ul class="org-ul">
+<li><a href="20230308131718-teilmenge_eines_abschlusses_einer_zusammenhangender_menge_als_zusammenhangende_menge.html#ID-16447d4d-126d-4231-a7e4-b95d3be606fe">Teilmenge eines Abschlusses einer zusammenhängender Menge als zusammenhängende Menge</a></li>
+<li><a href="20230308142856-zusammenhangskomponente_als_abgeschlossene_menge.html#ID-6684b7b8-a17a-4e74-a539-0b518d5446db">Zusammenhangskomponente als abgeschlossene Menge</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org72d48cb" class="outline-4">
+<h4 id="org72d48cb"><span class="section-number-4">1.7.2.</span> 2</h4>
+<div class="outline-text-4" id="text-1-7-2">
+<ul class="org-ul">
+<li><a href="20230520195236-verklebelemma_fur_offene_abbildungen.html#ID-30bcfb30-31ab-4b65-822f-da8f3a06ea2b">Verklebelemma für offene Abbildungen</a></li>
+<li><a href="20230330151432-stetige_fortsetzung_zweier_abbildungen_von_einer_uberdeckung.html#ID-43361c3e-7e6f-4ffb-a0ec-7988d859da0d">Verklebelemma für eine lokalendliche, abgeschlossene Überdeckung</a></li>
+<li><a href="20230330211447-abgeschlossenheit_der_lokalendlichen_vereinigung_von_abgeschlossenen_mengen.html#ID-d91ee469-6ef9-47f0-aa68-071f1e2a6b3f">Abgeschlossenheit der lokalendlichen Vereinigung von abgeschlossenen Mengen</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2f4cebf" class="outline-4">
+<h4 id="org2f4cebf"><span class="section-number-4">1.7.3.</span> 3</h4>
+<div class="outline-text-4" id="text-1-7-3">
+<ul class="org-ul">
+<li><a href="20230525114955-topologist_s_sine_curve.html#ID-9b489e19-5190-492e-8d2c-145018be2bdc">topologist's sine curve</a></li>
+<li><a href="20230526232144-zusammenhang_impliziert_i_a_keinen_wegzusammenhang.html#ID-c637b858-8b90-42d6-9e8e-76a153160a61">Zusammenhang impliziert i.A. keinen Wegzusammenhang</a></li>
+<li><a href="20230509125028-zusammenhang_einer_vereinigung_von_nicht_disjunkten_zusammenhangenden_mengen.html#ID-be6e96bb-97bc-4dae-b248-54e6e01a72c7">Vereinigung von überlappenden zusammenhängenden Mengen</a>:</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org06aec31" class="outline-4">
+<h4 id="org06aec31"><span class="section-number-4">1.7.4.</span> 4</h4>
+<div class="outline-text-4" id="text-1-7-4">
+<ul class="org-ul">
+<li><a href="20230602124647-entfernen_eines_punktes_der_reellen_gerade_nicht_homeomorph_zur_gerade.html#ID-995fa241-be1c-40ce-90d1-34ce833e2607">Entfernen eines Punktes der reellen Gerade nicht homeomorph zur Gerade</a></li>
+<li><a href="20230530173510-pfadkomponente_unter_stetigen_injektionen.html#ID-e673c2c5-a51a-4a45-9101-9c91be4b32b5">Pfadkomponente unter stetigen Abbildungen</a></li>
+<li><a href="20230531123112-pfadkomponente_des_euklidischen_raums_unter_einschluss_einer_spahre.html#ID-e1aa2afb-638a-4e33-be68-cc018d6ae60e">Pfadkomponente des euklidischen Raums unter Einschluss einer Spähre</a></li>
+<li><a href="20230516144459-wegzusammenhang_der_reellen_ebene_ohne_abzahlbar_vielen_punkten.html#ID-d695432e-20e6-44bb-970d-dcf0665d2f8b">Wegzusammenhang der eines reellen Raums ohne abzählbar viele Punkte</a></li>
+<li><a href="20230528101546-entfernen_eines_punktes_des_euklidischen_raums_nicht_homeomorph_zum_euklidischen_raum.html#ID-610b72ce-b956-4e51-81b4-594436fe5853">Entfernen eines Punktes des euklidischen Raums nicht homeomorph zum euklidischen Raum</a></li>
+<li><a href="20230531122755-keine_lokale_homeomorphie_zwischen_reeller_gerade_und_euklidischem_raum.html#ID-fc71830e-d05b-4fad-8e18-2510e561a71c">keine lokale Homeomorphie zwischen reeller Gerade und euklidischem Raum</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org699effb" class="outline-3">
+<h3 id="org699effb"><span class="section-number-3">1.8.</span> 07</h3>
+<div class="outline-text-3" id="text-1-8">
+</div>
+<div id="outline-container-orgafa6c36" class="outline-4">
+<h4 id="orgafa6c36"><span class="section-number-4">1.8.1.</span> aufgabe 1</h4>
+<div class="outline-text-4" id="text-1-8-1">
+<ul class="org-ul">
+<li><a href="20230602160349-totale_differenzierbarkeit_und_einfache_differenzierbarkeit.html#ID-0f157d3f-52d1-4850-8863-9a5383212121">totale Differenzierbarkeit und einfache Differenzierbarkeit</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7d2d189" class="outline-4">
+<h4 id="org7d2d189"><span class="section-number-4">1.8.2.</span> aufgabe 2</h4>
+<div class="outline-text-4" id="text-1-8-2">
+<ul class="org-ul">
+<li><a href="20230602160419-summenregel_fur_das_totale_differential.html#ID-b5564ba3-c6b7-46d1-8541-7ce0c63fe637">Summenregel für das totale Differential</a></li>
+<li><a href="20230602160434-faktorregel_fur_das_totale_differential.html#ID-0f6079b5-3b7c-4362-b4cb-2a6aea993023">Faktorregel für das totale Differential</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2189632" class="outline-4">
+<h4 id="org2189632"><span class="section-number-4">1.8.3.</span> aufgabe 3</h4>
+<div class="outline-text-4" id="text-1-8-3">
+<ul class="org-ul">
+<li><a href="20230602160540-totale_differential_von_polynomen.html#ID-edb49e88-83b6-48c5-aae6-9b2031f4484d">totale Differential von Polynomen</a></li>
+<li><a href="20230606-pseudo_kommutativitat_fur_die_sublinearitat_von_endomorphismen.html#ID-88927efb-56d9-468a-b4bd-dc643aaed5e7">Pseudo-Kommutativität für die Sublinearität von Endomorphismen</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7dbf21c" class="outline-4">
+<h4 id="org7dbf21c"><span class="section-number-4">1.8.4.</span> aufgabe 4</h4>
+<div class="outline-text-4" id="text-1-8-4">
+<ul class="org-ul">
+<li><a href="20230602160655-totale_differential_der_determinante.html#ID-0fd60ebb-cd69-4ba7-a0aa-2d26ad662021">totale Differential der Determinante</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgdc68401" class="outline-3">
+<h3 id="orgdc68401"><span class="section-number-3">1.9.</span> 08</h3>
+<div class="outline-text-3" id="text-1-9">
+</div>
+<div id="outline-container-org5f0be20" class="outline-4">
+<h4 id="org5f0be20"><span class="section-number-4">1.9.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-1-9-1">
+<ul class="org-ul">
+<li><a href="20230611-beschranktheit_der_differenz_des_abstands.html#ID-078c97c7-93c8-4aca-9075-22a7e60f9ab8">Beschränktheit der Differenz des Abstands</a></li>
+<li><a href="20230611-metrische_vervollstandigung_nach_hausdorff.html#ID-e3ca1a19-1376-4001-8a2c-bb8ae891c802">Metrische Vervollständigung nach Hausdorff</a></li>
+<li><a href="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung.html#ID-2dd20393-3248-475e-b72c-8b102f8c3dcc">universelle Eigenschaft der Hausdorff-Vervollständigung</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5839b8d" class="outline-4">
+<h4 id="org5839b8d"><span class="section-number-4">1.9.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-1-9-2">
+<ul class="org-ul">
+<li><a href="20230611-differenzierbarkeit_einer_stetigen_funktion_multipliziert_mit_einer_sublinearen_funktion.html#ID-952dec8c-b1da-48b5-a6f2-bd39f6f0af7e">Differenzierbarkeit einer stetigen Funktion multipliziert mit einer sublinearen Funktion mit Grenzwert 0</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbf5f122" class="outline-4">
+<h4 id="orgbf5f122"><span class="section-number-4">1.9.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-1-9-3">
+<ul class="org-ul">
+<li><a href="20230606-breechnung_der_richtungsableitung_durch_die_partiellen_ableitungen.html#ID-7abd86aa-2e76-49f7-bfdf-51c2798bd0cb">Berechnung der Richtungsableitung durch die partiellen Ableitungen</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8e62119" class="outline-4">
+<h4 id="org8e62119"><span class="section-number-4">1.9.4.</span> 4)</h4>
+<div class="outline-text-4" id="text-1-9-4">
+<ul class="org-ul">
+<li><a href="20230612-partielle_differenzierbarkeit_impliziert_i_a_keine_stetigkeit.html#ID-e3c04820-923e-40b5-be7e-1d549c57b899">partielle differenzierbarkeit impliziert i.A. keine stetigkeit</a></li>
+<li><a href="20230612-richtungsableitungen_implizieren_i_a_keine_totale_differenzierbarkeit.html#ID-128a2843-d329-433b-84c3-7afc98ac60e4">Richtungsableitungen implizieren i.A. keine totale Differenzierbarkeit</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga1766dd" class="outline-3">
+<h3 id="orga1766dd"><span class="section-number-3">1.10.</span> 09</h3>
+<div class="outline-text-3" id="text-1-10">
+</div>
+<div id="outline-container-orgb45c93f" class="outline-4">
+<h4 id="orgb45c93f"><span class="section-number-4">1.10.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-1-10-1">
+<ul class="org-ul">
+<li><a href="20230615-kontinuierliche_dreiecksungleichung.html#ID-1264ae46-8e94-485f-948a-944859161e97">kontinuierliche Dreiecksungleichung für das Integral</a></li>
+<li><a href="20230617-unabhangigkeit_des_integrals_von_der_basis.html#ID-d4db7b53-b325-4a09-a423-8a92edde8b76">Unabhängigkeit des Integrals von der Basis</a> - todo</li>
+<li><a href="20230617-linearitat_des_integrals_bezuglich_multiplikation_mit_einer_reellwertigen_sprungstetigen_funktion.html#ID-844de266-1aaa-4d22-852d-017f1adc5fff">Linearität des Integrals bezüglich Multiplikation mit einer reellwertigen sprungstetigen Funktion</a>  - todo</li>
+<li><a href="20230617-linearitat_des_integrals_bezuglich_verkettung_mit_einem_homomorphismus.html#ID-1baae83d-19e4-431e-a4d6-221eaf4f3e69">Linearität des Integrals bezüglich Verkettung mit einem Homomorphismus</a>  - todo</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org98a99d6" class="outline-4">
+<h4 id="org98a99d6"><span class="section-number-4">1.10.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-1-10-2">
+<ul class="org-ul">
+<li>kopieren</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd3e6f3a" class="outline-4">
+<h4 id="orgd3e6f3a"><span class="section-number-4">1.10.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-1-10-3">
+<ul class="org-ul">
+<li><a href="20230617-mittelwertsatz_einer_variable_fur_vektorwertige_funktionen_i_a_falsch.html#ID-7521b8ad-223e-441d-9b83-654717dfaddc">Mittelwertsatz einer Variable für vektorwertige Funktionen i.A. falsch</a></li>
+<li><a href="20230617-konstante_vektorwertige_funktion_und_null_gradient.html#ID-ee5edc8b-835c-4385-b6b7-4027aa637a33">konstante Vektorwertige Funktion und null-Gradient</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0d8f923" class="outline-4">
+<h4 id="org0d8f923"><span class="section-number-4">1.10.4.</span> 4)</h4>
+<div class="outline-text-4" id="text-1-10-4">
+<ul class="org-ul">
+<li><a href="20230617-partielle_differenzierbarkeit_impliziert_i_a_keinen_satz_von_schwarz.html#ID-79d9441f-e20a-46fb-b8be-ec1ab1c21cf0">partielle Differenzierbarkeit impliziert i.A. keinen Satz von Schwarz</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org66e0691" class="outline-3">
+<h3 id="org66e0691"><span class="section-number-3">1.11.</span> 10</h3>
+<div class="outline-text-3" id="text-1-11">
+</div>
+<div id="outline-container-orgeea33f5" class="outline-4">
+<h4 id="orgeea33f5"><span class="section-number-4">1.11.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-1-11-1">
+<ul class="org-ul">
+<li><a href="20230630-kommutativitat_des_gradienten_mit_der_adjungierten.html#ID-4a375bfa-b951-43c7-9e01-d34e4f5c9226">kommutativität des Gradienten mit der Adjungierten</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org99ad8ed" class="outline-4">
+<h4 id="org99ad8ed"><span class="section-number-4">1.11.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-1-11-2">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb3645ec" class="outline-4">
+<h4 id="orgb3645ec"><span class="section-number-4">1.11.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-1-11-3">
+<ul class="org-ul">
+<li>berechnen des taylor polynoms</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf8b8ab1" class="outline-4">
+<h4 id="orgf8b8ab1"><span class="section-number-4">1.11.4.</span> 4)</h4>
+<div class="outline-text-4" id="text-1-11-4">
+</div>
+<div id="outline-container-org1e27f08" class="outline-5">
+<h5 id="org1e27f08"><span class="section-number-5">1.11.4.1.</span> a)</h5>
+<div class="outline-text-5" id="text-1-11-4-1">
+<ul class="org-ul">
+<li><a href="20230628-eigenwert_und_quadratische_form.html#ID-dac51ec5-8738-4084-b3b1-f8cf77056439">Eigenvektor als kritischer Punkt einer komisch normierten quadratische Form</a></li>
+<li><a href="20230628-selbstadjungierte_matrix_und_eigenwerte_als_reelle_zahlen.html#ID-4feeabff-9c31-478e-b7a1-8b81883fb928">selbstadjungierter Endomorphismus und Eigenwerte als reelle Zahlen</a></li>
+<li><a href="20230628-existenz_eines_eigenwerts_fur_einen_selbst_adjungierten_endomorphismus.html#ID-a3d83a9d-dee2-4b7d-8987-607aae4b66e0">Existenz eines Eigenwerts für einen selbst-adjungierten Endomorphismus</a></li>
+<li><a href="20230628-eigenwert_und_quadratische_form.html#ID-dac51ec5-8738-4084-b3b1-f8cf77056439">Eigenvektor als kritischer Punkt einer normierten quadratische Form</a></li>
+<li><a href="20230630-positiv_semidefinite_bilinearform_und_eigenwert.html#ID-b0428685-b657-487d-9ae2-d2a2f8fe29f3">positiv semidefinite Bilinearform und Eigenwerte</a></li>
+<li><a href="20230630-positiv_definite_bilinearform_und_eigenwerte.html#ID-b4e5ddc5-fa65-4708-9af3-40dff414570c">positiv definite Bilinearform und Eigenwerte</a></li>
+<li><a href="20230628-existenz_einer_diagonalisierung_einer_symmetrischen_matrix_mit_einer_orthogonalen_matrix.html#ID-a930537e-6941-435f-a492-ccb168411d9f">Existenz einer Diagonalisierung einer symmetrischen Matrix mit einer orthogonalen Matrix</a></li>
+<li><a href="20230628-quadratische_form_in_zwei_variablen_positiv_semidefinit_anhand_der_determinante_und_des_ersten_eintrags.html#ID-0ccfce41-22bc-45bc-b540-c5158ace25ec">quadratische Form in zwei Variablen positiv semidefinit anhand der Determinante und des ersten Eintrags</a></li>
+<li><a href="20230628-quadratische_form_in_zwei_variablen_positiv_definit_anhand_der_determinante_und_des_ersten_eintrags.html#ID-c3fb4477-4b2b-49b0-a094-168070169e4a">quadratische Form in zwei Variablen positiv definit anhand der Determinante und des ersten Eintrags</a></li>
+<li><a href="20230628-quadratische_form_in_zwei_variablen_positiv_definit_anhand_der_determinante_und_des_ersten_eintrags.html#ID-c3fb4477-4b2b-49b0-a094-168070169e4a">quadratische Form in zwei Variablen positiv definit anhand der Determinante und des ersten Eintrags</a></li>
+<li><a href="20230628-quadratische_form_in_zwei_variablen_positiv_semidefinit_anhand_der_determinante_und_des_ersten_eintrags.html#ID-0ccfce41-22bc-45bc-b540-c5158ace25ec">quadratische Form in zwei Variablen positiv semidefinit anhand der Determinante und des ersten Eintrags</a></li>
+<li><a href="20221222164638-determinante_einer_2_times_2_matrix.html#ID-9f507a74-6467-4c6d-bd82-d5d25cd00bfe">Determinante einer \(2 \times 2\) Matrix</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgccf77ae" class="outline-3">
+<h3 id="orgccf77ae"><span class="section-number-3">1.12.</span> 11</h3>
+<div class="outline-text-3" id="text-1-12">
+</div>
+<div id="outline-container-org864c733" class="outline-4">
+<h4 id="org864c733"><span class="section-number-4">1.12.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-1-12-1">
+<p>
+kritische Punkte bestimmen
+</p>
+</div>
+</div>
+<div id="outline-container-org12807e8" class="outline-4">
+<h4 id="org12807e8"><span class="section-number-4">1.12.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-1-12-2">
+<ul class="org-ul">
+<li><a href="20230630-menge_der_kritischen_punkte_als_konvexe_menge.html#ID-bdbddfc3-23bc-4c0c-ae3d-38d87af423cd">Menge der kritischen Punkte als konvexe Menge</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org712f677" class="outline-4">
+<h4 id="org712f677"><span class="section-number-4">1.12.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-1-12-3">
+<ul class="org-ul">
+<li><a href="20230630-polarkoordinatenabbildung_als_lokaler_diffeomorphismus.html#ID-2f843e3a-ac76-4920-9c09-b92a59f12c44">Polarkoordinatenabbildung als lokaler Diffeomorphismus</a></li>
+<li><a href="20230630-komplexe_exponentialabbildung_als_lokaler_diffeomorphismus.html#ID-1837f1e3-5437-4794-a050-febf07385a08">komplexe Exponentialabbildung als lokaler Diffeomorphismus</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbf8b0ab" class="outline-4">
+<h4 id="orgbf8b0ab"><span class="section-number-4">1.12.4.</span> 4)</h4>
+<div class="outline-text-4" id="text-1-12-4">
+<ul class="org-ul">
+<li><a href="20230630-immersion.html#ID-66e0ef14-1bb7-48d5-a825-f6c3a365b59a">Immersion</a></li>
+<li><a href="20230630-differenzierbare_lokal_bilipschitz_funktion_als_immersion.html#ID-b415a5dc-7ba5-4e5c-85a6-dcbeffdc2770">differenzierbare, lokal bilipschitz Funktion als Immersion</a></li>
+<li><a href="20230301205440-diffeomorphismus.html#ID-573a56f9-0240-4c4a-a241-ee598afdd9f5">Diffeomorphismus</a></li>
+<li><a href="20230630-lokaler_homeomorphismus.html#ID-b13c4315-9bfe-438a-a1f0-018888d5b840">lokaler Homeomorphismus</a></li>
+<li><a href="20230630-lokaler_diffeomorphismus_als_lokaler_homeomorphisums.html#ID-199fa69e-622f-48bd-a1c9-1e078e1239b7">lokaler Diffeomorphismus als lokaler Homeomorphismus</a></li>
+<li><a href="20230630-lokaler_diffeomorphismus_als_offene_abbildung.html#ID-38820c64-6ebf-4f3b-a10b-022dedb292c7">lokaler Diffeomorphismus als offene Abbildung</a></li>
+<li><a href="20230630-lokaler_injektiver_diffeomorphismus_als_globaler_diffeomorphismus.html#ID-a0bbf213-1979-48c4-ac9d-af0c68af7a6e">lokaler, injektiver Diffeomorphismus als globaler Diffeomorphismus</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orged29840" class="outline-3">
+<h3 id="orged29840"><span class="section-number-3">1.13.</span> 12</h3>
+<div class="outline-text-3" id="text-1-13">
+</div>
+<div id="outline-container-orgf97ca3c" class="outline-4">
+<h4 id="orgf97ca3c"><span class="section-number-4">1.13.1.</span> aufgabe 1</h4>
+<div class="outline-text-4" id="text-1-13-1">
+<ul class="org-ul">
+<li><a href="20230713-offenheit_der_linear_unabhangigen_vektoren_im_produktraum.html#ID-bc2a1c23-e4f0-4d4a-a19b-3501f6c6ddeb">Offenheit der linear unabhängigen Vektoren im Produktraum</a></li>
+<li><a href="20230713-dichtheit_der_linear_unabhangigen_vektoren_im_produktraum.html#ID-1aa49d31-9908-4b9a-bae8-3b79d3a16784">Dichtheit der linear unabhängigen Vektoren im Produktraum</a></li>
+<li><a href="20230713-offenheit_der_linear_abhangigen_vektoren_im_produktraum.html#ID-3b17fd45-302f-4850-850e-85ddeefd0ea1">Offenheit der linear abhängigen Vektoren im reellen Produktraum</a></li>
+<li><a href="20230713-dichtheit_der_linear_abhangigen_vektoren_im_produktraum.html#ID-da297b5b-975d-443e-b082-ba80f36d6111">Dichtheit der linear abhängigen Vektoren im Produktraum_</a></li>
+
+<li><a href="20230713-offenheit_der_vektorraummonomorphismen.html#ID-fd68aff4-9a03-42c5-a55a-97c55422de05">Offenheit der Vektorraummonomorphismen</a></li>
+<li><a href="20230713-offenheit_der_vektorraumepimorphismen.html#ID-92e45ba6-9bd2-40d6-814f-37218a877855">Offenheit der Vektorraumepimorphismen</a></li>
+<li><a href="20230713-dichtheit_der_vektorraummonomorphismen.html#ID-c860e13f-31ed-406c-98cd-b742fee3eceb">Dichtheit der Vektorraummonomorphismen</a></li>
+<li><a href="20230713-dichtheit_der_vektorraumepimorphismen.html#ID-5570e82e-36a2-4c6b-8489-dd68dfd0a6f3">Dichtheit der Vektorraumepimorphismen</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2043ae1" class="outline-4">
+<h4 id="org2043ae1"><span class="section-number-4">1.13.2.</span> aufgabe 2</h4>
+<div class="outline-text-4" id="text-1-13-2">
+<ul class="org-ul">
+<li><a href="20230713-umkehrsatz_als_korollar_des_satzes_uber_implizite_funktionen.html#ID-83e20156-c075-44f1-894c-6c3e1c20097c">Umkehrsatz als Korollar des Satzes über implizite Funktionen</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgace24c3" class="outline-4">
+<h4 id="orgace24c3"><span class="section-number-4">1.13.3.</span> aufgabe 3</h4>
+</div>
+<div id="outline-container-orga7bbc00" class="outline-4">
+<h4 id="orga7bbc00"><span class="section-number-4">1.13.4.</span> aufgabe 4</h4>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 22:26</p>
+</div>
+</body>
+</html>

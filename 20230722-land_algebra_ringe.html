@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 15:20 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Land - Algebra - Ringe</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Land - Algebra - Ringe</h1>
+<div id="outline-container-org4d44176" class="outline-2">
+<h2 id="org4d44176"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">Ring</a></li>
+<li><a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">kommutativer Ring</a></li>
+<li><a href="20230112165803-nullring.html#ID-638f0759-37dc-472c-bb27-7cfccbd3c550">Nullring</a></li>
+<li><a href="20230727-zero_ring_as_only_ring_with_0_1.html#ID-058fbc4a-246d-4558-9e74-6b18784a06f7">zero ring as only ring with 0 = 1</a></li>
+<li><a href="20221226010233-ringhomomorphismus.html#ID-136298f7-3132-4bd7-934f-0eefaa48fcf9">homomorphism</a></li>
+<li><a href="20230227130935-unterring.html#ID-157d533b-1650-499e-be1d-341b1fa8fa15">Unterring</a></li>
+<li><a href="20230722-ringerweiterung.html#ID-27f8d9c7-2562-4214-a503-ea1b604ac94a">Ringerweiterung</a></li>
+<li><a href="20221226125820-menge_der_einheiten_als_gruppe.html#ID-49f0dc7a-5b14-45e3-bfa7-20a7eba79d30">Menge der Einheiten als Gruppe</a></li>
+<li><a href="20211230225623-schiefkorper_algebra.html#ID-dbd9f400-78f9-4e7c-928d-cc99f4086229">Schiefkörper</a></li>
+<li><a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a></li>
+
+<li><a href="20221226125648-integritatsbereich.html#ID-d39ae041-9db9-423e-8655-20e929ceaf48">Integritätsbereich</a></li>
+<li><a href="20221226125328-nullteiler.html#ID-dc985755-3df5-4b03-929e-659ee65ad000">Nullteiler</a></li>
+<li><a href="20230722-linksnullteiler.html#ID-c32f3d1d-496c-4d71-b5ed-224f9eb60984">Linksnullteiler</a></li>
+<li><a href="20230722-rechtsnullteiler.html#ID-a97af625-2011-43b4-9fef-433e29fc606f">Rechtsnullteiler</a></li>
+<li></li>
+
+<li><a href="20210702104458-ganze_zahlen.html#ID-179209f5-5cb0-426c-b035-470f9b3935a8">Ganze Zahlen</a></li>
+<li><a href="20210702104510-rationale_zahlen.html#ID-3db33e99-bceb-451d-804c-51a884630be1">Rationale Zahlen</a></li>
+<li><a href="20210702104546-komplexe_zahlen.html#ID-ca121ea4-6b83-47aa-a6f1-31a6e0d0667d">Komplexe Zahlen</a></li>
+<li><a href="20211230225918-quaternion.html#ID-3f46036d-daf8-4b3f-a79a-31c4b070e907">Quaternion</a></li>
+<li><a href="20230722-satz_von_frobenius_uber_divisionsalgebren.html#ID-789f1466-488c-44d3-ab70-7c490e074183">Satz von Frobenius über Divisionsalgebren</a></li>
+<li><a href="20221125172149-general_linear_group.html#ID-4ccb8f16-ca9c-4ec3-ba63-d1950d5bec89">General Linear Group</a></li>
+<li><a href="20230118133348-matrizenring.html#ID-f544f56c-5a91-4cc9-a621-61fad2777913">Matrizenring</a></li>
+
+<li><a href="20230118132937-direktes_produkt_von_ringen.html#ID-65a3746e-123a-4a98-8edf-3ff02e33750e">direktes Produkt von Ringen</a></li>
+<li><a href="20230722-projektion_vom_direkten_produkt_von_ringen_als_ringhomomorphismus.html#ID-41167258-2418-4946-9784-63fdc779697b">projektion vom direkten Produkt von Ringen als Ringhomomorphismus</a></li>
+<li><a href="20220303185921-polynomring.html#ID-1a010da5-5e8a-407f-87ba-85383825403f">Polynomring</a></li>
+<li><a href="20230722-unterschied_polynom_und_funktion.html#ID-af79319c-9ac4-4496-827c-25cc391caeda">Unterschied: Polynom und Funktion</a></li>
+<li><a href="20221226010643-einsetzungshomomorphismus.html#ID-714a456e-dcd8-4e03-906b-2b497bf77766">Einsetzungshomomorphismus</a></li>
+<li><a href="20220820203635-leitkoeffizient.html#ID-73cc2e5f-4112-45a4-8819-89fe7ca47722">Leitkoeffizient</a></li>
+<li><a href="20221226010524-normiertes_polynom.html#ID-f17a0f11-0953-4728-91a6-9a81df943813">normiertes Polynom</a></li>
+<li></li>
+
+<li></li>
+
+
+<li><a href="20221228233914-grad_von_polynomen_unter_rechenoperationen.html#ID-07c99de3-3d12-4c06-ad96-5ce961055594">Grad von Polynomen unter Addition</a></li>
+<li><a href="20230226190625-grad_von_polynomen_unter_multiplikation.html#ID-636a5b85-0136-4ac9-8882-93468b20dc0e">Grad von Polynomen unter Multiplikation</a></li>
+<li><a href="20230226190704-grad_von_polynomen_unter_multiplikation_in_einem_integritatsbereich.html#ID-ac8fc7ef-5b72-4a77-8057-2b3ad9241517">Grad von Polynomen unter Multiplikation in einem Integritätsbereich</a></li>
+<li><a href="20230722-division_mit_rest_uber_polynomen_fur_eine_einheit.html#ID-60d904bd-2e73-4e2c-8e79-651b7e8255c6">Division mit Rest über Polynomen für eine Einheit</a> - todo</li>
+<li><a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a></li>
+<li><a href="20221204161514-linksideal.html#ID-57b19243-1c18-4d75-9523-4e3413879578">Linksideal</a></li>
+<li><a href="20221204161519-rechtsideal.html#ID-d23b0f08-2e67-447f-9fcd-409100bf9ca9">Rechtsideal</a></li>
+<li><a href="20221226123326-triviale_ideale_eines_rings.html#ID-f2da2bcb-33cf-4c2b-b686-68e3e626ed41">triviale Ideale eines Rings</a></li>
+<li><a href="20230722-erzeugendensystem_eines_ideals.html#ID-8fefc2d7-34d4-4591-91cc-67ebfdffb814">Erzeugendensystem eines Ideals</a></li>
+<li><a href="20221227230017-summe_von_idealen.html#ID-8fcb0697-1dd7-4175-a951-968ebcde200a">Summe von Idealen</a></li>
+<li><a href="20221227230103-komplexprodukt_von_idealen.html#ID-3b33d732-713a-4420-83bc-b934074e04ce">Komplexprodukt von Idealen</a></li>
+<li><a href="20221227225148-schnitt_von_idealen_als_ideal.html#ID-dd0eaf4a-d395-492d-ae5c-c234c83088f7">Schnitt von Idealen</a></li>
+<li><a href="20221130163614-hauptideal.html#ID-753ccf8e-7022-43b7-af18-0d3e1db9bcdb">Hauptideal</a></li>
+<li><a href="20221227223925-hauptidealring.html#ID-41717608-2c65-435a-aca7-549eff5b4ca2">Hauptidealring</a></li>
+<li><a href="20230316221258-polynomring_uber_einem_korper_als_hauptidealring.html#ID-d0a25f1c-b5b1-46e3-bda8-6f094c70cd88">Polynomring in einer Variable über einem Körper und Polynomring als Hauptidealring</a></li>
+<li><a href="20221226123347-kern_eines_ringhomomorphismus_als_ideal.html#ID-07a48368-dbbd-4930-9024-9b64ecbf3510">Kern eines Ringhomomorphismus als Ideal</a></li>
+<li><a href="20230227124301-bild_eines_ringhomomorphismus_als_unterring.html#ID-7a10b1ca-76f7-46ea-9787-f311ef4715eb">Bild eines Ringhomomorphismus als Unterring</a></li>
+<li><a href="20221226124908-faktorring.html#ID-302f063f-b9f6-4806-b78a-47d210d78bcb">Faktorring</a></li>
+<li><a href="20221226125039-homomorphiesatz_fur_ringe.html#ID-755e30b6-bd5c-4c03-9e0f-29bb432fa474">Homomorphiesatz für Ringe</a></li>
+<li><a href="20230329081717-primideal.html#ID-a8ae10f5-3b84-4fab-9e76-b006780ccc7f">Primideal</a></li>
+<li><a href="20230314223428-maximales_ideal.html#ID-9d76bba3-11a8-42c9-9bdb-f774da2bb06a">maximal ideal</a></li>
+<li><a href="20230427191302-maximales_ideal_als_primideal.html#ID-b8305496-dd9a-42d7-aedb-e78dfc88f8fe">maximales Ideal als Primideal</a></li>
+<li><a href="20230329081834-aquivalente_charakterisierungen_eines_primideals.html#ID-e4e6f25e-6d27-4bc1-8dd8-4de9325fd407">Primideals in kommutativen Ringen und Faktorring als Integritätsbereich</a></li>
+<li><a href="20230315003350-maximales_ideal_und_faktorring_als_korper.html#ID-069612e5-9aa8-4a4d-bd69-1ed717b5a892">maximales Ideal und Faktorring als Körper</a></li>
+<li><a href="20230427222659-abstract_chinese_remainder_theorem.html#ID-d81884bc-f66f-47ce-a60f-dcf69622be67">abstrakter Chinesischer Restsatz</a> - todo</li>
+<li><a href="20220704151643-primfaktorzerlegung.html#ID-ca12a09a-a214-4b31-ab8d-0e411ea1e638">Primfaktorzerlegung</a></li>
+
+<li><a href="20221226132415-euklidischer_ring.html#ID-4b723c79-698b-40cf-ad6e-1b20de1300a9">euklidischer Ring</a></li>
+<li><a href="20221230001121-euklidische_normfunktion.html#ID-6037056b-f4cd-4207-85f5-bc2fbc743703">euklidische Normfunktion (Ring)</a></li>
+<li><a href="20230612-korper_als_euklidischer_ring.html#ID-0d3042e1-17b4-4837-848b-ddcbb8a29655">Körper als euklidischer Ring</a></li>
+<li><a href="20230314170346-ganze_zahlen_als_euklidischer_ring_mit_dem_absolutbetrg.html#ID-d5d2fa37-2e36-484a-addc-752b0aeb9762">Ganze Zahlen als euklidischer Ring mit dem Absolutbetrag</a></li>
+<li><a href="20230314170420-polynomring_uber_einem_korper_als_euklidischer_ring.html#ID-56b8e8c8-a1ca-4271-a5b8-c6e1c8d5ab1b">Polynomring über einem Körper als euklidischer Ring</a></li>
+<li><a href="20230419131549-gaußsche_ganzen_zahlen_als_euklidischer_ring.html#ID-850afd40-c230-4c7b-b5dc-ccde90c2da32">gaußsche ganzen Zahlen als euklidischer Ring</a></li>
+<li><a href="20221226132513-jeder_euklidischer_ring_als_hauptidealring.html#ID-e305ec81-7abe-498d-8316-cbc6e50d8222">Euklidischer Ring als Hauptidealring</a></li>
+<li><a href="20221226125836-irreduzibles_element.html#ID-0cc3140d-cb4c-48a2-8cb6-2d9801e34db0">irreduzibles Element</a></li>
+<li><a href="20230426123442-primelement.html#ID-ffa743e1-94ee-49fe-9647-396eeb233982">Primelement</a></li>
+<li><a href="20230426123641-irreduzibles_element_in_einem_hauptidealring_als_primelement.html#ID-9f97661e-12d1-4e24-b380-aff8b1393978">irreduzibles Element in einem Hauptidealring als Primelement</a></li>
+<li><a href="20230426123612-primelement_als_irreduzibles_element.html#ID-887223b3-5e27-4b7f-8aee-77ddf2864e1c">Primelement als irreduzibles Element</a></li>
+
+<li><a href="20230725-prime_ideal_and_maximal_ideal_in_a_pid.html#ID-3ca9da07-da61-4501-991f-e5322b61e1b5">prime ideal and maximal ideal in a PID</a></li>
+<li><a href="20221227223812-faktorieller_ring.html#ID-7bbf4bf1-38fd-4069-9816-6aa5aea3839f">faktorieller Ring</a></li>
+<li><a href="20221229204706-jeder_hauptidealring_ist_faktoriell.html#ID-50d657d3-6ac5-4bab-9f1f-432b16e587c6">Hauptidealring als faktorieller Ring</a></li>
+<li><a href="20230722-aquivalente_charakterisierung_eines_faktoriellen_rings.html#ID-1b30efb4-60ba-4baa-908d-6d2727bcd350">Äquivalente Charakterisierung eines faktoriellen Rings</a> - todo</li>
+<li><a href="20230722-satz_von_gauß_uber_einen_faktoriellen_polynomring.html#ID-a1326618-2770-42b5-ba09-70cd793e620b">Satz von Gauß über einen faktoriellen Polynomring</a> - todo</li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20220906095223-großter_gemeinsamer_teiler.html#ID-d299c206-515e-44af-8ff5-e332312a896a">größter gemeinsamer Teiler</a></li>
+<li><a href="20220906095246-kleinstes_gemeinsames_vielfache.html#ID-2e7d2bdd-5ced-4aed-866c-cf1a18dbf579">least common denominator</a></li>
+<li><a href="20230314172426-großter_gemeinsamer_teiler_in_einem_ideal_eines_hauptidealrings.html#ID-5e702b9d-d270-4a05-9de7-c691b655a544">größter gemeinsamer Teiler in einem Ideal eines Hauptidealrings</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20230729-least_common_denominator_and_intersection_of_idelas.html#ID-f84e41be-1685-4656-bad2-4b85fc783658">least common denominator and intersection of ideals</a></li>
+<li><a href="20230525170851-großter_gemeinsamer_teiler_und_primzerlegung_in_einem_hauptidealring.html#ID-976562af-3605-44c7-9d06-948ca2cd3356">größter gemeinsamer Teiler und Primzerlegung in einem Hauptidealring</a></li>
+<li><a href="20220320113706-nullstelle.html#ID-b094e637-5f3c-42a2-a2c2-ae73bbbe29a2">Nullstelle (Polynom)</a></li>
+<li><a href="20221229005816-mehrfache_nullstelle.html#ID-919e08d0-c7da-4065-86b0-bb96a70a2504">Vielfachheit einer Nullstelle</a></li>
+<li><a href="20230621-grad_eines_polynoms_und_maximale_anzahl_an_nullstellen.html#ID-cb0ef2c3-2474-4227-8e8c-bf3370322792">Grad eines Polynoms und maximale Anzahl an Nullstellen</a></li>
+<li><a href="20230110204536-m_fache_ableitung_einer_m_fachen_nullstelle.html#ID-e9560b5a-9082-4bd6-b2c9-1ba0303fdcf1">m-fache Ableitung einer m-fachen Nullstelle</a></li>
+<li><a href="20230112165631-quotientenkorper_uber_einem_ring.html#ID-2a6b3703-3a34-4104-8a40-c52449e48181">Quotientenkörper</a></li>
+<li><a href="20230724-universal_property_of_a_localization.html#ID-066573a6-a6d3-4cf1-9a82-cfddf8b870cf">universal property of a localization</a> - todo</li>
+<li><a href="20230426132341-konvention_der_primelemente.html#ID-f71f0cbf-2375-4e96-a226-3cbf4077ad7d">Konvention der Primelemente</a></li>
+<li>2.31 ?</li>
+<li><a href="20230722-primitives_polynom.html#ID-6e3269c2-5f47-463a-b6b4-23649b9775ec">primitives Polynom (ring)</a></li>
+<li><a href="20230730-existenz_eines_primitiven_polynoms_fur_ein_polynom.html#ID-6be2984c-1d00-4820-b63f-965a724464fd">Existenz eines primitiven Polynoms für ein Polynom</a></li>
+<li>s18 unklar</li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20230730-lemma_von_gauß_zur_vielfachheit_einer_primen_nullstelle.html#ID-98e46047-ae9a-4ed5-acd7-3bc42ab4a40d">Lemma von Gauß zur Vielfachheit einer primen Nullstelle</a> - todo</li>
+<li><a href="20230730-primes_polynom_und_prim_im_quotientenkorper.html#ID-4fcad70a-2008-4a87-80fe-1249473b1d1a">primes Polynom eines faktoriellen Körpers und prim im Quotientenkörper</a></li>
+<li><a href="20230730-nullstelle_und_irreduzibilitat.html#ID-aac484bd-7eb8-447f-a4cb-a96460e39637">Nullstelle und irreduzibilität</a></li>
+<li><a href="20230730-satz_von_eisenstein.html#ID-232793e8-2184-44a6-a336-d272db07232b">Satz von Eisenstein</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20230730-reduktion_modulo_p_eines_polynoms.html#ID-a4783a56-4cb3-4ee9-ba62-325c7994891f">Reduktion modulo p eines Polynoms</a></li>
+
+<li><a href="20230722-charakteristik_eines_unitaren_unterrings.html#ID-c1a79c83-d86d-4e3a-b619-385029eaeb7c">charakteristik eines unitären Unterrings</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 15:20</p>
+</div>
+</body>
+</html>

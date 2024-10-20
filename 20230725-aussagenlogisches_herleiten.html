@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 15:23 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Logik 1: Aussagenlogisches Herleiten</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Logik 1: Aussagenlogisches Herleiten</h1>
+<div id="outline-container-org94ad34b" class="outline-2">
+<h2 id="org94ad34b"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org8586b6c" class="outline-3">
+<h3 id="org8586b6c"><span class="section-number-3">1.1.</span> </h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20240112-syntaktik.html#ID-2057ae57-6a81-4ac4-aa79-aaba05b02171">Syntaktik</a></li>
+<li><a href="20240112-semantik.html#ID-35f60792-e964-4cfd-975f-caedab4b1930">Semantik</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org65891b6" class="outline-3">
+<h3 id="org65891b6"><span class="section-number-3">1.2.</span> Sytsem</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20220919093440-modus_ponens.html#ID-01e40d0e-a013-4853-8da5-ba5f3ddef602">Modus ponens</a></li>
+<li><a href="20220919093356-modus_tollens.html#ID-f07c341a-2e68-4e6d-a720-7bc9c50daf50">Modus tollens</a></li>
+<li><a href="20220929224425-disjunktiver_syllogismus.html#ID-dfacd6fc-c923-4e30-9780-4139aa5a67ca">Disjunktiver Syllogismus</a></li>
+<li><a href="20230802-simplifikation_logik.html#ID-5c346621-fdd6-40fb-a2fd-a4002876d58b">Simplifikation (Logik)</a></li>
+
+<li><a href="20230802-intuitionische_doppelte_verneinung.html#ID-4e2fad21-923d-4ded-b3cd-41283dbc5129">intuitionische doppelte Verneinung</a></li>
+<li><a href="20221222213710-law_of_the_excluded_middle.html#ID-524ddc36-d896-4dee-99b9-a24cdd38520e">Law of the excluded middle</a></li>
+<li><a href="20240112-double_negation_elimination.html#ID-1ad85072-2a20-4b9f-b2e2-03dbc62b2c83">double negation elimination</a></li>
+<li><a href="20230802-disjunktion_schlussregel.html#ID-4f4b3a78-d6b7-46ca-bf5f-6b6542e5f3da">Disjunktion (Schlussregel)</a></li>
+<li><a href="20230802-triviale_schlussform.html#ID-0de505ab-3c0b-4bd5-bc5e-43a0ec996764">triviale schlussform</a></li>
+<li><a href="20230102150606-ex_falso_quodlibet.html#ID-dc6e2310-561f-40ba-86ac-9abb338717c7">EFQ</a>  / <a href="20240112-ecq.html#ID-7b1e0746-aaba-4d1b-bc23-55d24d93a0df">ECQ</a></li>
+
+<li><a href="20230102135313-reductio_ad_absurdum.html#ID-135db505-3780-4339-9865-be495bb2bc10">reductio ad absurdum</a></li>
+<li><a href="20240112-konditionale_beweis.html#ID-c200106a-3f6e-4323-8d7f-a7e590b76181">Konditionale Beweis</a></li>
+
+<li><a href="20231007-lem_und_fallunterscheidung.html#ID-2835529c-9339-4d5f-9fe6-6de20d33d1fc">LEM und Fallunterscheidung</a></li>
+
+<li><a href="20230802-einfuhrung_der_aquivalenz.html#ID-039a1306-cff7-4b27-a93a-44fc270acf96">Einführung der Äquivalenz</a></li>
+<li><a href="20230802-elimination_der_aquivalenz.html#ID-e86ba358-e8dd-40b6-b453-99e70a877936">Elimination der Äquivalenz</a></li>
+
+<li><a href="20240112-herleitung_einer_formel.html#ID-2703d8a0-8c7b-4ada-a50a-43ae76ba5b58">herleitung einer formel</a></li>
+<li><a href="20240112-herleitbare_formel.html#ID-6d624797-28f5-4685-8e47-96c8fe182aa9">herleitbare formel</a></li>
+</ul>
+
+<p>
+weiter  
+</p>
+<ul class="org-ul">
+<li><a href="20231105-kommutativgesetz_fur_die_konjunktion.html#ID-3cfa9d01-7b80-4476-b00d-07189fd22ef7">kommutativgesetz für die Konjunktion</a></li>
+<li><a href="20240112-kommutativgesetz_fur_die_disjunktion.html#ID-c080638b-9c75-4f42-901e-3a7459399d12">kommutativgesetz für die Disjunktion</a></li>
+
+<li><a href="20240112-assoziativgesetz_fur_die_konjunktion.html#ID-2df27bbd-19db-4c8f-b051-f08d4d073d83">assoziativgesetz für die konjunktion</a></li>
+<li><a href="20240112-assoziativgesetz_fur_die_disjunktion.html#ID-5c1fb629-2928-4484-b6be-8b96e51740ca">assoziativgesetz für die disjunktion</a></li>
+
+<li><a href="20240112-distributivgesetz_der_disjunktion_und_konjunktion.html#ID-f421e3f6-1771-4f93-94a7-945f5082f6b5">distributivgesetz der disjunktion und konjunktion</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20220821114428-de_morgansche_gesetze_logik.html#ID-b01b46b3-748b-41fa-8def-0b69c2a2b420">De Morgansche Gesetze (Logik)</a></li>
+<li><a href="20240112-negation_der_implikation.html#ID-5093165a-780d-43a3-a862-190456801ad9">Negation der Implikation</a></li>
+
+<li><a href="20230802-deduktiv_gultige_argumentformel.html#ID-e8bf59c1-df0e-4339-b99e-d879127f0565">deduktiv gültige Argumentformel</a></li>
+<li><a href="20230802-beweisbare_formel.html#ID-a376ec1d-3e63-42c3-a829-4535eaffa870">beweisbare Formel</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 15:23</p>
+</div>
+</body>
+</html>

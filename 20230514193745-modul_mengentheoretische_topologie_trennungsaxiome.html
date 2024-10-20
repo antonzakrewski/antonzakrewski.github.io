@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 22:37 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Modul: mengentheoretische Topologie - Trennungsaxiome</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Modul: mengentheoretische Topologie - Trennungsaxiome</h1>
+<div id="outline-container-orgd6d7046" class="outline-2">
+<h2 id="orgd6d7046"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orge8b43f0" class="outline-3">
+<h3 id="orge8b43f0"><span class="section-number-3">1.1.</span> Liste</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20230227195003-t0_raum.html#ID-d6e07759-ca3c-4719-883b-6adf2b193256">T0-Raum</a></li>
+<li><a href="20230207113106-t1_raum.html#ID-0bc02ce3-dbb8-4a80-9a2b-53c3ac9393f1">T1-Raum</a></li>
+<li><a href="20221122074811-hausdorff_raum.html#ID-f49f9b47-9f16-456f-837f-7b9656c46aba">T2-Raum</a></li>
+<li><a href="20230227200058-urysohn_raum.html#ID-5d878903-e31d-464b-8e00-d881866a05c6">T2.5 Space</a></li>
+<li><a href="20230207113114-t3_raum.html#ID-1496cd1c-f753-4113-8c6c-997de305c027">T3-Raum</a></li>
+<li><a href="20230308143801-t3a_raum.html#ID-4c7876f8-c1d5-40d4-93e4-ac1d9fcc9ae0">T3a-Raum</a></li>
+<li><a href="20230522175136-t4_raum.html#ID-77ba69ea-9fa2-44a3-b922-2031bbb40d8d">T4-Raum</a></li>
+<li><a href="20230522175609-regularer_raum.html#ID-514aafc7-930a-473d-928f-525c49a34146">regulärer Raum</a></li>
+<li><a href="20230227205526-normaler_raum_topologie.html#ID-8dac9b3a-6b0d-479c-b4c8-e6a022e96e12">normaler Raum</a></li>
+<li><a href="20230516123520-vollstandig_regularer_raum.html#ID-a8f365a8-a0b0-48d0-80fb-d137167a8c0c">vollständig regulärer Raum</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0c77169" class="outline-3">
+<h3 id="org0c77169"><span class="section-number-3">1.2.</span> <a href="20230604-trennungseigenschaften_metrischer_raume.html#ID-6a500745-c29c-4a5d-a7e7-e9cd5478df67">Trennungseigenschaften metrischer Räume</a></h3>
+</div>
+<div id="outline-container-org1e43a07" class="outline-3">
+<h3 id="org1e43a07"><span class="section-number-3">1.3.</span> Implikationen</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20230207113438-aquivalente_charakterisierungen_eines_t1_raums.html#ID-54d65fd2-2a08-416e-b73a-cd9730e17129">Äquivalente Charakterisierungen eines T1-Raums</a></li>
+<li><a href="20230511173845-aquivalente_charakterisierung_eines_t2_raums.html#ID-0c871df2-8a3c-4613-a2d2-5e34ca49add7">Äquivalente Charakterisierung eines T2-Raums</a></li>
+<li><a href="20230511173954-aquivalente_charakterisierung_eines_t3_raums.html#ID-f47559b9-88a7-41d8-9322-37098c6ae657">Äquivalente Charakterisierung eines T3-Raums</a></li>
+<li><a href="20230511174027-aquivalente_charakterisierung_eines_t3a_raums.html#ID-395c0c82-1d95-4b82-8020-922c72d4d282">Äquivalente Charakterisierung eines T3a-Raums</a></li>
+<li><a href="20230521213147-aquivalente_charakterisierung_eines_t4_raums.html#ID-a1a17f8f-7de0-4fd6-8556-42ce77bfc735">Äquivalente Charakterisierung eines T4-Raums</a></li>
+<li><a href="20230308143850-t1_impliziert_t0_topologie.html#ID-82ddcf2e-d1fc-4412-9bb1-93217990f51b">Frechet Topologie impliziert Kolmogoroff Raum</a></li>
+<li><a href="20230511174219-normaler_hausdorff_raum_und_frechet_topologie_impliziert_regularen_raum.html#ID-46b2652d-aef8-4063-b56e-6516f888d280">normaler Raum impliziert regulären Raum</a></li>
+<li><a href="20230603-t1_und_t4_impliziert_t3a.html#ID-ac1ac117-d700-49aa-b364-4a2feaeece2f">T1 und T4 impliziert T3a</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org58ec999" class="outline-3">
+<h3 id="org58ec999"><span class="section-number-3">1.4.</span> anderes</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><a href="20230522084214-einbettung_in_eine_produkttopologie.html#ID-8c24f3eb-24bd-4e92-999b-e1cf8d5b0f2b">Einbettung eines geeigneten topologischen Raums in eine Produkttopologie</a></li>
+<li><a href="20230516125659-einbettung_eines_vollstandig_regularen_raums_in_eine_produkttopologie.html#ID-eb178180-ffc5-479d-9b7c-c6ca89be579f">Einbettung eines vollständig regulären Raums in eine Produkttopologie</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge95df03" class="outline-3">
+<h3 id="orge95df03"><span class="section-number-3">1.5.</span> vererbung</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li><a href="20230525102150-vererbung_von_t0_eigenschaft.html#ID-9865371a-760d-4a82-b474-58528586c618">Vererbung von T0-Eigenschaft</a></li>
+<li><a href="20230525102156-vererbung_von_t1_eigenschaft.html#ID-1801f237-b913-4d68-8eb3-ff32d870d88b">Vererbung von T1-Eigenschaft</a></li>
+<li><a href="20230518091728-hausdorff_raum_und_unterraum.html#ID-67f424d4-d476-49e5-9e89-414978341c38">Vererbung von T2-Eigenschaft</a></li>
+<li><a href="20230525102253-vererbung_von_t3_eigenschaft.html#ID-7f81a666-5740-4317-a6ce-6e0f9cf28924">Vererbung von T3-Eigenschaft</a></li>
+<li><a href="20230525102301-vererbung_von_t3a_eigenschaft.html#ID-742a7c90-f811-4ba3-bd35-c3263dfc4dd2">Vererbung von T3a-Eigenschaft</a></li>
+
+<li><a href="20230525102721-unterraum_eines_normalen_raums_i_a_nicht_normal.html#ID-d8908ac6-5cb9-4315-b72c-cb99f103b220">Unterraum eines normalen Raums i.A. nicht normal</a></li>
+<li><a href="20230604-unterraum_eines_t4_raums_i_a_nicht_t4.html#ID-fdc1e5e4-edcf-4c0a-9944-4e201d10872e">Unterraum eines T4 Raums i.A. nicht T4</a></li>
+<li><a href="20230525105148-unterraumtopologie_einer_abgeschlossenen_menge_eines_normalen_raums_als_normaler_raum.html#ID-e3977373-bc4b-43da-8019-5fbb2f2e622e">Unterraumtopologie einer abgeschlossenen Menge eines normalen Raums als normaler Raum</a></li>
+<li><a href="20230526233947-unterraumtopologie_einer_abgeschlossenen_menge_eines_t4_raums_als_t4_raum.html#ID-f87dc007-2429-42f4-a6b0-5c98ed4a2f55">Unterraumtopologie einer abgeschlossenen Menge eines T4-Raums als T4-Raum</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcfae21f" class="outline-3">
+<h3 id="orgcfae21f"><span class="section-number-3">1.6.</span> produkt</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li><a href="20230525102327-produkt_von_t0_raumen_als_t0_raum.html#ID-15729986-2045-4328-b95e-eca0be41b8cb">Produkt von T0-Räumen als T0-Raum</a></li>
+<li><a href="20230525102334-produkt_von_t1_raumen_als_t1_raum.html#ID-1eea8187-6acb-439d-8b76-affe796a3504">Produkt von T1-Räumen als T1-Raum</a></li>
+<li><a href="20230517212415-produkt_von_hausdorff_raumen_als_hausdorff_raum.html#ID-11849ef0-9371-436f-a215-b736d98f5d95">Produkt von T2-Räumen als T2-Raum</a></li>
+<li><a href="20230525102405-produkt_von_t3_raumen_als_t3_raum.html#ID-c7fe3d5e-a573-4993-acf0-0786d8737933">Produkt von T3-Räumen als T3-Raum</a></li>
+<li><a href="20230525102420-produkt_von_t3a_raumen_als_t3a_raum.html#ID-c359628a-c9f2-457f-8961-8fa8b4dcc156">Produkt von T3a-Räumen als T3a-Raum</a></li>
+<li><a href="20230525102601-sorgenfrey_ebene_als_produkt_von_normalen_raumen_nicht_normal.html#ID-3e50359b-4bd7-4ca5-bd1b-aa61895b2b58">Produkt von normalen Räumen i.A. nicht normal</a></li>
+<li><a href="20230604-produkt_von_t4_raumen_i_a_nicht_t4.html#ID-8e273060-cb86-4825-adef-80340b73561f">Produkt von T4 Räumen i.A. nicht T4</a></li>
+<li><a href="20230525102601-sorgenfrey_ebene_als_produkt_von_normalen_raumen_nicht_normal.html#ID-3e50359b-4bd7-4ca5-bd1b-aa61895b2b58">Produkt von normalen Räumen i.A. nicht normal</a></li>
+<li><a href="20230525093653-injektion_von_den_offenen_mengen_auf_den_schnitt_mit_einer_dichten_teilmenge.html#ID-14745ab9-b5cd-4898-bbb4-205cc15d6354">Injektion von den offenen Mengen auf den Schnitt mit einer dichten Teilmenge</a></li>
+<li><a href="20230527083342-diskrete_teilmenge_machtiger_als_dichte_teilmenge_und_normaler_raum.html#ID-d60c2c4c-f389-462a-9c43-affcce51947d">diskrete Teilmenge mächtiger als dichte Teilmenge und normaler Raum</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7654417" class="outline-3">
+<h3 id="org7654417"><span class="section-number-3">1.7.</span> andere</h3>
+<div class="outline-text-3" id="text-1-7">
+<ul class="org-ul">
+<li><a href="20230525121731-quotiententopologie_und_t1_raum.html#ID-11828c41-bdcc-4df6-832c-b00bc210e6dd">Quotiententopologie und T1-Raum</a> - idk ?</li>
+<li><a href="20230525121839-quotinetentopologie_und_hausdorff_eigenschaft.html#ID-0ce0fc23-33af-492e-a5ec-8f06ed168b29">Quotiententopologie und Hausdorff-Eigenschaft</a> - idk ?</li>
+<li></li>
+
+<li></li>
+</ul>
+
+<p>
+4
+</p>
+
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0fdf752" class="outline-3">
+<h3 id="org0fdf752"><span class="section-number-3">1.8.</span> Konstruktion von Abbildungen</h3>
+<div class="outline-text-3" id="text-1-8">
+<ul class="org-ul">
+<li><a href="20230309100938-urysohnsches_lemma.html#ID-289a9c8b-1a5b-493a-bd59-936e07abd336">Urysohnsches Lemma</a></li>
+<li><a href="20230606-fortsetzungssatz_von_tietze.html#ID-72fcd39b-5d51-46d3-b342-e285e55e7a54">Fortsetzungssatz von Tietze</a></li>
+<li><a href="20230606-lemma_von_urysohn_als_spezialfall_vom_fortsetzungssatz_von_tietze.html#ID-ad4adc3b-b12a-4571-b780-c937fe343e6d">Lemma von Urysohn als Spezialfall vom Fortsetzungssatz von Tietze</a></li>
+<li><a href="20230601132902-g_delta_menge.html#ID-6df4b467-3c98-44c3-a261-42d8185498a1">G-Delta Menge</a></li>
+<li><a href="20230601133208-g_delta_mengen_in_einem_t4_raum.html#ID-e05197fe-aa60-4d44-ae20-ef4ec8b23ee5">G-Delta Mengen in einem T4-Raum</a></li>
+<li><a href="20230601220526-einfaches_urysohnsches_lemma_fur_metrische_raume.html#ID-b44f4c0a-cb42-4765-858c-61f0ae8adc31">einfaches Urysohnsches Lemma für metrische Räume</a></li>
+<li><a href="20230227205538-vollstandig_normaler_raum_topologie.html#ID-481f3549-db51-4ece-ad88-73dd7a36981f">vollständig normaler Raum (Topologie)</a></li>
+<li><a href="20230601152332-aquivalente_charakterisierung_eines_vollstandig_normalen_raumes.html#ID-ad0914c1-9c3a-4029-b333-0978154250cc">Äquivalente Charakterisierung eines vollständig normalen Raumes</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 22:37</p>
+</div>
+</body>
+</html>

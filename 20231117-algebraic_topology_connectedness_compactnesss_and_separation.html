@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 19:16 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>algebraic topology 1 - connectedness, compactnesss and separation</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">algebraic topology 1 - connectedness, compactnesss and separation</h1>
+<div id="outline-container-org4aef923" class="outline-2">
+<h2 id="org4aef923"><span class="section-number-2">1.</span> Aspects</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgb69c9b9" class="outline-3">
+<h3 id="orgb69c9b9"><span class="section-number-3">1.1.</span> connectedness</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20230118223336-zusammenhangender_raum.html#ID-bcc53507-bc5a-46d4-bd83-53e504f62b9d">connected space</a></li>
+<li><a href="20230308122014-zusammenhanger_raum_und_offen_abgeschlossene_menge.html#ID-9f8f83d4-35d5-48a4-b72c-c796aacb5b5f">Zusammenhängender Raum und clopen set</a></li>
+<li><a href="20230511173410-lokal_zusammenhangend.html#ID-fb8fd49f-5c8d-4408-a000-24dda0f0eaad">locally connected</a></li>
+<li><a href="20231024-weakly_locally_connected_space.html#ID-43c46218-18e0-4590-8296-ade560f3eb28">weakly locally connected space</a></li>
+<li><a href="20230308142110-wegzusammenhangender_raum_topologie.html#ID-09b1d548-9ac2-461c-8b3e-f72097f54a99">wegzusammenhängender Raum</a></li>
+<li><a href="20230308142220-lokal_wegzusammenhangend.html#ID-440c77bf-ffb1-45dc-92a4-b1fd98e19cb1">lokal wegzusammenhängend</a></li>
+<li><a href="20230308142220-lokal_wegzusammenhangend.html#ID-440c77bf-ffb1-45dc-92a4-b1fd98e19cb1">locally path connected</a></li>
+<li><a href="20231024-weakly_locally_path_connected_space.html#ID-c86634a0-bbc5-45c8-ab34-b809f86b6d88">weakly locally path connected space</a></li>
+<li><a href="20231024-connected_space_as_weakly_connected_space.html#ID-9274ac6f-f638-4756-9eea-3798a3f595e5">connected space as weakly connected space</a></li>
+<li><a href="20231024-path_connected_space_as_weakly_path_connceted_space.html#ID-59a4e9c6-1e62-4886-9473-607a15133686">path connected space as weakly path connceted space</a></li>
+
+<li><a href="20230526231732-globaler_wegzusammenhang_impliziert_i_a_nicht_lokalen_wegzusammenhang.html#ID-1d6f9121-8e96-4ebf-bb80-97152b40296d">globaler Wegzusammenhang impliziert i.A. nicht lokalen wegzusammenhang</a></li>
+<li><a href="20231024-locally_path_connceted_space_in_general_not_path_connected.html#ID-d8ee4fc4-8b69-44ac-bbc2-516083144aee">locally path connceted space in general not path connected</a></li>
+<li><a href="20231024-locally_connected_space_in_general_not_connected.html#ID-f8803253-e2b8-4ad1-8d2c-8f627a2ebcfd">locally connected space in general not connected</a></li>
+
+<li><a href="20230622-euklidischer_raum_lokal_wegzusammenhangend.html#ID-b4dcd1eb-68de-4b38-95d4-3f0e761ed107">euklidischer Raum lokal wegzusammenhängend</a></li>
+<li><a href="20231024-euklidischer_raum_als_zusammenhangender_raum.html#ID-a1aef105-0287-4a0d-9cc7-0dd816c0b656">euklidischer Raum als zusammenhängender Raum</a></li>
+<li><a href="20231024-euklidishcer_raum_als_lokal_zusammenhangender_raum.html#ID-d29321ae-a438-4ac0-9cb4-dc9dfe71eb30">euklidischer raum als lokal zusammenhängender Raum</a></li>
+<li><a href="20231024-euklidischer_raum_als_wegzusammenhangender_raum.html#ID-0adc3401-c4e9-4e22-814e-3dba5a3fc6b3">euklidischer Raum als wegzusammenhängender Raum</a></li>
+
+<li><a href="20230622-euklidischer_raum_lokal_wegzusammenhangend.html#ID-b4dcd1eb-68de-4b38-95d4-3f0e761ed107">euclidean space as locally path connected space</a> / <a href="20231024-euklidishcer_raum_als_lokal_zusammenhangender_raum.html#ID-d29321ae-a438-4ac0-9cb4-dc9dfe71eb30">euclidean space as locally connected space</a></li>
+
+<li><a href="20230308142726-zusammenhangskomponente.html#ID-1428682d-f6f4-4d4c-b52c-bc0087485f33">connected component</a></li>
+<li><a href="20230525114518-pfadkomponente.html#ID-3295510f-254c-4af2-a40d-2374ef5c9929">path component</a></li>
+
+<li><a href="20230923-empty_space_not_connected.html#ID-68579bcd-b597-4a85-8d67-7290f2bbf8c6">empty space not connected</a></li>
+
+<li><a href="20231024-set_of_connected_components.html#ID-40704da9-85a2-466e-a53e-bddf7c1e2c67">set of connected components</a></li>
+<li><a href="20231024-number_of_connected_components_and_connected_space.html#ID-78a570ae-8088-4023-9940-b215da808b69">number of connected components and connected Space</a></li>
+
+<li><a href="20231105-connectedness_as_equivalence_relation.html#ID-4656f126-5ac8-428e-8c5c-1bbf9d6920b4">connectedness as equivalence relation</a></li>
+<li><a href="20231024-path_connectedness_as_equivalence_relation.html#ID-10623776-bec3-4b3c-a8e9-624f8f08e444">path connectedness as equivalence relation</a></li>
+
+<li><a href="20231024-functor_from_top_to_the_set_of_path_components.html#ID-1bd97430-5ed1-404d-a2bb-e6813f079895">functor from Top to the set of path components</a></li>
+<li><a href="20230504132522-reelle_offene_intervalle_sind_zusammenhangend.html#ID-7574fbbc-be31-4bd9-850f-8099fcb02b53">reelle, offene Intervalle sind zusammenhängend</a> / <a href="20230504132522-reelle_offene_intervalle_sind_zusammenhangend.html#ID-7574fbbc-be31-4bd9-850f-8099fcb02b53">reelle abgeschlossene Intervalle sind zusammenhängend</a></li>
+<li><a href="20230308142455-zusammenhang_eines_wegzusammenhangenden_raumes.html#ID-9c70f942-db03-480d-bfe3-1e3993ba0494">Zusammenhang eines wegzusammenhängenden Raumes</a>  / <a href="20231024-locally_path_connected_space_as_connected_space.html#ID-aa888f51-9057-4898-8c88-68cb9005acc9">locally path connected space as locally connected space</a></li>
+
+<li><a href="20230530133126-pfadkomponente_als_teilmenge_der_zusammenhangskomponente.html#ID-9da05bea-dd3c-4f49-8941-9d3ffac6334d">Pfadkomponente als Teilmenge der Zusammenhangskomponente</a></li>
+<li><a href="20231027-surjection_from_path_components_to_connected_components.html#ID-d9d09c2e-ab6c-4e02-87e3-da6771199b3a">Surjection from path components to connected components</a></li>
+
+<li><a href="20230525114250-stetiges_bild_eines_wegzusammenhangenden_raumes_als_wegzusammenhangender_raum.html#ID-804fafa1-0131-4b0b-9830-5cb7898efb87">stetiges Bild eines wegzusammenhängenden Raumes als wegzusammenhängender Raum</a></li>
+<li><a href="20230308141729-zusammenhang_eines_bild_einer_zusammenhangenden_menge.html#ID-6cd32af6-e296-4043-af1b-33e4a25b1e74">Zusammenhang eines Bild einer zusammenhängenden Menge</a></li>
+
+<li><a href="20230509125028-zusammenhang_einer_vereinigung_von_nicht_disjunkten_zusammenhangenden_mengen.html#ID-be6e96bb-97bc-4dae-b248-54e6e01a72c7">Vereinigung von überlappenden zusammenhängenden Mengen</a></li>
+
+<li><a href="20230222175426-abschluss_in_einer_topologie.html#ID-9134c61c-5ec6-4cd6-8928-9ef53b6bfd37">closure</a></li>
+<li><a href="20230222172752-inneres_einer_topologie.html#ID-14daf62f-ca16-4f9a-a71f-a84e86b23c1c">interior</a></li>
+<li><a href="20221124232157-dichte_menge_topologie.html#ID-921fe319-4945-4303-a9a5-3723804e0737">dense</a></li>
+<li><a href="20230222172146-nirgends_dicht_topologie.html#ID-022a1587-f478-44ec-a8c6-3ecb6fcc6ad8">nowhere dense</a></li>
+
+<li><a href="20230222173339-innere_einer_topologie_als_großte_offene_menge.html#ID-351982c5-c63f-4633-926c-bbeb9fe84be2">Innere einer Toplogie als größte offene Menge</a></li>
+<li><a href="20230222175746-abschluss_als_kleinste_abgeschlossene_menge.html#ID-ece59b8c-3cad-4e6f-9dd4-63d68892e3dc">Abschluss als kleinste abgeschlossene Menge</a></li>
+
+<li><a href="20230308131718-teilmenge_eines_abschlusses_einer_zusammenhangender_menge_als_zusammenhangende_menge.html#ID-16447d4d-126d-4231-a7e4-b95d3be606fe">Abschluss einer zusammenhängenden Menge als zusammenhängende Menge</a></li>
+<li><a href="20231024-weakly_locally_connected_space.html#ID-43c46218-18e0-4590-8296-ade560f3eb28">weakly locally connected space</a></li>
+<li><a href="20231027-open_connected_components_and_weakly_locally_connected_space.html#ID-314f4718-646d-4969-8f19-863f68722854">open connected components and weakly locally connected space</a></li>
+
+<li><a href="20231031-path_and_connected_components_in_a_weakly_locally_path_connected_space.html#ID-0f906a88-2fed-4060-bd1d-51310c60cbb9">path and connected components in a weakly locally path connected space</a></li>
+<li><a href="20230113082334-total_unzusammenhangende_menge.html#ID-faafd123-2cf7-4e51-87b0-020a9b527443">totally disconnected space</a></li>
+<li><a href="20231031-totally_disconnected_space_and_singleton_connected_space.html#ID-1630cc5b-2d54-4b50-a5cb-75c48749f6d7">totally disconnected space and singleton connected space</a></li>
+<li><a href="20230113082210-cantor_menge_als_total_unzusammenhangend.html#ID-8cb90b0d-b1ea-473f-9b36-fb87ca0fd005">Cantor Menge als total unzusammenhängend</a></li>
+<li><a href="20231031-topology_on_the_p_adic_numbers.html#ID-a7332627-259f-467d-b378-6863b6fe30bb">topology on the p-adic numbers</a> (?)</li>
+
+<li><a href="20230604-offenheit_von_zusammenhangskomponenten.html#ID-32711ca1-63b9-4827-b0e1-f920c993a379">Offenheit von Zusammenhangskomponenten einer endlichen Partition</a></li>
+<li><a href="20240218-path_component_functor_factors_through_connected_components.html#ID-7bd0f757-c255-4deb-ad5f-fb1cd737abd4">path component functor factors through connected components</a></li>
+<li><a href="20231031-path_and_connected_components_in_a_weakly_locally_path_connected_space.html#ID-0f906a88-2fed-4060-bd1d-51310c60cbb9">path and connected components in a weakly locally path connected space</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org87b08c7" class="outline-3">
+<h3 id="org87b08c7"><span class="section-number-3">1.2.</span> compactness</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20230412003456-compact_set.html#ID-d09ae6d2-2b5c-41c1-a54d-3259d3e2f0f0">compact</a></li>
+<li><a href="20230705-locally_compact_regular_space.html#ID-f89f4ba5-4eb9-448b-bf35-da8e5aeaa963">locally compact regular Space</a></li>
+<li><a href="20230227205457-lokalkompakter_raum.html#ID-114308bd-ddf7-46e0-a7bc-82623eb4aa0e">weakly locally compact space</a></li>
+<li><a href="20230112110346-kompaktheit_des_bildes_einer_kompakten_menge_einer_stetigen_funktion.html#ID-a2b585a8-d9b6-4663-be20-3eea36a6495a">continuous image of compact space as compact space</a></li>
+<li><a href="20230511112853-abgeschlossene_mengen_kompakter_raume_sind_kompakt.html#ID-2b714bee-6153-4623-8e5a-6c46e87e3474">Abgeschlossene Mengen kompakter Räume sind kompakt</a></li>
+<li><a href="20230804-compact_space_and_intersection_of_closed_sets.html#ID-418631e0-8898-4010-8491-fa96d1c3e67d">compact space and intersection of closed sets</a></li>
+<li><a href="20230519090021-satz_von_tychonoff.html#ID-30c83690-820b-4f4f-ac1b-5019fde136a9">Tychonoff's Theorem</a></li>
+<li><a href="20230306233743-mengenfilter.html#ID-b48f4cbe-1224-4298-a83b-c35e5e580a49">Setfilter</a></li>
+<li></li>
+
+<li><a href="20230307220633-existenz_eines_ultrafilters_als_obermenge.html#ID-24afef4c-f755-4f11-9abf-6dbddb97a9e5">zorn's lemma implies ultrafilter lemma</a></li>
+<li><a href="20230825-ultrafilter_lemma.html#ID-84a6691d-a160-4ff6-a87a-ddea25d48f41">ultrafilter lemma</a></li>
+<li><a href="20230616-bildfilter_eines_ultarfilters_einer_stetigen_surjektion_als_ultrafilters.html#ID-6b39c4d9-9bbf-4a35-9659-0b837180dee6">Bildfilter eines Ultrafilters als Ultrafilters</a></li>
+<li><a href="20230307221354-bildfilter.html#ID-e1f01803-9bfb-46d1-8922-49c4ea406edd">Bildfilter</a></li>
+<li><a href="20230307205358-umgebungsfilter.html#ID-3c344219-7a09-499a-972e-d2ee27f45aa5">Umgebungsfilter</a></li>
+<li><a href="20230307220237-ultrafilter_als_feinster_filter.html#ID-64150573-fca4-40a3-9a4b-713208c4b28e">Ultrafilter und genau ein Komplement</a></li>
+<li><a href="20230307205354-von_einer_teilmenge_erzeugter_hauptfilter.html#ID-c363f435-083f-41a3-85f7-4f7d8c04beb4">von einer Teilmenge erzeugter Mengenfilter</a></li>
+<li><a href="20230306234012-ultrafilter.html#ID-88624d50-ad13-4c2a-ad1a-a1ed607768e9">Ultrafilter</a></li>
+<li><a href="20240218-ultrafilter_and_union.html#ID-e7ef6900-d07f-4f3d-b42d-742b9f1d7d1e">ultrafilter and union</a></li>
+<li><a href="20230616-bildfilter_eines_ultarfilters_einer_stetigen_surjektion_als_ultrafilters.html#ID-6b39c4d9-9bbf-4a35-9659-0b837180dee6">Bildfilter eines Ultrafilters als Ultrafilters</a></li>
+<li><a href="20230804-compact_space_and_convergent_ultrafilter.html#ID-516819c8-d7e9-4a50-b93f-13c4755d4461">compact space and convergent ultrafilter</a> - TODO</li>
+<li><a href="20230620-endliche_produkt_lokalkompakter_raume_als_lokalkompakter_raum.html#ID-98c72656-715b-4b8b-967e-d5ec72f46831">Produkt endlich vieler lokalkompakter Räume als lokalkompakter Raum</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbe3f197" class="outline-3">
+<h3 id="orgbe3f197"><span class="section-number-3">1.3.</span> hausdorff</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20221122074811-hausdorff_raum.html#ID-f49f9b47-9f16-456f-837f-7b9656c46aba">Hausdorff-Raum</a></li>
+<li><a href="20230207113114-t3_raum.html#ID-1496cd1c-f753-4113-8c6c-997de305c027">T3-Raum</a></li>
+<li><a href="20230522175136-t4_raum.html#ID-77ba69ea-9fa2-44a3-b922-2031bbb40d8d">T4-Raum</a></li>
+<li><a href="20230224171350-hausdorffeigenschaft_bei_metrischen_raumen.html#ID-c0a0b315-c4f5-4e7a-a6cd-36b58b58f0ab">metric space as hausdorff space</a></li>
+<li><a href="20230511112853-abgeschlossene_mengen_kompakter_raume_sind_kompakt.html#ID-2b714bee-6153-4623-8e5a-6c46e87e3474">closed subset of a compact space as compact set</a></li>
+<li><a href="20230519085421-eigentlicher_metrischer_raum.html#ID-aeb687f2-0b56-4ecc-8af1-139e5d9a51d7">eigentlicher metrischer Raum</a></li>
+<li><a href="20230702-abgeschlossenheit_der_diagonale_in_t2_raumen.html#ID-ed1751bf-ce99-40a7-ab31-0cc63230c782">Abgeschlossenheit der Diagonale in Hausdorff-Räumen</a></li>
+<li><a href="20230530221912-eindeutigkeit_des_grenzwert_eines_filters_in_hausdorffraumen.html#ID-b4aeab22-dd30-4905-a5a4-6174abdfe529">Eindeutigkeit des Grenzwert eines Filters und Hausdorff-Räume</a></li>
+<li><a href="20231103-compact_hausdorff_space_and_ultrafilter.html#ID-5329e7c3-cbd0-45b3-831b-798f87bc3531">compact hausdorff space and ultrafilter</a></li>
+<li><a href="20230613-kompakt_hausdorff_raume_als_regulare_raume.html#ID-c99e1b92-fc6c-45a3-83dd-ca65e9c9af81">kompakter Hausdorff-Raum als regulärer Raum</a></li>
+<li><a href="20230511112904-abgeschlossenheit_von_kompakten_mengen.html#ID-77b86d0c-e901-449a-9147-602be657eae5">closedness of compact sets in Hausdorff spaces</a></li>
+<li><a href="20230615-lokalkompakter_hausdorffraum_als_t3_raum.html#ID-bb31a814-b55d-4032-92d9-9f16c1c455a3">Lokalkompakter Hausdorffraum als T3-Raum</a></li>
+<li><a href="20230511112853-abgeschlossene_mengen_kompakter_raume_sind_kompakt.html#ID-2b714bee-6153-4623-8e5a-6c46e87e3474">Abgeschlossene Mengen kompakter Räume sind kompakt</a></li>
+<li><a href="20231103-finite_hausdorff_space_as_discrete_space.html#ID-06925097-bbdb-469f-9158-c728c7bae02b">finite hausdorff space as discrete space</a></li>
+<li><a href="20231103-finite_t1_space_as_discrete_space.html#ID-d2920b2c-316a-49d8-bccc-3c27a12d1314">finite t1-space as discrete space</a></li>
+<li><a href="20230709-kompakter_hasudorff_raum_als_t4_raum.html#ID-51669cf5-e7f1-4445-b454-858fe2355f98">kompakter Hausdorff-Raum als T4-Raum</a></li>
+<li><a href="20231103-compact_hausdorff_space_as_locally_hausdorff_space.html#ID-35a0f984-89a1-4734-b3de-66c169fac4ea">compact hausdorff space as locally compact hausdorff space</a></li>
+<li><a href="20230228155709-stetigkeit_abgeschlossenheit_enier_stetigen_abbildung_von_einem_kompakten_raum_in_einen_hausdorff_raum.html#ID-8555b3a6-c1c5-4dc8-8f25-775528429d43">Abgeschlossenheit einer stetigen Abbildung von einem kompakten Raum in einen Hausdorff-Raum</a></li>
+<li><a href="20230523133746-injektive_stetige_abbildung_von_einen_kompaktum_auf_einen_hausdorff_raum_als_offene_abbildung.html#ID-e0bb7360-47bf-4536-b9c2-38684765e1ab">injektive stetige Abbildung von einen Kompaktum auf einen Hausdorff-Raum als Einbettung</a></li>
+<li><a href="20231103-injective_continuous_map_from_a_compact_space_to_a_hausdorff_space_as_homeomorphism.html#ID-985618d3-be7a-4ce0-97dd-0cc8e0976303">bijective continuous map from a compact space to a hausdorff space as homeomorphism</a></li>
+<li><a href="20231103-surjective_map_from_a_compact_space_to_a_hausdorff_space_as_quotient_map.html#ID-97f49b71-a492-4c97-bb8f-a865ad68ca1d">surjective map from a compact space to a hausdorff space as quotient map</a></li>
+<li><a href="20230923-quotient_map.html#ID-284e8428-e5a8-4684-9b16-26ae9bf83c5f">quotient map</a></li>
+<li><a href="20231103-forgetful_functor_from_comphaus_to_set_as_conservative_functor.html#ID-a5f3f1dc-2724-4d70-ae00-b5a620f02ef6">forgetful functor from CompHaus to Set as conservative functor</a></li>
+<li><a href="20231107-connected_component_of_a_compact_hausdorff_set_as_intersection_of_clopen_sets.html#ID-d73dbfa8-533b-4e45-bb9a-61c2d18a7960">connected component of a compact hausdorff set as intersection of clopen sets</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 19:16</p>
+</div>
+</body>
+</html>

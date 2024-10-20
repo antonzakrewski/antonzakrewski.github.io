@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 19:33 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>diagram of 2-categorical pullbacks of functors implies functor</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">diagram of 2-categorical pullbacks of functors implies functor</h1>
+<div id="outline-container-orgf67e954" class="outline-2">
+<h2 id="orgf67e954"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_2abbf7b5c6fd4c1a8cd04e2f6a85a77221e666c6.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_2abbf7b5c6fd4c1a8cd04e2f6a85a77221e666c6.svg" class="org-svg" /> and <img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_16e9fb5ae93947eefdc80f516f15b8048969ccad.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_16e9fb5ae93947eefdc80f516f15b8048969ccad.svg" class="org-svg" /> be <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">categories</a> and 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_d4f677ce15336f0d6206c03387a38861a6ea2529.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_d4f677ce15336f0d6206c03387a38861a6ea2529.svg" class="org-svg" />
+</span>
+</div>
+<p>
+a commuting diagram
+</p>
+
+<p>
+Then there exists a canonical <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a> for the <a href="20231129-2_categorical_pullback.html#ID-360cf3dc-2746-40ac-85a2-42076cfde1f9">2-categorical pullback of a functor diagram</a> 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_c64017ffbdef5edcbb369b0ff0f2899d79adc37b.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_c64017ffbdef5edcbb369b0ff0f2899d79adc37b.svg" class="org-svg" />
+</span>
+</div>
+
+
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_b2187d85d4833a251cc3fc681407ca065a917d64.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_b2187d85d4833a251cc3fc681407ca065a917d64.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd87fe91" class="outline-2">
+<h2 id="orgd87fe91"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgf46966b" class="outline-3">
+<h3 id="orgf46966b"><span class="section-number-3">2.1.</span> <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">welldefined</a></h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_6a8a229b95d5b22950a4a475a3639ccf775704a5.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_6a8a229b95d5b22950a4a475a3639ccf775704a5.svg" class="org-svg" /> and <img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_7448999be397f49759b0e158cd036e842101eaf5.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_7448999be397f49759b0e158cd036e842101eaf5.svg" class="org-svg" /> be <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">objects</a>
+</p>
+</div>
+<div id="outline-container-orgdb5f06f" class="outline-4">
+<h4 id="orgdb5f06f"><span class="section-number-4">2.1.1.</span> domain / codomain</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+Then by commutativity,  <img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_4c92673d2ca0df9847b9ede7889a6357f6935333.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_4c92673d2ca0df9847b9ede7889a6357f6935333.svg" class="org-svg" /> and <img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_494a83aad7ae15ee8a342716b6497f38bcc7e3ab.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_494a83aad7ae15ee8a342716b6497f38bcc7e3ab.svg" class="org-svg" /> and thus 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_4a5c7e8105803fe8792ce1c9ef59745e01e3e7d4.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_4a5c7e8105803fe8792ce1c9ef59745e01e3e7d4.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd01c54b" class="outline-4">
+<h4 id="orgd01c54b"><span class="section-number-4">2.1.2.</span> morphism</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_afec804e998dc30970a8cbbe8682dad42261ad58.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_afec804e998dc30970a8cbbe8682dad42261ad58.svg" class="org-svg" />.
+Then
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_1a96cee96a3547de88062020b5a17a4d61b840e2.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_1a96cee96a3547de88062020b5a17a4d61b840e2.svg" class="org-svg" />
+</span>
+</div>
+<p>
+commutes
+Thus, since applying <img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_5f986da0fa809584184963883a0855020b0aebef.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_5f986da0fa809584184963883a0855020b0aebef.svg" class="org-svg" /> preserves the diagram, we get
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_7eabd92ac2583f577baf9ae14e282c518e65f659.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_7eabd92ac2583f577baf9ae14e282c518e65f659.svg" class="org-svg" />
+</span>
+</div>
+<p>
+By commutativity of 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_d4f677ce15336f0d6206c03387a38861a6ea2529.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_d4f677ce15336f0d6206c03387a38861a6ea2529.svg" class="org-svg" />
+</span>
+</div>
+<p>
+we get
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_3906423db9376a1d7f1e65232e6ede630056ccd0.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_3906423db9376a1d7f1e65232e6ede630056ccd0.svg" class="org-svg" />
+</span>
+</div>
+<p>
+and hence
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_1bd376fdabe61255fd83da12ab574929d733d23c.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_1bd376fdabe61255fd83da12ab574929d733d23c.svg" class="org-svg" />
+</span>
+</div>
+<p>
+commutes
+</p>
+
+<p>
+Furthermore, by <a href="20230420221620-isomorphisms_under_functors.html#ID-c6c5ffcb-a860-453a-a71a-ddca7f8a9c7f">isomorphisms under functors</a>, <img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_dbf9d3992c94d958b67f98fe94fc90c2f6dc044f.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_dbf9d3992c94d958b67f98fe94fc90c2f6dc044f.svg" class="org-svg" /> is also an isomorphism.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcb4720c" class="outline-3">
+<h3 id="orgcb4720c"><span class="section-number-3">2.2.</span> identity</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_7e449159272734011ce74b1978f22fb06093775b.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_7e449159272734011ce74b1978f22fb06093775b.svg" class="org-svg" /> be an <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">object</a>, then <img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_6fce5698bc5ceae1656cca09cba4c1f77e2000b1.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_6fce5698bc5ceae1656cca09cba4c1f77e2000b1.svg" class="org-svg" /> is the <a href="20220817165031-identitatsmorphismus.html#ID-18d8207c-a2f4-499b-ab59-b7efe4858e31">identity morphism</a>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_53ec4e682593e61504468d7bc9f31fc105d015f9.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_53ec4e682593e61504468d7bc9f31fc105d015f9.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Then by construction we get
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_3f2d0fddc8a3dedb68810f63a2f885353da082f1.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_3f2d0fddc8a3dedb68810f63a2f885353da082f1.svg" class="org-svg" />
+</span>
+</div>
+<p>
+which is the identity for <img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_92385d4f5a76544c4c36838550adc685b27fe875.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_92385d4f5a76544c4c36838550adc685b27fe875.svg" class="org-svg" />
+</p>
+</div>
+</div>
+<div id="outline-container-org3820ebc" class="outline-3">
+<h3 id="org3820ebc"><span class="section-number-3">2.3.</span> functorality</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_24610c33d3712fb244485c43b8b6ba50ade433e0.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_24610c33d3712fb244485c43b8b6ba50ade433e0.svg" class="org-svg" /> be objects and <img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_1bd17da0764fbc146e8f16f51332b37c17db376c.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_1bd17da0764fbc146e8f16f51332b37c17db376c.svg" class="org-svg" /> and <img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_eeaa8141cb764ea4841e4b052850fbd571dbe805.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_eeaa8141cb764ea4841e4b052850fbd571dbe805.svg" class="org-svg" /> be morphisms.
+Then by construction,
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_8dd93dbe563f9d7d0bba69b686d2356a5f60e0c5.svg" alt="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor_8dd93dbe563f9d7d0bba69b686d2356a5f60e0c5.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 19:33</p>
+</div>
+</body>
+</html>

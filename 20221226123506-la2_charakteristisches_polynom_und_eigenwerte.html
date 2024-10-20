@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 21:46 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LA2: Charakteristisches Polynom und Eigenwerte (15)</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">LA2: Charakteristisches Polynom und Eigenwerte (15)</h1>
+<div id="outline-container-orgf4aabb5" class="outline-2">
+<h2 id="orgf4aabb5"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><a href="20220303190024-eigenwert.html#ID-c96ef2bb-2cf6-4ca8-9d98-40991bd99031">Eigenwert</a></li>
+<li><a href="20220904160119-eigenvektor.html#ID-6ffc560a-28ea-4b47-81a9-5ce44feb02d1">Eigenvektor</a></li>
+<li><a href="20230222202647-spektrum_eigenwert.html#ID-c96aba86-5bd4-4e5d-8bc1-b4dc31c38f63">Spektrum (Eigenwert)</a></li>
+<li><a href="20230303151544-lineare_unabhangigkeit_von_eigenvektoren.html#ID-a5e48696-4b53-4408-ac7e-be93dbce3a5e">lineare Unabhängigkeit von Eigenvektoren für verschiedene Eigenwerte</a></li>
+<li><a href="20230303151557-maximale_anzahl_von_eigenvektoren.html#ID-71f3bdf7-7b76-44e4-908d-884f35fe6bad">maximale Anzahl von Eigenwerten</a></li>
+<li><a href="20230303155308-eigenraume_als_disjunkte_summe.html#ID-e18a9966-291c-4b1c-bbf1-4ede9a9c478c">Eigenräume als disjunkte Summe</a></li>
+<li><a href="20230222202719-eigenraum.html#ID-7b4ccb37-5162-4759-a114-c7985217ebd6">Eigenraum</a></li>
+<li><a href="20230222202527-diagonalisierbarer_endomorphismus.html#ID-57f0f0cd-6af1-46ac-b845-8f6fc78092b6">diagonalisierbarer Endomorphismus</a></li>
+<li><a href="20230303160251-hinreichendes_kriterium_fur_die_diagonalisierbarkeit.html#ID-250967b2-b287-47ae-8fdc-7d62d4c67328">hinreichendes Kriterium für die Diagonalisierbarkeit</a></li>
+<li><a href="20230621-eigenvektoren_invariant_unter_konjugation.html#ID-dad8e3a2-b945-4322-b7b6-48be5153642d">Eigenvektoren invariant unter Konjugation</a></li>
+<li><a href="20230222202847-charakteristische_polynom.html#ID-dd44aea9-79be-473f-90e3-e2d6c67a41ae">charakteristische Polynom</a></li>
+<li><a href="20230428164635-charakteristische_polynom_und_spur.html#ID-0b0a017e-9546-4107-987e-6bbc5ec91427">Charakteristische Polynom und Spur</a></li>
+<li><a href="20230303162855-eigenwert_und_nullstelle_dse_charakteristisches_polynom.html#ID-6ba495b0-03ff-4c3d-9582-9ac078b40637">Eigenwert und Nullstelle des charakteristisches Polynom</a></li>
+<li><a href="20230303164749-existenz_von_eigenwerten_durch_ungerade_dimension.html#ID-c8dbfc2c-e1f5-412b-92c9-e70a214016fb">Existenz von reellen Eigenwerten durch ungerade Dimension</a></li>
+<li><a href="20230303214443-geometrische_vielfachheit_eines_eigenwerts.html#ID-5e8b27fb-6a6b-473d-a512-543f4f13aa74">geometrische Vielfachheit eines Eigenwerts</a></li>
+<li><a href="20230303165754-vielfachheit_eines_eigenwerts.html#ID-be59473d-7ec4-4fe1-a83e-3f00c1bda553">algebraische Vielfachheit eines Eigenwerts</a></li>
+<li><a href="20230509151709-geometrische_vielfachheit_und_algebraische_vielfachheit_eines_eigenwerts.html#ID-7f22e687-e095-4380-a294-b03d10afbb4b">geometrische Vielfachheit und algebraische Vielfachheit eines Eigenwerts</a></li>
+<li><a href="20230303214614-diagonalisierbarkeit_und_zerfallen_des_charakteristischen_polynoms.html#ID-63c55d50-10cd-4164-9fa3-9fe0ff7dedd7">Diagonalisierbarkeit und Zerfallen des Charakteristischen Polynoms mit geometrischer Vielfachheit</a></li>
+<li><a href="20230222203528-minimalpolynom.html#ID-6ec50a2e-09e0-4866-a0f6-acae544923f8">Minimalpolynom eines Endomorphismus</a></li>
+<li><a href="20230222203639-satz_von_cayley_hamilton.html#ID-617e9586-9b4a-4651-b036-ac05b6befa50">Satz von Cayley-Hamilton</a></li>
+<li><a href="20230501140837-eigenwert_und_nullstelle_des_minimalpolynoms.html#ID-9b7b00e0-8ff4-4547-8cb3-6a52781ff80d">Eigenwert und Nullstelle des Minimalpolynoms</a></li>
+<li><a href="20230501135024-minimalpolynom_als_teiler_des_charakteristischen_polynoms.html#ID-76c0fbfa-38b0-44d5-9c4d-fa4ab1e89843">Minimalpolynom als Teiler des Charakteristischen Polynoms</a></li>
+<li><a href="20230501234623-verschiedene_eigenwerte_und_minimalpolynom.html#ID-21d4fffa-adfa-4586-9f4a-30671bf4f8be">verschiedene Eigenwerte und minimalpolynom</a></li>
+<li><a href="20230501235406-vektorraum_als_direktes_produkt_vom_kern_teilerfremder_faktoren_des_minimalpolynoms.html#ID-7ca2a93b-b5b5-42fa-81f0-d87ee8dd937b">Vektorraum als Summe Produkt vom Kern teilerfremder Faktoren des Minimalpolynoms</a></li>
+<li><a href="20230509153917-diagonalisierbarkeit_und_zerfallen_des_minimalpolynoms.html#ID-2d49dd32-2436-4fce-a6d7-b931286ec3bd">Diagonalisierbarkeit und Zerfallen des Minimalpolynoms in paarweise Teilerfremde Faktoren</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 21:46</p>
+</div>
+</body>
+</html>

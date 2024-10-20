@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 18:58 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>correspondence theorem for subgroups and quotient groups</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">correspondence theorem for subgroups and quotient groups</h1>
+<div id="outline-container-orgae04623" class="outline-2">
+<h2 id="orgae04623"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(G\) eine <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">Gruppe</a>, \(N \trianglelefteq G\) ein <a href="20221210192900-normalteiler.html#ID-f971f946-d0ca-444a-a450-efbef237a278">Normalteiler</a> und \(\pi: G \rightarrow G/N\) der kanonische <a href="20230227150008-gruppenepimorphismus.html#ID-9ec8e70b-1e87-4e63-8903-0573d1fa57a5">gruppenepimorphism</a> auf die <a href="20221210201536-faktorgruppe.html#ID-37068c77-35dd-45c0-8051-01704f97222c">Faktorgruppe</a> 
+Dann ist 
+</p>
+\begin{align*}
+\Psi: \{H \subseteq G \text{ Subgroup} \vert N \subseteq H\} \rightarrow& \{H' \subseteq G/N \text{ Subgroup}\}
+H \mapsto& H/N = \pi(H)
+\end{align*}
+<p>
+inklusionserhaltend und <a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">bijektiv</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-orgaae71f3" class="outline-2">
+<h2 id="orgaae71f3"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org29a8ab2" class="outline-3">
+<h3 id="org29a8ab2"><span class="section-number-3">2.1.</span> bijektion</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Die evidente umkehrabbildung ist
+</p>
+\begin{align*}
+\Psi^{-1}: \{H' \subseteq G/N\} \rightarrow& \{H \subseteq G \vert N \subseteq H\} \\
+H' \mapsto& \pi^{-1}[H]
+\end{align*}
+</div>
+<div id="outline-container-orgb4204c7" class="outline-4">
+<h4 id="orgb4204c7"><span class="section-number-4">2.1.1.</span> <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">welldefined</a></h4>
+<div class="outline-text-4" id="text-2-1-1">
+<ul class="org-ul">
+<li><a href="20230110082239-urbild_eines_normalteilers_fur_einen_gruppenhomomorphismus_als_normalteilers.html#ID-e9b8fc30-9235-442a-9895-6c7d2c4fb107">Urbild eines Normalteilers für einen Gruppenhomomorphismus als Normalteilers</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org60ffb89" class="outline-4">
+<h4 id="org60ffb89"><span class="section-number-4">2.1.2.</span> rechtsinvers</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+folgt mengentheoretisch aus
+<a href="20230810-surjective_image_of_a_preimage.html#ID-e7134637-f0a8-40cd-96f5-2bb3ca25fb0b">surjective image of a preimage</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org1b5134f" class="outline-4">
+<h4 id="org1b5134f"><span class="section-number-4">2.1.3.</span> linksinvers</h4>
+<div class="outline-text-4" id="text-2-1-3">
+</div>
+<div id="outline-container-orgb7e0dfd" class="outline-5">
+<h5 id="orgb7e0dfd"><span class="section-number-5">2.1.3.1.</span> \(H \subseteq \pi^{-1}[\pi(H)]\)</h5>
+<div class="outline-text-5" id="text-2-1-3-1">
+<p>
+folgt aus <a href="20231106-preimage_of_an_image.html#ID-2c62291d-9101-4d87-99b3-05b6bbce5c8b">preimage of an image</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org08d4323" class="outline-5">
+<h5 id="org08d4323"><span class="section-number-5">2.1.3.2.</span> \(H \supseteq \pi^{-1}[\pi(H)]\)</h5>
+<div class="outline-text-5" id="text-2-1-3-2">
+<p>
+Sei \(h_1 \in H\) und \(h_2 \in G\) so dass gilt
+</p>
+\begin{align*}
+\pi(h) = \pi(h_1)
+\end{align*}
+<p>
+dann folgt \(h_2 \cdot h_1^{-1} \in \mathrm{ker}(\pi) = N\) und wegen \(N \subseteq H\) bzw. der abgeschlossenheit  auch
+</p>
+\begin{align*}
+h_2 \cdot h_1^{-1} \cdot h_1 =& h_2 \in H
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgfffc896" class="outline-3">
+<h3 id="orgfffc896"><span class="section-number-3">2.2.</span> inklusionserhaltend</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+folgt aus:
+</p>
+<ul class="org-ul">
+<li><a href="20231106-perimage_and_subsets.html#ID-24ef0798-ff70-4c90-be3a-79ee2b8c9649">preimage and subsets</a></li>
+<li><a href="20231106-image_and_subsets.html#ID-c7990b50-d952-4e4f-b372-41d4a76da3bb">image and subsets</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 18:58</p>
+</div>
+</body>
+</html>

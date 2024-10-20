@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-15 Di 23:10 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Snake Lemma</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Snake Lemma</h1>
+<div id="outline-container-orgc5a6766" class="outline-2">
+<h2 id="orgc5a6766"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20240316-snake_lemma_eb04be82533afa6bcab2b0d2106fd2828974c0d1.svg" alt="20240316-snake_lemma_eb04be82533afa6bcab2b0d2106fd2828974c0d1.svg" class="org-svg" /> be an <a href="20230827-abelian_category.html#ID-9003af72-f684-4897-b096-c1d8a681c624">abelian</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a> and
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240316-snake_lemma_90d62b763204160016277a8fa44406eea0a31a77.svg" alt="20240316-snake_lemma_90d62b763204160016277a8fa44406eea0a31a77.svg" class="org-svg" />
+</span>
+</div>
+<p>
+a <a href="20220821183856-diagramm_kategorientheorie.html#ID-ad9d3642-913a-4374-8605-52121d00b349">diagram</a>, where the rows are <a href="20230722-exact_group_homomorphisms.html#ID-aa569635-5f4a-4c4a-9e9b-af9c577e377d">exact</a> 
+</p>
+
+<p>
+Then there exists a natural boundary map <img src="file:///home/anton/html/ltximg/20240316-snake_lemma_5d7323274f8abeef7f638ed86fb3441053399bbf.svg" alt="20240316-snake_lemma_5d7323274f8abeef7f638ed86fb3441053399bbf.svg" class="org-svg" /> such that following sequnece
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240316-snake_lemma_d82f541c446ba6c46bf6afb998f6b12af344d226.svg" alt="20240316-snake_lemma_d82f541c446ba6c46bf6afb998f6b12af344d226.svg" class="org-svg" />
+</span>
+</div>
+<p>
+is <a href="20230722-exact_group_homomorphisms.html#ID-aa569635-5f4a-4c4a-9e9b-af9c577e377d">exact</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-org6fd8b8c" class="outline-2">
+<h2 id="org6fd8b8c"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org5190706" class="outline-3">
+<h3 id="org5190706"><span class="section-number-3">2.1.</span> weak version: Short exact sequences</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-orgbbfc614" class="outline-4">
+<h4 id="orgbbfc614"><span class="section-number-4">2.1.1.</span> boundary map</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+Consider
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240316-snake_lemma_a92f49ab28a4b7239dac994696ce937cbafbc9b7.svg" alt="20240316-snake_lemma_a92f49ab28a4b7239dac994696ce937cbafbc9b7.svg" class="org-svg" />
+</span>
+</div>
+<p>
+where
+</p>
+<ol class="org-ol">
+<li></li>
+</ol>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240316-snake_lemma_41ac540be0ee38494d768f4c004a5e9490d803c5.svg" alt="20240316-snake_lemma_41ac540be0ee38494d768f4c004a5e9490d803c5.svg" class="org-svg" />
+</span>
+</div>
+<ol class="org-ol">
+<li></li>
+</ol>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240316-snake_lemma_5e4a201d8b28585d0caaa9bb51f38a3e930870a4.svg" alt="20240316-snake_lemma_5e4a201d8b28585d0caaa9bb51f38a3e930870a4.svg" class="org-svg" />
+</span>
+</div>
+<p>
+are the pushouts
+</p>
+
+<p>
+Then the <a href="20230402144657-zero_morphism.html#ID-6cb7ce09-7038-4581-bc67-91d231a2be10">zero morphisms</a> induce a morphism <img src="file:///home/anton/html/ltximg/20240316-snake_lemma_364ca718b6a72d92f807f28d42bf77bdbfd592ac.svg" alt="20240316-snake_lemma_364ca718b6a72d92f807f28d42bf77bdbfd592ac.svg" class="org-svg" />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240316-snake_lemma_5a2b07008cf4ff26313d89a838a44c38da02835d.svg" alt="20240316-snake_lemma_5a2b07008cf4ff26313d89a838a44c38da02835d.svg" class="org-svg" />
+</span>
+</div>
+<p>
+where
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240316-snake_lemma_854c1b4aea229086411aabe25e9bf70f0015504e.svg" alt="20240316-snake_lemma_854c1b4aea229086411aabe25e9bf70f0015504e.svg" class="org-svg" />
+</span>
+</div>
+<p>
+is a cokernel (cf. <a href="20240802-cokernel_pushout_and_exact_esquence.html#ID-c3af3b4e-34f9-42d1-8af5-0da0b44804e2">cokernel, pushout and exact esquence</a>)
+</p>
+
+<p>
+Then it follows, as <img src="file:///home/anton/html/ltximg/20240316-snake_lemma_7cbf0f1d941732bacc1bb9688447218e8c4cd206.svg" alt="20240316-snake_lemma_7cbf0f1d941732bacc1bb9688447218e8c4cd206.svg" class="org-svg" /> is a <a href="20220819135911-monomorphismus.html#ID-60b63797-32fa-4d4e-a577-7616faa010ba">monomorphism</a> (cf. <a href="20240224-monomorphism_mirrored_by_pushoutsa.html#ID-6b4942a7-7265-4e05-8bc5-858c7fab9d6e">monomorphism mirrored by pushouts in a regular category</a>, <a href="20240224-abelian_category_as_regular_category.html#ID-1bfc4329-d687-4e86-9c69-f9bb3c96353f">abelian category as regular category</a>)  that
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240316-snake_lemma_8bff2ccf2cbc4e3413aa2f6d003810c859877343.svg" alt="20240316-snake_lemma_8bff2ccf2cbc4e3413aa2f6d003810c859877343.svg" class="org-svg" />
+</span>
+</div>
+<p>
+(cf. <a href="20240125-monomorphism_as_kernel_of_the_cokernel.html#ID-06ebe2c4-3d5e-4ff5-8f52-ae59526182df">monomorphism as kernel of the cokernel</a>)
+</p>
+
+<p>
+by a dual argument we have that
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240316-snake_lemma_e0edde279e6490cfbc1a07a5eefe4b96a30c39b8.svg" alt="20240316-snake_lemma_e0edde279e6490cfbc1a07a5eefe4b96a30c39b8.svg" class="org-svg" />
+</span>
+</div>
+<p>
+is a kernel
+</p>
+
+<p>
+(cf. <a href="20240802-kernel_pullbakc_and_exact_sequence.html#ID-dec68021-cc51-4165-a552-d82bbc2c3899">kernel, pullback and exact sequence</a>) 
+</p>
+
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240316-snake_lemma_d7b112abf9ab95bf683fdd28afc37d4bb4ed9b22.svg" alt="20240316-snake_lemma_d7b112abf9ab95bf683fdd28afc37d4bb4ed9b22.svg" class="org-svg" />
+</span>
+</div>
+
+
+<p>
+Then by commutativity of 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240316-snake_lemma_97fc98f6a9cf5cec04477ed6150c2e9076804176.svg" alt="20240316-snake_lemma_97fc98f6a9cf5cec04477ed6150c2e9076804176.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+there exists an induced morphism to <img src="file:///home/anton/html/ltximg/20240316-snake_lemma_f49fbd301e3f4e9c445dcd63afce7d540350435b.svg" alt="20240316-snake_lemma_f49fbd301e3f4e9c445dcd63afce7d540350435b.svg" class="org-svg" />
+</p>
+
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240316-snake_lemma_a95265011a338402a8f59c8190e78e2c238f9f2f.svg" alt="20240316-snake_lemma_a95265011a338402a8f59c8190e78e2c238f9f2f.svg" class="org-svg" />
+</span>
+</div>
+<p>
+It follows that the dashed morphism commutes with <img src="file:///home/anton/html/ltximg/20240316-snake_lemma_5e5e4a656d15b133f4364bc3fd34ccec700b9e2a.svg" alt="20240316-snake_lemma_5e5e4a656d15b133f4364bc3fd34ccec700b9e2a.svg" class="org-svg" />, as
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240316-snake_lemma_4a78da7d0a5fb618e9cb556c969085d262d9bf55.svg" alt="20240316-snake_lemma_4a78da7d0a5fb618e9cb556c969085d262d9bf55.svg" class="org-svg" />
+</span>
+</div>
+<p>
+and uniqueness of the universal property
+</p>
+
+<p>
+Hence <img src="file:///home/anton/html/ltximg/20240316-snake_lemma_e5c684f20caad4c467ff1cebe7dfc56399fb33f9.svg" alt="20240316-snake_lemma_e5c684f20caad4c467ff1cebe7dfc56399fb33f9.svg" class="org-svg" /> is the zero morphism, as <img src="file:///home/anton/html/ltximg/20240316-snake_lemma_5e5e4a656d15b133f4364bc3fd34ccec700b9e2a.svg" alt="20240316-snake_lemma_5e5e4a656d15b133f4364bc3fd34ccec700b9e2a.svg" class="org-svg" /> is the zero morphism.
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240316-snake_lemma_a95265011a338402a8f59c8190e78e2c238f9f2f.svg" alt="20240316-snake_lemma_a95265011a338402a8f59c8190e78e2c238f9f2f.svg" class="org-svg" />
+</span>
+</div>
+
+
+<p>
+Then using the universal property of <img src="file:///home/anton/html/ltximg/20240316-snake_lemma_8c26f215379d3f5d53cfdd465acbc5042d54480f.svg" alt="20240316-snake_lemma_8c26f215379d3f5d53cfdd465acbc5042d54480f.svg" class="org-svg" /> as cokernel (here <img src="file:///home/anton/html/ltximg/20240316-snake_lemma_6ac49feb2bade3ddfe1dc7a83c525456d3b3ad33.svg" alt="20240316-snake_lemma_6ac49feb2bade3ddfe1dc7a83c525456d3b3ad33.svg" class="org-svg" /> is a kernel) results in the boundary morphism
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240316-snake_lemma_06a076bf1bf0641c6210592b94f75be523e2223d.svg" alt="20240316-snake_lemma_06a076bf1bf0641c6210592b94f75be523e2223d.svg" class="org-svg" />
+</span>
+</div>
+
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240316-snake_lemma_31d2a2ff5ca00df8d3b9573a14450b6de232531c.svg" alt="20240316-snake_lemma_31d2a2ff5ca00df8d3b9573a14450b6de232531c.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgfabbbbb" class="outline-4">
+<h4 id="orgfabbbbb"><span class="section-number-4">2.1.2.</span> exactness</h4>
+<div class="outline-text-4" id="text-2-1-2">
+</div>
+<div id="outline-container-orgf21ee81" class="outline-5">
+<h5 id="orgf21ee81"><span class="section-number-5">2.1.2.1.</span> boundary</h5>
+<div class="outline-text-5" id="text-2-1-2-1">
+</div>
+<ol class="org-ol">
+<li><a id="org7896bcf"></a><img src="file:///home/anton/html/ltximg/20240316-snake_lemma_8c26f215379d3f5d53cfdd465acbc5042d54480f.svg" alt="20240316-snake_lemma_8c26f215379d3f5d53cfdd465acbc5042d54480f.svg" class="org-svg" /><br />
+<ol class="org-ol">
+<li><a id="org7262337"></a>zero morphism<br />
+<div class="outline-text-7" id="text-2-1-2-1-1-1">
+<p>
+The map 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240316-snake_lemma_a7c5fdf5c3507ef950136601fc3050210559c1b8.svg" alt="20240316-snake_lemma_a7c5fdf5c3507ef950136601fc3050210559c1b8.svg" class="org-svg" />
+</span>
+</div>
+<p>
+is zero, hence by the uniqueness of the universal property, we conclude that
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240316-snake_lemma_248262942ccfbfcb339d556b1610796e2397051b.svg" alt="20240316-snake_lemma_248262942ccfbfcb339d556b1610796e2397051b.svg" class="org-svg" />
+</span>
+</div>
+<p>
+is the zero morphism
+</p>
+</div>
+</li>
+<li><a id="orgb780f30"></a><br /></li>
+</ol>
+</li>
+<li><a id="org947841c"></a><img src="file:///home/anton/html/ltximg/20240316-snake_lemma_6e1989a1121100ba292e1595633bf745171a5786.svg" alt="20240316-snake_lemma_6e1989a1121100ba292e1595633bf745171a5786.svg" class="org-svg" /><br />
+<ol class="org-ol">
+<li><a id="org7cbc08e"></a>zero morphism<br />
+<div class="outline-text-7" id="text-2-1-2-1-2-1">
+<p>
+the map
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240316-snake_lemma_962315c063fce8fd042eb4bbe36a1531353358a4.svg" alt="20240316-snake_lemma_962315c063fce8fd042eb4bbe36a1531353358a4.svg" class="org-svg" />
+</span>
+</div>
+<p>
+is zero, hence the map induced by <img src="file:///home/anton/html/ltximg/20240316-snake_lemma_8c26f215379d3f5d53cfdd465acbc5042d54480f.svg" alt="20240316-snake_lemma_8c26f215379d3f5d53cfdd465acbc5042d54480f.svg" class="org-svg" /> as <img src="file:///home/anton/html/ltximg/20240316-snake_lemma_98cba6204edd18539bbceb0f41065a7b684964bd.svg" alt="20240316-snake_lemma_98cba6204edd18539bbceb0f41065a7b684964bd.svg" class="org-svg" /> is by uniqueness the zero morphism
+</p>
+</div>
+</li>
+<li><a id="org46b12a4"></a><br /></li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-org42132ec" class="outline-5">
+<h5 id="org42132ec"><span class="section-number-5">2.1.2.2.</span> kernel</h5>
+<div class="outline-text-5" id="text-2-1-2-2">
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240316-snake_lemma_955f30bf179e6789bbab0834ef54cc8f679d85a3.svg" alt="20240316-snake_lemma_955f30bf179e6789bbab0834ef54cc8f679d85a3.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+follows from <a href="20240508-cokernel_functor_as_right_exact_functor.html#ID-a99b1b49-31e5-4d38-be6f-6c207d16a92a">cokernel functor as right exact functor</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-org7fb5b7e" class="outline-5">
+<h5 id="org7fb5b7e"><span class="section-number-5">2.1.2.3.</span> cokernel</h5>
+<div class="outline-text-5" id="text-2-1-2-3">
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240316-snake_lemma_7f30513c682da93c04d887cc81a92cd514a92b7a.svg" alt="20240316-snake_lemma_7f30513c682da93c04d887cc81a92cd514a92b7a.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+follows from <a href="20240508-kernel_functor_as_left_exact_functor.html#ID-058ff3bf-17e5-4ccc-afc2-ae8097769685">kernel functor as left exact functor</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-15 Di 23:10</p>
+</div>
+</body>
+</html>

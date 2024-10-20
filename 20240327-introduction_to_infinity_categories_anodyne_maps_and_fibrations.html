@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-15 Di 23:12 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Introduction to Infinity-Categories - Anodyne Maps and Fibrations</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Introduction to Infinity-Categories - Anodyne Maps and Fibrations</h1>
+<div id="outline-container-org727809e" class="outline-2">
+<h2 id="org727809e"><span class="section-number-2">1.</span> Aspects</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgbf9ba9d" class="outline-3">
+<h3 id="orgbf9ba9d"><span class="section-number-3">1.1.</span> 1.3.1</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20240327-inner_fibration.html#ID-1915e43c-9378-4583-b34c-5f4e084cb5a0">inner fibration</a></li>
+<li><a href="20240327-left_fibration.html#ID-bdbcb3cc-0793-4a96-9303-7f78702f03fb">left fibration</a></li>
+<li><a href="20240327-right_fibration.html#ID-cab43683-f467-4a4d-8c8e-9635ca3f01f1">right fibratio-</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbcec4d2" class="outline-3">
+<h3 id="orgbcec4d2"><span class="section-number-3">1.2.</span> 1.3.2</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20240327-left_anodyne_map.html#ID-5d6a9c9d-3b6b-4dbd-930b-b6eab541565f">left anodyne map</a></li>
+<li><a href="20240327-right_anodyne_map.html#ID-eb1ada66-cba3-4202-9ad9-dda3033b88b7">right anodyne map</a></li>
+<li><a href="20240327-anodyne_map.html#ID-c73a8608-7cfc-48d8-81dd-e63f43f453bd">inner anodyne map</a></li>
+<li><a href="20240627-anodyne_map.html#ID-7a768c2a-63a0-43da-a820-3e480be801e3">anodyne map</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org596a978" class="outline-3">
+<h3 id="org596a978"><span class="section-number-3">1.3.</span> 1.3.3</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20240609-set_with_left_lifting_property.html#ID-1ed407f6-9a83-456b-81b8-51f635363e0c">set with the left lifting property</a></li>
+<li><a href="20240702-set_with_right_lifting_problem_as_cosaturated_set.html#ID-ce8fb8e5-fcce-4088-bd82-cc0ba8e9e8c0">set with right lifting property as cosaturated set</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0bae02f" class="outline-3">
+<h3 id="org0bae02f"><span class="section-number-3">1.4.</span> 1.3.4</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><a href="20240327-retract_of_a_morphism.html#ID-e679bfdc-8c9e-43a7-85ed-665dcd22f1d6">retract of a morphism</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4b221de" class="outline-3">
+<h3 id="org4b221de"><span class="section-number-3">1.5.</span> 1.3.5</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li><a href="20240327-saturated_set_of_morphisms.html#ID-c7e099f7-6292-4de2-809f-5d792c2bb969">saturated set</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7358752" class="outline-3">
+<h3 id="org7358752"><span class="section-number-3">1.6.</span> 1.3.6</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li>1.3.5, explicite</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org12c6beb" class="outline-3">
+<h3 id="org12c6beb"><span class="section-number-3">1.7.</span> 1.3.7</h3>
+<div class="outline-text-3" id="text-1-7">
+<ul class="org-ul">
+<li><a href="20240714-intersection_of_saturated_sets_as_saturated_set.html#ID-e75de8cb-8f07-49d8-8423-3154ffa472bd">intersection of saturated sets as saturated set</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org28a4fb3" class="outline-3">
+<h3 id="org28a4fb3"><span class="section-number-3">1.8.</span> 1.3.8</h3>
+<div class="outline-text-3" id="text-1-8">
+<ul class="org-ul">
+<li><a href="20240608-set_with_left_lifting_property_as_saturated_set.html#ID-c7b7f32c-98d7-48f8-98ce-e399ed22ae01">set with left lifting property as saturated set</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge002139" class="outline-3">
+<h3 id="orge002139"><span class="section-number-3">1.9.</span> 1.3.9</h3>
+<div class="outline-text-3" id="text-1-9">
+<ul class="org-ul">
+<li><a href="20240429-small_object_argument.html#ID-0a364142-4409-4bbd-92ae-07e5dab4643b">small object argument in sSet</a></li>
+<li><a href="20240714-compact_object_in_sset.html#ID-57970b02-2be1-419f-a678-3f34d71b74fc">compact object in sSet</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org58dd48d" class="outline-3">
+<h3 id="org58dd48d"><span class="section-number-3">1.10.</span> 1.3.11</h3>
+<div class="outline-text-3" id="text-1-10">
+<ul class="org-ul">
+<li><a href="20240714-functorality_of_the_small_object_argument.html#ID-8df829e5-0153-474e-8837-c875e046d6a4">functorality of the small object argument</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge18f9c0" class="outline-3">
+<h3 id="orge18f9c0"><span class="section-number-3">1.11.</span> 1.3.12</h3>
+<div class="outline-text-3" id="text-1-11">
+<ul class="org-ul">
+<li><a href="20240714-inner_anodyne_in_general_not_a_saturation_of_a_spine_inclusion.html#ID-39e21f34-802b-4926-bb08-242ec2c5c351">inner anodyne in general not a saturation of a spine inclusion</a></li>
+<li><a href="20240714-composer_in_general_not_an_infinity_category.html#ID-ae3e36c9-52ab-40b7-a46a-2a97259964aa">composer in general not an infinity category</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7ab4c09" class="outline-3">
+<h3 id="org7ab4c09"><span class="section-number-3">1.12.</span> 1.3.13</h3>
+</div>
+
+<div id="outline-container-org4a5a235" class="outline-3">
+<h3 id="org4a5a235"><span class="section-number-3">1.13.</span> 1.3.14</h3>
+</div>
+<div id="outline-container-org66d6a26" class="outline-3">
+<h3 id="org66d6a26"><span class="section-number-3">1.14.</span> 1.3.15</h3>
+<div class="outline-text-3" id="text-1-14">
+<ul class="org-ul">
+<li><a href="20240711-set_with_left_lifting_property_as_saturated_closure.html#ID-905092e2-d927-4fc3-8b24-0be97d539f20">set with left lifting property against set with right lifting property as saturated closure in sSet</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgdb8cb56" class="outline-3">
+<h3 id="orgdb8cb56"><span class="section-number-3">1.15.</span> 1.3.16</h3>
+<div class="outline-text-3" id="text-1-15">
+<ul class="org-ul">
+<li><a href="20240608-inner_anodyne_as_saturation_of_inner_horn_inclusion.html#ID-92547b22-c757-45cc-b792-2fc9599b5669">inner anodyne as saturation of inner horn inclusion</a></li>
+<li><a href="20240608-left_anodyne_as_saturation_of_left_horn_inclusions.html#ID-24127b65-dc1f-45f1-a001-ec84e47666ae">left anodyne as saturation of left horn inclusions</a></li>
+<li><a href="20240608-right_anodyne_as_saturation_of_right_horn_inclusions.html#ID-c02b2b71-d2ab-4669-9ad7-cb7d8eee79b5">right anodyne as saturation of right horn inclusions</a></li>
+<li><a href="20240923-anodyne_map_as_saturation_of_horn_inclusions.html#ID-e4d0c76e-97a1-485f-b21c-1e6e4aa1a87f">anodyne map as saturation of horn inclusions</a></li>
+
+<li><a href="20240608-inner_anodyne_map_as_monomorphism.html#ID-086dd2c6-5bae-4a80-9e7b-9bf0089362c3">inner anodyne map as monomorphism</a></li>
+<li><a href="20240608-left_anodyne_map_as_monomorphism.html#ID-2988a671-ebba-4f29-97eb-a440a8c94f0e">left anodyne map as monomorphism</a></li>
+<li><a href="20240608-right_anodyne_map_as_monomorphism.html#ID-bf7ae0b0-7a1b-4219-be27-236be0f8eea8">right anodyne map as monomorphism</a></li>
+<li><a href="20240714-anodyne_map_as_monomorphism.html#ID-01e457a4-7fba-4ff2-9d63-13661610af06">anodyne map as monomorphism</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcf8f2e2" class="outline-3">
+<h3 id="orgcf8f2e2"><span class="section-number-3">1.16.</span> 1.3.17</h3>
+<div class="outline-text-3" id="text-1-16">
+<ul class="org-ul">
+<li>fact</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge742f68" class="outline-3">
+<h3 id="orge742f68"><span class="section-number-3">1.17.</span> 1.3.18</h3>
+<div class="outline-text-3" id="text-1-17">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org928a6c7" class="outline-3">
+<h3 id="org928a6c7"><span class="section-number-3">1.18.</span> 1.3.19</h3>
+<div class="outline-text-3" id="text-1-18">
+<ul class="org-ul">
+<li><a href="20240923-nerve_of_an_ordinary_functor_as_inner_fibration.html#ID-4a9ebf1c-efd2-4c8a-90ad-13617841b99f">nerve of an ordinary functor as inner fibration</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge8f2391" class="outline-3">
+<h3 id="orge8f2391"><span class="section-number-3">1.19.</span> 1.3.20</h3>
+<div class="outline-text-3" id="text-1-19">
+<ul class="org-ul">
+<li><a href="20240923-infinity_category_and_map_into_nerve_as_inner_fibration.html#ID-dc308d8a-529e-4b42-a183-6fe8238ac858">infinity category and map into nerve as inner fibration</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgaf08b89" class="outline-3">
+<h3 id="orgaf08b89"><span class="section-number-3">1.20.</span> 1.3.21</h3>
+<div class="outline-text-3" id="text-1-20">
+<ul class="org-ul">
+<li><a href="20240923-horn_inclusion_as_anodyne.html#ID-5702c148-b81f-4c46-b4cd-2a7039db483d">S-horn inclusion as anodyne</a></li>
+<li><a href="20240923-s_horn_inclusion_as_right_andoyne.html#ID-cd64bfb3-77a5-4568-bd6d-a81542104a83">S-horn inclusion as right-anodyne</a></li>
+<li><a href="20240923-s_horn_inclusion_as_left_anodyne.html#ID-a42f4213-3cfd-46c1-a585-9c8b926065a6">S-horn inclusion as left anodyne</a></li>
+<li><a href="20240923-s_horn_inclusion_as_inner_anodyne.html#ID-3261a5d1-50f1-4c56-b819-91d4124e5e31">S-horn inclusion as inner anodyne</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7a43535" class="outline-3">
+<h3 id="org7a43535"><span class="section-number-3">1.21.</span> 1.3.22</h3>
+<div class="outline-text-3" id="text-1-21">
+<ul class="org-ul">
+<li><a href="20240710-spine_inclusion_as_inner_anodyne.html#ID-fe03b6e8-062e-4624-8b89-9d1665c74c96">spine inclusion as inner anodyne</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7412324" class="outline-3">
+<h3 id="org7412324"><span class="section-number-3">1.22.</span> 1.3.23</h3>
+<div class="outline-text-3" id="text-1-22">
+<ul class="org-ul">
+<li><a href="20240405-infinity_category_as_composer.html#ID-da05652f-cbad-4b64-90d3-d8f3f0e5af29">infinity category as composer</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5dc0dee" class="outline-3">
+<h3 id="org5dc0dee"><span class="section-number-3">1.23.</span> 1.3.24</h3>
+<div class="outline-text-3" id="text-1-23">
+<ul class="org-ul">
+<li><a href="20240603-trivial_fibration.html#ID-e6f29863-7f0d-4ac3-aa0b-f3d104146c24">trivial fibration</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgafd3db8" class="outline-3">
+<h3 id="orgafd3db8"><span class="section-number-3">1.24.</span> 1.3.25</h3>
+<div class="outline-text-3" id="text-1-24">
+<ul class="org-ul">
+<li><a href="20240713-classifier_nerve_j.html#ID-5d97f72f-46a7-443a-8e5c-20301288e74e">classifier nerve J</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3a1a371" class="outline-3">
+<h3 id="org3a1a371"><span class="section-number-3">1.25.</span> 1.3.26</h3>
+</div>
+<div id="outline-container-org516ee57" class="outline-3">
+<h3 id="org516ee57"><span class="section-number-3">1.26.</span> 1.3.27</h3>
+<div class="outline-text-3" id="text-1-26">
+<ul class="org-ul">
+<li><a href="20240327-joyal_fibration.html#ID-375c76f5-75e2-4d74-8ed8-7a10ec994c15">joyal fibration</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge7d07eb" class="outline-3">
+<h3 id="orge7d07eb"><span class="section-number-3">1.27.</span> 1.3.28</h3>
+<div class="outline-text-3" id="text-1-27">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org235ad37" class="outline-3">
+<h3 id="org235ad37"><span class="section-number-3">1.28.</span> 1.3.29</h3>
+<div class="outline-text-3" id="text-1-28">
+<ul class="org-ul">
+<li><a href="20240714-bijection_between_lifting_problems_for_internal_homs.html#ID-c5a63463-c307-4d72-a544-3c0187fe9a4c">bijection between lifting problems for internal homs</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org193a146" class="outline-3">
+<h3 id="org193a146"><span class="section-number-3">1.29.</span> 1.3.30</h3>
+<div class="outline-text-3" id="text-1-29">
+<ul class="org-ul">
+<li><a href="20240715-bijection_between_lifting_problems_for_an_adjunction.html#ID-2ffc0cbf-f8ab-4976-b0ab-b363991a4478">bijection between lifting problems for an adjunction</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org28d6a50" class="outline-3">
+<h3 id="org28d6a50"><span class="section-number-3">1.30.</span> 1.3.31</h3>
+<div class="outline-text-3" id="text-1-30">
+<ul class="org-ul">
+<li><a href="20240603-boxtensor_as_inner_anodyne_and_component_as_inner_an.html#ID-5dfa1b03-6c0e-43eb-a7ac-6622164a63e4">boxtensor as inner anodyne and component as inner-anodyne</a></li>
+<li><a href="20240712-boxtensor_as_right_anodyne_and_component_as_right_anodyne.html#ID-16393361-ffc9-4082-94be-0641c7d476f6">boxtensor as right anodyne and component as right anodyne</a></li>
+<li><a href="20240712-boxtensor_as_left_anodyne_and_component_as_left_anodyne.html#ID-fa84a521-fc79-45ce-b8af-2f75ddc43726">boxtensor as left anodyne and component as left anodyne</a></li>
+<li><a href="20240712-boxtensor_as_anodyne_and_component_as_anodyne_map.html#ID-565de0e2-b4d3-472c-bd1b-77ba528e80ca">boxtensor as anodyne and component as anodyne map</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org058089b" class="outline-3">
+<h3 id="org058089b"><span class="section-number-3">1.31.</span> 1.3.32</h3>
+<div class="outline-text-3" id="text-1-31">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1ebd7c3" class="outline-3">
+<h3 id="org1ebd7c3"><span class="section-number-3">1.32.</span> 1.3.33</h3>
+<div class="outline-text-3" id="text-1-32">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org09a006f" class="outline-3">
+<h3 id="org09a006f"><span class="section-number-3">1.33.</span> 1.3.34</h3>
+</div>
+<div id="outline-container-org6c6fde3" class="outline-3">
+<h3 id="org6c6fde3"><span class="section-number-3">1.34.</span> 1.3.35</h3>
+</div>
+<div id="outline-container-org3a023a0" class="outline-3">
+<h3 id="org3a023a0"><span class="section-number-3">1.35.</span> 1.3.36</h3>
+</div>
+<div id="outline-container-orga6fee9b" class="outline-3">
+<h3 id="orga6fee9b"><span class="section-number-3">1.36.</span> 1.3.37</h3>
+<div class="outline-text-3" id="text-1-36">
+<ul class="org-ul">
+<li><a href="20240603-inner_hom_of_monomorphism_and_inner_fibration.html#ID-332ee5f9-4e1a-48a7-8a5e-2a656ca4e838">inner hom of monomorphism and inner fibration</a></li>
+<li><a href="20240603-inner_hom_of_a_monomorphism_and_right_fibration.html#ID-603bbeae-76bc-4ef1-9817-114e8a399329">inner hom of a monomorphism and right fibration</a></li>
+<li><a href="20240603-inner_hom_of_a_monomorhpism_and_left_fibration.html#ID-b02bfbc0-4805-4675-9e0b-ee1b91b0f52b">inner hom of a monomorhpism and left fibration</a></li>
+<li><a href="20240712-inner_hom_of_a_monomorphism_and_kan_fibration.html#ID-31183be1-c6b0-4fa5-9e1d-38f0a6d62f97">inner hom of a monomorphism and kan fibration</a></li>
+
+<li><a href="20240914-inner_hom_of_a_monomorphism_and_left_anodyne_as_trivial_fibration.html#ID-ff064021-7621-4b1b-99e0-483e12b36429">inner hom of a monomorphism and left anodyne as trivial fibration</a></li>
+<li><a href="20240914-inner_hom_of_a_monomorphism_and_right_anodyne_as_trivial_fibratino.html#ID-10d3caf4-76ff-4b51-946c-49c4bf05490e">inner hom of a monomorphism and right anodyne as trivial fibration</a></li>
+<li><a href="20240914-inner_hom_of_a_monomorphism_and_inner_anodyne_as_trivial_fibration.html#ID-2c39f81d-3383-458e-b49b-70a955c92468">inner hom of a monomorphism and inner anodyne as trivial fibration</a></li>
+<li><a href="20240914-inner_hom_of_a_monomorphism_and_anodyne_as_trivial_fibration.html#ID-0f5ae7e8-f9c1-416f-983c-cc42e1dfec45">inner hom of a monomorphism and anodyne as trivial fibration</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0fccd80" class="outline-3">
+<h3 id="org0fccd80"><span class="section-number-3">1.37.</span> 1.3.38</h3>
+<div class="outline-text-3" id="text-1-37">
+<ul class="org-ul">
+<li><a href="20240712-inner_hom_of_a_kan_complex_as_kan_complex.html#ID-44ec6510-7116-4317-8be2-84ee6e288425">inner hom of a kan complex as kan complex</a></li>
+<li><a href="20240422-inner_hom_with_a_quasicategory_as_codomain_as_quasicategory.html#ID-7ebe3dff-5614-4d81-942a-b013732c0477">inner hom with a quasicategory as codomain as quasicategory</a>   / <a href="20240603-inner_hom_into_a_quasi_category_as_quasi_category.html#ID-29a6ae3a-0d49-47a8-a0d8-1a426d6675de">inner hom into a quasi category as quasi category</a> 
+? which to keep ?</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga85e3b3" class="outline-3">
+<h3 id="orga85e3b3"><span class="section-number-3">1.38.</span> 1.3.39</h3>
+<div class="outline-text-3" id="text-1-38">
+<ul class="org-ul">
+<li><a href="20240405-infinity_functor_category.html#ID-280a46fe-59f2-4b5e-9f58-b06d46dc4d5c">infinity functor category</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5a7e732" class="outline-3">
+<h3 id="org5a7e732"><span class="section-number-3">1.39.</span> 1.3.40</h3>
+</div>
+<div id="outline-container-orgb3c24e7" class="outline-3">
+<h3 id="orgb3c24e7"><span class="section-number-3">1.40.</span> 1.3.41</h3>
+<div class="outline-text-3" id="text-1-40">
+<ul class="org-ul">
+<li><a href="20240923-simplicial_category_of_kan_complexes.html#ID-cd876285-ba59-413c-9a99-f69ad9e0af05">simplicial category of kan complexes</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org657434e" class="outline-3">
+<h3 id="org657434e"><span class="section-number-3">1.41.</span> 1.3.42</h3>
+<div class="outline-text-3" id="text-1-41">
+<ul class="org-ul">
+<li><a href="20240714-category_of_kan_spaces.html#ID-5766db50-ec83-45c1-b714-bcb5bd9351e4">category of kan spaces</a></li>
+<li><a href="20240713-infinity_category_of_spaces.html#ID-7a8f95e9-9a42-40a5-aa46-7fabec2ef09a">quasicategory of spaces</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2ef6610" class="outline-3">
+<h3 id="org2ef6610"><span class="section-number-3">1.42.</span> 1.3.43</h3>
+</div>
+<div id="outline-container-orge62b709" class="outline-3">
+<h3 id="orge62b709"><span class="section-number-3">1.43.</span> 1.3.44</h3>
+<div class="outline-text-3" id="text-1-43">
+<ul class="org-ul">
+<li><a href="20240915-precomposition_with_a_monomorphism_as_inner_fibration_for_a_functor_category_into_an_infinity_category.html#ID-4bf932f7-5faf-481d-9a0e-dd7b0bb61b8e">precomposition with a monomorphism as inner fibration for a functor category into an infinity category</a></li>
+<li><a href="20240923-infinity_category_and_inner_anodyne_precomposition.html#ID-988711cc-feb3-488c-996a-9199dcd64366">infinity category and precomposition of the inner 2 horn as trivial fibration</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org558d94a" class="outline-3">
+<h3 id="org558d94a"><span class="section-number-3">1.44.</span> 1.3.45</h3>
+<div class="outline-text-3" id="text-1-44">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5e906a2" class="outline-3">
+<h3 id="org5e906a2"><span class="section-number-3">1.45.</span> 1.3.46</h3>
+<div class="outline-text-3" id="text-1-45">
+<ul class="org-ul">
+<li><a href="20240923-trivial_fibration_admits_section.html#ID-0054f096-70ce-45d9-a0f6-00b25b7b46f5">trivial fibration admits section</a></li>
+<li><a href="contravariant-inner-hom-as-pullback-hom.html#ID-39b617a4-16d0-4e32-834b-d52206fb1dde">contravariant inner hom as pullback hom</a></li>
+<li><a href="20240923-covariant_inner_hom_as_pullback_hom.html#ID-03ab57b7-66fc-411d-a6e2-310c84944cc4">covariant inner hom as pullback hom</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org026d7c0" class="outline-3">
+<h3 id="org026d7c0"><span class="section-number-3">1.46.</span> 1.3.47</h3>
+<div class="outline-text-3" id="text-1-46">
+<ul class="org-ul">
+<li><a href="20240714-mapping_space_as_infinity_category.html#ID-1e9b5e7b-7fd4-403a-8ff9-915abfa0e921">mapping space as infinity category</a></li>
+<li><a href="20240617-mapping_space_as_infinity_groupoid.html#ID-11810a1b-e103-43a1-8beb-241c159b9814">mapping space as infinity groupoid</a></li>
+<li><a href="20240923-composition_in_an_infinity_category.html#ID-0d5a65d1-0f26-4e23-aad9-c6181dca3670">composition in an infinity category</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc88be45" class="outline-3">
+<h3 id="orgc88be45"><span class="section-number-3">1.47.</span> 1.3.48</h3>
+</div>
+<div id="outline-container-orgfcd3dfe" class="outline-3">
+<h3 id="orgfcd3dfe"><span class="section-number-3">1.48.</span> 1.3.49</h3>
+<div class="outline-text-3" id="text-1-48">
+<ul class="org-ul">
+<li><a href="20240327-inner_fibration.html#ID-1915e43c-9378-4583-b34c-5f4e084cb5a0">inner fibration</a></li>
+<li><a href="20240327-left_fibration.html#ID-bdbcb3cc-0793-4a96-9303-7f78702f03fb">left fibration</a></li>
+<li><a href="20240327-right_fibration.html#ID-cab43683-f467-4a4d-8c8e-9635ca3f01f1">right fibration</a></li>
+<li><a href="20240327-right_lifting_property.html#ID-d782de36-512e-44c3-8cbc-1106a79a58a6">right lifting property</a></li>
+
+<li><a href="20240327-anodyne_map.html#ID-c73a8608-7cfc-48d8-81dd-e63f43f453bd">inner anodyne map</a></li>
+<li><a href="20240327-left_anodyne_map.html#ID-5d6a9c9d-3b6b-4dbd-930b-b6eab541565f">left anodyne map</a></li>
+<li><a href="20240327-right_anodyne_map.html#ID-eb1ada66-cba3-4202-9ad9-dda3033b88b7">right anodyne map</a></li>
+
+<li><a href="20240327-saturated_set_of_morphisms.html#ID-c7e099f7-6292-4de2-809f-5d792c2bb969">saturated set of morphisms</a></li>
+<li><a href="20240327-saturated_closure.html#ID-0e8f1827-78e4-4e37-b70e-aaf942c28e12">saturated closure</a></li>
+
+<li><a href="20240327-monomorphisms_in_sset_as_saturated_set.html#ID-e84f08f3-0e67-4828-abf3-926fcf7c19cf">monomorphisms in sSet as saturated set</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="20240327-joyal_fibration.html#ID-375c76f5-75e2-4d74-8ed8-7a10ec994c15">joyal fibration</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org0cfb51c" class="outline-2">
+<h2 id="org0cfb51c"><span class="section-number-2">2.</span> unsure</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-15 Di 23:12</p>
+</div>
+</body>
+</html>

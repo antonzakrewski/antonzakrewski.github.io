@@ -1,0 +1,895 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 16:45 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>commutative algebra 1 - tutorium</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">commutative algebra 1 - tutorium</h1>
+<div id="outline-container-org26da4c5" class="outline-2">
+<h2 id="org26da4c5"><span class="section-number-2">1.</span> Sheet 1</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgd95fdab" class="outline-3">
+<h3 id="orgd95fdab"><span class="section-number-3">1.1.</span> ex. 1)</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20240423-isomorphic_rings_in_general_not_isomorphic_as_algebras.html#ID-288697f6-e55d-4fa6-b257-3d7ef9ae3b46">isomorphic rings in general not isomorphic as algebras</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20240423-isomorphic_q_algebras_and_isomorphic_rings.html#ID-de6e48a2-c454-428a-903c-2e865b9a0152">isomorphic R-Algebras and isomorphic Algebras over the localization</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd17831a" class="outline-3">
+<h3 id="orgd17831a"><span class="section-number-3">1.2.</span> ex. 2)</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20240404-unit_group_functor_representable.html#ID-9ea3d386-1fcd-4cb7-b8ee-dfbb8d0547c4">unit group functor representable</a></li>
+<li><a href="20240423-unit_group_functor_of_an_algebra_as_representable_functor.html#ID-f2c190c8-c028-4861-af12-4e38f61a93fc">unit group functor of an algebra as representable functor</a></li>
+<li><a href="20240423-unit_group_functor_of_an_algebra.html#ID-19734eae-17c5-4554-beaf-f3047c4e7be0">unit group functor of an algebra</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3870c7d" class="outline-3">
+<h3 id="org3870c7d"><span class="section-number-3">1.3.</span> ex. 3)</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20221228001126-distributivitat_der_bildung_von_idealen.html#ID-05d77aa7-e771-4d1e-8927-187285e1c10a">distributivity of ideals</a></li>
+<li><a href="20230410084858-product_of_pairwise_coprime_ideals_and_sum_with_another_coprime_ideal_are_coprime.html#ID-27bf91dc-e1c4-4731-90cb-e3d3cf033413">Product of pairwise coprime ideals preserves coprimeness</a></li>
+<li><a href="20230410084610-power_of_coprime_ideals_is_coprime.html#ID-5d32cca6-1eaa-43a1-8ff6-2553d67e5e38">power of coprime ideals is coprime</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2131cb1" class="outline-3">
+<h3 id="org2131cb1"><span class="section-number-3">1.4.</span> ex. 4)</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><a href="20240423-evaluation_homomorphism_and_isomorphism_for_the_quotient_ring.html#ID-cf233050-91e0-4431-a350-4b83b3f65119">evaluation homomorphism and isomorphism for the quotient ring</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org52ba9b1" class="outline-2">
+<h2 id="org52ba9b1"><span class="section-number-2">2.</span> Sheet 2</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org374fbe7" class="outline-3">
+<h3 id="org374fbe7"><span class="section-number-3">2.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li><a href="20240430-maximal_ideal_and_additino_with_1_as_unit_and_local_ring.html#ID-d5cc9826-9b19-4010-b32e-f791d033b385">maximal ideal and addition with 1 as unit and local ring</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org79bd4d0" class="outline-3">
+<h3 id="org79bd4d0"><span class="section-number-3">2.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li><a href="20240430-zariski_spectrum_of_a_local_ring_as_connected_space.html#ID-e5474150-e0c6-49bc-b726-e3bcaa04fb89">zariski spectrum of a local ring as connected space</a></li>
+<li><a href="20240430-zariski_spectrum_of_an_integral_domain_as_connected_space.html#ID-28dcf12a-0150-474f-b37c-435cc5abfb05">zariski spectrum of an integral domain as connected space</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf1634c4" class="outline-3">
+<h3 id="orgf1634c4"><span class="section-number-3">2.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li><a href="20230826-standard_opens_of_the_zariski_topology.html#ID-465fb301-6138-44f2-8852-5e40e6b52b4d">standard opens of the zariski topology</a></li>
+<li><a href="20230827-intersection_of_standard_opens.html#ID-f7d54a3c-93d2-4ea0-b90d-541b041df0fb">intersection of standard opens</a></li>
+<li><a href="20240430-standard_open_and_unit.html#ID-be88de79-865c-4d92-a50d-a35beefda568">standard open and unit</a></li>
+<li><a href="20240430-standard_open_of_a_nilpotent_element_as_empty_set.html#ID-b63630b8-cfaf-4dc9-8424-17202d7b9d94">standard open of a nilpotent element as empty set</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0c42087" class="outline-3">
+<h3 id="org0c42087"><span class="section-number-3">2.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li><a href="20230804-zariski_topology_as_compact_space.html#ID-a91469c8-6643-4bf9-a384-f98b6d84779d">zariski topology as compact space</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org30ca614" class="outline-2">
+<h2 id="org30ca614"><span class="section-number-2">3.</span> Sheet 3</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org3e77573" class="outline-3">
+<h3 id="org3e77573"><span class="section-number-3">3.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li><a href="20230802-finitely_generated_a_algebra_over_a_noetherian_ring_is_noetherian.html#ID-3437d8b4-5940-4b93-b57c-e1e693be94f1">finitely generated A-Algebra over a noetherian ring is noetherian</a></li>
+<li><a href="20240507-finitely_generated_noetherian_a_algebra_does_not_imply_a_noetherian.html#ID-acde8d76-8f1b-445d-b0c9-5b9cddffca3d">finitely generated, noetherian A-Algebra does not imply A noetherian</a></li>
+<li><a href="20240507-rationals_not_finite_type_z_algebra.html#ID-259934ef-299d-4a69-bc83-f683b5efeba6">rationals not finite type Z-algebra</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge88641b" class="outline-3">
+<h3 id="orge88641b"><span class="section-number-3">3.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li><a href="20240507-ring_monomorphism_between_reduced_rings_and_dominant_spec.html#ID-57dc67eb-d3dd-4e60-8135-30541093acdf">ring monomorphism between reduced rings and dominant spec</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8ad750a" class="outline-3">
+<h3 id="org8ad750a"><span class="section-number-3">3.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-3-3">
+<ul class="org-ul">
+<li><a href="20240508-ideal_in_a_finite_product_of_rings.html#ID-2ef11887-1eee-4f81-9fb3-7b0ff2c1af03">ideal in a finite product of rings</a></li>
+<li><a href="20240507-prime_ideal_in_a_product_of_rings.html#ID-4a5e7758-bba5-4059-b70d-f1b9e97bc03d">prime ideal in a finite product of rings</a></li>
+<li><a href="20230814-coproduct_of_spectra_homoeomorphic_to_the_spectrum_of_the_product.html#ID-b1c1f43a-e5f9-4be7-a3f7-a0fa71271f76">finite coproduct of spectra homoeomorphic to the spectrum of the product</a></li>
+<li><a href="20240508-prime_ideal_in_a_infinite_product_of_rings.html#ID-5f019027-98ae-408b-ad1f-f105cbce5f7c">prime ideal in an infinite product of rings in general not a single prime ideal</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org5019a64" class="outline-2">
+<h2 id="org5019a64"><span class="section-number-2">4.</span> Sheet 4</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org4c1af8e" class="outline-3">
+<h3 id="org4c1af8e"><span class="section-number-3">4.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-4-1">
+</div>
+<div id="outline-container-org8375af3" class="outline-4">
+<h4 id="org8375af3"><span class="section-number-4">4.1.1.</span> radical</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<ul class="org-ul">
+<li>\((X,Y)\)
+<ul class="org-ul">
+<li>maximal wegen \(X - 0\)</li>
+</ul></li>
+<li>\((X)\) enthalten
+<ul class="org-ul">
+<li>\(Y\) nicht enthalten weil \((X) \subseteq (X^3)\) primideal</li>
+</ul></li>
+<li>\((XY)\)
+<ul class="org-ul">
+<li>gegeben \(a^n = \alpha \cdot X^2 \cdot Y\) folgt auch \(Y \mid a^n, X \mid a\)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org33157f5" class="outline-4">
+<h4 id="org33157f5"><span class="section-number-4">4.1.2.</span> irreducible comp.</h4>
+<div class="outline-text-4" id="text-4-1-2">
+<ul class="org-ul">
+<li>\((X,Y)\)</li>
+<li>\((X)\)</li>
+<li>\((X), (Y)\)</li>
+</ul>
+<p>
+argument:
+</p>
+<ul class="org-ul">
+<li>(a + b) jeweils prim + radical ~&gt;</li>
+<li>\((X)\), \((Y)\) jeweils minimale primideale
+<ul class="org-ul">
+<li>weil nur \(X \cdot Y, X^2\) nicht prim</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org1d5884f" class="outline-3">
+<h3 id="org1d5884f"><span class="section-number-3">4.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-4-2">
+<ul class="org-ul">
+<li><a href="20240514-ideal_associated_to_a_subset_of_spec.html#ID-97674c3d-242d-41a5-87bc-70502444f283">ideal associated to a subset of spec</a></li>
+<li><a href="20240514-vanishing_set_of_the_ideal_associated_to_subset_of_spec.html#ID-44599f0a-f175-46d7-9c94-3c6f3cf53d4a">vanishing set of the ideal associated to subset of spec</a></li>
+<li><a href="20240514-ideal_associated_to_a_vanishing_set.html#ID-befebdd0-c3a8-4f63-b9bd-ede5dd842b13">ideal associated to a vanishing set</a></li>
+<li><a href="20230810-vanishing_set_and_radical.html#ID-633e0639-64bf-44f9-b92c-382003d2b6f5">vanishing set and radical</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2c06047" class="outline-3">
+<h3 id="org2c06047"><span class="section-number-3">4.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-4-3">
+<ul class="org-ul">
+<li><a href="20230810-jacobson_space.html#ID-52cf52c4-39e5-4f84-bc10-a9e5437257e8">Jacobson space</a></li>
+<li><a href="20240514-jacobson_space_and_jacobson_ring.html#ID-92d07a0b-5067-45bb-9496-58e5846fa6f2">jacobson space and jacobson ring</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org895c305" class="outline-2">
+<h2 id="org895c305"><span class="section-number-2">5.</span> Sheet 5 - TODO</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orgd19e2c2" class="outline-3">
+<h3 id="orgd19e2c2"><span class="section-number-3">5.1.</span> </h3>
+</div>
+<div id="outline-container-orgb248333" class="outline-3">
+<h3 id="orgb248333"><span class="section-number-3">5.2.</span> </h3>
+</div>
+<div id="outline-container-org7a39b7e" class="outline-3">
+<h3 id="org7a39b7e"><span class="section-number-3">5.3.</span> </h3>
+</div>
+</div>
+<div id="outline-container-org8ebe095" class="outline-2">
+<h2 id="org8ebe095"><span class="section-number-2">6.</span> Sheet 6</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org01eb0db" class="outline-3">
+<h3 id="org01eb0db"><span class="section-number-3">6.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-6-1">
+</div>
+<div id="outline-container-org69d5989" class="outline-4">
+<h4 id="org69d5989"><span class="section-number-4">6.1.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-6-1-1">
+<p>
+follows from
+</p>
+\begin{align*}
+\mathbb{Z} \oplus \mathbb{Z} \rightarrow& \mathbb{Z}[X]/(X^2 + 1) \\
+(1,0) \mapsto& 1
+(0,1) \mapsto& x
+\end{align*}
+<p>
+where each element \(\sum \alpha_i X^i\) has a representation as \(\alpha + \beta X\) after using \(X^2 = - 1\)
+</p>
+</div>
+</div>
+<div id="outline-container-orgb157eb1" class="outline-4">
+<h4 id="orgb157eb1"><span class="section-number-4">6.1.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-6-1-2">
+<p>
+Suppose 
+</p>
+</div>
+</div>
+<div id="outline-container-orgefb9068" class="outline-4">
+<h4 id="orgefb9068"><span class="section-number-4">6.1.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-6-1-3">
+<p>
+Suppose \(\mathbb{Q}/\mathbb{Z}\) is a finitely generated module.
+Then \(1,S\) is a generator of \(\mathbb{Q}\), contradiction
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org0a0988f" class="outline-3">
+<h3 id="org0a0988f"><span class="section-number-3">6.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-6-2">
+</div>
+<div id="outline-container-orgd74491b" class="outline-4">
+<h4 id="orgd74491b"><span class="section-number-4">6.2.1.</span> 1)</h4>
+</div>
+
+<div id="outline-container-org1acd7e6" class="outline-4">
+<h4 id="org1acd7e6"><span class="section-number-4">6.2.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-6-2-2">
+<ul class="org-ul">
+<li><a href="20240527-category_with_free_functor_and_monomorphism_as_injective_maps.html#ID-6c810b3d-7be9-4f79-8081-28a5480e59a1">category with free functor and monomorphism as injective maps</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org092b950" class="outline-3">
+<h3 id="org092b950"><span class="section-number-3">6.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-6-3">
+<ul class="org-ul">
+<li><a href="20240528-induced_map_between_ab_hom_for_products_as_monomorphism.html#ID-ca484dd1-ef50-4ad6-9f87-43724e840ab2">induced map between Ab-Hom for products as monomorphism</a></li>
+<li><a href="20240528-induced_map_between_ab_hom_for_infinite_product_in_general_not_epi.html#ID-8d594d72-4af4-4896-a049-68bb0153ebf2">induced map between Ab-Hom for infinite product in general not epi</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgba8a2f6" class="outline-3">
+<h3 id="orgba8a2f6"><span class="section-number-3">6.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-6-4">
+<ul class="org-ul">
+<li><a href="20240528-characterization_of_cyclic_modules.html#ID-af42ee1c-a31f-449a-a43f-1cc62fcef0e8">characterization of cyclic modules</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org29edc72" class="outline-2">
+<h2 id="org29edc72"><span class="section-number-2">7.</span> Sheet 7</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-org01a5774" class="outline-3">
+<h3 id="org01a5774"><span class="section-number-3">7.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-7-1">
+</div>
+<div id="outline-container-orgc0ad247" class="outline-4">
+<h4 id="orgc0ad247"><span class="section-number-4">7.1.1.</span> a)</h4>
+<div class="outline-text-4" id="text-7-1-1">
+<ul class="org-ul">
+<li><a href="20240604-submodule_of_a_finitely_generated_module_in_general_not_finitely_generated.html#ID-98a6f606-afa3-4344-8558-9ae7811af8ab">submodule of a finitely generated module in general not finitely generated</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcb5010d" class="outline-4">
+<h4 id="orgcb5010d"><span class="section-number-4">7.1.2.</span> b)</h4>
+<div class="outline-text-4" id="text-7-1-2">
+<ul class="org-ul">
+<li><a href="20240604-direct_summand_of_a_finitely_generated_module_as_finitely_generated_module.html#ID-dfe7e6b1-cd26-46bb-8ff3-a677c474a0fe">direct summand of a finitely generated module as finitely generated module</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org195680a" class="outline-3">
+<h3 id="org195680a"><span class="section-number-3">7.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-7-2">
+</div>
+<div id="outline-container-orgd94c193" class="outline-4">
+<h4 id="orgd94c193"><span class="section-number-4">7.2.1.</span> a)</h4>
+<div class="outline-text-4" id="text-7-2-1">
+<ul class="org-ul">
+<li><a href="20240604-kernel_satisfies_universal_property.html#ID-4dd3679a-c2d5-43e5-904a-2f17d8e9d80e">kernel satisfies universal property</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3c42ae0" class="outline-4">
+<h4 id="org3c42ae0"><span class="section-number-4">7.2.2.</span> b)</h4>
+<div class="outline-text-4" id="text-7-2-2">
+<ul class="org-ul">
+<li><a href="20240604-cokernel_satisfies_universal_property.html#ID-8c148054-cf07-4cba-8546-ce44d1ca2fb3">cokernel satisfies universal property</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org30104ea" class="outline-4">
+<h4 id="org30104ea"><span class="section-number-4">7.2.3.</span> c)</h4>
+<div class="outline-text-4" id="text-7-2-3">
+<ul class="org-ul">
+<li><a href="20231125-colimits_commute_with_colimits.html#ID-7b27ef2b-b942-4338-b20b-01c4713c526d">colimits commute with colimits</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgab589e7" class="outline-3">
+<h3 id="orgab589e7"><span class="section-number-3">7.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-7-3">
+<ul class="org-ul">
+<li><a href="20240604-module_homomorphism_modulo_ideal_surjective_and_power_of_ideal.html#ID-7da89158-44a2-4328-a0e6-268eacc81c91">module homomorphism modulo ideal surjective and power of ideal</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgeb4e819" class="outline-2">
+<h2 id="orgeb4e819"><span class="section-number-2">8.</span> Sheet 8</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org43f57bd" class="outline-3">
+<h3 id="org43f57bd"><span class="section-number-3">8.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-8-1">
+<ul class="org-ul">
+<li><a href="20240611-torsion_exact_sequence.html#ID-97100329-f515-4a31-8fde-e4f61004966a">torsion exact sequence</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9bb54b6" class="outline-3">
+<h3 id="org9bb54b6"><span class="section-number-3">8.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-8-2">
+<ul class="org-ul">
+<li><a href="20230812-tensor_product_of_the_rationals_as_integer_module.html#ID-8c862f0e-7b3b-4a47-9aa2-16906890beeb">tensor product of the rationals as abelian group</a></li>
+<li><a href="20240611-tensor_product_of_finite_galois_extensions_as_product_over_galoisgroup.html#ID-046c067e-b049-4422-ae90-550254d2cd19">tensor product of finite galois extensions as product over galoisgroup</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org010c8b5" class="outline-3">
+<h3 id="org010c8b5"><span class="section-number-3">8.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-8-3">
+<ul class="org-ul">
+<li><a href="20231120-tensor_product_as_coproduct.html#ID-c4180f06-150f-45ac-8df3-86237e96ed6d">tensor product of Algebras as categorical coproduct</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga01995e" class="outline-3">
+<h3 id="orga01995e"><span class="section-number-3">8.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-8-4">
+</div>
+<div id="outline-container-orga12ffd4" class="outline-4">
+<h4 id="orga12ffd4"><span class="section-number-4">8.4.1.</span> a)</h4>
+<div class="outline-text-4" id="text-8-4-1">
+<ul class="org-ul">
+<li><a href="20240628-symmetry_of_the_tensor_product_for_a_ring_epimorphism.html#ID-f8b1ff7a-c612-485d-b3f6-df91d6144b1e">symmetry of the tensor product for a ring epimorphism</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org40eb1c3" class="outline-4">
+<h4 id="org40eb1c3"><span class="section-number-4">8.4.2.</span> b) TODO</h4>
+<div class="outline-text-4" id="text-8-4-2">
+<ul class="org-ul">
+<li><a href="20240628-restriction_of_scalars_fully_faithful_for_an_epimorphism.html#ID-1e5efc3b-582f-4819-b215-3c9653c51250">restriction of scalars fully faithful for an epimorphism</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org04166fb" class="outline-4">
+<h4 id="org04166fb"><span class="section-number-4">8.4.3.</span> c)</h4>
+<div class="outline-text-4" id="text-8-4-3">
+<ul class="org-ul">
+<li><a href="20240628-tensor_product_and_restriction_of_scalars_for_an_epimorphism.html#ID-6b2dddf8-9a97-4530-9966-7264d1c44fb1">tensor product and restriction of scalars for an epimorphism</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbde2b62" class="outline-2">
+<h2 id="orgbde2b62"><span class="section-number-2">9.</span> Sheet 9</h2>
+<div class="outline-text-2" id="text-9">
+</div>
+<div id="outline-container-org546248f" class="outline-3">
+<h3 id="org546248f"><span class="section-number-3">9.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-9-1">
+<ul class="org-ul">
+<li>some drawing</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc4f7390" class="outline-3">
+<h3 id="orgc4f7390"><span class="section-number-3">9.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-9-2">
+<ul class="org-ul">
+<li><a href="20230902-four_lemma_of_epimorphisms.html#ID-8f7efe3a-675e-47a0-b76f-50723ed6635d">Four-Lemma of modules of epimorphisms</a></li>
+<li><a href="20230902-four_lemma_of_monomorphisms.html#ID-ef104894-0d50-49ab-8e75-8aff8f7b1f00">Four-Lemma of modules of monomorphisms</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgdef392c" class="outline-3">
+<h3 id="orgdef392c"><span class="section-number-3">9.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-9-3">
+<ul class="org-ul">
+<li><a href="20230803-faithfully_flat_module.html#ID-90fff949-02f7-46e7-beca-eacf14cbb932">faithfully flat module</a></li>
+<li><a href="20240618-faithfully_flat_module_and_tensor_functor_as_faithful_functor.html#ID-ae657676-fca4-48a6-a4bd-e9a637f7394f">faithfully flat module and tensor functor as faithful functor</a></li>
+<li><a href="20240615-fully_faithful_exact_functor_creates_exact_sequences.html#ID-0ebe62f2-cf53-4757-8f67-20645b62aad9">fully faithful exact functor creates exact sequences</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org22d29dc" class="outline-2">
+<h2 id="org22d29dc"><span class="section-number-2">10.</span> Sheet 10</h2>
+<div class="outline-text-2" id="text-10">
+</div>
+<div id="outline-container-org86abe5a" class="outline-3">
+<h3 id="org86abe5a"><span class="section-number-3">10.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-10-1">
+<ul class="org-ul">
+<li><a href="20240621-finite_dimensional_ring_in_general_not_noetherian.html#ID-e3ffe40a-d0d9-4675-979b-a1c9e80201a4">zero dimensional ring in general not noetherian</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4f4ee2b" class="outline-3">
+<h3 id="org4f4ee2b"><span class="section-number-3">10.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-10-2">
+<ul class="org-ul">
+<li><a href="20240625-injective_module_homomorphism_between_artinian_modules_as_isomorphisma.html#ID-55cec2e5-73d2-4d9d-acff-973116f71b6e">injective module homomorphism between artinian modules as isomorphisma</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6055ded" class="outline-3">
+<h3 id="org6055ded"><span class="section-number-3">10.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-10-3">
+<ul class="org-ul">
+<li><a href="20230802-artinian_module_in_general_not_noetherian.html#ID-58835549-675f-4b5f-bd64-c605eb11ac49">artinian module in general not noetherian</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org71f0899" class="outline-3">
+<h3 id="org71f0899"><span class="section-number-3">10.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-10-4">
+<ul class="org-ul">
+<li><a href="20240625-tensoring_a_sequence_with_flat_right.html#ID-c1e97f86-bc5e-4f75-8beb-8b216ea6b43d">tensoring a sequence with flat right</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org4a9e9ad" class="outline-2">
+<h2 id="org4a9e9ad"><span class="section-number-2">11.</span> Sheet 11</h2>
+<div class="outline-text-2" id="text-11">
+</div>
+<div id="outline-container-org7c46074" class="outline-3">
+<h3 id="org7c46074"><span class="section-number-3">11.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-11-1">
+<ul class="org-ul">
+<li><a href="20240702-inclusion_of_multiplicative_closed_subsets_and_inclusions_of_localizaitona.html#ID-ea55eab9-603f-4b57-96af-5764d3927361">inclusion of multiplicative closed subsets and inclusions of localization</a></li>
+<li><a href="20240702-finitely_generated_localization_as_module_and_localization_along_an_element.html#ID-1b2d80de-8f50-48a4-aafd-e84542b87c1a">finite type localization and localization along an element</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc767abd" class="outline-3">
+<h3 id="orgc767abd"><span class="section-number-3">11.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-11-2">
+<ul class="org-ul">
+<li><a href="20240702-localization_and_radical.html#ID-2556314e-c110-478d-9c35-e8bf1f80f21d">localization and radical</a></li>
+<li><a href="20240702-reduced_as_local_property.html#ID-a0ec029e-89c2-4469-b936-135163dc026c">reduced as local property</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7bb2ec6" class="outline-3">
+<h3 id="org7bb2ec6"><span class="section-number-3">11.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-11-3">
+<ul class="org-ul">
+<li><a href="20240702-finitely_generated_module_and_localization_at_a_prime_ideal.html#ID-d9ca8a0c-b2c7-4c7b-875d-a05dbec5491e">finitely generated module and localization at a prime ideal as zero module</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2b329dd" class="outline-3">
+<h3 id="org2b329dd"><span class="section-number-3">11.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-11-4">
+<ul class="org-ul">
+<li><a href="20240702-localization_and_quotient_for_an_ideal.html#ID-4efeda83-3487-459c-bbcb-dc7e5541ce8b">localization and quotient for an ideal</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org0e435e7" class="outline-2">
+<h2 id="org0e435e7"><span class="section-number-2">12.</span> Sheet 12</h2>
+<div class="outline-text-2" id="text-12">
+</div>
+<div id="outline-container-orga730d7a" class="outline-3">
+<h3 id="orga730d7a"><span class="section-number-3">12.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-12-1">
+<ul class="org-ul">
+<li>some calculation</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb6d1bc6" class="outline-3">
+<h3 id="orgb6d1bc6"><span class="section-number-3">12.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-12-2">
+<ul class="org-ul">
+<li>some calculation</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6a9e0c6" class="outline-3">
+<h3 id="org6a9e0c6"><span class="section-number-3">12.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-12-3">
+</div>
+<div id="outline-container-org109e18a" class="outline-4">
+<h4 id="org109e18a"><span class="section-number-4">12.3.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-12-3-1">
+<ul class="org-ul">
+<li><a href="20240709-dimension_in_general_not_a_point_local_property.html#ID-6a6061ae-6760-44dc-9bf5-fef49d42078e">dimension in general not a point local property</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org65db4bc" class="outline-4">
+<h4 id="org65db4bc"><span class="section-number-4">12.3.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-12-3-2">
+<ul class="org-ul">
+<li><a href="20240709-dimension_in_general_not_equal_to_the_qutoinet.html#ID-c455e56b-2860-4027-b002-cce9d076eb33">dimension in general not equal to the quotient</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgffb0de0" class="outline-3">
+<h3 id="orgffb0de0"><span class="section-number-3">12.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-12-4">
+</div>
+<div id="outline-container-orgccc0c08" class="outline-4">
+<h4 id="orgccc0c08"><span class="section-number-4">12.4.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-12-4-1">
+<ul class="org-ul">
+<li><a href="20240709-irreducible_spec_of_a_reduced_ring.html#ID-92d07b31-831a-41b8-b257-c7d555eabe8f">irreducible Spec of a reduced ring</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2ec8a4f" class="outline-4">
+<h4 id="org2ec8a4f"><span class="section-number-4">12.4.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-12-4-2">
+<ul class="org-ul">
+<li><a href="20241013-open_set_of_an_irreducible_spec_and_dimension.html#ID-0d62f698-7bdc-48fe-9437-43ea26ec13a9">open set of an irreducible spec and dimension_</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf270d90" class="outline-4">
+<h4 id="orgf270d90"><span class="section-number-4">12.4.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-12-4-3">
+<ul class="org-ul">
+<li><a href="20240709-spectrum_of_a_ring_as_compact_space.html#ID-9ef1cf43-6b63-41bb-907b-6d9d6777d9ad">spectrum of a ring as compact space</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org522acd7" class="outline-4">
+<h4 id="org522acd7"><span class="section-number-4">12.4.4.</span> 4)</h4>
+<div class="outline-text-4" id="text-12-4-4">
+<ul class="org-ul">
+<li><a href="20240709-irreducible_polynomial_and_affine_variety_in_general_not_irreducible.html#ID-f2b46989-0fd2-4efb-96f3-9ef22ea7a98d">irreducible polynomial and affine variety in general not irreducible</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2baddc3" class="outline-4">
+<h4 id="org2baddc3"><span class="section-number-4">12.4.5.</span> 5)</h4>
+<div class="outline-text-4" id="text-12-4-5">
+<ul class="org-ul">
+<li><a href="20240709-quotient_ring_as_projective_module_and_principal_ideal.html#ID-98301284-69f1-4ca0-be79-4eb81443124f">quotient ring as projective module and principal ideal</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgdbc3048" class="outline-4">
+<h4 id="orgdbc3048"><span class="section-number-4">12.4.6.</span> 6)</h4>
+<div class="outline-text-4" id="text-12-4-6">
+<ul class="org-ul">
+<li><a href="20240709-transitivity_of_flatness.html#ID-154ef10e-aeee-4562-bf0c-ad539c70a891">transitivity of flatness</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1098968" class="outline-4">
+<h4 id="org1098968"><span class="section-number-4">12.4.7.</span> 7)</h4>
+<div class="outline-text-4" id="text-12-4-7">
+<ul class="org-ul">
+<li>stuff</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org110f624" class="outline-4">
+<h4 id="org110f624"><span class="section-number-4">12.4.8.</span> 8)</h4>
+<div class="outline-text-4" id="text-12-4-8">
+<ul class="org-ul">
+<li><a href="20230801-flat_module_as_torsion_free_module.html#ID-e155454e-0540-4509-afab-fac1426220e4">flat module as torsion free module</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org943d7f1" class="outline-4">
+<h4 id="org943d7f1"><span class="section-number-4">12.4.9.</span> 9)</h4>
+<div class="outline-text-4" id="text-12-4-9">
+<ul class="org-ul">
+<li><a href="20240621-noetherian_ring_in_general_not_finite_dimensional.html#ID-7b7d83be-6a44-4503-b027-ae7dc44cecdf">noetherian ring in general not finite dimensional</a></li>
+<li><a href="20240621-finite_dimensional_ring_in_general_not_noetherian.html#ID-e3ffe40a-d0d9-4675-979b-a1c9e80201a4">finite dimensional ring in general not noetherian</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc2131f7" class="outline-4">
+<h4 id="orgc2131f7"><span class="section-number-4">12.4.10.</span> 10)</h4>
+<div class="outline-text-4" id="text-12-4-10">
+<ul class="org-ul">
+<li><a href="20230724-localization_as_zero_ring.html#ID-e033abcc-a342-4c78-bd42-cc9fa51b760e">localization as zero ring</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga10f64b" class="outline-4">
+<h4 id="orga10f64b"><span class="section-number-4">12.4.11.</span> 11)</h4>
+<div class="outline-text-4" id="text-12-4-11">
+<ul class="org-ul">
+<li><a href="20240709-localization_preserves_projective_modules.html#ID-4a98fe21-e904-4396-a03c-020fa5713a7c">localization preserves projective modules</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc2959c2" class="outline-4">
+<h4 id="orgc2959c2"><span class="section-number-4">12.4.12.</span> 12)</h4>
+<div class="outline-text-4" id="text-12-4-12">
+<ul class="org-ul">
+<li><a href="20240709-invertible_module.html#ID-010f8a9b-b171-429f-be15-6cb62881df34">invertible module</a></li>
+<li><a href="20240709-invertible_module_as_projective_module.html#ID-80c484ce-4978-4894-878a-42f1b9303bc5">invertible module as projective module</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 16:45</p>
+</div>
+</body>
+</html>

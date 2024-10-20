@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-15 Di 23:22 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>forgetful functor from the coslice category preserves connected colimits</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">forgetful functor from the coslice category preserves connected colimits</h1>
+<div id="outline-container-orgaaa9895" class="outline-2">
+<h2 id="orgaaa9895"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_760824120891fc757bc0445145b027d09b237baa.svg" alt="20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_760824120891fc757bc0445145b027d09b237baa.svg" class="org-svg" /> be a (sufficiently) <a href="20230923-cocomplete_category.html#ID-89cedbd1-199b-47a8-bc3f-574dd3accda9">cocomplete</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a>, <img src="file:///home/anton/html/ltximg/20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_770b56b74da17dfa540a3e9e4cbc2958b00d5c04.svg" alt="20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_770b56b74da17dfa540a3e9e4cbc2958b00d5c04.svg" class="org-svg" /> an <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">object</a> and <img src="file:///home/anton/html/ltximg/20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_883a4f7b073ba48830816ac0bc36b3fd2411e426.svg" alt="20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_883a4f7b073ba48830816ac0bc36b3fd2411e426.svg" class="org-svg" /> the <a href="20230402145452-coslice_category.html#ID-bdbe4411-02d7-4534-8788-2843a7007af4">coslice category</a>
+Then the <a href="20240326-forgetful_functor_from_the_coslice_category.html#ID-2d62cdb3-fdf8-4a66-bf98-47456e716970">forgetful functor from the coslice category</a> <a href="20231014-functor_preserving_colimits.html#ID-3d77cdc9-e177-40d9-b57d-dc17d897d8a7">preserves</a> <a href="20240413-connected_colimit.html#ID-5dafd2a9-4ca7-4609-a0e7-fd93da7dcbdd">connected colimit</a>.
+</p>
+</div>
+</div>
+<div id="outline-container-org82ae0d6" class="outline-2">
+<h2 id="org82ae0d6"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Let
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_d44bdb544a85db4a352f6d906e78ca592a8c6af2.svg" alt="20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_d44bdb544a85db4a352f6d906e78ca592a8c6af2.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+be a (snapshot) of a <a href="20220821183856-diagramm_kategorientheorie.html#ID-ad9d3642-913a-4374-8605-52121d00b349">diagram</a>
+</p>
+
+<p>
+Then let 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_33df15bd44a0ee20ad5163452b145a3871749a1a.svg" alt="20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_33df15bd44a0ee20ad5163452b145a3871749a1a.svg" class="org-svg" />
+</span>
+</div>
+<p>
+be the colimit in <img src="file:///home/anton/html/ltximg/20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_760824120891fc757bc0445145b027d09b237baa.svg" alt="20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_760824120891fc757bc0445145b027d09b237baa.svg" class="org-svg" />
+</p>
+</div>
+<div id="outline-container-org166b35b" class="outline-3">
+<h3 id="org166b35b"><span class="section-number-3">2.1.</span> coprojections</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Let 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_561adb1f7b778f3f9625ffaf15f6adfe7f892498.svg" alt="20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_561adb1f7b778f3f9625ffaf15f6adfe7f892498.svg" class="org-svg" />
+</span>
+</div>
+<p>
+be a diagram.
+It remains to show that the <a href="20240222-coprojection.html#ID-2eedf006-e48a-45d4-987e-1fd7855a644e">coprojection</a>s are compatible with <img src="file:///home/anton/html/ltximg/20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_f1e691aa1f8fb85b3355344934183749a8340190.svg" alt="20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_f1e691aa1f8fb85b3355344934183749a8340190.svg" class="org-svg" />, i.e.
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_55b1934b3bddb2230e2d836a38702b7fc7157146.svg" alt="20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_55b1934b3bddb2230e2d836a38702b7fc7157146.svg" class="org-svg" />
+</span>
+</div>
+<p>
+<a href="20220824222939-kommutieren_eines_diagramms.html#ID-446e5d02-ed5b-4cbf-b40a-3ed58067ef7c">commutes</a> 
+</p>
+
+<p>
+By assumption our diagram is connected, i.e. for each <img src="file:///home/anton/html/ltximg/20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_a10723da8429484bda78ee86b5eae851be1eac76.svg" alt="20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_a10723da8429484bda78ee86b5eae851be1eac76.svg" class="org-svg" /> there exists a finite <a href="20231111-zigzag.html#ID-8ed3d733-f4b9-4660-bf45-553c1d886032">zigzag</a> 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_3a6d5e1387676a0b8bbd49a4d6c425e92a637b2f.svg" alt="20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_3a6d5e1387676a0b8bbd49a4d6c425e92a637b2f.svg" class="org-svg" />
+</span>
+</div>
+
+
+<p>
+By induction, it suffices to treat the following two cases
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_3590f9cd9e9249e225e7de98fc499279e938c0bf.svg" alt="20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_3590f9cd9e9249e225e7de98fc499279e938c0bf.svg" class="org-svg" />
+</span>
+</div>
+
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_d874454a41c041edc7f138cec9ae032cfbc1d8cc.svg" alt="20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_d874454a41c041edc7f138cec9ae032cfbc1d8cc.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Note that the upper triangles commute as we have a diagram in <img src="file:///home/anton/html/ltximg/20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_1e2762e342fe8aa0c92038480c004b7d7c199224.svg" alt="20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_1e2762e342fe8aa0c92038480c004b7d7c199224.svg" class="org-svg" /> and the lower triangles commute as <img src="file:///home/anton/html/ltximg/20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_47805cd7e9864c62954400dd1b8cfe9bd86735df.svg" alt="20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_47805cd7e9864c62954400dd1b8cfe9bd86735df.svg" class="org-svg" /> is a colimit
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8bce273" class="outline-3">
+<h3 id="org8bce273"><span class="section-number-3">2.2.</span> unique</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Suppose there exists a <a href="20220821182915-naturliche_transformation_kategorientheorie.html#ID-4e6e50c0-c0df-44ff-a140-bebfa492ef7e">natural transformation</a> 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_e72acf4ada4ae55321f3bbd39012a296132e4cf9.svg" alt="20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_e72acf4ada4ae55321f3bbd39012a296132e4cf9.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Then by virtue of
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_f665e7cbe61d874f3cf999fec4bd81c81dfbd5b5.svg" alt="20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_f665e7cbe61d874f3cf999fec4bd81c81dfbd5b5.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+this induces a unique morphism
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_3522ed38fb752c6e13622895eb4852b675a7c6fe.svg" alt="20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_3522ed38fb752c6e13622895eb4852b675a7c6fe.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Furthermore as our coprojections are compatible with morphisms out of <img src="file:///home/anton/html/ltximg/20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_73eed9b29d43fbfeded6554d9fef135ba7ec0f7b.svg" alt="20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_73eed9b29d43fbfeded6554d9fef135ba7ec0f7b.svg" class="org-svg" /> this results in a commutative diagram
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_442e5bf95fb4ce8fce416ba4a36c60f3f614beaf.svg" alt="20240413-forgetful_functor_from_the_coslice_category_preserves_connected_colimits_442e5bf95fb4ce8fce416ba4a36c60f3f614beaf.svg" class="org-svg" />
+</span>
+</div>
+
+
+<p>
+see also:
+</p>
+<ul class="org-ul">
+<li><a href="20240609-final_functor.html#ID-55b3faa5-c986-4bed-a6b5-2a5fdf07ded8">final functor</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-15 Di 23:22</p>
+</div>
+</body>
+</html>

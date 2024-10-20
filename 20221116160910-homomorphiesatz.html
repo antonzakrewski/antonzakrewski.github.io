@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 21:40 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Homomorphiesatz für K-Vektorräume</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Homomorphiesatz für K-Vektorräume</h1>
+<div id="outline-container-orgfa9e6f8" class="outline-2">
+<h2 id="orgfa9e6f8"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Seien <img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_677f9531f1aa78934b6da6f53287b583fe602610.svg" alt="20221116160910-homomorphiesatz_677f9531f1aa78934b6da6f53287b583fe602610.svg" class="org-svg" /> <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">K-Vektorräume</a> und sei <img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_63093f274ad9f5a516bdf76fda1de835fa8b170f.svg" alt="20221116160910-homomorphiesatz_63093f274ad9f5a516bdf76fda1de835fa8b170f.svg" class="org-svg" />:
+</p>
+</div>
+<div id="outline-container-org89d1aed" class="outline-3">
+<h3 id="org89d1aed"><span class="section-number-3">1.1.</span> a)</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Es gibt einen <a href="20230303151705-vektorraumepimorphismus.html#ID-76bd1cc2-7338-461c-9c43-48c24c80037c">Epimorphismus</a> <img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_e293e8e321d9b834b86cca964084d4bba8b0e4d8.svg" alt="20221116160910-homomorphiesatz_e293e8e321d9b834b86cca964084d4bba8b0e4d8.svg" class="org-svg" /> und einen <a href="20230303151658-vektorraummonomorphismus.html#ID-f0288756-d404-4cf9-8f45-508ac443d32c">Monomorphismus</a> <img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_e828e9f2f81c63efaae74c36bf2aad7327e1b981.svg" alt="20221116160910-homomorphiesatz_e828e9f2f81c63efaae74c36bf2aad7327e1b981.svg" class="org-svg" /> sodass <img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_cca07bed7549e8b236c12433f6cc67f489e35e5a.svg" alt="20221116160910-homomorphiesatz_cca07bed7549e8b236c12433f6cc67f489e35e5a.svg" class="org-svg" /> und <img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_ffa32d4eba65ea0c6079166d3f7ff1fd3b396c7a.svg" alt="20221116160910-homomorphiesatz_ffa32d4eba65ea0c6079166d3f7ff1fd3b396c7a.svg" class="org-svg" /> gilt, d.h. das folgende Diagramm kommutiert
+und <img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_224d6ba9db532b34f6ed3914cf5449ff7fe5e742.svg" alt="20221116160910-homomorphiesatz_224d6ba9db532b34f6ed3914cf5449ff7fe5e742.svg" class="org-svg" /> induziert einen <a href="20230227153105-vektorraumisomorphismus.html#ID-27b6dd7a-30ae-4eb8-b5c4-e1a268344d2e">Vektorraumisomorphismus</a> <img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_919bbbdd8b95bfdbb5da128aa9de22136ef1ebdd.svg" alt="20221116160910-homomorphiesatz_919bbbdd8b95bfdbb5da128aa9de22136ef1ebdd.svg" class="org-svg" />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_d6911a288f6c7cf1367aabef0801e961d1cba2b8.svg" alt="20221116160910-homomorphiesatz_d6911a288f6c7cf1367aabef0801e961d1cba2b8.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc4ca26d" class="outline-2">
+<h2 id="orgc4ca26d"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org1bd4a98" class="outline-3">
+<h3 id="org1bd4a98"><span class="section-number-3">2.1.</span> a)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Als <a href="20230303151705-vektorraumepimorphismus.html#ID-76bd1cc2-7338-461c-9c43-48c24c80037c">Epimorphismus</a> wählen wir die <a href="20221224140459-kanonische_abbildung_in_einen_faktorraum.html#ID-62513b30-d833-4f0f-97ae-cd527636ef04">kanonische Abbildung in einen Faktorraum</a> :
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_d78de662e2ee98ddad5ca90b541ab3a2adf43b2f.svg" alt="20221116160910-homomorphiesatz_d78de662e2ee98ddad5ca90b541ab3a2adf43b2f.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Zusätzlich folgt:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_577f3f448c80e8d3a470dc950bc39aabae5f7399.svg" alt="20221116160910-homomorphiesatz_577f3f448c80e8d3a470dc950bc39aabae5f7399.svg" class="org-svg" />
+</span>
+</div>
+</div>
+<div id="outline-container-org7d03258" class="outline-4">
+<h4 id="org7d03258"><span class="section-number-4">2.1.1.</span> wohldefiniertheit von <img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_224d6ba9db532b34f6ed3914cf5449ff7fe5e742.svg" alt="20221116160910-homomorphiesatz_224d6ba9db532b34f6ed3914cf5449ff7fe5e742.svg" class="org-svg" /></h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+Sei <img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_119ad754c82e44e9679dbfe9459e3e6724b2ee9e.svg" alt="20221116160910-homomorphiesatz_119ad754c82e44e9679dbfe9459e3e6724b2ee9e.svg" class="org-svg" />
+Daraus folgt <img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_809370bafd775b002332cd56c70764801bedd915.svg" alt="20221116160910-homomorphiesatz_809370bafd775b002332cd56c70764801bedd915.svg" class="org-svg" /> und
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_a9c69d2079acb048f31006fed227b55f8dc07d5f.svg" alt="20221116160910-homomorphiesatz_a9c69d2079acb048f31006fed227b55f8dc07d5f.svg" class="org-svg" />
+</span>
+</div>
+<p>
+d.h. <img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_224d6ba9db532b34f6ed3914cf5449ff7fe5e742.svg" alt="20221116160910-homomorphiesatz_224d6ba9db532b34f6ed3914cf5449ff7fe5e742.svg" class="org-svg" /> ist wohldefiniert
+</p>
+
+<p>
+Weiter ist <img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_224d6ba9db532b34f6ed3914cf5449ff7fe5e742.svg" alt="20221116160910-homomorphiesatz_224d6ba9db532b34f6ed3914cf5449ff7fe5e742.svg" class="org-svg" /> linear, da <img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_5461866a7289ba4c56a10a82a5622bfbdcb4ae22.svg" alt="20221116160910-homomorphiesatz_5461866a7289ba4c56a10a82a5622bfbdcb4ae22.svg" class="org-svg" /> linear ist;
+Es gilt:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_ab22944c7f1e681d4a02b060920363f21cc2e540.svg" alt="20221116160910-homomorphiesatz_ab22944c7f1e681d4a02b060920363f21cc2e540.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Und für die Addition
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_1c70e9fd0c5e2d7e093d013ab6887e6e48352407.svg" alt="20221116160910-homomorphiesatz_1c70e9fd0c5e2d7e093d013ab6887e6e48352407.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd901573" class="outline-4">
+<h4 id="orgd901573"><span class="section-number-4">2.1.2.</span> kommutieren</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+Sei <img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_2ed40b5fa0b2ddf11e0316a469ecb4431262fdab.svg" alt="20221116160910-homomorphiesatz_2ed40b5fa0b2ddf11e0316a469ecb4431262fdab.svg" class="org-svg" /> so gilt nach Konstruktion:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_17e92b6bb01be126e805299aab6deee79f6cd673.svg" alt="20221116160910-homomorphiesatz_17e92b6bb01be126e805299aab6deee79f6cd673.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Also folgt <img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_cca07bed7549e8b236c12433f6cc67f489e35e5a.svg" alt="20221116160910-homomorphiesatz_cca07bed7549e8b236c12433f6cc67f489e35e5a.svg" class="org-svg" />
+</p>
+</div>
+</div>
+<div id="outline-container-org2d57a03" class="outline-4">
+<h4 id="org2d57a03"><span class="section-number-4">2.1.3.</span> <img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_224d6ba9db532b34f6ed3914cf5449ff7fe5e742.svg" alt="20221116160910-homomorphiesatz_224d6ba9db532b34f6ed3914cf5449ff7fe5e742.svg" class="org-svg" /> als Monomorphismus</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<p>
+Nach dem <a href="20221117113054-lemma_uber_die_aquivalenz_von_einem_monomorphismus_und_einem_minimalen_kern.html#ID-a7df72cc-6dd4-456c-aad8-2622472e7b0c">Lemma über die Äquivalenz von einem Monomorphismus und einem minimalen Kern</a> ist zu 
+Sei $ a + ker(f) &isin; (h)$ 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_eec00847c071758616333a19c03272209969176c.svg" alt="20221116160910-homomorphiesatz_eec00847c071758616333a19c03272209969176c.svg" class="org-svg" />
+</span>
+</div>
+<p>
+d.h. <img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_02090f222564ab013570be1a19f2d6df09b62278.svg" alt="20221116160910-homomorphiesatz_02090f222564ab013570be1a19f2d6df09b62278.svg" class="org-svg" /> und <img src="file:///home/anton/html/ltximg/20221116160910-homomorphiesatz_224d6ba9db532b34f6ed3914cf5449ff7fe5e742.svg" alt="20221116160910-homomorphiesatz_224d6ba9db532b34f6ed3914cf5449ff7fe5e742.svg" class="org-svg" /> ist ein <a href="20230303151658-vektorraummonomorphismus.html#ID-f0288756-d404-4cf9-8f45-508ac443d32c">Monomorphismus</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 21:40</p>
+</div>
+</body>
+</html>

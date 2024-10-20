@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 21:25 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Beutelspacher: Lineare Algebra: 1 Einführung</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Beutelspacher: Lineare Algebra: 1 Einführung</h1>
+<div id="outline-container-org7f92898" class="outline-2">
+<h2 id="org7f92898"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org2415a18" class="outline-3">
+<h3 id="org2415a18"><span class="section-number-3">1.1.</span> Mengenlehrenbascis</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge (Mengenlehre)</a></li>
+<li><a href="20211226213342-element_mengenlehre.html#ID-2ae7720e-1f94-4213-bbd8-76f8cec5e927">Element (Mengenlehre)</a></li>
+<li><a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">Teilmenge</a></li>
+<li><a href="20211226213432-echte_teilmenge.html#ID-d91c99f3-9e8a-4620-8508-ff80ecb5351b">echte Teilmenge</a></li>
+<li><a href="20211226215151-definition_menge.html#ID-66737799-c9d5-4ed7-aa1f-c384ad45d722">Arten: Definition einer Menge</a></li>
+<li><a href="20211226215449-leere_menge.html#ID-abf22513-8cde-4019-8690-8b02edd4337d">Leere Menge</a></li>
+<li><a href="20211227205325-differenz_zweier_mengen.html#ID-38f9ae77-b035-456e-9a12-4d7a8773f12f">Differenz zweier Mengen</a>
+<a href="20211227205752-komplement_mengenlehre.html#ID-76b857a4-da6d-4333-b837-cc1009f534e2">Komplement (Mengenlehre)</a></li>
+<li><a href="20230317161158-allgemeiner_schnitt.html#ID-d7547939-8d3f-48f8-b2fd-cfb5734ae78f">Durchschnitt (Mengenlehre)</a></li>
+<li><a href="20211226220255-disjunkte_mengen.html#ID-2000e1f4-7e9e-45f9-91ed-16ded8a15190">Disjunkte Mengen</a></li>
+<li><a href="20230317161154-allgemeine_vereinigung.html#ID-69c0d505-311b-4ea6-a337-8450d6529d02">Vereinigung (Mengenlehre)</a></li>
+<li><a href="20211226220618-kartesische_produkt.html#ID-0dd71736-db78-4510-8588-7811037d0796">Kartesische Produkt</a></li>
+<li><a href="20211227211436-n_tupel.html#ID-833c603f-1b79-4180-9d4f-1b44ce68769b">n-Tupel</a></li>
+<li><a href="20211227212126-definition_mathe.html#ID-95e8f015-808f-48f1-9c3e-99c49c0b10f0">Definition (Mathe)</a></li>
+<li><a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">endliche Menge</a></li>
+<li><a href="20211227220858-summenformel_machtigkeit_von_mengen.html#ID-b564a8ec-1953-42b5-a3ff-43be04505b64">Summenformel (Mächtigkeit von Mengen)</a></li>
+<li><a href="20211227220916-produktformel_machtigkeit_kartesische_produkt.html#ID-2e640704-ec66-4efd-8735-e1c5d3f51909">Produktformel (Mächtigkeit kartesische Produkt)</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgff1bac1" class="outline-3">
+<h3 id="orgff1bac1"><span class="section-number-3">1.2.</span> Äquivalenzrelationen</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20211227225631-relation_mathe.html#ID-20e17f2d-e102-4093-8c48-e5b41db0ffbf">Relation (Mengenlehre)</a></li>
+<li><a href="20220929192418-reflexive_relation.html#ID-a6016d54-aefb-460f-9da3-37388a9a4941">reflexive Relation</a></li>
+<li><a href="20220929191559-symmetrische_relation.html#ID-ecd19bf0-673a-47ba-b40f-3331655ff473">Symmetrische Relation</a></li>
+<li><a href="20220929192405-transitive_relation.html#ID-b1ee8b48-b51c-4099-b1c8-27dd3e757e0b">transitive Relation</a></li>
+<li><a href="20211227225754-aquivalenzrelation_mengenlehre.html#ID-bf83e0aa-4df1-48a5-b910-2837942bdd19">Äquivalenzrelation (Mengenlehre)</a></li>
+<li><a href="20211229162151-gleichheitsrelation.html#ID-c0bed0cd-fb06-4ad6-9962-8abd88a380b5">Gleichheitsrelation</a></li>
+<li><a href="20211230190101-aquivalenzklasse.html#ID-5ee76318-ae03-4cb3-877f-6b6ff88ad6fa">Äquivalenzklasse</a></li>
+<li><a href="20211230195022-satz_uber_gleichheit_von_aquivalenzklassen.html#ID-519d4d7e-b6f4-47fc-9ace-c4c5142bb69f">Satz über Gleichheit von Äquivalenzklassen</a></li>
+<li><a href="20211230201833-partition_mengenlehre.html#ID-8c4522dc-7da5-40f7-9ba7-54cc0e1a60a9">Partition (Mengenlehre)</a></li>
+<li><a href="20211230204340-menge_der_aquivalenzklassen_als_partition.html#ID-cdb6db99-5227-4009-8627-2c785e6076b1">Menge der Äquivalenzklassen als Partition</a></li>
+</ul>
+<p>
+TODO  
+</p>
+<ul class="org-ul">
+<li><a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">Wohldefiniert (Mathe)</a></li>
+<li><a href="20220304105121-reprasentant_mathe.html#ID-129e8350-24aa-49eb-bc42-52a5324d6421">Repräsentant (Mathe)</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org71d0fe5" class="outline-3">
+<h3 id="org71d0fe5"><span class="section-number-3">1.3.</span> Abbildung</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung (Mengenlehre)</a></li>
+<li><a href="20211230205442-urbild_mengenlehre.html#ID-55e63f0f-4499-43f1-af07-5c56577a9c73">Urbild (Mengenlehre)</a></li>
+<li><a href="20211230205458-bild_mengenlehre.html#ID-e7c4bebe-0c9a-4999-bd38-f1ceec101025">Bild (Mengenlehre)</a></li>
+<li><a href="20211230214802-definitionsbereich_abbildung.html#ID-45d5cdc5-84cc-416e-adff-94867ac12b21">Definitionsbereich (Abbildung)</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20211230205458-bild_mengenlehre.html#ID-e7c4bebe-0c9a-4999-bd38-f1ceec101025">Bildmenge (Mengenlehre)</a></li>
+<li><a href="20211230205157-identische_abbildung.html#ID-b7aac6b1-1233-4978-8e14-5932a66ff5fa">Identität (Mengenlehre)</a></li>
+<li><a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">Injektivität</a></li>
+<li><a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">Surjektivität</a></li>
+<li><a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">Bijektivität</a></li>
+<li><a href="20220104114218-komposition.html#ID-7dbdf503-309d-418b-8b3d-5c2fe27bbfeb">Komposition</a></li>
+<li><a href="20220104114249-produkt_von_zwei_abbildungen.html#ID-3aeb9add-c093-4bf5-aea5-19c7b19dff57">Produkt von zwei Abbildungen</a></li>
+<li><a href="20220104114031-satz_uber_die_invertierbarkeit_bijektiver_abbildungen.html#ID-103a1e68-fab8-4c82-846c-f2aca167fadc">Satz über die Invertierbarkeit bijektiver Abbildungen</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3e616b6" class="outline-3">
+<h3 id="org3e616b6"><span class="section-number-3">1.4.</span> gleich viele Elemente</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><a href="20220101131345-gleichmachtigkeit_von_mengen.html#ID-5332a064-fecb-49e0-a2bf-ababf5f364c8">Gleichmächtigkeit von Mengen</a></li>
+<li><a href="20211227215849-uberabzahlbar_unendlich.html#ID-9a4cb7c5-90c2-48e3-ad83-d9bcf341b6e9">Überabzählbar unendlich</a></li>
+<li><a href="20210830202353-abzahlbar_unendlich.html#ID-04273c8c-cba7-4023-aea4-d7e20249434e">Abzählbar Unendlich</a></li>
+<li><a href="20211230225007-dedekindsche_beschreibung_unendlicher_mengen.html#ID-1715a001-db7c-45f1-8e9d-9bfa7a8064d4">Dedekindsche Beschreibung unendlicher Mengen</a></li>
+</ul>
+<p>
+…   
+</p>
+</div>
+</div>
+<div id="outline-container-orgcc7f8d5" class="outline-3">
+<h3 id="orgcc7f8d5"><span class="section-number-3">1.5.</span> \(\sum\) Notation</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li><a href="20211228192629-definition_summenzeichen.html#ID-79886dfa-c991-4c86-898a-6226f83bc0c1">Definition Summenzeichen</a></li>
+<li><a href="20220101125102-doppelsumme.html#ID-24344554-eb98-4a85-9904-943669643ede">Doppelsumme</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2bd2480" class="outline-3">
+<h3 id="org2bd2480"><span class="section-number-3">1.6.</span> <a href="20210305204859-mathematische_beweise.html#ID-1bf05411-4f46-47b4-9359-e5e14a52acd6">Mathematische Beweise</a></h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 21:25</p>
+</div>
+</body>
+</html>

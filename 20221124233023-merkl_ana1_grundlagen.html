@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 21:41 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>merkl ana1: Grundlagen</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">merkl ana1: Grundlagen</h1>
+<div id="outline-container-org9081657" class="outline-2">
+<h2 id="org9081657"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgab75fd6" class="outline-3">
+<h3 id="orgab75fd6"><span class="section-number-3">1.1.</span> Logik</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20221124233952-junktoren.html#ID-01f5c37f-a0cd-4a8a-8772-0e0f3e901468">Junktoren</a></li>
+<li><a href="20220919154125-operatorrangfolge_logik.html#ID-8d26fcd9-af3c-413e-bf70-8047c0514070">Operatorrangfolge (Logik)</a></li>
+<li><a href="20220821114428-de_morgansche_gesetze_logik.html#ID-b01b46b3-748b-41fa-8def-0b69c2a2b420">De Morgansche Gesetze (Logik)</a></li>
+<li><a href="20221124234328-wahrheitstafel.html#ID-edf5dbe2-7618-4031-b4b1-f7e16cf961f0">Wahrheitstafel</a></li>
+<li><a href="20220929224759-distributivgesetz_logik.html#ID-a562d612-7903-40c6-8b6d-2568039346f3">Distributivgesetze (Logik)</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20211223100720-kontrapositionsgesetz.html#ID-72683132-824d-4f73-b099-70d5787bebd3">Kontrapositionsgesetz</a></li>
+<li><a href="20220919093440-modus_ponens.html#ID-01e40d0e-a013-4853-8da5-ba5f3ddef602">Modus ponens</a></li>
+<li><a href="20221124234745-aussagenlogische_herleitungsregeln.html#ID-cab83af9-a348-4696-b0ef-4f3bf4556d79">Aussagenlogische Herleitungsregeln</a></li>
+<li><a href="20211221095515-quantor.html#ID-4711acbf-55da-4089-b595-86c1866c80b1">Quantor</a></li>
+<li><a href="20210618082126-allquantor.html#ID-004532ff-eea7-4937-b1d5-2983f0afde4f">Allquantor</a></li>
+<li><a href="20210618082131-existenzquantor.html#ID-1bbdd566-703c-4386-90a2-480a054c3922">Existenzquantor</a></li>
+<li><a href="20221013121848-negation_von_quantoren.html#ID-69c8fc70-cade-4ff8-ae98-50f683c37d2e">Negation von Quantoren</a></li>
+<li><a href="20221013122255-wiederholte_negation_von_quantoren.html#ID-e20dedab-1846-494b-80b3-d8e0d6b46b16">wiederholte Negation von Quantoren</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org707782b" class="outline-3">
+<h3 id="org707782b"><span class="section-number-3">1.2.</span> Mengen</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20220725223641-extensionalitatsprinzip.html#ID-ed13fa3f-3106-4c24-82b4-a9dd10ee8568">Extensionalitätsaxiom</a></li>
+<li><a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">Teilmenge</a></li>
+<li><a href="20220308111247-russelsche_antinomie.html#ID-5cdba8c6-a602-4925-8f9a-a289d032c1f3">Russellsche Antinomie</a></li>
+<li><a href="20220817143520-aussonderungsaxiom.html#ID-4117861e-fe9d-4443-b522-6cbb7d19b551">Aussonderungsaxiom</a></li>
+<li><a href="20230317161158-allgemeiner_schnitt.html#ID-d7547939-8d3f-48f8-b2fd-cfb5734ae78f">Durchschnitt (Mengenlehre)</a></li>
+<li><a href="20230317161154-allgemeine_vereinigung.html#ID-69c0d505-311b-4ea6-a337-8450d6529d02">Vereinigung (Mengenlehre)</a></li>
+<li><a href="20220904090342-relative_komplement.html#ID-461367c3-49c6-48bc-9d97-7e6cbe9d096a">relative Komplement</a></li>
+<li><a href="20220922095603-symmetrische_differenz.html#ID-24c1eab0-fb11-465e-a750-cd5a6ea752ad">Symmetrische Differenz</a></li>
+<li><a href="20221209102328-distributivgesetz_fur_vereinigung_und_schnitt.html#ID-95eae3f0-560a-49e4-ac8d-86cfc8c32f2c">Distributivgesetz für Vereinigung und Schnitt</a></li>
+<li><a href="20220821114446-de_morgansche_gesetze_mengenlehre.html#ID-f77ff6f9-47e1-445a-9e2b-91b44efcaadc">De Morgansche Gesetze (Mengenlehre)</a></li>
+<li><a href="20220904090339-absolute_komplement.html#ID-ac89983c-e4da-4840-8979-63428383fe13">absolute Komplement</a></li>
+<li><a href="20211226215617-leermengenaxiom.html#ID-4fc38d7b-8454-4597-859d-1d13af364e67">Leermengenaxiom</a></li>
+<li><a href="20220818180533-einselementige_menge.html#ID-7f90b39c-62bc-438f-b28f-82742cda6401">Einelementige Menge</a></li>
+<li><a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">endliche Menge</a></li>
+<li><a href="20230826-infinite.html#ID-66aecdb2-720e-4e41-9a27-dab1700474fc">infinite</a></li>
+<li><a href="20221019113533-n_tupel_mengentheoretische_fundierung.html#ID-3a4709ab-a0ac-465b-9750-3d5a9c34a6ff">n-Tupel (mengentheoretische Fundierung)</a></li>
+<li><a href="20211226220618-kartesische_produkt.html#ID-0dd71736-db78-4510-8588-7811037d0796">Kartesisches Produkt</a></li>
+<li><a href="20221125070735-kartesische_produkt_kurznotation_bei_einer_menge.html#ID-714c3251-7a90-493a-ba00-647f401923c9">Kartesische Produkt: Kurznotation bei einer Menge</a></li>
+<li><a href="20211227225631-relation_mathe.html#ID-20e17f2d-e102-4093-8c48-e5b41db0ffbf">Relation</a></li>
+<li><a href="20221224135140-umkehrrelation.html#ID-db162206-0df8-4cc5-a214-0823912ee1ad">Umkehrrelation</a></li>
+<li><a href="20221125070929-komposition_von_relationen.html#ID-d4830c57-ab74-4420-962e-617281e06f9a">Komposition von Relationen</a></li>
+<li><a href="20220929192405-transitive_relation.html#ID-b1ee8b48-b51c-4099-b1c8-27dd3e757e0b">transitive Relation</a></li>
+<li><a href="20220929191559-symmetrische_relation.html#ID-ecd19bf0-673a-47ba-b40f-3331655ff473">Symmetrische Relation</a></li>
+<li><a href="20220929192418-reflexive_relation.html#ID-a6016d54-aefb-460f-9da3-37388a9a4941">reflexive Relation</a></li>
+<li><a href="20211227225754-aquivalenzrelation_mengenlehre.html#ID-bf83e0aa-4df1-48a5-b910-2837942bdd19">Äquivalenzrelation</a></li>
+<li><a href="20211230190101-aquivalenzklasse.html#ID-5ee76318-ae03-4cb3-877f-6b6ff88ad6fa">Äquivalenzklasse</a></li>
+<li><a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a></li>
+<li><a href="20220923144600-zielmenge.html#ID-d85b1698-8fce-41bb-a46d-947b20a638f6">Domain</a></li>
+<li><a href="20220923144547-definitionsmenge.html#ID-c15421d5-5e90-47e9-a0ef-ada73bf7f696">Definitionsmenge</a></li>
+<li><a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjektiv</a></li>
+<li><a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injektiv</a></li>
+<li><a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">bijektiv</a></li>
+<li><a href="20211230205442-urbild_mengenlehre.html#ID-55e63f0f-4499-43f1-af07-5c56577a9c73">Urbild</a></li>
+<li><a href="20221224140013-bildmenge.html#ID-def6ffac-1c21-427b-bacf-7b8580f5d7dd">Bildmenge</a></li>
+<li><a href="20220903215807-mengensystem.html#ID-c92b8075-6da5-4f97-a654-ad686fa4163c">Mengensystem</a></li>
+<li><a href="20220108205337-potenzmenge.html#ID-2615a647-bca5-49f5-919d-cf131c750c2b">Potenzmenge</a></li>
+<li><a href="20221224140351-faktorraum_nach_einer_aquivalenzrelation.html#ID-b4f6e2f6-99b2-49a4-bc81-3f11a55ca49b">Faktorraum nach einer Äquivalenzrelation</a></li>
+<li><a href="20221224140459-kanonische_abbildung_in_einen_faktorraum.html#ID-62513b30-d833-4f0f-97ae-cd527636ef04">kanonische Abbildung in einen Faktorraum</a></li>
+<li><a href="20221224141628-allgemeine_kartesische_produkt.html#ID-1fa0c762-e1d2-4ee7-8212-15395a725dd9">allgemeine kartesische Produkt</a></li>
+<li><a href="20221224141851-kartesische_potenz.html#ID-b0b8eeb6-abc0-45f0-a270-34c4d7912c3d">kartesische Potenz</a></li>
+<li><a href="20220817142613-auswahlaxiom.html#ID-0fac098f-bed6-4f86-a90b-7a269c9fd21e">Auswahlaxiom</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org848551b" class="outline-3">
+<h3 id="org848551b"><span class="section-number-3">1.3.</span> Zahlen</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20220104175248-peano_axiome.html#ID-808d1ce2-9ae4-4b37-9078-cbef644bfa25">Peano Axiome</a></li>
+<li><a href="20210305204948-beweis_durch_vollstandige_induktion.html#ID-c79953c3-855e-432d-9321-047dd5decac8">Beweis durch vollständige Induktion</a></li>
+<li><a href="20221024165350-beweis_durch_vollstandige_induktion_mit_starkerer_induktionsvoraussetzung.html#ID-1534f6c1-e094-4672-8e87-f36eb0e54b8b">Beweis durch vollständige Induktion mit stärkerer Induktionsvoraussetzung</a></li>
+<li><a href="20220113190855-bernoullische_ungleichung.html#ID-79311398-5b9d-44f1-ac34-ce295a6e0763">Bernoullische Ungleichung</a></li>
+<li><a href="20221125071413-rekursionssatz_uber_die_naturlichen_zahlen.html#ID-ee8a0914-001f-4d5f-8ea4-9373956a0bd9">Rekursionssatz über die Natürlichen Zahlen</a></li>
+<li><a href="20211228201532-definition_produktzeichen.html#ID-09dd36bc-1342-42cd-8dbc-fdc043c3a5c0">Produktzeichen</a></li>
+<li><a href="20211228192629-definition_summenzeichen.html#ID-79886dfa-c991-4c86-898a-6226f83bc0c1">Summenzeichen</a></li>
+<li><a href="20220106222835-binomialkoeffizient_hilfssatz.html#ID-3f28b90e-18b5-420b-88e8-2794157bc002">Rekursionformel (Binomialkoeffizient)</a></li>
+<li><a href="20211216205729-binomialkoeffizient.html#ID-89b0e19a-c480-407f-8939-1074be74e04d">Binomialkoeffizient</a></li>
+<li><a href="20220106143325-definition_kleiner_relation.html#ID-85e185a9-1726-43ed-8328-e6aa52f31c4b">Definition: kleiner Relation</a></li>
+<li><a href="20220104221220-geometrische_reihe.html#ID-f8ab4e19-abfd-4905-b9ae-81534050103c">Geometrische Reihe</a></li>
+<li><a href="20220104220747-binomischer_lehrsatz.html#ID-93572b6e-6e51-486b-bf69-476329e57614">Binomial theorem</a></li>
+<li><a href="20221224143301-potenz_exponentialsummen.html#ID-4563cd5c-db3b-46a4-88af-b3a170555f72">Potenz-Exponentialsummen</a></li>
+</ul>
+</div>
+<div id="outline-container-orge5047bc" class="outline-4">
+<h4 id="orge5047bc"><span class="section-number-4">1.3.1.</span> <a href="20210702104535-reelle_zahlen.html#ID-764c8d83-a539-42fa-b8b4-3e388f4dc3a1">Reelle Zahlen</a></h4>
+<div class="outline-text-4" id="text-1-3-1">
+<ul class="org-ul">
+<li><a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a></li>
+<li><a href="20211223084436-anordnungsaxiome.html#ID-87bafb9b-c74f-47e4-9ac2-ef86909a7185">Anordnungsaxiome</a></li>
+<li><a href="20220105155640-archimedische_axiom.html#ID-22fde0a3-2b66-4234-8ae3-18f6f23fe0fd">Archimedische Axiom</a></li>
+<li><a href="20221031114427-satz_von_eudoxos.html#ID-5ea17431-c3c0-44b9-ba82-1e8f39913b33">Satz von Eudoxos</a></li>
+<li><a href="20221128214040-beschranktheit_in_mathbb_r.html#ID-67dcb54d-b99a-42e2-a950-1ccc9fc030b9">Beschränktheit in \(\mathbb{R}\)</a></li>
+<li><a href="20220718133117-supremum.html#ID-0694ad6d-ce06-4c52-9f5c-29b040425dd1">Supremum</a></li>
+<li><a href="20220718133120-infimum.html#ID-46cb173e-d119-4d6f-82b5-f27511bb0081">Infimum</a></li>
+<li><a href="20221112154250-supremumsaxiom.html#ID-d844b9e7-b58a-484d-9fa5-4b2fed37cf66">Supremumsaxiom</a></li>
+<li><a href="20220717170446-vollstandigkeitsaxiom.html#ID-2772514a-cfc0-4f1c-9762-b5565967613c">Vollständigkeitsaxiom</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4825a10" class="outline-4">
+<h4 id="org4825a10"><span class="section-number-4">1.3.2.</span> <a href="20210702104546-komplexe_zahlen.html#ID-ca121ea4-6b83-47aa-a6f1-31a6e0d0667d">Komplexe Zahlen</a></h4>
+<div class="outline-text-4" id="text-1-3-2">
+<ul class="org-ul">
+<li><a href="20211231000453-imaginare_einheit_i.html#ID-a23f6243-7f05-47a7-bf9c-cc8ce2d6fdc9">Imaginäre Einheit i</a></li>
+<li><a href="20211231000354-imaginarteil.html#ID-8267ad48-49dc-48a8-a7d0-e1b3e1d502fc">Imaginärteil</a></li>
+<li><a href="20211231000331-realteil.html#ID-c669a4ac-f9b2-4b06-8575-41633f0d096c">Realteil</a></li>
+<li><a href="20220225202137-komplex_konjugierte_zahl.html#ID-f0e37c88-f2da-4790-9aca-11a30e3329af">Komplexe Konjugation</a></li>
+<li><a href="20220304134626-komplexe_zahlen_als_korper.html#ID-4ed322f7-6ab1-4577-9eea-c10f093ef31f">komplexe Zahlen als Körper</a></li>
+<li><a href="20221224144416-komplexe_konjugation_als_involution.html#ID-dee0186b-6c30-4ec8-96e6-b86f85324c1a">Komplexe Konjugation als Involution</a></li>
+<li><a href="20221124132139-multiplikativitat_einer_bewertung.html#ID-80eb3ad3-1b18-4d94-86d3-9aaeb2327c65">Multiplikativität einer Bewertung</a></li>
+<li><a href="20220225202318-eulersche_formel.html#ID-a44af9b5-a187-4031-a3a1-06a464bbe064">Eulersche Formel</a></li>
+<li><a href="20220302200359-additionstheoreme_sinus.html#ID-380e9328-1ac3-4bfa-943e-b37e51c5634d">Additionstheoreme - Sinus</a></li>
+<li><a href="20220302211152-additionstheoreme_cosinus.html#ID-d7f4ef33-28f2-4c06-926a-62a5af484d28">Additionstheoreme - Cosinus</a></li>
+<li><a href="20221003094912-cauchy_schwarz_ungleichung.html#ID-918045db-a394-490d-93a8-d735215cfad0">Cauchy-Schwarz Ungleichung</a></li>
+<li><a href="20221224145153-cauchy_schwarz_ungleichung_fur_komplexe_zahlen.html#ID-03cf083a-6ae4-40aa-b5f0-b6f0e8286310">Cauchy-Schwarz Ungleichung für komplexe Zahlen</a></li>
+<li><a href="20220716173747-dreiecksungleichung_metrik.html#ID-e5ef5ef6-266f-4486-aa97-9ba2093531fe">Dreiecksungleichung (Metrik)</a></li>
+<li><a href="20221112154411-erweiterte_reelle_zahlen.html#ID-ee48ea6a-ee3c-472b-893b-59717e98f463">Erweiterte Reelle Zahlen</a></li>
+<li><a href="20221125074128-komplex_unendlicher_punkt.html#ID-ceb3fb7a-35e1-49a6-9bee-a8a0fa0ac4eb">komplex unendlicher Punkt</a></li>
+<li><a href="20221125074238-riemannsche_zahlenkugel.html#ID-35097b48-d707-48a1-bcc5-9e7266bbf9c5">Riemannsche Zahlenkugel</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1c86131" class="outline-4">
+<h4 id="org1c86131"><span class="section-number-4">1.3.3.</span> <a href="20221113204151-gaußsche_ebene.html#ID-ff730f28-f0c2-4c7a-9d30-7846ac14ded3">Gaußsche Ebene</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 21:41</p>
+</div>
+</body>
+</html>

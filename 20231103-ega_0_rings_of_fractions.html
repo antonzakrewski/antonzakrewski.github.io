@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 19:00 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EGA 0 - Rings of Fractions</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">EGA 0 - Rings of Fractions</h1>
+<div id="outline-container-orgf77f2ec" class="outline-2">
+<h2 id="orgf77f2ec"><span class="section-number-2">1.</span> 1. Rings of Fractions</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org50eb7bf" class="outline-3">
+<h3 id="org50eb7bf"><span class="section-number-3">1.1.</span> 1.0 Rings and Algebras</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org1192e8f" class="outline-4">
+<h4 id="org1192e8f"><span class="section-number-4">1.1.1.</span> 1.0.1</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<ul class="org-ul">
+<li><a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a>, <a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">module</a>, <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a></li>
+<li><a href="20221226010233-ringhomomorphismus.html#ID-136298f7-3132-4bd7-934f-0eefaa48fcf9">ring-homomorphism</a></li>
+<li><a href="20230802-restriction_of_scalars_of_a_module_for_a_ringhomomorphism.html#ID-faf0c273-7fc3-4efc-b94e-b71877ae5c2b">restriction of scalars of a module for a ringhomomorphism</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6ea622e" class="outline-4">
+<h4 id="org6ea622e"><span class="section-number-4">1.1.2.</span> 1.0.2</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ul class="org-ul">
+<li><a href="20230802-restriction_of_scalars_of_a_module_for_a_ringhomomorphism.html#ID-faf0c273-7fc3-4efc-b94e-b71877ae5c2b">restriction of scalars of a module for a ringhomomorphism</a></li>
+<li><a href="20230222204703-modulhomomorphismus.html#ID-bb388d52-298a-4714-b290-80d9ab79eb2e">module-homomorphism</a></li>
+<li><a href="20230806-di_homomorphism.html#ID-1e943cd4-f1cb-45a4-8302-55ecdc65b5a6">di-homomorphism</a></li>
+<li><a href="20230225170152-kategorie_mod.html#ID-15b21b3a-18bb-4d60-a716-c69681d7222d">Category RMod</a></li>
+<li><a href="20231105-category_of_modules_over_an_arbitrary_ring.html#ID-919b33fc-ac16-4f15-b77f-d2373a3b167b">category of modules</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8fe82b5" class="outline-4">
+<h4 id="org8fe82b5"><span class="section-number-4">1.1.3.</span> 1.0.3</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<ul class="org-ul">
+<li><a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a></li>
+<li><a href="20230801-tensor_product.html#ID-42c4ecff-8f9a-40cf-bebc-70569ded24bf">tensor product</a></li>
+<li><a href="20231103-generated_ideal_as_image_of_tensor.html#ID-9d2f787f-f8e3-4d91-9ea0-5864ef97cc87">generated ideal as image of tensor</a> - todo</li>
+<li><a href="20230523163356-ideal_mal_modul_als_modul.html#ID-bb06dd64-8633-45dc-8966-7650e0835ec4">Modulideal</a></li>
+<li><a href="20230819-modulideal_as_image_of_tensoring.html#ID-717dde3f-110e-48f6-bea4-471014c123c7">modulideal as image of tensoring</a>  ?</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2651261" class="outline-4">
+<h4 id="org2651261"><span class="section-number-4">1.1.4.</span> 1.0.4</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<ul class="org-ul">
+<li><a href="20231102-center_under_ring_epimorphisms.html#ID-27cf5622-2b69-4969-8eb3-3fed39c802d7">center under ring epimorphisms</a></li>
+<li><a href="20231103-ideal_inside_the_center_as_two_sided_ideal.html#ID-d52f4fb5-4bcd-4aae-adab-3203fafc2f1c">ideal inside the center as two sided ideal</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org432fffc" class="outline-4">
+<h4 id="org432fffc"><span class="section-number-4">1.1.5.</span> 1.0.5</h4>
+<div class="outline-text-4" id="text-1-1-5">
+<ul class="org-ul">
+<li>data of a structure ?</li>
+<li>1.04 ?</li>
+<li><a href="20230731-finitely_generated_a_algebra.html#ID-20861333-797d-4ab1-9ad5-375661f357fc">finitely generated A-Algebra</a></li>
+<li><a href="20230531104455-endlich_erzeugter_modul.html#ID-b8bbecb1-a067-40a2-a8c8-3c4119252b18">finitely generated module</a></li>
+<li><a href="20231102-finitely_generated_module_and_exact_sequence.html#ID-4d550b64-181b-4bf0-9c85-9c1c67609ba1">finitely generated module and exact sequence</a></li>
+<li><a href="20230724-exact_sequence_and_epimorphism.html#ID-770d5ae6-a0e1-4862-a251-4b524095f0d8">exact sequence and epimorphism</a></li>
+<li><a href="20230801-finitely_presented_module.html#ID-7ccb4638-bc9e-414e-a304-75a46e1f34f5">finitely presented module</a></li>
+<li><a href="20230820-finitely_presented_module_and_cokernel_of_a_homomorphism.html#ID-5c9a0a61-1ebe-4652-b118-1bda0148e12e">finitely presented module and cokernel of a homomorphism</a></li>
+<li><a href="20230817-finitely_presented_module_and_exact_sequence.html#ID-a19ea483-6c96-4388-9325-1034b468bdac">finitely presented module and exact sequence</a></li>
+<li><a href="20230820-finitely_generated_module_over_a_noetherian_ring_as_finitely_presented_module.html#ID-446f205f-cef3-4869-a4ec-a93dbb2c74ad">finitely generated module over a noetherian ring as finitely presented module</a></li>
+
+<li><a href="20230820-integral_algebra.html#ID-587307b5-d976-489d-9940-a201f2249d59">integral Algebra</a></li>
+<li><a href="20230726-integral_element_and_finitely_generated_module.html#ID-81c164f8-22c6-4947-a098-e7dbd596b979">integral element and finitely generated module</a></li>
+<li><a href="20231102-finitely_generated_integral_algebra.html#ID-efb485ec-07cb-4d65-8ebd-0f77fae15e56">finitely generated integral Algebra</a></li>
+<li><a href="20231102-finitely_generated_algebra_as_algebra_generated_by_finitely_many_integral_elements.html#ID-9b9cc270-3355-439b-bfc3-0e414e28d8de">finitely generated Algebra as Algebra generated by finitely many integral Elements</a> - todo</li>
+<li>integral of finite type</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4ee58c0" class="outline-4">
+<h4 id="org4ee58c0"><span class="section-number-4">1.1.6.</span> 1.0.6</h4>
+<div class="outline-text-4" id="text-1-1-6">
+<ul class="org-ul">
+<li><a href="20221226125648-integritatsbereich.html#ID-d39ae041-9db9-423e-8655-20e929ceaf48">Integral domain</a></li>
+<li><a href="20230329081717-primideal.html#ID-a8ae10f5-3b84-4fab-9e76-b006780ccc7f">prime ideal</a></li>
+<li><a href="20230329081834-aquivalente_charakterisierungen_eines_primideals.html#ID-e4e6f25e-6d27-4bc1-8dd8-4de9325fd407">prime ideal and quotient ring as integral domain</a></li>
+<li><a href="20230822-existence_of_a_prime_ideal.html#ID-f1d2b890-7465-4394-8b58-ba8aae912516">existence of a prime ideal</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb50cc45" class="outline-4">
+<h4 id="orgb50cc45"><span class="section-number-4">1.1.7.</span> 1.0.7</h4>
+<div class="outline-text-4" id="text-1-1-7">
+<ul class="org-ul">
+<li><a href="20230531093017-lokaler_ring.html#ID-55f224fa-39d9-4b7b-a771-9466ec684881">local ring</a></li>
+<li><a href="20230822-local_ring_homomorphismus.html#ID-c6a4ffb1-3f98-46c7-9ccc-0c411a8ceb70">local ring homomorphismus</a></li>
+<li><a href="20231102-composition_of_local_ring_homomorphisms_as_local_ring_homomorphism.html#ID-e16fd3b2-c724-4ad5-afd3-f9ae0ba27d9b">composition of local ring homomorphisms as local ring homomorphism</a></li>
+<li><a href="20231102-local_ring_homomorphism_induces_field_homomorphism.html#ID-cb721f56-2a75-43ff-af33-0eb5355b8ac5">local ring homomorphism induces field homomorphism</a> - todo</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org2401509" class="outline-3">
+<h3 id="org2401509"><span class="section-number-3">1.2.</span> 1.1 Radical of an ideal, Nilradical and radical of a ring</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-orgb787476" class="outline-4">
+<h4 id="orgb787476"><span class="section-number-4">1.2.1.</span> 1.1.1</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<ul class="org-ul">
+<li><a href="20230725-radical_of_an_ideal.html#ID-a5fd42b5-ba84-4c7e-8a5b-e36101a7fa1e">radical</a></li>
+<li><a href="20230725-radical_ideal.html#ID-a09d853a-3453-49c0-82a0-5ee102e45c53">radical ideal</a>   / <a href="20230802-radical_of_an_ideal_as_a_radical_ideal.html#ID-6d853138-47f7-437c-8158-0ae4e8944a07">radical of an ideal as a radical ideal</a></li>
+<li><a href="20230803-radical_of_subsets.html#ID-fb025e17-de27-4e66-b771-b65762a459b6">radical of subsets</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20231103-radical_of_a_finite_intersection_of_ideals_as_intersection_of_the_radicasl.html#ID-1be90a52-d366-4295-b29d-5ca8aa5f4839">radical of a finite intersection of ideals as intersection of the radicals</a></li>
+<li><a href="20230725-radical_of_an_ideal_as_intersection_of_prime_ideals.html#ID-120498e8-358f-43ad-a697-5f1c64897545">radical of an ideal as intersection of prime ideals</a> / <a href="20230822-radical_of_an_ideal_as_intersection_of_minimal_prime_ideals.html#ID-4f6a22c2-fd11-4f59-a1c5-bab07ef1a337">radical of an ideal as intersection of minimal prime ideals</a></li>
+<li><a href="20230725-finite_amount_of_minimal_prime_ideals_for_a_noetherian_ring.html#ID-059a282a-5872-45a1-92e7-65cf748f3709">finite amount of minimal prime ideals for a noetherian ring</a> (?)</li>
+<li><a href="20230822-intersection_of_prime_ideals_as_radical_ideal.html#ID-17967d00-9a88-4d58-aca5-a48a1e409a29">intersection of prime ideals as radical ideal</a></li>
+<li><a href="20231105-radical_and_preimages.html#ID-64fd52ee-d9be-422f-9ca5-e81ab7c1bf70">radical and preimages</a> - todo</li>
+<li><a href="20230803-radical_of_subsets.html#ID-fb025e17-de27-4e66-b771-b65762a459b6">radical of subsets</a></li>
+<li><a href="20230531075602-menge_der_nilpotenten_element_als_ideal.html#ID-603c79c1-6511-45a3-898a-83df20df86ea">nilradical</a></li>
+<li><a href="20230725-reduced_ring.html#ID-1480b16c-0de6-4614-9ae9-a70abea088a9">reduced ring</a></li>
+<li><a href="20230725-nilradical_as_reduced_ring.html#ID-7dec36c9-82b6-4bea-b7b7-8eca1587f2c4">Quotient of the nilradical as reduced ring</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org89be045" class="outline-4">
+<h4 id="org89be045"><span class="section-number-4">1.2.2.</span> 1.1.2</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<ul class="org-ul">
+<li><a href="20230725-jacobson_radical.html#ID-7ee4f832-79a1-47c6-9602-c636a3ba8daa">Jacobson radical</a></li>
+<li>Jacobson radical for non-commutative + right max ideal</li>
+<li><a href="20231103-quotient_to_the_jacobson_radical_as_zero_ideal.html#ID-8ed97efd-4db7-4d0a-9d04-1b361ba7a6f4">jacobson radical of the quotient to the jacobson radical as zero ideal</a> - todo</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org6cb039a" class="outline-3">
+<h3 id="org6cb039a"><span class="section-number-3">1.3.</span> 1.2 Modules and rings of fractions</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-orga06ba7c" class="outline-4">
+<h4 id="orga06ba7c"><span class="section-number-4">1.3.1.</span> 1.2.1</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<ul class="org-ul">
+<li><a href="20230724-multiplicatively_closed_set.html#ID-d3df0441-9f2f-476f-b18e-d513ae149906">multiplicatively closed</a></li>
+<li><a href="20230726-ring_without_a_prime_ideal_as_multiplicatively_closed_set.html#ID-4de6f451-c842-4dcb-b7ba-b2082b683213">Ring without a prime ideal as multiplicatively closed set</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org47615e6" class="outline-4">
+<h4 id="org47615e6"><span class="section-number-4">1.3.2.</span> 1.2.2</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<ul class="org-ul">
+<li><a href="20230724-localization_of_a_ring.html#ID-0b26fdfb-9d28-4981-acde-2ea1ea96837d">ring localization</a></li>
+<li><a href="20231102-kernel_of_a_localization.html#ID-6b29d727-5ed1-4b70-b59d-27cd08ad3e97">kernel of a localization</a> - todo</li>
+<li><a href="20230725-localization_of_a_module.html#ID-eeaa3c03-2f86-4dee-871b-2d7dd14c981c">module localization</a></li>
+<li><a href="20230725-ring_homomorphism_for_a_localization.html#ID-1017e369-625a-4847-a695-7d4e3ff73ade">ring homomorphism for a localization</a></li>
+<li><a href="20231103-module_homomorphism_for_a_localization.html#ID-8e50c603-5609-4e49-ae62-13c4d55d1cd5">module homomorphism for a localization</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfc521dc" class="outline-4">
+<h4 id="orgfc521dc"><span class="section-number-4">1.3.3.</span> 1.2.3</h4>
+<div class="outline-text-4" id="text-1-3-3">
+<ul class="org-ul">
+<li><a href="20230726-localization_along_an_element.html#ID-922baf31-c324-4ca2-adf9-0d96c6436e33">localization along an element</a></li>
+<li><a href="20230811-localization_at_a_prime_ideal.html#ID-3ea2a099-8f1a-4085-abd1-446a0290dbce">localization at a prime ideal</a></li>
+<li><a href="20230803-localization_of_a_module_at_a_prime_ideal.html#ID-8d3f0e45-81e3-4b73-bca5-4bef4242b604">localization of a module at a prime ideal</a></li>
+
+<li><a href="20231103-localization_along_an_element_as_algebra.html#ID-8d4b30fb-06af-4b3b-a364-ea343ba219cb">localization along an element as Algebra</a></li>
+<li><a href="20231021-localization_along_an_element_isomorphic_to_a_quotient_of_the_polynomial_ring.html#ID-1c09061a-b6aa-4baa-89d9-211258b1c641">localization along an element isomorphic to a quotient of the polynomial ring</a>  - todo</li>
+<li><a href="20230726-localization_behind_a_prime_ideal_as_local_ring.html#ID-e7004e33-37c7-453f-b666-0312e8b8201c">localization at a prime ideal as local ring</a></li>
+<li><a href="20231103-localization_along_an_nilpotent_element.html#ID-96d09278-a156-423e-b24e-d9a53b85e536">localization along an nilpotent element</a></li>
+<li><a href="20231103-localization_of_a_ring_as_localization_of_a_module.html#ID-e499d9ce-6dfd-4215-9d25-d9183341954c">localization of a ring as localization of a module</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgaaf7930" class="outline-4">
+<h4 id="orgaaf7930"><span class="section-number-4">1.3.4.</span> 1.2.4</h4>
+<div class="outline-text-4" id="text-1-3-4">
+<ul class="org-ul">
+<li><a href="20230724-universal_property_of_a_localization.html#ID-066573a6-a6d3-4cf1-9a82-cfddf8b870cf">universal property of a localization</a></li>
+<li><a href="20230822-universal_property_of_a_module_localization.html#ID-8c83ed7a-29e2-48c0-9dcb-9ea49b6a5bca">universal property of a module localization</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org28918e9" class="outline-4">
+<h4 id="org28918e9"><span class="section-number-4">1.3.5.</span> 1.2.5</h4>
+<div class="outline-text-4" id="text-1-3-5">
+<ul class="org-ul">
+<li><a href="20230811-tensor_product_with_the_localized_ring_and_localization_of_a_module.html#ID-5375626c-96eb-4f07-b60d-35a759c86665">tensor product with the localized ring and localization of a module</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga188911" class="outline-4">
+<h4 id="orga188911"><span class="section-number-4">1.3.6.</span> 1.2.6</h4>
+<div class="outline-text-4" id="text-1-3-6">
+<ul class="org-ul">
+<li><a href="20230726-prime_ideal_and_localization.html#ID-1dbfcab5-0b65-4b95-98da-d412ca244890">prime ideal and localization</a> - todo</li>
+<li><a href="20231105-localization_at_a_prime_ideal_isomorphic_to_second_localization.html#ID-9220150b-93cd-491f-bbdd-72d4edba71be">localization at a prime ideal isomorphic to second localization</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org32496bf" class="outline-4">
+<h4 id="org32496bf"><span class="section-number-4">1.3.7.</span> 1.2.7</h4>
+<div class="outline-text-4" id="text-1-3-7">
+<ul class="org-ul">
+<li><a href="20230727-localization_and_integral_ring.html#ID-f0d4be29-a336-4696-a6b8-f5875fd21551">localization and integral ring</a></li>
+<li><a href="20231103-localization_for_an_integral_domain_as_monomorphism.html#ID-f2f2d922-6e21-44be-9bd1-59858e9eae95">localization for an integral domain as monomorphism</a></li>
+<li><a href="20230726-localization_behind_a_prime_ideal_as_local_ring.html#ID-e7004e33-37c7-453f-b666-0312e8b8201c">localization at a prime ideal as local ring</a></li>
+<li><a href="20230724-quotient_field_as_localization.html#ID-1e3be5e9-2654-4d91-84c8-6b7c6de8c4fb">Quotient Field as localization</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org756bb7e" class="outline-4">
+<h4 id="org756bb7e"><span class="section-number-4">1.3.8.</span> 1.2.8</h4>
+<div class="outline-text-4" id="text-1-3-8">
+<ul class="org-ul">
+<li><a href="20230822-localization_of_reduced_ring_as_reduced_ring.html#ID-05e87e0f-97a7-41c6-a7fc-24022edafe1f">localization of reduced ring as reduced ring</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org236ccaf" class="outline-3">
+<h3 id="org236ccaf"><span class="section-number-3">1.4.</span> 1.3 functorial properties</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-orgc813396" class="outline-4">
+<h4 id="orgc813396"><span class="section-number-4">1.4.1.</span> 1.3.1</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<ul class="org-ul">
+<li><a href="20230803-localization_as_functor.html#ID-eabcac67-80dc-4a38-bdd4-f6a90d607ccc">localization as functor</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0ae58e2" class="outline-4">
+<h4 id="org0ae58e2"><span class="section-number-4">1.4.2.</span> 1.3.2</h4>
+<div class="outline-text-4" id="text-1-4-2">
+<ul class="org-ul">
+<li><a href="20230726-exact_functor.html#ID-9541d8fb-ddba-43d6-941a-32b3b3bd7086">exact functor</a></li>
+<li><a href="20230803-localization_as_functor.html#ID-eabcac67-80dc-4a38-bdd4-f6a90d607ccc">localization functor</a></li>
+<li><a href="20230803-localization_as_exact_functor.html#ID-32a4a181-03d3-4c4c-9023-3c52b5dd9923">localization as exact functor</a> - todo</li>
+<li><a href="20230811-localization_funtcor_preserves_monomorphisms.html#ID-8bd1dcb4-4acc-4ffd-89a2-cce18caf20d2">localization functor preserves injections</a></li>
+<li><a href="20231103-localization_functor_preserves_epimorphisms.html#ID-ffca6e07-c846-460b-88f3-20712faa7043">localization functor preserves surjections</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgde3fb34" class="outline-4">
+<h4 id="orgde3fb34"><span class="section-number-4">1.4.3.</span> 1.3.3</h4>
+<div class="outline-text-4" id="text-1-4-3">
+<ul class="org-ul">
+<li><a href="20230822-localization_functor_preserves_limits.html#ID-7acf5429-b96b-4148-bede-b733f87935b9">localization functor preserves limits</a> - todo</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgaa4465d" class="outline-4">
+<h4 id="orgaa4465d"><span class="section-number-4">1.4.4.</span> 1.3.4</h4>
+<div class="outline-text-4" id="text-1-4-4">
+<ul class="org-ul">
+<li><a href="20231103-localization_and_tensor_functor_commute.html#ID-f015c501-97d8-472f-a972-293029e9654f">localization and tensor functor commute</a> - todo</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org12d7841" class="outline-4">
+<h4 id="org12d7841"><span class="section-number-4">1.4.5.</span> 1.3.5</h4>
+<div class="outline-text-4" id="text-1-4-5">
+<ul class="org-ul">
+<li><a href="20231103-localization_of_a_hom_set.html#ID-31a9ab7a-bc1a-46a5-942d-8f7717abeba5">localization and hom-functor</a> - todo</li>
+<li><a href="20231103-localization_and_hom_functor_commute_for_finitely_generated_modules_over_a_noetherian_ring.html#ID-3dae9e7d-e569-4ef7-a186-871ce37f37af">localization and hom-functor commute for finitely generated Modules over a Noetherian Ring</a> - todo</li>
+<li><a href="20231106-finitely_presented_module_commutes_with_hom_functor_and_localization.html#ID-fa280662-9ff2-47a4-84a9-1da159192335">finitely presented module commutes with hom-functor and localization</a>   - todo</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org96c865a" class="outline-4">
+<h4 id="org96c865a"><span class="section-number-4">1.4.6.</span> ?</h4>
+<div class="outline-text-4" id="text-1-4-6">
+<ul class="org-ul">
+<li><a href="20230822-distributivity_of_tensoring_and_localization.html#ID-66a1b04d-9fda-4ac2-acee-bea1e7f71799">distributivity of tensoring and localization</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgde136d0" class="outline-3">
+<h3 id="orgde136d0"><span class="section-number-3">1.5.</span> 1.4 change of multiplicative subset ?</h3>
+<div class="outline-text-3" id="text-1-5">
+</div>
+<div id="outline-container-org798b8d7" class="outline-4">
+<h4 id="org798b8d7"><span class="section-number-4">1.5.1.</span> 1.4.1</h4>
+<div class="outline-text-4" id="text-1-5-1">
+<ul class="org-ul">
+<li><a href="20231106-natural_transformation_for_a_a_localization.html#ID-c879bcd1-a0e1-4601-ade2-20ca20f66bad">natural transformation for a a localization</a></li>
+<li><a href="20231106-natural_transformation_for_a_change_of_denominators_for_modules.html#ID-d6fe4dee-7170-4bd5-83ea-10cbb3b871cb">natural transformation for a change of denominators for modules</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org357dd1e" class="outline-4">
+<h4 id="org357dd1e"><span class="section-number-4">1.5.2.</span> 1.4.2 - todo</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<ul class="org-ul">
+<li><a href="20231106-natural_transformation_for_a_change_of_denominators_and_tensoring.html#ID-ce9376a1-9929-4021-b4e0-22d45bd27deb">natural transformation for a change of denominators and tensoring</a></li>
+<li><a href="20231106-natural_transformation_for_a_change_of_denominators_and_hom_functor.html#ID-a929a36c-8103-46a5-85f7-3a9b2d065b81">natural transformation for a change of denominators and Hom-Functor</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5b916ef" class="outline-4">
+<h4 id="org5b916ef"><span class="section-number-4">1.5.3.</span> 1.4.3</h4>
+<div class="outline-text-4" id="text-1-5-3">
+<ul class="org-ul">
+<li></li>
+
+<li><a href="20230725-saturated_multiplicative_set.html#ID-41afa4bc-d880-448f-b0f9-386cb0766195">saturated multiplicative set</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc060062" class="outline-4">
+<h4 id="orgc060062"><span class="section-number-4">1.5.4.</span> 1.4.4</h4>
+<div class="outline-text-4" id="text-1-5-4">
+<ul class="org-ul">
+<li><a href="20231106-change_of_denominators_as_presheaf.html#ID-27256a0b-c062-4de8-96e3-506bcf9de466">change of denominators as presheaf</a> - todo (will ich das)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org48f4bef" class="outline-4">
+<h4 id="org48f4bef"><span class="section-number-4">1.5.5.</span> 1.4.5</h4>
+<div class="outline-text-4" id="text-1-5-5">
+<ul class="org-ul">
+<li>limits</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3b72794" class="outline-4">
+<h4 id="org3b72794"><span class="section-number-4">1.5.6.</span> 1.4.6</h4>
+<div class="outline-text-4" id="text-1-5-6">
+<ul class="org-ul">
+<li><a href="20231106-product_of_multiplicatively_closed_subsets.html#ID-876387d5-b769-4633-8fad-51555ccea245">product of multiplicatively closed subsets</a></li>
+<li><a href="20231106-repeated_localization.html#ID-9b819bd6-9fba-4d01-af2a-444d6c7982de">repeated localization</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8399010" class="outline-4">
+<h4 id="org8399010"><span class="section-number-4">1.5.7.</span> ???</h4>
+<div class="outline-text-4" id="text-1-5-7">
+<ul class="org-ul">
+<li><a href="20230822-functor_for_change_of_multiplicalitve_set_for_a_localization.html#ID-3cbf5269-8c91-466f-b83f-114fa4f5ff62">functor for change of multiplicalitve set for a localization</a></li>
+<li><a href="20230725-saturated_multiplicative_set.html#ID-41afa4bc-d880-448f-b0f9-386cb0766195">saturated multiplicative set</a></li>
+<li><a href="20230822-saturation_and_bijective_change_of_multiplicative_set.html#ID-b9639bf2-ddcc-4f46-9073-bfa8d80700d0">saturation and bijective change of multiplicative set</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb955f08" class="outline-3">
+<h3 id="orgb955f08"><span class="section-number-3">1.6.</span> 1.5 change of ring</h3>
+<div class="outline-text-3" id="text-1-6">
+</div>
+<div id="outline-container-org9520cc4" class="outline-4">
+<h4 id="org9520cc4"><span class="section-number-4">1.6.1.</span> 1.5.1</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<ul class="org-ul">
+<li><a href="20231103-change_of_ring_and_localization.html#ID-3942e275-2d3e-4333-9afb-5a40bd3cc16f">change of ring and localization</a> - todo</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org294de6d" class="outline-4">
+<h4 id="org294de6d"><span class="section-number-4">1.6.2.</span> 1.5.2</h4>
+<div class="outline-text-4" id="text-1-6-2">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf12cb58" class="outline-4">
+<h4 id="orgf12cb58"><span class="section-number-4">1.6.3.</span> 1.5.3</h4>
+</div>
+<div id="outline-container-org7182ab2" class="outline-4">
+<h4 id="org7182ab2"><span class="section-number-4">1.6.4.</span> 1.5.4</h4>
+</div>
+<div id="outline-container-org2527048" class="outline-4">
+<h4 id="org2527048"><span class="section-number-4">1.6.5.</span> 1.5.5</h4>
+</div>
+<div id="outline-container-org2fc6f9a" class="outline-4">
+<h4 id="org2fc6f9a"><span class="section-number-4">1.6.6.</span> 1.5.6</h4>
+</div>
+<div id="outline-container-orgdb7fa19" class="outline-4">
+<h4 id="orgdb7fa19"><span class="section-number-4">1.6.7.</span> 1.5.7</h4>
+</div>
+<div id="outline-container-org618d2a8" class="outline-4">
+<h4 id="org618d2a8"><span class="section-number-4">1.6.8.</span> 1.5.8</h4>
+</div>
+</div>
+<div id="outline-container-org2c8b417" class="outline-3">
+<h3 id="org2c8b417"><span class="section-number-3">1.7.</span> 1.6 identification of the module \(M_f\) as inductive limit</h3>
+<div class="outline-text-3" id="text-1-7">
+</div>
+<div id="outline-container-org1a13df6" class="outline-4">
+<h4 id="org1a13df6"><span class="section-number-4">1.7.1.</span> 1.6.1</h4>
+<div class="outline-text-4" id="text-1-7-1">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2192365" class="outline-4">
+<h4 id="org2192365"><span class="section-number-4">1.7.2.</span> 1.6.2</h4>
+</div>
+</div>
+<div id="outline-container-orga0e640f" class="outline-3">
+<h3 id="orga0e640f"><span class="section-number-3">1.8.</span> 1.7 Support of a Module</h3>
+<div class="outline-text-3" id="text-1-8">
+</div>
+<div id="outline-container-org564af0a" class="outline-4">
+<h4 id="org564af0a"><span class="section-number-4">1.8.1.</span> 1.7.1</h4>
+<div class="outline-text-4" id="text-1-8-1">
+<ul class="org-ul">
+<li><a href="20231103-support_of_a_module.html#ID-2857b05d-51d3-4105-907d-f908c88a466f">Support of a module</a></li>
+<li><a href="20231103-zero_modlue_and_empty_support.html#ID-ebe87660-78cc-42ce-8a8c-c7cd08c9d6d0">zero module and empty support</a></li>
+<li><a href="20230522201427-annihilator.html#ID-63ba0a41-8f52-40ac-9128-ae29c17b8cf2">Annihilator (Modul)</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4fd5a27" class="outline-4">
+<h4 id="org4fd5a27"><span class="section-number-4">1.8.2.</span> 1.7.2</h4>
+<div class="outline-text-4" id="text-1-8-2">
+<ul class="org-ul">
+<li><a href="20231103-support_under_exact_sequences.html#ID-49d573d5-a69e-44ce-a070-5ce04b8f99a6">support under exact sequences</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org820e7c7" class="outline-4">
+<h4 id="org820e7c7"><span class="section-number-4">1.8.3.</span> 1.7.3</h4>
+<div class="outline-text-4" id="text-1-8-3">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org246849c" class="outline-4">
+<h4 id="org246849c"><span class="section-number-4">1.8.4.</span> 1.7.5</h4>
+<div class="outline-text-4" id="text-1-8-4">
+<ul class="org-ul">
+<li><a href="20231103-support_of_modules_of_finite_type_under_tensoring.html#ID-b29a67be-e853-4879-b11d-5341ef212f2b">support of modules of finite type under tensoring</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 19:00</p>
+</div>
+</body>
+</html>

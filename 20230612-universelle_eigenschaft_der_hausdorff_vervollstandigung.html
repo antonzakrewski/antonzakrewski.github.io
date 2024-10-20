@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 15:03 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>universelle Eigenschaft der Hausdorff-Vervollständigung</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">universelle Eigenschaft der Hausdorff-Vervollständigung</h1>
+<div id="outline-container-orgdd3659d" class="outline-2">
+<h2 id="orgdd3659d"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_cf8e6178287784193f30258f544f051dadb0da35.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_cf8e6178287784193f30258f544f051dadb0da35.svg" class="org-svg" /> ein <a href="20221002145259-metrischer_raum.html#ID-6b95a0b5-83e0-43cc-830f-05b416769fe1">metrischer Raum</a> und <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_4fdd7108cfcf1e431f4db177457d8c09c2db16e8.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_4fdd7108cfcf1e431f4db177457d8c09c2db16e8.svg" class="org-svg" /> die <a href="20230611-metrische_vervollstandigung_nach_hausdorff.html#ID-e3ca1a19-1376-4001-8a2c-bb8ae891c802">Metrische Vervollständigung nach Hausdorff</a> mit der <a href="20230420124409-isometrische_einbettung.html#ID-b394c6cc-a4c6-421b-a0a5-711f841db54f">Isometrische Einbettung</a> <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_c5b1d2f1e783eaea3e85480025ee32beadfee275.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_c5b1d2f1e783eaea3e85480025ee32beadfee275.svg" class="org-svg" />
+Sei ferner <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_c4b498cb7d36c7737b0cae50fe1b6b91b12b0940.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_c4b498cb7d36c7737b0cae50fe1b6b91b12b0940.svg" class="org-svg" /> ein <a href="20221124122659-vollstandiger_metrischer_raum.html#ID-d68e391c-415a-49a8-93ce-0b1de559796d">vollständiger metrischer Raum</a>, so dass <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_e108a7daf8419701405b3d223f9b543c8be83d38.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_e108a7daf8419701405b3d223f9b543c8be83d38.svg" class="org-svg" /> eine <a href="20230420124409-isometrische_einbettung.html#ID-b394c6cc-a4c6-421b-a0a5-711f841db54f">Isometrische Einbettung</a> mit <a href="20221124232157-dichte_menge_topologie.html#ID-921fe319-4945-4303-a9a5-3723804e0737">dichtem</a> <a href="20221224140013-bildmenge.html#ID-def6ffac-1c21-427b-bacf-7b8580f5d7dd">Bild</a>, d.h. <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_02dbea9dff1b56ae5ecdc82ec639cd4268a3f3a8.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_02dbea9dff1b56ae5ecdc82ec639cd4268a3f3a8.svg" class="org-svg" />
+Dann existiert eine eindeutige <a href="20221209134652-isometrie_metrischer_raum.html#ID-897a11a6-874c-4734-9d2b-7bf717ba7867">Isometrie</a> <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_94c680a24093fd7b92f8fdac30724b826a962d42.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_94c680a24093fd7b92f8fdac30724b826a962d42.svg" class="org-svg" />, so dass folgendes Dagramm kommutiert
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_866e379f1c8d833d7ef43081885740e77e3a2ce1.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_866e379f1c8d833d7ef43081885740e77e3a2ce1.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb2e9697" class="outline-2">
+<h2 id="orgb2e9697"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Sei <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_015bca86fb81a143ba55e9dcc7d11987fe4b2def.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_015bca86fb81a143ba55e9dcc7d11987fe4b2def.svg" class="org-svg" />, so existiert nach Annahme wegen <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_40f84d89d0b7c3f6fff172dd49236609df4aeec7.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_40f84d89d0b7c3f6fff172dd49236609df4aeec7.svg" class="org-svg" /> eine <a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">Folge</a> <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_1b3d71405c03be82bf84ef01e5ee7bd4e07155bf.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_1b3d71405c03be82bf84ef01e5ee7bd4e07155bf.svg" class="org-svg" /> mit <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_cfa4106fd1d5f9c80a02b847abb753f2f8bc7440.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_cfa4106fd1d5f9c80a02b847abb753f2f8bc7440.svg" class="org-svg" />.
+Damit existiert eine <a href="20220105223523-fundamental_folge.html#ID-45b890ea-39cc-4f8c-bf97-4de5c09d772a">Cauchy</a> <a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">Folge</a> <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_acaa3f708df2f2d01cd73229d4591f619deb59f3.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_acaa3f708df2f2d01cd73229d4591f619deb59f3.svg" class="org-svg" /> mit <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_f36f58d7bca7b9ff8f25446161100b9dd6d3f5c7.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_f36f58d7bca7b9ff8f25446161100b9dd6d3f5c7.svg" class="org-svg" />, da <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_620051204c9a48ee9b66358f1247897135a68a4a.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_620051204c9a48ee9b66358f1247897135a68a4a.svg" class="org-svg" /> <a href="20220707223216-jede_konvergente_folge_ist_eine_cauchy_folge.html#ID-2643f547-230c-4117-b36d-9f4390122712">als konvergente Folge eine Cauchy-Folge</a> ist und <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_5c5d2db4e4205e4711acb0474e9548bf2ce4e5b2.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_5c5d2db4e4205e4711acb0474e9548bf2ce4e5b2.svg" class="org-svg" /> eine <a href="20221209134652-isometrie_metrischer_raum.html#ID-897a11a6-874c-4734-9d2b-7bf717ba7867">Isometrie</a> aufs <a href="20221224140013-bildmenge.html#ID-def6ffac-1c21-427b-bacf-7b8580f5d7dd">Bild</a> ist.
+Ferner gilt analog, dass <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_fa1a7619b72841ca7ec2233de00c3fd619089d73.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_fa1a7619b72841ca7ec2233de00c3fd619089d73.svg" class="org-svg" /> <a href="20220105223523-fundamental_folge.html#ID-45b890ea-39cc-4f8c-bf97-4de5c09d772a">Cauchy</a> ist und damit auch <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_abeabcb5953d26cd275c22cf32f5f16d0bdd1b3c.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_abeabcb5953d26cd275c22cf32f5f16d0bdd1b3c.svg" class="org-svg" />.
+Wir definieren im folgenden <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_7b7995c230b3b35270b5df688b0ce6f8a465fe1f.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_7b7995c230b3b35270b5df688b0ce6f8a465fe1f.svg" class="org-svg" />.
+</p>
+</div>
+<div id="outline-container-orgc3f281d" class="outline-3">
+<h3 id="orgc3f281d"><span class="section-number-3">2.1.</span> <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">Wohldefiniert</a></h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org319efc4" class="outline-4">
+<h4 id="org319efc4"><span class="section-number-4">2.1.1.</span> <a href="20220929184521-linkstotale_relation.html#ID-f199552a-6534-4730-ace4-3525bef8564c">linkstotal</a></h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+folgt aus den Vorbemerkungen (Vollständigkeit von <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_a5ca1e1e9495f4799a571f0308c9e1ed89eec7a0.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_a5ca1e1e9495f4799a571f0308c9e1ed89eec7a0.svg" class="org-svg" />)
+</p>
+</div>
+</div>
+<div id="outline-container-org6627f1c" class="outline-4">
+<h4 id="org6627f1c"><span class="section-number-4">2.1.2.</span> <a href="20220929184114-rechtseindeutige_relation.html#ID-c7365363-d56a-4677-b74b-d9d7546bb9b2">rechtseindeutig</a></h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+folgt aus der Eindeutigkeit von <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_72e2c1bf30b0e5be1e1b4e3cf31cbd94bf644017.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_72e2c1bf30b0e5be1e1b4e3cf31cbd94bf644017.svg" class="org-svg" />, da <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_5c5d2db4e4205e4711acb0474e9548bf2ce4e5b2.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_5c5d2db4e4205e4711acb0474e9548bf2ce4e5b2.svg" class="org-svg" /> <a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injektiv</a> ist sowie der <a href="20230112172618-eindeutigkeit_eines_grenzwerts.html#ID-80386326-7ae7-4f39-85fb-f505231b4870">Eindeutigkeit des Grenzwerts</a> in <a href="20221002145259-metrischer_raum.html#ID-6b95a0b5-83e0-43cc-830f-05b416769fe1">metrische Räumen</a> in <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_a5ca1e1e9495f4799a571f0308c9e1ed89eec7a0.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_a5ca1e1e9495f4799a571f0308c9e1ed89eec7a0.svg" class="org-svg" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org918b2a7" class="outline-3">
+<h3 id="org918b2a7"><span class="section-number-3">2.2.</span> <a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjektiv</a></h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Sei <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_84abb5641bba50b1dff199b9e51b4e6d53e0bb02.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_84abb5641bba50b1dff199b9e51b4e6d53e0bb02.svg" class="org-svg" /> so existiert eine <a href="20220105223523-fundamental_folge.html#ID-45b890ea-39cc-4f8c-bf97-4de5c09d772a">Cauchy</a>-<a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">Folge</a> <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_61090ddaa68a85c59a54ee9791d64043386127e1.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_61090ddaa68a85c59a54ee9791d64043386127e1.svg" class="org-svg" /> mit <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_9a3e26ea61d7333a50312376f9a980cdb0274c55.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_9a3e26ea61d7333a50312376f9a980cdb0274c55.svg" class="org-svg" />.
+Somit ist <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_71b05272af07efca7e065b9fd51025ec2d95e246.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_71b05272af07efca7e065b9fd51025ec2d95e246.svg" class="org-svg" /> ebenfalls <a href="20220105223523-fundamental_folge.html#ID-45b890ea-39cc-4f8c-bf97-4de5c09d772a">Cauchy</a> und wegen der <a href="20221124122659-vollstandiger_metrischer_raum.html#ID-d68e391c-415a-49a8-93ce-0b1de559796d">Vollständigkeit</a> <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergent</a>, d.h. es existiert nach Konstruktion ein <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_51717388079ac2c0b2bebfff47767b851c65ee7a.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_51717388079ac2c0b2bebfff47767b851c65ee7a.svg" class="org-svg" /> mit <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_a4f32e0a51e54f984c2b1ebf31a4b109ee38baa9.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_a4f32e0a51e54f984c2b1ebf31a4b109ee38baa9.svg" class="org-svg" /> und damit auch <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_d498b8647159df14380cbc791ef2cd5cdfd5e086.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_d498b8647159df14380cbc791ef2cd5cdfd5e086.svg" class="org-svg" />
+</p>
+</div>
+</div>
+<div id="outline-container-org25e52e2" class="outline-3">
+<h3 id="org25e52e2"><span class="section-number-3">2.3.</span> <a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injektiv</a></h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Seien <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_ecdfc2b5b8b999bca5c8e6fa6eedb413d5f13eea.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_ecdfc2b5b8b999bca5c8e6fa6eedb413d5f13eea.svg" class="org-svg" /> verschieden.
+Dann folgt, dass für <a href="20221013222501-fast_alle.html#ID-a3da14cb-05c1-4f9e-a68a-a693980f5ede">fast alle</a> <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_e5c167b54ff50678329507073dae67f3f00e4b2d.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_e5c167b54ff50678329507073dae67f3f00e4b2d.svg" class="org-svg" /> gilt <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_f2de66c9b51e2619e91905ad3faac7278fe2a993.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_f2de66c9b51e2619e91905ad3faac7278fe2a993.svg" class="org-svg" /> für hinreichend kleines <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_e4ab36b94a0ff5c174259accc20c6bb3387f76a7.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_e4ab36b94a0ff5c174259accc20c6bb3387f76a7.svg" class="org-svg" />.
+Zudem ist <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_35d17845b16bdaa6a9640833f52786091b7c27e9.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_35d17845b16bdaa6a9640833f52786091b7c27e9.svg" class="org-svg" /> wegen der <a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">Injektivität</a> eindeutig und es gilt <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_7170b4886237a9bf23c5ac79eb4477e2ac806ffd.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_7170b4886237a9bf23c5ac79eb4477e2ac806ffd.svg" class="org-svg" /> für <a href="20221013222501-fast_alle.html#ID-a3da14cb-05c1-4f9e-a68a-a693980f5ede">fast alle</a> <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_5347581bce152d59cb7774124fb0bcc7843f54fd.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_5347581bce152d59cb7774124fb0bcc7843f54fd.svg" class="org-svg" />
+Daraus folgt, dass <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_76173ac7d0858ed51f467b813ca2f30b69c73f4e.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_76173ac7d0858ed51f467b813ca2f30b69c73f4e.svg" class="org-svg" /> und somit <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_71b05272af07efca7e065b9fd51025ec2d95e246.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_71b05272af07efca7e065b9fd51025ec2d95e246.svg" class="org-svg" /> nicht gegen den gleichen <a href="20211120130127-grenzwert.html#ID-c9d16981-08f6-40ca-af81-22b5db6f06df">Grenzwert</a> wie <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_ecd6407ec6c890e59480db450c69618e11749a29.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_ecd6407ec6c890e59480db450c69618e11749a29.svg" class="org-svg" /> <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergieren</a> kann, d.h. nach Konstruktion gilt <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_6eb049f16fe7fc93e2ef15b408d3bacf0714e78c.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_6eb049f16fe7fc93e2ef15b408d3bacf0714e78c.svg" class="org-svg" />
+</p>
+</div>
+</div>
+<div id="outline-container-org1359b86" class="outline-3">
+<h3 id="org1359b86"><span class="section-number-3">2.4.</span> <a href="20230420124409-isometrische_einbettung.html#ID-b394c6cc-a4c6-421b-a0a5-711f841db54f">Isometrische Einbettung</a></h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Seien <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_b555f53051de0e2bba19073c5926f40cec94b3f6.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_b555f53051de0e2bba19073c5926f40cec94b3f6.svg" class="org-svg" /> gegeben, so existieren <a href="20220105223523-fundamental_folge.html#ID-45b890ea-39cc-4f8c-bf97-4de5c09d772a">Cauchy</a> <a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">Folgen</a> <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_9ba22ebc82215d7aebdcc021f0b34fc50240b0c8.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_9ba22ebc82215d7aebdcc021f0b34fc50240b0c8.svg" class="org-svg" /> mit <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_85c6d8894bfd5e35fb67712410df13eee92fba32.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_85c6d8894bfd5e35fb67712410df13eee92fba32.svg" class="org-svg" />.
+Sei <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_e4ab36b94a0ff5c174259accc20c6bb3387f76a7.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_e4ab36b94a0ff5c174259accc20c6bb3387f76a7.svg" class="org-svg" /> gegeben, so existiert für <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_f0ee8dc7ce1cecffc81c03353b5e050b7a3910c8.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_f0ee8dc7ce1cecffc81c03353b5e050b7a3910c8.svg" class="org-svg" /> ein <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_9f24e07a2efcf9e2a8abb83dcae7f7d640c0a287.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_9f24e07a2efcf9e2a8abb83dcae7f7d640c0a287.svg" class="org-svg" /> mit <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_d04849182f2a6e61ea1e325ce8a23bd5acbdf5f6.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_d04849182f2a6e61ea1e325ce8a23bd5acbdf5f6.svg" class="org-svg" />, analog für <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_620051204c9a48ee9b66358f1247897135a68a4a.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_620051204c9a48ee9b66358f1247897135a68a4a.svg" class="org-svg" />.
+Es folgt dann durch Anwendung der <a href="20220716173747-dreiecksungleichung_metrik.html#ID-e5ef5ef6-266f-4486-aa97-9ba2093531fe">Dreiecksungleichung</a> 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_a235e02fe15aa99244c5c2b7e82b7729684d113e.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_a235e02fe15aa99244c5c2b7e82b7729684d113e.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Analog gilt dann auch, da <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_ce4f6c86353664b933a3e5a82c7a685cb7cde289.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_ce4f6c86353664b933a3e5a82c7a685cb7cde289.svg" class="org-svg" /> Abstände erhält
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_b742c9505eaa4e283bf73c9788cd0cb554478ed5.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_b742c9505eaa4e283bf73c9788cd0cb554478ed5.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Somit folgt
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_571dfc43ebdcf950095953bd60451e8f0f7ab758.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_571dfc43ebdcf950095953bd60451e8f0f7ab758.svg" class="org-svg" />
+</span>
+</div>
+<p>
+für beliebiges <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_e4ab36b94a0ff5c174259accc20c6bb3387f76a7.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_e4ab36b94a0ff5c174259accc20c6bb3387f76a7.svg" class="org-svg" />, d.h. auch
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_03cb3b632092fba08ac1ae46ff0d6fafaa0738fa.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_03cb3b632092fba08ac1ae46ff0d6fafaa0738fa.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Aufgrund der <a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injektivität</a> lässt sich dieses Argument analog für <img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_e51dfedf43f99efab2e13adab89d419f474d2818.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_e51dfedf43f99efab2e13adab89d419f474d2818.svg" class="org-svg" /> übertragen, so dass folgt
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_2b4d45cfa351ad0dca6eb1a05bab1e39e9686a19.svg" alt="20230612-universelle_eigenschaft_der_hausdorff_vervollstandigung_2b4d45cfa351ad0dca6eb1a05bab1e39e9686a19.svg" class="org-svg" />
+</span>
+</div>
+<p>
+und damit auch Gleichheit
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 15:03</p>
+</div>
+</body>
+</html>

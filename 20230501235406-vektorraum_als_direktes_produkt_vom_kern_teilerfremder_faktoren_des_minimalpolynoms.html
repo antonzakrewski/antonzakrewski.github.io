@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 22:31 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vektorraum als Summe der Kerne teilerfremder Faktoren des Minimalpolynoms</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Vektorraum als Summe der Kerne teilerfremder Faktoren des Minimalpolynoms</h1>
+<div id="outline-container-org511f032" class="outline-2">
+<h2 id="org511f032"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei \(V\) ein <a href="20221109121525-endlich_erzeugter_vektorraum.html#ID-477797e9-4b4d-4886-9606-6e1c5f378a4f">endlich erzeugter</a> <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">K-Vektorraum</a> und \(A \in \mathrm{End}_K(V)\) mit <a href="20230306144242-minimalpolynom.html#ID-45149b8e-4acd-4735-b7df-6c7f499582fd">Minimalpolynom</a> \(m_A = g_1 \cdot ... \cdot g_r\) für teilerfremde \(g_i \in K[X]\)
+Dann folgt:
+</p>
+\begin{align*}
+V = \bigoplus_{i=1}^r \mathrm{ker}(g_i(A))
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgdc2bed1" class="outline-2">
+<h2 id="orgdc2bed1"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgd1b3c76" class="outline-3">
+<h3 id="orgd1b3c76"><span class="section-number-3">2.1.</span> Summe</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Sei \(h_i = \prod_{j \neq i} g_j \in K[x]\).
+Nach Annahme gilt \(\mathrm{gcd}(h_1,...,h_r) = 1 \in K[X]\)
+Da \(K[X]\) ein <a href="20221226132415-euklidischer_ring.html#ID-4b723c79-698b-40cf-ad6e-1b20de1300a9">euklidischer Ring</a> ist mit <a href="20230427142833-lemma_von_bezout.html#ID-21bcd872-2b04-4642-8601-60e1f03f3901">Lemma von Bezout</a> / <a href="20230427134534-erweiterter_euklidischer_algorithmus.html#ID-29d60e8e-68dd-48c4-8fd6-def9d853294a">erweiterter euklidischer Algorithmus</a> existieren \(k_i \in K[X]\) mit
+</p>
+\begin{align*}
+1 = \sum_{i=1}^{r} k_i h_i
+\end{align*}
+<p>
+Einsetzen von \(A\) liefert in \(\mathrm{End}_K(V)\) die Identität:
+</p>
+\begin{align*}
+E = \sum_{i=1}^{r} k_i(A)h_i(A)
+\end{align*}
+<p>
+Daraus folgt für \(v \in V\):
+</p>
+\begin{align*}
+v =& Ev  \\
+=& \sum_{i=1}^{r} k_i(A) h_i(A) v
+\end{align*}
+<p>
+Da \(K\) ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a> ist, folgt dass \(K[X]\) ein <a href="20230224232626-kommutativer_polynomring.html#ID-9044af65-69db-4be0-9a42-da4f21a8439f">kommutativer Polynomring</a> ist, so dass folgt:
+</p>
+\begin{align*}
+g_i \cdot (k_i \cdot h_i)) =& g_i \cdot k_i \cdot \prod_{j \neq i} g_j \\
+=& g_i \cdot \prod_{j \neq i} k_i \\
+=& m_A \cdot k_i \\
+=& k_i \cdot m_A
+\end{align*}
+<p>
+Daraus folgt durch einsetzen von \(A\):
+</p>
+\begin{align*}
+(g_i \cdot k_i \cdot h_i)(A) =& (k_i \cdot m_A)(A) \\
+=& k_i \cdot 0 \\
+=& 0
+\end{align*}
+<p>
+Und somit gilt für \(v \in V\):
+</p>
+\begin{align*}
+v =& Ev \\
+=& \sum_{i=1}^{r} k_i(A) h_i(A) v \\
+g_i(A) \cdot \sum_{i=1}^{r} k_i(A) h_i(A) v =& (g_i(A) \cdot \sum_{i=1}^{r} k_i(A)) \cdot v \\
+=& 0 \cdot v \\
+=& 0
+\end{align*}
+<p>
+und damit auch \(v \in \sum_{i=1}^{r} \mathrm{ker}(g_i(A))\) bzw. \(V \subseteq \sum_{i=1}^{r} \mathrm{ker(g_i(A))}\)
+Daraus folgt dann auch \(V = \mathrm{ker}(g_i(A))\)
+</p>
+</div>
+</div>
+<div id="outline-container-org8e3828c" class="outline-3">
+<h3 id="org8e3828c"><span class="section-number-3">2.2.</span> direkte</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Sei \(U = \mathrm{ker}(g_i(A)) \cap \bigoplus_{j\neq i}^{} \mathrm{ker}(g_j(A))\).
+Wir zeigen nach der Aussage über die <a href="20230111100333-aquivalenz_von_trivialem_schnitt_linearen_unabhangigkeit_und_direkter_summe_zweier_vektorraumen.html#ID-7e657151-5604-4594-a622-cd0bda4f39ef">Äquivalenz von trivialem Schnitt, linearen unabhängigkeit und direkter Summe zweier Vektorräumen</a>, dass \(U = \{0\}\) gilt.
+Die allgemeine Aussage folgt durch <a href="20210305204948-beweis_durch_vollstandige_induktion.html#ID-c79953c3-855e-432d-9321-047dd5decac8">Induktion</a> über die \(i \in I\)
+</p>
+
+<p>
+Sei \(h_i  \coloneqq \prod_{j \neq i} g_j\).
+Nach Annahme gilt:
+</p>
+\begin{align*}
+g_i(A)[U] =& \{0\} \\
+=& h_i(A)[U]
+\end{align*}
+<p>
+Da \(g_i,h_i\) nach Annahme <a href="20230419130659-teilerfremde_elemente.html#ID-8ca5b06a-42b2-4511-86a3-753af5442412">teilerfremd</a> sind existiert nach <a href="20230427142833-lemma_von_bezout.html#ID-21bcd872-2b04-4642-8601-60e1f03f3901">Lemma von Bezout</a> <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c-70182b7714f9">Polynom</a> \(s_i,t_i \in K[X]\) mit
+</p>
+\begin{align*}
+s_i g_i + t_i h_i = 1
+\end{align*}
+<p>
+Daraus folgt dann \(s_i(A) g_i(A) + t_i(A) h_i(A) = 1(A)^0 = E \in \mathrm{End}_K(V)\) und es folgt für \(B \in U\)
+</p>
+\begin{align*}
+B =& 1 \cdot B \\
+=& E \cdot B \\
+=& (s_i(A)g_i(A))B + (t_i(A)h_i(A))+ \\
+=& (s_i(A) \cdot 0 )B + (t_i(A)\cdot 0)+ \\
+=& 0 + 0 \\
+=& 0
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 22:31</p>
+</div>
+</body>
+</html>

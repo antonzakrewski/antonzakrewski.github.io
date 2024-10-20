@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 19:21 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>algebraic topology 1 - CW complex</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">algebraic topology 1 - CW complex</h1>
+<div id="outline-container-orge09f9ad" class="outline-2">
+<h2 id="orge09f9ad"><span class="section-number-2">1.</span> Aspects</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><a href="20230504195105-cw_komplex.html#ID-ee726694-2276-434b-8043-b02bf828177b">CW-Complex</a></li>
+<li><a href="20231122-skeletal_filtration.html#ID-0c3a9878-a71f-413d-949a-0dd0f6341973">skeletal filtration</a></li>
+<li><a href="20231122-attaching_maps_of_a_cw_complex.html#ID-67055fca-497b-48ef-8ae5-aa7bdb795252">attaching maps of a CW complex</a></li>
+<li><a href="20231122-cell_of_a_cw_complex.html#ID-38297b9e-d953-4aac-b63c-ff55b9888ccf">cell of a cw-complex</a> - todo (?)</li>
+<li><a href="20231121-sphere_as_cw_complex.html#ID-65d2eb93-5396-4786-ba62-8649a2556e9b">Sphere as CW-Complex</a> - todo</li>
+<li><a href="20231121-disk_as_cw_complex.html#ID-f4a93ac0-f266-4a6c-9467-3c9d1010f9cd">disk as CW complex</a> - todo</li>
+
+<li><a href="20231121-dimension_of_a_cw_complex.html#ID-88a5d944-49a1-472d-b985-c3e7e7a8c3eb">dimension of a CW-Complex</a></li>
+<li><a href="20231121-finite_dimensional_cw_complex.html#ID-6e58e004-184c-43e4-b077-0a41d27290f2">finite dimensional CW-complex</a></li>
+<li><a href="20231121-finite_type_cw_structure.html#ID-a6a036b9-fc40-44db-b4ef-fd092f9212c6">finite type cw-structure</a></li>
+<li><a href="20231121-finite_cw_complex.html#ID-a06cd5e3-3aed-4af2-a7b2-2b0a58b90a82">finite cw-complex</a></li>
+<li><a href="20231121-locally_finite_cw_complex.html#ID-a4db8837-2063-4f71-bbbf-cb3ab332841b">locally finite cw-complex</a></li>
+<li><a href="20231121-cw_subcomplex.html#ID-d7bd762f-e5dc-4dde-bfad-0e6a720eda79">CW subcomplex</a></li>
+
+<li><a href="20231121-sphere_as_cw_complex.html#ID-65d2eb93-5396-4786-ba62-8649a2556e9b">Sphere as CW-Complex</a></li>
+<li><a href="20231121-disk_as_cw_complex.html#ID-f4a93ac0-f266-4a6c-9467-3c9d1010f9cd">disk as CW complex</a></li>
+
+<li><a href="20231121-compact_subset_of_a_cw_complex_as_subset_of_a_finite_subcomplex.html#ID-ee451878-7854-4206-adb2-121de9a947af">compact subset of a cw-complex as subset of a finite subcomplex</a></li>
+<li><a href="20231121-compact_cw_complex_and_finite_cw_complex.html#ID-efb8e1ef-b616-428a-aa00-896c57d3942a">compact CW complex and finite CW complex</a></li>
+<li><a href="20231121-locally_compact_cw_complex_and_locally_finite_cw_complex.html#ID-ac5a9725-8a2e-4ddc-b3af-02f9915d7b4e">locally compact CW complex and locally finite CW complex</a></li>
+<li><a href="20230406114101-paracompact_space.html#ID-e335d767-4989-4ad5-ba4e-28c7559ae05a">parakompakt</a></li>
+<li><a href="20231121-cw_complex_as_paracompact_space.html#ID-2bd5e5b7-73e8-42aa-84af-64d286e6cccf">CW complex as paracompact space</a></li>
+<li><a href="20231121-cw_complex_as_normal_space.html#ID-c606adbd-53d5-4086-bed2-d1f1f3ea6ec7">CW complex as normal space</a></li>
+<li><a href="20231121-cw_complex_as_hausdorff_space.html#ID-2a0bdff5-3171-4bac-b43b-a3c4150026ee">CW complex as hausdorff space</a></li>
+<li><a href="20231121-cw_complex_as_locally_contractible_space.html#ID-13bc323b-8db2-490b-bec1-c130594a43ce">CW complex as locally contractible space</a></li>
+<li><a href="20231121-cw_complex_as_path_connected_space.html#ID-b90f8b00-e891-4d84-805e-72948d53cf11">CW complex as path connected space</a></li>
+<li><a href="20240307-cw_complex_and_product_with_locally_compact.html#ID-f878f5af-6c85-4d97-afa2-8b0d4929ec04">cw complex and product with a locally compact cw complex</a></li>
+</ul>
+<p>
+(todo ?)  
+</p>
+
+
+<ul class="org-ul">
+<li><a href="20231121-cellular_map.html#ID-3ffdf08d-2b0b-485b-b446-5882683a43eb">cellular map</a></li>
+<li><a href="20231121-cellular_approximation.html#ID-9316a819-5c68-4445-adfe-8be652126955">cellular approximation</a> - next term</li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20231121-smaller_homotopy_group_of_a_sphere.html#ID-36050977-a13e-43b4-8768-0f5d6cd948bc">smaller homotopy group of a sphere</a></li>
+<li><a href="20231202-isomorphism_of_homotopy_groups_between_skeleton_and_cw_complex.html#ID-8a2d4871-2256-4854-9304-a9997330b78b">isomorphism of homotopy groups between skeleton and CW complex</a></li>
+<li><a href="20231202-surjection_on_homotopy_groups_between_skeleton_and_cw_complex.html#ID-7f7b4ac3-48a3-4def-9fb4-0200ccbd9e10">surjection on homotopy groups between skeleton and CW complex</a></li>
+
+<li><a href="20231121-space_equivalent_to_a_cw_complex.html#ID-ace9fc31-8838-451a-a70e-5df109738af3">space weakly equivalent to a cw-complex</a> - slight todo</li>
+<li><a href="20240228-coproduct_of_cw_complexes_as_cw_complex.html#ID-4d6f8444-acdf-4754-ab68-01da1c917c5a">coproduct of cw complexes as cw complex</a></li>
+<li><a href="20231029-satz_von_whitehead.html#ID-c852d592-5c82-4ca4-af31-2b1385c000a3">Whitehead theorem</a></li>
+<li><a href="20240226-weak_homotopy_equivalence_between_cw_complexes_as_homotopy_equivalence.html#ID-5eec0f23-7d79-48d0-9a4d-186d4584c1fa">weak homotopy equivalence between CW complexes as homotopy equivalence</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 19:21</p>
+</div>
+</body>
+</html>

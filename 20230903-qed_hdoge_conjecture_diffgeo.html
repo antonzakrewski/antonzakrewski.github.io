@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 18:10 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>QED - Hodge Conjecture - Diffgeo</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">QED - Hodge Conjecture - Diffgeo</h1>
+<div id="outline-container-org90e3cd1" class="outline-2">
+<h2 id="org90e3cd1"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org4f20023" class="outline-3">
+<h3 id="org4f20023"><span class="section-number-3">1.1.</span> Mannigfaltigkeit</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-orgf08d8b0" class="outline-4">
+<h4 id="orgf08d8b0"><span class="section-number-4">1.1.1.</span> topo</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<ul class="org-ul">
+<li><a href="20221113224914-mannigfaltigkeit.html#ID-635e5ff5-f006-46bf-891a-869ae972d6e6">topologische Mannigfaltigkeit</a></li>
+<li><a href="20230127080110-homeomorphismus.html#ID-9f615f4b-b7b4-4dd6-a222-b9ec170e4390">Homeomorphismus</a></li>
+<li><a href="20230902-projektiver_raum.html#ID-9330afd6-d1a4-451f-b4d1-4f747b5ef58a">reeller projektiver Raum</a></li>
+<li><a href="20230121142600-kompaktheit_topologie.html#ID-58037a78-9969-4077-ad91-ce5e70c6c32c">Kompakt</a></li>
+<li><a href="20230902-topologische_mannigfaltigkeit_und_uberdeckung.html#ID-50878e21-122f-44f9-98f2-6ebd73362b5a">topologische Mannigfaltigkeit und Überdeckung</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd3f73fa" class="outline-4">
+<h4 id="orgd3f73fa"><span class="section-number-4">1.1.2.</span> diff</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ul class="org-ul">
+<li><a href="20230723-differenzierbare_mannigfaltigkeit.html#ID-805c972a-cf4f-4229-a4dc-b6755639f890">differenzierbare Mannigfaltigkeit</a></li>
+<li><a href="20230905-komplex_differenzierbare_mannigfaltigkeit.html#ID-73078df1-9429-41be-af61-85d3e07b5b4e">komplex differenzierbare Mannigfaltigkeit</a></li>
+<li><a href="20230902-differenzierbar_atlas.html#ID-a09cfaa8-4cdb-4272-b194-ba9604b971d7">differenzierbar Atlas</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8d7182b" class="outline-4">
+<h4 id="org8d7182b"><span class="section-number-4">1.1.3.</span> glatt</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<ul class="org-ul">
+<li><a href="20230903-glatter_atlas.html#ID-c37d09db-3c0b-4c94-8bc0-0a1bc6267254">glatter Atlas</a></li>
+<li><a href="20230302132423-glatte_mannigfaltigkeit.html#ID-0606629a-5a69-4933-ad86-4d3a60637621">reelle glatte Mannigfaltigkeit</a></li>
+<li><a href="20230905-smooth_differentiable_manifold.html#ID-0ddfb9d4-93f0-4b88-bb28-f6ca87b18ee0">smooth manifold</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org1c83d24" class="outline-3">
+<h3 id="org1c83d24"><span class="section-number-3">1.2.</span> Vektorbündel</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-org3c07753" class="outline-4">
+<h4 id="org3c07753"><span class="section-number-4">1.2.1.</span> definition</h4>
+<div class="outline-text-4" id="text-1-2-1">
+</div>
+<div id="outline-container-orgba82b68" class="outline-5">
+<h5 id="orgba82b68"><span class="section-number-5">1.2.1.1.</span> def</h5>
+<div class="outline-text-5" id="text-1-2-1-1">
+<ul class="org-ul">
+<li><a href="20230903-vektorbundel.html#ID-b16fc43a-0da7-4031-9a65-6e3ee015c13b">vector bundle</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20230905-topological_vector_bundle.html#ID-821f2fea-f858-4555-ae30-90ea23209a2e">topological vector bundle</a></li>
+<li><a href="20230903-vektorbundel.html#ID-b16fc43a-0da7-4031-9a65-6e3ee015c13b">real topological vector bundle</a></li>
+<li><a href="20230903-complex_topological_vector_bundle.html#ID-ce498b51-c9e4-4ca0-aac9-e47fa6f6722a">complex topological vector bundle</a></li>
+<li><a href="20230905-vektorbundel_als_mannigfaltigkeit.html#ID-907c60db-a97e-4bdb-ad7f-227668a05b9e">Vektorbündel als Mannigfaltigkeit_</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7180766" class="outline-5">
+<h5 id="org7180766"><span class="section-number-5">1.2.1.2.</span> diff</h5>
+<div class="outline-text-5" id="text-1-2-1-2">
+<ul class="org-ul">
+<li><a href="20230903-smooth_real_vector_bundle.html#ID-10de8083-9961-451d-b58e-f2441cc9c9bb">smooth real vector bundle</a></li>
+<li><a href="20230903-differentiable_vector_bundle.html#ID-bbfefa72-af6e-4d28-af53-b2407be5391b">differentiable real vector bundle</a></li>
+<li><a href="20230903-differenzierbarer_systeme_lokaler_trivialisierungen.html#ID-0a94ae70-6ee9-46db-9fba-e2bfd1ca6d58">differenzierbarer Systeme lokaler Trivialisierungen</a></li>
+<li><a href="20230905-differenzierbare_vektorbundel_als_differenzierbare_mannigfaltigkeit.html#ID-c25d5a0b-1743-4b7a-a64f-21803fae83bf">differenzierbare Vektorbündel als differenzierbare Mannigfaltigkeit</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org5784d57" class="outline-4">
+<h4 id="org5784d57"><span class="section-number-4">1.2.2.</span> glatt</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<ul class="org-ul">
+<li><a href="20230903-glatte_system_lokaler_trivialisierungen.html#ID-03db1811-9f8a-4a3f-a4f5-9bb66d74fe1d">glatte System lokaler Trivialisierungen</a></li>
+<li><a href="20230903-trivial_vector_bundle.html#ID-046cc27d-41e5-41d4-b359-77088aff15d6">trivial real vector bundle</a></li>
+<li><a href="20230903-triviales_reelle_vektorbundel_auf_einer_glatten_mannigfaltigkeit_als_glatte_vektorbundel.html#ID-2992930c-9e14-4e37-8a25-ee63b6f997e4">triviales reelle vektorbündel auf einer glatten Mannigfaltigkeit als glatte Vektorbündel</a></li>
+<li><a href="20230903-glatte_reelle_vektorbundel_als_topologische_vektorbundel.html#ID-3cbf6cab-a710-49f4-9fe5-aacfa4d21b41">glatte reelle Vektorbündel als topologische Vektorbündel</a></li>
+<li><a href="20230903-glattes_vektorbundel_als_glatte_mannigfaltigkeit.html#ID-9edf0466-ef90-4870-8946-995d4eaa8d54">glattes Vektorbündel als glatte Mannigfaltigkeit</a></li>
+</ul>
+</div>
+<div id="outline-container-org0bcaa33" class="outline-5">
+<h5 id="org0bcaa33"><span class="section-number-5">1.2.2.1.</span> sort</h5>
+<div class="outline-text-5" id="text-1-2-2-1">
+<ul class="org-ul">
+<li><a href="20230903-differenzierbare_funktion_auf_einer_differenzierbaren_mannigfaltigkeit.html#ID-2a55805a-56ac-4559-a06b-7876c0c116c9">differenzierbare Funktion auf einer differenzierbaren Mannigfaltigkeit</a> (?)</li>
+<li><a href="20230903-glatet_funktion_auf_einer_glatten_mannigfaltigkeit.html#ID-1132009f-e270-4d9f-b23b-c408ee52630a">vektorwertige glatte Funktion auf einer glatten Mannigfaltigkeit</a> (?)</li>
+<li><a href="20230903-tautologische_bundel_auf_dem_projektiven_raum.html#ID-7ca7cd8e-10da-40c5-a811-63c5ea658c9d">tautologische Geradenbündel auf dem projektiven Raum</a> (todo)</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org0881318" class="outline-4">
+<h4 id="org0881318"><span class="section-number-4">1.2.3.</span> allgemeine konstruktion</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<ul class="org-ul">
+<li><a href="20230903-konstruktion_von_vektorbundel_durch_verklebung.html#ID-cd7a6c44-b04b-4fd0-9c75-9452d41f671a">Konstruktion von Vektorbündel durch Verklebung</a></li>
+<li><a href="20230903-konstruktion_von_glatten_vektorbundeln_durch_verklebung.html#ID-924d8687-feb0-4d05-8420-77320aada7f6">Konstruktion von glatten Vektorbündeln durch Verklebung</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgdd163bf" class="outline-4">
+<h4 id="orgdd163bf"><span class="section-number-4">1.2.4.</span> tangential</h4>
+<div class="outline-text-4" id="text-1-2-4">
+<ul class="org-ul">
+<li><a href="20230903-tangentialbundel.html#ID-7d746562-8074-412c-bb85-072b3c537532">Tangentialbündel</a></li>
+<li><a href="20230301044425-tangentialraum.html#ID-230922aa-69cc-4795-a3aa-f23d1b7d1a3e">Tangentialraum</a></li>
+<li><a href="20230903-tangentialbundel_einer_c_2_reellen_differenzierbaren_mannigfaltigkeit_als_differenzierbare_vektorbundel.html#ID-a011dd51-4f1d-492d-b8b7-2c223b539ed5">Tangentialbündel einer C<sup>2</sup> reellen differenzierbaren Mannigfaltigkeit als differenzierbare Vektorbündel</a></li>
+<li><a href="20230903-tangentialbundel_einer_glatten_reellen_mannigfaltigkeit_als_glattes_vektorbundel.html#ID-82ddd2cb-45c3-4fed-ab83-102f653afba7">Tangentialbündel einer glatten reellen Mannigfaltigkeit als glattes Vektorbündel</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20230905-tantgentialvektorfeld.html#ID-89cee35e-17f9-4cbe-9951-bde0618fe0e6">Tangentialvektorfeld</a></li>
+<li><a href="20230905-glattes_tangentialvektorfeld.html#ID-f281ade8-584c-4f40-946e-81cd9ff89cc8">glattes Tangentialvektorfeld</a></li>
+
+<li><a href="20230905-glatte_funktion_zwischen_mannigfaltigkeiten.html#ID-cb2815ef-9211-48ea-9491-60d4815b911d">glatte Funktion zwischen glatten Mannigfaltigkeiten</a></li>
+<li><a href="20230905-differenzierbare_funktion_zwischen_differenzierbaren_mannigfaltigkeiten.html#ID-a07be11c-f716-4abd-9874-c502326a6855">differenzierbare Funktion zwischen differenzierbaren Mannigfaltigkeiten</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9702c8c" class="outline-4">
+<h4 id="org9702c8c"><span class="section-number-4">1.2.5.</span> weitere konstruktion von vektorbündeln</h4>
+<div class="outline-text-4" id="text-1-2-5">
+<ul class="org-ul">
+<li><a href="20230905-duale_vektorbundel.html#ID-6811d057-82b3-4d08-8652-2e1009c5700f">duale Vektorbündel</a></li>
+<li><a href="20230905-direkte_summe_von_vektorbundeln.html#ID-084c66a8-e60d-4e6a-9b5c-585d83cb5e84">direkte Summe von Vektorbündeln</a></li>
+<li><a href="20230905-hom_vektorbundel.html#ID-e1cf4128-0054-471c-bda1-ed1e09160238">Hom Vektorbündel</a></li>
+<li><a href="20230905-tensorprodukt_von_vektorbundel.html#ID-1de0153a-2378-412c-a0d5-05276d29388d">Tensorprodukt von Vektorbündel</a></li>
+<li><a href="20230905-außere_potenz_eines_vektorbundels.html#ID-39df829d-d041-4c20-a7e0-a97d07fe8abd">äußere Potenz eines Vektorbündels</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org35c4fc7" class="outline-3">
+<h3 id="org35c4fc7"><span class="section-number-3">1.3.</span> Schnitt</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20230905-schnitt_eines_vektorbundels.html#ID-0be7b63e-b090-4433-8a0a-71656d30dcf9">Schnitt eines Vektorbündels</a></li>
+<li><a href="20230905-glatter_schnitt_eines_glatten_vektorbundel.html#ID-dd88ade4-afa0-4b80-bde2-229b5e0a09bd">glatter Schnitt eines glatten Vektorbündel</a></li>
+<li><a href="20230905-differenzierbarer_schnitt_eines_vektorbundels.html#ID-dfb24b0a-c47f-468e-bf85-baecab60926f">differenzierbarer Schnitt eines Vektorbündels</a></li>
+<li><a href="20230905-trivialer_schnitt_eines_vektorbundels.html#ID-0cacf17b-d04a-46f7-ace8-f3b233e1aff2">trivialer Schnitt eines vektorbündels</a></li>
+<li><a href="20230905-nullschnitt_einer_glatten_mannigfaltigkeit_als_glatter_schnitt.html#ID-f36020f5-09c3-4607-8bc2-ad757ced6d90">Nullschnitt einer glatten Mannigfaltigkeit als glatter Schnitt</a></li>
+<li><a href="20230905-schnitt_durch_eine_trivialisierung.html#ID-6f31ef1e-15da-42d0-a58f-09de2fd19ce0">Schnitt durch eine Trivialisierung</a></li>
+<li><a href="20230905-glatter_schnitt_durch_eine_trivialisierung.html#ID-ecd278a6-110e-452d-8443-b848017dfc1f">glatter Schnitt durch eine Trivialisierung</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0e093ba" class="outline-3">
+<h3 id="org0e093ba"><span class="section-number-3">1.4.</span> tensor und wedge</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><a href="20230801-tensor_product.html#ID-42c4ecff-8f9a-40cf-bebc-70569ded24bf">tensor product</a></li>
+<li><a href="20230905-grassmann_algebra.html#ID-96053bfa-2b66-4364-b5c7-80e8b42097a5">Grassmann Algebra</a></li>
+<li><a href="20230905-exterior_algebra_of_a_module.html#ID-afd85e48-6e3c-476e-acff-4de6f836f615">exterior algebra of a module</a></li>
+<li><a href="20230905-elementary_wedge.html#ID-49ee03b2-0d1c-459b-a941-27f1d478299e">elementary wedge</a></li>
+<li><a href="20230905-anticommutativity_of_an_elementary_wedge.html#ID-11f4d2c5-9de8-4fc8-a0c5-3525f3b6393b">anticommutativity of an elementary wedge</a></li>
+<li><a href="20230905-rang_eines_wedge_produkts.html#ID-e1ff3441-2782-45b7-9b05-fdf726616442">Rang eines Wedge Produkts für einen endlichen, freien Modul</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8753eba" class="outline-3">
+<h3 id="org8753eba"><span class="section-number-3">1.5.</span> de-rham kohomologie</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li><a href="20230905-kotangentialbundel.html#ID-db230005-2711-49af-b5e7-e1f7b0c8b531">Kotangentialbündel</a></li>
+<li><a href="20230905-glatte_differentialform.html#ID-a8d0af69-002e-4866-b369-a47456b611de">glatte Differentialform</a> (?)</li>
+<li><a href="20230905-differentialform.html#ID-134d05c2-9f29-4321-a418-e1acb965dc53">Differentialform</a></li>
+<li><a href="20230905-raum_der_k_formen_auf_einer_mannigfaltigkeit.html#ID-60e74597-902c-4d0f-9a25-1b449454636d">Raum der k-Formen auf einer Mannigfaltigkeit</a></li>
+<li><a href="20230905-raum_der_glatten_k_formen_auf_einer_glatten_mannigfaltigkeit.html#ID-8fa128b3-505b-477b-94b8-da9a5d6e3dbc">Raum der glatten k-Formen auf einer glatten Mannigfaltigkeit</a></li>
+<li><a href="20230905-reellwertige_glatte_funktion_induziert_1_formen.html#ID-493cc7e1-38b7-4294-bf45-4d567817e8db">reellwertige glatte Funktion induziert 1-Formen</a></li>
+<li><a href="20230905-ableitung_de_rham_kohomologie.html#ID-da895acd-157e-4a7d-92c8-11a3704228ee">Ableitung (de rham kohomologie)</a></li>
+<li><a href="20230905-dasrtellung_einer_k_form_auf_einer_offenen_umgebung_als_kombination_von_1_formen.html#ID-7c1841b9-140d-40e5-b939-a5158d8759a2">Darstellung einer k-Form auf einer offenen umgebung als Kombination von 1-Formen</a></li>
+<li><a href="20230905-k_formen_als_modul_uber_0_formen.html#ID-e74d01aa-7af5-4668-8ed1-3fdaa27a6a1a">k-Formen als Modul über 0-Formen</a> - todo</li>
+<li><a href="20230905-vektorbundel_als_modul_uber_den_funktionen.html#ID-46fc09d4-907f-4fd6-b370-f01825b9553e">Vektorbündel als Modul über den Funktionen</a> - todo</li>
+<li></li>
+
+<li><a href="20230905-außere_ableitung_einer_k_form.html#ID-c149dd46-1b6b-47d6-b7da-910bf4e67c2f">äußere Ableitung einer k-Form</a></li>
+<li><a href="20230905-ableitung_einer_1_form.html#ID-bf23af59-3203-4c35-abc4-e5cfb29a8762">Ableitung einer 1-Form</a></li>
+<li><a href="20230905-außere_ableitung_als_kettenkomplex.html#ID-12555de5-a10a-4815-8d57-caeaa76bbeac">Äußere Ableitung als Kettenkomplex</a></li>
+
+<li><a href="20230905-nullte_de_rham_kohomologie.html#ID-364751b2-9107-4056-9d0d-436c944049b7">nullte de-Rham Kohomologie</a></li>
+<li><a href="20230905-isomorphie_der_de_rham_kohomologie_mit_der_singularen_kohomologie.html#ID-606d28e2-5c43-4e83-a149-b177a6da5fa3">Isomorphie der de-Rham Kohomologie mit der singulären Kohomologie für Koeffizienten in \(\mathbb{R}\) auf einer reellen glatten Mannigfaltigkeiten</a></li>
+<li><a href="20230905-geschlossene_form.html#ID-b1ddc1c8-9d7a-4169-945e-a72e6a4d4fce">geschlossene k-Form</a></li>
+<li></li>
+
+<li><a href="20230905-n_te_de_rham_kohomologie_und_orientierbarkeit.html#ID-6a74880c-c6ac-40ed-b854-83fb8742cc56">n-te de-Rham Kohomologie und Orientierbarkeit</a></li>
+<li><a href="20230905-de_rham_kohomologie_als_nullraum_in_abhangigkeit_der_dimension.html#ID-5c41b9a9-30da-44ee-a64f-bc72fd772de4">de-Rham kohomologie als Nullraum in Abhängigkeit der Dimension</a></li>
+<li><a href="20230905-singulare_kohomologie_als_nullraum_in_abhangigkeit_der_dimension.html#ID-67ed5219-f36a-459c-9022-591076cfe756">singuläre Kohomologie als Nullraum in Abhängigkeit der Dimension</a></li>
+<li><a href="20230905-geradenbundel.html#ID-8d50d4ca-fad8-41d2-944d-c9fbe92e1cda">Geradenbündel</a></li>
+<li><a href="20230905-orientierbarkeit_einer_mannigfaltigkeit.html#ID-23c899ad-f0e4-4a8a-b435-50a7583ec7b1">Orientierbarkeit einer Mannigfaltigkeit</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="20230905-triviales_geradenbundel_und_schnitt.html#ID-74c7d8e3-206c-48ac-af9c-88e7791e965b">triviales Geradenbündel und Schnitt</a></li>
+<li><a href="20230905-orientierung_einer_mannigfaltigkeit.html#ID-0c5cdbcd-4e79-42a5-b82e-6a09f6975610">Orientierung einer Mannigfaltigkeit</a></li>
+<li><a href="20230905-poincare_dualitat.html#ID-734c4c6d-a0c1-4e84-b63e-1df86743d032">Poincare Dualität</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="20230905-poincare_dualitat_fur_die_allgemeine_singulare_kohomologie_und_singulare_homologiegruppe.html#ID-6c8f1211-4fe2-41a5-aeb6-524b6943f6dd">poincare Dualität für die allgemeine singuläre Kohomologie und singuläre Homologiegruppe</a></li>
+<li><a href="20230905-poincare_dualitat_fur_koeffizienten_in_einem_korper.html#ID-958746cc-64aa-47b8-a50a-72e87ca023bf">Poincare Dualität für Koeffizienten in einem Körper</a>  - TODO</li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgcf02f93" class="outline-3">
+<h3 id="orgcf02f93"><span class="section-number-3">1.6.</span> komplexe Geometrie</h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 18:10</p>
+</div>
+</body>
+</html>

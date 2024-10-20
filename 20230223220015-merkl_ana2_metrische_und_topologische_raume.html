@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 22:00 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>merkl ana2: metrische und topologische Räume</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">merkl ana2: metrische und topologische Räume</h1>
+<div id="outline-container-orgf03e3a9" class="outline-2">
+<h2 id="orgf03e3a9"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgfdc2358" class="outline-3">
+<h3 id="orgfdc2358"><span class="section-number-3">1.1.</span> <a href="20220716173517-metrik.html#ID-0aa21afc-5f24-4618-a61e-e5ebf2e9640c">Metrik</a></h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20221115113143-pseudometrik.html#ID-85960f3d-c84e-4099-ab8f-f7ab99f228f5">Semimetrik</a></li>
+<li><a href="20220716173517-metrik.html#ID-0aa21afc-5f24-4618-a61e-e5ebf2e9640c">Metrik</a></li>
+<li><a href="20221002145259-metrischer_raum.html#ID-6b95a0b5-83e0-43cc-830f-05b416769fe1">metrischer Raum</a></li>
+<li><a href="20230224123147-semimetrischer_raum.html#ID-e2594bf0-67cb-4d50-a605-39627074bcd2">semimetrischer Raum</a></li>
+<li><a href="20220309110210-abstand_zweier_punkte.html#ID-430a6357-9585-4ca5-9e71-0b793b8f2fa4">Abstand zweier Punkte</a></li>
+<li><a href="20230224154834-ultrametrische_ungleichung.html#ID-7aea7075-1cbd-430a-84a8-1eb1edd5ab61">ultrametrische Ungleichung</a></li>
+<li><a href="20230211123220-p_adische_metrik.html#ID-4ffbbc11-266d-4a0e-9947-ad66b70f7419">p-adische Metrik</a> TODO</li>
+<li><a href="20230228163604-p_adische_metrik_als_ultrametrik.html#ID-cd778333-5d5e-463f-8099-d9b8f3d5fded">p-adische Metrik als Ultrametrik</a> TODO</li>
+<li><a href="20230223221746-seminorm.html#ID-4bd6ec86-e434-4b37-9d50-e73ab6b454d4">Seminorm</a></li>
+<li><a href="20220920053006-norm_eines_vektors.html#ID-445db843-5369-48de-a31f-f1f245833425">Norm</a></li>
+<li><a href="20230224155546-von_einer_halbmetrik_induzierte_semimetrik.html#ID-b615d125-6f41-4a89-bffe-7f9140abf0b0">von einer Halbnorm induzierte Semimetrik</a></li>
+<li><a href="20230111204631-von_einer_norm_induzierte_metrik.html#ID-84892f7a-017a-4af9-a330-28a0ccc2b172">von einer Norm induzierte Metrik</a></li>
+<li><a href="20230112093736-aquivalente_form_der_dreiecksungleichng.html#ID-23777b79-8e35-41a4-b0b4-72e64c6fe8ad">Äquivalente Form der Dreiecksungleichung für Seminormen</a></li>
+<li><a href="20230228164010-absolutbetrag_als_norm.html#ID-b94503fe-282d-4db4-a2e3-4487fd2e22e3">Absolutbetrag als Norm</a> TODO</li>
+<li><a href="20230228164041-standardmetrik_eines_korpers.html#ID-e204c3f2-8673-4b9c-854f-99a8e678e9d7">Standardmetrik eines Körpers</a></li>
+<li><a href="20230301054948-standardnorm_eines_korpers.html#ID-225a3970-976e-4a49-92bf-44efd173a2c0">Standardnorm eines Körpers</a></li>
+<li><a href="20230228164105-seminorm_durch_eine_linearform.html#ID-15a60196-947d-4f6b-8802-ad59d1a84e57">Seminorm durch eine Linearform</a> TODO</li>
+<li>1.8 + 1.170 TODO</li>
+<li>Aktivierungselem. 1.9</li>
+<li><a href="20230224153550-aquivalenzrelation_des_abstands_0.html#ID-3dde8e8f-7018-4c97-8d73-2409baba1b28">Äquivalenzrelation des Abstands 0</a></li>
+<li><a href="20230228164637-quotientenmetrik_zum_abstand_0.html#ID-23a8b51e-d99b-44cc-ad53-8a31d0323b81">Quotientenmetrik zum Abstand 0</a>  TODO</li>
+<li><a href="20230228164745-nullraum_zu_einer_halbmetrik.html#ID-f18c6887-29e1-4bd5-9ddd-f34050a83e56">Nullraum zu einer Halbmetrik</a> TODO</li>
+<li><a href="20221209134652-isometrie_metrischer_raum.html#ID-897a11a6-874c-4734-9d2b-7bf717ba7867">Isometrie</a></li>
+<li><a href="20230223222001-produktmetrik.html#ID-8dd97529-a529-405e-a6c4-a07b492877ee">Produktmetrik</a> TODO</li>
+<li><a href="20230228164953-produkthalbmetrik.html#ID-becd58fe-0d06-4675-8d1b-b83af50ec58d">Produkthalbmetrik</a> TODO</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga592285" class="outline-3">
+<h3 id="orga592285"><span class="section-number-3">1.2.</span> <a href="20230105092710-prahilbertraum.html#ID-c83705a9-fdd0-441f-b0a3-116c78ef7c7b">Prähilbertraum</a></h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20221003155441-bilinearform.html#ID-acc66a43-f9a5-4544-b630-f817ada1e830">Bilinearform</a></li>
+<li><a href="20221003155453-positiv_definite_bilinearform.html#ID-a3a22297-376a-4755-a9c6-8f00cfe3a443">positiv definite Bilinearform oder hermitesche Sesquilinearform</a></li>
+<li><a href="20221003155502-positiv_semidefinite_bilinearform.html#ID-234ae6b6-59ba-4f8e-8345-1d990d225fac">positiv semidefinite Bilinearform oder Sesquilinearform</a></li>
+<li><a href="20230228165413-reeller_prahilbertraum.html#ID-66cc8c4c-9182-4e8c-be37-06075fc56a2d">reeller Prähilbertraum</a></li>
+<li><a href="20230228165629-komplexer_prahilbertraum.html#ID-68838af7-8255-4ca1-b2a8-fd118514c98c">komplexer Prähilbertraum</a></li>
+<li><a href="20221003093414-skalarprodukt.html#ID-edd2aca6-e8ec-4a59-9b4a-879e89845014">Skalarprodukt</a> TODO</li>
+<li><a href="20230228165751-komplexes_skalarprodukt.html#ID-f81b1ef9-d51a-4d61-b8a4-ad7bd895b18b">komplexes Skalarprodukt</a> TODO</li>
+<li><a href="20230223222320-von_einem_skalarprodukt_induzierte_norm.html#ID-be00afe0-7e89-4842-838a-8943b323920c">von einem Skalarprodukt induzierte Norm</a> TODO</li>
+<li><a href="20230228170003-von_einer_positiv_semidefiniten_bilinearform_hermiteschen_sesquilinearform_induzierte_norm.html#ID-141c38e8-03fb-4468-8375-c448f25f9ee9">von einer positiv semidefiniten Bilinearform/hermiteschen Sesquilinearform induzierte Halbnorm</a> TODO</li>
+<li><a href="20230223222633-cauchy_schwarz_ungleichung.html#ID-fa0b3dd9-8f8a-48e6-8cb1-f71fad800e37">Cauchy-Schwarz Ungleichung</a> TODO</li>
+<li>geometrische Interpretation TODO</li>
+<li><a href="20230228170206-euklidisches_skalarprodukt.html#ID-aa212354-4b27-4632-a1f6-ee0ccc12729c">euklidisches Skalarprodukt</a> TODO</li>
+<li><a href="20221005101755-euklidische_norm.html#ID-107b378e-c334-4bf8-baac-e136e1b65198">Euklidische Norm</a> TODO</li>
+<li>1.18 2</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0e465d0" class="outline-3">
+<h3 id="org0e465d0"><span class="section-number-3">1.3.</span> l<sup>p</sup></h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20230224165655-p_norm.html#ID-3c5b1d2d-114c-4629-bde4-0418eea708e1">p-Norm</a></li>
+<li><a href="20230228170345-konvergenz_der_p_norm_gegen_die_supremumsnorm.html#ID-aa3f3093-bc95-4c4b-807b-c9d266f0efc3">Konvergenz der p-Norm gegen die Supremumsnorm</a> TODO</li>
+<li><a href="20230228170409-holder_ungleichung.html#ID-e1569ceb-c30b-4417-920e-e89d1fcf7ed4">Hölder-Ungleichung</a> TODO</li>
+<li><a href="20230224170705-zueinander_konjugierte_reelle_zahlen.html#ID-59c0d0ec-566a-4f7b-bd2f-8dc953446501">zueinander konjugierte reelle Zahlen</a></li>
+<li><a href="20230228170539-dualitat_zwischen_p_norm_und_q_norm.html#ID-5fb37a4c-f20f-4931-babe-316246f7518f">Dualität zwischen p-Norm und q-Norm</a> TODO</li>
+<li>1.24, 1.25</li>
+<li><a href="20230223222837-minkowskische_ungleichung.html#ID-d02ec633-8ad6-450f-85d4-8dba1e8b668e">Minkowskische Ungleichung</a> TODO</li>
+<li>1.27</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9e632e2" class="outline-3">
+<h3 id="org9e632e2"><span class="section-number-3">1.4.</span> <a href="20220930230520-topologie_auf_einer_menge.html#ID-1ced2edb-806d-4fb8-ada3-ca97b7ea1d10">Topologie</a> <a href="20221002145259-metrischer_raum.html#ID-6b95a0b5-83e0-43cc-830f-05b416769fe1">metrischer Räume</a></h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><a href="20221027092741-epsilon_umgebung.html#ID-b8422ae4-c20f-468f-8f66-aa736833f806">epsilon-Umgebung</a></li>
+<li><a href="20221002145550-offene_menge_in_einem_metrischen_raum.html#ID-48a9cdb7-4398-449e-b008-2c0fe06b2d00">offene Menge in einem metrischen Raum</a></li>
+<li><a href="20220930230520-topologie_auf_einer_menge.html#ID-1ced2edb-806d-4fb8-ada3-ca97b7ea1d10">Topologie</a></li>
+<li><a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topologischer Raum</a></li>
+<li><a href="20230223222954-von_einer_halbmetrik_induzierte_topologie.html#ID-d7347783-8cd1-4bcb-ba36-e31b6fa1652d">von einer Halbmetrik induzierte Topologie</a> TODO</li>
+<li><a href="20230222171645-von_einer_metrik_induzierte_topologie.html#ID-69ce8957-4373-4cbd-ae36-9da730675f0d">von einer Metrik induzierte Topologie</a> TODO</li>
+<li>1.34.</li>
+<li><a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossene Menge</a></li>
+<li><a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offene Menge</a></li>
+<li><a href="20221224153324-abgeschlossenheit_vom_durchschnitt.html#ID-1bb320cf-5118-4a33-8390-982ef2fbc2e2">Abgeschlossenheit vom Durchschnitt abgeschlossener Mengen (Topologie)</a> TODO</li>
+<li><a href="20230111173849-endliche_vereinigung_von_abgeschlossenen_mengen.html#ID-283187fc-bdcf-4a0c-80e6-d97d46c3716a">Abgeschlossenheit endlicher Vereinigung von abgeschlossenen Mengen</a> TODO</li>
+<li><a href="20230222172752-inneres_einer_topologie.html#ID-14daf62f-ca16-4f9a-a71f-a84e86b23c1c">Inneres in einer Topologie</a></li>
+<li><a href="20230222172815-innerer_punkt_topologischer_raum.html#ID-47791b32-716b-4159-94e7-31c4f0b9e4cd">innerer Punkt (topologischer Raum)</a></li>
+<li><a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">Umgebung</a></li>
+<li><a href="20230222175426-abschluss_in_einer_topologie.html#ID-9134c61c-5ec6-4cd6-8928-9ef53b6bfd37">Abschluss in einer Topologie</a></li>
+<li><a href="20230222175938-beruhrungspunkt_in_einer_topologie.html#ID-fced629d-ec3c-40b6-ad93-18351037c458">Berührpunkt in einer Topologie</a></li>
+<li><a href="20221124232157-dichte_menge_topologie.html#ID-921fe319-4945-4303-a9a5-3723804e0737">dichte Menge (Topologie)</a></li>
+<li><a href="20230222175154-rand_in_einer_topologie.html#ID-64116a9b-5bef-479f-8df7-b8edd8d49baa">Rand in einer Topologie</a></li>
+<li><a href="20230222174058-randpunkt_topologie.html#ID-8e438d10-6a6c-4087-9ebe-4b53f3b7e420">Randpunkt (Topologie)</a></li>
+<li>1.38 - 1.44 TODO</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0b16858" class="outline-3">
+<h3 id="org0b16858"><span class="section-number-3">1.5.</span> konvergenz</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li><a href="20230223223159-konvergenz_in_einem_topologischen_raum.html#ID-8dc79d0c-c71e-41d2-99cb-26e066863521">Konvergenz in einem topologischen Raum</a></li>
+<li><a href="20221122074811-hausdorff_raum.html#ID-f49f9b47-9f16-456f-837f-7b9656c46aba">Hausdorff-Raum</a></li>
+<li><a href="20230224170936-eindeutigkeit_des_limes_in_hausdorffraumen.html#ID-794d59ad-bbce-41e5-9646-8e5c119e077a">Eindeutigkeit des Limes in Hausdorffräumen</a></li>
+<li>1.46</li>
+<li><a href="20230224171350-hausdorffeigenschaft_bei_metrischen_raumen.html#ID-c0a0b315-c4f5-4e7a-a6cd-36b58b58f0ab">Hausdorffeigenschaft bei metrischen Räumen</a></li>
+<li><a href="20211120130127-grenzwert.html#ID-c9d16981-08f6-40ca-af81-22b5db6f06df">Grenzwert einer Folge</a></li>
+<li><a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">Stetigkeit (Topologie)</a></li>
+<li><a href="20230228051544-aquivalente_charakterisierungen_einer_stetigen_abbildung_topologie.html#ID-9d12f153-de79-4958-be55-ef19e0f321c7">Äquivalente Charakterisierungen einer stetigen Abbildung (Topologie)</a> - Bild unter Abschluss</li>
+<li><a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">stetig</a></li>
+<li><a href="20230223225657-konvergenz_von_funktionswerten.html#ID-9445134a-ff23-45cf-a058-38b8edf15a62">Konvergenz von Funktionswerten</a> TODO</li>
+<li><a href="20230211130603-verknupfung_stetiger_funktionen_topologisch.html#ID-38904452-396a-414e-97f8-6a26807e8626">Verknüpfung stetiger Funktionen (topologisch)</a></li>
+<li><a href="20230228171900-metrische_charakterisierungen_der_stetigkeit.html#ID-d1e93e0b-cf6e-48e4-a187-eada7f66c3b0">metrische charakterisierungen der Stetigkeit</a> TODO</li>
+<li><a href="20230111191254-gleichmaßige_stetigkeit.html#ID-9f0b13c9-32bd-4d18-beb7-91cd6db42d85">gleichmäßige Stetigkeit</a></li>
+<li><a href="20230223225811-gleichmaßige_stetigkeit_der_halbnorm.html#ID-1a5293b9-0929-44d8-901c-d39e59b218bb">gleichmäßige Stetigkeit der Halbnorm</a> TODO</li>
+<li><a href="20230223225836-gleichmaßige_stetigkeit_der_semimetrik.html#ID-b0771d03-98b2-4e62-a63f-0ea3b9d53489">gleichmäßige Stetigkeit der Semimetrik</a> TODO</li>
+<li><a href="20230228172510-gleichmaßige_stetigkeit_der_kanonischen_projektionen.html#ID-4d3c65a4-0181-4993-b0f9-fd081071b7ef">gleichmäßige stetigkeit der kanonischen Projektion</a> TODO</li>
+<li><a href="20230228172526-gleichmaßige_stetigkeit_der_inklusion.html#ID-2e3f054d-d2f4-4d62-a5cf-8cbac2e04502">gleichmäßige Stetigkeit der Inklusion</a> TODO</li>
+<li><a href="20230228172621-charakterisierung_der_stetigkeit_linearer_abbildungen_uber_einem_halbnormierten_raum.html#ID-de29dfe3-4f9d-4d06-a0ed-914817804b0c">Charakterisierung der Stetigkeit linearer Abbildungen über einem halbnormierten Raum</a> TODO</li>
+<li><a href="20230228172811-aquivalenz_von_halbnormen.html#ID-1461cd72-618e-44ff-a03a-d92fd5000530">Äquivalenz von Halbnormen</a> TODO</li>
+<li><a href="20230228172758-aquivalente_halbnormen.html#ID-b2f4cd86-6069-4b23-9931-d6dfde18f72d">äquivalente Halbnormen</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb5e80fe" class="outline-3">
+<h3 id="orgb5e80fe"><span class="section-number-3">1.6.</span> Initial- und Finaltopologie</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li><a href="20230223225929-initialtopologie.html#ID-c3a212d4-4f8e-44b6-a3e6-91932f8ea153">Initialtopologie</a></li>
+<li><a href="20230223230203-initiale_abbildung.html#ID-33a2359b-b26a-425d-b09b-f3b503a93386">initiale Abbildung</a></li>
+<li><a href="20230211132940-unterraumtopologie.html#ID-e38ab938-b4e6-4094-98a1-4a8dec808b54">Unterraumtopologie</a></li>
+<li><a href="20230223230229-transitivitat_der_dichtheit.html#ID-b81fe2d9-c385-452d-bdbb-ee93dade58bd">Transitivität der Dichtheit</a></li>
+<li><a href="20230223230317-quotiententopologie.html#ID-593cff5a-5f97-433d-b2d9-20f3aba02006">Quotiententopologie</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org46364aa" class="outline-3">
+<h3 id="org46364aa"><span class="section-number-3">1.7.</span> </h3>
+<div class="outline-text-3" id="text-1-7">
+<ul class="org-ul">
+<li><a href="20221003155441-bilinearform.html#ID-acc66a43-f9a5-4544-b630-f817ada1e830">Bilinearform</a></li>
+<li><a href="20221003155654-sesquilinearform.html#ID-a45e77e2-cb58-46a5-9457-a99ce7b1b279">Sesquilinearform</a></li>
+<li><a href="20221003160915-hermitesche_sesquilinearform.html#ID-f2530251-d424-47ad-909c-6d7357b928f1">Hermitesche Sesquilinearform</a></li>
+<li><a href="20221003155453-positiv_definite_bilinearform.html#ID-a3a22297-376a-4755-a9c6-8f00cfe3a443">positiv definite Bilinearform oder hermitesche Sesquilinearform</a>  ?</li>
+<li><a href="20230223222633-cauchy_schwarz_ungleichung.html#ID-fa0b3dd9-8f8a-48e6-8cb1-f71fad800e37">Cauchy-Schwarz Ungleichung_</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 22:00</p>
+</div>
+</body>
+</html>

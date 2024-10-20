@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 18:52 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>cancelling and collapse to the orbits</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">cancelling and collapse to the orbits</h1>
+<div id="outline-container-org717b20c" class="outline-2">
+<h2 id="org717b20c"><span class="section-number-2">1.</span> Proposition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_3e3122d320f7bffebdc8b0f35f367104b8445b3e.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_3e3122d320f7bffebdc8b0f35f367104b8445b3e.svg" class="org-svg" /> be a <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological space</a>, <img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_6dc2df551c2b3288a542e5faa238350767dda84e.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_6dc2df551c2b3288a542e5faa238350767dda84e.svg" class="org-svg" /> a <a href="20231020-topological_group_action.html#ID-38e7118c-8f31-4e4f-b958-9af22f05af15">topological group action</a> for a <a href="20230226210828-topologische_gruppe.html#ID-0aa20bcb-5c3d-4d06-aeee-e61b46a46e48">topological group</a> <img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_e6ea90f93286d6ba483e07a608709f47e085e21a.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_e6ea90f93286d6ba483e07a608709f47e085e21a.svg" class="org-svg" /> and <img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_fa9889a51bdde79f3395f9b1e61d7aa135f9e6a2.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_fa9889a51bdde79f3395f9b1e61d7aa135f9e6a2.svg" class="org-svg" /> a <a href="20221210192900-normalteiler.html#ID-f971f946-d0ca-444a-a450-efbef237a278">normal subgroup</a>.
+Then for the <a href="20231024-quotient_group_acts_on_a_orbital_collapse.html#ID-650f40d1-3c96-46b2-8ea4-7e58c58b0bb5">quotient group acting on the orbital collapse</a>, 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_7b518ab171c6fb284ce6ff21ac316a112d1d2838.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_7b518ab171c6fb284ce6ff21ac316a112d1d2838.svg" class="org-svg" />
+</span>
+</div>
+<p>
+there exists a canonical <a href="20230127080110-homeomorphismus.html#ID-9f615f4b-b7b4-4dd6-a222-b9ec170e4390">homeomorphism</a> 
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_4b6e10dad19b5131ed5733430b7469f71d955aca.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_4b6e10dad19b5131ed5733430b7469f71d955aca.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org858e369" class="outline-2">
+<h2 id="org858e369"><span class="section-number-2">2.</span> Proof</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org151ffe4" class="outline-3">
+<h3 id="org151ffe4"><span class="section-number-3">2.1.</span> <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">welldefined</a></h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_56d7da8dbe9c2dc8423b6d1d617950ec1f7d5625.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_56d7da8dbe9c2dc8423b6d1d617950ec1f7d5625.svg" class="org-svg" />, then there exists an <img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_dc329b734f704e93dda456ab8d36554da5e0fb5a.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_dc329b734f704e93dda456ab8d36554da5e0fb5a.svg" class="org-svg" /> such that <img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_5a91abeac9f0badf504d81373c0637265a3eff33.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_5a91abeac9f0badf504d81373c0637265a3eff33.svg" class="org-svg" />.
+But then, for <img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_86857413697fed8ca6df626f106a0f587175737a.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_86857413697fed8ca6df626f106a0f587175737a.svg" class="org-svg" /> there exist an <img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_88910a4f30501308cf8c29d5889a67e0ede2ca6a.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_88910a4f30501308cf8c29d5889a67e0ede2ca6a.svg" class="org-svg" /> such that
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_93847a3301cad55df88d438cc6b90f1ef3daca1e.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_93847a3301cad55df88d438cc6b90f1ef3daca1e.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Therefore, we have to show, that there exists an <img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_efad842fc015917551fb4f5d728151fbfabd72c6.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_efad842fc015917551fb4f5d728151fbfabd72c6.svg" class="org-svg" /> such that
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_1ba2faf7148fd7d2e24179fab90d683c5a9f6eaf.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_1ba2faf7148fd7d2e24179fab90d683c5a9f6eaf.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+But
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_1b5eb22b446a32c197f25b40c2ac987443a8d9b7.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_1b5eb22b446a32c197f25b40c2ac987443a8d9b7.svg" class="org-svg" />
+</span>
+</div>
+<p>
+and therefore, <img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_d135e671ed4753f4a06a5715281173f1a9303862.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_d135e671ed4753f4a06a5715281173f1a9303862.svg" class="org-svg" /> is the desired element.
+probably to much (?)
+</p>
+</div>
+</div>
+<div id="outline-container-orgcf7566b" class="outline-3">
+<h3 id="orgcf7566b"><span class="section-number-3">2.2.</span> <a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injective</a></h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Suppose there exist <img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_323170d0a741e035033db065036c321c3f7de091.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_323170d0a741e035033db065036c321c3f7de091.svg" class="org-svg" /> such that
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_74ae230cd61b022b4fdc79f3e43419c5639dc1cd.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_74ae230cd61b022b4fdc79f3e43419c5639dc1cd.svg" class="org-svg" />
+</span>
+</div>
+<p>
+then there exists an <img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_f6d39a97b7ffbc0d9b75c690a2304c95db29a24c.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_f6d39a97b7ffbc0d9b75c690a2304c95db29a24c.svg" class="org-svg" /> such that
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_8b8d1ba55c65d15e84986724b19ef4dd6bd7890f.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_8b8d1ba55c65d15e84986724b19ef4dd6bd7890f.svg" class="org-svg" />
+</span>
+</div>
+<p>
+and then by assumption an <img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_bcae6ba313685f353cdbad239bc1bdafcb6640d3.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_bcae6ba313685f353cdbad239bc1bdafcb6640d3.svg" class="org-svg" /> such that
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_cd2dbd95eadf8230299bb9b3c2a8ea7c4bcfac78.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_cd2dbd95eadf8230299bb9b3c2a8ea7c4bcfac78.svg" class="org-svg" />
+</span>
+</div>
+<p>
+hence <img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_f367737325466eee4ff5b7b65439cedef9222992.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_f367737325466eee4ff5b7b65439cedef9222992.svg" class="org-svg" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2b2b05c" class="outline-3">
+<h3 id="org2b2b05c"><span class="section-number-3">2.3.</span> <a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjective</a></h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+follows from definition
+</p>
+</div>
+</div>
+<div id="outline-container-org5b52f18" class="outline-3">
+<h3 id="org5b52f18"><span class="section-number-3">2.4.</span> <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a></h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+follows from the commutativity of the following diagram
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_cba5cf4584d428effe339a9c8ab427ddafcabef9.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_cba5cf4584d428effe339a9c8ab427ddafcabef9.svg" class="org-svg" />
+</span>
+</div>
+<p>
+where <img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_9485e48332c47acf9b1f77913ef6fd31df3dc164.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_9485e48332c47acf9b1f77913ef6fd31df3dc164.svg" class="org-svg" /> is <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a> <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> <img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_490cfdc596a95655bb3331a7e898dec955141db0.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_490cfdc596a95655bb3331a7e898dec955141db0.svg" class="org-svg" /> is continuous.
+This is the case as the <a href="20230211130603-verknupfung_stetiger_funktionen_topologisch.html#ID-38904452-396a-414e-97f8-6a26807e8626">composition of continuous maps</a> is continuous
+</p>
+</div>
+</div>
+<div id="outline-container-orga9a2c43" class="outline-3">
+<h3 id="orga9a2c43"><span class="section-number-3">2.5.</span> <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a></h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+follows from commutativity of the following diagram
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_995a631b0424f5c565e86b997f072b7c466d7706.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_995a631b0424f5c565e86b997f072b7c466d7706.svg" class="org-svg" />
+</span>
+</div>
+<p>
+where for an <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> set <img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_13cc9999aae9e3ad6def80eaf538eb389ae82eab.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_13cc9999aae9e3ad6def80eaf538eb389ae82eab.svg" class="org-svg" />, the <a href="20211230205442-urbild_mengenlehre.html#ID-55e63f0f-4499-43f1-af07-5c56577a9c73">preimage</a> under <img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_b01527d2e2f0c15c97a42be5c10333c254ec03bb.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_b01527d2e2f0c15c97a42be5c10333c254ec03bb.svg" class="org-svg" /> is <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a>.
+Furthermore, <img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_3d6a620f09f88665e486ab3dc5cd88b017070d74.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_3d6a620f09f88665e486ab3dc5cd88b017070d74.svg" class="org-svg" /> are <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">maps</a>, so <img src="file:///home/anton/html/ltximg/20231024-cancelling_and_collapse_to_the_orbits_1916459535fb95cd4a543befbed4c486d9413abb.svg" alt="20231024-cancelling_and_collapse_to_the_orbits_1916459535fb95cd4a543befbed4c486d9413abb.svg" class="org-svg" /> is open
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 18:52</p>
+</div>
+</body>
+</html>

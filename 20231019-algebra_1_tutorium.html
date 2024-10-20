@@ -1,0 +1,1023 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 18:44 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Algebra 1 - Tutorium</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Algebra 1 - Tutorium</h1>
+<div id="outline-container-org0af8508" class="outline-2">
+<h2 id="org0af8508"><span class="section-number-2">1.</span> Blatt 1</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org29276af" class="outline-3">
+<h3 id="org29276af"><span class="section-number-3">1.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20231023-vereinigung_von_untegruppen.html#ID-81fa75b3-3444-42f7-a3b9-e188fde0d936">Vereinigung von Untegruppen</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org227d6d1" class="outline-3">
+<h3 id="org227d6d1"><span class="section-number-3">1.2.</span> </h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20231023-homomorphismen_von_einer_endlichen_gruppe_auf_die_ganzen_zahlen.html#ID-471b62cf-9472-47df-b82d-c15b7356090e">Homomorphismen von einer endlichen Gruppe auf die ganzen Zahlen</a></li>
+<li><a href="20231023-homomorphismen_von_den_rationalen_auf_die_ganzen_zahlen.html#ID-5ff5da99-3ffb-42ea-a8e4-dca438052cf0">Homomorphismen von den rationalen auf die ganzen Zahlen</a></li>
+<li><a href="20231203-homomorphism_from_z_nz.html#ID-6fedeb04-8323-4b29-8356-ed69e161e6e1">homomorphism from Z/nZ and cyclic groups</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6a5af7b" class="outline-3">
+<h3 id="org6a5af7b"><span class="section-number-3">1.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20231023-logarithmus_als_gruppenisomorphismus.html#ID-6a4e2d16-e85e-4a67-b12e-a35902c45bba">Logarithmus als Gruppenisomorphismus</a></li>
+<li>dabei sind \((\mathbb{R}^+, \cdot)\), \((\mathbb{R}^\times, \cdot)\) und \((\mathbb{C}^\times, \cdot)\) jeweils paarweise nicht iso</li>
+<li>es existiert kein (nicthtriviales) selbstinverses</li>
+<li>es existiert \(-1\) mit \(-1 \neq 1\) und \((-1)^2 = 1\), aber kein Element \(\alpha\) mit \(\alpha^4 = e, \alpha^2 \neq e\) (argumentetation über Betrag :)</li>
+<li>es existiert \(\mathrm{i}\) mit \(\mathrm{i}^2 = -1 \neq 1\) und \(\mathrm{i}^4 \neq 1\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orged305be" class="outline-3">
+<h3 id="orged305be"><span class="section-number-3">1.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><a href="20231023-rein_selbstinverse_elemente_impliziert_abelsche_gruppe.html#ID-99164f09-a68a-45c3-969e-565cbb28832b">rein selbstinverse Elemente impliziert abelsche Gruppe</a></li>
+<li><a href="20231023-endliche_gruppe_mit_gerader_ordnung_impliziert_selbstinverses_element.html#ID-8eff5042-8417-41c7-aca1-5dfed7f1cbe9">endliche Gruppe mit gerader Ordnung impliziert selbstinverses Element</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org23406c6" class="outline-2">
+<h2 id="org23406c6"><span class="section-number-2">2.</span> Blatt 2</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org347b579" class="outline-3">
+<h3 id="org347b579"><span class="section-number-3">2.1.</span> Aufgabe 1</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li><a href="20231030-homomorphismus_zwischen_teilefremden_endlichen_gruppen_als_nullabbildung.html#ID-9c00c012-5062-415f-a1c1-de19842f4c66">Homomorphismus zwischen teilefremden, endlichen Gruppen als Nullabbildung</a></li>
+<li><a href="20231030-endliche_gruppe_und_eindeutiger_normalteiler.html#ID-f82876a7-b2a7-4a70-8127-ccd459aba316">endliche Gruppe und eindeutiger Normalteiler für teilerfremde Ordnung mit dem Index</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org872792f" class="outline-3">
+<h3 id="org872792f"><span class="section-number-3">2.2.</span> Aufgabe 2</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li><a href="20230808-kommutatorgruppe.html#ID-06a85ad0-3007-4ec7-8478-52f45f7cd091">commutator subgroup</a></li>
+<li><a href="20230808-commutator_subgroup_as_normal_subgroup.html#ID-9a1c8b32-66ed-4476-8b7f-028171d282dd">commutator subgroup as normal subgroup</a></li>
+<li><a href="20230808-abelianization.html#ID-9328ee6e-513f-4bfd-a651-1a5021fab238">Abelianization</a></li>
+<li><a href="20230808-universal_property_of_an_abelianization.html#ID-2d90dc39-29a9-42c5-a5e8-1903ad8eecc7">Universal property of an Abelianization</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3a74822" class="outline-3">
+<h3 id="org3a74822"><span class="section-number-3">2.3.</span> Aufgabe 3</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li><a href="20231030-element_of_a_finite_ring_as_unit_or_zero_divisor.html#ID-ba1045bd-c35f-4be7-9581-acb4758061a4">element of a finite ring as unit or zero divisor</a></li>
+<li><a href="20230421121825-endlicher_integritatsbereich_als_korper.html#ID-db48354b-1418-466e-891e-222aca35137d">endlicher Integritätsbereich als Körper</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgecbadb9" class="outline-3">
+<h3 id="orgecbadb9"><span class="section-number-3">2.4.</span> Aufgabe 4</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li><a href="20230421142812-summe_von_nilpotenten_elementen_sind_nilpotent.html#ID-80668bdd-085d-45eb-92f9-36c74eb32773">Summe von nilpotenten Elementen sind nilpotent</a></li>
+<li><a href="20230421143122-summe_eines_nilpotenten_elements_und_einer_einheit_als_einheit.html#ID-18a11fd6-bf09-4d15-a485-7ed80c5843bb">Sum of a nilpotent and a unit as unit</a></li>
+<li>charakterisierung von nilpotententen elementen in \(\mathbb{Z}\)
+<ul class="org-ul">
+<li></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgda44433" class="outline-2">
+<h2 id="orgda44433"><span class="section-number-2">3.</span> Blatt 3</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org2ee3b03" class="outline-3">
+<h3 id="org2ee3b03"><span class="section-number-3">3.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li><a href="20230726-universal_property_of_a_polynomial_ring.html#ID-4f94edc3-f629-47bb-96e0-1715c115beb1">universal property of a polynomial ring</a></li>
+<li>\((x - a)\)</li>
+<li>\((x^2 + 1)\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org83bcccd" class="outline-3">
+<h3 id="org83bcccd"><span class="section-number-3">3.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li><a href="20230725-radical_of_an_ideal.html#ID-a5fd42b5-ba84-4c7e-8a5b-e36101a7fa1e">radical</a></li>
+<li><a href="20230725-radical_ideal.html#ID-a09d853a-3453-49c0-82a0-5ee102e45c53">radical ideal</a></li>
+<li><a href="20230802-radical_of_an_ideal_as_a_radical_ideal.html#ID-6d853138-47f7-437c-8158-0ae4e8944a07">radical of an ideal as a radical ideal</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgebd1dde" class="outline-3">
+<h3 id="orgebd1dde"><span class="section-number-3">3.3.</span> 3) - todo</h3>
+<div class="outline-text-3" id="text-3-3">
+<ul class="org-ul">
+<li><a href="20230605-idempotentes_element.html#ID-08520735-6a21-4b2e-83ab-772d2f9eb0d8">idempotent element</a></li>
+<li><a href="20231106-1_minus_idempotent_element.html#ID-57a1de7f-25f9-43bc-8cf2-e3aadadcf746">1 minus idempotent element</a></li>
+<li><a href="20231106-ideal_fur_ein_idempotentes_element_als_unterrring.html#ID-a1bfe780-31bd-4ca1-a006-20e8d875d2c3">Ideal für ein idempotentes Element als Ring</a></li>
+<li><a href="20231106-isomorphismus_von_ringen_fur_ein_idempotentes_element.html#ID-e3ba1875-434e-4c51-869a-05ed7ab02794">isomorphismus von Ringen für ein Idempotentes Element</a></li>
+<li><a href="20231106-ideal_fur_ein_idempotentes_element_i_a_kein_unterring.html#ID-796c9da6-c0f0-4839-8d11-2fca33a375b7">Ideal für ein idempotentes Element i.a. kein Unterring</a></li>
+<li><a href="20231106-local_ring_not_a_product_of_rinsg.html#ID-d6348695-672b-4210-b42c-844152abe643">local ring not a product of rings</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org146a408" class="outline-3">
+<h3 id="org146a408"><span class="section-number-3">3.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-3-4">
+<ul class="org-ul">
+<li><a href="20230316221258-polynomring_uber_einem_korper_als_hauptidealring.html#ID-d0a25f1c-b5b1-46e3-bda8-6f094c70cd88">Polynomring in einer Variable über einem Körper und Polynomring als Hauptidealring</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgaf1fc13" class="outline-2">
+<h2 id="orgaf1fc13"><span class="section-number-2">4.</span> Blatt 4</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgd65d9f0" class="outline-3">
+<h3 id="orgd65d9f0"><span class="section-number-3">4.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li><a href="20230531092007-ideale_unter_homomorphismen.html#ID-74859086-2238-4f10-b087-d9ba7b5cbf4c">image of an ideal under an epimorphism as ideal</a>, i.a. nicht (\(2 \mathbb{Z} \subseteq \mathbb{Q}\))</li>
+<li><a href="20230723-urbild_eines_ideals.html#ID-368eb159-1214-4cc3-8cba-86ea3ce6c43c">preimage of an ideal as ideal</a></li>
+<li><a href="20230915-ring_morphism_induces_morphism_between_the_spectrum.html#ID-614f22bf-8db2-4e60-9811-a771c252d223">induced map between spectra by a ring homomorphism</a></li>
+<li>$&iota;<sup>-1</sup>[(0)] = (0) \subseteq \mathbb{Z} $</li>
+<li><a href="20230803-prime_ideal_as_radical_ideal.html#ID-cdc998f1-5ce7-4e7a-8d82-6fe890cb6fbd">prime ideal as radical ideal</a></li>
+<li>\(6 \mathbb{Z}\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc9f83c2" class="outline-3">
+<h3 id="orgc9f83c2"><span class="section-number-3">4.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-4-2">
+<ul class="org-ul">
+<li><a href="20230726-prime_ideal_and_product.html#ID-ad41455a-9409-44cb-ba61-3797fdfeae95">prime ideal and product</a></li>
+<li><a href="20231113-ideal_inside_the_union_of_prime_ideals.html#ID-162387bd-a4a4-4cc9-b69a-db5010b5165f">ideal inside the union of prime ideals</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1dbb176" class="outline-3">
+<h3 id="org1dbb176"><span class="section-number-3">4.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-4-3">
+<ul class="org-ul">
+<li>1) <a href="20231113-prime_element_in_a_quotient_ring.html#ID-484ca609-3356-4321-891d-f43a9a904d43">prime element in a quotient ring</a></li>
+<li>2) keine nullstelle ~&gt; ausklammern + grad 2 ausprobieren</li>
+<li>3) bild: \(K[t]\) + kern von</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orge20a6e3" class="outline-2">
+<h2 id="orge20a6e3"><span class="section-number-2">5.</span> Blatt 5</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org2e3f7b0" class="outline-3">
+<h3 id="org2e3f7b0"><span class="section-number-3">5.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li><a href="20220906102828-euklidischer_algorithmus.html#ID-46ca0f33-0265-49a8-a689-91968fb88b56">euklidischer Algorithmus</a></li>
+<li></li>
+</ul>
+<p>
+Anwenden von
+</p>
+\begin{align*}
+X^{m} = (X^{k} - 1) \cdot (X^{m-k} + (X^{m-k} - 1)
+\end{align*}
+<p>
+reduktion auf die a)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org403b1fe" class="outline-3">
+<h3 id="org403b1fe"><span class="section-number-3">5.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-5-2">
+<ul class="org-ul">
+<li><a href="20230726-localization_behind_a_prime_ideal_as_local_ring.html#ID-e7004e33-37c7-453f-b666-0312e8b8201c">localization at a prime ideal as local ring</a></li>
+<li><a href="20230811-localization_at_a_prime_ideal.html#ID-3ea2a099-8f1a-4085-abd1-446a0290dbce">localization of a ring at a prime ideal</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5dbbccd" class="outline-3">
+<h3 id="org5dbbccd"><span class="section-number-3">5.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-5-3">
+<ul class="org-ul">
+<li><a href="20231116-gcd_of_polynomials_and_quotient_ring.html#ID-1b0d0071-514d-401b-8074-1623a87e0bb3">gcd of polynomials as non unit and quotient ring for a UFD</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf98aa87" class="outline-3">
+<h3 id="orgf98aa87"><span class="section-number-3">5.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-5-4">
+<ul class="org-ul">
+<li><a href="20231121-smallest_nontrivial_polynomial_with_all_roots.html#ID-687d8465-c118-45a8-9a9c-d4159dbf27eb">smallest nontrivial polynomial for a prime field with all roots</a></li>
+<li><a href="20231121-factorial_of_p_1.html#ID-be26e79c-bd89-4297-9cc0-a85bde21f3d8">factorial of p-1</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org94a03f8" class="outline-2">
+<h2 id="org94a03f8"><span class="section-number-2">6.</span> Blatt 6</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org11fd683" class="outline-3">
+<h3 id="org11fd683"><span class="section-number-3">6.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-6-1">
+</div>
+<div id="outline-container-org96123d6" class="outline-4">
+<h4 id="org96123d6"><span class="section-number-4">6.1.1.</span> a)</h4>
+<div class="outline-text-4" id="text-6-1-1">
+<p>
+eisenstein reduktion modulo 2:
+</p>
+<ul class="org-ul">
+<li>dann gauß lemma</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5fb7654" class="outline-4">
+<h4 id="org5fb7654"><span class="section-number-4">6.1.2.</span> b)</h4>
+<div class="outline-text-4" id="text-6-1-2">
+<p>
+eisenstein reduktion modulo Y
+</p>
+</div>
+</div>
+<div id="outline-container-org06422b8" class="outline-4">
+<h4 id="org06422b8"><span class="section-number-4">6.1.3.</span> c)</h4>
+<div class="outline-text-4" id="text-6-1-3">
+<p>
+eisenstein für \(1 + \mathrm{i}\), \(1 + \mathrm{i}\) prim wegen norm
+</p>
+</div>
+</div>
+<div id="outline-container-orga26234c" class="outline-4">
+<h4 id="orga26234c"><span class="section-number-4">6.1.4.</span> d)</h4>
+<div class="outline-text-4" id="text-6-1-4">
+<p>
+keine nullstelle
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orge637151" class="outline-3">
+<h3 id="orge637151"><span class="section-number-3">6.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-6-2">
+</div>
+<div id="outline-container-orgfea7f10" class="outline-4">
+<h4 id="orgfea7f10"><span class="section-number-4">6.2.1.</span> deg 0</h4>
+<div class="outline-text-4" id="text-6-2-1">
+<p>
+keine, da körper
+</p>
+</div>
+</div>
+<div id="outline-container-orga681116" class="outline-4">
+<h4 id="orga681116"><span class="section-number-4">6.2.2.</span> deg 1</h4>
+<div class="outline-text-4" id="text-6-2-2">
+<ul class="org-ul">
+<li>\(X\)</li>
+<li>\(X - 1\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf26ead9" class="outline-4">
+<h4 id="orgf26ead9"><span class="section-number-4">6.2.3.</span> deg 2</h4>
+<div class="outline-text-4" id="text-6-2-3">
+<ul class="org-ul">
+<li>\(X^2 + X + 1\)</li>
+<li>da \((X + 1)(X + 1) = X^2 + 1\), \(X^2 + X\) clearly nicht irreduzibel</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org266c3cb" class="outline-4">
+<h4 id="org266c3cb"><span class="section-number-4">6.2.4.</span> deg 3</h4>
+<div class="outline-text-4" id="text-6-2-4">
+<ul class="org-ul">
+<li>\(X^3 + X^2 + 1\)</li>
+<li>\(X^3 + X + 1\)</li>
+<li>mappification ist gleich</li>
+<li>keine nullstelle da als mappification äquivalent zu \(X + 1\)</li>
+<li>grad kleiner 3 lemma</li>
+<li>dabei ende mit \(1\) notwendig wegen \(X\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgdbe04e4" class="outline-4">
+<h4 id="orgdbe04e4"><span class="section-number-4">6.2.5.</span> deg 4</h4>
+</div>
+</div>
+<div id="outline-container-orge87950a" class="outline-3">
+<h3 id="orge87950a"><span class="section-number-3">6.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-6-3">
+<p>
+wiederholte multiplikation der elemente
+</p>
+</div>
+</div>
+<div id="outline-container-org52da16e" class="outline-3">
+<h3 id="org52da16e"><span class="section-number-3">6.4.</span> 4)</h3>
+</div>
+</div>
+
+<div id="outline-container-org75a1ffc" class="outline-2">
+<h2 id="org75a1ffc"><span class="section-number-2">7.</span> Blatt 7</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-orga4b5b7e" class="outline-3">
+<h3 id="orga4b5b7e"><span class="section-number-3">7.1.</span> Aufgabe 1</h3>
+<div class="outline-text-3" id="text-7-1">
+<ul class="org-ul">
+<li><a href="20230805-menge_der_algebraisch_abgeschlossenen_elemente_als_zwischenkorper.html#ID-8b2f3fcb-b11d-42a1-abef-3ef4fb063d17">Menge der algebraisch abgeschlossenen Elemente als Zwischenkörper</a></li>
+<li><a href="20231212-menge_der_algebraischen_elemente_eines_algebraisch_abgeschlossenen_korpers_als_algebraischer_abschluss.html#ID-6c1b1846-9d5b-4464-a0d2-72e1aa25491e">Menge der algebraischen Elemente eines algebraisch abgeschlossenen Körpers als algebraischer Abschluss</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgeb71b46" class="outline-3">
+<h3 id="orgeb71b46"><span class="section-number-3">7.2.</span> Aufgabe 2</h3>
+<div class="outline-text-3" id="text-7-2">
+<ul class="org-ul">
+<li><a href="20230802-general_chinese_remainder_theorem.html#ID-2b073d0b-35d3-4862-baf2-dea9af563b8b">general chinese remainder theorem</a></li>
+<li>\(x^{m \cdot n} - 2^n \cdot 3^m\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org628f782" class="outline-3">
+<h3 id="org628f782"><span class="section-number-3">7.3.</span> Aufgabe 3</h3>
+<div class="outline-text-3" id="text-7-3">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge3af9f6" class="outline-3">
+<h3 id="orge3af9f6"><span class="section-number-3">7.4.</span> Aufgabe 4</h3>
+<div class="outline-text-3" id="text-7-4">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org3ceb244" class="outline-2">
+<h2 id="org3ceb244"><span class="section-number-2">8.</span> Blatt 8</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org55d0bae" class="outline-3">
+<h3 id="org55d0bae"><span class="section-number-3">8.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-8-1">
+<ul class="org-ul">
+<li><a href="20231212-menge_der_algebraischen_elemente_eines_algebraisch_abgeschlossenen_korpers_als_algebraischer_abschluss.html#ID-6c1b1846-9d5b-4464-a0d2-72e1aa25491e">Menge der algebraischen Elemente eines algebraisch abgeschlossenen Körpers als algebraischer Abschluss</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd5e6730" class="outline-3">
+<h3 id="orgd5e6730"><span class="section-number-3">8.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-8-2">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc1ae96c" class="outline-3">
+<h3 id="orgc1ae96c"><span class="section-number-3">8.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-8-3">
+<ul class="org-ul">
+<li><a href="20231212-root_under_a_algebra_homomorphisms.html#ID-ae9297aa-9dc9-49fe-ba79-f7d4e4fc5ee7">root under A-Algebra homomorphisms</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org92c50ee" class="outline-3">
+<h3 id="org92c50ee"><span class="section-number-3">8.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-8-4">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org28866bd" class="outline-2">
+<h2 id="org28866bd"><span class="section-number-2">9.</span> Blatt 9</h2>
+<div class="outline-text-2" id="text-9">
+</div>
+<div id="outline-container-org0f5a27a" class="outline-3">
+<h3 id="org0f5a27a"><span class="section-number-3">9.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-9-1">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1a67f8c" class="outline-3">
+<h3 id="org1a67f8c"><span class="section-number-3">9.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-9-2">
+<ul class="org-ul">
+<li><a href="20231219-field_extension_of_elements_with_degree_2_as_normal_extension.html#ID-63d2678e-3cce-4161-8ce4-3dd73e3c4dec">field extension of elements with degree 2 as normal extension</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9d6b1c3" class="outline-3">
+<h3 id="org9d6b1c3"><span class="section-number-3">9.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-9-3">
+<ul class="org-ul">
+<li><a href="20231212-zwischenkorper_einer_normalen_korpererweiterung_als_normale_korpererweiterung.html#ID-bd350cb3-699a-4a30-88f6-90ba47f31743">zwischenkörper einer normalen Körpererweiterung induziert normale Körpererweiterung</a></li>
+<li><a href="20240109-normal_korpererweiterung_i_a_nicht_transitiv.html#ID-dc994827-044c-40fa-9721-487ba1a64f92">normal körpererweiterung i.A. nicht transitiv</a></li>
+<li><a href="20240109-intersection_of_normal_field_extensions_as_normal_field_extension.html#ID-978f1e8f-a7a5-4024-917a-0438925915d5">intersection of normal field extensions as normal field extension</a></li>
+<li><a href="20240109-composite_field_of_a_normal_field_extension_induces_normal_field_extension.html#ID-b867d5f1-7510-4800-bb07-a2c0d635b2dc">composite field of a normal field extension induces normal field extension</a></li>
+<li><a href="20240109-composite_field_of_a_normal_field_extension_as_normal_field_extension.html#ID-0e1d3cea-d892-4295-a2a5-1f91540c2ec5">composite field of a normal field extension as normal field extension</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd1626c1" class="outline-3">
+<h3 id="orgd1626c1"><span class="section-number-3">9.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-9-4">
+<ul class="org-ul">
+<li><a href="20240109-element_of_f5_as_square_of_f25.html#ID-e9e34ac8-9a07-4d3a-94ab-b16790d31ec6">element of F5 as square of F25</a></li>
+<li><a href="20240109-polynomial_of_degree_2_over_f5_splits_in_f25.html#ID-7847f413-982b-4e07-a4a7-4a7fa85b89f3">polynomial of degree 2 over F5 splits in F25</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org416e7f9" class="outline-2">
+<h2 id="org416e7f9"><span class="section-number-2">10.</span> Wdh-Blatt</h2>
+<div class="outline-text-2" id="text-10">
+</div>
+<div id="outline-container-org6799925" class="outline-3">
+<h3 id="org6799925"><span class="section-number-3">10.1.</span> Gruppen</h3>
+<div class="outline-text-3" id="text-10-1">
+</div>
+<div id="outline-container-orgca30b35" class="outline-4">
+<h4 id="orgca30b35"><span class="section-number-4">10.1.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-10-1-1">
+<ul class="org-ul">
+<li><a href="20240108-closed_subset_of_a_finite_group_as_subgroup.html#ID-8418ab2b-b363-49b1-bc1f-58523e903ab4">closed subset of a finite group as subgroup</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgdbc1120" class="outline-4">
+<h4 id="orgdbc1120"><span class="section-number-4">10.1.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-10-1-2">
+<ul class="org-ul">
+<li>element chasing:
+<ul class="org-ul">
+<li>neutrale element finden</li>
+<li>möglichkeiten durchgehen</li>
+</ul></li>
+<li>CRT</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgba0b5fd" class="outline-4">
+<h4 id="orgba0b5fd"><span class="section-number-4">10.1.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-10-1-3">
+<ul class="org-ul">
+<li><a href="20240108-automorphism_group_of_z_nz_and_unit_group.html#ID-bc9aba0c-53d2-4370-b9e4-e84b3d72e614">automorphism group of Z/nZ and unit group</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org9ffc17c" class="outline-3">
+<h3 id="org9ffc17c"><span class="section-number-3">10.2.</span> Ringe</h3>
+<div class="outline-text-3" id="text-10-2">
+</div>
+<div id="outline-container-org1e47071" class="outline-4">
+<h4 id="org1e47071"><span class="section-number-4">10.2.1.</span> 4)</h4>
+<div class="outline-text-4" id="text-10-2-1">
+<ul class="org-ul">
+<li><a href="20240108-ring_with_subgroups_as_ideal_and_integers.html#ID-3ce8c828-7258-4c3b-916c-89114acb672f">ring with subgroups as ideal and integers</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgaf19f59" class="outline-4">
+<h4 id="orgaf19f59"><span class="section-number-4">10.2.2.</span> 5)</h4>
+<div class="outline-text-4" id="text-10-2-2">
+<ul class="org-ul">
+<li><a href="20240108-ring_module_principal_ideal_and_polynomial_ring.html#ID-d53020c0-6572-4cbe-b5dc-d5f114a57f1f">ring module principal ideal and polynomial ring</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4c6f1df" class="outline-4">
+<h4 id="org4c6f1df"><span class="section-number-4">10.2.3.</span> 6)</h4>
+<div class="outline-text-4" id="text-10-2-3">
+<ul class="org-ul">
+<li><a href="20240108-invert_monoid_homomorphism_of_polynomial_rings.html#ID-ef74339b-1890-4f41-a3e5-eea1994f3246">invert coefficients as monoid homomorphism of polynomial rings</a></li>
+<li><a href="20240108-irreducible_polynomial_and_invert.html#ID-2040bb82-a017-43c1-a566-354711d3aa77">irreducible polynomial and invert coefficients</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org72f6e24" class="outline-3">
+<h3 id="org72f6e24"><span class="section-number-3">10.3.</span> Körper</h3>
+<div class="outline-text-3" id="text-10-3">
+</div>
+<div id="outline-container-orgccdd3ca" class="outline-4">
+<h4 id="orgccdd3ca"><span class="section-number-4">10.3.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-10-3-1">
+<ul class="org-ul">
+<li>durchgehen</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgaadf3b4" class="outline-4">
+<h4 id="orgaadf3b4"><span class="section-number-4">10.3.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-10-3-2">
+<ul class="org-ul">
+<li><a href="20240108-purely_transcendental_field_extension.html#ID-7a20217a-c2f5-4c4f-919e-f45818418cdf">purely transcendental field extension</a></li>
+<li><a href="20240108-unique_algebraic_intermediate_field.html#ID-dc9857c9-ad12-48f8-a2cb-cf6b8a171292">unique algebraic intermediate field</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga707d99" class="outline-4">
+<h4 id="orga707d99"><span class="section-number-4">10.3.3.</span> 3)</h4>
+<div class="outline-text-4" id="text-10-3-3">
+<ul class="org-ul">
+<li><a href="20240108-degree_of_a_composite_field_of_coprime_degree.html#ID-8efbd3d0-c6b7-444a-84a1-145c635a38f5">degree of a composite field of coprime degree</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4c0a76c" class="outline-2">
+<h2 id="org4c0a76c"><span class="section-number-2">11.</span> Blatt 10</h2>
+<div class="outline-text-2" id="text-11">
+</div>
+<div id="outline-container-orgbfe7642" class="outline-3">
+<h3 id="orgbfe7642"><span class="section-number-3">11.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-11-1">
+<ul class="org-ul">
+<li></li>
+
+<li><a href="20240116-irreducible_polynomial_in_positive_characteristic_as_evaluation_of_a_seperable_polynomial.html#ID-25562ad2-8950-45d4-a1e4-7d9e7e7982d0">irreducible polynomial in positive characteristic as evaluation of a seperable polynomial</a></li>
+<li><a href="20240115-endliche_korpererweiterung_ohne_charakteristik_als_teiler_und_separable_korpererweiterung.html#ID-b9565a0a-162c-41ba-b3ed-066f36284ca1">endliche körpererweiterung ohne charakteristik als teiler und separable körpererweiterung</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgacdd9b3" class="outline-3">
+<h3 id="orgacdd9b3"><span class="section-number-3">11.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-11-2">
+<ul class="org-ul">
+<li><a href="20240114-abschatzung_einer_des_grades_einer_algebraischen_korpererweiterung_und_zwischenkorper.html#ID-5089b44d-b7da-4f74-b8d1-00b672cd4f34">Abschätzung einer des Grades einer algebraischen Körpererweiterung und endliche Zwischenkörper</a></li>
+<li><a href="20240115-abschatzung_des_grades_einer_separablen_algebraischen_korpererweiterung_und_einfache_zwischenkorper.html#ID-7e00e39b-8565-4d9b-ab23-4a2e2a6ab03f">Abschätzung des Grades einer separablen algebraischen Körpererweiterung und einfache Zwischenkörper</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1d5b18f" class="outline-3">
+<h3 id="org1d5b18f"><span class="section-number-3">11.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-11-3">
+<ul class="org-ul">
+<li><a href="20240115-separable_element_and_p_th_power_as_separable_element.html#ID-2aeac18a-1997-42da-8925-f6679f279166">separairreducible ble element and p-th power as separable element</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org35ad6c8" class="outline-3">
+<h3 id="org35ad6c8"><span class="section-number-3">11.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-11-4">
+<ul class="org-ul">
+<li><a href="20240115-intermediate_field_extension_of_a_normal_extension_and_separability_degree.html#ID-8cae2e99-0dc7-48cb-a09a-b7eef9ce8b5d">intermediate field extension of a normal extension and separability degree</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga908e95" class="outline-2">
+<h2 id="orga908e95"><span class="section-number-2">12.</span> Blatt 11</h2>
+<div class="outline-text-2" id="text-12">
+</div>
+<div id="outline-container-org51bfc88" class="outline-3">
+<h3 id="org51bfc88"><span class="section-number-3">12.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-12-1">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1b88e33" class="outline-3">
+<h3 id="org1b88e33"><span class="section-number-3">12.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-12-2">
+<ul class="org-ul">
+<li>element \(1,3\) generate \(\mathbb{Z}/4 \mathbb{Z}\), hence only \((2)\) as non trivial subgruop</li>
+<li><a href="20240211-field_extension_of_degree_2_as_real_field.html#ID-7abe4965-b028-4954-924f-cadd5ee10326">field extension of degree 2 as real field</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc5c3406" class="outline-3">
+<h3 id="orgc5c3406"><span class="section-number-3">12.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-12-3">
+<ul class="org-ul">
+<li><a href="20231205-discriminant.html#ID-3504db06-dc57-4971-bb2d-410838c8c31a">discriminant</a></li>
+<li><a href="20240211-discriminant_of_a_separable_polynomial.html#ID-fd10d1b5-8d8b-47bd-998b-481d2c16cc2b">discriminant of a separable polynomial</a></li>
+<li><a href="20240211-discriminant_of_an_inseparable_polynomial.html#ID-9042cb3d-5f98-4f27-b62b-e1cff95b5cbe">discriminant of an inseparable polynomial</a></li>
+<li><a href="20240211-discriminant_for_a_polynomial_of_degree_2_and_irreducible.html#ID-cec4dd9c-37b2-45a4-bf38-2b76d44b964d">discriminant for a polynomial of degree 2 and irreducible</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org1bddc73" class="outline-2">
+<h2 id="org1bddc73"><span class="section-number-2">13.</span> Blatt 12</h2>
+</div>
+<div id="outline-container-org518073e" class="outline-2">
+<h2 id="org518073e"><span class="section-number-2">14.</span> Blatt 13</h2>
+<div class="outline-text-2" id="text-14">
+</div>
+<div id="outline-container-org7999974" class="outline-3">
+<h3 id="org7999974"><span class="section-number-3">14.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-14-1">
+<ul class="org-ul">
+<li><a href="20240206-group_of_order_56_not_simple.html#ID-273acdd9-25c3-495a-8f65-2098b9267e7d">group of order 56 not simple</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6e5db31" class="outline-3">
+<h3 id="org6e5db31"><span class="section-number-3">14.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-14-2">
+<ul class="org-ul">
+<li><a href="20240205-transitivity_of_normal_subgroups_for_a_sylow_subrgoup.html#ID-95a8ca67-300e-4d10-917d-ae2a5ff468a1">transitivity of normal subgroups for a sylow subgroup</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgdc1267a" class="outline-3">
+<h3 id="orgdc1267a"><span class="section-number-3">14.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-14-3">
+<ul class="org-ul">
+<li><a href="20240206-finite_simple_group_and_subgroup_of_index_p.html#ID-c707f341-9ff0-4801-8b7d-285398f2318a">finite simple group and subgroup of index p</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org76b52bc" class="outline-3">
+<h3 id="org76b52bc"><span class="section-number-3">14.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-14-4">
+<ul class="org-ul">
+<li><a href="20240131-order_of_product_of_coprime_subgroups.html#ID-a2814edd-146b-48d6-9339-a330cba00893">order of the product of coprime subgroups</a></li>
+<li><a href="20240206-splitting_lemma_for_sylow_groups.html#ID-3913a2b2-5afe-4298-a172-bff9ff6eb969">splitting lemma for sole sylow groups</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8b175fe" class="outline-3">
+<h3 id="org8b175fe"><span class="section-number-3">14.5.</span> 5)</h3>
+<div class="outline-text-3" id="text-14-5">
+</div>
+<div id="outline-container-org41ca166" class="outline-4">
+<h4 id="org41ca166"><span class="section-number-4">14.5.1.</span> i)</h4>
+<div class="outline-text-4" id="text-14-5-1">
+<ul class="org-ul">
+<li>\(S_3 \times S_3\)</li>
+<li>wrong</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org933357e" class="outline-4">
+<h4 id="org933357e"><span class="section-number-4">14.5.2.</span> ii)</h4>
+<div class="outline-text-4" id="text-14-5-2">
+<ul class="org-ul">
+<li><a href="20230421121825-endlicher_integritatsbereich_als_korper.html#ID-db48354b-1418-466e-891e-222aca35137d">finite integral domain as field</a></li>
+<li>characterization of finite fields</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf2b3acb" class="outline-4">
+<h4 id="orgf2b3acb"><span class="section-number-4">14.5.3.</span> iii)</h4>
+<div class="outline-text-4" id="text-14-5-3">
+<ul class="org-ul">
+<li><a href="20240206-polynomial_ring_in_multiple_variables_not_a_pid.html#ID-31293356-73ba-45e0-ac2d-ed8288a26ae4">polynomial ring in multiple variables not a PID</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8c97adf" class="outline-4">
+<h4 id="org8c97adf"><span class="section-number-4">14.5.4.</span> iv)</h4>
+<div class="outline-text-4" id="text-14-5-4">
+<ul class="org-ul">
+<li>\(0\) <a href="20230112165803-nullring.html#ID-638f0759-37dc-472c-bb27-7cfccbd3c550">zero ring</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd9682d2" class="outline-4">
+<h4 id="orgd9682d2"><span class="section-number-4">14.5.5.</span> v)</h4>
+<div class="outline-text-4" id="text-14-5-5">
+<ul class="org-ul">
+<li><a href="20240125-gauss_lemma_for_monic_polynomials.html#ID-4b65b5c1-77b4-4841-8329-88dad0a53713">gauss lemma for monic polynomials</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc8ea652" class="outline-4">
+<h4 id="orgc8ea652"><span class="section-number-4">14.5.6.</span> vi)</h4>
+<div class="outline-text-4" id="text-14-5-6">
+<ul class="org-ul">
+<li><a href="20230730-reduktion_modulo_p_eines_polynoms.html#ID-a4783a56-4cb3-4ee9-ba62-325c7994891f">Reduktion modulo p eines Polynoms</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9b99082" class="outline-4">
+<h4 id="org9b99082"><span class="section-number-4">14.5.7.</span> vii)</h4>
+<div class="outline-text-4" id="text-14-5-7">
+<ul class="org-ul">
+<li>wrong, \(x^3 - 2\) with degree \(6\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5ba33b9" class="outline-4">
+<h4 id="org5ba33b9"><span class="section-number-4">14.5.8.</span> viii)</h4>
+<div class="outline-text-4" id="text-14-5-8">
+<ul class="org-ul">
+<li><a href="20221229010559-unendlichkeit_algebraisch_abgeschlossener_korper.html#ID-052fa0ad-67e0-40b2-ba98-be908d3b65f9">algebraically closed field as infinite field</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org719bd0f" class="outline-4">
+<h4 id="org719bd0f"><span class="section-number-4">14.5.9.</span> ix)</h4>
+<div class="outline-text-4" id="text-14-5-9">
+<ul class="org-ul">
+<li><a href="20240205-field_extension_of_finite_fields_as_normal_field_extension.html#ID-c0c4f539-b35f-4ab9-985f-f92e79f05a4f">finite field extension of finite fields as normal field extension</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga6a5114" class="outline-4">
+<h4 id="orga6a5114"><span class="section-number-4">14.5.10.</span> x)</h4>
+<div class="outline-text-4" id="text-14-5-10">
+<ul class="org-ul">
+<li><a href="20231007-satz_vom_primitiven_element.html#ID-6f717778-48cb-4e37-96db-bf233594fc1a">Satz vom primitiven Element</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga3ad363" class="outline-4">
+<h4 id="orga3ad363"><span class="section-number-4">14.5.11.</span> xi)</h4>
+<div class="outline-text-4" id="text-14-5-11">
+<ul class="org-ul">
+<li>todo</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org072d141" class="outline-4">
+<h4 id="org072d141"><span class="section-number-4">14.5.12.</span> xii)</h4>
+<div class="outline-text-4" id="text-14-5-12">
+<ul class="org-ul">
+<li><a href="20240206-finite_separable_field_extension_with_finitely_many_intermediate_field_extension.html#ID-7775d051-e79e-421d-98b0-c7a14e2a6929">finite separable field extension with finitely many intermediate field extensions</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org558e598" class="outline-4">
+<h4 id="org558e598"><span class="section-number-4">14.5.13.</span> xiii)</h4>
+<div class="outline-text-4" id="text-14-5-13">
+<ul class="org-ul">
+<li>\(x^2 - 1\) und \(X + 1\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfcc1994" class="outline-4">
+<h4 id="orgfcc1994"><span class="section-number-4">14.5.14.</span> xiv)</h4>
+<div class="outline-text-4" id="text-14-5-14">
+<ul class="org-ul">
+<li><a href="20240202-simple_group_and_group_homomorphism.html#ID-da446478-c21f-4932-8526-3a5c3a8eb0ed">simple group and group homomorphism</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 18:44</p>
+</div>
+</body>
+</html>

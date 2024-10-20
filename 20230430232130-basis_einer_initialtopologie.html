@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 22:30 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Subbasis einer Initialtopologie</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Subbasis einer Initialtopologie</h1>
+<div id="outline-container-org8f7eaaf" class="outline-2">
+<h2 id="org8f7eaaf"><span class="section-number-2">1.</span> Satz</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Sei <img src="file:///home/anton/html/ltximg/20230430232130-basis_einer_initialtopologie_73eed9b29d43fbfeded6554d9fef135ba7ec0f7b.svg" alt="20230430232130-basis_einer_initialtopologie_73eed9b29d43fbfeded6554d9fef135ba7ec0f7b.svg" class="org-svg" /> eine <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a>, <img src="file:///home/anton/html/ltximg/20230430232130-basis_einer_initialtopologie_eabb494f8eea3ff3eeea09d4fd7157bb6e16fe1d.svg" alt="20230430232130-basis_einer_initialtopologie_eabb494f8eea3ff3eeea09d4fd7157bb6e16fe1d.svg" class="org-svg" /> eine <a href="20220819181756-klasse_mengenlehre.html#ID-998a9e01-e369-490b-bb26-657678f61d7a">Klasse</a> von 
+</p>
+</div>
+</div>
+<div id="outline-container-org443651b" class="outline-2">
+<h2 id="org443651b"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org6e1dcf3" class="outline-3">
+<h3 id="org6e1dcf3"><span class="section-number-3">2.1.</span> Basis</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Sei <img src="file:///home/anton/html/ltximg/20230430232130-basis_einer_initialtopologie_5597d6c2f9bb8fd652e5c5e8e4e02c7d9fbe181d.svg" alt="20230430232130-basis_einer_initialtopologie_5597d6c2f9bb8fd652e5c5e8e4e02c7d9fbe181d.svg" class="org-svg" /> <a href="20220819232419-stetigkeit.html#ID-b2d86612-ee0d-43a3-b49c-6953d712ecc5">stetig</a>, so gilt für eine <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offene</a> <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> <img src="file:///home/anton/html/ltximg/20230430232130-basis_einer_initialtopologie_f36638d1f0775add3c97101ada551f6c10d380e4.svg" alt="20230430232130-basis_einer_initialtopologie_f36638d1f0775add3c97101ada551f6c10d380e4.svg" class="org-svg" />, dass das <a href="20211230205442-urbild_mengenlehre.html#ID-55e63f0f-4499-43f1-af07-5c56577a9c73">Urbild</a> <img src="file:///home/anton/html/ltximg/20230430232130-basis_einer_initialtopologie_fde26bbe913b6652d96de9bd016bf05afde52bed.svg" alt="20230430232130-basis_einer_initialtopologie_fde26bbe913b6652d96de9bd016bf05afde52bed.svg" class="org-svg" /> ebenfalls <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a> ist.
+Zu den <a href="20230312232134-bedingung_fur_eine_basis_einer_topologie.html#ID-b8f08e4a-d1b7-40ba-a9e7-aa6757d00f13">Bedingungen für eine Basis einer Topologie</a>:
+Es gilt <img src="file:///home/anton/html/ltximg/20230430232130-basis_einer_initialtopologie_cf29a80495c0d9ccdf659920dde20a9c2d3c6c64.svg" alt="20230430232130-basis_einer_initialtopologie_cf29a80495c0d9ccdf659920dde20a9c2d3c6c64.svg" class="org-svg" />, d.h. <img src="file:///home/anton/html/ltximg/20230430232130-basis_einer_initialtopologie_d73603805adb05e6fd96449e8a1176719c9e648a.svg" alt="20230430232130-basis_einer_initialtopologie_d73603805adb05e6fd96449e8a1176719c9e648a.svg" class="org-svg" /> ist <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a> in der induzierten <a href="20220930230520-topologie_auf_einer_menge.html#ID-1ced2edb-806d-4fb8-ada3-ca97b7ea1d10">topologie</a>.
+Ferner gilt nach Konstruktion, dass der <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">endliche</a> <a href="20230317161158-allgemeiner_schnitt.html#ID-d7547939-8d3f-48f8-b2fd-cfb5734ae78f">Durchschnitt</a> enthalten ist, und damit insbesondere auch eine <a href="20230317161154-allgemeine_vereinigung.html#ID-69c0d505-311b-4ea6-a337-8450d6529d02">Vereinigung</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-orgc4ccdbb" class="outline-3">
+<h3 id="orgc4ccdbb"><span class="section-number-3">2.2.</span> Subbasis</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+folgt aus der Definition, da eine <a href="20230502215001-basis_als_subbasis.html#ID-1a4611ab-1d51-448b-abf3-19f3c984fed2">Basis als Subbasis</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-org6f436b6" class="outline-3">
+<h3 id="org6f436b6"><span class="section-number-3">2.3.</span> universelle Eigenschaft</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Sei <img src="file:///home/anton/html/ltximg/20230430232130-basis_einer_initialtopologie_9f902c152fb14dd492f643626255f5c12e7bd578.svg" alt="20230430232130-basis_einer_initialtopologie_9f902c152fb14dd492f643626255f5c12e7bd578.svg" class="org-svg" /> eine <a href="20220930230520-topologie_auf_einer_menge.html#ID-1ced2edb-806d-4fb8-ada3-ca97b7ea1d10">Topologie</a> und <img src="file:///home/anton/html/ltximg/20230430232130-basis_einer_initialtopologie_c801a9b67b8fc488483c58861a7cea51fbcedb43.svg" alt="20230430232130-basis_einer_initialtopologie_c801a9b67b8fc488483c58861a7cea51fbcedb43.svg" class="org-svg" /> eine <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a>:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20230430232130-basis_einer_initialtopologie_16adeab730d48c26b1b848fa9f5115edeace4540.svg" alt="20230430232130-basis_einer_initialtopologie_16adeab730d48c26b1b848fa9f5115edeace4540.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Falls <img src="file:///home/anton/html/ltximg/20230430232130-basis_einer_initialtopologie_5f965d0a56374955f8a17da7129fa95cde5a6603.svg" alt="20230430232130-basis_einer_initialtopologie_5f965d0a56374955f8a17da7129fa95cde5a6603.svg" class="org-svg" /> <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">stetig</a> ist, folgt aus der <a href="20230211130603-verknupfung_stetiger_funktionen_topologisch.html#ID-38904452-396a-414e-97f8-6a26807e8626">Komposition stetiger Abbildungen</a>, dass <img src="file:///home/anton/html/ltximg/20230430232130-basis_einer_initialtopologie_ebbdad1a6a98ba2411afd96c03536a8c561b758c.svg" alt="20230430232130-basis_einer_initialtopologie_ebbdad1a6a98ba2411afd96c03536a8c561b758c.svg" class="org-svg" /> <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">stetig</a> ist.
+Sei <img src="file:///home/anton/html/ltximg/20230430232130-basis_einer_initialtopologie_ebbdad1a6a98ba2411afd96c03536a8c561b758c.svg" alt="20230430232130-basis_einer_initialtopologie_ebbdad1a6a98ba2411afd96c03536a8c561b758c.svg" class="org-svg" /> <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">stetig</a>, so zeigen wir nach der Aussage, dass das <a href="20230313165454-urbild_und_subbasis_einer_stetigen_funktion.html#ID-8a7fdcd8-db9e-4bd5-8456-6f738b2054ed">Urbild der Subbasis</a> <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a> ist.
+Sei <img src="file:///home/anton/html/ltximg/20230430232130-basis_einer_initialtopologie_28e4a878e7ca270c772d3d4b0d80320ca6c69125.svg" alt="20230430232130-basis_einer_initialtopologie_28e4a878e7ca270c772d3d4b0d80320ca6c69125.svg" class="org-svg" />, d.h. <img src="file:///home/anton/html/ltximg/20230430232130-basis_einer_initialtopologie_92a33ba3eb2e7d94e8d80f936eef76033c05d53c.svg" alt="20230430232130-basis_einer_initialtopologie_92a33ba3eb2e7d94e8d80f936eef76033c05d53c.svg" class="org-svg" /> für ein <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offenes</a> <img src="file:///home/anton/html/ltximg/20230430232130-basis_einer_initialtopologie_2fbe06e87b97a7082092f50f08cabaf6c7f748c7.svg" alt="20230430232130-basis_einer_initialtopologie_2fbe06e87b97a7082092f50f08cabaf6c7f748c7.svg" class="org-svg" />, dann folgt
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20230430232130-basis_einer_initialtopologie_1bda9c136d6cf1f8319f3d1ac6add762b49d2356.svg" alt="20230430232130-basis_einer_initialtopologie_1bda9c136d6cf1f8319f3d1ac6add762b49d2356.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Wegen der <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">stetigkeit</a> von <img src="file:///home/anton/html/ltximg/20230430232130-basis_einer_initialtopologie_ebbdad1a6a98ba2411afd96c03536a8c561b758c.svg" alt="20230430232130-basis_einer_initialtopologie_ebbdad1a6a98ba2411afd96c03536a8c561b758c.svg" class="org-svg" /> folgt damit, dass <img src="file:///home/anton/html/ltximg/20230430232130-basis_einer_initialtopologie_a8b244e6a106358695493bceacb7b8ab7dcb28d8.svg" alt="20230430232130-basis_einer_initialtopologie_a8b244e6a106358695493bceacb7b8ab7dcb28d8.svg" class="org-svg" /> und damit auch <img src="file:///home/anton/html/ltximg/20230430232130-basis_einer_initialtopologie_26bdd98311fa145427cf972a0b31742668688187.svg" alt="20230430232130-basis_einer_initialtopologie_26bdd98311fa145427cf972a0b31742668688187.svg" class="org-svg" /> <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a> ist, d.h. <img src="file:///home/anton/html/ltximg/20230430232130-basis_einer_initialtopologie_5f965d0a56374955f8a17da7129fa95cde5a6603.svg" alt="20230430232130-basis_einer_initialtopologie_5f965d0a56374955f8a17da7129fa95cde5a6603.svg" class="org-svg" /> ist <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">stetig</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-orgd4980eb" class="outline-3">
+<h3 id="orgd4980eb"><span class="section-number-3">2.4.</span> wohldefiniert</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+folgt aus dem <a href="20230828-axiom_schema_of_specification.html#ID-0108d58a-dc6f-4832-8173-29605136de81">axiom schema of specification</a> 
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 22:30</p>
+</div>
+</body>
+</html>

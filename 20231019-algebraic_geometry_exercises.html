@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 18:44 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Geldhauser: algebraic geometry - exercises</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Geldhauser: algebraic geometry - exercises</h1>
+<div id="outline-container-org52b5b59" class="outline-2">
+<h2 id="org52b5b59"><span class="section-number-2">1.</span> Sheet 1</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orge66d4ef" class="outline-3">
+<h3 id="orge66d4ef"><span class="section-number-3">1.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20231020-zariski_topology_on_an_affine_space_for_an_infniite_field_not_hausdorff.html#ID-905b9f84-4306-4de7-b52b-1186f049f82f">zariski topology on an affine space and Hausdorff-space</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd7d34e5" class="outline-3">
+<h3 id="orgd7d34e5"><span class="section-number-3">1.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20231020-mapification_of_a_polynomial.html#ID-2048322e-81a4-4f3a-bf02-81f2501ea9f4">mapification of a polynomial</a></li>
+<li><a href="20231020-simple_mapification_of_a_polynomial_for_a_finite_field.html#ID-24d65ccc-73c5-4f29-bade-cb251c0fbf48">simple mapification of a polynomial for a finite field is surjective</a></li>
+<li><a href="20231020-simple_mapification_of_a_polynomial_for_a_finite_field_not_injective.html#ID-82dfbe85-4fa1-4db7-87ee-d29969b1880e">simple mapification of a polynomial for a finite field not injective</a></li>
+<li><a href="20231020-simple_mapification_of_a_polynomial_for_an_infinite_integral_domain.html#ID-cfeebe0e-ede4-4fef-97cc-c1390725aae8">simple mapification of a polynomial for an infinite integral domain is injective</a></li>
+<li><a href="20231020-simple_mapification_of_a_polynomial_for_an_infinite_integral_domain_not_surjective.html#ID-f1d3e34d-3fff-4efa-8a68-51a060f2c806">simple mapification of a polynomial for an infinite integral domain not surjective</a></li>
+<li><a href="20230421121825-endlicher_integritatsbereich_als_korper.html#ID-db48354b-1418-466e-891e-222aca35137d">finite integral domain as field</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org06c56fe" class="outline-3">
+<h3 id="org06c56fe"><span class="section-number-3">1.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20231020-reduced_polynomial.html#ID-7054fd1b-f803-40f2-9919-e4792d89fc67">reduced polynomial</a></li>
+<li><a href="20231020-reduction_of_a_polynomial.html#ID-26af13a3-441e-4172-81cd-c0d4ad3cf71d">reduction of a polynomial</a></li>
+<li><a href="20231021-reduction_of_polynomial_as_ring_homomorphism.html#ID-068faf3f-3ffe-4af1-8427-19435872126b">reduction of polynomial as group homomorphism</a></li>
+<li><a href="20231021-uniqueness_of_a_representative_of_a_reduced_polynomial.html#ID-53a50e96-ca29-4ca2-a0ab-e0d41313fb62">uniqueness of a representative of a reduced polynomial</a> - todo (?)</li>
+<li><a href="20231020-cardinality_of_a_zero_locus_for_a_finite_field.html#ID-cdcbc2a0-9999-47b7-bb2c-cfa73a011a6d">chevalley-warning theorem</a></li>
+<li><a href="20231022-chevalley_theorem.html#ID-08084a37-dea7-4a35-92b4-87c7cce1f5ce">Chevalley theorem</a></li>
+<li><a href="20231108-existence_of_zeros_for_a_homogeneous_polynomial_in_a_finite_field.html#ID-7d6caf00-f2f9-40df-84ce-5dabf70c6b8a">existence of roots for a homogeneous polynomial in a finite field</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org10be715" class="outline-2">
+<h2 id="org10be715"><span class="section-number-2">2.</span> Sheet 2</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org4aeebe3" class="outline-3">
+<h3 id="org4aeebe3"><span class="section-number-3">2.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li><a href="20231029-zeros_of_a_polynomial_in_the_affine_space_and_maximal_degree_of_an_variable.html#ID-15d4eeda-5f21-440f-b1ad-c9c4402c90a9">Zeros of a polynomial in the affine space and maximal degree of an variable</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2ebde1e" class="outline-3">
+<h3 id="org2ebde1e"><span class="section-number-3">2.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li><a href="20231027-n_k_is_dense_in_zariski_topology.html#ID-be2de77e-89bd-42d3-9991-1d26b9dbf90a">N<sup>k</sup> is dense in zariski topology</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf81aa1c" class="outline-3">
+<h3 id="orgf81aa1c"><span class="section-number-3">2.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li><a href="20231103-dimension_of_a_2.html#ID-6b000421-3f4a-42fe-aae9-298f1b983081">Dimension of the affine space A<sup>2</sup></a></li>
+<li><a href="20231106-gcd_of_irreducible_polynomials_in_2_varialbes.html#ID-a17b0063-c498-49d3-ace3-8e9d96eaed48">gcd of irreducible Polynomials in 2 variables</a></li>
+<li><a href="20230525181850-großter_gemeinsamer_teiler_von_einfachen_produkten_irreduzibler_elemente.html#ID-317d4885-1124-4bed-a295-1bfd4ad937da">größter gemeinsamer Teiler von einfachen Produkten irreduzibler Elemente</a></li>
+<li><a href="20230427134534-erweiterter_euklidischer_algorithmus.html#ID-29d60e8e-68dd-48c4-8fd6-def9d853294a">erweiterter euklidischer Algorithmus</a></li>
+<li><a href="20230722-satz_von_gauß_uber_einen_faktoriellen_polynomring.html#ID-a1326618-2770-42b5-ba09-70cd793e620b">Satz von Gauß über einen faktoriellen Polynomring</a></li>
+<li><a href="20231116-gcd_of_polynomials_and_quotient_ring.html#ID-1b0d0071-514d-401b-8074-1623a87e0bb3">gcd of polynomials as non unit and quotient ring for a UFD</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf59aac4" class="outline-2">
+<h2 id="orgf59aac4"><span class="section-number-2">3.</span> Sheet 3</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org4456a55" class="outline-3">
+<h3 id="org4456a55"><span class="section-number-3">3.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li><a href="20231109-irreducible_finitely_dimensional_topological_space_and_maximal_dimension.html#ID-8c18935e-5db8-4965-a73d-5028b1706dcb">irreducible, finitely dimensional topological space and maximal dimension</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga255818" class="outline-3">
+<h3 id="orga255818"><span class="section-number-3">3.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div id="outline-container-org9507d6d" class="outline-4">
+<h4 id="org9507d6d"><span class="section-number-4">3.2.1.</span> a)</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<ul class="org-ul">
+<li>eine richtung klar</li>
+<li>andere richtung: gröbner monom ordnung (???)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0bae12a" class="outline-4">
+<h4 id="org0bae12a"><span class="section-number-4">3.2.2.</span> b)</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<ul class="org-ul">
+<li><a href="20230329081834-aquivalente_charakterisierungen_eines_primideals.html#ID-e4e6f25e-6d27-4bc1-8dd8-4de9325fd407">prime ideal and quotient ring as integral domain</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9794544" class="outline-4">
+<h4 id="org9794544"><span class="section-number-4">3.2.3.</span> c)</h4>
+<div class="outline-text-4" id="text-3-2-3">
+<ul class="org-ul">
+<li><a href="20231129-generation_of_an_polynomial_ideal_and_vectorspace.html#ID-afa84a40-a977-469b-ba03-b14cbcd2571a">generation of an polynomial ideal and vectorspace</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org98d14c4" class="outline-3">
+<h3 id="org98d14c4"><span class="section-number-3">3.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-3-3">
+<ul class="org-ul">
+<li><a href="20231109-grobner_basis_and_restriction.html#ID-9848ae82-3f98-4403-8c19-02a305bc0cf4">gröbner basis and restriction</a></li>
+<li><a href="20231112-intersection_of_ideals_and_linearization_with_another_polynomial.html#ID-653850be-3d75-4f75-90e4-630e1b28cd54">intersection of ideals and linearization with another polynomial</a></li>
+<li><a href="20231120-computation_of_the_intersection_of_ideals_with_a_grobner_basis.html#ID-5e8d01d7-bb61-429e-bd8f-05794892ece2">computation of the intersection of ideals with a gröbner basis</a></li>
+<li></li>
+</ul>
+
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf2b2ce6" class="outline-3">
+<h3 id="orgf2b2ce6"><span class="section-number-3">3.4.</span> hartshorne 3)</h3>
+<div class="outline-text-3" id="text-3-4">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb537014" class="outline-2">
+<h2 id="orgb537014"><span class="section-number-2">4.</span> Sheet 4</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org48ef84c" class="outline-3">
+<h3 id="org48ef84c"><span class="section-number-3">4.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li><a href="20231123-set_theoretic_complete_intersection.html#ID-f31b784b-3f52-4371-ae99-557807927397">set theoretic complete intersection</a></li>
+<li><a href="20231122-complete_intersection.html#ID-64de899a-df4f-4367-8375-211e1c1c6d42">complete intersection</a></li>
+<li><a href="20231123-local_complete_intersection.html#ID-158f4659-7530-4539-a0ac-a25d950774bb">local complete intersection</a></li>
+</ul>
+
+<ul class="org-ul">
+<li>finden und ausrechnen (?)  
+<ul class="org-ul">
+<li></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org607cda1" class="outline-3">
+<h3 id="org607cda1"><span class="section-number-3">4.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-4-2">
+<ul class="org-ul">
+<li><a href="20231116-affine_variety_of_codimension_1_generated_by_one_polynomial.html#ID-6ba2db42-63f3-4c16-a73f-43844fc06fda">affine variety of codimension 1 generated by one polynomial</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgeb1c185" class="outline-3">
+<h3 id="orgeb1c185"><span class="section-number-3">4.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-4-3">
+<ul class="org-ul">
+<li><a href="20231120-satz_von_cayley_hamilton_dank_algebraischer_geometrie.html#ID-ed605ce9-6212-4b39-8bdd-8828537354f1">Satz von Cayley-Hamilton dank algebraischer Geometrie</a></li>
+
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8fd8492" class="outline-2">
+<h2 id="org8fd8492"><span class="section-number-2">5.</span> Sheet 5</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orgc379c24" class="outline-3">
+<h3 id="orgc379c24"><span class="section-number-3">5.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li><a href="20231123-localization_at_a_maximal_ideal_and_isomorphic_quotient.html#ID-d9cd3d90-2266-4bb0-92d9-0ac77fdbb32f">localization at a maximal ideal and isomorphic quotient</a> - todo</li>
+<li><a href="20231113-tangentialkegel_eines_rings.html#ID-4ba3240e-2adc-450e-81b8-1a888027e350">tangent cone of a ring</a></li>
+<li><a href="20231123-localization_at_a_maximal_ideal_and_isomorphism_on_filtration.html#ID-3678e815-e959-4dd8-b2e2-f38ee6890e34">localization at a maximal ideal and isomorphism on filtration</a> - todo</li>
+<li><a href="20231123-tangent_cone_invariant_up_to_isomorphism_under_localization_at_a_maximal_ideal.html#ID-7cdf79c2-7843-406e-876e-3c4e48e4b0fc">tangent cone invariant up to isomorphism under localization at a maximal ideal</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcac4a76" class="outline-3">
+<h3 id="orgcac4a76"><span class="section-number-3">5.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-5-2">
+<ul class="org-ul">
+<li>dimension</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd995f94" class="outline-3">
+<h3 id="orgd995f94"><span class="section-number-3">5.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-5-3">
+<ul class="org-ul">
+<li><a href="20211216205729-binomialkoeffizient.html#ID-89b0e19a-c480-407f-8939-1074be74e04d">Binomialkoeffizient</a></li>
+<li><a href="20231123-binomial_coefficient_polynomial.html#ID-dc4f7557-36ad-4435-8850-12dbb1f6f57d">binomial coefficient polynomial</a></li>
+<li><a href="20231126-numerical_polynomial.html#ID-07d9b5c0-38de-4d49-bff2-7085cc192d3a">numerical polynomial</a></li>
+<li><a href="20231123-polynomial_with_integers_to_integers_as_combination_of_binomial_coefficient_polyonmials.html#ID-c9fb6d51-f43a-4250-81cd-5424c8468737">polynomial with integers to integers as combination of binomial coefficient polyonmials</a> - todo</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgce0e4df" class="outline-3">
+<h3 id="orgce0e4df"><span class="section-number-3">5.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-5-4">
+<ul class="org-ul">
+<li><a href="20231123-polynomial_like_map.html#ID-567bc93a-ed92-447c-af68-4b6d10b4234d">polynomial-like map</a></li>
+<li><a href="20231123-polynomial_for_a_polynomial_like_map_on_the_integers_uniquely_determined.html#ID-526bb705-20fc-4363-8674-28867e74966b">polynomial for a polynomial-like map on the integers uniquely determined</a></li>
+<li><a href="20231123-polynomial_like_map_and_successor_difference_polynomial_like.html#ID-6ec4c103-4f49-45b8-87af-5fe572063afc">polynomial-like map and successor difference polynomial-like</a></li>
+<li><a href="20231123-degree_of_a_polynomial_and_the_polynomial_successor.html#ID-4fb597c8-d10e-4955-a555-ec959587a0f8">degree of a polynomial and the polynomial successor</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9da20b6" class="outline-2">
+<h2 id="org9da20b6"><span class="section-number-2">6.</span> Sheet 6</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-orgf9d4a0d" class="outline-3">
+<h3 id="orgf9d4a0d"><span class="section-number-3">6.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-6-1">
+<ul class="org-ul">
+<li><a href="20231203-initial_ideal.html#ID-1e5080eb-c67f-42cc-b1b3-b04f29d0b8de">initial ideal</a></li>
+<li><a href="20231202-initial_term_of_a_polynomial.html#ID-81d1bc9d-0a5e-4e77-9d89-52d3481384d2">initial term of a polynomial</a></li>
+<li><a href="20231203-initial_ideal_to_tangent_cone_of_the_origin.html#ID-fb926b81-3f01-43f8-9d2d-e15f426a9cb5">tangent cone at the origin and initial ideal</a></li>
+<li><a href="20231113-tangentialkegel_eines_rings.html#ID-4ba3240e-2adc-450e-81b8-1a888027e350">tangent cone of a ring</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge281f29" class="outline-3">
+<h3 id="orge281f29"><span class="section-number-3">6.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-6-2">
+<ul class="org-ul">
+<li>zeichnen einer kurve + tangentialkegel</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1bc6373" class="outline-3">
+<h3 id="org1bc6373"><span class="section-number-3">6.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-6-3">
+<ul class="org-ul">
+<li>falls gemeinsamer teiler:
+<ul class="org-ul">
+<li>gegebenfalls differenz</li>
+<li>ausmultiplizieren, (obda irreduzibel -&gt; dann prim, dann teilt \(r^3\)</li>
+</ul></li>
+<li>degree: (obda \(\mathrm{deg}(p) > \mathrm{deg}(q)\), über widerspruch: angenommen \(\mathrm{deg}(p)\) höher als beide, wo dann monom ?</li>
+</ul>
+
+<p>
+Algebraische Ableitung ergibt (bemerke: \(\mathrm{char}(K) \neq 3\))
+</p>
+\begin{align*}
+p^3 + q^3 =& r^3 && \vert \frac{\mathrm{d}}{\mathrm{d}t}\\
+3p^2 \cdot p' + 3q^2 \cdot q' =& 3r^2 \cdot r' && \vert \cdot 3^{-1} \\
+p^2 \cdot p' + q^2 \cdot q' =& r^2 \cdot r' && \vert - q^2 \cdot q' \\
+p^2 \cdot p' =& r^2 \cdot r' - q^2 \cdot q' && \vert \cdot r \\
+p^2 \cdot p' \cdot r =& r^3 \cdot r' - q^2 \cdot r \cdot q' \\
+p^2 \cdot p' \cdot r =& (p^3 + q^3) \cdot r' - q^2 \cdot r \cdot q' \\
+p^2 \cdot p' \cdot r =& p^3 r'  + q^3 \cdot r' - q^2 \cdot r \cdot q' && \vert - p^3 r' \\
+p^2 \cdot (r \cdot p' - p \cdot r') =& q^2 \cdot (qr' - q'r)
+\end{align*}
+<p>
+since \(p,q\) are coprime, we conclude, that 
+</p>
+\begin{align*}
+p^2 \mid (qr' - q'r)
+\end{align*}
+
+<p>
+This is a contradiction to degree
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 18:44</p>
+</div>
+</body>
+</html>

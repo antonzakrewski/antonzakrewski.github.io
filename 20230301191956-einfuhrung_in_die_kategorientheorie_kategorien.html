@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 22:05 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Einführung in die Kategorientheorie - Kategorien (2)</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Einführung in die Kategorientheorie - Kategorien (2)</h1>
+<div id="outline-container-org72d512f" class="outline-2">
+<h2 id="org72d512f"><span class="section-number-2">1.</span> Aspekte</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgb58c5d5" class="outline-3">
+<h3 id="orgb58c5d5"><span class="section-number-3">1.1.</span> motivation</h3>
+</div>
+<div id="outline-container-org1ac4a31" class="outline-3">
+<h3 id="org1ac4a31"><span class="section-number-3">1.2.</span> begriff</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">Kategorie</a></li>
+<li><a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">Objekt</a></li>
+<li><a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">Morphismus</a></li>
+<li><a href="20220817165031-identitatsmorphismus.html#ID-18d8207c-a2f4-499b-ab59-b7efe4858e31">Identitätsmorphismus</a></li>
+<li><a href="20220817221033-komposition_von_morphismen.html#ID-72b71b59-7fac-4516-9115-9d589b47e0c3">Komposition von Morphismen</a></li>
+<li><a href="20220817221258-assoziativitat_von_morphismen.html#ID-6e4a49da-dad1-4aaa-b86c-6ac18cc77d84">Assoziativität von Kompositionen</a></li>
+<li><a href="20220819140031-endomorphismus.html#ID-50a12682-aaeb-4e29-9add-c505508e134e">Endomorphismus</a></li>
+<li><a href="20220823152941-eindeutigkeit_des_identitatsmorphismus.html#ID-0e7558ca-4e8c-47cc-94b6-514f654503ac">Eindeutigkeit des Identitätsmorphismus</a></li>
+<li><a href="20230225165740-target_morphismus.html#ID-970588a1-2bde-4e02-b841-04a50a90a816">Target (Morphismus)</a></li>
+<li><a href="20230225165753-source_morphismus.html#ID-f0787644-9e76-4315-bcad-dee1bf458f69">Source (Morphismus)</a></li>
+
+<li><a href="20230225165858-lokal_kleine_kategorie.html#ID-29f14fa2-ae57-46d2-8e23-3f2924bc1ebe">lokal kleine Kategorie</a></li>
+<li><a href="20220819181004-kleine_kategorie.html#ID-3c3f1c0d-53ad-476e-810a-756acd885263">kleine Kategorie</a></li>
+<li><a href="20221216142701-kategorie_set.html#ID-dc78356f-1fcf-41e8-b05a-47cdd731513c">Kategorie Set</a></li>
+<li><a href="20230225170046-kategorie_set.html#ID-95ae2391-14bd-4f4b-99e6-e3d98005856d">Kategorie Set*</a></li>
+
+<li><a href="20230302131251-punktierte_menge.html#ID-27fcd771-b194-47dd-a6f7-96dbad4ae2ac">punktierte Menge</a></li>
+<li><a href="20230302131620-basispunkt.html#ID-adebe376-4540-4360-a213-304e154a8d52">Basispunkt</a></li>
+<li><a href="20230225135520-kategorie_group.html#ID-5a96a492-9173-4be0-8064-24cc3715f31c">Kategorie Group</a></li>
+<li><a href="20230302131734-kategorie_ab.html#ID-4a704879-962d-4f99-8075-273888da2937">Kategorie Ab</a></li>
+<li><a href="20230225170221-kategorie_top.html#ID-55f8744f-3e21-4c41-889f-06a52add975b">Kategorie Top</a></li>
+<li><a href="20230225170122-kategorie_vect.html#ID-c0ead26b-4b08-4c59-8c13-5a1a872775bd">Kategorie Vect<sub>K</sub></a></li>
+<li><a href="20230225170152-kategorie_mod.html#ID-15b21b3a-18bb-4d60-a716-c69681d7222d">Kategorie Mod</a></li>
+<li><a href="20230225170135-kategorie_ring.html#ID-fa4634e9-174f-42f5-8e08-0e6d676130d7">Kategorie Ring</a></li>
+<li><a href="20230225170140-kategorie_cring.html#ID-bc232c14-ca9c-476c-8b94-67f3d8781a26">Kategorie CRing</a></li>
+<li><a href="20230225170207-kategorie_met.html#ID-ae4dfd1e-0886-45b6-b13e-34bb184d4ca9">Kategorie Met</a></li>
+<li><a href="20230225170221-kategorie_top.html#ID-55f8744f-3e21-4c41-889f-06a52add975b">Kategorie Top</a></li>
+<li><a href="20230225170250-kategorie_top.html#ID-bdd3f7a8-786b-454f-b3b4-241dafec03a7">Kategorie Top*</a></li>
+<li><a href="20230225170427-kategorie_pos.html#ID-b0504140-e5f4-46c3-b469-0d59a4eea81f">Kategorie Pos</a> TODO</li>
+<li><a href="20230225170430-kategorie_man.html#ID-07f396e4-ef8e-43be-9d61-8920881396fe">Kategorie Man</a></li>
+<li><a href="20230225170529-kategorie_meas.html#ID-a541c5bb-4943-4f79-99be-b01d7d258492">Kategorie Meas</a></li>
+<li><a href="20230225170539-kategorie_ban.html#ID-334c474f-439e-420d-a128-afc3d37295f1">Kategorie Ban</a></li>
+
+<li><a href="20220824121232-leere_kategorie.html#ID-d3daa2e2-f5a2-498b-8478-b6ed8a51a5a5">Leere Kategorie</a></li>
+
+<li><a href="20230302132717-kategorie.html#ID-24a2f4cb-9a13-44cc-b295-ebc1a4ec4012">Kategorie *</a> TODO</li>
+
+<li><a href="20230302132746-kategorie_path.html#ID-9efacf0e-b848-40f0-b4df-218ada26639e">Kategorie Path</a></li>
+
+<li><a href="20230302132811-kategorie_rel.html#ID-67a6ce0c-5eb7-4663-bc75-685eedb391ed">Kategorie Rel</a></li>
+
+<li><a href="20230302132848-kategorie_htop.html#ID-c1b80c0a-55e4-4dc9-9f32-cf2ef86e98f6">Kategorie hTop</a></li>
+
+<li><a href="20220819181004-kleine_kategorie.html#ID-3c3f1c0d-53ad-476e-810a-756acd885263">kleine Kategorie</a></li>
+
+<li><a href="20230302132933-kategorie_mon.html#ID-c38079fa-4004-48f8-86f7-0433cf5d2001">Kategorie Mon</a></li>
+
+<li></li>
+
+
+<li><a href="20221223193259-category_of_a_preordered_set.html#ID-c5f71f31-cb07-49bc-aa16-9774ccc228b0">Category of a preordered set</a></li>
+<li><a href="20220817230318-indiskrete_kategorie.html#ID-93fdb686-ba64-442c-996b-73428edd1f0b">Indiskrete Kategorie</a></li>
+<li><a href="20220817230235-diskrete_kategorie.html#ID-77d5dcbb-96b0-4e9d-b130-0c021d8b3398">Diskrete Kategorie</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd29ee12" class="outline-3">
+<h3 id="orgd29ee12"><span class="section-number-3">1.3.</span> Isomorphismen</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">Isomorphismus (Kategorientheorie)</a></li>
+<li><a href="20230225171440-isomorphierelation_als_aquivalenzrelation.html#ID-92a7015c-5e7e-457d-a2e1-266562c87076">Isomorphierelation als Äquivalenzrelation</a></li>
+<li><a href="20230225171506-isomorphieklasse.html#ID-c08c81d5-ce67-4614-b852-b59c09b36093">Isomorphieklasse</a></li>
+<li><a href="20230225171533-identitatsmorphismus_als_isomorphismus.html#ID-23d52593-80f0-40f7-acbc-74c8ddade95f">Identitätsmorphismus als Isomorphismus</a></li>
+<li></li>
+
+<li><a href="20220818172827-automorphismus_eines_objekts.html#ID-d6ed25e6-8ebf-4836-b92b-57cc2f1f28c4">Automorphismus eines Objekts</a></li>
+<li><a href="20230225171642-kategorie_aut_c.html#ID-f3556e9f-00f0-43e0-b361-6db8648ffa64">Kategorie Aut<sub>C</sub></a></li>
+<li><a href="20230225171739-gruppoid.html#ID-2ec756c2-bea0-454f-8fc0-e5a23f080d1b">Gruppoid</a></li>
+<li><a href="20230302133127-kategorie_comphaus.html#ID-691c668e-c4f4-4f4b-8d99-03468801cb28">Kategorie CompHaus</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org47e67ec" class="outline-3">
+<h3 id="org47e67ec"><span class="section-number-3">1.4.</span> <a href="20230225171831-kommutatives_diagramm.html#ID-dec6825e-9e76-43d2-84af-db4360758ca2">Kommutatives Diagramm</a></h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><a href="20220821183856-diagramm_kategorientheorie.html#ID-ad9d3642-913a-4374-8605-52121d00b349">Diagramm (Kategorientheorie)</a></li>
+<li><a href="20220824224824-kommutierendes_diagramm.html#ID-968cc45b-2492-4495-b9e3-261866c0901d">kommutierendes Diagramm</a></li>
+<li><a href="20220824222939-kommutieren_eines_diagramms.html#ID-446e5d02-ed5b-4cbf-b40a-3ed58067ef7c">Kommutieren eines Diagramms</a></li>
+<li><a href="20230225172215-diagrammjagd.html#ID-acc0e9db-b115-4663-96de-e4f9092503a4">Diagrammjagd</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc38b01b" class="outline-3">
+<h3 id="orgc38b01b"><span class="section-number-3">1.5.</span> Initiale und finale Objekte</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li><a href="20220825145505-initiales_objekt.html#ID-7ad29aa1-f819-4a5b-8ef9-24c92a84802f">initiales Objekt</a></li>
+<li><a href="20220825145511-terminales_objekt.html#ID-16825b5e-51d8-4e5e-ac19-2a05cd9fb110">final object</a></li>
+<li><a href="20220830171054-isomorphie_von_initialen_objekten.html#ID-62c20da6-b9fc-438e-8260-37b8f7b524c3">Isomorphie von initialen Objekten</a></li>
+<li><a href="20220830170128-isomorphie_von_terminalen_objekten.html#ID-44fb02ea-17f0-4629-bb1e-43b922be1ef3">Isomorphie von terminalen Objekten</a></li>
+<li><a href="20220830170250-terminales_objekt_als_einelementige_menge.html#ID-c3233d43-9bfc-4f5c-94e0-d16a4de0ca0c">terminales Objekt als einelementige Menge</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org338a4f2" class="outline-3">
+<h3 id="org338a4f2"><span class="section-number-3">1.6.</span> </h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li><a href="20220824221623-unterkategorie.html#ID-2165c92b-8025-4134-b3b1-4d523a8795a4">Unterkategorie</a></li>
+<li><a href="20230225184516-volle_unterkategorie.html#ID-02c96fc8-ac4f-42b6-804d-bc08d25bfb2a">volle Unterkategorie</a></li>
+<li><a href="20220830192239-duale_kategorie.html#ID-711d7a6e-e765-4a59-90a2-baeee955dea1">Duale Kategorie</a></li>
+<li><a href="20230225184720-dualitatsprinzip_kategorientheorie.html#ID-67ee9d5f-8348-4170-b8a2-c008b43afdf1">Dualitätsprinzip (Kategorientheorie)</a></li>
+<li><a href="20230226161248-koprodukt.html#ID-f9ad20fe-5bf0-4eef-b33f-030ca3fb5986">Koprodukt</a></li>
+<li><a href="20230226175324-uber_kategorie.html#ID-6c2af5e6-1d00-4abd-966f-1a99bed85c90">Über-A-Kategorie</a></li>
+<li><a href="20230226175433-unter_a_kategorie.html#ID-7590f0f4-eaf6-4795-96f9-3b621806ce54">Unter-A-Kategorie</a></li>
+<li><a href="20230301192810-diagrammkategorie.html#ID-200af099-4811-4356-bd90-6030abbcd618">Diagrammkategorie</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 22:05</p>
+</div>
+</body>
+</html>

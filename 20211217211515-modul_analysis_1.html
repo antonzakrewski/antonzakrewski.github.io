@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-11 Fr 21:23 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Modul: Analysis 1</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Modul: Analysis 1</h1>
+
+<div id="outline-container-orgbe9488d" class="outline-2">
+<h2 id="orgbe9488d"><span class="section-number-2">1.</span> Inhalte</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org2c55eb0" class="outline-3">
+<h3 id="org2c55eb0"><span class="section-number-3">1.1.</span> Grundlagen</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="20221207150633-ana1_grundlagen_mengenlehre.html#ID-924b400c-e0d7-4820-ab34-9cf81dc7748d">ana1: Grundlagen - Mengenlehre</a></li>
+<li><a href="20221207150830-ana1_grundlagen_zahlen.html#ID-3d605013-549f-4559-870c-07734c78fcc7">ana1: Grundlagen - Zahlen</a></li>
+<li><a href="20221207150850-ana1_grundlagen_kombinatorik.html#ID-83d4cd9a-7884-4ae0-8fa2-a05a99d4c1de">ana1: Grundlagen - Kombinatorik</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0e0eabd" class="outline-3">
+<h3 id="org0e0eabd"><span class="section-number-3">1.2.</span> reelle Zahlen</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20230112164515-ana1_anordnung.html#ID-193bf93c-4956-4759-953e-5f2b1addb5ce">ana1: Anordnung</a></li>
+<li><a href="20230112164530-ana1_vollstandigkeit.html#ID-4fa5c064-6cfe-4c8a-a817-9853e2d56312">ana1: Vollständigkeit</a></li>
+<li><a href="20230112164342-lana1_komplexe_zahlen.html#ID-24756874-8498-4d86-8acc-4553a80dffca">ana1: komplexe Zahlen</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgac17bf3" class="outline-3">
+<h3 id="orgac17bf3"><span class="section-number-3">1.3.</span> Folgen</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20230112080528-ana1_folgen.html#ID-edb74580-2962-4d88-9339-ae6149180e45">ana1: Folgen</a></li>
+<li><a href="20230113182428-ana1_kriterien_fur_konvergenz.html#ID-cc965179-043f-445a-806b-9986e741d0ca">ana1: Kriterien für Konvergenz</a></li>
+<li><a href="20230113182602-ana1_haufungspunkte.html#ID-f09a4ba8-4d17-4c43-a4c7-742a067f73f8">ana1: Häufungspunkte</a></li>
+<li><a href="20230112080443-ana1_reihen.html#ID-7020d05b-1a62-4dff-80dc-c1e55169b224">ana1: Reihen</a></li>
+<li><a href="20230113181859-ana1_konvergenzkriterien_fur_reihen.html#ID-8fc90661-28f7-4c88-a9d5-943ac1c8a2c4">ana1: Konvergenzkriterien für Reihen</a></li>
+<li><a href="20230113182236-ana1_wichtige_reihen.html#ID-b3eca847-6061-425e-9103-a6ae341d3f61">ana1: wichtige Reihen</a></li>
+<li><a href="20230113182137-ana1_umordnungen.html#ID-262cec03-f4c8-4301-addb-7c4d1cece17c">ana1: Umordnungen</a></li>
+<li><a href="20230113182043-ana1_potenzreihen.html#ID-89dfd811-c797-4619-b1b4-619bc26c8fbd">ana1: Potenzreihen</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc39519b" class="outline-3">
+<h3 id="orgc39519b"><span class="section-number-3">1.4.</span> Stetigkeit</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><a href="20230112080308-ana1_stetigkeit.html#ID-3dc0fb86-2aae-4a05-bcad-82c8d341e022">ana1: Stetigkeit</a></li>
+<li><a href="20230113182814-ana1_funktionenfolgen.html#ID-821d610e-e2cb-4cb1-bc81-02398e78e772">ana1: Funktionenfolgen</a></li>
+<li><a href="20230113182932-ana1_gleichmaßige_stetigkeit.html#ID-d1db7be4-03e7-403f-bdec-f405871ee94a">ana1: gleichmäßige Stetigkeit</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb001431" class="outline-3">
+<h3 id="orgb001431"><span class="section-number-3">1.5.</span> Differentialrechnung</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li><a href="20230116162921-ana1_differenzierbarkeit.html#ID-50267cd4-f64e-4293-9af2-fd0370df9dd4">ana1: Differenzierbarkeit</a></li>
+<li><a href="20230118170857-ana1_wichtige_ableitungen.html#ID-fbb3427b-9e9d-4827-b675-a18ec6a532f5">ana1: wichtige Ableitungen</a></li>
+<li><a href="20230118170901-ana1_ableitungsregeln.html#ID-c6eecb52-d09c-4c79-b2a5-7354fb1d64e7">ana1: Ableitungsregeln</a></li>
+<li><a href="20230123233758-ana1_mehrfache_differenzierbarkeit.html#ID-50fcbb19-b7f1-4bfa-8434-ce00c5e94e23">ana1: Mehrfache Differenzierbarkeit</a></li>
+<li><a href="20230130184053-ana1_intergration.html#ID-35e7d4b3-3ab3-49a4-97be-8ee080ba8195">ana1: Integration</a></li>
+<li><a href="20230207110141-ana1_integrationstechniken.html#ID-d5e4188c-90da-413f-94eb-b4e4287ebe69">ana1: Integrationstechniken</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org43ee637" class="outline-3">
+<h3 id="org43ee637"><span class="section-number-3">1.6.</span> </h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li><a href="20221124085023-ana1_leebsche_exkurse.html#ID-4477cfa3-b227-464b-aa87-1d18714730d2">ana1: Leebsche Exkurse</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2d037d0" class="outline-3">
+<h3 id="org2d037d0"><span class="section-number-3">1.7.</span> </h3>
+</div>
+</div>
+<div id="outline-container-org33f6b98" class="outline-2">
+<h2 id="org33f6b98"><span class="section-number-2">2.</span> Meta</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li><a href="20221204180203-beweisstruktur_analysis.html#ID-3da7f7f3-a6b5-4bbe-9d57-15a8fdf268ba">Beweisstruktur: Analysis</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3ec142d" class="outline-2">
+<h2 id="org3ec142d"><span class="section-number-2">3.</span> RNG</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li><a href="20221020112040-geometrischer_veranschaulichung_gaußsche_summenformel.html#ID-70f931bd-ba4c-4438-8310-b185e75e35c7">Geometrischer Veranschaulichung: Gaußsche Summenformel</a></li>
+<li><a href="20221118091136-allgemeine_dreiecksungleichung.html#ID-9d704827-2319-447b-b2b7-a6f372531a00">Allgemeine Dreiecksungleichung</a></li>
+<li><a href="20221126210818-existenz_von_wurzeln_in_mathbb_real.html#ID-8e421588-31c4-400e-a48f-ece1af140624">Existenz von Wurzeln in \(\mathbb{R}\)</a></li>
+<li><a href="20221124121159-vertraglichkeit_von_konvergenz_und_anordnung.html#ID-46435fd5-e4e7-4e2a-95a9-a3cf0186e70e">Verträglichkeit von Konvergenz und Anordnung</a></li>
+<li><a href="20221031112304-ungleichung_des_quadratischen_arithmetischen_und_geometrischen_mittel.html#ID-2e89697d-11f7-4db2-a494-202220be9aee">Ungleichung des quadratischen, arithmetischen und geometrischen Mittel</a></li>
+<li><a href="20221113211114-reihenentwicklung.html#ID-cdf1bb2c-ac91-4d3a-b3bd-45b814c1cae5">Reihenentwicklung</a></li>
+<li><a href="20220318184444-eulersche_zahl.html#ID-6c51847c-d7cb-4197-bbe3-b9d98680db54">Eulersche Zahl</a></li>
+<li><a href="20221222071248-naturliche_exponentialfunktion.html#ID-fa496f70-d663-4c9d-ab25-09dec6743fe4">natürliche Exponentialfunktion</a></li>
+<li><a href="20221222151710-funktionalgleichung_fur_die_exponentialreihe.html#ID-90532232-dc07-48d8-ae65-a703625e5ede">Funktionalgleichung für die Exponentialreihe</a></li>
+<li><a href="20221222093214-kriterium_fur_die_absolute_konvergenz_einer_reihe.html#ID-116765f7-d696-4519-8151-6ff55206a007">Kriterium für die Absolute Konvergenz einer Reihe</a></li>
+<li><a href="20221104120845-vandermonde_identitat.html#ID-2d2fcf38-9761-480a-b113-e2de1a9ecab2">Vandermonde Identität</a></li>
+<li><a href="20221222151719-funktionalgleichung_fur_die_binomialreihe.html#ID-e12af713-10ad-4da6-aa74-267d893d0f5c">Funktionalgleichung für die Binomialreihe</a></li>
+<li><a href="20221222151906-konvergenzverhalten_von_potenzreihen_auf_dem_rand.html#ID-0d912e94-bfab-46cb-8250-1766d0855e4b">Konvergenzverhalten von Potenzreihen auf dem Rand</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6245abf" class="outline-2">
+<h2 id="org6245abf"><span class="section-number-2">4.</span> Meta</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li><a href="20230110074526-analysis_1_wichtige_ubungsaufgaben.html#ID-74d285fd-979b-49b9-b4ab-6d5fe9265cb5">ana1 - wichtige Übungsaufgaben</a></li>
+<li><a href="20230123043305-ana1_klausuren.html#ID-8a8a0dc6-e29c-40a3-b572-5bed04a37f06">Ana1 - Altklausuren</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-11 Fr 21:23</p>
+</div>
+</body>
+</html>

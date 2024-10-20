@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 18:39 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>differential geometry - topological and metric spaces</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">differential geometry - topological and metric spaces</h1>
+<div id="outline-container-org1e9158e" class="outline-2">
+<h2 id="org1e9158e"><span class="section-number-2">1.</span> Aspects</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological space</a></li>
+<li><a href="20230227174346-indiskrete_topologie.html#ID-9447f709-30a2-4b9a-b651-73909b037fad">indiscrete topology</a></li>
+<li><a href="20221002144647-diskrete_topologie.html#ID-c9466868-60fd-4b1f-ae1c-1bf7606f3ec7">discrete topology</a></li>
+<li><a href="20221002145259-metrischer_raum.html#ID-6b95a0b5-83e0-43cc-830f-05b416769fe1">metric space</a></li>
+<li><a href="20230222171645-von_einer_metrik_induzierte_topologie.html#ID-69ce8957-4373-4cbd-ae36-9da730675f0d">von einer Metrik induzierte Topologie</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20221027092741-epsilon_umgebung.html#ID-b8422ae4-c20f-468f-8f66-aa736833f806">epsilon-Umgebung</a></li>
+<li><a href="20230222170300-offenheit_und_umgebung_aller_punkte.html#ID-a6a5b663-7773-4622-9bfa-8b870e5e381f">Offenheit und Umgebung aller Punkte</a></li>
+<li><a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">closed</a></li>
+<li><a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">neighbourhood</a></li>
+<li><a href="20221125072633-offene_uberdeckung.html#ID-f64293ce-3838-4f49-b45d-07666123c2c9">open cover</a></li>
+<li><a href="20221122074811-hausdorff_raum.html#ID-f49f9b47-9f16-456f-837f-7b9656c46aba">Hausdorff-Raum</a></li>
+<li><a href="20230224171350-hausdorffeigenschaft_bei_metrischen_raumen.html#ID-c0a0b315-c4f5-4e7a-a6cd-36b58b58f0ab">metrische Räume als Hausdorff-Räume</a></li>
+<li><a href="20221002152517-basis_einer_topologie.html#ID-1a5a6999-876a-4b54-b786-acafe4968fd6">basis</a></li>
+<li><a href="20230211132410-zweite_abzahlbarkeitsaxiom.html#ID-155a3f29-5e48-4647-a11e-5bc32b501755">zweite Abzählbarkeitsaxiom</a></li>
+<li><a href="20230420122606-r_n_mit_der_standardtopologie_erfullt_das_zweite_abzahlbarkeitsaxiom.html#ID-ff9769c7-8380-4e1d-8a07-adf287565e6e">R<sup>n</sup> als zweitabzählbarer Raum</a></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="20230127080110-homeomorphismus.html#ID-9f615f4b-b7b4-4dd6-a222-b9ec170e4390">homeomorphism</a></li>
+<li><a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a></li>
+<li><a href="20230225170221-kategorie_top.html#ID-55f8744f-3e21-4c41-889f-06a52add975b">category Top</a></li>
+<li><a href="20221113224914-mannigfaltigkeit.html#ID-635e5ff5-f006-46bf-891a-869ae972d6e6">topological manifold</a></li>
+<li><a href="20231017-locally_homeomorphic.html#ID-35131572-ef59-495a-b238-ee5dbaed2cd1">locally homeomorphic</a></li>
+<li><a href="20231017-locally_euclidean.html#ID-61ff6b6a-4957-4dc3-a94b-247e3a79b8ee">locally euclidean</a></li>
+<li><a href="20231017-open_subset_of_the_euclidean_space_as_topological_manifold.html#ID-60cca790-10c7-4e66-b6fe-91cc28334524">open subset of the euclidean space as topological manifold</a></li>
+<li><a href="20231017-product_of_topological_manifolds_as_topological_manifold.html#ID-6ae8afd9-6e0b-466f-bcff-4b9be0e9f9d5">Product of topological manifolds as topological manifold</a></li>
+<li><a href="20231017-finite_product_of_locally_homeomorphic_spaces_locally_homeomorphic.html#ID-438af887-2644-4c67-afed-bf8cff4f7884">finite product of locally homeomorphic spaces locally homeomorphic</a></li>
+<li><a href="20230724-sphare_als_mannigfaltigkeit.html#ID-c2cbfe74-02e0-4cd5-b334-1b3891114d74">Sphäre als Mannigfaltigkeit</a></li>
+<li><a href="20231017-torus.html#ID-417071ec-29f3-4c26-8a30-f53d1c30d565">torus</a></li>
+<li><a href="20231017-torus_as_topological_manifold.html#ID-9a288912-d70f-4d1f-9738-28f3696c08fd">torus as topological manifold</a></li>
+<li></li>
+
+
+<li><a href="20221113224914-mannigfaltigkeit.html#ID-635e5ff5-f006-46bf-891a-869ae972d6e6">Manifold</a></li>
+<li><a href="20230723-kartenwechsel.html#ID-7d55f547-a007-4ddc-ab85-8ded233d9967">Kartenwechsel</a></li>
+<li><a href="20230723-atlas.html#ID-1218bd8a-ff65-4137-98a0-e4373b3f063a">Atlas</a></li>
+<li><a href="20230723-karte_mannigfaltigkeit.html#ID-ba69f262-31e8-4d80-b2b1-d9e270e32a08">Chart</a></li>
+<li><a href="20231019-transition_map_for_the_same_set_as_identity.html#ID-a8245800-85bc-4625-974d-e83dfd4ea5ee">transition map for the same set as identity</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20231019-inverse_transition_maps.html#ID-4b862e22-cfba-4689-9ae0-f284cfb59b8e">inverse transition maps</a></li>
+<li><a href="20231019-composition_of_transition_maps.html#ID-c7724121-6806-40fa-820c-d8654a77c984">composition of transition maps</a></li>
+<li><a href="20231019-cocycle_condition_for_an_atlas.html#ID-5e5fda09-5c6f-4056-985a-912736bf40f1">cocycle condition for an atlas</a></li>
+
+<li><a href="20231019-manifold_uniquely_defined_by_covering_and_transition_maps.html#ID-7615d439-d7b3-45c7-8327-e23f1067ee95">Manifold uniquely defined by covering and transition maps</a> (to write down) (!!!)</li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20230723-differenzierbare_mannigfaltigkeit.html#ID-805c972a-cf4f-4229-a4dc-b6755639f890">real differentiable manifold</a></li>
+<li><a href="20230905-smooth_differentiable_manifold.html#ID-0ddfb9d4-93f0-4b88-bb28-f6ca87b18ee0">smooth manifold</a></li>
+<li></li>
+
+
+<li><a href="20231019-differentiable_structure.html#ID-17186ea4-c3dd-43c6-b899-92ae6b1ac25e">differentiable structure</a></li>
+<li><a href="20231019-differentiable_structure_and_equivalence_class.html#ID-bf44e411-8bde-4c04-8979-8469dd4a6311">differentiable structure and equivalence class</a></li>
+
+<li><a href="20231019-differentiable_structure_contains_higher_differentiable_structure.html#ID-00b4ed1e-c478-4729-bdcd-e1cba6fcf700">differentiable structure contains higher differentiable structure</a></li>
+<li><a href="20231019-differenzierbarkeit_einer_abbildung_unabhangig_von_dem_atlas_der_aquivalenzklasse.html#ID-7083eb13-89a5-4ee8-81c9-5a2cbd41de1f">differenzierbarkeit einer Abbildung unabhängig von dem Atlas der Äquivalenzklasse</a></li>
+<li><a href="20230903-differenzierbare_funktion_auf_einer_differenzierbaren_mannigfaltigkeit.html#ID-2a55805a-56ac-4559-a06b-7876c0c116c9">differenzierbare Funktion auf einer differenzierbaren Mannigfaltigkeit</a></li>
+<li><a href="20231019-diffeomorphism_for_manifolds.html#ID-73704274-a414-4801-b581-e1520544f1b8">diffeomorphism for Manifolds</a></li>
+
+<li><a href="20231024-dimension_of_a_manifold_constant_on_connected_componenst.html#ID-b1ccf8da-8ec5-4442-8eec-5b9c717da763">dimension of a manifold constant on connected componenst</a></li>
+<li><a href="20230724-rangsatz_analysis.html#ID-f8c2274a-789e-44aa-9b13-345abf7fdfca">constant rank theorem</a> (?)</li>
+<li></li>
+
+<li><a href="20231024-smooth_invariance_of_domain.html#ID-dad729fc-ec8e-43ae-8e5e-ad7e69bad0ef">smooth invariance of domains</a></li>
+<li><a href="20231024-invariance_of_the_dimension_of_manifolds.html#ID-2b62c11d-542e-47f4-aa75-fdb753199804">invariance of the dimension of manifolds</a></li>
+<li></li>
+
+<li><a href="20231024-differentiable_manifold_uniquely_defined_by_covering_and_transition_maps_up_to_diffeomorphism.html#ID-5a8059b6-3c27-4432-8a23-d60ef71eae69">differentiable Manifold uniquely defined by covering and transition maps up to diffeomorphism</a> - todo</li>
+<li></li>
+
+<li><a href="20230904-tangentialrau.html#ID-98b44a05-53f6-4484-843a-785ef2bf8fd2">Tangentialraum</a></li>
+<li><a href="20230905-tangential_bundle.html#ID-9be27bef-7843-4f67-9883-3f2471e8e894">tangential bundle</a></li>
+<li><a href="20230903-tangentialbundel.html#ID-7d746562-8074-412c-bb85-072b3c537532">real tangential bundle</a></li>
+<li><a href="20231024-tangent_sapce_at_a_point.html#ID-bed0edb0-2f69-4fdb-97bd-40c027fce07a">tangent sapce at a point</a></li>
+<li><a href="20231024-tangential_bundle_on_a_subset.html#ID-674a048c-9e87-4d57-bc5e-13108da7655d">tangent space at a subset</a></li>
+<li><a href="20231024-tangent_space_at_an_open_subset_as_manifold.html#ID-90dfac2b-8a6e-4b1a-8522-9165719e7c49">tangent space at an open subset as manifold</a></li>
+<li><a href="20231024-tangent_space_and_presheaf.html#ID-3cd055c5-3322-4a74-bdbf-ebf7006ecf8a">tangent space and presheaf</a></li>
+
+<li><a href="20230903-tangentialbundel.html#ID-7d746562-8074-412c-bb85-072b3c537532">real tangential bundle</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 18:39</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,1204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-13 So 18:41 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>algebraic topology 1 - exercises</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">algebraic topology 1 - exercises</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org2614f57">1. Sheet 1 - done</a></li>
+<li><a href="#org968560b">2. Sheet 2 - todo (later)</a></li>
+<li><a href="#org3d67817">3. Sheet 3 - done</a></li>
+<li><a href="#org6d014e9">4. Sheet 4 - todo</a></li>
+<li><a href="#org9feffee">5. Sheet 5 - todo</a></li>
+<li><a href="#orgbccfacd">6. Sheet 6 - todo</a></li>
+<li><a href="#org4bbc23e">7. Sheet 7 - done (?)</a></li>
+<li><a href="#orgce9721b">8. Sheet 8 - todo</a></li>
+<li><a href="#orgb49218b">9. Sheet 9 - todo !</a></li>
+<li><a href="#orgdea42af">10. Sheet 10 - todo</a></li>
+<li><a href="#org36ae6b1">11. Sheet 11</a></li>
+<li><a href="#org067dd89">12. Sheet 12</a></li>
+<li><a href="#org6f28fe5">13. Sheet 13</a></li>
+<li><a href="#orgd43fe60">14. Sheet 14 - todo</a></li>
+<li><a href="#org24f3ba2">15. first exam</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2614f57" class="outline-2">
+<h2 id="org2614f57"><span class="section-number-2">1.</span> Sheet 1 - done</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgd5e12e3" class="outline-3">
+<h3 id="orgd5e12e3"><span class="section-number-3">1.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org0e2c478" class="outline-4">
+<h4 id="org0e2c478"><span class="section-number-4">1.1.1.</span> a)</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+follows from finite union of finite sets as finite set
+</p>
+<ul class="org-ul">
+<li><a href="20220821114446-de_morgansche_gesetze_mengenlehre.html#ID-f77ff6f9-47e1-445a-9e2b-91b44efcaadc">De Morgansche Gesetze</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3361633" class="outline-4">
+<h4 id="org3361633"><span class="section-number-4">1.1.2.</span> b)</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ul class="org-ul">
+<li><a href="20230224171350-hausdorffeigenschaft_bei_metrischen_raumen.html#ID-c0a0b315-c4f5-4e7a-a6cd-36b58b58f0ab">metrische Räume als Hausdorff-Räume</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd90451c" class="outline-3">
+<h3 id="orgd90451c"><span class="section-number-3">1.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20230313000035-existenz_einer_eindeutigen_topologie_zu_einer_subbasis.html#ID-cc400e87-17ce-4b6a-ad7c-f7ba320c6cf7">Existenz einer eindeutigen Topologie zu einer Subbasis</a></li>
+<li><a href="20231026-union_as_colimit.html#ID-7fc510ec-2217-4e12-a5c6-a1f35653ed40">union as colimit</a></li>
+<li><a href="20231026-intersection_as_limit.html#ID-94e7cf70-b93e-4267-bd3b-a7baba442aa6">intersection as limit</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgda5da5e" class="outline-3">
+<h3 id="orgda5da5e"><span class="section-number-3">1.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><a href="20230313193949-feinere_topologie_und_identitatsabbildung.html#ID-90ffe82e-f945-4229-8bbb-59caedb1c535">gröbere Topologie und Identitätsabbildung</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20230404225102-sierpinski_space.html#ID-53ba8285-da53-4638-826d-70f22b1b5c90">Sierpinski-Space</a> (spectrum of discrete valuation ring)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge6c1ff5" class="outline-3">
+<h3 id="orge6c1ff5"><span class="section-number-3">1.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-org289f057" class="outline-4">
+<h4 id="org289f057"><span class="section-number-4">1.4.1.</span> a)</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<p>
+Topologien auf <img src="file:///home/anton/html/ltximg/20231018-algebraic_topology_1_exercises_f58cc723aa13d969598db72366c9bb00b029b0a0.svg" alt="20231018-algebraic_topology_1_exercises_f58cc723aa13d969598db72366c9bb00b029b0a0.svg" class="org-svg" />
+</p>
+
+<ol class="org-ol">
+<li><img src="file:///home/anton/html/ltximg/20231018-algebraic_topology_1_exercises_b4e99a5b1b220d0ba8ae00271a999256aac14db3.svg" alt="20231018-algebraic_topology_1_exercises_b4e99a5b1b220d0ba8ae00271a999256aac14db3.svg" class="org-svg" /> / <img src="file:///home/anton/html/ltximg/20231018-algebraic_topology_1_exercises_fae8d98d29cd8f24e49982bd11d2caad23292b1f.svg" alt="20231018-algebraic_topology_1_exercises_fae8d98d29cd8f24e49982bd11d2caad23292b1f.svg" class="org-svg" /> ; iso durch <img src="file:///home/anton/html/ltximg/20231018-algebraic_topology_1_exercises_68afe2b3c4bb942ef782bdd34835908f48d8b421.svg" alt="20231018-algebraic_topology_1_exercises_68afe2b3c4bb942ef782bdd34835908f48d8b421.svg" class="org-svg" /></li>
+<li><img src="file:///home/anton/html/ltximg/20231018-algebraic_topology_1_exercises_a6e7c82f36494c3b1ec751821f693868e26c49ae.svg" alt="20231018-algebraic_topology_1_exercises_a6e7c82f36494c3b1ec751821f693868e26c49ae.svg" class="org-svg" /></li>
+<li><img src="file:///home/anton/html/ltximg/20231018-algebraic_topology_1_exercises_9b1000b5c1de454e7896f555683a3214711deb30.svg" alt="20231018-algebraic_topology_1_exercises_9b1000b5c1de454e7896f555683a3214711deb30.svg" class="org-svg" /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orga29603f" class="outline-4">
+<h4 id="orga29603f"><span class="section-number-4">1.4.2.</span> b)</h4>
+<div class="outline-text-4" id="text-1-4-2">
+<p>
+We get <img src="file:///home/anton/html/ltximg/20231018-algebraic_topology_1_exercises_ae971170e441fca73914ddb594fae48a75555951.svg" alt="20231018-algebraic_topology_1_exercises_ae971170e441fca73914ddb594fae48a75555951.svg" class="org-svg" /> and furthermore <img src="file:///home/anton/html/ltximg/20231018-algebraic_topology_1_exercises_994ac608638c48c55e321ca831b5209193563681.svg" alt="20231018-algebraic_topology_1_exercises_994ac608638c48c55e321ca831b5209193563681.svg" class="org-svg" /> and <img src="file:///home/anton/html/ltximg/20231018-algebraic_topology_1_exercises_bddd90f3a68302ae41f327d4024a1b573ad123d3.svg" alt="20231018-algebraic_topology_1_exercises_bddd90f3a68302ae41f327d4024a1b573ad123d3.svg" class="org-svg" />
+Since <img src="file:///home/anton/html/ltximg/20231018-algebraic_topology_1_exercises_6423dad88ab01e0b27e5ec59522aa05fcd619e41.svg" alt="20231018-algebraic_topology_1_exercises_6423dad88ab01e0b27e5ec59522aa05fcd619e41.svg" class="org-svg" /> is <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">closed</a>, it follows that <img src="file:///home/anton/html/ltximg/20231018-algebraic_topology_1_exercises_b4414007cea0b3caf8a53943ca90163a5b218764.svg" alt="20231018-algebraic_topology_1_exercises_b4414007cea0b3caf8a53943ca90163a5b218764.svg" class="org-svg" /> is closed and hence <img src="file:///home/anton/html/ltximg/20231018-algebraic_topology_1_exercises_1ce2c83ec52d6000017c837b1eecd8b4720359d8.svg" alt="20231018-algebraic_topology_1_exercises_1ce2c83ec52d6000017c837b1eecd8b4720359d8.svg" class="org-svg" /> open.
+thus it is <a href="20230127080110-homeomorphismus.html#ID-9f615f4b-b7b4-4dd6-a222-b9ec170e4390">homeomorph</a> to 1)
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org1db0804" class="outline-3">
+<h3 id="org1db0804"><span class="section-number-3">1.5.</span> 5)</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li><a href="20230617-topologische_summe_als_koprodukt.html#ID-1f8cfb50-b96f-43e1-8db3-b6fbe9444848">topologische Summe als Koprodukt</a> - todo (?)</li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20231018-homeomorphism_and_topological_sum.html#ID-6500acb9-d7d8-434d-92f4-ea205ec5f9d5">homeomorphism and topological sum</a> - todo (?)</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org968560b" class="outline-2">
+<h2 id="org968560b"><span class="section-number-2">2.</span> Sheet 2 - todo (later)</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgd7c0376" class="outline-3">
+<h3 id="orgd7c0376"><span class="section-number-3">2.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li><a href="20231024-projection_of_a_collapse_as_open_map_and.html#ID-149f5951-f005-469e-887f-2edc7ecadd54">projection of a collapse as open map and collapsed set as open set or singleton</a></li>
+<li><a href="20231025-subspace_collapse.html#ID-411a67dd-ee50-4c99-9b34-8b8cff893771">subspace collapse</a></li>
+<li><a href="20231024-cancelling_and_collapse.html#ID-0d7b1cda-aef2-407a-9276-8e56aee86778">cancelling and collapse of a topological space</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb07523c" class="outline-3">
+<h3 id="orgb07523c"><span class="section-number-3">2.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li><a href="20231020-collapse_to_the_orbits.html#ID-b36cf21d-25c3-4826-b00f-4a77b3a82d51">collapse to the orbits</a></li>
+<li><a href="20231020-projection_to_the_orbits_as_open_map.html#ID-72e5c8ca-2f66-46d3-8b43-f3535eda0877">projection to the orbits as open map</a></li>
+<li><a href="20231024-quotient_group_acts_on_a_orbital_collapse.html#ID-650f40d1-3c96-46b2-8ea4-7e58c58b0bb5">quotient group acts on a orbital collapse</a></li>
+<li><a href="20231024-cancelling_and_collapse_to_the_orbits.html#ID-219c7ddc-1bfe-48a0-98ec-2cf8e20021de">cancelling and collapse to the orbits</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd1e5e67" class="outline-3">
+<h3 id="orgd1e5e67"><span class="section-number-3">2.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li><a href="20231024-klein_bottle.html#ID-ccbe0095-c2b4-4e8a-87ae-ca1ee05ca99b">klein bottle</a></li>
+<li><a href="20231024-semi_direct_product_on_the_integers_by_sign.html#ID-6c9ceede-63fd-4d01-bea5-5b140b039ff0">semi direct product on the integers by sign</a> - <a href="20230914-normierter_raum_als_topologischer_vektorraum.html#ID-73652408-7af4-4565-9dee-6ac5f324110f">normierter Raum als topologischer Vektorraum</a>, group actions as special case (restrictions of maps)</li>
+<li><a href="20231024-product_of_integers_as_index_2_subgroup_of_the_semidirect_product_by_sign.html#ID-e0546dfe-f02f-4e80-a77e-3040c50e6d95">product of integers as index 2 subgroup of the semidirect product by sign</a></li>
+<li><a href="20231101-2_torus_modulo_c2_as_klein_bottle.html#ID-fac7ecc4-8d8d-4c69-a0a8-c1d8e91881cf">2-torus modulo C2 as klein bottle</a></li>
+<li>2-torus: verkleben der enden</li>
+<li>klein bottle: verkleben, aber spiegeln der seiten</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5f647f9" class="outline-3">
+<h3 id="org5f647f9"><span class="section-number-3">2.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li><a href="20231024-mapping_torus.html#ID-37ab9b5e-bf91-4764-8b44-9a35b1f5513b">mapping torus</a></li>
+<li><a href="20231024-klein_bottle.html#ID-ccbe0095-c2b4-4e8a-87ae-ca1ee05ca99b">klein bottle</a></li>
+<li>follows from commutativity of</li>
+</ul>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20231018-algebraic_topology_1_exercises_cd904300e69845faa1b7f6f0eff4c04b884eec80.svg" alt="20231018-algebraic_topology_1_exercises_cd904300e69845faa1b7f6f0eff4c04b884eec80.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org1da4b20" class="outline-3">
+<h3 id="org1da4b20"><span class="section-number-3">2.5.</span> 5)</h3>
+<div class="outline-text-3" id="text-2-5">
+<ul class="org-ul">
+<li><a href="20231024-coequalizer_of_a_group_action_and_the_projection.html#ID-5e42e66d-484b-40f2-9565-23c52bf935ab">coequalizer of a group action and the projection</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2bc286c" class="outline-3">
+<h3 id="org2bc286c"><span class="section-number-3">2.6.</span> 6)</h3>
+<div class="outline-text-3" id="text-2-6">
+<ul class="org-ul">
+<li><a href="20230802-free_action.html#ID-48265c0f-9e40-425c-986d-16b06e5f356c">free action</a></li>
+<li>follows from coprimeness, as <img src="file:///home/anton/html/ltximg/20231018-algebraic_topology_1_exercises_ef72f776a04629cf72f4ccd77d5fcd1d78a6646f.svg" alt="20231018-algebraic_topology_1_exercises_ef72f776a04629cf72f4ccd77d5fcd1d78a6646f.svg" class="org-svg" /> for all <img src="file:///home/anton/html/ltximg/20231018-algebraic_topology_1_exercises_5749de1c991537982234cba1c1511307fc1fdb55.svg" alt="20231018-algebraic_topology_1_exercises_5749de1c991537982234cba1c1511307fc1fdb55.svg" class="org-svg" /> for <img src="file:///home/anton/html/ltximg/20231018-algebraic_topology_1_exercises_1046b782828d0fa932afdd24c0f82cb5d6990744.svg" alt="20231018-algebraic_topology_1_exercises_1046b782828d0fa932afdd24c0f82cb5d6990744.svg" class="org-svg" /> only if all <img src="file:///home/anton/html/ltximg/20231018-algebraic_topology_1_exercises_1652294e460f26c3a9f89e6cf65826320a15486b.svg" alt="20231018-algebraic_topology_1_exercises_1652294e460f26c3a9f89e6cf65826320a15486b.svg" class="org-svg" /> are not coprime to <img src="file:///home/anton/html/ltximg/20231018-algebraic_topology_1_exercises_2a55f72ec92dddc6b953ae93811a986f9b59c844.svg" alt="20231018-algebraic_topology_1_exercises_2a55f72ec92dddc6b953ae93811a986f9b59c844.svg" class="org-svg" /></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org3d67817" class="outline-2">
+<h2 id="org3d67817"><span class="section-number-2">3.</span> Sheet 3 - done</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgbb17f9a" class="outline-3">
+<h3 id="orgbb17f9a"><span class="section-number-3">3.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-orgbeaaa89" class="outline-4">
+<h4 id="orgbeaaa89"><span class="section-number-4">3.1.1.</span> a)</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<ul class="org-ul">
+<li><a href="20231024-functor_from_top_to_the_set_of_path_components.html#ID-1bd97430-5ed1-404d-a2bb-e6813f079895">functor from Top to the set of path components</a></li>
+<li><a href="20231101-functor_from_top_to_the_set_of_connected_components.html#ID-9170c4f8-1dad-461f-8c3c-1714f359fdac">functor from top to the set of connected components</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org73664ad" class="outline-4">
+<h4 id="org73664ad"><span class="section-number-4">3.1.2.</span> b)</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<ul class="org-ul">
+<li><a href="20231101-functor_from_top_to_the_set_of_connected_components_commuting_with_products.html#ID-a79492e0-b63a-4e95-b8ec-20d1fcb2270d">functor from Top to the set of connected components commuting with products</a></li>
+<li><a href="20231101-functor_from_top_to_the_set_of_path_components_commuting_with_products.html#ID-e55c77cc-e2a2-47c0-b468-129d4eff1490">functor from Top to the set of path components commuting with products</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org37d1c80" class="outline-3">
+<h3 id="org37d1c80"><span class="section-number-3">3.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div id="outline-container-orga8de15a" class="outline-4">
+<h4 id="orga8de15a"><span class="section-number-4">3.2.1.</span> a)</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<ul class="org-ul">
+<li><a href="20231101-functor_from_top_to_the_category_of_totally_disconnected_space.html#ID-5f60c1f9-5bb6-4b0c-9c5c-d89da74cdb36">functor from Top to the category of totally disconnected space</a></li>
+<li><a href="20231101-quotient_topology_on_the_connected_components_as_totally_disconnected_space.html#ID-1b69255a-7d94-4a76-adbe-b725f17fc516">connected components with the quotient topology as totally disconnected space</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2199ef1" class="outline-4">
+<h4 id="org2199ef1"><span class="section-number-4">3.2.2.</span> b) - todo</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<ul class="org-ul">
+<li><a href="20231104-functor_from_top_to_the_category_of_totally_disconnected_spaces_admits_a_left_adjoint.html#ID-87abcff5-177b-47e9-b6ed-bf985e5a16ab">functor from top to the category of totally disconnected spaces is a left adjoint</a></li>
+<li><a href="20231104-category_of_totally_disconnected_spaces_as_reflective_subcategory.html#ID-c361a2a8-e445-4769-911a-850a9c1d4cb9">category of totally disconnected spaces as reflective subcategory</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7aac1c8" class="outline-4">
+<h4 id="org7aac1c8"><span class="section-number-4">3.2.3.</span> c)</h4>
+<div class="outline-text-4" id="text-3-2-3">
+<ul class="org-ul">
+<li><a href="20231104-product_of_totally_disconnected_spaces_as_totally_disconnected_space.html#ID-d1ad8ed9-ae1d-46aa-8ffa-8d4b4fcc0bc1">product of totally disconnected spaces as totally disconnected space</a></li>
+<li><a href="20231104-subspace_of_a_totally_disconnected_space_as_totally_disconnected_space.html#ID-eb22fcac-823b-483b-b015-82e9f8f17f34">subspace of a totally disconnected space as totally disconnected space</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org6b34e72" class="outline-3">
+<h3 id="org6b34e72"><span class="section-number-3">3.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-3-3">
+<ul class="org-ul">
+<li><a href="20231101-compact_space_and_nonempty_finite_intersection_imply_nonempty_intersection.html#ID-9faceb3b-89c2-4da0-9e02-eb0fd7331083">compact space and nonempty finite intersection imply nonempty intersection</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7c502f6" class="outline-3">
+<h3 id="org7c502f6"><span class="section-number-3">3.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-3-4">
+<ul class="org-ul">
+<li><a href="20231101-compact_space_in_general_not_locally_regular_compact.html#ID-219984d8-2e45-41f0-acf7-2027db0008aa">compact space in general not locally regular compact</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org002975b" class="outline-3">
+<h3 id="org002975b"><span class="section-number-3">3.5.</span> 5)</h3>
+<div class="outline-text-3" id="text-3-5">
+<ul class="org-ul">
+<li><a href="20231103-pullback_along_one_map.html#ID-0990d02b-7d47-4955-adbf-536f0412e843">pullback along one map</a></li>
+<li><a href="20231104-pullback_and_closed_diagonal.html#ID-f3ebe7a2-f0fb-432c-80c0-b052b94dea87">pullback and closed diagonal</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org6d014e9" class="outline-2">
+<h2 id="org6d014e9"><span class="section-number-2">4.</span> Sheet 4 - todo</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org3ca1dc3" class="outline-3">
+<h3 id="org3ca1dc3"><span class="section-number-3">4.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li><a href="20231107-limit_point_of_a_filter_and_limit_point_of_a_subset.html#ID-7857a71d-d86e-476e-9657-b63fd4c5c12f">limit point of a filter and limit point of a subset</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7f546a2" class="outline-3">
+<h3 id="org7f546a2"><span class="section-number-3">4.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-4-2">
+<ul class="org-ul">
+<li><a href="20231107-connected_component_of_a_compact_hausdorff_set_as_intersection_of_clopen_sets.html#ID-d73dbfa8-533b-4e45-bb9a-61c2d18a7960">connected component of a compact hausdorff set as intersection of clopen sets</a> :(</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgecbe591" class="outline-3">
+<h3 id="orgecbe591"><span class="section-number-3">4.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-4-3">
+<ul class="org-ul">
+<li><a href="20230620-eigentliche_abbildung.html#ID-73b83cff-1036-4c11-8e82-74ce9931aa00">proper map</a></li>
+<li><a href="20231107-precomposition_with_a_proper_map_as_continuous_map_between_mapping_spaces.html#ID-1066e89f-2809-4489-901f-ed5c48cbab3a">precomposition with a proper map as embedding between mapping spaces</a></li>
+<li><a href="20231108-precomposition_with_a_surjection_as_injection.html#ID-f70c0bcd-b569-4695-933e-2670fbbb2496">precomposition with a surjection as injection</a></li>
+<li><a href="20231105-precomposition_for_the_compact_open_topology.html#ID-93176c07-983b-44ba-b4a2-5f843b1fd316">precomposition for the compact open topology</a></li>
+<li><a href="20231109-precomposition_with_a_proper_surjection_as_open_map.html#ID-eaf4f47f-b829-4ad9-901e-f1a1fbdd0059">precomposition with a proper surjection as open map</a></li>
+<li><a href="20230923-quotient_map.html#ID-284e8428-e5a8-4684-9b16-26ae9bf83c5f">quotient map</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd07dfcc" class="outline-3">
+<h3 id="orgd07dfcc"><span class="section-number-3">4.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-4-4">
+<ul class="org-ul">
+<li><a href="20231107-addition_of_a_constant_point_to_a_map_as_continuous_map.html#ID-99796369-ecc2-464b-bbd2-c993a76c1323">addition of a constant point to a map as continuous map</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9d7a06e" class="outline-3">
+<h3 id="org9d7a06e"><span class="section-number-3">4.5.</span> 5) - todo</h3>
+<div class="outline-text-3" id="text-4-5">
+<ul class="org-ul">
+<li><a href="20231107-projective_space_as_hausdorff_space.html#ID-d5e3e92a-137e-40ee-8bdb-3dde0b53d897">projective space as hausdorff space</a></li>
+<li><a href="20231107-real_projective_space_as_quotient_of_a_sphere.html#ID-3e4d9e69-844b-41ba-926e-310af05ab046">real projective space as quotient of a sphere</a></li>
+<li><a href="20231107-complex_projective_space_as_quotient_of_a_sphere.html#ID-19bbae41-46ea-43f4-b41a-51d6ddfbcfaf">complex projective space as quotient of a sphere</a></li>
+<li><a href="20231123-hausdorff_quotient_space_and_open_quotient_map_and_closed_relation.html#ID-319ff61e-4fc3-4647-b470-6588a81231f1">hausdorff quotient space and open quotient map and closed relation</a></li>
+<li><a href="20231123-closed_action_map_and_hausdorff_collapse.html#ID-43bbcbf1-a579-466b-95ee-cfd1b042e9f3">closed action map and hausdorff collapse</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org9feffee" class="outline-2">
+<h2 id="org9feffee"><span class="section-number-2">5.</span> Sheet 5 - todo</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orgcc8b056" class="outline-3">
+<h3 id="orgcc8b056"><span class="section-number-3">5.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li><a href="20231116-existence_of_a_one_point_compactification.html#ID-c04eed99-e931-4fa4-9d0d-59e6091f14d5">existence of a one point compactification</a></li>
+<li><a href="20231115-one_point_compactification.html#ID-31dbb076-b9c8-404e-b32f-7caabe37b511">one point compactification</a></li>
+<li><a href="20230706-kompaktifizierung.html#ID-dae75348-ecf4-4dd9-ba2c-d4dc01518a64">strong compactification</a></li>
+<li><a href="20231115-one_point_compactification_as_hausdorff_space_and_weakly_locally_compact_hausdorff_space.html#ID-a87c8431-a44e-46ed-9256-e0282bf27228">one point compactification of weakly locally compact Hausdorff spaces as strong hausdorff compactification</a></li>
+<li><a href="20231115-wedge_product_and_compactification.html#ID-3d821e3d-5bd4-4033-9da1-4f2733f1113c">smash product and one point compactification</a></li>
+<li><a href="20231115-one_point_compactification_of_the_euclidean_space_as_n_sphere.html#ID-eca797da-ed83-4a5e-90bd-8f3b569bd704">one point compactification of the euclidean space as n-sphere</a></li>
+<li><a href="20231114-smash_product_on_spheres.html#ID-3e12d36e-85b3-407c-9fbb-9c1081bcd23d">smash product on spheres</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgaee7103" class="outline-3">
+<h3 id="orgaee7103"><span class="section-number-3">5.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-5-2">
+<ul class="org-ul">
+<li><a href="20231115-contractible_space_in_general_not_a_reformation_retract.html#ID-4a80100b-058e-4321-aafe-a7d35665bd58">contractible space in general not a reformation retract</a></li>
+<li><a href="20231123-deformation_retract_as_local_deformation_retract.html#ID-03a14d30-6b9a-49d7-8225-a2986de59a66">deformation retract as locally nullhomotopic</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3a1c287" class="outline-3">
+<h3 id="org3a1c287"><span class="section-number-3">5.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-5-3">
+</div>
+<div id="outline-container-org2cf05d3" class="outline-4">
+<h4 id="org2cf05d3"><span class="section-number-4">5.3.1.</span> prelim</h4>
+<div class="outline-text-4" id="text-5-3-1">
+<ul class="org-ul">
+<li><a href="20231110-monoid_object.html#ID-7038973c-0f82-4e3b-91c9-668311e01475">monoid object</a></li>
+<li><a href="20231110-group_object.html#ID-19e7993e-1e10-4d1b-a739-3ece95ad96a5">group object</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org499b1d0" class="outline-4">
+<h4 id="org499b1d0"><span class="section-number-4">5.3.2.</span> a)</h4>
+<div class="outline-text-4" id="text-5-3-2">
+<ul class="org-ul">
+<li><a href="20231121-monoid_object_in_set_as_monoid.html#ID-dc8e2303-6258-445f-b950-fd8b51d0c1e6">monoid object in Set as monoid</a></li>
+<li><a href="20231121-group_object_in_set_as_group.html#ID-1e8b37a6-37cc-430c-9077-e961ea86db85">group object in Set as group</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9d8cf70" class="outline-4">
+<h4 id="org9d8cf70"><span class="section-number-4">5.3.3.</span> b)</h4>
+<div class="outline-text-4" id="text-5-3-3">
+<ul class="org-ul">
+<li><a href="20231116-group_object_and_multiplication_as_isomorphism.html#ID-13e0e19a-b9ec-4c59-a260-9283b10378b7">group object and multiplication as isomorphism</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org66a8227" class="outline-4">
+<h4 id="org66a8227"><span class="section-number-4">5.3.4.</span> c)</h4>
+<div class="outline-text-4" id="text-5-3-4">
+<ul class="org-ul">
+<li><a href="20230302220438-hom_funktor.html#ID-188d17e0-5587-4a90-8927-2d8eb57adc90">hom-functor</a></li>
+<li><a href="20231116-hom_functor_and_limits.html#ID-451c54b3-b423-4497-8feb-9ffa21972aad">hom functor and limits</a></li>
+
+<li><a href="20231116-group_object_and_functor_preserving_products.html#ID-a8acd1d5-ab60-4774-87ca-157096f35bcf">group object and functor preserving products</a></li>
+<li><a href="20231116-monoid_object_and_functor_preserving_products.html#ID-02548eec-79e1-40da-94b3-13da7fb37047">monoid object and functor preserving products and terminal object</a></li>
+<li><a href="20231116-group_object_and_functor_preserving_finite_limits.html#ID-70c1e8a1-6ffa-4528-b822-af319447a68d">group object and functor preserving finite limits</a></li>
+<li><a href="20231116-monoid_object_and_functor_preserving_finite_limits.html#ID-721baa9d-470a-43f6-884e-fc71629a217f">monoid object and functor preserving finite limits</a></li>
+<li><a href="20231116-monoid_object_and_functor_preserving_small_limits.html#ID-2e38fb44-b47c-4751-85a9-cf40da266c01">monoid object and functor preserving small limits</a></li>
+<li><a href="20231116-group_object_and_functor_preserving_small_limits.html#ID-bf5fb0d0-1a83-43b4-bc2b-30ffb86715ea">group object and functor preserving small limits</a></li>
+<li><a href="20231017-hom_functor_preserves_limits.html#ID-ce491494-9921-4e52-9745-a80f36ec7b61">covariant hom-functor preserves small limits</a></li>
+<li><a href="20230729-eckmann_hilton_argumenta.html#ID-2ab97470-d873-4cff-973b-87a6501f9b08">Eckmann-Hilton Argument</a> -todo</li>
+<li><a href="20231115-categorical_eckmann_hilton.html#ID-80e77be3-b696-423d-a3c0-adead5b135d7">categorical eckmann-hilton</a>  - todo</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbccfacd" class="outline-2">
+<h2 id="orgbccfacd"><span class="section-number-2">6.</span> Sheet 6 - todo</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org4fcd476" class="outline-3">
+<h3 id="org4fcd476"><span class="section-number-3">6.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-6-1">
+<ul class="org-ul">
+<li><a href="20231125-weakly_homotopy_equivalence_in_general_not_a_homotopy_equivalence.html#ID-8077ddcb-a55f-442b-a23e-10e5a4a917d7">weak homotopy equivalence in general not a homotopy equivalence</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge8d2e37" class="outline-3">
+<h3 id="orge8d2e37"><span class="section-number-3">6.2.</span> 2) - todo</h3>
+<div class="outline-text-3" id="text-6-2">
+<ul class="org-ul">
+<li>projective space</li>
+<li><a href="20231128-real_projective_space_as_cw_complex.html#ID-ecef9744-9d89-4276-b124-af23b2cc720c">real projective space as CW-Complex</a></li>
+<li><a href="20231128-complex_projective_space_as_cw_complex.html#ID-15b40f27-cfc0-4ef1-a566-3093a4e986a5">complex projective space as CW-Complex</a></li>
+<li><a href="20231020-projective_space_of_the_quaternions.html#ID-ae527a1d-5d72-42cb-a76c-0489cc7a19c3">quaternionic projective space</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfada7be" class="outline-3">
+<h3 id="orgfada7be"><span class="section-number-3">6.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-6-3">
+<ul class="org-ul">
+<li><a href="20231126-classification_of_one_dimensional_cw_complexes_up_to_homotopy.html#ID-9f0865a8-109b-430b-b5c1-2199ce4bf96a">classification of one dimensional CW Complexes up to homotopy</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgde20d37" class="outline-3">
+<h3 id="orgde20d37"><span class="section-number-3">6.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-6-4">
+</div>
+<div id="outline-container-orgb46fb35" class="outline-4">
+<h4 id="orgb46fb35"><span class="section-number-4">6.4.1.</span> a)</h4>
+<div class="outline-text-4" id="text-6-4-1">
+<ul class="org-ul">
+<li><a href="20231125-sphere_into_disk_as_cofibration.html#ID-74347dcc-bdc4-4d1b-97f7-7b36c767191e">sphere into disk as cofibration</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3c0ba81" class="outline-4">
+<h4 id="org3c0ba81"><span class="section-number-4">6.4.2.</span> b)</h4>
+<div class="outline-text-4" id="text-6-4-2">
+<ul class="org-ul">
+<li><a href="20231124-composition_of_cofibrations.html#ID-9bc1b916-2c2e-4775-b1d3-71499df24b19">composition of cofibrations</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3f352bc" class="outline-4">
+<h4 id="org3f352bc"><span class="section-number-4">6.4.3.</span> c)</h4>
+<div class="outline-text-4" id="text-6-4-3">
+<ul class="org-ul">
+<li><a href="20231124-inclusion_for_a_coproduct_as_cofibration.html#ID-f84c3191-22be-4a52-9d92-498f45a10b91">inclusion for a coproduct as cofibration</a> / <a href="20231126-coproduct_and_cofibration.html#ID-ffa6c7cd-5444-427e-8630-521462c80c8c">coproduct and cofibration</a></li>
+<li><a href="20231126-initial_object_in_the_category_of_hurewicz_cofibrations.html#ID-2fe91115-b276-4428-af5c-12f0eaad23c9">initial object in the category of hurewicz cofibrations</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9388ee2" class="outline-4">
+<h4 id="org9388ee2"><span class="section-number-4">6.4.4.</span> d)</h4>
+<div class="outline-text-4" id="text-6-4-4">
+<ul class="org-ul">
+<li><a href="20231124-product_and_cofibration.html#ID-9c40c45d-4645-4c7a-b46d-41b527468537">product and cofibration</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc938afb" class="outline-4">
+<h4 id="orgc938afb"><span class="section-number-4">6.4.5.</span> e)</h4>
+<div class="outline-text-4" id="text-6-4-5">
+<ul class="org-ul">
+<li><a href="20231124-cofibration_and_cylinder_with_retraction.html#ID-d2e59e5c-8566-4ccb-81e5-9db09bb2d049">cofibration and cylinder with retraction</a> / <a href="20231126-cylinder_and_cofibration.html#ID-494c273a-c989-46bb-9afc-fced3ad16b4e">inclusion into the cylinder as cofibrations</a>  ???</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org4bbc23e" class="outline-2">
+<h2 id="org4bbc23e"><span class="section-number-2">7.</span> Sheet 7 - done (?)</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-org656f60d" class="outline-3">
+<h3 id="org656f60d"><span class="section-number-3">7.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-7-1">
+<ul class="org-ul">
+<li><a href="20231129-diagram_of_2_categorical_pullbacks_of_functors_implies_functor.html#ID-b241be81-727c-479d-9c23-cd73478c7471">diagram of 2-categorical pullbacks of functors implies functor</a></li>
+<li><a href="20231129-functor_between_2_pullbacks_of_categories_preserves_fully_faithfulness.html#ID-35637105-8ca5-4d38-91f7-b44b1a24ce8b">functor between 2-pullbacks of categories preserves fully faithfulness</a></li>
+<li><a href="20231129-functor_between_2_pullbacks_of_categories_preserves_essintially_surjectivity_under_fully_faithfullness.html#ID-a39c35da-b7a3-42e5-8b49-45dbdb53e29d">functor between 2-pullbacks of categories preserves essentially surjectivity under fully faithfullness</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfd5c447" class="outline-3">
+<h3 id="orgfd5c447"><span class="section-number-3">7.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-7-2">
+<ul class="org-ul">
+<li><a href="20231129-natural_equivalence_between_groupoids_of_functor_category_and_2_pullback.html#ID-aa2a5b7d-dcbd-4bf2-b577-c594ffbd1e72">natural equivalence between groupoids of functor category and 2-pullback</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5be75ed" class="outline-3">
+<h3 id="org5be75ed"><span class="section-number-3">7.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-7-3">
+<ul class="org-ul">
+<li><a href="20231129-precomposition_with_object_injective_functor_on_groups_as_isofibration_on_the_functor_category.html#ID-607b8e39-0c4a-4ba4-8118-49f8a871b989">precomposition with object-injective functor on groups as isofibration on the functor category</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5b20318" class="outline-3">
+<h3 id="org5b20318"><span class="section-number-3">7.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-7-4">
+<ul class="org-ul">
+<li>idea:
+<ul class="org-ul">
+<li>remove north pole</li>
+<li>take strip</li>
+<li>use seifert van kampen</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgce9721b" class="outline-2">
+<h2 id="orgce9721b"><span class="section-number-2">8.</span> Sheet 8 - todo</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org1a961a4" class="outline-3">
+<h3 id="org1a961a4"><span class="section-number-3">8.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-8-1">
+<ul class="org-ul">
+<li><a href="20240301-finitely_punctured_plane_homotopy_equivalent_to_wedge_of_spheres.html#ID-c91ee46e-13f5-4b36-ad0f-81d9a58415cf">finitely punctured plane homotopy equivalent to wedge of spheres</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5647ce2" class="outline-3">
+<h3 id="org5647ce2"><span class="section-number-3">8.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-8-2">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd48458b" class="outline-3">
+<h3 id="orgd48458b"><span class="section-number-3">8.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-8-3">
+<ul class="org-ul">
+<li><a href="20231206-locally_compact_hausdorff_space_and_covering_like_map.html#ID-6a489aea-76f7-4bc5-a6d7-e57405876485">locally compact hausdorff space and covering like map</a></li>
+<li><a href="20231206-locally_compact_space_and_covering_like_not_in_general_free_and_proper.html#ID-c04e6788-b1a1-4de2-bb98-74c919800caa">locally compact space and covering like not in general free and proper</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8278921" class="outline-3">
+<h3 id="org8278921"><span class="section-number-3">8.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-8-4">
+<ul class="org-ul">
+<li><a href="20231206-covering_map_as_open_map.html#ID-ce10c429-8666-4ba4-ac96-93f10008353d">covering map as open map</a></li>
+<li><a href="20230630-lokaler_homeomorphismus.html#ID-b13c4315-9bfe-438a-a1f0-018888d5b840">lokaler Homeomorphismus</a></li>
+<li><a href="20231206-surjective_covering_map_as_quotient_map.html#ID-147eaeb2-016a-4771-9a31-a8675cd00d8e">surjective covering map as quotient map</a></li>
+<li><a href="20231206-connected_codomain_and_surjective_covering_map.html#ID-f8a15342-31e7-486c-9d22-7415d740f015">connected codomain and surjective covering map</a></li>
+<li><a href="20231206-locally_path_connected_codomain_and_covering_map.html#ID-9d46e9d0-f9bc-429c-ba8d-f265a0929ec6">locally path connected codomain and covering map</a></li>
+<li><a href="20231206-connected_codomain_of_a_covering_map_and_domain_in_general_not_connected.html#ID-0bf7100b-a434-408a-a1d8-974b2c777333">connected codomain of a covering map and domain in general not connected</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3e88626" class="outline-3">
+<h3 id="org3e88626"><span class="section-number-3">8.5.</span> 5)</h3>
+<div class="outline-text-3" id="text-8-5">
+<ul class="org-ul">
+<li><a href="20231209-pullback_induces_functor_for_coslice_category.html#ID-9fe7a5c7-6c5a-4dda-8c22-04b7735008e4">pullback induces functor for slice category</a></li>
+<li><a href="20231206-pullback_and_covering_map.html#ID-6092a55a-441c-4949-80bc-cd659c11aaab">pullback and covering map</a></li>
+<li><a href="20231210-pullback_functor_changing_the_covered_space.html#ID-783ceb15-f43a-4510-95cc-f58a27f00251">pullback functor changing the covered space</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb49218b" class="outline-2">
+<h2 id="orgb49218b"><span class="section-number-2">9.</span> Sheet 9 - todo !</h2>
+<div class="outline-text-2" id="text-9">
+</div>
+<div id="outline-container-org677444d" class="outline-3">
+<h3 id="org677444d"><span class="section-number-3">9.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-9-1">
+<ul class="org-ul">
+<li><a href="20231212-sheteed_cover.html#ID-173d7fe5-cb39-4bfd-8022-f7293c6d3368">sheeted cover</a></li>
+<li><a href="20231212-n_sheeted_covering_by_orbital_projection.html#ID-b85ed0b5-3b4b-448b-867b-4d73a8cd434b">n-sheeted covering by orbital projection</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgade79bf" class="outline-3">
+<h3 id="orgade79bf"><span class="section-number-3">9.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-9-2">
+<ul class="org-ul">
+<li><a href="20231205-g_equivariant_map.html#ID-3053c70b-dd6f-44e2-ba1e-dce86ece54f0">G-equivariant map</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5902ffc" class="outline-3">
+<h3 id="org5902ffc"><span class="section-number-3">9.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-9-3">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgda059e4" class="outline-3">
+<h3 id="orgda059e4"><span class="section-number-3">9.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-9-4">
+<ul class="org-ul">
+<li><a href="20231212-finite_wedge_of_circles_covered_by_a_tree.html#ID-0933b712-933d-49d6-9960-c3c5b2ecf7e1">finite wedge of circles covered by a tree</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgdea42af" class="outline-2">
+<h2 id="orgdea42af"><span class="section-number-2">10.</span> Sheet 10 - todo</h2>
+<div class="outline-text-2" id="text-10">
+</div>
+<div id="outline-container-org1d26ba2" class="outline-3">
+<h3 id="org1d26ba2"><span class="section-number-3">10.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-10-1">
+<ul class="org-ul">
+<li><a href="20240108-ysurjective_covering_map_as_2_out_of_3.html#ID-bb9d3253-3655-462f-8a24-2b1d7e65c62e">surjective covering map and composition</a> - todo</li>
+<li><a href="20240108-covering_maps_in_general_not_2_out_of_three.html#ID-922b16a7-61ac-4f9b-a1de-e04ccbdfbc83">covering maps in general not two out of three</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf679f22" class="outline-3">
+<h3 id="orgf679f22"><span class="section-number-3">10.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-10-2">
+<ul class="org-ul">
+<li><a href="20240108-group_homomorphism_and_construction_as_fundamental_group.html#ID-cb604f47-4a9c-41fa-a27c-eb3440ae07bf">group homomorphism and construction as fundamental group</a> - todo</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org008297a" class="outline-3">
+<h3 id="org008297a"><span class="section-number-3">10.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-10-3">
+<ul class="org-ul">
+<li><a href="20240108-isomorphic_quotients_as_g_set_and_conjugation.html#ID-ffc821a1-84f5-4f2c-b581-9e5e0a9de5d1">iomorphic quotients as G-Set and conjugation</a> - todo</li>
+<li><a href="20231205-g_equivariant_map.html#ID-3053c70b-dd6f-44e2-ba1e-dce86ece54f0">G-equivariant map</a> 
+<ul class="org-ul">
+<li></li>
+</ul></li>
+</ul>
+<p>
+sheeted connected coverings ?  
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org36ae6b1" class="outline-2">
+<h2 id="org36ae6b1"><span class="section-number-2">11.</span> Sheet 11</h2>
+<div class="outline-text-2" id="text-11">
+</div>
+<div id="outline-container-orgde34199" class="outline-3">
+<h3 id="orgde34199"><span class="section-number-3">11.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-11-1">
+<ul class="org-ul">
+<li><a href="20240218-covering_map_of_a_cw_complex_induces_cw_structure_on_the_domain.html#ID-39cac22c-8caa-41c4-ac54-fe583fde2545">covering map of a cw complex induces CW structure on the domain</a>  - todo</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgdb2b07c" class="outline-3">
+<h3 id="orgdb2b07c"><span class="section-number-3">11.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-11-2">
+<ul class="org-ul">
+<li><a href="20240312-covering_of_a_group_with_abelian_fundamental_group_as_galois_covering.html#ID-945c0255-17f4-43a9-8923-029b6ed672ca">covering of a group with abelian fundamental group as galois covering</a></li>
+<li><a href="20240306-coverings_of_a_path_component_space_and_isomorphism.html#ID-2493cbdd-76fd-41d2-a6fc-b6b49705780e">coverings of a path connected space and isomorphism classes of coverings</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7e69f26" class="outline-3">
+<h3 id="org7e69f26"><span class="section-number-3">11.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-11-3">
+<ul class="org-ul">
+<li><a href="20240110-singular_homological_degree_as_surjective_map.html#ID-c39e6645-608a-4a90-91b0-718108dd8004">singular homological degree as group epimorphism</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8babc3d" class="outline-3">
+<h3 id="org8babc3d"><span class="section-number-3">11.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-11-4">
+<ul class="org-ul">
+<li><a href="20240110-nonzero_homological_degree_and_surjectivity.html#ID-550e075b-be85-483e-9699-1b1871cb719e">nonzero homological degree and surjectivity on the sphere</a></li>
+<li><a href="20240110-nonzero_homological_degree_and_surjectivity_of_the_disk.html#ID-2498e365-d422-4d5f-bc52-e666f683a6d9">nonzero homological degree and surjectivity on the disk</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org067dd89" class="outline-2">
+<h2 id="org067dd89"><span class="section-number-2">12.</span> Sheet 12</h2>
+<div class="outline-text-2" id="text-12">
+</div>
+<div id="outline-container-org16a726a" class="outline-3">
+<h3 id="org16a726a"><span class="section-number-3">12.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-12-1">
+<ul class="org-ul">
+<li><a href="20240218-degree_of_a_fixed_point_less_map.html#ID-cb727895-7316-4c2f-ab33-6c00800fa213">degree of a fixed point less map</a> - wonky</li>
+<li><a href="20240218-degree_of_a_map_without_antipodal_fixed_point.html#ID-9826626e-634a-4816-81b6-2d5521272d07">degree of a map without antipodal fixed point</a></li>
+<li><a href="20240218-fixed_point_theorem_for_real_projective_spaces.html#ID-b696bc72-bac4-4ef1-af4f-c6b5af160820">fixed point theorem for real projective spaces</a> - todo</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org21a52af" class="outline-3">
+<h3 id="org21a52af"><span class="section-number-3">12.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-12-2">
+<ul class="org-ul">
+<li><a href="20240218-singular_boundary_map_and_yoneda_lemma.html#ID-c7612d2e-8c82-4d0b-b8d5-ad5627d8735e">singular boundary map and Yoneda Lemma</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org78e71cf" class="outline-3">
+<h3 id="org78e71cf"><span class="section-number-3">12.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-12-3">
+<ul class="org-ul">
+<li><a href="20240216-splitting_lemma_for_modules.html#ID-f31023a4-3387-404c-84b3-f1efe4d7b95b">splitting lemma for modules</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfdb7f85" class="outline-3">
+<h3 id="orgfdb7f85"><span class="section-number-3">12.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-12-4">
+</div>
+<div id="outline-container-org1e77eec" class="outline-4">
+<h4 id="org1e77eec"><span class="section-number-4">12.4.1.</span> a)</h4>
+<div class="outline-text-4" id="text-12-4-1">
+<ul class="org-ul">
+<li><a href="20230903-tensor_functor_as_right_exact_functor.html#ID-f764fee4-70ed-43a7-8b99-f27aba83523d">tensor functor as right exact functor</a> - todo</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6e1f994" class="outline-4">
+<h4 id="org6e1f994"><span class="section-number-4">12.4.2.</span> b)</h4>
+<div class="outline-text-4" id="text-12-4-2">
+<ul class="org-ul">
+<li><a href="20231103-covariant_hom_functor_as_left_exact_functor.html#ID-4ae95391-66e1-4eb7-af58-bc4abe8daebf">covariant hom-functor as left-exact functor</a></li>
+<li><a href="20240224-covariant_hom_object_functor_of_modules_as_left_exact_functor.html#ID-6ea9d2af-d8c2-47d1-ab06-72a2acbe1aea">covariant hom object functor of modules as left exact functor</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcaadf3b" class="outline-4">
+<h4 id="orgcaadf3b"><span class="section-number-4">12.4.3.</span> c)</h4>
+<div class="outline-text-4" id="text-12-4-3">
+<ul class="org-ul">
+<li><a href="20240216-tensor_functor_in_general_not_left_exact.html#ID-4e10153c-c72a-4608-97ab-9417dc51fb95">tensor functor in general not left exact</a></li>
+<li><a href="20240216-hom_functor_in_general_not_right_exact.html#ID-9d5fe8b5-3b31-46f3-bdfc-ec892ecc9091">hom functor in general not right exact</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org970b058" class="outline-4">
+<h4 id="org970b058"><span class="section-number-4">12.4.4.</span> d)</h4>
+<div class="outline-text-4" id="text-12-4-4">
+<ul class="org-ul">
+<li><a href="20240224-projective_module_and_hom_covariant_functor_as_right_exact_functor.html#ID-b8988af3-d01b-4a45-81ed-5120301c257b">projective module and hom covariant functor as right exact functor</a></li>
+<li><a href="20230801-projective_module_and_sum_as_free_module.html#ID-581d0e02-9070-46fa-8e3f-73377aff2ed4">projective module and sum as free module</a></li>
+<li><a href="20230801-projective_module_and_exact_sequence.html#ID-343d406f-c803-4c06-9eb5-c19f5b87f77b">projective module and exact sequence</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd8ba169" class="outline-4">
+<h4 id="orgd8ba169"><span class="section-number-4">12.4.5.</span> e)</h4>
+<div class="outline-text-4" id="text-12-4-5">
+<ul class="org-ul">
+<li><a href="20230727-free_module_as_projective_module.html#ID-dc5e5a8e-fab5-4f2d-b555-f560b1ec7b4a">free module as projective module</a></li>
+<li><a href="20240216-projective_module_as_flat_module.html#ID-09d6dfa4-1297-43ee-885b-5b56c58cc541">projective module as flat module</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2993dcb" class="outline-4">
+<h4 id="org2993dcb"><span class="section-number-4">12.4.6.</span> f)</h4>
+<div class="outline-text-4" id="text-12-4-6">
+<ul class="org-ul">
+<li><a href="20240208-colimit_functor_as_right_exact_functor.html#ID-55d74c6e-3382-47fe-88d9-c5dde5b9fa0d">colimit functor as right exact functor</a></li>
+<li><a href="20240216-colimit_functor_in_a_grothendieck_category_as_exact_functor.html#ID-38ac2bcd-c51c-4ab1-8bf4-84b73ec11564">colimit functor in a grothendieck category as exact functor</a></li>
+<li><a href="20230804-filtered_colimit_of_flat_modules_as_flat_module.html#ID-1c06059c-7f2b-40b3-90f2-97b454ffb03b">filtered colimit of flat modules as flat module</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org6f28fe5" class="outline-2">
+<h2 id="org6f28fe5"><span class="section-number-2">13.</span> Sheet 13</h2>
+<div class="outline-text-2" id="text-13">
+</div>
+<div id="outline-container-orgb87b87c" class="outline-3">
+<h3 id="orgb87b87c"><span class="section-number-3">13.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-13-1">
+<ul class="org-ul">
+<li><a href="20240218-reduced_singular_homology_and_wedge_product.html#ID-19178f5d-614a-4c87-baa0-8c929e5b94ee">reduced singular homology and wedge product</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org97cd054" class="outline-3">
+<h3 id="org97cd054"><span class="section-number-3">13.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-13-2">
+<ul class="org-ul">
+<li><a href="20230802-snake_lemma.html#ID-d1fa92c4-30dd-4e98-bb54-620596a2800e">Snake lemma</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga5555a9" class="outline-3">
+<h3 id="orga5555a9"><span class="section-number-3">13.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-13-3">
+<ul class="org-ul">
+<li><a href="20230803-5_lemma.html#ID-fa3db9a5-91b8-446d-955f-158e123bc141">5-Lemma</a></li>
+<li><a href="20230902-four_lemma_of_epimorphisms.html#ID-8f7efe3a-675e-47a0-b76f-50723ed6635d">Four-Lemma of epimorphisms</a></li>
+<li><a href="20230902-four_lemma_of_monomorphisms.html#ID-ef104894-0d50-49ab-8e75-8aff8f7b1f00">Four-Lemma of monomorphisms</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcbc6f0b" class="outline-3">
+<h3 id="orgcbc6f0b"><span class="section-number-3">13.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-13-4">
+<ul class="org-ul">
+<li><a href="20240124-total_complex.html#ID-58135221-0db5-4f3b-9ea3-602d619d1bdc">sum total complex</a></li>
+<li><a href="20240218-interval_chain_complex_of_modules.html#ID-0bf23ecb-7467-4810-a3f9-ee6f7c9b3a18">interval chain complex of modules</a></li>
+<li><a href="20240218-sum_total_complex_with_the_interval.html#ID-02b708e5-1109-4955-8d36-8360b1bd06bc">sum total complex with the interval</a></li>
+<li><a href="20240218-chain_homotopy_as_chain_map_with_intervall.html#ID-9c57315f-15e9-4fba-928c-1963796c64d8">chain homotopy as chain map with interval</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd43fe60" class="outline-2">
+<h2 id="orgd43fe60"><span class="section-number-2">14.</span> Sheet 14 - todo</h2>
+<div class="outline-text-2" id="text-14">
+</div>
+<div id="outline-container-org132d9eb" class="outline-3">
+<h3 id="org132d9eb"><span class="section-number-3">14.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-14-1">
+<ul class="org-ul">
+<li><a href="20240218-cone_of_a_chain_map.html#ID-8c8c51e5-4761-40fd-a6b9-50f532967b90">cone of a chain map</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20240218-inclusion_for_a_chain_cone.html#ID-7012b0a9-6681-4de6-8dbe-5165ed4a281d">inclusion for a chain cone</a></li>
+<li><a href="20240218-chain_cone_gives_short_exact_sequence.html#ID-622ac17b-da76-4a0b-a6da-e71ff325a929">chain cone gives short exact sequence</a></li>
+<li><a href="20240218-quasi_isomorphism_and_cone_as_exact_chain_complex.html#ID-eca53a09-2083-437d-bdb3-759dc6c5f504">quasi isomorphism and cone as exact chain complex</a></li>
+<li><a href="20240218-contractible_chain_complex.html#ID-e987a5ed-def4-4e4e-91bb-bb9051d8fd55">contractible chain complex</a></li>
+<li><a href="20240218-chain_homotopy_equivalence_and_cone_as_contractible_chain_complex.html#ID-af7fce13-841c-4d5c-9829-da73504c32a7">chin homotopy equivalence and cone as contractible chain complex</a></li>
+<li><a href="20240224-quasi_isomorphism_between_chain_complexes_of_projcetives_and_homtoopy.html#ID-26abf03a-0198-45bb-a906-41df6d71c838">quasi isomorphism between chain complexes of projectives and homotopy equivalence</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9dfdab4" class="outline-3">
+<h3 id="org9dfdab4"><span class="section-number-3">14.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-14-2">
+<ul class="org-ul">
+<li><a href="20230226184405-gruppenring.html#ID-2c9cf75a-3151-48a9-b3f7-4b0239f4a068">Gruppenring</a></li>
+<li><a href="20240217-ring_epimorphism_from_the_group_ring_to_the_ring.html#ID-eaad635c-0918-4ea2-b4a6-6ec130624dd3">ring epimorphism from the group ring to the ring</a></li>
+<li><a href="20240217-ring_as_module_over_a_group_ring.html#ID-2a912904-6fad-4cb2-8a49-186a66731a98">ring as module over a group ring</a></li>
+</ul>
+</div>
+<div id="outline-container-org50a3022" class="outline-4">
+<h4 id="org50a3022"><span class="section-number-4">14.2.1.</span> a)</h4>
+<div class="outline-text-4" id="text-14-2-1">
+<ul class="org-ul">
+<li><a href="20240317-singular_chain_complexes_for_a_covering_like_group_action_and_module_over_the_group_ring.html#ID-6df77200-ec75-484d-b4a7-9b83e377562e">singular chain complexes for a covering like group action and module over the group ring</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5440ba7" class="outline-4">
+<h4 id="org5440ba7"><span class="section-number-4">14.2.2.</span> b)</h4>
+<div class="outline-text-4" id="text-14-2-2">
+<ul class="org-ul">
+<li><a href="20240217-ring_as_projective_module_for_a_finite_group_ring.html#ID-6aeebcb4-1c96-470c-bcd6-48ab488b4229">ring as projective module for a finite group ring</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3a4e067" class="outline-4">
+<h4 id="org3a4e067"><span class="section-number-4">14.2.3.</span> c)</h4>
+<div class="outline-text-4" id="text-14-2-3">
+<ul class="org-ul">
+<li><a href="20240317-homology_with_a_flat_module_and_group_ring.html#ID-5f2520e8-bff0-4fca-b9a9-ead46bce8e13">homology with a flat module and group ring</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1590f05" class="outline-4">
+<h4 id="org1590f05"><span class="section-number-4">14.2.4.</span> d)</h4>
+</div>
+<div id="outline-container-org2421504" class="outline-4">
+<h4 id="org2421504"><span class="section-number-4">14.2.5.</span> e)</h4>
+</div>
+
+<div id="outline-container-orgb67caac" class="outline-4">
+<h4 id="orgb67caac"><span class="section-number-4">14.2.6.</span> f)</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-org24f3ba2" class="outline-2">
+<h2 id="org24f3ba2"><span class="section-number-2">15.</span> first exam</h2>
+<div class="outline-text-2" id="text-15">
+</div>
+<div id="outline-container-orgf32813d" class="outline-3">
+<h3 id="orgf32813d"><span class="section-number-3">15.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-15-1">
+</div>
+<div id="outline-container-orged6e442" class="outline-4">
+<h4 id="orged6e442"><span class="section-number-4">15.1.1.</span> a)</h4>
+<div class="outline-text-4" id="text-15-1-1">
+<ul class="org-ul">
+<li><a href="20240305-covering_of_a_hausdorff_space_as_hausdorff_space.html#ID-6152a292-9906-41a1-8cfa-ebc1b9995bbd">covering of a hausdorff space as hausdorff space</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org03d6e26" class="outline-4">
+<h4 id="org03d6e26"><span class="section-number-4">15.1.2.</span> b)</h4>
+<div class="outline-text-4" id="text-15-1-2">
+<ul class="org-ul">
+<li><a href="20240305-covering_map_from_a_hausdorff_space_and_finite_fibre.html#ID-ca4b82a3-fe7e-4176-b051-75721fec7f20">covering map from a hausdorff space and finite fibre</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga34c90d" class="outline-4">
+<h4 id="orga34c90d"><span class="section-number-4">15.1.3.</span> c)</h4>
+<div class="outline-text-4" id="text-15-1-3">
+<ul class="org-ul">
+<li><a href="20240305-covering_of_a_compact_hausdorff_space.html#ID-3140150f-d78d-428c-b913-faa4ba9da1d7">covering of a compact hausdorff space</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org9fbf080" class="outline-3">
+<h3 id="org9fbf080"><span class="section-number-3">15.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-15-2">
+</div>
+<div id="outline-container-orgbfcead2" class="outline-4">
+<h4 id="orgbfcead2"><span class="section-number-4">15.2.1.</span> a)</h4>
+<div class="outline-text-4" id="text-15-2-1">
+<ul class="org-ul">
+<li><a href="20230808-kommutatorgruppe.html#ID-06a85ad0-3007-4ec7-8478-52f45f7cd091">commutator subgroup</a></li>
+<li><a href="20230808-commutator_subgroup_as_normal_subgroup.html#ID-9a1c8b32-66ed-4476-8b7f-028171d282dd">commutator subgroup as normal subgroup</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org82cb283" class="outline-4">
+<h4 id="org82cb283"><span class="section-number-4">15.2.2.</span> b)</h4>
+<div class="outline-text-4" id="text-15-2-2">
+<ul class="org-ul">
+<li><a href="20240109-abelianization_functor.html#ID-7b47ea27-7f41-41ed-ad5f-7eebea33ea64">abelianization functor</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7208db0" class="outline-4">
+<h4 id="org7208db0"><span class="section-number-4">15.2.3.</span> c)</h4>
+<div class="outline-text-4" id="text-15-2-3">
+<ul class="org-ul">
+<li><a href="20231014-left_adjoint_preserves_limits.html#ID-b74a606d-2b63-4e0c-8f74-d8983694896c">left adjoint preserves colimits</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org67f665a" class="outline-4">
+<h4 id="org67f665a"><span class="section-number-4">15.2.4.</span> d)</h4>
+<div class="outline-text-4" id="text-15-2-4">
+<ul class="org-ul">
+<li>todo</li>
+<li><a href="20240306-abelianized_space.html#ID-ab4d31d2-b10f-4620-acdf-98f1e2fe366a">abelianized space</a></li>
+<li><a href="20240305-abelianized_space_of_cw_complex.html#ID-93937eb2-697e-47a3-ba2b-6c1ff277ce93">abelianized space of cw complex</a></li>
+<li><a href="20240305-abelianized_space_of_space_in_general_not_unique_up_to_homotopy_equivalence.html#ID-d99f2c95-1bbe-4a0d-a153-9a82e53051aa">abelianized space of space in general not unique up to homotopy equivalence</a></li>
+<li><a href="20240305-abelianized_cw_complex_and_product.html#ID-a40bc384-9661-446e-a62f-f692f0cac370">abelianized cw complex and product</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org897f37b" class="outline-4">
+<h4 id="org897f37b"><span class="section-number-4">15.2.5.</span> e)</h4>
+</div>
+<div id="outline-container-org7d2e9b0" class="outline-4">
+<h4 id="org7d2e9b0"><span class="section-number-4">15.2.6.</span> f)</h4>
+</div>
+</div>
+<div id="outline-container-orge48c834" class="outline-3">
+<h3 id="orge48c834"><span class="section-number-3">15.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-15-3">
+<ul class="org-ul">
+<li><a href="20240306-finite_subgroup_of_the_coproduct_of_c2.html#ID-9a935bbb-79f4-4d2b-bad4-e9385bb7508b">finite subgroup of the coproduct of C2</a></li>
+<li><a href="20240306-isomorphism_classes_of_connected_coverings_of_real_projective_space_with_finite_fundamental_group.html#ID-0c8917fc-0f3a-4d07-b376-38eb234a0613">isomorphism classes of connected coverings of real projective space with finite fundamental group</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge9042d5" class="outline-3">
+<h3 id="orge9042d5"><span class="section-number-3">15.4.</span> 4)</h3>
+<div class="outline-text-3" id="text-15-4">
+<ul class="org-ul">
+<li><a href="20240305-long_exact_sequence_of_homology_for_a_mapping_torus.html#ID-11fd3a5a-1364-4e48-8485-0980cd595d4f">long exact sequence of homology for a mapping torus</a></li>
+<li><a href="20240305-nilpotent_map_between_homology_and_mapping_torus.html#ID-f5ad3197-c36a-4186-a3b1-c4d8f47416ea">nilpotent map between homology and mapping torus</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-13 So 18:41</p>
+</div>
+</body>
+</html>
