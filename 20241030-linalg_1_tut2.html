@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-30 Mi 16:45 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LinAlg 1 - Tut2</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">LinAlg 1 - Tut2</h1>
+<div id="outline-container-orga5849bb" class="outline-2">
+<h2 id="orga5849bb"><span class="section-number-2">1.</span> Erinnerung</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><a href="20221224140013-bildmenge.html#ID-def6ffac-1c21-427b-bacf-7b8580f5d7dd">Bild</a></li>
+<li><a href="20211230205442-urbild_mengenlehre.html#ID-55e63f0f-4499-43f1-af07-5c56577a9c73">Urbild</a></li>
+<li><a href="20220104114218-komposition.html#ID-7dbdf503-309d-418b-8b3d-5c2fe27bbfeb">Komposition von Abbildungen</a> - auf Reihenfolge achten !</li>
+<li><a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjektiv</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org62168af" class="outline-2">
+<h2 id="org62168af"><span class="section-number-2">2.</span> Aufgaben</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org9ab6905" class="outline-3">
+<h3 id="org9ab6905"><span class="section-number-3">2.1.</span> 1)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Sei <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_6cf7094a238e76a0b8a4616a06f718e4fbdca703.svg" alt="20241030-linalg_1_tut2_6cf7094a238e76a0b8a4616a06f718e4fbdca703.svg" class="org-svg" /> eine <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a> und <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_8f0a5c487e35e9df2a7bf99d571ce17df297578c.svg" alt="20241030-linalg_1_tut2_8f0a5c487e35e9df2a7bf99d571ce17df297578c.svg" class="org-svg" /> das <a href="20221224140013-bildmenge.html#ID-def6ffac-1c21-427b-bacf-7b8580f5d7dd">Bild</a> 
+Finde eine <a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">Surjektion</a> <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_5e551aca29e49e58700157185275d9ac9f307efa.svg" alt="20241030-linalg_1_tut2_5e551aca29e49e58700157185275d9ac9f307efa.svg" class="org-svg" />
+</p>
+</div>
+</div>
+<div id="outline-container-org1a5b1b3" class="outline-3">
+<h3 id="org1a5b1b3"><span class="section-number-3">2.2.</span> 2)</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Sei <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_6cf7094a238e76a0b8a4616a06f718e4fbdca703.svg" alt="20241030-linalg_1_tut2_6cf7094a238e76a0b8a4616a06f718e4fbdca703.svg" class="org-svg" /> eine <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a>, <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_44661c3bba30ad438ee7078c3608232abbbbb401.svg" alt="20241030-linalg_1_tut2_44661c3bba30ad438ee7078c3608232abbbbb401.svg" class="org-svg" /> <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">Teilmengen</a> 
+Zeige für das bild und das <a href="20211230205442-urbild_mengenlehre.html#ID-55e63f0f-4499-43f1-af07-5c56577a9c73">Urbild</a>
+</p>
+</div>
+<div id="outline-container-org30f6678" class="outline-4">
+<h4 id="org30f6678"><span class="section-number-4">2.2.1.</span> a)</h4>
+<div class="outline-text-4" id="text-2-2-1">
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_1b5db18b8baede846137b92222fd85d10bc2f797.svg" alt="20241030-linalg_1_tut2_1b5db18b8baede846137b92222fd85d10bc2f797.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org661fef2" class="outline-4">
+<h4 id="org661fef2"><span class="section-number-4">2.2.2.</span> b)</h4>
+<div class="outline-text-4" id="text-2-2-2">
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_84434409cf6cd1e48071ef2816242583c779abc7.svg" alt="20241030-linalg_1_tut2_84434409cf6cd1e48071ef2816242583c779abc7.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc4d5a8a" class="outline-4">
+<h4 id="orgc4d5a8a"><span class="section-number-4">2.2.3.</span> c)</h4>
+<div class="outline-text-4" id="text-2-2-3">
+<p>
+Finde ein Beispiel für <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_6cf7094a238e76a0b8a4616a06f718e4fbdca703.svg" alt="20241030-linalg_1_tut2_6cf7094a238e76a0b8a4616a06f718e4fbdca703.svg" class="org-svg" /> so dass <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_28dd2e757c5281a36ae9765b741d007ce8ed4103.svg" alt="20241030-linalg_1_tut2_28dd2e757c5281a36ae9765b741d007ce8ed4103.svg" class="org-svg" /> eine <a href="20211226213432-echte_teilmenge.html#ID-d91c99f3-9e8a-4620-8508-ff80ecb5351b">echte Teilmenge</a> ist.
+Finde ein Beispiel für <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_6cf7094a238e76a0b8a4616a06f718e4fbdca703.svg" alt="20241030-linalg_1_tut2_6cf7094a238e76a0b8a4616a06f718e4fbdca703.svg" class="org-svg" /> so dass <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_5b81603598f81680ad7232987a560a5301c57bf2.svg" alt="20241030-linalg_1_tut2_5b81603598f81680ad7232987a560a5301c57bf2.svg" class="org-svg" /> eine <a href="20211226213432-echte_teilmenge.html#ID-d91c99f3-9e8a-4620-8508-ff80ecb5351b">echte Teilmenge</a> ist.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfc9f74e" class="outline-3">
+<h3 id="orgfc9f74e"><span class="section-number-3">2.3.</span> 3)</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Seien
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_97c9f3b3672630cb26dc38409d9610860b99b7a9.svg" alt="20241030-linalg_1_tut2_97c9f3b3672630cb26dc38409d9610860b99b7a9.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Abbildung zwischen Mengen <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_eed2c8d262e62b566f5eab2ebf531c8c3783ddd4.svg" alt="20241030-linalg_1_tut2_eed2c8d262e62b566f5eab2ebf531c8c3783ddd4.svg" class="org-svg" />
+</p>
+</div>
+<div id="outline-container-orgdba119c" class="outline-4">
+<h4 id="orgdba119c"><span class="section-number-4">2.3.1.</span> a)</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<p>
+Angenommen <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_50706fcb59084c951cf44498a2491f2cd0455273.svg" alt="20241030-linalg_1_tut2_50706fcb59084c951cf44498a2491f2cd0455273.svg" class="org-svg" /> und <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" alt="20241030-linalg_1_tut2_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" class="org-svg" /> sind <a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjektiv</a>.
+Zeige dass <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_77bd03bccad41499df1dc88ed519eab107c557cb.svg" alt="20241030-linalg_1_tut2_77bd03bccad41499df1dc88ed519eab107c557cb.svg" class="org-svg" /> surjektiv ist.
+</p>
+</div>
+</div>
+<div id="outline-container-org57e156b" class="outline-4">
+<h4 id="org57e156b"><span class="section-number-4">2.3.2.</span> b)</h4>
+<div class="outline-text-4" id="text-2-3-2">
+<p>
+angenommen <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_50706fcb59084c951cf44498a2491f2cd0455273.svg" alt="20241030-linalg_1_tut2_50706fcb59084c951cf44498a2491f2cd0455273.svg" class="org-svg" /> und <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" alt="20241030-linalg_1_tut2_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" class="org-svg" /> sind <a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injektiv</a> 
+Zeige dass <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_77bd03bccad41499df1dc88ed519eab107c557cb.svg" alt="20241030-linalg_1_tut2_77bd03bccad41499df1dc88ed519eab107c557cb.svg" class="org-svg" /> injektiv ist.
+</p>
+</div>
+</div>
+<div id="outline-container-org2d9315a" class="outline-4">
+<h4 id="org2d9315a"><span class="section-number-4">2.3.3.</span> c)</h4>
+<div class="outline-text-4" id="text-2-3-3">
+<p>
+Angenommen <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_77bd03bccad41499df1dc88ed519eab107c557cb.svg" alt="20241030-linalg_1_tut2_77bd03bccad41499df1dc88ed519eab107c557cb.svg" class="org-svg" /> ist injektiv.
+Zeige dass <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_50706fcb59084c951cf44498a2491f2cd0455273.svg" alt="20241030-linalg_1_tut2_50706fcb59084c951cf44498a2491f2cd0455273.svg" class="org-svg" /> injektiv ist.
+</p>
+</div>
+</div>
+<div id="outline-container-org4dd41c9" class="outline-4">
+<h4 id="org4dd41c9"><span class="section-number-4">2.3.4.</span> d)</h4>
+<div class="outline-text-4" id="text-2-3-4">
+<p>
+Angenommen <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_b031be0074bfa9ccd17d0c37f158fd85b05c18b3.svg" alt="20241030-linalg_1_tut2_b031be0074bfa9ccd17d0c37f158fd85b05c18b3.svg" class="org-svg" /> ist surjektiv.
+Zeige dass <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" alt="20241030-linalg_1_tut2_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" class="org-svg" /> ist surjektiv
+</p>
+</div>
+</div>
+<div id="outline-container-org61dd037" class="outline-4">
+<h4 id="org61dd037"><span class="section-number-4">2.3.5.</span> e)</h4>
+<div class="outline-text-4" id="text-2-3-5">
+<p>
+Angenommen <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_b031be0074bfa9ccd17d0c37f158fd85b05c18b3.svg" alt="20241030-linalg_1_tut2_b031be0074bfa9ccd17d0c37f158fd85b05c18b3.svg" class="org-svg" /> ist surjektiv.
+Ist dann <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" alt="20241030-linalg_1_tut2_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" class="org-svg" /> immer surjektiv.
+Angenommen <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_b031be0074bfa9ccd17d0c37f158fd85b05c18b3.svg" alt="20241030-linalg_1_tut2_b031be0074bfa9ccd17d0c37f158fd85b05c18b3.svg" class="org-svg" /> ist injektiv.
+Ist dann <img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_50706fcb59084c951cf44498a2491f2cd0455273.svg" alt="20241030-linalg_1_tut2_50706fcb59084c951cf44498a2491f2cd0455273.svg" class="org-svg" /> immer surjektiv.
+</p>
+
+
+<p>
+Hint für e)
+Überlege dir Abbildungen
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241030-linalg_1_tut2_780d2ae9fff32ce824e3160bcc2504ec70aa47e3.svg" alt="20241030-linalg_1_tut2_780d2ae9fff32ce824e3160bcc2504ec70aa47e3.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org324b3a7" class="outline-2">
+<h2 id="org324b3a7"><span class="section-number-2">3.</span> Kommentare</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgcfe27b8" class="outline-3">
+<h3 id="orgcfe27b8"><span class="section-number-3">3.1.</span> Übungsblatt</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Ich halte die Aufgaben 1.3, 3 und 4 für ziemlich schwierig.
+Macht euch keinen Kopf, wenn ihr diese nicht schafft.
+</p>
+
+<p>
+Die anderen Aufgaben (1.1, 1.2 und 2) dürften gut machbar sein.
+</p>
+</div>
+</div>
+<div id="outline-container-orge22f0ca" class="outline-3">
+<h3 id="orge22f0ca"><span class="section-number-3">3.2.</span> Mittwochstutorium</h3>
+</div>
+<div id="outline-container-orgac5c9da" class="outline-3">
+<h3 id="orgac5c9da"><span class="section-number-3">3.3.</span> Donnerstagstutorium</h3>
+</div>
+</div>
+<div id="outline-container-orga0d87c2" class="outline-2">
+<h2 id="orga0d87c2"><span class="section-number-2">4.</span> Lösungsskizze</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-10-30 Mi 16:45</p>
+</div>
+</body>
+</html>
