@@ -3,13 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:24 -->
+<!-- 2024-11-06 Mi 09:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Menge der Äquivalenzklassen als Partition</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
-<style>
+<style type="text/css">
   #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
@@ -230,30 +230,59 @@
 <body>
 <div id="content" class="content">
 <h1 class="title">Menge der Äquivalenzklassen als Partition</h1>
-<div id="outline-container-org63c7ad0" class="outline-2">
-<h2 id="org63c7ad0"><span class="section-number-2">1.</span> Satz</h2>
+<div id="outline-container-org9ebe1ad" class="outline-2">
+<h2 id="org9ebe1ad"><span class="section-number-2">1.</span> Satz</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Die Menge aller verschiedenen Äquivalenzklassen ist eine <a href="20211230201833-partition_mengenlehre.html#ID-8c4522dc-7da5-40f7-9ba7-54cc0e1a60a9">Partition</a>
+Sei \(X\) eine <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a>, \(\sim\) eine <a href="20211227225754-aquivalenzrelation_mengenlehre.html#ID-bf83e0aa-4df1-48a5-b910-2837942bdd19">Äquivalenzrelation</a>.
+Dann ist die Menge aller verschiedenen Äquivalenzklassen ist eine <a href="20211230201833-partition_mengenlehre.html#ID-8c4522dc-7da5-40f7-9ba7-54cc0e1a60a9">Partition</a> von \(X\)
 </p>
-</div>
-</div>
-<div id="outline-container-org3b2c0c0" class="outline-2">
-<h2 id="org3b2c0c0"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
 <p>
-elementfremd: siehe <a href="20211230195022-satz_uber_gleichheit_von_aquivalenzklassen.html#ID-519d4d7e-b6f4-47fc-9ace-c4c5142bb69f">hier</a>   
+Dabei werden Äquivalenzklassen \([x],[y]\), welche die gleichen Mengen sind, nicht mehrfach gezählt.
 </p>
 </div>
-<div id="outline-container-org5b47588" class="outline-3">
-<h3 id="org5b47588"><span class="section-number-3">2.1.</span> Alle Elemente vorhanden</h3>
+</div>
+<div id="outline-container-org75832ad" class="outline-2">
+<h2 id="org75832ad"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org932cf64" class="outline-3">
+<h3 id="org932cf64"><span class="section-number-3">2.1.</span> alle elemente vorhanden</h3>
 <div class="outline-text-3" id="text-2-1">
-<ul class="org-ul">
-<li>siehe: <a href="20220929192418-reflexive_relation.html#ID-a6016d54-aefb-460f-9da3-37388a9a4941">reflexive Relation</a></li>
-</ul>
+<p>
+Man bemerke, dass jedes Element \(x \in X\) in mind. einer (genauer sogar genau einer) Äquivalenzklasse liegt, nämlich \([x]\)
+</p>
+</div>
+</div>
+<div id="outline-container-org55c31d1" class="outline-3">
+<h3 id="org55c31d1"><span class="section-number-3">2.2.</span> paarweise disjunkt</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Sei eine <a href="20211230190101-aquivalenzklasse.html#ID-5ee76318-ae03-4cb3-877f-6b6ff88ad6fa">Äquivalenzklasse</a> definiert als
+</p>
 \begin{align*}
-x \sim x \Rightarrow x \in A(x)
+[x] \coloneqq \{y \in X \vert y \sim x\}
 \end{align*}
+<p>
+und seien \([x],[y]\) Äquivalenzklassen.
+</p>
+
+<p>
+Es bleibt zu zeigen, dass entweder \([x] = [y]\) gilt oder \([x] \cap [y] = \emptyset\).
+Angenommen \([x] \cap [y] \neq \emptyset\), so existiert ein \(z \in [x] \cap [y]\).
+Dann folgt aus \(z \in [x], z \in [y]\) auch \(z \sim x, z \sim y\) bzw. wegen Symmetrie \(y \sim z\) und wegen Transitivität \(y \sim x\).
+</p>
+
+<p>
+Wir zeigen im folgenden \([y] \subseteq [x]\), also sei \(w \in [y]\) beliebig.
+Dann folgt aus \(w \sim y\) und \(y \sim x\) auch \(w \sim x\) (Transitivität) bzw. \([w] \in [x]\).
+Somit folgt \([y] \subseteq [x]\)
+</p>
+
+<p>
+Die andere Richtung \([x] \subseteq [y]\) lässt sich analog zeigen (nachdem man durch Symmetrie folgert, dass \(x \sim y\) gilt)
+</p>
 </div>
 </div>
 </div>
@@ -261,7 +290,7 @@ x \sim x \Rightarrow x \in A(x)
 <div id="postamble" class="status">
 <p class="date">Date: nil</p>
 <p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:24</p>
+<p class="date">Created: 2024-11-06 Mi 09:39</p>
 </div>
 </body>
 </html>
