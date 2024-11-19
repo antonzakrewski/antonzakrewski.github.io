@@ -3,13 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:27 -->
+<!-- 2024-11-18 Mo 21:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Division mit Rest</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
-<style>
+<style type="text/css">
   #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
@@ -230,11 +230,11 @@
 <body>
 <div id="content" class="content">
 <h1 class="title">Division mit Rest</h1>
-<div id="outline-container-orga319932" class="outline-2">
-<h2 id="orga319932"><span class="section-number-2">1.</span> Satz</h2>
+<div id="outline-container-orgaf8e1ea" class="outline-2">
+<h2 id="orgaf8e1ea"><span class="section-number-2">1.</span> Satz</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Seien \(a,b \in& \mathbb{Z}\) 
+Seien \(a,b \in \mathbb{Z}\) mit \(b \neq 0\)
 Dann gibt es eindeutig bestimmte Zahlen \(q,r \in \mathbb{Z}\) mit:
 </p>
 \begin{align*}
@@ -242,18 +242,120 @@ a =& q \cdot b + r \\
 0 \leq& r < \vert b\vert
 \end{align*}
 </div>
-<div id="outline-container-org74b1773" class="outline-3">
-<h3 id="org74b1773"><span class="section-number-3">1.1.</span> <a href="20220921093510-existenz_einer_losung_division_mit_rest.html#ID-764fca4a-c62a-4c06-b5db-67d689a10dfd">Existenz einer Lösung: Division mit Rest</a></h3>
 </div>
-<div id="outline-container-org770a5ce" class="outline-3">
-<h3 id="org770a5ce"><span class="section-number-3">1.2.</span> <a href="20220921093503-eindeutigkeit_division_mit_rest.html#ID-fb97dfe6-8e6c-47d4-98a4-398a79ead994">Eindeutigkeit: Division mit Rest</a></h3>
+<div id="outline-container-org917ae25" class="outline-2">
+<h2 id="org917ae25"><span class="section-number-2">2.</span> Beweis</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+alter beweis, messy :(
+</p>
+</div>
+<div id="outline-container-org4dfa094" class="outline-3">
+<h3 id="org4dfa094"><span class="section-number-3">2.1.</span> Existenz</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org4ea6c00" class="outline-4">
+<h4 id="org4ea6c00"><span class="section-number-4">2.1.1.</span> \(b > 0\) und \(a \leq 0\)</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+Sei \(q_1 = 0\) und \(r_1 = a\), sodass gilt
+</p>
+\begin{align*}
+a =& b \cdot 0 + a
+\end{align*}
+<p>
+Falls \(r_1 < b\) gilt, so ist die Existenz für diesen Fall bewiesen.
+Sei sonst \(q_2 = q_1 + 1\) und \(r_2 = r_1 - b\), so gilt
+</p>
+\begin{align*}
+a =& (q_1 + 1) \cdot b + r_1 - b \\
+=& q_1 \cdot b + r_1
+=& a
+\end{align*}
+<p>
+Da \(b > 0\) gilt, ist auch \(q_1 - b = q_2 < q_1\)
+</p>
+</div>
+</div>
+<div id="outline-container-org6e387a1" class="outline-4">
+<h4 id="org6e387a1"><span class="section-number-4">2.1.2.</span> \(b < 0\)</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+Sei \(b' =& -b\) und \(f' =& -q\).
+Dann lässt sich der Fall \(b < 0\) auf \(b > 0\) zurückführen mit der Ungleichung
+</p>
+\begin{align*}
+0 \leq r < \vert b' \vert
+\end{align*}
+<p>
+auf \(a =& q'b' + r\)
+</p>
+</div>
+</div>
+<div id="outline-container-orgdc9f743" class="outline-4">
+<h4 id="orgdc9f743"><span class="section-number-4">2.1.3.</span> \(a < 0\) und \(b > 0\)</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<p>
+Sei \(a' = -a\) und \(q' = -q -1\) und \(r' = b - r\).
+Dann gilt
+</p>
+\begin{align*}
+bq' + r' =& -bq - b + b - r \\
+=& -bq - r \\
+=& -(b \cdot q + r) \\
+=& -a \\
+=& a'
+\end{align*}
+
+<p>
+mit der Ungleichung
+</p>
+\begin{align*}
+0 \leq r' < \vert b\vert
+\end{align*}
+<p>
+Somit ist dieser Fall wieder auf den ersten zurückgeführt worden
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org3be5a51" class="outline-3">
+<h3 id="org3be5a51"><span class="section-number-3">2.2.</span> Eindeutigkeit</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Seien \(r_1,r_2\) mit
+</p>
+\begin{align*}
+a = q_i b + r_i
+\end{align*}
+
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> sei \(r_1 \geq r_2\).
+Dann gilt
+</p>
+\begin{align*}
+a =& a + a - a \\
+=& q_1 b + r_1 + q_1 b + r_1 - q_2 b - r_2 \\
+=& (2q_1 - q_2) b + (2r_1 - r_2)
+\end{align*}
+<p>
+wobei \(2r_1 - r_2 \leq r_1\) gilt.
+Nach der Minimalität von \(r_1\) gilt
+</p>
+\begin{align*}
+2r_1 - r_2 = r_1
+\end{align*}
+<p>
+bzw. \(r_1 = r_2\)
+</p>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: nil</p>
 <p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:27</p>
+<p class="date">Created: 2024-11-18 Mo 21:14</p>
 </div>
 </body>
 </html>

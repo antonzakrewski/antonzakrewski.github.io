@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-11-17 So 11:33 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LinAlg 1 - Tut5</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">LinAlg 1 - Tut5</h1>
+<div id="outline-container-orgc8273a3" class="outline-2">
+<h2 id="orgc8273a3"><span class="section-number-2">1.</span> Erinnerung</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgaa76fdd" class="outline-3">
+<h3 id="orgaa76fdd"><span class="section-number-3">1.1.</span> disclaimer</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Diese Erinnerung dient primär als Hilfe für die Tutoriumsaufgaben.
+</p>
+
+<p>
+Insbesondere ist diese weder vollständig (ich habe leider als Tutor auch keine genauen Informationen zu den Vorlesungsinhalten) noch i.A. korrekt (ich habe viele Zettel selber während des ersten Semesters geschrieben und selten gegengelesen, d.h. jedes Buch wird um Größenordnungen weniger Fehler beinhalten) 
+</p>
+</div>
+</div>
+<div id="outline-container-orgbc04bb5" class="outline-3">
+<h3 id="orgbc04bb5"><span class="section-number-3">1.2.</span> Liste</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a></li>
+<li><a href="20230227130935-unterring.html#ID-157d533b-1650-499e-be1d-341b1fa8fa15">Unterring</a></li>
+<li><a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a></li>
+<li><a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a></li>
+<li><a href="20220104220747-binomischer_lehrsatz.html#ID-93572b6e-6e51-486b-bf69-476329e57614">Binomial theorem for a commutative ring</a></li>
+<li><a href="20220303184021-division_mit_rest.html#ID-b3888b42-f451-4d20-aaf3-c3f318362b24">Division mit Rest</a></li>
+<li><a href="20220906095223-großter_gemeinsamer_teiler.html#ID-d299c206-515e-44af-8ff5-e332312a896a">greatest common divisor</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org894173b" class="outline-2">
+<h2 id="org894173b"><span class="section-number-2">2.</span> Aufgaben</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org15353c1" class="outline-3">
+<h3 id="org15353c1"><span class="section-number-3">2.1.</span> 0) Binomialkoeffizient</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Seien \(n,k \in \mathbb{N}_0\).
+</p>
+</div>
+<div id="outline-container-org057170b" class="outline-4">
+<h4 id="org057170b"><span class="section-number-4">2.1.1.</span> a) alternierende Summe</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+Zeige 
+</p>
+\begin{align*}
+\sum_{k=0}^n (-1)^k \binom{n}{k} = 0
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgcaff5dd" class="outline-4">
+<h4 id="orgcaff5dd"><span class="section-number-4">2.1.2.</span> b) summe über die Binomialkoeffizienten</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+Finde
+</p>
+\begin{align*}
+\sum_{k=0}^n \binom{n}{k} 
+\end{align*}
+</div>
+</div>
+</div>
+<div id="outline-container-org61135b2" class="outline-3">
+<h3 id="org61135b2"><span class="section-number-3">2.2.</span> 1) diverse Fingerübungen</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-orgc42b60c" class="outline-4">
+<h4 id="orgc42b60c"><span class="section-number-4">2.2.1.</span> a)</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+Seien \(a,b \in \mathbb{Z}\) mit <a href="20220906095223-großter_gemeinsamer_teiler.html#ID-d299c206-515e-44af-8ff5-e332312a896a">größtem gemeinsamen Teiler</a> \(d = \mathrm{ggT}(a,b)\).
+Dann existieren \(x,y\) so dass
+</p>
+\begin{align*}
+d = ax + by 
+\end{align*}
+
+<p>
+Tipp:
+Betrachte die Menge \(\{ax + by \vert x,y \in \mathbb{Z}\} \cap ( \mathbb{N} \setminus \{0\})\).
+Diese enthält ein kleinstes Element \(d'\).
+</p>
+
+<p>
+Teile dann \(a\) durch \(d'\) (mit Rest).
+</p>
+</div>
+</div>
+<div id="outline-container-org5dcb80c" class="outline-4">
+<h4 id="org5dcb80c"><span class="section-number-4">2.2.2.</span> b)</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+Sei der Ring \((\mathbb{Z}/n \mathbb{Z},+,\cdot)\) gegeben.
+Zeige, dass ein element \([m] \in \mathbb{Z}/n \mathbb{Z}\) eine einheit ist wenn
+</p>
+\begin{align*}
+\mathrm{ggT}(m,n) = 1
+\end{align*}
+<p>
+gilt.
+</p>
+</div>
+</div>
+<div id="outline-container-org540f4e2" class="outline-4">
+<h4 id="org540f4e2"><span class="section-number-4">2.2.3.</span> c) Nullteilerfreiheit eines Körpers</h4>
+<div class="outline-text-4" id="text-2-2-3">
+<p>
+Sei \((R, \cdot, +)\) ein Ring (verschieden vom Nullring), \(\alpha \in R^{\times}\) eine Einheit.
+</p>
+
+<p>
+Zeige dass \(\alpha\) kein <a href="20221226125328-nullteiler.html#ID-dc985755-3df5-4b03-929e-659ee65ad000">Nullteiler</a> ist.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd0f9bfa" class="outline-4">
+<h4 id="orgd0f9bfa"><span class="section-number-4">2.2.4.</span> d)</h4>
+<div class="outline-text-4" id="text-2-2-4">
+<p>
+folgere dass ein Körper keinen Nullteiler ungleich \(0\) besitzt.
+</p>
+</div>
+</div>
+<div id="outline-container-org2e808fc" class="outline-4">
+<h4 id="org2e808fc"><span class="section-number-4">2.2.5.</span> e)</h4>
+<div class="outline-text-4" id="text-2-2-5">
+<p>
+Zeige, dass \(\mathbb{Z}/n \mathbb{Z}\) ein Körper ist genau dann wenn \(n\) eine Primzahl ist.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org2ca5105" class="outline-3">
+<h3 id="org2ca5105"><span class="section-number-3">2.3.</span> 2) gaußsche ganze zahlen</h3>
+<div class="outline-text-3" id="text-2-3">
+</div>
+<div id="outline-container-org6d6a77a" class="outline-4">
+<h4 id="org6d6a77a"><span class="section-number-4">2.3.1.</span> a) gaußsche ganze zahlen als ring</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<p>
+Seien \(\mathbb{Z}[\mathrm{i}] = \{a + b \mathrm{i} \vert a,b \in \mathbb{Z}\} \subseteq \mathbb{C}\) die ganzen gaußschen Zahlen.
+Zeige, dass \(\mathbb{Z}[ \mathrm{i}]\) ein Unterring von \(\mathbb{C}\) ist. 
+</p>
+</div>
+</div>
+<div id="outline-container-org383a499" class="outline-4">
+<h4 id="org383a499"><span class="section-number-4">2.3.2.</span> b) Einheiten der gaußschen ganzen Zahlen</h4>
+<div class="outline-text-4" id="text-2-3-2">
+<p>
+Bestimme die Menge der Einheiten der gaußschen ganzen Zahlen.
+</p>
+
+<p>
+Tipp. betrachte den <a href="20210702105843-betrag_komplexe_zahlen.html#ID-38183aff-ed06-49d9-ab85-e95ff3730ddb">komplexen Absolutbetrags</a>
+</p>
+\begin{align*}
+\vert a + b \mathrm{i} \vert \coloneqq \sqrt{a^2 + b^2}
+\end{align*}
+<p>
+für \(a, b \in \mathbb{R}\).
+</p>
+
+<p>
+Nimm als gegeben an, dass der komplexe Absolutbetrag multiplikativ ist, d.h. für \(z_1,z_2 \in \mathbb{C}\) gilt 
+</p>
+\begin{align*}
+\vert z_1 \cdot z_2 \vert = \vert z_1 \vert \cdot \vert z_2 \vert
+\end{align*}
+</div>
+</div>
+</div>
+<div id="outline-container-org816c8dc" class="outline-3">
+<h3 id="org816c8dc"><span class="section-number-3">2.4.</span> 3)</h3>
+</div>
+</div>
+<div id="outline-container-org9fa0266" class="outline-2">
+<h2 id="org9fa0266"><span class="section-number-2">3.</span> Lösungsskizze</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org9305510" class="outline-3">
+<h3 id="org9305510"><span class="section-number-3">3.1.</span> 0)</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-org803777e" class="outline-4">
+<h4 id="org803777e"><span class="section-number-4">3.1.1.</span> 1)</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+folgt aus
+</p>
+\begin{align*}
+0 =& 0^n \\
+=& (1 - 1)^n
+\end{align*}
+<p>
+und durch Anwendung des binomischen Lehrsatz
+</p>
+\begin{align*}
+(1 - 1)^n =& \sum_{k=0}^n 1^{n-k} \cdot (-1)^k \binom{n}{k}  \\
+=& \sum_{k=0}^n (-1)^k \binom{n}{k}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org3560808" class="outline-4">
+<h4 id="org3560808"><span class="section-number-4">3.1.2.</span> 2)</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<p>
+Es gilt
+</p>
+\begin{align*}
+\sum_{k=0}^n \binom{n}{k} = 2^n
+\end{align*}
+<p>
+da wider aufgrund des binomischen Lehrsatzes gilt
+</p>
+\begin{align*}
+2^n =& (1 + 1)^n \\
+=& \sum_{k=0}^n 1^{n-k} 1^{k} \binom{n}{k} \\
+=& \sum_{k=0}^n \binom{n}{k}
+\end{align*}
+</div>
+</div>
+</div>
+<div id="outline-container-orgb1fc636" class="outline-3">
+<h3 id="orgb1fc636"><span class="section-number-3">3.2.</span> 1)</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div id="outline-container-org56512c8" class="outline-4">
+<h4 id="org56512c8"><span class="section-number-4">3.2.1.</span> a)</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+Nach Annahme ist \(d'\) minimal.
+Wir zeigen, dass \(d'\) ein ggT ist, d.h. \(d' \mid a, d' \mid b\) und für \(\overline{d} \mid a, \overline{d} \mid b\) folgt \(\overline{d} \mid d'\)
+</p>
+</div>
+<div id="outline-container-org4275ff3" class="outline-5">
+<h5 id="org4275ff3"><span class="section-number-5">3.2.1.1.</span> teiler</h5>
+<div class="outline-text-5" id="text-3-2-1-1">
+<p>
+Sei \(a = d' \cdot q + r\) mit \(0 \leq r < \vert d' \vert\)
+Dann gilt
+</p>
+\begin{align*}
+a =& (ax + by )\cdot q + r \\
+a(1 - xq) + b(-yq) = r
+\end{align*}
+<p>
+und wegen \(r < \vert d' \vert = d'\) und der Minimalität von \(d'\) auch \(r = 0\)
+</p>
+
+<p>
+Damit gilt \(a = d' \cdot q\) bzw. \(d' \mid a\)
+</p>
+
+<p>
+Analog für \(d' \mid b\)
+</p>
+</div>
+</div>
+<div id="outline-container-org39a4612" class="outline-5">
+<h5 id="org39a4612"><span class="section-number-5">3.2.1.2.</span> maximal</h5>
+<div class="outline-text-5" id="text-3-2-1-2">
+<p>
+angenommen \(\overline{d} \mid a, \overline{d} \mid b\)
+Dann folgt auch \(\overline{d} \mid ax, \overline{d} \mid by\) und nach dem Lemma unten auch
+</p>
+\begin{align*}
+\overline{d} \mid ax + by \\
+\overline{d} \mid d'
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orge75b320" class="outline-5">
+<h5 id="orge75b320"><span class="section-number-5">3.2.1.3.</span> Lemma</h5>
+<div class="outline-text-5" id="text-3-2-1-3">
+<p>
+Sei \(r_1,r_2,s\) gegeben mit \(s \mid r_1, s \mid r_2\).
+Dann folgt \(s \mid r_1 + r_2\).
+</p>
+
+<p>
+Nach Annahme gilt \(s \cdot \overline{r_i} = r_i\) für irgendwelche \(\overline{r_i}\).
+Damit gilt dann
+</p>
+\begin{align*}
+s \cdot ( \overline{r_1} + \overline{r_2}) = r_1 + r_2
+\end{align*}
+<p>
+bzw. \(s \mid r_1 + r_2\)
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org7425c93" class="outline-4">
+<h4 id="org7425c93"><span class="section-number-4">3.2.2.</span> b)</h4>
+<div class="outline-text-4" id="text-3-2-2">
+</div>
+<div id="outline-container-org0b04f07" class="outline-5">
+<h5 id="org0b04f07"><span class="section-number-5">3.2.2.1.</span> \(\mathrm{ggT}(a,n) = \pm 1 \Rightarrow\) Einheit</h5>
+<div class="outline-text-5" id="text-3-2-2-1">
+<p>
+Finde eine Darstellung \(1 = ax + ny\)
+Dann gilt in \(\mathbb{Z}/n \mathbb{Z}\) auch
+</p>
+\begin{align*}
+[1] =& [ax] + [ny] \\
+=& [a] \cdot [x] + 0 \\
+=& [a] \cdot [x]
+\end{align*}
+<p>
+d.h. \([a]\) ist eine Einheit
+</p>
+</div>
+</div>
+<div id="outline-container-orgd304f32" class="outline-5">
+<h5 id="orgd304f32"><span class="section-number-5">3.2.2.2.</span> Einheit $&rArr; \(\mathrm{ggT}(a,n) = \pm 1\)</h5>
+<div class="outline-text-5" id="text-3-2-2-2">
+<p>
+Nach annahme existiert ein \([x]\) mit
+</p>
+\begin{align*}
+[1] = [a] \cdot [x]
+\end{align*}
+<p>
+Nach definition folgt dann
+</p>
+\begin{align*}
+a \cdot x + n\cdot y = 1
+\end{align*}
+<p>
+für ein $y &isin; \(\mathbb{Z}\)
+</p>
+
+<p>
+Es folgt \(\mathrm{ggT}(a,n) \mid a, \mathrm{ggT}(a,n) \mid y\) bzw. \(\mathrm{ggT}(a,n) \mid ax, \mathrm{ggT}(a,n) \mid ny\)
+Damit auch nach dem Lemma oben \(\mathrm{ggT}(a,n) \mid ax + ny\) bzw. \(\mathrm{ggT}(a,n) \mid 1\)
+</p>
+
+<p>
+Somit folgt auch \(\mathrm{ggT}(a,n) = \pm 1\)
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb382c58" class="outline-4">
+<h4 id="orgb382c58"><span class="section-number-4">3.2.3.</span> c)</h4>
+<div class="outline-text-4" id="text-3-2-3">
+<ul class="org-ul">
+<li><a href="20241117-unit_not_a_zero_divisor.html#ID-44c1549f-60a5-4a7f-afa8-0c5fd90e7f9f">unit not a zero divisor</a></li>
+<li><a href="20220103213622-nullteilerfreiheit.html#ID-bad86f8c-afc1-486f-9add-12b00742a9b7">Nullteilerfreiheit eines Körpers</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org587c4d6" class="outline-4">
+<h4 id="org587c4d6"><span class="section-number-4">3.2.4.</span> d)</h4>
+<div class="outline-text-4" id="text-3-2-4">
+<p>
+folgt unmittelbar aus der c), da \(\alpha \in K\) entweder eine Einheit oder \(0\) ist.
+</p>
+</div>
+</div>
+<div id="outline-container-orgceadd68" class="outline-4">
+<h4 id="orgceadd68"><span class="section-number-4">3.2.5.</span> e)</h4>
+<div class="outline-text-4" id="text-3-2-5">
+</div>
+<div id="outline-container-org153bb6c" class="outline-5">
+<h5 id="org153bb6c"><span class="section-number-5">3.2.5.1.</span> i) \(n\) nicht prim. \(\Rightarrow\) kein Körper</h5>
+<div class="outline-text-5" id="text-3-2-5-1">
+<p>
+Beispielsweise gilt dann \(n = n_1 \cdot n_2\) mit \(n \not\mid n_1, n \not\mid n_2\).
+Somit folgt auch
+</p>
+\begin{align*}
+0 =& [n] \\
+=& [n_1 \cdot n_2] \\
+=& [n_1] \cdot [n_2] \\
+\end{align*}
+<p>
+und hier sind \([n_1],[n_2] \neq 0\), da \(n \not\mid n_i\) gilt.
+</p>
+</div>
+</div>
+<div id="outline-container-org046ff73" class="outline-5">
+<h5 id="org046ff73"><span class="section-number-5">3.2.5.2.</span> ii)</h5>
+<div class="outline-text-5" id="text-3-2-5-2">
+<p>
+Sei \([m] \in \mathbb{Z}/n \mathbb{Z}\) mit \([m] \neq 0\).
+nach der b) reicht es aus zu zeigen, dass
+</p>
+\begin{align*}
+\mathrm{ggT}(m,n) = 1
+\end{align*}
+<p>
+Nach Annahme gilt \(n \not\mid m\) wegen \([m] \neq 0\) und wegen \(\mathrm{ggT}(n,m) \mid m\) auch \(\mathrm{ggT}(n,m) \neq n\).
+Zudem gilt \(\mathrm{ggT}(n,m) \mid n\) und da \(n\) prim ist damit auch \(\mathrm{ggT}(n,m) \in \{1,p\}\).
+</p>
+
+<p>
+Damit folgt \(\mathrm{ggT}(n,m) = 1\).
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orge01ca69" class="outline-3">
+<h3 id="orge01ca69"><span class="section-number-3">3.3.</span> 2)</h3>
+<div class="outline-text-3" id="text-3-3">
+</div>
+<div id="outline-container-orged692a5" class="outline-4">
+<h4 id="orged692a5"><span class="section-number-4">3.3.1.</span> a)</h4>
+<div class="outline-text-4" id="text-3-3-1">
+<ul class="org-ul">
+<li><a href="20230518142546-gaußsche_ganze_zahlen_als_ring.html#ID-a27df0d2-edb4-492a-b7bd-5c8596239583">gaußsche ganze Zahlen als kommutativer Ring</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb858e06" class="outline-4">
+<h4 id="orgb858e06"><span class="section-number-4">3.3.2.</span> b)</h4>
+<div class="outline-text-4" id="text-3-3-2">
+<ul class="org-ul">
+<li><a href="20230419125655-einheiten_der_gaußschen_ganzen_zahlen.html#ID-c8b2f12d-1051-4a21-8d11-a36ecfa6b2c3">Einheiten der gaußschen ganzen Zahlen</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-11-17 So 11:33</p>
+</div>
+</body>
+</html>
