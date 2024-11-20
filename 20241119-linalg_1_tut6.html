@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-11-20 Mi 10:51 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LinAlg 1 - Tut6</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">LinAlg 1 - Tut6</h1>
+<div id="outline-container-org7301543" class="outline-2">
+<h2 id="org7301543">Erinnerung</h2>
+<div class="outline-text-2" id="text-org7301543">
+</div>
+<div id="outline-container-org546d306" class="outline-3">
+<h3 id="org546d306">disclaimer</h3>
+<div class="outline-text-3" id="text-org546d306">
+<p>
+Diese Erinnerung dient primär als Hilfe für die Tutoriumsaufgaben.<br />
+</p>
+
+<p>
+Insbesondere ist diese weder vollständig (ich habe leider als Tutor auch keine genauen Informationen zu den Vorlesungsinhalten) noch i.A. korrekt (ich habe viele Zettel selber während des ersten Semesters geschrieben und selten gegengelesen, d.h. jedes Buch wird um Größenordnungen weniger Fehler beinhalten)<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org9d9694a" class="outline-3">
+<h3 id="org9d9694a">Liste</h3>
+<div class="outline-text-3" id="text-org9d9694a">
+<ul class="org-ul">
+<li><a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a> <br /></li>
+<li><a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">vector space</a>    <br /></li>
+<li><a href="20221119162741-vektorraumhomomorphismus.html#ID-863f0f55-054c-413e-9cf4-2c2704ea5b14">vectorspace-homomorphism</a>  <br /></li>
+<li><a href="20230303151658-vektorraummonomorphismus.html#ID-f0288756-d404-4cf9-8f45-508ac443d32c">vectorspace-monomorphism</a>  <br /></li>
+<li><a href="20230303151705-vektorraumepimorphismus.html#ID-76bd1cc2-7338-461c-9c43-48c24c80037c">vectorspace-epimorphism</a>  <br /></li>
+<li><a href="20230227153105-vektorraumisomorphismus.html#ID-27b6dd7a-30ae-4eb8-b5c4-e1a268344d2e">vectorspace-isomorphism</a>  <br /></li>
+<li><a href="20220207224644-lineare_unabhangigkeit.html#ID-c4d1496f-6012-4ade-8b98-3e29dad89ded">lineare unabhängigkeit</a>  <br /></li>
+<li><a href="20220207224704-lineare_abhangigkeit.html#ID-97e6b172-9da3-4ad6-a1b1-a589a41c8ec5">Linear abhängig</a>   <br /></li>
+<li><a href="20221106153403-von_einer_menge_an_vektoren_erzeugte_unterraum.html#ID-13f6d83d-bfc6-4d6d-be1b-4ec1a90a1949">von einer Menge an Vektoren erzeugte Unterraum</a>   <br /></li>
+<li><a href="20220107122959-linearkombination.html#ID-5c5d77fa-325c-4762-9327-9000a960ed88">Linearkombination</a><br /></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org38ae017" class="outline-2">
+<h2 id="org38ae017">Aufgaben</h2>
+<div class="outline-text-2" id="text-org38ae017">
+<p>
+Sei im Folgenden \(K\) ein Körper und \(V\) ein \(K\)-Vektorraum.<br />
+</p>
+</div>
+<div id="outline-container-org0f99054" class="outline-3">
+<h3 id="org0f99054">1) Vektorraumdefinition</h3>
+<div class="outline-text-3" id="text-org0f99054">
+</div>
+<div id="outline-container-org538f8ff" class="outline-4">
+<h4 id="org538f8ff">a)</h4>
+<div class="outline-text-4" id="text-org538f8ff">
+<p>
+Sei \(V\) ein \(K\)-Vektorraum, \(X\) eine Menge und \(\mathrm{Abb}(X,V)\) die Menge der <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildungen</a>.<br />
+Zeige dass \(\mathrm{Abb}(X,V)\) eine Vektorraumstruktur über \(K\) erhält.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org132a4d0" class="outline-4">
+<h4 id="org132a4d0">b)</h4>
+<div class="outline-text-4" id="text-org132a4d0">
+<p>
+Sei \(X = \{1,...,n\}\).<br />
+Finde einen <a href="20230227153105-vektorraumisomorphismus.html#ID-27b6dd7a-30ae-4eb8-b5c4-e1a268344d2e">Vektorraumisomorphism</a> zwischen<br />
+</p>
+\begin{align*}
+\varphi: \mathrm{Abb}( \{1,...,n\}, K) \rightarrow K^n 
+\end{align*}
+<p>
+Verwende dabei die Vektorraumstruktur aus \(\mathrm{Abb}(X,V)\) für \(V = K\)<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org50c3ef9" class="outline-3">
+<h3 id="org50c3ef9">2) Lineare Unabhängigkeit</h3>
+<div class="outline-text-3" id="text-org50c3ef9">
+<p>
+Seien \(x,y,z \in V\) mit \(\{x,y,z\}\) als linear unabhängige Menge.<br />
+Welche Menge von Vektoren ist linear unabhängig ?<br />
+</p>
+<ol class="org-ol">
+<li>\(\{v\}\) für ein festes \(v \neq 0\)<br /></li>
+<li>\(\{0\}\)<br /></li>
+<li>\(\{y-z, z - x, x - y\}\) <br /></li>
+<li>\(\{y + z, z + x, x + y\}\)<br /></li>
+<li>\(\{x + y + z, y + z, z\}\)<br /></li>
+<li>\(\{ \lambda_1 \cdot x, \lambda_2 \cdot y, \lambda_3 \cdot z \}\) für \(\lambda_i \neq 0\)<br /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgc66e54e" class="outline-3">
+<h3 id="orgc66e54e">3) Lineare Abhängigkeit und Linearkombination</h3>
+<div class="outline-text-3" id="text-orgc66e54e">
+</div>
+<div id="outline-container-org3bb121a" class="outline-4">
+<h4 id="org3bb121a">a) linear abhängiges paar</h4>
+<div class="outline-text-4" id="text-org3bb121a">
+<p>
+Seien \(u,v \in V \setminus \{0\}\) linear abhängig.<br />
+Zeige dass dann ein \(\lambda \in K\) existiert mit<br />
+</p>
+\begin{align*}
+\lambda \cdot u = v
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org598bfcc" class="outline-4">
+<h4 id="org598bfcc">b) linear abhängige</h4>
+<div class="outline-text-4" id="text-org598bfcc">
+<p>
+Seien \(u_1,...,u_n, v \in V\), so dass \(\{u_1,...,u_n,v \}\) linear abhängig und \(\{u_1,...,u_n\}\) linear unabhängig ist.<br />
+Zeige, dass \(v\) eine Linearkombination von \(u_1,...,u_n\) ist, d.h.<br />
+</p>
+\begin{align*}
+v = \sum_{i = 1}^n \alpha_i u_i
+\end{align*}
+<p>
+für \(\alpha_i \in K\)<br />
+\mathrm{const}<sub>1</sub><br />
+</p>
+</div>
+</div>
+<div id="outline-container-orge6f6067" class="outline-4">
+<h4 id="orge6f6067">c) Eindeutigkeit</h4>
+<div class="outline-text-4" id="text-orge6f6067">
+<p>
+Sind die \(\alpha_i\) aus b) eindeutig bestimmt ?<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orga55b639" class="outline-4">
+<h4 id="orga55b639">d) a als Spezialfall</h4>
+<div class="outline-text-4" id="text-orga55b639">
+<p>
+Folgere, dass die a) aus der b) folgt<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb0d1996" class="outline-3">
+<h3 id="orgb0d1996">4) Erzeugter VR</h3>
+<div class="outline-text-3" id="text-orgb0d1996">
+<p>
+Seien \(u_1,...,u_n, u_{n+1}\) Vektoren, so dass \(u_{n+1}\) eine <a href="20220107122959-linearkombination.html#ID-5c5d77fa-325c-4762-9327-9000a960ed88">Linearkombination</a> von \(u_1,...,u_n\) ist.<br />
+Zeige dass der erzeugte Vektorraum von \(u_1,...,u_n\) mit dem erzeugten Vektorraum von \(u_1,...,u_{n+1}\) übereinstimmt.<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org4989290" class="outline-2">
+<h2 id="org4989290">Lösungsskizze</h2>
+<div class="outline-text-2" id="text-org4989290">
+</div>
+<div id="outline-container-org9d73176" class="outline-3">
+<h3 id="org9d73176">1) Vektorraumdefinition</h3>
+<div class="outline-text-3" id="text-org9d73176">
+<ul class="org-ul">
+<li><a href="20241119-abbildungen_in_einen_vektorraum_als_vektorraum.html#ID-6e94d9ef-96e9-455b-9565-9e97d811ff0d">Abbildungen in einen Vektorraum als Vektorraum</a> <br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org15e7e89" class="outline-3">
+<h3 id="org15e7e89">2) Lineare Unabhängigkeit</h3>
+<div class="outline-text-3" id="text-org15e7e89">
+</div>
+<div id="outline-container-org7321b12" class="outline-4">
+<h4 id="org7321b12">1)</h4>
+<div class="outline-text-4" id="text-org7321b12">
+<p>
+Linear unabhängig, da \(v \neq 0\) gilt.<br />
+Angenommen \(\alpha \cdot v = 0\) für ein \(\alpha \in K \setminus \{0\}\).<br />
+Dann folgt \(\alpha^{-1} \cdot \alpha \cdot v = 1 \cdot v = v\) und \(\alpha^{-1} \cdot 0 = 0\).<br />
+Widerspruch, also kann kein \(\alpha \cdot v  =0\) mit \(\alpha \neq 0\) existieren.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org89df0a3" class="outline-4">
+<h4 id="org89df0a3">2)</h4>
+<div class="outline-text-4" id="text-org89df0a3">
+<p>
+Linear abhängig, da z.B. \(1 \cdot v = v = 0\) eine Linearkombination mit \(\alpha = 1 \neq 0\) existiert.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgcedd23d" class="outline-4">
+<h4 id="orgcedd23d">3)</h4>
+<div class="outline-text-4" id="text-orgcedd23d">
+<p>
+Linear abhängig, da gilt<br />
+</p>
+\begin{align*}
+(y - z) + (z - x) + (x - y) = 0
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgebd3d9d" class="outline-4">
+<h4 id="orgebd3d9d">4)</h4>
+<div class="outline-text-4" id="text-orgebd3d9d">
+<p>
+linear unabhängig.<br />
+Angenommen es existiert<br />
+</p>
+\begin{align*}
+\alpha \cdot (y + z) + \beta (z + x) + \gamma (x + y) =& 0
+\end{align*}
+<p>
+dann gilt insbesondere auch wegen der linearen unabhängigkeit von \(x,y,z\) auch<br />
+</p>
+\begin{align*}
+(\alpha + \beta) z =& 0 \\
+(\beta + \gamma) x =& 0
+(\alpha + \gamma) y =& 0
+\end{align*}
+<p>
+bzw. \(\alpha + \beta = 0, \beta +  \gamma = 0, \alpha + \gamma = 0\).<br />
+Damit gilt \(\alpha = - \beta, \beta = - \gamma, \alpha = - \gamma\) bzw. \(\alpha = - \alpha\)<br />
+Wegen \(\mathrm{char}(K) = 0\), d.h. \(2 \neq 0\) in \(\mathbb{Q}\) folgt dann \(\alpha = 0\) (analog \(\beta = 0, \gamma = 0\))<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org06ef963" class="outline-4">
+<h4 id="org06ef963">5)</h4>
+<div class="outline-text-4" id="text-org06ef963">
+<p>
+gegeben eine Linearkombination<br />
+</p>
+\begin{align*}
+\alpha \cdot (x + y + z) + \beta (y + z) + \gamma (z) = 0
+\end{align*}
+<p>
+so erhalten wir dann<br />
+</p>
+\begin{align*}
+\alpha x + (\alpha + \beta) y + (\alpha + \beta + \gamma) z =& 0
+\end{align*}
+<p>
+Da \(x,y,z\) linear unabhängig sind, folgt \(\alpha = 0, \alpha + \beta = 0, \alpha + \beta + \gamma = 0\) und wir können schrittweise folgern<br />
+</p>
+<ol class="org-ol">
+<li>\(\beta = 0\)<br /></li>
+<li>\(\gamma = 0\)   <br /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org0e087e9" class="outline-4">
+<h4 id="org0e087e9">6)</h4>
+<div class="outline-text-4" id="text-org0e087e9">
+<p>
+Linear unabhängig:<br />
+</p>
+
+<p>
+Angenommen \(\lambda_1 x, \lambda_2 y, \lambda_3 z\) sind linear abhängig.<br />
+Dann existiert eine linearkombination<br />
+</p>
+\begin{align*}
+\alpha_1 \cdot (\lambda_1 \cdot x) + \alpha_2 \cdot (\lambda_2 \cdot y) + \alpha_3 \lambda_3 z =& 0
+\end{align*}
+
+<p>
+Dann gilt insbesondere<br />
+</p>
+\begin{align*}
+(\alpha_1 \cdot \lambda_1) \cdot x + (\alpha_2 \cdot \lambda_2) \cdot y + (\alpha_3 \lambda_3) z =& 0
+\end{align*}
+<p>
+und da \(x,y,z\) linear unabhängig sind, folgt dass \(\alpha_i \cdot \lambda_i = 0\) gilt.<br />
+Da \(\lambda_i \neq 0\) gilt, folgt auch \(\alpha_i = 0\) für alle \(i \in I\)<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org3c435d3" class="outline-3">
+<h3 id="org3c435d3">3) Lineare Abhängigkeit und Linearkombination</h3>
+<div class="outline-text-3" id="text-org3c435d3">
+</div>
+<div id="outline-container-org457d764" class="outline-4">
+<h4 id="org457d764">a)</h4>
+<div class="outline-text-4" id="text-org457d764">
+<p>
+Nach Annahme existiert eine Linearkombination<br />
+</p>
+\begin{align*}
+0 =& \lambda_1 u + \lambda_2 v
+\end{align*}
+<p>
+mit \(\lambda_1 \neq 0 \lor \lambda_2 \neq 0\)<br />
+</p>
+
+<p>
+Dann gilt<br />
+</p>
+\begin{align*}
+- \lambda_1 u = \lambda_2 v
+\end{align*}
+<p>
+Zudem gilt \(\lambda_2 \neq 0\), da dies zu einem Widerspruch führen würde, schließlich gilt \(u \neq 0\) und dann \(\lambda_1 \neq 0\) (da mind. ein Skalar \(\lambda_1\) oder \(\lambda_2\) ungleich null sind)<br />
+Somit erhalten wir<br />
+</p>
+\begin{align*}
+\frac{- \lambda_1}{\lambda_2} u = v
+\end{align*}
+<p>
+und \(\frac{- \lambda_1}{\lambda_2}\) genügt als \(\lambda\)<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgae6e047" class="outline-4">
+<h4 id="orgae6e047">b) + c)</h4>
+<div class="outline-text-4" id="text-orgae6e047">
+<p>
+<a href="20241120-linear_abhangige_menge_und_linearkombination.html#ID-fca82414-5c70-4d42-b25c-953cf0a55c8e">Linear abhängige Menge und Linearkombination</a><br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgdc268df" class="outline-4">
+<h4 id="orgdc268df">d)</h4>
+<div class="outline-text-4" id="text-orgdc268df">
+<p>
+Wegen \(u \neq 0\) ist \(\{u\}\) linear unabhängig.<br />
+</p>
+
+<p>
+Da \(\{u,v\}\) linear abhängig ist existiert eine Linearkombination<br />
+</p>
+\begin{align*}
+v = \lambda \cdot u
+\end{align*}
+</div>
+</div>
+</div>
+<div id="outline-container-orge91e5a5" class="outline-3">
+<h3 id="orge91e5a5">4) Erzeugter VR</h3>
+<div class="outline-text-3" id="text-orge91e5a5">
+<p>
+Es gilt nach Konstruktion<br />
+</p>
+\begin{align*}
+\langle u_1,...,u_n\rangle \subseteq \langle u_1,...,u_n,u_{n+1}\rangle
+\end{align*}
+<p>
+weil jedes Element in der Linken Seite eine Linearkombination von \(u_1,...,u_n\) ist und damit auch insbesondere eine Linearkombination von \(u_1,...,u_n,u_{n+1}\) ist (indem man den Skalar vor \(u_{n+1}\) auf \(0\) setzt)<br />
+</p>
+
+<p>
+Sei ferner eine Linearkombination<br />
+</p>
+\begin{align*}
+v = \sum_{i=1}^{n+1} \alpha_i u_{i} \in \langle u_1,...,u_n,u_{n+1}\rangle
+\end{align*}
+<p>
+gegeben.<br />
+</p>
+
+<p>
+Nach Annahme gilt \(u_{n+1} = \sum_{i=1}^n \beta_i u_i\) und somit gilt \(\alpha_{n+1} u_{n+1} = \alpha_{n+1} \cdot \sum_{i=1}^n \beta_i u_i =  \sum_{i=1}^n \alpha_{n+1} \beta_i u_i\)<br />
+</p>
+
+<p>
+Damit folgt<br />
+</p>
+\begin{align*}
+v = \sum_{i=1}^n (\alpha_i + \alpha_{n+1} \beta_i) u_i
+\end{align*}
+<p>
+d.h. \(v\) ist eine Linearkombination von \(u_1,...,u_{n}\) und liegt damit auch in \(\langle u_1,...,u_n,u_{n+1}\rangle\)<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-11-20 Mi 10:51</p>
+</div>
+</body>
+</html>
