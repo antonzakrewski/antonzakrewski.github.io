@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-12-05 Do 20:44 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Talk: Accessible and Presentable infinity categories</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Talk: Accessible and Presentable infinity categories</h1>
+<div id="outline-container-org12b92e0" class="outline-2">
+<h2 id="org12b92e0">default Notation</h2>
+<div class="outline-text-2" id="text-org12b92e0">
+</div>
+<div id="outline-container-org7200882" class="outline-3">
+<h3 id="org7200882">mathematichl</h3>
+<div class="outline-text-3" id="text-org7200882">
+<ul class="org-ul">
+<li>\(\kappa\) (regular) cardinal<br /></li>
+<li>\(K\) a small simplicial set (for some inaccessible cardinal)<br /></li>
+<li>\(X\) any simplicial set<br /></li>
+<li>\(p: K \rightarrow \mathcal{C}\) some infinity functor<br /></li>
+<li>\(\mathcal{C}, \mathcal{D}\) infinity categories<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcd7aca0" class="outline-3">
+<h3 id="orgcd7aca0">sources</h3>
+<div class="outline-text-3" id="text-orgcd7aca0">
+<ul class="org-ul">
+<li>HTT: Higher Topos Theory<br /></li>
+<li>FW: Ferdinand Wagner,<br /></li>
+<li>ML: Markus Land<br /></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfa23f66" class="outline-2">
+<h2 id="orgfa23f66">Goals</h2>
+</div>
+<div id="outline-container-org4c4ece2" class="outline-2">
+<h2 id="org4c4ece2">Aspects</h2>
+<div class="outline-text-2" id="text-org4c4ece2">
+</div>
+<div id="outline-container-org3f82ba5" class="outline-3">
+<h3 id="org3f82ba5">motivation - necessary of set theory</h3>
+<div class="outline-text-3" id="text-org3f82ba5">
+<ul class="org-ul">
+<li>we need some form of "smallness"<br />
+<ul class="org-ul">
+<li>we want some form of "locally smallness" for yoneda<br /></li>
+<li>we want some form of "small (co-)limits" and (small) (co-)completeness:<br />
+<ul class="org-ul">
+<li><a href="20241202-large_cocomplete_category_and_thin_category.html#ID-bfa3b83a-a06d-480a-88e5-1b9861b5df29">large cocomplete category and thin category</a> / <a href="20241202-large_complete_category_and_thin_category.html#ID-a53209bc-3541-421f-9e68-938ceb639544">large complete category and thin category</a>   <br /></li>
+</ul></li>
+</ul></li>
+<li>set theory + limits ~&gt; give "some control over (co-)limits"<br />
+<ul class="org-ul">
+<li>e.g. <a href="20230923-colimit_of_the_identity_functor_as_terminal_object.html#ID-35a9eb8c-cecb-4b6f-ab23-3389338757eb">colimit of the identity functor as terminal object</a> / <a href="20241202-limit_of_the_identity_functor_as_initial_object.html#ID-b436fd6d-4ce7-469d-a433-48900737dc28">limit of the identity functor as initial object</a>   <br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge7c7275" class="outline-3">
+<h3 id="orge7c7275">Cardinals</h3>
+<div class="outline-text-3" id="text-orge7c7275">
+<ul class="org-ul">
+<li><a href="20230520205956-cardinal_number.html#ID-4fec3025-0ef5-493c-b7a0-323996dcd187">cardinal</a> <br /></li>
+<li><a href="20241016-regular_cardinal.html#ID-971d460d-ad43-48cd-b619-b83936191fce">regular cardinal</a>  / <a href="20241203-singular_cardinal.html#ID-3e46076c-da04-4548-805e-ecb894cc5a57">singular cardinal</a> <br /></li>
+<li><a href="20241129-successor_cardinal.html#ID-d6cbad6e-fa67-4878-918c-d83a5242673a">successor cardinal</a> / <a href="20241019-successor_cardinal_as_regular_cardinal.html#ID-cfce523c-a467-4f2b-9aa0-b8db8bfe772f">successor cardinal as regular cardinal</a>   <br /></li>
+<li><a href="20241203-existence_of_singular_cardinals.html#ID-2ebeb417-e974-4321-9faa-02e72dafc92f">existence of singular cardinals</a> <br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7d60408" class="outline-3">
+<h3 id="org7d60408">Size issues</h3>
+<div class="outline-text-3" id="text-org7d60408">
+</div>
+<div id="outline-container-org4281b56" class="outline-4">
+<h4 id="org4281b56">definition</h4>
+<div class="outline-text-4" id="text-org4281b56">
+<ul class="org-ul">
+<li>Small-&#x2026; &lt;=&gt; is \(\kappa\)-small for some \(\kappa\) <br /></li>
+<li><a href="20241016-kappa_small_simplicial_set.html#ID-215e45be-03d6-4cf6-8414-358125f9b03f">kappa-small simplicial set</a> <br /></li>
+
+<li><a href="20241016-small_infinity_category.html#ID-e28e9ce9-b62e-4ca8-a8d5-6416d476582a">small infinity category</a>   <br /></li>
+<li><a href="20241016-essentially_small_infinity_category.html#ID-7257f253-9d7d-4a1f-a746-029e888c7190">essentially small infinity category</a>   <br /></li>
+<li><a href="20241016-locally_small_infinity_category.html#ID-b6ac7f24-6e46-4514-a9be-f8301ecc15df">locally small infinity category</a>   <br /></li>
+<li><a href="20241203-small_infinity_category_as_locally_small_infinity_category.html#ID-ab1930d5-68af-48db-bb62-5837a2665fa5">essentially small infinity category as locally small infinity category</a> <br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgedd8bc1" class="outline-4">
+<h4 id="orgedd8bc1">for functor categories</h4>
+<div class="outline-text-4" id="text-orgedd8bc1">
+<ul class="org-ul">
+<li><a href="20241202-infinity_functor_category_of_small_categories_as_small_category.html#ID-629cda9b-139b-4bb8-ae7a-3d7d1ea1cc7b">infinity functor category of small categories as small category</a>   <br /></li>
+<li><a href="20241202-infinity_functor_category_of_essentially_small_categories_as_essentially_small_category.html#ID-49713da8-1a33-4a69-a8a0-0fb2231dea32">infinity functor category of essentially small categories as essentially small category</a>   <br /></li>
+<li><a href="20241202-infinity_functor_category_of_a_small_and_locally_small_category_as_locally_small_category.html#ID-576e5b03-ad86-4eed-827a-a734ce252088">infinity functor category of a small and locally small category as locally small category</a>   <br /></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org3fb4b51" class="outline-3">
+<h3 id="org3fb4b51">filtered</h3>
+<div class="outline-text-3" id="text-org3fb4b51">
+<ul class="org-ul">
+<li><a href="kappa-filtered-infinity-category.html#ID-b0e18bee-b030-4a19-9891-4053dd98931d">kappa filtered infinity category</a> <br /></li>
+<li>motivation for regular: jump higher (todo)<br /></li>
+<li><a href="20241203-product_of_kappa_filtered_categories_as_kappa_filtered_category.html#ID-6d2b9c2e-f6bd-4641-b94e-f0bae2ece5f0">product of kappa filtered categories as kappa filtered category</a>   <br /></li>
+<li><a href="kappa-filtered-infinity-colimit.html#ID-b8bba4f3-4065-46e4-9f89-f79a3b3fbb97">kappa filtered infinity colimit</a> <br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7abbbc5" class="outline-3">
+<h3 id="org7abbbc5">compact</h3>
+<div class="outline-text-3" id="text-org7abbbc5">
+<ul class="org-ul">
+<li><a href="20241016-kappa_compact_object.html#ID-4a8967b2-7c84-4c8b-b590-aadea095f9fd">kappa infinity compact object</a>   <br /></li>
+<li><a href="20241203-kappa_small_colimit_of_kappa_compact_objects.html#ID-20a3bd7b-8202-4639-9bfe-602e1516b36d">kappa small colimit of kappa compact objects</a>   <br /></li>
+<li><a href="20241019-representable_functor_as_kappa_compact_object.html#ID-dbee64d1-6891-4d36-95a1-caff4cd87956">representable functor as kappa compact object</a> <br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0f6e845" class="outline-3">
+<h3 id="org0f6e845">accessible &amp; presentable</h3>
+<div class="outline-text-3" id="text-org0f6e845">
+</div>
+<div id="outline-container-orgcc4cc8c" class="outline-4">
+<h4 id="orgcc4cc8c">def</h4>
+<div class="outline-text-4" id="text-orgcc4cc8c">
+<ul class="org-ul">
+<li><a href="accessible-infinity-category.html#ID-f23cff27-6e97-4440-a7bd-a3a94ce4e648">accessible infinity category</a><br /></li>
+<li><a href="20241016-presentable_infinity_category.html#ID-346bd670-f443-4290-83e6-015d1801ed20">presentable infinity category</a> <br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc8f7f47" class="outline-4">
+<h4 id="orgc8f7f47">examples</h4>
+<div class="outline-text-4" id="text-orgc8f7f47">
+</div>
+<div id="outline-container-org7377a22" class="outline-5">
+<h5 id="org7377a22">1-cat</h5>
+<div class="outline-text-5" id="text-org7377a22">
+<ul class="org-ul">
+<li><a href="20241202-set_as_presentable_category.html#ID-2ca3023b-c55a-44d4-a9d5-c88082194115">Set as presentable category</a>   <br /></li>
+<li><a href="20241202-category_sset_as_presentable_category.html#ID-d27488e8-d979-40be-8eb3-9b6439e856d5">category sSet as presentable category</a><br /></li>
+<li><a href="20241202-rmod_as_presentable_category.html#ID-ec5304d3-3062-44b4-b2bd-6f7a3864f8b4">RMod as presentable category</a> <br /></li>
+<li><a href="20241020-grothendieck_category_as_presentable_category.html#ID-395b41c0-4c6b-43ab-8cb7-ff3c387c76a7">grothendieck category as presentable category</a><br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org94cddc9" class="outline-5">
+<h5 id="org94cddc9">$&infin;$-cat</h5>
+<div class="outline-text-5" id="text-org94cddc9">
+<ul class="org-ul">
+<li><a href="20241202-infinity_category_of_presentable_categories_as_presentable_category.html#ID-825cd167-ab18-47f8-a348-cac826073d20">infinity category of presentable categories as presentable category</a> <br /></li>
+<li><a href="20241202-category_of_anima_as_presentable_category.html#ID-14b0ff93-9f00-4a37-a3d8-967c913c490b">category of Anima as presentable category</a> <br /></li>
+<li><a href="20241202-infinity_presheaf_category_as_presentable_category.html#ID-077d1970-d29a-4009-ba97-c0d238b7b5ee">infinity presheaf category as presentable category</a> <br /></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org66cbd44" class="outline-4">
+<h4 id="org66cbd44">constructions</h4>
+<div class="outline-text-4" id="text-org66cbd44">
+<ul class="org-ul">
+<li><a href="20241109-infinity_functor_category_into_an_accessible_category_as_accessible_category.html#ID-82034d83-9f63-46c7-806a-bedcdddf85ff">infinity functor category into an accessible category as accessible category</a> / <a href="20241202-infinity_functor_category_into_a_presentable_category_as_presentable_category.html#ID-57454c25-b534-4947-bbe0-638d2c0a9a49">infinity functor category into a presentable category as presentable category</a> <br /></li>
+<li><a href="20241202-infinity_slice_category_of_an_accessible_category_as_accessible_category.html#ID-247119f8-dbe2-4683-abc8-03d1f01be168">infinity slice category of an accessible category as accessible category</a> / <a href="20241202-infinity_slice_category_of_a_presentable_category_as_presentable_category.html#ID-c75857b2-70cf-4f22-9a2d-ea2d126823c2">infinity slice category of a presentable category as presentable category</a> <br /></li>
+<li><a href="20241202-infinity_coslice_category_of_an_accessible_caetgory_as_accessible_category.html#ID-0bc2d2a9-3144-456e-87e7-d47a0b2e403d">infinity coslice category of an accessible caetgory as accessible category</a>  / <a href="20241202-infinity_coslice_category_of_a_presentable_category_as_presentable_category.html#ID-30989531-6632-4b04-9580-7853e8a247bb">infinity coslice category of a presentable category as presentable category</a>   <br /></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org9fbcace" class="outline-3">
+<h3 id="org9fbcace">cat ind</h3>
+<div class="outline-text-3" id="text-org9fbcace">
+<ul class="org-ul">
+<li><a href="20241023-infinity_ind_object.html#ID-4f30d534-3cf9-423f-bfd8-7234e0aab550">infinity ind object</a> - todo<br /></li>
+<li><a href="20241023-infinity_category_of_ind.html#ID-efca9354-51f1-4f1a-a078-59263e299afe">infinity category Ind</a> - todo<br /></li>
+<li><a href="20241202-accessible_category_and_ind.html#ID-8b3e6916-d294-49c4-b5e6-e900e380fc91">accessible category and Ind</a> - todo<br /></li>
+<li><a href="20241204-presentable_category_and_ind.html#ID-28fd8876-a611-408f-b1fc-5676e6da5c96">presentable category and ind</a> - todo<br /></li>
+</ul>
+</div>
+<div id="outline-container-org4217fe6" class="outline-4">
+<h4 id="org4217fe6">\(\mathrm{Cat}_{\infty}, \mathrm{An}\)</h4>
+<div class="outline-text-4" id="text-org4217fe6">
+<ul class="org-ul">
+<li><a href="20241202-infinity_category_of_presentable_categories_as_presentable_category.html#ID-825cd167-ab18-47f8-a348-cac826073d20">infinity category of presentable categories as presentable category</a> <br /></li>
+<li><a href="20241202-category_of_anima_as_presentable_category.html#ID-14b0ff93-9f00-4a37-a3d8-967c913c490b">category of Anima as presentable category</a> <br /></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb1d97ff" class="outline-3">
+<h3 id="orgb1d97ff">representability</h3>
+<div class="outline-text-3" id="text-orgb1d97ff">
+</div>
+<div id="outline-container-org4d83e31" class="outline-4">
+<h4 id="org4d83e31">a)</h4>
+<div class="outline-text-4" id="text-org4d83e31">
+<ul class="org-ul">
+<li><a href="20241202-covariant_representability_theorem_for_presentable_categories.html#ID-eae28f9d-247a-4b18-9d98-ed85343d7f8b">covariant representability theorem for presentable categories</a> <br /></li>
+<li><a href="20241202-contravariant_representability_theorem_for_presentable_categories.html#ID-a2dc99a8-c2a8-44c4-8705-454464abfe3d">contravariant representability theorem for presentable categories</a>   <br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org49efde1" class="outline-4">
+<h4 id="org49efde1">b)</h4>
+<div class="outline-text-4" id="text-org49efde1">
+<ul class="org-ul">
+<li><a href="20241017-adjoint_functor_theorem_for_locally_presentable_categories.html#ID-2733af2a-ca84-4832-acc1-91e27487cd02">left adjoint functor theorem for presentable categories</a> - todo<br /></li>
+<li><a href="20241202-right_adjoint_functor_theorem_for_presentable_categories.html#ID-b362a723-ea60-4bc1-bb64-1ecac87ebd27">right adjoint functor theorem for presentable categories</a> - todo<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org39a7a60" class="outline-4">
+<h4 id="org39a7a60">c)</h4>
+<div class="outline-text-4" id="text-org39a7a60">
+<ul class="org-ul">
+<li><a href="20241202-presentable_category_as_complete_category.html#ID-b2b40237-bef3-427d-b1ca-bfc8023f762b">presentable category as complete category</a> <br /></li>
+<li><a href="20241204-accessible_and_complete_category_as_presentable_category.html#ID-74403697-a07d-49ea-adbf-07593447aec7">accessible and complete category as presentable category</a> - todo<br /></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2024-12-05 Do 20:44</p>
+</div>
+</body>
+</html>
