@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-12-11 Mi 12:13 -->
+<!-- 2024-12-11 Mi 11:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Untervektorraum</title>
+<title>LinAlg 1 - Tut8</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
@@ -229,24 +229,127 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Untervektorraum</h1>
-<div id="outline-container-org93a6ac0" class="outline-2">
-<h2 id="org93a6ac0">Definition</h2>
-<div class="outline-text-2" id="text-org93a6ac0">
+<h1 class="title">LinAlg 1 - Tut8</h1>
+<div id="outline-container-org8a97ac7" class="outline-2">
+<h2 id="org8a97ac7">Erinnerung</h2>
+<div class="outline-text-2" id="text-org8a97ac7">
+</div>
+<div id="outline-container-org2495b52" class="outline-3">
+<h3 id="org2495b52">disclaimer</h3>
+<div class="outline-text-3" id="text-org2495b52">
 <p>
-Seien \(V\) und \(U\) <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">Vektorräume</a>.<br />
-\(U\) ist ein Unterraum von \(V\), wenn gilt:<br />
+Diese Erinnerung dient primär als Hilfe für die Tutoriumsaufgaben.<br />
+</p>
+
+<p>
+Insbesondere ist diese weder vollständig (ich habe leider als Tutor auch keine genauen Informationen zu den Vorlesungsinhalten) noch i.A. korrekt (ich habe viele Zettel selber während des ersten Semesters geschrieben und selten gegengelesen, d.h. jedes Buch wird um Größenordnungen weniger Fehler beinhalten)<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org0595343" class="outline-3">
+<h3 id="org0595343">Liste</h3>
+</div>
+</div>
+<div id="outline-container-org648fa41" class="outline-2">
+<h2 id="org648fa41">Erinnerung</h2>
+<div class="outline-text-2" id="text-org648fa41">
+<ul class="org-ul">
+<li><a href="20221210210302-dualraum.html#ID-9ace6f30-29f8-4e46-82c2-875f67c452fc">dual space</a> <br /></li>
+<li><a href="20230314222131-externe_direkte_summe.html#ID-a02f57d8-ada1-499a-aefb-ae12ffe2ec71">direct sum of vector spaces</a>   <br /></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="20221115083550-summe_zweier_vektorraume.html#ID-da2e73df-a954-4165-a658-a914c6adabcf">Summe zweier Vektorräume</a> <br /></li>
+<li><a href="20230130155449-duale_basis.html#ID-60195b87-8c69-430a-a8b8-e4bd1da17e5f">duale Basis</a>   <br /></li>
+<li><a href="20221117110351-lemma_uber_die_eindeutigkeit_eines_homomorphismus_durch_die_abbildungen_der_basen.html#ID-4c9a6f67-fffe-4044-aa13-3200e9b83f86">Existenz und Eindeutigkeit eines Homomorphismus durch die Abbildungen der Basis</a>   <br /></li>
+<li><a href="20221106151731-lemma_uber_den_schnitt_von_vektorraumen_als_vektorraum.html#ID-4c9917bb-5d6a-495a-b50e-6a2b3b52acee">Schnitt von Vektorräumen als Vektorraum</a>   <br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc133244" class="outline-2">
+<h2 id="orgc133244">Aufgaben</h2>
+<div class="outline-text-2" id="text-orgc133244">
+</div>
+<div id="outline-container-orgcc8d658" class="outline-3">
+<h3 id="orgcc8d658">0) Anleitung: duale Basis angeben</h3>
+<div class="outline-text-3" id="text-orgcc8d658">
+<p>
+Sei \(V = K^n\) ein \(K\)-Vektorraum und \(b_1,...,b_n\) eine Basis.<br />
+Sei \(e_1,...,e_n\) die Standardbasis und \(e_1^*,...,e_n^*\) die duale Basis (im Dualraum \(V^*\)) der Standardbasis.<br />
+Für ein Element \(b_i = \begin{pNiceMatrix} k_1^i & \dots & k_n^i \end{pNiceMatrix}\) schreibt man das Lineare Gleichungssystem auf<br />
 </p>
 \begin{align*}
-U \subseteq V
+1 =& k_1^i x_1 + ... + k_n^i x_n \\
+0 =& k_1^j x_1 + ... + k_n^j x_n && j \neq i
+\end{align*}
+
+<p>
+und löst es.<br />
+Dann ist die duale basis gegeben durch<br />
+</p>
+\begin{align*}
+b_i^* = \sum_{i=1}^n x_i e_i^* 
+\end{align*}
+
+<p>
+Dafür verwendet man später den <a href="20231129-einfacher_gauß_algorithmus.html#ID-da8871b2-95c4-4c4a-918a-69a0bf8985cd">gauß algorithmus</a> <br />
+</p>
+</div>
+</div>
+<div id="outline-container-org3e65639" class="outline-3">
+<h3 id="org3e65639">1) \(U^{\circ}\)</h3>
+<div class="outline-text-3" id="text-org3e65639">
+<p>
+Sei \(W\) ein \(K\)-Vektorraum und \(U,V \subseteq W\) Untervektorräume.<br />
+Sei \(U^{\circ} = \{f: W \rightarrow K \vert f_{\vert U} = 0\} \subseteq U^\circ\)<br />
+</p>
+
+<p>
+Zeige<br />
+</p>
+</div>
+<div id="outline-container-org4097244" class="outline-4">
+<h4 id="org4097244">a)</h4>
+<div class="outline-text-4" id="text-org4097244">
+\begin{align*}
+(U \cap V)^{\circ} = U^{\circ} + V^{\circ}
 \end{align*}
 </div>
+</div>
+<div id="outline-container-org3b80725" class="outline-4">
+<h4 id="org3b80725">b)</h4>
+<div class="outline-text-4" id="text-org3b80725">
+\begin{align*}
+(U + V)^{\circ} = U^{\circ} \cap V^{\circ}
+\end{align*}
+</div>
+</div>
+</div>
+<div id="outline-container-orgf607a4f" class="outline-3">
+<h3 id="orgf607a4f">2)</h3>
+<div class="outline-text-3" id="text-orgf607a4f">
+<p>
+Sei \(x = V \oplus W\) und \(U \subseteq W\) ein \(1\)-dimensionaler Unterraum.<br />
+Sei zudem \(U \cap V, U \cap W = \{0\}\)<br />
+</p>
+
+<p>
+Finde die Dimension von<br />
+</p>
+\begin{align*}
+\mathrm{dim}((V + U) \cap (W + U))
+\end{align*}
+</div>
+</div>
+</div>
+<div id="outline-container-org49a2f03" class="outline-2">
+<h2 id="org49a2f03"></h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: nil</p>
 <p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-12-11 Mi 12:13</p>
+<p class="date">Created: 2024-12-11 Mi 11:26</p>
 </div>
 </body>
 </html>
