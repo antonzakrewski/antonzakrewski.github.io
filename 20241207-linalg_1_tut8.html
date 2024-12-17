@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-12-11 Mi 11:26 -->
+<!-- 2024-12-17 Di 21:19 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>LinAlg 1 - Tut8</title>
@@ -194,45 +194,13 @@
   .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
-<script>
-  window.MathJax = {
-    tex: {
-      ams: {
-        multlineWidth: '85%'
-      },
-      tags: 'ams',
-      tagSide: 'right',
-      tagIndent: '.8em'
-    },
-    chtml: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    svg: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    output: {
-      font: 'mathjax-modern',
-      displayOverflow: 'overflow'
-    }
-  };
-</script>
-
-<script
-  id="MathJax-script"
-  async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
 </head>
 <body>
 <div id="content" class="content">
 <h1 class="title">LinAlg 1 - Tut8</h1>
-<div id="outline-container-org8a97ac7" class="outline-2">
-<h2 id="org8a97ac7">Erinnerung</h2>
-<div class="outline-text-2" id="text-org8a97ac7">
+<div id="outline-container-org648fa41" class="outline-2">
+<h2 id="org648fa41">Erinnerung</h2>
+<div class="outline-text-2" id="text-org648fa41">
 </div>
 <div id="outline-container-org2495b52" class="outline-3">
 <h3 id="org2495b52">disclaimer</h3>
@@ -250,9 +218,9 @@ Insbesondere ist diese weder vollständig (ich habe leider als Tutor auch keine 
 <h3 id="org0595343">Liste</h3>
 </div>
 </div>
-<div id="outline-container-org648fa41" class="outline-2">
-<h2 id="org648fa41">Erinnerung</h2>
-<div class="outline-text-2" id="text-org648fa41">
+<div id="outline-container-org27c85ca" class="outline-2">
+<h2 id="org27c85ca">Erinnerung</h2>
+<div class="outline-text-2" id="text-org27c85ca">
 <ul class="org-ul">
 <li><a href="20221210210302-dualraum.html#ID-9ace6f30-29f8-4e46-82c2-875f67c452fc">dual space</a> <br /></li>
 <li><a href="20230314222131-externe_direkte_summe.html#ID-a02f57d8-ada1-499a-aefb-ae12ffe2ec71">direct sum of vector spaces</a>   <br /></li>
@@ -263,6 +231,8 @@ Insbesondere ist diese weder vollständig (ich habe leider als Tutor auch keine 
 <li><a href="20230130155449-duale_basis.html#ID-60195b87-8c69-430a-a8b8-e4bd1da17e5f">duale Basis</a>   <br /></li>
 <li><a href="20221117110351-lemma_uber_die_eindeutigkeit_eines_homomorphismus_durch_die_abbildungen_der_basen.html#ID-4c9a6f67-fffe-4044-aa13-3200e9b83f86">Existenz und Eindeutigkeit eines Homomorphismus durch die Abbildungen der Basis</a>   <br /></li>
 <li><a href="20221106151731-lemma_uber_den_schnitt_von_vektorraumen_als_vektorraum.html#ID-4c9917bb-5d6a-495a-b50e-6a2b3b52acee">Schnitt von Vektorräumen als Vektorraum</a>   <br /></li>
+<li><a href="20230123044300-rangsatz.html#ID-2e30f05f-ed0c-4a47-86e3-5d6e3330d830">Rangsatz</a>   <br /></li>
+<li><a href="20230210112736-heuristik_zur_bestimmung_der_dualen_basis_fur_eine_andere_basis.html#ID-02258ddd-d527-4b67-a0ff-5f2705d3346f">Heuristik zur Bestimmung der dualen Basis für eine andere Basis</a>   <br /></li>
 </ul>
 </div>
 </div>
@@ -274,22 +244,37 @@ Insbesondere ist diese weder vollständig (ich habe leider als Tutor auch keine 
 <h3 id="orgcc8d658">0) Anleitung: duale Basis angeben</h3>
 <div class="outline-text-3" id="text-orgcc8d658">
 <p>
-Sei \(V = K^n\) ein \(K\)-Vektorraum und \(b_1,...,b_n\) eine Basis.<br />
-Sei \(e_1,...,e_n\) die Standardbasis und \(e_1^*,...,e_n^*\) die duale Basis (im Dualraum \(V^*\)) der Standardbasis.<br />
-Für ein Element \(b_i = \begin{pNiceMatrix} k_1^i & \dots & k_n^i \end{pNiceMatrix}\) schreibt man das Lineare Gleichungssystem auf<br />
+Sei <img src="ltximg/20241207-linalg_1_tut8_4fdd8789fa7ab04f89f50be529a275839056cb85.svg" alt="20241207-linalg_1_tut8_4fdd8789fa7ab04f89f50be529a275839056cb85.svg" class="org-svg" /> ein <img src="ltximg/20241207-linalg_1_tut8_4dbc404b046485ca7ae277b6b3f46b8366c8d8b8.svg" alt="20241207-linalg_1_tut8_4dbc404b046485ca7ae277b6b3f46b8366c8d8b8.svg" class="org-svg" />-Vektorraum und <img src="ltximg/20241207-linalg_1_tut8_b6999635a6f9596be1983abb52c912e8ff3e5b82.svg" alt="20241207-linalg_1_tut8_b6999635a6f9596be1983abb52c912e8ff3e5b82.svg" class="org-svg" /> eine Basis.<br />
+Sei <img src="ltximg/20241207-linalg_1_tut8_9e7839e6e0685061c45665e7bcb8832148d942f3.svg" alt="20241207-linalg_1_tut8_9e7839e6e0685061c45665e7bcb8832148d942f3.svg" class="org-svg" /> die Standardbasis und <img src="ltximg/20241207-linalg_1_tut8_5cbfad91300a92fd67960a214ed04629ef4e4c10.svg" alt="20241207-linalg_1_tut8_5cbfad91300a92fd67960a214ed04629ef4e4c10.svg" class="org-svg" /> die duale Basis (im Dualraum <img src="ltximg/20241207-linalg_1_tut8_8f11a7c29f60ba92000ff5ddd07dd3dbdcb35dfe.svg" alt="20241207-linalg_1_tut8_8f11a7c29f60ba92000ff5ddd07dd3dbdcb35dfe.svg" class="org-svg" />) der Standardbasis.<br />
+Für ein Element<br />
 </p>
-\begin{align*}
-1 =& k_1^i x_1 + ... + k_n^i x_n \\
-0 =& k_1^j x_1 + ... + k_n^j x_n && j \neq i
-\end{align*}
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241207-linalg_1_tut8_5ae918b15c27fa4e0e012aaeaa084f9ba33689ee.svg" alt="20241207-linalg_1_tut8_5ae918b15c27fa4e0e012aaeaa084f9ba33689ee.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+schreibt man das Lineare Gleichungssystem auf<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241207-linalg_1_tut8_fbab6a24110424b26a27d27a26d7b461954a2b63.svg" alt="20241207-linalg_1_tut8_fbab6a24110424b26a27d27a26d7b461954a2b63.svg" class="org-svg" />
+</span>
+</div>
 
 <p>
 und löst es.<br />
 Dann ist die duale basis gegeben durch<br />
 </p>
-\begin{align*}
-b_i^* = \sum_{i=1}^n x_i e_i^* 
-\end{align*}
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241207-linalg_1_tut8_5abe2722467bd37ae3029ded870abd7b9665b47c.svg" alt="20241207-linalg_1_tut8_5abe2722467bd37ae3029ded870abd7b9665b47c.svg" class="org-svg" />
+</span>
+</div>
 
 <p>
 Dafür verwendet man später den <a href="20231129-einfacher_gauß_algorithmus.html#ID-da8871b2-95c4-4c4a-918a-69a0bf8985cd">gauß algorithmus</a> <br />
@@ -297,11 +282,11 @@ Dafür verwendet man später den <a href="20231129-einfacher_gauß_algorithmus.h
 </div>
 </div>
 <div id="outline-container-org3e65639" class="outline-3">
-<h3 id="org3e65639">1) \(U^{\circ}\)</h3>
+<h3 id="org3e65639">1) <img src="ltximg/20241207-linalg_1_tut8_cf4b7ce10e4e98c070d4b997dabebc7110c817ae.svg" alt="20241207-linalg_1_tut8_cf4b7ce10e4e98c070d4b997dabebc7110c817ae.svg" class="org-svg" /></h3>
 <div class="outline-text-3" id="text-org3e65639">
 <p>
-Sei \(W\) ein \(K\)-Vektorraum und \(U,V \subseteq W\) Untervektorräume.<br />
-Sei \(U^{\circ} = \{f: W \rightarrow K \vert f_{\vert U} = 0\} \subseteq U^\circ\)<br />
+Sei <img src="ltximg/20241207-linalg_1_tut8_5cefb05026c7566218dc9a58a56008e295c12216.svg" alt="20241207-linalg_1_tut8_5cefb05026c7566218dc9a58a56008e295c12216.svg" class="org-svg" /> ein <img src="ltximg/20241207-linalg_1_tut8_4dbc404b046485ca7ae277b6b3f46b8366c8d8b8.svg" alt="20241207-linalg_1_tut8_4dbc404b046485ca7ae277b6b3f46b8366c8d8b8.svg" class="org-svg" />-Vektorraum und <img src="ltximg/20241207-linalg_1_tut8_defc0f722f857c9aed09ac92800f0712a8f4760f.svg" alt="20241207-linalg_1_tut8_defc0f722f857c9aed09ac92800f0712a8f4760f.svg" class="org-svg" /> Untervektorräume.<br />
+Sei <img src="ltximg/20241207-linalg_1_tut8_6c2825565aa42643a9e7b88f753dbd38003e7672.svg" alt="20241207-linalg_1_tut8_6c2825565aa42643a9e7b88f753dbd38003e7672.svg" class="org-svg" /><br />
 </p>
 
 <p>
@@ -311,17 +296,23 @@ Zeige<br />
 <div id="outline-container-org4097244" class="outline-4">
 <h4 id="org4097244">a)</h4>
 <div class="outline-text-4" id="text-org4097244">
-\begin{align*}
-(U \cap V)^{\circ} = U^{\circ} + V^{\circ}
-\end{align*}
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241207-linalg_1_tut8_c624b13c6e457bbeed1ad433a9eca39b49c5a164.svg" alt="20241207-linalg_1_tut8_c624b13c6e457bbeed1ad433a9eca39b49c5a164.svg" class="org-svg" />
+</span>
+</div>
 </div>
 </div>
 <div id="outline-container-org3b80725" class="outline-4">
 <h4 id="org3b80725">b)</h4>
 <div class="outline-text-4" id="text-org3b80725">
-\begin{align*}
-(U + V)^{\circ} = U^{\circ} \cap V^{\circ}
-\end{align*}
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241207-linalg_1_tut8_18ac042b4d4628d87a2e608521d10c9d8973382c.svg" alt="20241207-linalg_1_tut8_18ac042b4d4628d87a2e608521d10c9d8973382c.svg" class="org-svg" />
+</span>
+</div>
 </div>
 </div>
 </div>
@@ -329,27 +320,171 @@ Zeige<br />
 <h3 id="orgf607a4f">2)</h3>
 <div class="outline-text-3" id="text-orgf607a4f">
 <p>
-Sei \(x = V \oplus W\) und \(U \subseteq W\) ein \(1\)-dimensionaler Unterraum.<br />
-Sei zudem \(U \cap V, U \cap W = \{0\}\)<br />
+Sei <img src="ltximg/20241207-linalg_1_tut8_32bbb85e94c70ed92be59a45094b47b26d733d16.svg" alt="20241207-linalg_1_tut8_32bbb85e94c70ed92be59a45094b47b26d733d16.svg" class="org-svg" /> und <img src="ltximg/20241207-linalg_1_tut8_050f1f45cc487416a9d81c37dda85010a61a47b2.svg" alt="20241207-linalg_1_tut8_050f1f45cc487416a9d81c37dda85010a61a47b2.svg" class="org-svg" /> ein <img src="ltximg/20241207-linalg_1_tut8_de20cccca6ba5c9f9273546190f092cdc717d5bf.svg" alt="20241207-linalg_1_tut8_de20cccca6ba5c9f9273546190f092cdc717d5bf.svg" class="org-svg" />-dimensionaler Unterraum.<br />
+Sei zudem <img src="ltximg/20241207-linalg_1_tut8_9cf452951efd328634d2f0b111bec6acdd6635f1.svg" alt="20241207-linalg_1_tut8_9cf452951efd328634d2f0b111bec6acdd6635f1.svg" class="org-svg" /><br />
 </p>
 
 <p>
 Finde die Dimension von<br />
 </p>
-\begin{align*}
-\mathrm{dim}((V + U) \cap (W + U))
-\end{align*}
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241207-linalg_1_tut8_4ac7973ee15c13d63bc90645491b6f98a5799f89.svg" alt="20241207-linalg_1_tut8_4ac7973ee15c13d63bc90645491b6f98a5799f89.svg" class="org-svg" />
+</span>
 </div>
 </div>
 </div>
-<div id="outline-container-org49a2f03" class="outline-2">
-<h2 id="org49a2f03"></h2>
+</div>
+<div id="outline-container-orgeeb6610" class="outline-2">
+<h2 id="orgeeb6610">Lösung</h2>
+<div class="outline-text-2" id="text-orgeeb6610">
+<ul class="org-ul">
+<li><a href="20241212-annihilator_and_sum.html#ID-5281339e-8049-41c2-b01d-31adda8ec7aa">annihilator and sum</a>     <br /></li>
+<li><a href="20241212-annihilator_and_intersection.html#ID-1491fc1b-9b2f-48a2-b330-7f67b307af60">annihilator and intersection</a>   <br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8798905" class="outline-2">
+<h2 id="org8798905">Addendum zu Mittwoch:</h2>
+<div class="outline-text-2" id="text-org8798905">
+<p>
+Ich habe das Argument für<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241207-linalg_1_tut8_98348d10eca37e753efafd1f3b03dad33429e433.svg" alt="20241207-linalg_1_tut8_98348d10eca37e753efafd1f3b03dad33429e433.svg" class="org-svg" />
+</span>
+</div>
+<p>
+nur kurz (und unverständlich) angeschnitten.<br />
+</p>
+
+<p>
+Die saubere Formulierung wäre, dass man zwei Verschiedene Vektorräume betrachten kann.<br />
+Für Unterräume <img src="ltximg/20241207-linalg_1_tut8_defc0f722f857c9aed09ac92800f0712a8f4760f.svg" alt="20241207-linalg_1_tut8_defc0f722f857c9aed09ac92800f0712a8f4760f.svg" class="org-svg" /> gibt es<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241207-linalg_1_tut8_6a629ab9e94fd3995aae5472a0fe3ecaf8909d0d.svg" alt="20241207-linalg_1_tut8_6a629ab9e94fd3995aae5472a0fe3ecaf8909d0d.svg" class="org-svg" />
+</span>
+</div>
+<p>
+siehe:<br />
+</p>
+<ul class="org-ul">
+<li><a href="20221115083550-summe_zweier_vektorraume.html#ID-da2e73df-a954-4165-a658-a914c6adabcf">Summe zweier Vektorräume</a>   <br /></li>
+</ul>
+
+<p>
+Aber allgemein kann man für zwei beliebige K-Vektorräume (und damit insbesondere auch für <img src="ltximg/20241207-linalg_1_tut8_3570e20a179009c55f72beaa38149913623a8348.svg" alt="20241207-linalg_1_tut8_3570e20a179009c55f72beaa38149913623a8348.svg" class="org-svg" />) den Vektorraum<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241207-linalg_1_tut8_be0cafbc7d422a949dc892a9109ad6929919241e.svg" alt="20241207-linalg_1_tut8_be0cafbc7d422a949dc892a9109ad6929919241e.svg" class="org-svg" />
+</span>
+</div>
+<p>
+bilden.<br />
+siehe:<br />
+</p>
+<ul class="org-ul">
+<li><a href="20221227225328-direktes_produkt_von_vektorraumen.html#ID-634b3569-cc17-463c-9dcd-3b07e264f9bf">direct product of vector spaces</a> <br /></li>
+</ul>
+
+<p>
+Im Falle <img src="ltximg/20241207-linalg_1_tut8_64d87f220396c1d056c6daaeaaee887052ad2563.svg" alt="20241207-linalg_1_tut8_64d87f220396c1d056c6daaeaaee887052ad2563.svg" class="org-svg" /> gilt dabei<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241207-linalg_1_tut8_98d85d24032104dad459c8dca3e30f3188e77fba.svg" alt="20241207-linalg_1_tut8_98d85d24032104dad459c8dca3e30f3188e77fba.svg" class="org-svg" />
+</span>
+</div>
+<p>
+d.h. die beiden Vektorräume sind (sogar kanonisch) <a href="20230227153105-vektorraumisomorphismus.html#ID-27b6dd7a-30ae-4eb8-b5c4-e1a268344d2e">isomorph</a> (und daher "nicht durch ihre innere Struktur unterscheidbar")<br />
+</p>
+
+<p>
+Ich hätte zudem genauer schreiben sollen, dass der Kern der Abbildung<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241207-linalg_1_tut8_8425f0092bc06e8b19d69d1cb451c874352fb039.svg" alt="20241207-linalg_1_tut8_8425f0092bc06e8b19d69d1cb451c874352fb039.svg" class="org-svg" />
+</span>
+</div>
+<p>
+isomorph zu (und nicht gleich) <img src="ltximg/20241207-linalg_1_tut8_334bd66b9fc98af7cb3548a6b5ed3141d656947a.svg" alt="20241207-linalg_1_tut8_334bd66b9fc98af7cb3548a6b5ed3141d656947a.svg" class="org-svg" /> ist.<br />
+</p>
+
+
+
+<p>
+Da Isomorphismen Basen auf Basen abbilden (cf. <a href="20230628-bild_einer_basis_eines_isomorphismus_als_basis.html#ID-d191d534-9238-4f7f-8c4a-cb32f49e281a">Bild einer Basis eines Vektorraumisomorphismus als Basis</a>) kann man zur Berechnung von der Dimension eines Vektorraums diesen durch einen Isomorphen Vektorraum ersezten.<br />
+</p>
+
+
+
+<p>
+Hier funktionieren übrigens beide Abbildungen<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241207-linalg_1_tut8_5be4cf3aca45e276131d03e0db16a668b7335ad2.svg" alt="20241207-linalg_1_tut8_5be4cf3aca45e276131d03e0db16a668b7335ad2.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+um das zu zeigen, jedoch ist die untere Abbildung (wohl) leichter zum nachrechnen.<br />
+</p>
+
+<ul class="org-ul">
+<li><a href="20241212-dimension_der_summe_von_zwei_vektorraumen.html#ID-b95e63bc-863b-4350-8385-43dc377be71e">dimension der summe von zwei Vektorräumen</a>   <br /></li>
+
+<li><a href="20230123044300-rangsatz.html#ID-2e30f05f-ed0c-4a47-86e3-5d6e3330d830">Rangsatz</a><br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfef808d" class="outline-2">
+<h2 id="orgfef808d">Kommentare</h2>
+<div class="outline-text-2" id="text-orgfef808d">
+</div>
+<div id="outline-container-org61bdaec" class="outline-3">
+<h3 id="org61bdaec">Mittwoch</h3>
+<div class="outline-text-3" id="text-org61bdaec">
+<p>
+Ich habe relativ viel Zeit für die erste Aufgabe gegeben.<br />
+Einerseits hatte ich nicht den Eindruck, dass viele die Aufgabe geschafft haben.<br />
+Andererseits hätte ich aber gerne auch mehr Zeit für die nächste Aufgabe gegeben.<br />
+</p>
+
+
+<p>
+Die Aussage mit der Dimension hätte ich gerne etwas länger besprochen.<br />
+(Man kann aber auch über eine Basis argumentieren, es ist nur etwas länger)<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgcef52f1" class="outline-3">
+<h3 id="orgcef52f1">Donnerstag</h3>
+<div class="outline-text-3" id="text-orgcef52f1">
+<p>
+Ich habe vergleichbar viel zeit für die erste Aufgabe gegeben (vlt. etwas weniger).<br />
+Ich hatte den Eindruck, dass einige besser vorankamen.<br />
+</p>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: nil</p>
 <p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-12-11 Mi 11:26</p>
+<p class="date">Created: 2024-12-17 Di 21:19</p>
 </div>
 </body>
 </html>

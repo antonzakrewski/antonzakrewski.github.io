@@ -3,13 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:54 -->
+<!-- 2024-12-17 Di 21:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Algorithmus zur Ermittlung der Inversen Matrix</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
-<style>
+<style type="text/css">
   #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
@@ -194,61 +194,60 @@
   .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
-<script>
-  window.MathJax = {
-    tex: {
-      ams: {
-        multlineWidth: '85%'
-      },
-      tags: 'ams',
-      tagSide: 'right',
-      tagIndent: '.8em'
-    },
-    chtml: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    svg: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    output: {
-      font: 'mathjax-modern',
-      displayOverflow: 'overflow'
-    }
-  };
-</script>
-
-<script
-  id="MathJax-script"
-  async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
 </head>
 <body>
 <div id="content" class="content">
 <h1 class="title">Algorithmus zur Ermittlung der Inversen Matrix</h1>
-<div id="outline-container-org128a7db" class="outline-2">
-<h2 id="org128a7db"><span class="section-number-2">1.</span> Heuristik</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-orge24ff2e" class="outline-2">
+<h2 id="orge24ff2e">Heuristik</h2>
+<div class="outline-text-2" id="text-orge24ff2e">
 <p>
-Durch <a href="20221209182455-elementare_umformung.html#ID-21e4c10b-c38d-4bca-9809-50973831bac2">elementare Umformung</a> zu einer <a href="20221210183428-zeilenstufenform.html#ID-c86c4b1e-7fc4-4fb9-b8d9-6ade802afaae">Zeilenstufenform</a> bringen und dann zu einer <a href="20221126201444-einheitsmatrix.html#ID-d920ec83-a935-4274-8b46-d3c21846c28c">Einheitsmatrix</a>;
-Währenddessen die Schritte auch auf die <a href="20221126201444-einheitsmatrix.html#ID-d920ec83-a935-4274-8b46-d3c21846c28c">Einheitsmatrix</a> anwenden
+Sei <img src="ltximg/20230116210435-algorithmus_zur_ermittlung_der_inversen_matrix_e97d8396e8125bc021268f9f190592002d144779.svg" alt="20230116210435-algorithmus_zur_ermittlung_der_inversen_matrix_e97d8396e8125bc021268f9f190592002d144779.svg" class="org-svg" /> eine <a href="20220303181007-matrix.html#ID-3234cd94-0d93-470b-a319-75288f97326e">matrix</a> über einem <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a> <img src="ltximg/20230116210435-algorithmus_zur_ermittlung_der_inversen_matrix_3cfd7a299d478f9bf2528fa65c00521e0cd88159.svg" alt="20230116210435-algorithmus_zur_ermittlung_der_inversen_matrix_3cfd7a299d478f9bf2528fa65c00521e0cd88159.svg" class="org-svg" />.<br />
 </p>
-\begin{align*}
-A =& A \cdot E_n \\
-…& \text{elementare Umformungen rechtsseitig anwenden} \\
-E_n =& A \cdot A^{-1}
-\end{align*}
+
+<p>
+Durch <a href="20241217-elementare_zeilenumformung.html#ID-5fc822d4-f777-4107-b3db-d427c4423d3a">Elementare Zeilenumformungen</a> möchte man <img src="ltximg/20230116210435-algorithmus_zur_ermittlung_der_inversen_matrix_916c362ec11687631f4cc94f340c13fef3d5f949.svg" alt="20230116210435-algorithmus_zur_ermittlung_der_inversen_matrix_916c362ec11687631f4cc94f340c13fef3d5f949.svg" class="org-svg" /> zu einer <a href="20221126201444-einheitsmatrix.html#ID-d920ec83-a935-4274-8b46-d3c21846c28c">Einheitsmatrix</a> bringen.<br />
+Dabei bietet es sich an, dies erst zu einer <a href="20221210183428-zeilenstufenform.html#ID-c86c4b1e-7fc4-4fb9-b8d9-6ade802afaae">Zeilenstufenform</a> zu bringen und dann zu einer <a href="20221126201444-einheitsmatrix.html#ID-d920ec83-a935-4274-8b46-d3c21846c28c">Einheitsmatrix</a>;<br />
+</p>
+
+<p>
+Währenddessen in der gleichen Reihenfolge die Schritte auch auf die Einheitsmatrix anwenden<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20230116210435-algorithmus_zur_ermittlung_der_inversen_matrix_5eae89356e9c5fd9d2b4dd535aa6bfa9334f2ca5.svg" alt="20230116210435-algorithmus_zur_ermittlung_der_inversen_matrix_5eae89356e9c5fd9d2b4dd535aa6bfa9334f2ca5.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org5030f63" class="outline-2">
+<h2 id="org5030f63">Bemerkung</h2>
+<div class="outline-text-2" id="text-org5030f63">
+<p>
+Man kann auch stattdessen <a href="20241217-elementare_spaltenumformung.html#ID-e0ab619c-32ce-4fb1-a63b-0e36479ebcd4">Elementare Spaltenumformungen</a> verwenden, aber nicht (!) Elementare Spalten und Elementare Zeilenumformungen gleichzeitig<br />
+</p>
+
+<p>
+Nicht jede Matrix ist invertierbar.<br />
+D.h. wenn man es nicht schafft die Matrix zu invertieren, z.B. weil man zu so einer Matrix kommt<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20230116210435-algorithmus_zur_ermittlung_der_inversen_matrix_05a1115a6f9b8bbcce0b6fd493bf0d8a5c42069e.svg" alt="20230116210435-algorithmus_zur_ermittlung_der_inversen_matrix_05a1115a6f9b8bbcce0b6fd493bf0d8a5c42069e.svg" class="org-svg" />
+</span>
+</div>
+<p>
+wo der Eintrag in der 2 Zeile und 2 Spalte <img src="ltximg/20230116210435-algorithmus_zur_ermittlung_der_inversen_matrix_46213a69cc0fd8e7646d063f18a2b1b9e029e7db.svg" alt="20230116210435-algorithmus_zur_ermittlung_der_inversen_matrix_46213a69cc0fd8e7646d063f18a2b1b9e029e7db.svg" class="org-svg" /> ist, dann kann es auch bedeuten, dass die matrix nicht invertierbar ist (wie hier in dem Beispiel)<br />
+</p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: nil</p>
 <p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:54</p>
+<p class="date">Created: 2024-12-17 Di 21:09</p>
 </div>
 </body>
 </html>
