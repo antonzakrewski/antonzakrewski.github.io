@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-01-13 Mo 10:35 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LinAlg 1 - Tut11</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">LinAlg 1 - Tut11</h1>
+<div id="outline-container-org298a0e0" class="outline-2">
+<h2 id="org298a0e0">Erinnerung</h2>
+<div class="outline-text-2" id="text-org298a0e0">
+</div>
+<div id="outline-container-orgdfcba2b" class="outline-3">
+<h3 id="orgdfcba2b">disclaimer</h3>
+<div class="outline-text-3" id="text-orgdfcba2b">
+<p>
+Diese Erinnerung dient primär als Hilfe für die Tutoriumsaufgaben.<br />
+</p>
+
+<p>
+Insbesondere ist diese weder vollständig (ich habe leider als Tutor auch keine genauen Informationen zu den Vorlesungsinhalten) noch i.A. korrekt (ich habe viele Zettel selber während des ersten Semesters geschrieben und selten gegengelesen, d.h. jedes Buch wird um Größenordnungen weniger Fehler beinhalten)<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org27b710d" class="outline-3">
+<h3 id="org27b710d">Erinnerung</h3>
+<div class="outline-text-3" id="text-org27b710d">
+<ul class="org-ul">
+<li><a href="20221126201331-determinante.html#ID-eb5c60bd-2e36-4d02-aa16-f58c8e846d07">determinante</a> <br /></li>
+<li><a href="20221224180415-laplace_entwicklung.html#ID-569e3b41-3b14-4775-922c-5a02533fbfdd">Laplace Entwicklung</a>   <br /></li>
+<li><a href="20250112-rule_of_sarrus.html#ID-8cc243b6-b876-4c3c-8f03-958f865437db">rule of Sarrus</a> <br /></li>
+
+<li><a href="20221224180209-multiplikativitat_der_determinante.html#ID-3755c9f1-a210-4ed2-981d-efabc6596635">multiplicativity of the determinant</a>   <br /></li>
+<li><a href="20230118135508-invertierbarkeit_einer_matrix_in_abhangigkeit_von_der_determinante.html#ID-cb336931-40a0-4039-8acd-c96b61a32468">Invertierbarkeit einer Matrix in Abhängigkeit von der Determinante</a>   <br /></li>
+<li><a href="20221225205908-determinante_einer_transponierten_matrix.html#ID-5fd18484-7920-44ec-8741-c3a47cecb1f9">Determinante einer transponierten Matrix</a>   <br /></li>
+<li><a href="https://de.wikipedia.org/wiki/Regel_von_Sarrus">Regel von Sarrus</a>    <br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2ad4422" class="outline-3">
+<h3 id="org2ad4422">Vorrechnen</h3>
+</div>
+</div>
+<div id="outline-container-orga22f4ec" class="outline-2">
+<h2 id="orga22f4ec">Aufgabe</h2>
+<div class="outline-text-2" id="text-orga22f4ec">
+</div>
+<div id="outline-container-orgc33c261" class="outline-3">
+<h3 id="orgc33c261">0) Matrix Multiplikation einüben</h3>
+<div class="outline-text-3" id="text-orgc33c261">
+<p>
+Sei <img src="ltximg/20241231-linalg_1_tut11_13b0bc6c4661bcf5c24dc5696cd4b33a22860031.svg" alt="20241231-linalg_1_tut11_13b0bc6c4661bcf5c24dc5696cd4b33a22860031.svg" class="org-svg" /> der zugrundeliegende Körper.<br />
+</p>
+</div>
+<div id="outline-container-orgb4903f3" class="outline-4">
+<h4 id="orgb4903f3">a)</h4>
+<div class="outline-text-4" id="text-orgb4903f3">
+<p>
+Berechne<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241231-linalg_1_tut11_d4e2eb2742b2cbde0571d8b397105dbd1badfac0.svg" alt="20241231-linalg_1_tut11_d4e2eb2742b2cbde0571d8b397105dbd1badfac0.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd959160" class="outline-4">
+<h4 id="orgd959160">b)</h4>
+<div class="outline-text-4" id="text-orgd959160">
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241231-linalg_1_tut11_d2304b82a905849bcf41a2bf821a597d2e9a880f.svg" alt="20241231-linalg_1_tut11_d2304b82a905849bcf41a2bf821a597d2e9a880f.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb367de1" class="outline-4">
+<h4 id="orgb367de1">c)</h4>
+<div class="outline-text-4" id="text-orgb367de1">
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241231-linalg_1_tut11_f33e6b57f223e619fc0eac2f328ab826b4aed859.svg" alt="20241231-linalg_1_tut11_f33e6b57f223e619fc0eac2f328ab826b4aed859.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org6d119bf" class="outline-4">
+<h4 id="org6d119bf">d)</h4>
+<div class="outline-text-4" id="text-org6d119bf">
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241231-linalg_1_tut11_7f9af1eab4f340d02c31a28c4849b090b3aea51b.svg" alt="20241231-linalg_1_tut11_7f9af1eab4f340d02c31a28c4849b090b3aea51b.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf26b107" class="outline-3">
+<h3 id="orgf26b107">1) Beweisaufgabe zur Determinante</h3>
+<div class="outline-text-3" id="text-orgf26b107">
+</div>
+<div id="outline-container-orgf5e7dcd" class="outline-4">
+<h4 id="orgf5e7dcd">a) inverse</h4>
+<div class="outline-text-4" id="text-orgf5e7dcd">
+<p>
+Sei <img src="ltximg/20241231-linalg_1_tut11_e97d8396e8125bc021268f9f190592002d144779.svg" alt="20241231-linalg_1_tut11_e97d8396e8125bc021268f9f190592002d144779.svg" class="org-svg" /> invertierbar mit inverser Matrix <img src="ltximg/20241231-linalg_1_tut11_db1c6428b428c0af71062bf15a0deb01852b3bb2.svg" alt="20241231-linalg_1_tut11_db1c6428b428c0af71062bf15a0deb01852b3bb2.svg" class="org-svg" />.<br />
+Berechne<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241231-linalg_1_tut11_eac2af8743b927c37ddf21fcf47e543fe8525cac.svg" alt="20241231-linalg_1_tut11_eac2af8743b927c37ddf21fcf47e543fe8525cac.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org2a52eb8" class="outline-4">
+<h4 id="org2a52eb8">b) kommutiert</h4>
+<div class="outline-text-4" id="text-org2a52eb8">
+<p>
+Es gilt<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241231-linalg_1_tut11_f5353d69d55565333feffa7ca9371bf9225abe04.svg" alt="20241231-linalg_1_tut11_f5353d69d55565333feffa7ca9371bf9225abe04.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd443cd7" class="outline-4">
+<h4 id="orgd443cd7">c) transponierte Matrix</h4>
+<div class="outline-text-4" id="text-orgd443cd7">
+<p>
+Sei <img src="ltximg/20241231-linalg_1_tut11_4106db8bd27054d5d70de46f725e4fb79e65f36a.svg" alt="20241231-linalg_1_tut11_4106db8bd27054d5d70de46f725e4fb79e65f36a.svg" class="org-svg" />.<br />
+Sei <img src="ltximg/20241231-linalg_1_tut11_7d1f0948ae9bcdbdeb5239747ec39d6136de5907.svg" alt="20241231-linalg_1_tut11_7d1f0948ae9bcdbdeb5239747ec39d6136de5907.svg" class="org-svg" /> die transponierte Matrix.<br />
+</p>
+
+<p>
+Zeige<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241231-linalg_1_tut11_5351137717611dbd8f1326d3a31c98fabf172030.svg" alt="20241231-linalg_1_tut11_5351137717611dbd8f1326d3a31c98fabf172030.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org23ccffe" class="outline-3">
+<h3 id="org23ccffe">2) determinanten einüben</h3>
+<div class="outline-text-3" id="text-org23ccffe">
+<p>
+Berechne die Determinanten von<br />
+</p>
+</div>
+<div id="outline-container-org57d3dc6" class="outline-4">
+<h4 id="org57d3dc6">a)</h4>
+<div class="outline-text-4" id="text-org57d3dc6">
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241231-linalg_1_tut11_ba13cd4de58fae5c04f920c67af715c3fe28b968.svg" alt="20241231-linalg_1_tut11_ba13cd4de58fae5c04f920c67af715c3fe28b968.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org4de08a7" class="outline-4">
+<h4 id="org4de08a7">b)</h4>
+<div class="outline-text-4" id="text-org4de08a7">
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241231-linalg_1_tut11_2e55e68c7f391d41da79e3dc79d420a5d7eaeb47.svg" alt="20241231-linalg_1_tut11_2e55e68c7f391d41da79e3dc79d420a5d7eaeb47.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org4f15842" class="outline-4">
+<h4 id="org4f15842">c)</h4>
+<div class="outline-text-4" id="text-org4f15842">
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241231-linalg_1_tut11_dc2638759a1066ae731c9f7ca01a4b2f4c5155f4.svg" alt="20241231-linalg_1_tut11_dc2638759a1066ae731c9f7ca01a4b2f4c5155f4.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb0e1f3d" class="outline-4">
+<h4 id="orgb0e1f3d">d)</h4>
+<div class="outline-text-4" id="text-orgb0e1f3d">
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241231-linalg_1_tut11_b22b5c338608a24fdcabef420a1428ca9c48fc45.svg" alt="20241231-linalg_1_tut11_b22b5c338608a24fdcabef420a1428ca9c48fc45.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org8fb49a4" class="outline-3">
+<h3 id="org8fb49a4">3) Matrix zu LGS</h3>
+<div class="outline-text-3" id="text-org8fb49a4">
+</div>
+<div id="outline-container-org559737a" class="outline-4">
+<h4 id="org559737a">1)</h4>
+<div class="outline-text-4" id="text-org559737a">
+<p>
+Sei<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241231-linalg_1_tut11_00707acd10e47ac92aed444f0c78919ddd0687d1.svg" alt="20241231-linalg_1_tut11_00707acd10e47ac92aed444f0c78919ddd0687d1.svg" class="org-svg" />
+</span>
+</div>
+<p>
+gegeben.<br />
+</p>
+
+<p>
+Was muss man machen, um die Lösung von<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241231-linalg_1_tut11_91705efea7ea2a1d79017f963342669d7ce7d987.svg" alt="20241231-linalg_1_tut11_91705efea7ea2a1d79017f963342669d7ce7d987.svg" class="org-svg" />
+</span>
+</div>
+<p>
+zu bestimmen ?<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org042416c" class="outline-4">
+<h4 id="org042416c">2)</h4>
+<div class="outline-text-4" id="text-org042416c">
+<p>
+Finde alle Lösungen von<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241231-linalg_1_tut11_b78e26d44c1993467ce4cfa1653bfbb9d6e85ad4.svg" alt="20241231-linalg_1_tut11_b78e26d44c1993467ce4cfa1653bfbb9d6e85ad4.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Wie viele Zeilen &amp; Spalten muss <img src="ltximg/20241231-linalg_1_tut11_2206995cea5a4f16d5e946f14cc7a7b8685c90b8.svg" alt="20241231-linalg_1_tut11_2206995cea5a4f16d5e946f14cc7a7b8685c90b8.svg" class="org-svg" /> dabei haben ?<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org8f32854" class="outline-3">
+<h3 id="org8f32854">4) Determinante einer Inversen Matrix</h3>
+</div>
+</div>
+<div id="outline-container-orgab99c52" class="outline-2">
+<h2 id="orgab99c52">zusätzliche (schwierige) Beweisaufgaben</h2>
+<div class="outline-text-2" id="text-orgab99c52">
+</div>
+<div id="outline-container-org554c2bc" class="outline-3">
+<h3 id="org554c2bc">1) Kästchensatz</h3>
+<div class="outline-text-3" id="text-org554c2bc">
+<p>
+Sei <img src="ltximg/20241231-linalg_1_tut11_3cfd7a299d478f9bf2528fa65c00521e0cd88159.svg" alt="20241231-linalg_1_tut11_3cfd7a299d478f9bf2528fa65c00521e0cd88159.svg" class="org-svg" /> ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a> und <img src="ltximg/20241231-linalg_1_tut11_d36c77976ad2a1a6057b932bb434c829061d11c9.svg" alt="20241231-linalg_1_tut11_d36c77976ad2a1a6057b932bb434c829061d11c9.svg" class="org-svg" />.<br />
+Dann gilt für die <img src="ltximg/20241231-linalg_1_tut11_804789b5946d577b79a91656ae7bd9f772da2cca.svg" alt="20241231-linalg_1_tut11_804789b5946d577b79a91656ae7bd9f772da2cca.svg" class="org-svg" /> <a href="20220303181007-matrix.html#ID-3234cd94-0d93-470b-a319-75288f97326e">Matrix</a> <br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241231-linalg_1_tut11_a85dc1a09b2958def5666398378eb73e892c5017.svg" alt="20241231-linalg_1_tut11_a85dc1a09b2958def5666398378eb73e892c5017.svg" class="org-svg" />
+</span>
+</div>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20241231-linalg_1_tut11_dd517b58fa79200468fd3bdb42a725482f4357f1.svg" alt="20241231-linalg_1_tut11_dd517b58fa79200468fd3bdb42a725482f4357f1.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2025-01-13 Mo 10:35</p>
+</div>
+</body>
+</html>
