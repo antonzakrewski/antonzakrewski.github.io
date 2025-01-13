@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-01-13 Mo 17:50 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>boundary map from K1 to K0 of rings</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">boundary map from K1 to K0 of rings</h1>
+<div id="outline-container-org723f397" class="outline-2">
+<h2 id="org723f397">Definition</h2>
+<div class="outline-text-2" id="text-org723f397">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_22a535293244fe74fc7a4bdd15d746de7c32685f.svg" alt="20241026-boundary_map_of_k1_to_k0_22a535293244fe74fc7a4bdd15d746de7c32685f.svg" class="org-svg" /> be a <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a>, <img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_15b9172a6bc17067412ed19a46c0407d6dccf79a.svg" alt="20241026-boundary_map_of_k1_to_k0_15b9172a6bc17067412ed19a46c0407d6dccf79a.svg" class="org-svg" /> an <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a> <br />
+Then the boundary map of <img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_fdd8dd5961c81ac9b6cb11c7de00227e8636ce01.svg" alt="20241026-boundary_map_of_k1_to_k0_fdd8dd5961c81ac9b6cb11c7de00227e8636ce01.svg" class="org-svg" /> and <img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_6e69dd151842f8549b64c26c30e0c171557f2e43.svg" alt="20241026-boundary_map_of_k1_to_k0_6e69dd151842f8549b64c26c30e0c171557f2e43.svg" class="org-svg" /> is defined as<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_2b0ab460fcba36b5edc1faeb869d7a48e08abfd6.svg" alt="20241026-boundary_map_of_k1_to_k0_2b0ab460fcba36b5edc1faeb869d7a48e08abfd6.svg" class="org-svg" />
+</span>
+</div>
+<p>
+where<br />
+</p>
+<ol class="org-ol">
+<li><img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_e44dffc1cb573445dea955b45867083e9c302b0a.svg" alt="20241026-boundary_map_of_k1_to_k0_e44dffc1cb573445dea955b45867083e9c302b0a.svg" class="org-svg" /> is canonically identified (cf. <a href="20250109-whitehead_theorem_for_k1.html#ID-88c07e4e-dc37-4972-9052-aeca2d3deaa0">whitehead theorem for k1 of a ring</a>)<br /></li>
+<li><img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_7e5fe20f74b3e838a7a0c40db5f9f7eda8a7a1b1.svg" alt="20241026-boundary_map_of_k1_to_k0_7e5fe20f74b3e838a7a0c40db5f9f7eda8a7a1b1.svg" class="org-svg" /> denotes the <a href="20230925-isomorphism_class.html#ID-5a95a369-9a4b-46c6-a1e9-eb382f2be1ef">isomorphism class</a> of the <a href="20230222205257-freier_modul.html#ID-f31e26dc-9f62-4ff2-81db-88cd88c22229">free module</a> with rank <img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_881f8a8039026f65820e029691254a9f4829d1dc.svg" alt="20241026-boundary_map_of_k1_to_k0_881f8a8039026f65820e029691254a9f4829d1dc.svg" class="org-svg" /><br /></li>
+<li><img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_f0887ff54c9541bb3304a9122c490954886148b2.svg" alt="20241026-boundary_map_of_k1_to_k0_f0887ff54c9541bb3304a9122c490954886148b2.svg" class="org-svg" /> denotes the <a href="20241219-clutching_constructions_of_projective_modules.html#ID-a090c01f-4a13-42b0-9985-4a47d58851b9">clutching construction</a> for the <a href="20230806-pullback.html#ID-730c4312-492d-4b9c-a347-9281309d3e6f">pullback</a>  <br /></li>
+</ol>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_088cb76cff37fcdfcf9cc53a29c7cb508596a21a.svg" alt="20241026-boundary_map_of_k1_to_k0_088cb76cff37fcdfcf9cc53a29c7cb508596a21a.svg" class="org-svg" />
+</span>
+</div>
+<p>
+i.e.<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_d157bcdeef9b1727d880e3acf98c515940084877.svg" alt="20241026-boundary_map_of_k1_to_k0_d157bcdeef9b1727d880e3acf98c515940084877.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org80d8265" class="outline-2">
+<h2 id="org80d8265">Welldefined</h2>
+<div class="outline-text-2" id="text-org80d8265">
+</div>
+<div id="outline-container-org8c3502f" class="outline-3">
+<h3 id="org8c3502f">independent of <img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_881f8a8039026f65820e029691254a9f4829d1dc.svg" alt="20241026-boundary_map_of_k1_to_k0_881f8a8039026f65820e029691254a9f4829d1dc.svg" class="org-svg" /> for <img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_6f99fef142318c275dcda89a16e0a1aadc5f28f4.svg" alt="20241026-boundary_map_of_k1_to_k0_6f99fef142318c275dcda89a16e0a1aadc5f28f4.svg" class="org-svg" /></h3>
+<div class="outline-text-3" id="text-org8c3502f">
+<p>
+follows as<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_01af73794ae7d29e8138ac78391f43c8a35f6f6f.svg" alt="20241026-boundary_map_of_k1_to_k0_01af73794ae7d29e8138ac78391f43c8a35f6f6f.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfd12404" class="outline-3">
+<h3 id="orgfd12404"><img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_d00de3ec69c73239e46c68717b563d7365a728ea.svg" alt="20241026-boundary_map_of_k1_to_k0_d00de3ec69c73239e46c68717b563d7365a728ea.svg" class="org-svg" /></h3>
+<div class="outline-text-3" id="text-orgfd12404">
+<p>
+we show that the image of <img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_e4a107b8a90aa533a7f6f8495a07fb189ae11485.svg" alt="20241026-boundary_map_of_k1_to_k0_e4a107b8a90aa533a7f6f8495a07fb189ae11485.svg" class="org-svg" /> lies in the kernel.<br />
+Then it suffices to show that <img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_1a0f81049d87cffb447178ab5c236db74db16f48.svg" alt="20241026-boundary_map_of_k1_to_k0_1a0f81049d87cffb447178ab5c236db74db16f48.svg" class="org-svg" />.<br />
+</p>
+</div>
+<div id="outline-container-org5f8bef3" class="outline-4">
+<h4 id="org5f8bef3"><img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_d7f3f957c1a07ec3ffe936da05fb5587e118d35a.svg" alt="20241026-boundary_map_of_k1_to_k0_d7f3f957c1a07ec3ffe936da05fb5587e118d35a.svg" class="org-svg" /></h4>
+<div class="outline-text-4" id="text-org5f8bef3">
+<p>
+Suppose there exist a preimage <img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_40077a4da9a98380d4c0b436bb4bff70f0c4041f.svg" alt="20241026-boundary_map_of_k1_to_k0_40077a4da9a98380d4c0b436bb4bff70f0c4041f.svg" class="org-svg" />.<br />
+Then<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_c6a7664288f4c35849b0398801a24728d2f64314.svg" alt="20241026-boundary_map_of_k1_to_k0_c6a7664288f4c35849b0398801a24728d2f64314.svg" class="org-svg" />
+</span>
+</div>
+<p>
+defines an isomorphism.<br />
+</p>
+
+<p>
+Thus <img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_375124876ca78ba85917b0ff1e9edbd987315b58.svg" alt="20241026-boundary_map_of_k1_to_k0_375124876ca78ba85917b0ff1e9edbd987315b58.svg" class="org-svg" /> or<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_b1bc6260c62d93104407fd0ce2bbf852930b20a2.svg" alt="20241026-boundary_map_of_k1_to_k0_b1bc6260c62d93104407fd0ce2bbf852930b20a2.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org643aa99" class="outline-4">
+<h4 id="org643aa99"><img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_0d4b4d650cd0f3ce8072e0fdad9a3c297010c426.svg" alt="20241026-boundary_map_of_k1_to_k0_0d4b4d650cd0f3ce8072e0fdad9a3c297010c426.svg" class="org-svg" /></h4>
+<div class="outline-text-4" id="text-org643aa99">
+<p>
+follows from choosing lifts <img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_027425b0a1d0d6c1ae31846be46ef9b7abeb61ed.svg" alt="20241026-boundary_map_of_k1_to_k0_027425b0a1d0d6c1ae31846be46ef9b7abeb61ed.svg" class="org-svg" /> of generators <img src="file:///home/anton/html/ltximg/20241026-boundary_map_of_k1_to_k0_c0c77692b9e99e4be6ee6eea8d8aff6d99126c5a.svg" alt="20241026-boundary_map_of_k1_to_k0_c0c77692b9e99e4be6ee6eea8d8aff6d99126c5a.svg" class="org-svg" /><br />
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2025-01-13 Mo 17:50</p>
+</div>
+</body>
+</html>

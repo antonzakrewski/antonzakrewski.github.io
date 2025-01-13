@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-01-13 Mo 17:57 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>exact sequence of k0 and k1</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">exact sequence of k0 and k1</h1>
+<div id="outline-container-orgfc3bffe" class="outline-2">
+<h2 id="orgfc3bffe">Proposition</h2>
+<div class="outline-text-2" id="text-orgfc3bffe">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_89073d11f6b947f7741a40bd20dbd20aadcac38e.svg" alt="20241017-exact_sequence_of_k0_and_k1_89073d11f6b947f7741a40bd20dbd20aadcac38e.svg" class="org-svg" /> be a <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a>, <img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_15b9172a6bc17067412ed19a46c0407d6dccf79a.svg" alt="20241017-exact_sequence_of_k0_and_k1_15b9172a6bc17067412ed19a46c0407d6dccf79a.svg" class="org-svg" /> an <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a> <br />
+Then there exists an <a href="20230722-exact_group_homomorphisms.html#ID-aa569635-5f4a-4c4a-9e9b-af9c577e377d">exact</a> sequence<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_d479588d309a70c1ea2afd656955cf5743c57d66.svg" alt="20241017-exact_sequence_of_k0_and_k1_d479588d309a70c1ea2afd656955cf5743c57d66.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+natural in <a href="20241017-category_of_pairs_of_rings.html#ID-f2356cb5-bd71-4a92-bc19-cd71ef5bd775">ideal pairs of rings</a> <br />
+</p>
+
+<p>
+where<br />
+</p>
+<ol class="org-ol">
+<li><img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_7ff38d60c71a493cdd8d9473bb715765501e3315.svg" alt="20241017-exact_sequence_of_k0_and_k1_7ff38d60c71a493cdd8d9473bb715765501e3315.svg" class="org-svg" /> is <a href="20241017-k1_of_a_ring.html#ID-85079b35-3708-4579-8d9f-1651ff26a697">K1 of a ring</a>,<br /></li>
+<li><img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_971d510a7c1be53fb9f5b84d6b37f5b3d4df528f.svg" alt="20241017-exact_sequence_of_k0_and_k1_971d510a7c1be53fb9f5b84d6b37f5b3d4df528f.svg" class="org-svg" /> is the <a href="20241017-relative_k1_group.html#ID-df244d3a-9d0a-4907-a165-8bdeea429604">relative K1-Group</a>  <br /></li>
+<li><img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_f407d8e60763c88b9a0475c74dd13c6b0028fc52.svg" alt="20241017-exact_sequence_of_k0_and_k1_f407d8e60763c88b9a0475c74dd13c6b0028fc52.svg" class="org-svg" /> is the <a href="20241026-boundary_map_of_k1_to_k0.html#ID-50f1e533-2a5c-4363-88b1-b81cf12db2f5">boundary map from K1 to K0 of rings</a>    <br /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgab818a1" class="outline-2">
+<h2 id="orgab818a1">Proof</h2>
+<div class="outline-text-2" id="text-orgab818a1">
+</div>
+<div id="outline-container-orgf72ced3" class="outline-3">
+<h3 id="orgf72ced3">exact sequence with <img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_5cee39aaf9c29f157f39ad6f3f99a3c5953050c3.svg" alt="20241017-exact_sequence_of_k0_and_k1_5cee39aaf9c29f157f39ad6f3f99a3c5953050c3.svg" class="org-svg" /></h3>
+<div class="outline-text-3" id="text-orgf72ced3">
+<p>
+We want to show that<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_90b963cddef7748acd89ed94b7b045ab45cd8e8f.svg" alt="20241017-exact_sequence_of_k0_and_k1_90b963cddef7748acd89ed94b7b045ab45cd8e8f.svg" class="org-svg" />
+</span>
+</div>
+<p>
+is <a href="20231214-exactness_for_group.html#ID-64f83f5f-2170-43f7-9ef4-8ccd542d3a7f">exact</a>.<br />
+</p>
+</div>
+<div id="outline-container-org68939c9" class="outline-4">
+<h4 id="org68939c9">exact at <img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_95d507726d4ec1f1709970b66512f7b2428f3292.svg" alt="20241017-exact_sequence_of_k0_and_k1_95d507726d4ec1f1709970b66512f7b2428f3292.svg" class="org-svg" />, exact at <img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_0232d1ffe0e7d45cbb655cd5bba3f2feeabc7215.svg" alt="20241017-exact_sequence_of_k0_and_k1_0232d1ffe0e7d45cbb655cd5bba3f2feeabc7215.svg" class="org-svg" /></h4>
+<div class="outline-text-4" id="text-org68939c9">
+<p>
+follows from &lt;7.2&gt;<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org28e339c" class="outline-4">
+<h4 id="org28e339c">exact at <img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_c5a1e56ef2b7c7186673f658b7974ff5ef10e468.svg" alt="20241017-exact_sequence_of_k0_and_k1_c5a1e56ef2b7c7186673f658b7974ff5ef10e468.svg" class="org-svg" /></h4>
+<div class="outline-text-4" id="text-org28e339c">
+</div>
+<div id="outline-container-orgb3610b1" class="outline-5">
+<h5 id="orgb3610b1"><img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_ffccab4a786ab9ee01f191aa7bb05de65cd5570f.svg" alt="20241017-exact_sequence_of_k0_and_k1_ffccab4a786ab9ee01f191aa7bb05de65cd5570f.svg" class="org-svg" /></h5>
+<div class="outline-text-5" id="text-orgb3610b1">
+<p>
+Suppose there exist a preimage <img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_40077a4da9a98380d4c0b436bb4bff70f0c4041f.svg" alt="20241017-exact_sequence_of_k0_and_k1_40077a4da9a98380d4c0b436bb4bff70f0c4041f.svg" class="org-svg" />.<br />
+Then<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_c6a7664288f4c35849b0398801a24728d2f64314.svg" alt="20241017-exact_sequence_of_k0_and_k1_c6a7664288f4c35849b0398801a24728d2f64314.svg" class="org-svg" />
+</span>
+</div>
+<p>
+defines an isomorphism.<br />
+</p>
+
+<p>
+Thus <img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_375124876ca78ba85917b0ff1e9edbd987315b58.svg" alt="20241017-exact_sequence_of_k0_and_k1_375124876ca78ba85917b0ff1e9edbd987315b58.svg" class="org-svg" /> or<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_b1bc6260c62d93104407fd0ce2bbf852930b20a2.svg" alt="20241017-exact_sequence_of_k0_and_k1_b1bc6260c62d93104407fd0ce2bbf852930b20a2.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org9ac43e5" class="outline-5">
+<h5 id="org9ac43e5"><img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_c9b66f210ea6f02149e5cb88f8f090b691068b53.svg" alt="20241017-exact_sequence_of_k0_and_k1_c9b66f210ea6f02149e5cb88f8f090b691068b53.svg" class="org-svg" /></h5>
+<div class="outline-text-5" id="text-org9ac43e5">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_d8908d3a0ba4b71e88378ce382dd925d4ee3b58f.svg" alt="20241017-exact_sequence_of_k0_and_k1_d8908d3a0ba4b71e88378ce382dd925d4ee3b58f.svg" class="org-svg" />.<br />
+Then by <a href="20241011-equality_in_a_grothendieck_group.html#ID-f6750d04-6475-493c-80b2-02c64bb8940c">equality in a grothendieck group</a><br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_f2e8e7faedabc1098d3a1c4e7474afa274859dd1.svg" alt="20241017-exact_sequence_of_k0_and_k1_f2e8e7faedabc1098d3a1c4e7474afa274859dd1.svg" class="org-svg" />
+</span>
+</div>
+<p>
+or after replacing <img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_b3e96ca552de3062f7a1f387a7fc086410561073.svg" alt="20241017-exact_sequence_of_k0_and_k1_b3e96ca552de3062f7a1f387a7fc086410561073.svg" class="org-svg" /> with <img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_09ea121aab87bfb164e60074344dc37fe1de3b54.svg" alt="20241017-exact_sequence_of_k0_and_k1_09ea121aab87bfb164e60074344dc37fe1de3b54.svg" class="org-svg" /> we get an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a> <br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_bcab28532d655e9d0655ef7cad692f2e97a2f85e.svg" alt="20241017-exact_sequence_of_k0_and_k1_bcab28532d655e9d0655ef7cad692f2e97a2f85e.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+then by some computation we may find a preimage of <img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_b3e96ca552de3062f7a1f387a7fc086410561073.svg" alt="20241017-exact_sequence_of_k0_and_k1_b3e96ca552de3062f7a1f387a7fc086410561073.svg" class="org-svg" /> (omitted)<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org1dd7997" class="outline-3">
+<h3 id="org1dd7997">applying snake lemma</h3>
+<div class="outline-text-3" id="text-org1dd7997">
+<p>
+We have exact rows<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_24eaf8e4f39a56b6932734a97f3a8a62d1f66af3.svg" alt="20241017-exact_sequence_of_k0_and_k1_24eaf8e4f39a56b6932734a97f3a8a62d1f66af3.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Note that <img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_35108dfda2297845d74bc2e9556d5e5e33086574.svg" alt="20241017-exact_sequence_of_k0_and_k1_35108dfda2297845d74bc2e9556d5e5e33086574.svg" class="org-svg" /> is a <a href="20221210192900-normalteiler.html#ID-f971f946-d0ca-444a-a450-efbef237a278">normal subgroup</a> <br />
+thus we may apply the <a href="20250112-snake_lemma_for_groups_and_normal_subgroups.html#ID-3d11558b-29da-41ee-bf1b-705e6ba865f4">snake lemma for groups and normal subgroups</a> for<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_d7257097a2812ca467e2c25ccd482481dd6d7822.svg" alt="20241017-exact_sequence_of_k0_and_k1_d7257097a2812ca467e2c25ccd482481dd6d7822.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+and get an exact sequence<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_1780de26ca4c27ae87132d68c2087ff730dc850e.svg" alt="20241017-exact_sequence_of_k0_and_k1_1780de26ca4c27ae87132d68c2087ff730dc850e.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+At last we may apply the <a href="20240109-abelianization_functor.html#ID-7b47ea27-7f41-41ed-ad5f-7eebea33ea64">abelianization functor</a> which <a href="20231014-functor_preserving_colimits.html#ID-3d77cdc9-e177-40d9-b57d-dc17d897d8a7">preserves colimits</a> hence also the exact sequence<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_14878264ef12851d0b3b336bb636e1b657998c48.svg" alt="20241017-exact_sequence_of_k0_and_k1_14878264ef12851d0b3b336bb636e1b657998c48.svg" class="org-svg" />
+</span>
+</div>
+<p>
+where we may apply the cokernel to<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_4ee841fcc49fe84e332971fc9217c53252fa99ea.svg" alt="20241017-exact_sequence_of_k0_and_k1_4ee841fcc49fe84e332971fc9217c53252fa99ea.svg" class="org-svg" />
+</span>
+</div>
+<p>
+first vertically and get<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_a2d2830ab09ffbe8fa6ee6a7e7e064f70c76a852.svg" alt="20241017-exact_sequence_of_k0_and_k1_a2d2830ab09ffbe8fa6ee6a7e7e064f70c76a852.svg" class="org-svg" />
+</span>
+</div>
+<p>
+and then horizontally to <img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_14289b4f0d9684c92b61c7633e555547dc47a71c.svg" alt="20241017-exact_sequence_of_k0_and_k1_14289b4f0d9684c92b61c7633e555547dc47a71c.svg" class="org-svg" /><br />
+</p>
+
+<p>
+or first horizontally<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_13af08085157887c5ca09f570c89c4943a99230a.svg" alt="20241017-exact_sequence_of_k0_and_k1_13af08085157887c5ca09f570c89c4943a99230a.svg" class="org-svg" />
+</span>
+</div>
+<p>
+and then vertically to <img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_16f137ec605e4d3c1b91d30e9c4343b0ff6cfd94.svg" alt="20241017-exact_sequence_of_k0_and_k1_16f137ec605e4d3c1b91d30e9c4343b0ff6cfd94.svg" class="org-svg" /><br />
+</p>
+
+
+<p>
+This gives us the isomorphism since <a href="20231125-colimits_commute_with_colimits.html#ID-7b27ef2b-b942-4338-b20b-01c4713c526d">colimits commute with colimits</a> <br />
+</p>
+
+
+<p>
+Note that <a href="20231231-abelianization_as_left_adjoint.html#ID-541c78d3-f678-46c1-9bdb-aede7b081ec3">abelianization is a left adjoint</a>, <a href="20231014-left_adjoint_preserves_limits.html#ID-b74a606d-2b63-4e0c-8f74-d8983694896c">left adjoint preserves colimits</a>  hence we may conclude that<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_6c6fcecafcacc960b7951c242a571467764ab989.svg" alt="20241017-exact_sequence_of_k0_and_k1_6c6fcecafcacc960b7951c242a571467764ab989.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org176c9c7" class="outline-3">
+<h3 id="org176c9c7">naturality</h3>
+<div class="outline-text-3" id="text-org176c9c7">
+<p>
+follows from functorality of <img src="file:///home/anton/html/ltximg/20241017-exact_sequence_of_k0_and_k1_cd0ee5c2c8707837ebed2ed12e3a8b772e9e5bfa.svg" alt="20241017-exact_sequence_of_k0_and_k1_cd0ee5c2c8707837ebed2ed12e3a8b772e9e5bfa.svg" class="org-svg" /> &amp; some natural transformation (omitted)<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2025-01-13 Mo 17:57</p>
+</div>
+</body>
+</html>
