@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-01-15 Mi 09:50 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>splitting Lemma for vector spaces</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">splitting Lemma for vector spaces</h1>
+<div id="outline-container-org35b03f9" class="outline-2">
+<h2 id="org35b03f9">Proposition</h2>
+<div class="outline-text-2" id="text-org35b03f9">
+<p>
+Let <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_3cfd7a299d478f9bf2528fa65c00521e0cd88159.svg" alt="20250114-splitting_lemma_for_vector_spaces_3cfd7a299d478f9bf2528fa65c00521e0cd88159.svg" class="org-svg" /> be a <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">field</a>, <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_eed2c8d262e62b566f5eab2ebf531c8c3783ddd4.svg" alt="20250114-splitting_lemma_for_vector_spaces_eed2c8d262e62b566f5eab2ebf531c8c3783ddd4.svg" class="org-svg" /> <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">vector spaces</a> and<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250114-splitting_lemma_for_vector_spaces_1ae7ca7e38c57571e91f2a1231219a3530205523.svg" alt="20250114-splitting_lemma_for_vector_spaces_1ae7ca7e38c57571e91f2a1231219a3530205523.svg" class="org-svg" />
+</span>
+</div>
+<p>
+be a <a href="20230722-short_exact_sequence.html#ID-7b01038e-f4c1-4e1e-ad52-a0c6a18008f3">short exact sequence</a>, i.e.<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250114-splitting_lemma_for_vector_spaces_acbda30ce68057a1df24c1dbf9e27a22183a3600.svg" alt="20250114-splitting_lemma_for_vector_spaces_acbda30ce68057a1df24c1dbf9e27a22183a3600.svg" class="org-svg" />
+</span>
+</div>
+<p>
+(here the second and third equation precisely state, that <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" alt="20250114-splitting_lemma_for_vector_spaces_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" class="org-svg" /> is injective and <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_50706fcb59084c951cf44498a2491f2cd0455273.svg" alt="20250114-splitting_lemma_for_vector_spaces_50706fcb59084c951cf44498a2491f2cd0455273.svg" class="org-svg" /> is surjective)<br />
+</p>
+
+<p>
+Then there exists a <a href="20230227153105-vektorraumisomorphismus.html#ID-27b6dd7a-30ae-4eb8-b5c4-e1a268344d2e">vectorspace-isomorphism</a> <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_e582c9f848cf1d97bd31e116d77ecacf06a5c59e.svg" alt="20250114-splitting_lemma_for_vector_spaces_e582c9f848cf1d97bd31e116d77ecacf06a5c59e.svg" class="org-svg" /> such that the diagram<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250114-splitting_lemma_for_vector_spaces_b5d0594c9e56a93877078102391d71c8051387a1.svg" alt="20250114-splitting_lemma_for_vector_spaces_b5d0594c9e56a93877078102391d71c8051387a1.svg" class="org-svg" />
+</span>
+</div>
+<p>
+<a href="20220824222939-kommutieren_eines_diagramms.html#ID-446e5d02-ed5b-4cbf-b40a-3ed58067ef7c">commutes</a> <br />
+</p>
+
+<p>
+here<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250114-splitting_lemma_for_vector_spaces_eca46839a5fc0a674b25a14157a894961f241fa3.svg" alt="20250114-splitting_lemma_for_vector_spaces_eca46839a5fc0a674b25a14157a894961f241fa3.svg" class="org-svg" />
+</span>
+</div>
+<p>
+are the evident vectorspace homomorphisms.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org7a15320" class="outline-2">
+<h2 id="org7a15320">Proof</h2>
+<div class="outline-text-2" id="text-org7a15320">
+<p>
+we construct a morphism<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250114-splitting_lemma_for_vector_spaces_65975cbaa62a6934fa45d90c70b737089576cf52.svg" alt="20250114-splitting_lemma_for_vector_spaces_65975cbaa62a6934fa45d90c70b737089576cf52.svg" class="org-svg" />
+</span>
+</div>
+<p>
+show that <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_8144a619b2dbb872aed8bb67570d26aa78041dd2.svg" alt="20250114-splitting_lemma_for_vector_spaces_8144a619b2dbb872aed8bb67570d26aa78041dd2.svg" class="org-svg" /> is a bijection (hence an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a>) and that the diagrams commute.<br />
+</p>
+</div>
+<div id="outline-container-org745f9e4" class="outline-3">
+<h3 id="org745f9e4">morphism</h3>
+<div class="outline-text-3" id="text-org745f9e4">
+<p>
+choose a basis <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_6e85ca729469f3ce7ce36389c026f9268777f536.svg" alt="20250114-splitting_lemma_for_vector_spaces_6e85ca729469f3ce7ce36389c026f9268777f536.svg" class="org-svg" /> of <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_916c362ec11687631f4cc94f340c13fef3d5f949.svg" alt="20250114-splitting_lemma_for_vector_spaces_916c362ec11687631f4cc94f340c13fef3d5f949.svg" class="org-svg" />.<br />
+Then by assumption <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" alt="20250114-splitting_lemma_for_vector_spaces_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" class="org-svg" /> is injective, hence <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_245912b62e302dc1194ebedd14a7ef9353cbc418.svg" alt="20250114-splitting_lemma_for_vector_spaces_245912b62e302dc1194ebedd14a7ef9353cbc418.svg" class="org-svg" /> is <a href="20220207224644-lineare_unabhangigkeit.html#ID-c4d1496f-6012-4ade-8b98-3e29dad89ded">linearly independent</a> (cf. <a href="20230629-vektorraummonomorphismus_erhalt_lineare_unabhangigkeit.html#ID-4a10163e-d34c-4abe-9675-860bf7f3c75e">Vektorraummonomorphismus erhält lineare Unabhängigkeit</a>).<br />
+We may extend <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_788f4305e21586029e6f84858b982825cda0da0e.svg" alt="20250114-splitting_lemma_for_vector_spaces_788f4305e21586029e6f84858b982825cda0da0e.svg" class="org-svg" /> to a basis (cf. <a href="20241213-erweiterung_einer_linear_unabhangigen_menge_zu_einer_basis.html#ID-18dc4aee-a357-4f65-8aab-4a02f8e1d1a6">erweiterung einer linear unabhängigen Menge zu einer Basis</a>) <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_4058ce04e846c87e3f05b47823027c0105103a98.svg" alt="20250114-splitting_lemma_for_vector_spaces_4058ce04e846c87e3f05b47823027c0105103a98.svg" class="org-svg" /> and define<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250114-splitting_lemma_for_vector_spaces_627dbd8d4e447b22707875bb9a4a42d703b6307d.svg" alt="20250114-splitting_lemma_for_vector_spaces_627dbd8d4e447b22707875bb9a4a42d703b6307d.svg" class="org-svg" />
+</span>
+</div>
+<p>
+where the map <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_437e11476c5675e2a0afc9ba90b911f2103cdde9.svg" alt="20250114-splitting_lemma_for_vector_spaces_437e11476c5675e2a0afc9ba90b911f2103cdde9.svg" class="org-svg" /> is welldefined (existence follows from assumption, uniqueness follows from injectivity of <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" alt="20250114-splitting_lemma_for_vector_spaces_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" class="org-svg" />).<br />
+</p>
+
+<p>
+It follows that<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250114-splitting_lemma_for_vector_spaces_f371254ca2a0f75b294f624493875cb57ade076f.svg" alt="20250114-splitting_lemma_for_vector_spaces_f371254ca2a0f75b294f624493875cb57ade076f.svg" class="org-svg" />
+</span>
+</div>
+<p>
+for example since <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_24cdf11477a066c936b0f651e204aaa97241080b.svg" alt="20250114-splitting_lemma_for_vector_spaces_24cdf11477a066c936b0f651e204aaa97241080b.svg" class="org-svg" /> (cf. <a href="20221117110351-lemma_uber_die_eindeutigkeit_eines_homomorphismus_durch_die_abbildungen_der_basen.html#ID-4c9a6f67-fffe-4044-aa13-3200e9b83f86">Existenz und Eindeutigkeit eines Homomorphismus durch die Abbildungen der Basis</a>)<br />
+</p>
+
+<p>
+Then define<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250114-splitting_lemma_for_vector_spaces_b3f145e83c1a15da74d11bbe036faa0d21d74d24.svg" alt="20250114-splitting_lemma_for_vector_spaces_b3f145e83c1a15da74d11bbe036faa0d21d74d24.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf57d19e" class="outline-3">
+<h3 id="orgf57d19e">bijective</h3>
+<div class="outline-text-3" id="text-orgf57d19e">
+</div>
+<div id="outline-container-org6b60588" class="outline-4">
+<h4 id="org6b60588">injective</h4>
+<div class="outline-text-4" id="text-org6b60588">
+<p>
+Let <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_5a024664fe1628554987fc87e606c617fc86c1d6.svg" alt="20250114-splitting_lemma_for_vector_spaces_5a024664fe1628554987fc87e606c617fc86c1d6.svg" class="org-svg" />.<br />
+Then in particular <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_26e420cf3e62575d53985050c27b9873ca8b5b0b.svg" alt="20250114-splitting_lemma_for_vector_spaces_26e420cf3e62575d53985050c27b9873ca8b5b0b.svg" class="org-svg" /> and we may find a preimage <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_df615aaad72efaae55f731e82c6cc562cdeb1933.svg" alt="20250114-splitting_lemma_for_vector_spaces_df615aaad72efaae55f731e82c6cc562cdeb1933.svg" class="org-svg" /> of <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_a5ee7956bccad070a87dd3f8cdb6aacdc6351da5.svg" alt="20250114-splitting_lemma_for_vector_spaces_a5ee7956bccad070a87dd3f8cdb6aacdc6351da5.svg" class="org-svg" /> under <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" alt="20250114-splitting_lemma_for_vector_spaces_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" class="org-svg" /> (since <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_139acd72d6c5aa46cabacc44efd6c32b1cdf1931.svg" alt="20250114-splitting_lemma_for_vector_spaces_139acd72d6c5aa46cabacc44efd6c32b1cdf1931.svg" class="org-svg" />.<br />
+</p>
+
+<p>
+It follows that<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250114-splitting_lemma_for_vector_spaces_3668c970134a7abaaf3cdcd55b51bbc9666e04d0.svg" alt="20250114-splitting_lemma_for_vector_spaces_3668c970134a7abaaf3cdcd55b51bbc9666e04d0.svg" class="org-svg" />
+</span>
+</div>
+<p>
+which shows <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_2fa9ebba74e9d340db78e89c5eca4e92c21f970f.svg" alt="20250114-splitting_lemma_for_vector_spaces_2fa9ebba74e9d340db78e89c5eca4e92c21f970f.svg" class="org-svg" /> or <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_bd8a7f6a83253ae683ed76a6bbee1699f5a76f15.svg" alt="20250114-splitting_lemma_for_vector_spaces_bd8a7f6a83253ae683ed76a6bbee1699f5a76f15.svg" class="org-svg" />.<br />
+</p>
+
+<p>
+Thus we are done by <a href="20221117113054-lemma_uber_die_aquivalenz_von_einem_monomorphismus_und_einem_minimalen_kern.html#ID-a7df72cc-6dd4-456c-aad8-2622472e7b0c">minimal kernel and monomorphism</a> <br />
+</p>
+</div>
+</div>
+<div id="outline-container-org004461e" class="outline-4">
+<h4 id="org004461e">surjective</h4>
+<div class="outline-text-4" id="text-org004461e">
+</div>
+<div id="outline-container-org56ddfb6" class="outline-5">
+<h5 id="org56ddfb6">by hand for finite dimensional <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_aece55fdf8c708059dffe75423e0d96c1e4c6b59.svg" alt="20250114-splitting_lemma_for_vector_spaces_aece55fdf8c708059dffe75423e0d96c1e4c6b59.svg" class="org-svg" /></h5>
+<div class="outline-text-5" id="text-org56ddfb6">
+<p>
+note that<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250114-splitting_lemma_for_vector_spaces_04dda7d0095fba704ab57df4077da10d3cda9b77.svg" alt="20250114-splitting_lemma_for_vector_spaces_04dda7d0095fba704ab57df4077da10d3cda9b77.svg" class="org-svg" />
+</span>
+</div>
+<p>
+where the last equality follows from the <a href="20230123044300-rangsatz.html#ID-2e30f05f-ed0c-4a47-86e3-5d6e3330d830">rank theorem</a>.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org59c533f" class="outline-5">
+<h5 id="org59c533f">general case</h5>
+<div class="outline-text-5" id="text-org59c533f">
+<p>
+Let <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_978ed081d73a6becd69d693b017d5b71089a7098.svg" alt="20250114-splitting_lemma_for_vector_spaces_978ed081d73a6becd69d693b017d5b71089a7098.svg" class="org-svg" />.<br />
+Then choose a one side inverses <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_611e0534c3b84cb64365a3d18863f258a7626b8f.svg" alt="20250114-splitting_lemma_for_vector_spaces_611e0534c3b84cb64365a3d18863f258a7626b8f.svg" class="org-svg" /><br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250114-splitting_lemma_for_vector_spaces_33af10f9ba71a269ed2a149c45fa202eb13b1e3c.svg" alt="20250114-splitting_lemma_for_vector_spaces_33af10f9ba71a269ed2a149c45fa202eb13b1e3c.svg" class="org-svg" />
+</span>
+</div>
+
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250114-splitting_lemma_for_vector_spaces_353b5123ad1ad5d4804f3370017bd137bd167abe.svg" alt="20250114-splitting_lemma_for_vector_spaces_353b5123ad1ad5d4804f3370017bd137bd167abe.svg" class="org-svg" />
+</span>
+</div>
+<p>
+with<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250114-splitting_lemma_for_vector_spaces_1fd58a89a4183bfa57cacaebd99da3b0fb8a1fea.svg" alt="20250114-splitting_lemma_for_vector_spaces_1fd58a89a4183bfa57cacaebd99da3b0fb8a1fea.svg" class="org-svg" />
+</span>
+</div>
+<p>
+(cf. <a href="20250114-vector_space_epimorphism_splits.html#ID-d3b07d3e-9d0e-4848-b6f6-eaa05ee09ad7">vector space epimorphism splits</a>, <a href="20250114-vector_space_monomorphism_splits.html#ID-7f08ef7e-6cc9-4860-9915-9d08375f6178">vector space monomorphism splits</a>)<br />
+</p>
+
+<p>
+Then define<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250114-splitting_lemma_for_vector_spaces_60ad7f4ffc0f197082c64efcac41423f340d9d81.svg" alt="20250114-splitting_lemma_for_vector_spaces_60ad7f4ffc0f197082c64efcac41423f340d9d81.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Then applying <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_8144a619b2dbb872aed8bb67570d26aa78041dd2.svg" alt="20250114-splitting_lemma_for_vector_spaces_8144a619b2dbb872aed8bb67570d26aa78041dd2.svg" class="org-svg" /> shows<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250114-splitting_lemma_for_vector_spaces_9cae83e068a3596e878049613a44b2651c73dee8.svg" alt="20250114-splitting_lemma_for_vector_spaces_9cae83e068a3596e878049613a44b2651c73dee8.svg" class="org-svg" />
+</span>
+</div>
+<p>
+It remains to show that<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250114-splitting_lemma_for_vector_spaces_7d075dd3e39f79e61c33bf182746e98401c63ef6.svg" alt="20250114-splitting_lemma_for_vector_spaces_7d075dd3e39f79e61c33bf182746e98401c63ef6.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Here we get<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250114-splitting_lemma_for_vector_spaces_affa79a392b42cd39d7a7c610871934a52a98880.svg" alt="20250114-splitting_lemma_for_vector_spaces_affa79a392b42cd39d7a7c610871934a52a98880.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+and<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250114-splitting_lemma_for_vector_spaces_a8dcc2f12266db08b9b27d30d1a86b9589d0ddb9.svg" alt="20250114-splitting_lemma_for_vector_spaces_a8dcc2f12266db08b9b27d30d1a86b9589d0ddb9.svg" class="org-svg" />
+</span>
+</div>
+<p>
+since <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_2d3ba9fff79add2e1aa83349f5370e53eb21143c.svg" alt="20250114-splitting_lemma_for_vector_spaces_2d3ba9fff79add2e1aa83349f5370e53eb21143c.svg" class="org-svg" /><br />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org1eecb52" class="outline-3">
+<h3 id="org1eecb52">commutes</h3>
+<div class="outline-text-3" id="text-org1eecb52">
+<p>
+follows as<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250114-splitting_lemma_for_vector_spaces_4df5bc6cbdd71e5e800e842cd5945b762d99bf87.svg" alt="20250114-splitting_lemma_for_vector_spaces_4df5bc6cbdd71e5e800e842cd5945b762d99bf87.svg" class="org-svg" />
+</span>
+</div>
+<p>
+since <img src="ltximg/20250114-splitting_lemma_for_vector_spaces_3399e30a7c22970e8fbd0b9de266ccde348c584f.svg" alt="20250114-splitting_lemma_for_vector_spaces_3399e30a7c22970e8fbd0b9de266ccde348c584f.svg" class="org-svg" /><br />
+</p>
+
+<p>
+and<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250114-splitting_lemma_for_vector_spaces_6d0cea8c7b3ec13d3034a5d3aae50794a884024c.svg" alt="20250114-splitting_lemma_for_vector_spaces_6d0cea8c7b3ec13d3034a5d3aae50794a884024c.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2025-01-15 Mi 09:50</p>
+</div>
+</body>
+</html>
