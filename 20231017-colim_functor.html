@@ -3,99 +3,282 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-10-13 So 18:39 -->
+<!-- 2025-01-15 Mi 17:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>colim functor</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
 </head>
 <body>
 <div id="content" class="content">
 <h1 class="title">colim functor</h1>
-<div id="outline-container-org09ff5a9" class="outline-2">
-<h2 id="org09ff5a9"><span class="section-number-2">1.</span> Definition</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-org059e2a5" class="outline-2">
+<h2 id="org059e2a5">Definition</h2>
+<div class="outline-text-2" id="text-org059e2a5">
 <p>
-Let <img src="ltximg/20231017-colim_functor_361b7aa86bad4fdb6451e27aa8b60153e2248712.svg" alt="20231017-colim_functor_361b7aa86bad4fdb6451e27aa8b60153e2248712.svg" class="org-svg" /> be <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">categories</a> and let <img src="ltximg/20231017-colim_functor_d2c88b6278b0a0af43a6e204b4c8c6cc92c464b2.svg" alt="20231017-colim_functor_d2c88b6278b0a0af43a6e204b4c8c6cc92c464b2.svg" class="org-svg" /> be the <a href="20240128-category_funcolimit.html#ID-6d21b5b8-2221-4970-ba5a-e644e7fb00f7">Category FunColimit</a> 
+Let <img src="file:///home/anton/html/ltximg/20231017-colim_functor_46dda1acb3e09cc284f2d6c7915d12fe76c94e74.svg" alt="20231017-colim_functor_46dda1acb3e09cc284f2d6c7915d12fe76c94e74.svg" class="org-svg" /> be <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">categories</a> and let <img src="file:///home/anton/html/ltximg/20231017-colim_functor_cca3f07711a61a22654524e9833480f12a9f2d8f.svg" alt="20231017-colim_functor_cca3f07711a61a22654524e9833480f12a9f2d8f.svg" class="org-svg" /> be the <a href="20240128-category_funcolimit.html#ID-6d21b5b8-2221-4970-ba5a-e644e7fb00f7">Category FunColimit</a> <br />
 </p>
 
 <p>
-Then the colimit functor is defined as <a href="20220830173246-kovarianter_funktor.html#ID-c5286004-d249-4969-86d5-c75655b7f5d3">covariant functor</a> 
+Then the colimit functor is defined as <a href="20220830173246-kovarianter_funktor.html#ID-c5286004-d249-4969-86d5-c75655b7f5d3">covariant functor</a> <br />
 </p>
 
 
 <div class="equation-container">
 <span class="equation">
-<img src="ltximg/20231017-colim_functor_058bc6136c59d3c75c3414e789978fb0860219f8.svg" alt="20231017-colim_functor_058bc6136c59d3c75c3414e789978fb0860219f8.svg" class="org-svg" />
+<img src="file:///home/anton/html/ltximg/20231017-colim_functor_83dd664e3517bbe797bf1f347d7a888acd251f2d.svg" alt="20231017-colim_functor_83dd664e3517bbe797bf1f347d7a888acd251f2d.svg" class="org-svg" />
 </span>
 </div>
 <p>
-where <img src="ltximg/20231017-colim_functor_ed5d9f2eb77210be84cdf88cfaaa70cc9aefb1a8.svg" alt="20231017-colim_functor_ed5d9f2eb77210be84cdf88cfaaa70cc9aefb1a8.svg" class="org-svg" /> is the <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphism</a> induced by the universal property
+where <img src="file:///home/anton/html/ltximg/20231017-colim_functor_88e27e7c486c1d79e235f901fc7240d354f14829.svg" alt="20231017-colim_functor_88e27e7c486c1d79e235f901fc7240d354f14829.svg" class="org-svg" /> is the <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphism</a> induced by the universal property<br />
 </p>
 
 <div class="equation-container">
 <span class="equation">
-<img src="ltximg/20231017-colim_functor_20c99a3e1f0e7f5c05442f1d5e7f48c345c9c6a1.svg" alt="20231017-colim_functor_20c99a3e1f0e7f5c05442f1d5e7f48c345c9c6a1.svg" class="org-svg" />
+<img src="file:///home/anton/html/ltximg/20231017-colim_functor_c55d87bbfef259101ce7b22621f65730a872e2ff.svg" alt="20231017-colim_functor_c55d87bbfef259101ce7b22621f65730a872e2ff.svg" class="org-svg" />
 </span>
 </div>
 </div>
 </div>
-<div id="outline-container-orgffbb3fd" class="outline-2">
-<h2 id="orgffbb3fd"><span class="section-number-2">2.</span> Proof</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-orgc0003a1" class="outline-2">
+<h2 id="orgc0003a1">Proof</h2>
+<div class="outline-text-2" id="text-orgc0003a1">
 </div>
-<div id="outline-container-org5abcdb5" class="outline-3">
-<h3 id="org5abcdb5"><span class="section-number-3">2.1.</span> objects</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-org02bbad1" class="outline-3">
+<h3 id="org02bbad1">objects</h3>
+<div class="outline-text-3" id="text-org02bbad1">
 <p>
-for each <a href="20220821183856-diagramm_kategorientheorie.html#ID-ad9d3642-913a-4374-8605-52121d00b349">diagram</a> <img src="ltximg/20231017-colim_functor_0e981abe75ccf9c5b2bafad9947e92d42d87814e.svg" alt="20231017-colim_functor_0e981abe75ccf9c5b2bafad9947e92d42d87814e.svg" class="org-svg" />, choose a representative of the <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a> <a href="20220819181756-klasse_mengenlehre.html#ID-998a9e01-e369-490b-bb26-657678f61d7a">class</a> of colimits.
-<a href="20231007-uses_ac.html#ID-7265220a-8d13-431b-996e-7862faa0124c">Uses AC</a>,
+for each <a href="20220821183856-diagramm_kategorientheorie.html#ID-ad9d3642-913a-4374-8605-52121d00b349">diagram</a> <img src="file:///home/anton/html/ltximg/20231017-colim_functor_efd3312ed545d088fa760ed9c54001ae767b3aae.svg" alt="20231017-colim_functor_efd3312ed545d088fa760ed9c54001ae767b3aae.svg" class="org-svg" />, choose a representative of the <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a> <a href="20220819181756-klasse_mengenlehre.html#ID-998a9e01-e369-490b-bb26-657678f61d7a">class</a> of colimits.<br />
+<a href="20231007-uses_ac.html#ID-7265220a-8d13-431b-996e-7862faa0124c">Uses AC</a>,<br />
 </p>
 </div>
 </div>
-
-<div id="outline-container-org09f9f4d" class="outline-3">
-<h3 id="org09f9f4d"><span class="section-number-3">2.2.</span> identity</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-orgf02e1af" class="outline-3">
+<h3 id="orgf02e1af">identity</h3>
+<div class="outline-text-3" id="text-orgf02e1af">
 <p>
-Given the <a href="20231017-identity_natural_transformation.html#ID-c8ccbb51-f801-49b6-a648-c950b1c95c57">identity natural transformation</a>, the <a href="20220817165031-identitatsmorphismus.html#ID-18d8207c-a2f4-499b-ab59-b7efe4858e31">identity morphism</a> <img src="ltximg/20231017-colim_functor_af12ee2a47c829bd9d903c720ce00b351d48ac7a.svg" alt="20231017-colim_functor_af12ee2a47c829bd9d903c720ce00b351d48ac7a.svg" class="org-svg" /> makes the diagram commute.
-By universal property, it is the only morphism making the diagram commute, hence by construction we get <img src="ltximg/20231017-colim_functor_5d5fb1a657faa90122240c0f3f307852c94453a0.svg" alt="20231017-colim_functor_5d5fb1a657faa90122240c0f3f307852c94453a0.svg" class="org-svg" />
+Given the <a href="20231017-identity_natural_transformation.html#ID-c8ccbb51-f801-49b6-a648-c950b1c95c57">identity natural transformation</a>, the <a href="20220817165031-identitatsmorphismus.html#ID-18d8207c-a2f4-499b-ab59-b7efe4858e31">identity morphism</a> <img src="file:///home/anton/html/ltximg/20231017-colim_functor_7ff1306357b6d751224a8bec730e76f47e6f17eb.svg" alt="20231017-colim_functor_7ff1306357b6d751224a8bec730e76f47e6f17eb.svg" class="org-svg" /> makes the diagram commute.<br />
+By universal property, it is the only morphism making the diagram commute, hence by construction we get <img src="file:///home/anton/html/ltximg/20231017-colim_functor_b2390220fd225f5f24ba2601a33ec36b8d14d505.svg" alt="20231017-colim_functor_b2390220fd225f5f24ba2601a33ec36b8d14d505.svg" class="org-svg" /><br />
 </p>
 </div>
 </div>
-<div id="outline-container-orge26542c" class="outline-3">
-<h3 id="orge26542c"><span class="section-number-3">2.3.</span> composition</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-orgfc51c59" class="outline-3">
+<h3 id="orgfc51c59">composition</h3>
+<div class="outline-text-3" id="text-orgfc51c59">
 <p>
-Suppose we have objects <img src="ltximg/20231017-colim_functor_513ca9f33cf0da4dbf91e8487a288677e3dd15ea.svg" alt="20231017-colim_functor_513ca9f33cf0da4dbf91e8487a288677e3dd15ea.svg" class="org-svg" /> and <a href="20220821182915-naturliche_transformation_kategorientheorie.html#ID-4e6e50c0-c0df-44ff-a140-bebfa492ef7e">natural transformations</a> <img src="ltximg/20231017-colim_functor_0464bb2c0a0d80c46dd3663680c80992cb58257c.svg" alt="20231017-colim_functor_0464bb2c0a0d80c46dd3663680c80992cb58257c.svg" class="org-svg" />
-Then we get
+Suppose we have objects <img src="file:///home/anton/html/ltximg/20231017-colim_functor_6dba79754b4136d89e83dcda7161f65b9b4d8236.svg" alt="20231017-colim_functor_6dba79754b4136d89e83dcda7161f65b9b4d8236.svg" class="org-svg" /> and <a href="20220821182915-naturliche_transformation_kategorientheorie.html#ID-4e6e50c0-c0df-44ff-a140-bebfa492ef7e">natural transformations</a> <img src="file:///home/anton/html/ltximg/20231017-colim_functor_7f6c015b2c1d51539c88fc42cde6e3f01f0f6b0d.svg" alt="20231017-colim_functor_7f6c015b2c1d51539c88fc42cde6e3f01f0f6b0d.svg" class="org-svg" /><br />
+Then we get<br />
 </p>
 
 <div class="equation-container">
 <span class="equation">
-<img src="ltximg/20231017-colim_functor_f2a9d3738907c6217053a6a13b101e443f30c4d6.svg" alt="20231017-colim_functor_f2a9d3738907c6217053a6a13b101e443f30c4d6.svg" class="org-svg" />
+<img src="file:///home/anton/html/ltximg/20231017-colim_functor_5198caa820f6a7cf859d3ab0b298f5098fee99fe.svg" alt="20231017-colim_functor_5198caa820f6a7cf859d3ab0b298f5098fee99fe.svg" class="org-svg" />
 </span>
 </div>
 <p>
-where both halfes commute, hence also the whole prim.
-Therefore, we get a unique morphism
+where both halfes commute, hence also the whole prim.<br />
+Therefore, we get a unique morphism<br />
 </p>
 
 <div class="equation-container">
 <span class="equation">
-<img src="ltximg/20231017-colim_functor_81d3fdb446844153c10f540dc301ac5527f33417.svg" alt="20231017-colim_functor_81d3fdb446844153c10f540dc301ac5527f33417.svg" class="org-svg" />
+<img src="file:///home/anton/html/ltximg/20231017-colim_functor_bc0b4a76720adf8af37c834b71a4344431e98bb5.svg" alt="20231017-colim_functor_bc0b4a76720adf8af37c834b71a4344431e98bb5.svg" class="org-svg" />
 </span>
 </div>
 
 <p>
-But the <a href="20220817221033-komposition_von_morphismen.html#ID-72b71b59-7fac-4516-9115-9d589b47e0c3">composition</a> <img src="ltximg/20231017-colim_functor_4bc72c3c5e8d100a11491dff89fee1e83156460a.svg" alt="20231017-colim_functor_4bc72c3c5e8d100a11491dff89fee1e83156460a.svg" class="org-svg" /> makes also the diagram commute, hence by uniqueness induced by the universal property, we conclude, that
+But the <a href="20220817221033-komposition_von_morphismen.html#ID-72b71b59-7fac-4516-9115-9d589b47e0c3">composition</a> <img src="file:///home/anton/html/ltximg/20231017-colim_functor_bebf41ec1cf79d2026fd9d39fd4b313ebde440c4.svg" alt="20231017-colim_functor_bebf41ec1cf79d2026fd9d39fd4b313ebde440c4.svg" class="org-svg" /> makes also the diagram commute, hence by uniqueness induced by the universal property, we conclude, that<br />
 </p>
 
 <div class="equation-container">
 <span class="equation">
-<img src="ltximg/20231017-colim_functor_7593cb66c966aa216b8f44fda61bab6899df2ef2.svg" alt="20231017-colim_functor_7593cb66c966aa216b8f44fda61bab6899df2ef2.svg" class="org-svg" />
+<img src="file:///home/anton/html/ltximg/20231017-colim_functor_a41768e8c2e63ecf627e4316ed67ec070b362e44.svg" alt="20231017-colim_functor_a41768e8c2e63ecf627e4316ed67ec070b362e44.svg" class="org-svg" />
 </span>
 </div>
 </div>
@@ -105,7 +288,7 @@ But the <a href="20220817221033-komposition_von_morphismen.html#ID-72b71b59-7fac
 <div id="postamble" class="status">
 <p class="date">Date: nil</p>
 <p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 18:39</p>
+<p class="date">Created: 2025-01-15 Mi 17:26</p>
 </div>
 </body>
 </html>

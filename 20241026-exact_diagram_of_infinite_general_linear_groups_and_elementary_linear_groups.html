@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-01-15 Mi 20:28 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>exact diagram of infinite general linear groups and elementary linear groups</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">exact diagram of infinite general linear groups and elementary linear groups</h1>
+<div id="outline-container-orga6f1a81" class="outline-2">
+<h2 id="orga6f1a81">Proposition</h2>
+<div class="outline-text-2" id="text-orga6f1a81">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups_22a535293244fe74fc7a4bdd15d746de7c32685f.svg" alt="20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups_22a535293244fe74fc7a4bdd15d746de7c32685f.svg" class="org-svg" /> be a <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a>, <img src="file:///home/anton/html/ltximg/20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups_15b9172a6bc17067412ed19a46c0407d6dccf79a.svg" alt="20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups_15b9172a6bc17067412ed19a46c0407d6dccf79a.svg" class="org-svg" /> an <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a> <br />
+Then there exists a commutative diagram<br />
+</p>
+
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups_e6f74d8c6f58055dfb3438837a86d506f1bd8f09.svg" alt="20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups_e6f74d8c6f58055dfb3438837a86d506f1bd8f09.svg" class="org-svg" />
+</span>
+</div>
+<p>
+for the<br />
+</p>
+<ul class="org-ul">
+<li><a href="20241017-infinite_general_linear_group_functor.html#ID-119e7731-6f29-49f2-83f4-03db634399fb">infinite general linear group functor</a> <br /></li>
+<li><a href="20241017-infinite_elementary_linear_group_functor.html#ID-ebf99473-55d2-43c3-849a-78da99feb754">infinite elementary linear group functor</a>   <br /></li>
+<li><a href="20241026-natural_transformation_from_infinite_elemenatry_linear_group_to_general_linear_group.html#ID-18dadd29-5f4d-4fed-b4a2-a8f777df43d1">natural transformation from infinite elemenatry linear group to general linear group</a>   <br /></li>
+<li><a href="20241025-pullback_of_a_ring_and_ideal.html#ID-0a63ef48-fcb6-4707-8a9c-cecb368adb0d">explicite description of a pullback of a ring and ideal</a>   <br /></li>
+</ul>
+
+<p>
+with<br />
+</p>
+<ol class="org-ol">
+<li><a href="20231214-exactness_for_group.html#ID-64f83f5f-2170-43f7-9ef4-8ccd542d3a7f">exact</a> rows<br /></li>
+<li>and <a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjective</a> vertical morphisms<br /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgaf284fb" class="outline-2">
+<h2 id="orgaf284fb">Proof</h2>
+<div class="outline-text-2" id="text-orgaf284fb">
+</div>
+<div id="outline-container-org4480171" class="outline-3">
+<h3 id="org4480171">commutes</h3>
+<div class="outline-text-3" id="text-org4480171">
+<p>
+follows as we have a diagram<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups_ec53050ca98977b88aa1269206cc412a5328d767.svg" alt="20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups_ec53050ca98977b88aa1269206cc412a5328d767.svg" class="org-svg" />
+</span>
+</div>
+<p>
+where the morphisms are natural with respect to Ring homomorphism.<br />
+</p>
+
+<p>
+Then by <a href="20241026-colim_functor_preserves_naturality.html#ID-21cfba73-5924-4411-bf01-799a90800ae7">colim functor preserves naturality</a> we conclude that<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups_55b979b89ab6bdfe8613ba66eb2bda210d05c67a.svg" alt="20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups_55b979b89ab6bdfe8613ba66eb2bda210d05c67a.svg" class="org-svg" />
+</span>
+</div>
+<p>
+is natural with respect to ring homomorphism.<br />
+Thus by applying the <a href="20240424-cokernel_functor.html#ID-83f92854-beaa-43b6-b01e-56a06c71f7bb">cokernel functor</a>  <br />
+</p>
+
+<p>
+we get<br />
+a) exactness<br />
+b) commutativity<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org6e9fae9" class="outline-3">
+<h3 id="org6e9fae9">surjective morphism</h3>
+<div class="outline-text-3" id="text-org6e9fae9">
+</div>
+<div id="outline-container-orge9f839c" class="outline-4">
+<h4 id="orge9f839c">a) <img src="file:///home/anton/html/ltximg/20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups_97995a252e4da01747b6217dc791dd7a71ab067a.svg" alt="20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups_97995a252e4da01747b6217dc791dd7a71ab067a.svg" class="org-svg" /></h4>
+<div class="outline-text-4" id="text-orge9f839c">
+<p>
+follows from lifting generators <img src="file:///home/anton/html/ltximg/20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups_b17f60b16c37c89bab2fcd475e30d62b9df153b9.svg" alt="20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups_b17f60b16c37c89bab2fcd475e30d62b9df153b9.svg" class="org-svg" /> to <img src="file:///home/anton/html/ltximg/20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups_649d2d6a44ac644c0c18112dd4e5e792623f69e5.svg" alt="20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups_649d2d6a44ac644c0c18112dd4e5e792623f69e5.svg" class="org-svg" /><br />
+</p>
+</div>
+</div>
+<div id="outline-container-orga32e51d" class="outline-4">
+<h4 id="orga32e51d">b) <img src="file:///home/anton/html/ltximg/20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups_c55a67851a7fe6a031dd7ff10cd71f02df1e82fa.svg" alt="20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups_c55a67851a7fe6a031dd7ff10cd71f02df1e82fa.svg" class="org-svg" /></h4>
+<div class="outline-text-4" id="text-orga32e51d">
+<p>
+follows from lifting <img src="file:///home/anton/html/ltximg/20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups_8215246561b79bd45e37e75118ddb205a6c5f0d7.svg" alt="20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups_8215246561b79bd45e37e75118ddb205a6c5f0d7.svg" class="org-svg" /> to <img src="file:///home/anton/html/ltximg/20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups_9addc668c901e04762bcc1c95436cd90e5854b20.svg" alt="20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups_9addc668c901e04762bcc1c95436cd90e5854b20.svg" class="org-svg" /><br />
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2025-01-15 Mi 20:28</p>
+</div>
+</body>
+</html>
