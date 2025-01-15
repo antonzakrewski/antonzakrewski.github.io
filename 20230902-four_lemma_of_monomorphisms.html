@@ -3,120 +3,304 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-10-13 So 18:06 -->
+<!-- 2025-01-15 Mi 20:51 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Four-Lemma of modules of monomorphisms</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
 </head>
 <body>
 <div id="content" class="content">
 <h1 class="title">Four-Lemma of modules of monomorphisms</h1>
-<div id="outline-container-orge60d105" class="outline-2">
-<h2 id="orge60d105"><span class="section-number-2">1.</span> Proposition</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-orgdd4a97a" class="outline-2">
+<h2 id="orgdd4a97a">Proposition</h2>
+<div class="outline-text-2" id="text-orgdd4a97a">
 <p>
-Let <img src="ltximg/20230902-four_lemma_of_monomorphisms_eb04be82533afa6bcab2b0d2106fd2828974c0d1.svg" alt="20230902-four_lemma_of_monomorphisms_eb04be82533afa6bcab2b0d2106fd2828974c0d1.svg" class="org-svg" /> be an <a href="20230827-abelian_category.html#ID-9003af72-f684-4897-b096-c1d8a681c624">abelian</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a> and the following <a href="20230225171831-kommutatives_diagramm.html#ID-dec6825e-9e76-43d2-84af-db4360758ca2">commutative diagram</a> in <img src="ltximg/20230902-four_lemma_of_monomorphisms_eb04be82533afa6bcab2b0d2106fd2828974c0d1.svg" alt="20230902-four_lemma_of_monomorphisms_eb04be82533afa6bcab2b0d2106fd2828974c0d1.svg" class="org-svg" />
+Let <img src="ltximg/20230902-four_lemma_of_monomorphisms_3038b4682e1f6d64ae501574b4029ad43f8f615e.svg" alt="20230902-four_lemma_of_monomorphisms_3038b4682e1f6d64ae501574b4029ad43f8f615e.svg" class="org-svg" /> be an <a href="20230827-abelian_category.html#ID-9003af72-f684-4897-b096-c1d8a681c624">abelian</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a> and the following <a href="20230225171831-kommutatives_diagramm.html#ID-dec6825e-9e76-43d2-84af-db4360758ca2">commutative diagram</a> in <img src="ltximg/20230902-four_lemma_of_monomorphisms_3038b4682e1f6d64ae501574b4029ad43f8f615e.svg" alt="20230902-four_lemma_of_monomorphisms_3038b4682e1f6d64ae501574b4029ad43f8f615e.svg" class="org-svg" /><br />
 </p>
 
 <div class="equation-container">
 <span class="equation">
-<img src="ltximg/20230902-four_lemma_of_monomorphisms_3aa02fbed32641536efee6ce5c8186e7a1f12736.svg" alt="20230902-four_lemma_of_monomorphisms_3aa02fbed32641536efee6ce5c8186e7a1f12736.svg" class="org-svg" />
+<img src="ltximg/20230902-four_lemma_of_monomorphisms_6587ac2006a1c4b9602d3dea55f375bac987d04f.svg" alt="20230902-four_lemma_of_monomorphisms_6587ac2006a1c4b9602d3dea55f375bac987d04f.svg" class="org-svg" />
 </span>
 </div>
 <p>
-where <img src="ltximg/20230902-four_lemma_of_monomorphisms_156aecb9570e3fface5101e045e99d8bfe37501f.svg" alt="20230902-four_lemma_of_monomorphisms_156aecb9570e3fface5101e045e99d8bfe37501f.svg" class="org-svg" /> are <a href="20220819135911-monomorphismus.html#ID-60b63797-32fa-4d4e-a577-7616faa010ba">monomorphisms</a> and <img src="ltximg/20230902-four_lemma_of_monomorphisms_6edc99970c4082b2afb27d87ef2dab37c7e15f96.svg" alt="20230902-four_lemma_of_monomorphisms_6edc99970c4082b2afb27d87ef2dab37c7e15f96.svg" class="org-svg" /> is an <a href="20220819135905-epimorphismus.html#ID-ad206194-a416-4910-a5c4-d72528ae5ba0">epimorphisms</a>.
-Suppose the rows are <a href="20230722-exact_group_homomorphisms.html#ID-aa569635-5f4a-4c4a-9e9b-af9c577e377d">exact</a>, then <img src="ltximg/20230902-four_lemma_of_monomorphisms_5347581bce152d59cb7774124fb0bcc7843f54fd.svg" alt="20230902-four_lemma_of_monomorphisms_5347581bce152d59cb7774124fb0bcc7843f54fd.svg" class="org-svg" /> is a <a href="20220819135911-monomorphismus.html#ID-60b63797-32fa-4d4e-a577-7616faa010ba">monomorphism</a> 
+where <img src="ltximg/20230902-four_lemma_of_monomorphisms_f2842590e79c3d690bc988c57e52d34259d985e3.svg" alt="20230902-four_lemma_of_monomorphisms_f2842590e79c3d690bc988c57e52d34259d985e3.svg" class="org-svg" /> are <a href="20220819135911-monomorphismus.html#ID-60b63797-32fa-4d4e-a577-7616faa010ba">monomorphisms</a> and <img src="ltximg/20230902-four_lemma_of_monomorphisms_af54a8922a93cd804214fa97183275e115aa1b33.svg" alt="20230902-four_lemma_of_monomorphisms_af54a8922a93cd804214fa97183275e115aa1b33.svg" class="org-svg" /> is an <a href="20220819135905-epimorphismus.html#ID-ad206194-a416-4910-a5c4-d72528ae5ba0">epimorphisms</a>.<br />
+Suppose the rows are <a href="20230722-exact_group_homomorphisms.html#ID-aa569635-5f4a-4c4a-9e9b-af9c577e377d">exact</a>, then <img src="ltximg/20230902-four_lemma_of_monomorphisms_881f8a8039026f65820e029691254a9f4829d1dc.svg" alt="20230902-four_lemma_of_monomorphisms_881f8a8039026f65820e029691254a9f4829d1dc.svg" class="org-svg" /> is a <a href="20220819135911-monomorphismus.html#ID-60b63797-32fa-4d4e-a577-7616faa010ba">monomorphism</a> <br />
 </p>
 </div>
 </div>
-<div id="outline-container-orgc251562" class="outline-2">
-<h2 id="orgc251562"><span class="section-number-2">2.</span> Proof</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-orgef41dc3" class="outline-2">
+<h2 id="orgef41dc3">Proof</h2>
+<div class="outline-text-2" id="text-orgef41dc3">
 <p>
-<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> for <img src="ltximg/20230902-four_lemma_of_monomorphisms_85a1c209be2f5608d32da6a8f889acfe6f7f40df.svg" alt="20230902-four_lemma_of_monomorphisms_85a1c209be2f5608d32da6a8f889acfe6f7f40df.svg" class="org-svg" />, the general case follows from <a href="20240114-mitchell_s_embedding_theorem.html#ID-cbc85e4e-94bf-4b65-895c-806159236f2a">Mitchell's embedding theorem</a>.
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> for <img src="ltximg/20230902-four_lemma_of_monomorphisms_577872e0d11d58bbc2e69e37aa9141c27e765b55.svg" alt="20230902-four_lemma_of_monomorphisms_577872e0d11d58bbc2e69e37aa9141c27e765b55.svg" class="org-svg" />, the general case follows from <a href="20240114-mitchell_s_embedding_theorem.html#ID-cbc85e4e-94bf-4b65-895c-806159236f2a">Mitchell's embedding theorem</a>.<br />
 </p>
 
 <p>
-Let <img src="ltximg/20230902-four_lemma_of_monomorphisms_34d60b7d36eeeef0227dbc360c0b78d3f47501cb.svg" alt="20230902-four_lemma_of_monomorphisms_34d60b7d36eeeef0227dbc360c0b78d3f47501cb.svg" class="org-svg" />.
-Then it remains to show, that <img src="ltximg/20230902-four_lemma_of_monomorphisms_d6393a5c3429c4ac7a5237a8d549dbacdf34c3da.svg" alt="20230902-four_lemma_of_monomorphisms_d6393a5c3429c4ac7a5237a8d549dbacdf34c3da.svg" class="org-svg" />.
+Let <img src="ltximg/20230902-four_lemma_of_monomorphisms_ceacbeb3f927c6a0b378fbc21a95ff8ff6a92e83.svg" alt="20230902-four_lemma_of_monomorphisms_ceacbeb3f927c6a0b378fbc21a95ff8ff6a92e83.svg" class="org-svg" />.<br />
+Then it remains to show, that <img src="ltximg/20230902-four_lemma_of_monomorphisms_dc54ab4f7add4032ad7b9a94b729a1fbb38d3bcf.svg" alt="20230902-four_lemma_of_monomorphisms_dc54ab4f7add4032ad7b9a94b729a1fbb38d3bcf.svg" class="org-svg" />.<br />
 </p>
 
 <p>
-Then by commutavity, we get
+Then by commutavity, we get<br />
 </p>
 
 <div class="equation-container">
 <span class="equation">
-<img src="ltximg/20230902-four_lemma_of_monomorphisms_01b66d94cf61e328d372dbe1d514d2f67fd00e82.svg" alt="20230902-four_lemma_of_monomorphisms_01b66d94cf61e328d372dbe1d514d2f67fd00e82.svg" class="org-svg" />
+<img src="ltximg/20230902-four_lemma_of_monomorphisms_f5e468b754b651326726094965c91fa909d94d13.svg" alt="20230902-four_lemma_of_monomorphisms_f5e468b754b651326726094965c91fa909d94d13.svg" class="org-svg" />
 </span>
 </div>
 <p>
-and since <img src="ltximg/20230902-four_lemma_of_monomorphisms_2a55f72ec92dddc6b953ae93811a986f9b59c844.svg" alt="20230902-four_lemma_of_monomorphisms_2a55f72ec92dddc6b953ae93811a986f9b59c844.svg" class="org-svg" /> is a monomorphism, we get
+and since <img src="ltximg/20230902-four_lemma_of_monomorphisms_70746c403d15b1deea38a9fe23485dbb3b9fcfe8.svg" alt="20230902-four_lemma_of_monomorphisms_70746c403d15b1deea38a9fe23485dbb3b9fcfe8.svg" class="org-svg" /> is a monomorphism, we get<br />
 </p>
 
 <div class="equation-container">
 <span class="equation">
-<img src="ltximg/20230902-four_lemma_of_monomorphisms_5ad97c49ce230a8223ac892e0f497a76a23a2b32.svg" alt="20230902-four_lemma_of_monomorphisms_5ad97c49ce230a8223ac892e0f497a76a23a2b32.svg" class="org-svg" />
+<img src="ltximg/20230902-four_lemma_of_monomorphisms_643715ec045f5f7a821460baf74a42e4565d7141.svg" alt="20230902-four_lemma_of_monomorphisms_643715ec045f5f7a821460baf74a42e4565d7141.svg" class="org-svg" />
 </span>
 </div>
 <p>
-or <img src="ltximg/20230902-four_lemma_of_monomorphisms_2f419c60d24fc12a63e0e2ee5a790cd02bfbf7e1.svg" alt="20230902-four_lemma_of_monomorphisms_2f419c60d24fc12a63e0e2ee5a790cd02bfbf7e1.svg" class="org-svg" />.
+or <img src="ltximg/20230902-four_lemma_of_monomorphisms_7911178d14b6f2fb38f61933fdd15b6ad943adf4.svg" alt="20230902-four_lemma_of_monomorphisms_7911178d14b6f2fb38f61933fdd15b6ad943adf4.svg" class="org-svg" />.<br />
 </p>
 
 <p>
-Thus by exactness, there exists an <img src="ltximg/20230902-four_lemma_of_monomorphisms_422b97670f0d4ddd42765c47ce60d96bb2b12a04.svg" alt="20230902-four_lemma_of_monomorphisms_422b97670f0d4ddd42765c47ce60d96bb2b12a04.svg" class="org-svg" /> with <img src="ltximg/20230902-four_lemma_of_monomorphisms_aa040621364765a64237a5163b13dddb4956bb54.svg" alt="20230902-four_lemma_of_monomorphisms_aa040621364765a64237a5163b13dddb4956bb54.svg" class="org-svg" />.
+Thus by exactness, there exists an <img src="ltximg/20230902-four_lemma_of_monomorphisms_1d4b1ec89b9283566ee8ccb553ddf07cc18a5458.svg" alt="20230902-four_lemma_of_monomorphisms_1d4b1ec89b9283566ee8ccb553ddf07cc18a5458.svg" class="org-svg" /> with <img src="ltximg/20230902-four_lemma_of_monomorphisms_17ef4e44c238a83026d7b496a085920b8d9e87b5.svg" alt="20230902-four_lemma_of_monomorphisms_17ef4e44c238a83026d7b496a085920b8d9e87b5.svg" class="org-svg" />.<br />
 </p>
 
 <p>
-Suppose <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> that <img src="ltximg/20230902-four_lemma_of_monomorphisms_ad0b8e42b7218c16135cae8372d57dae58748ff6.svg" alt="20230902-four_lemma_of_monomorphisms_ad0b8e42b7218c16135cae8372d57dae58748ff6.svg" class="org-svg" />, otherwise <img src="ltximg/20230902-four_lemma_of_monomorphisms_d8090ccccbb9ec98b92259e5d774d61c482c6a05.svg" alt="20230902-four_lemma_of_monomorphisms_d8090ccccbb9ec98b92259e5d774d61c482c6a05.svg" class="org-svg" />
+Suppose <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> that <img src="ltximg/20230902-four_lemma_of_monomorphisms_a6794063cf463f0af4a8135ceb879f524bf2404d.svg" alt="20230902-four_lemma_of_monomorphisms_a6794063cf463f0af4a8135ceb879f524bf2404d.svg" class="org-svg" />, otherwise <img src="ltximg/20230902-four_lemma_of_monomorphisms_39ca1f60050291fcfa8fc7ec4357f2ef964d5c41.svg" alt="20230902-four_lemma_of_monomorphisms_39ca1f60050291fcfa8fc7ec4357f2ef964d5c41.svg" class="org-svg" /><br />
 </p>
 
 <p>
-Then by injectivity, <img src="ltximg/20230902-four_lemma_of_monomorphisms_e6e610ee0ac21c6dacb5df1b25cf802e19755b0e.svg" alt="20230902-four_lemma_of_monomorphisms_e6e610ee0ac21c6dacb5df1b25cf802e19755b0e.svg" class="org-svg" /> with
+Then by injectivity, <img src="ltximg/20230902-four_lemma_of_monomorphisms_941843a64b246690b27d7887c48ec6a4d4a56088.svg" alt="20230902-four_lemma_of_monomorphisms_941843a64b246690b27d7887c48ec6a4d4a56088.svg" class="org-svg" /> with<br />
 </p>
 
 <div class="equation-container">
 <span class="equation">
-<img src="ltximg/20230902-four_lemma_of_monomorphisms_b7e962a8fd96a1687cc4d21066da5a1bd3ce9d5d.svg" alt="20230902-four_lemma_of_monomorphisms_b7e962a8fd96a1687cc4d21066da5a1bd3ce9d5d.svg" class="org-svg" />
+<img src="ltximg/20230902-four_lemma_of_monomorphisms_b477fe303050219d0b8ee55f12f0054e83445aea.svg" alt="20230902-four_lemma_of_monomorphisms_b477fe303050219d0b8ee55f12f0054e83445aea.svg" class="org-svg" />
 </span>
 </div>
 <p>
-and thus <img src="ltximg/20230902-four_lemma_of_monomorphisms_0fc811fe214b04c8adbaac037e921bf366552bd9.svg" alt="20230902-four_lemma_of_monomorphisms_0fc811fe214b04c8adbaac037e921bf366552bd9.svg" class="org-svg" />.
-Hence by exactness, there exists an <img src="ltximg/20230902-four_lemma_of_monomorphisms_4d1f340dd37ce1b0c6b6a00841fd0434a81319cf.svg" alt="20230902-four_lemma_of_monomorphisms_4d1f340dd37ce1b0c6b6a00841fd0434a81319cf.svg" class="org-svg" /> with <img src="ltximg/20230902-four_lemma_of_monomorphisms_2fa9887eed02442d6000a1d90d8ef1fa6fa2b1ed.svg" alt="20230902-four_lemma_of_monomorphisms_2fa9887eed02442d6000a1d90d8ef1fa6fa2b1ed.svg" class="org-svg" /> and by surjectivity of <img src="ltximg/20230902-four_lemma_of_monomorphisms_6edc99970c4082b2afb27d87ef2dab37c7e15f96.svg" alt="20230902-four_lemma_of_monomorphisms_6edc99970c4082b2afb27d87ef2dab37c7e15f96.svg" class="org-svg" /> there exists an <img src="ltximg/20230902-four_lemma_of_monomorphisms_83af3dec20aa987a651b514cef58029da7f94cda.svg" alt="20230902-four_lemma_of_monomorphisms_83af3dec20aa987a651b514cef58029da7f94cda.svg" class="org-svg" /> with <img src="ltximg/20230902-four_lemma_of_monomorphisms_97087213bad0e1e0a7753e38da0a8c1682e96685.svg" alt="20230902-four_lemma_of_monomorphisms_97087213bad0e1e0a7753e38da0a8c1682e96685.svg" class="org-svg" />.
+and thus <img src="ltximg/20230902-four_lemma_of_monomorphisms_7f2f6f6bc6951c122f138580767eb0fbf12a0375.svg" alt="20230902-four_lemma_of_monomorphisms_7f2f6f6bc6951c122f138580767eb0fbf12a0375.svg" class="org-svg" />.<br />
+Hence by exactness, there exists an <img src="ltximg/20230902-four_lemma_of_monomorphisms_d83dc7b286ddb1aaacee2ed7b9b38feb998c788b.svg" alt="20230902-four_lemma_of_monomorphisms_d83dc7b286ddb1aaacee2ed7b9b38feb998c788b.svg" class="org-svg" /> with <img src="ltximg/20230902-four_lemma_of_monomorphisms_13ed6bf8e6429d1c2014983992f6fa90a06bc5d2.svg" alt="20230902-four_lemma_of_monomorphisms_13ed6bf8e6429d1c2014983992f6fa90a06bc5d2.svg" class="org-svg" /> and by surjectivity of <img src="ltximg/20230902-four_lemma_of_monomorphisms_af54a8922a93cd804214fa97183275e115aa1b33.svg" alt="20230902-four_lemma_of_monomorphisms_af54a8922a93cd804214fa97183275e115aa1b33.svg" class="org-svg" /> there exists an <img src="ltximg/20230902-four_lemma_of_monomorphisms_df615aaad72efaae55f731e82c6cc562cdeb1933.svg" alt="20230902-four_lemma_of_monomorphisms_df615aaad72efaae55f731e82c6cc562cdeb1933.svg" class="org-svg" /> with <img src="ltximg/20230902-four_lemma_of_monomorphisms_9996627245fc23701694c8073991175a65aeebeb.svg" alt="20230902-four_lemma_of_monomorphisms_9996627245fc23701694c8073991175a65aeebeb.svg" class="org-svg" />.<br />
 </p>
 
 <p>
-Note that
+Note that<br />
 </p>
 
 <div class="equation-container">
 <span class="equation">
-<img src="ltximg/20230902-four_lemma_of_monomorphisms_db2eabbe04b848cc3eb6e1cc99beb076b45ed6c2.svg" alt="20230902-four_lemma_of_monomorphisms_db2eabbe04b848cc3eb6e1cc99beb076b45ed6c2.svg" class="org-svg" />
+<img src="ltximg/20230902-four_lemma_of_monomorphisms_fcc60f9d17b564b5e2c1ab72e9161af8a08a81bf.svg" alt="20230902-four_lemma_of_monomorphisms_fcc60f9d17b564b5e2c1ab72e9161af8a08a81bf.svg" class="org-svg" />
 </span>
 </div>
 <p>
-and thus <img src="ltximg/20230902-four_lemma_of_monomorphisms_8acbd9b0720f4bceb99a73104cd2feb3c911e2cd.svg" alt="20230902-four_lemma_of_monomorphisms_8acbd9b0720f4bceb99a73104cd2feb3c911e2cd.svg" class="org-svg" />.
+and thus <img src="ltximg/20230902-four_lemma_of_monomorphisms_63c45fb124a756930f4b6c5eb37f2054e0857855.svg" alt="20230902-four_lemma_of_monomorphisms_63c45fb124a756930f4b6c5eb37f2054e0857855.svg" class="org-svg" />.<br />
 </p>
 
 <p>
-Furthermore, since exactness implies
+Furthermore, since exactness implies<br />
 </p>
 
 <div class="equation-container">
 <span class="equation">
-<img src="ltximg/20230902-four_lemma_of_monomorphisms_b8c4c75497d074117d89b93201d7a90e493c9303.svg" alt="20230902-four_lemma_of_monomorphisms_b8c4c75497d074117d89b93201d7a90e493c9303.svg" class="org-svg" />
+<img src="ltximg/20230902-four_lemma_of_monomorphisms_39426b53cb0b82fa3c4fd8acb0ccae0783464a8d.svg" alt="20230902-four_lemma_of_monomorphisms_39426b53cb0b82fa3c4fd8acb0ccae0783464a8d.svg" class="org-svg" />
 </span>
 </div>
 <p>
-it follows, that
+it follows, that<br />
 </p>
 
 <div class="equation-container">
 <span class="equation">
-<img src="ltximg/20230902-four_lemma_of_monomorphisms_a48fd19fb3780aa95c4a0183a0546c815c266d1f.svg" alt="20230902-four_lemma_of_monomorphisms_a48fd19fb3780aa95c4a0183a0546c815c266d1f.svg" class="org-svg" />
+<img src="ltximg/20230902-four_lemma_of_monomorphisms_6c48847bdb82b6ce3bf2aa955d530bea9970770a.svg" alt="20230902-four_lemma_of_monomorphisms_6c48847bdb82b6ce3bf2aa955d530bea9970770a.svg" class="org-svg" />
 </span>
 </div>
 </div>
@@ -125,7 +309,7 @@ it follows, that
 <div id="postamble" class="status">
 <p class="date">Date: nil</p>
 <p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 18:06</p>
+<p class="date">Created: 2025-01-15 Mi 20:51</p>
 </div>
 </body>
 </html>
