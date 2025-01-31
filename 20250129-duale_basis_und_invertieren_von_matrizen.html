@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-01-31 Fr 10:49 -->
+<!-- 2025-01-31 Fr 10:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Diagonalisierbarkeit und Zerfallen des Charakteristischen Polynoms mit geometrischer Vielfachheit</title>
+<title>duale Basis und invertieren von Matrizen</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
@@ -194,93 +194,87 @@
   .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
-<script>
-  window.MathJax = {
-    tex: {
-      ams: {
-        multlineWidth: '85%'
-      },
-      tags: 'ams',
-      tagSide: 'right',
-      tagIndent: '.8em'
-    },
-    chtml: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    svg: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    output: {
-      font: 'mathjax-modern',
-      displayOverflow: 'overflow'
-    }
-  };
-</script>
-
-<script
-  id="MathJax-script"
-  async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Diagonalisierbarkeit und Zerfallen des Charakteristischen Polynoms mit geometrischer Vielfachheit</h1>
-<div id="outline-container-org7c9e3c3" class="outline-2">
-<h2 id="org7c9e3c3">Satz</h2>
-<div class="outline-text-2" id="text-org7c9e3c3">
+<h1 class="title">duale Basis und invertieren von Matrizen</h1>
+<div id="outline-container-org7cec6c6" class="outline-2">
+<h2 id="org7cec6c6">Algorithmus</h2>
+<div class="outline-text-2" id="text-org7cec6c6">
 <p>
-Sei \(V \cong K^n\) ein <a href="20221109121525-endlich_erzeugter_vektorraum.html#ID-477797e9-4b4d-4886-9606-6e1c5f378a4f">endlich erzeugter</a> <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">K-Vektorraum</a> und \(A \in \mathrm{End}_{K}(V)\) mit \(\alpha \in \sigma(A)\).<br />
-Dann sind folgende Aussagen <a href="20211223095559-aquivalenz_logik.html#ID-0971f793-e700-48dd-8722-d13a018f4b87">äquivalent</a>:<br />
+Sei <img src="ltximg/20250129-duale_basis_und_invertieren_von_matrizen_3cfd7a299d478f9bf2528fa65c00521e0cd88159.svg" alt="20250129-duale_basis_und_invertieren_von_matrizen_3cfd7a299d478f9bf2528fa65c00521e0cd88159.svg" class="org-svg" /> ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a>, <img src="ltximg/20250129-duale_basis_und_invertieren_von_matrizen_6eaf4ff7d4d8376087716b31c84a6e4347796772.svg" alt="20250129-duale_basis_und_invertieren_von_matrizen_6eaf4ff7d4d8376087716b31c84a6e4347796772.svg" class="org-svg" /> ein <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">K-Vektorraum</a>.<br />
+Sei <img src="ltximg/20250129-duale_basis_und_invertieren_von_matrizen_f5c66b8d8ce10ba60e8897348660cce5162250fd.svg" alt="20250129-duale_basis_und_invertieren_von_matrizen_f5c66b8d8ce10ba60e8897348660cce5162250fd.svg" class="org-svg" /> eine Basis von <img src="ltximg/20250129-duale_basis_und_invertieren_von_matrizen_8c59c44109d5decdab325f7cb4a8c6ecc33b5d55.svg" alt="20250129-duale_basis_und_invertieren_von_matrizen_8c59c44109d5decdab325f7cb4a8c6ecc33b5d55.svg" class="org-svg" />.<br />
 </p>
+
+<p>
+Dann lässt sich die <a href="20230130155449-duale_basis.html#ID-60195b87-8c69-430a-a8b8-e4bd1da17e5f">duale Basis</a> zu <img src="ltximg/20250129-duale_basis_und_invertieren_von_matrizen_f5c66b8d8ce10ba60e8897348660cce5162250fd.svg" alt="20250129-duale_basis_und_invertieren_von_matrizen_f5c66b8d8ce10ba60e8897348660cce5162250fd.svg" class="org-svg" /> mit (?) bestimmen durch:<br />
+</p>
+
 <ol class="org-ol">
-<li>\(A\) ist <a href="20230222202527-diagonalisierbarer_endomorphismus.html#ID-57f0f0cd-6af1-46ac-b845-8f6fc78092b6">diagonalisierbar</a><br /></li>
-<li>das <a href="20230222202847-charakteristische_polynom.html#ID-dd44aea9-79be-473f-90e3-e2d6c67a41ae">charakteristische Polynom</a> <a href="20221229010309-zerfallen_eines_polynoms.html#ID-8e83cdb4-e8e8-465c-806e-0960939bd509">zerfällt</a> über \(K\) mit den <a href="20220303190024-eigenwert.html#ID-c96ef2bb-2cf6-4ca8-9d98-40991bd99031">Eigenwerten</a> als <a href="20220320113706-nullstelle.html#ID-b094e637-5f3c-42a2-a2c2-ae73bbbe29a2">Nullstellen</a> mit <a href="20230303165754-vielfachheit_eines_eigenwerts.html#ID-be59473d-7ec4-4fe1-a83e-3f00c1bda553">algebraische Vielfachheit</a> gleich der <a href="20230303214443-geometrische_vielfachheit_eines_eigenwerts.html#ID-5e8b27fb-6a6b-473d-a512-543f4f13aa74">geometrische Vielfachheit</a> <br /></li>
+<li>man fasst die <img src="ltximg/20250129-duale_basis_und_invertieren_von_matrizen_25c54acd8cf6d7283ebf5a189e436689cb3beb8b.svg" alt="20250129-duale_basis_und_invertieren_von_matrizen_25c54acd8cf6d7283ebf5a189e436689cb3beb8b.svg" class="org-svg" /> als <b>Zeilenvektoren</b> auf und betrachtet die Matrix<br /></li>
 </ol>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250129-duale_basis_und_invertieren_von_matrizen_082d71a51a344ef2072d962932b7b508441edb51.svg" alt="20250129-duale_basis_und_invertieren_von_matrizen_082d71a51a344ef2072d962932b7b508441edb51.svg" class="org-svg" />
+</span>
 </div>
+<ol class="org-ol">
+<li>man invertiert (vgl. <a href="20230116210435-algorithmus_zur_ermittlung_der_inversen_matrix.html#ID-b0b03ccb-0ecb-4ade-a4d3-5058a3eacc24">Algorithmus zur Ermittlung der Inversen Matrix</a>) die Matrix und erhält<br /></li>
+</ol>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250129-duale_basis_und_invertieren_von_matrizen_551990b0568eb0537c0fed661455e375c58f7821.svg" alt="20250129-duale_basis_und_invertieren_von_matrizen_551990b0568eb0537c0fed661455e375c58f7821.svg" class="org-svg" />
+</span>
 </div>
-<div id="outline-container-org3af2d83" class="outline-2">
-<h2 id="org3af2d83">Beweis</h2>
-<div class="outline-text-2" id="text-org3af2d83">
-</div>
-<div id="outline-container-orgc938fca" class="outline-3">
-<h3 id="orgc938fca">a) diagonalisierbar \(\Rightarrow\) Zerfallen</h3>
-<div class="outline-text-3" id="text-orgc938fca">
+
 <p>
-Nach Annahme gilt \(V \cong K^n \cong \bigoplus_{i=1}^r V(\alpha_j)\) für <a href="20220303190024-eigenwert.html#ID-c96ef2bb-2cf6-4ca8-9d98-40991bd99031">Eigenwerte</a> \(\alpha_i\).<br />
-Diese sind genau die <a href="20230303162855-eigenwert_und_nullstelle_dse_charakteristisches_polynom.html#ID-6ba495b0-03ff-4c3d-9582-9ac078b40637">Nullstellen des charakteristisches Polynoms</a> \(f_A\), d.h. es gilt:<br />
+und erhält die <b>Zeilen</b> <img src="ltximg/20250129-duale_basis_und_invertieren_von_matrizen_2a9f718a8726b86db4aed24f00424b9432f96f0a.svg" alt="20250129-duale_basis_und_invertieren_von_matrizen_2a9f718a8726b86db4aed24f00424b9432f96f0a.svg" class="org-svg" /> als duale Basis.<br />
 </p>
-\begin{align*}
-f_A = \prod_{i=1} (x - \alpha_i)^{n_i}, n_i \in \mathbb{N}
-\end{align*}
+</div>
+</div>
+<div id="outline-container-orgde2f32a" class="outline-2">
+<h2 id="orgde2f32a">Alternativ</h2>
+<div class="outline-text-2" id="text-orgde2f32a">
+<ol class="org-ol">
+<li>man fasst die <img src="ltximg/20250129-duale_basis_und_invertieren_von_matrizen_25c54acd8cf6d7283ebf5a189e436689cb3beb8b.svg" alt="20250129-duale_basis_und_invertieren_von_matrizen_25c54acd8cf6d7283ebf5a189e436689cb3beb8b.svg" class="org-svg" /> als <b>Spaltenvektoren</b> auf und betrachtet die Matrix<br /></li>
+</ol>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250129-duale_basis_und_invertieren_von_matrizen_db27c14e564594a3f04ddc366395ae655d6ac2e9.svg" alt="20250129-duale_basis_und_invertieren_von_matrizen_db27c14e564594a3f04ddc366395ae655d6ac2e9.svg" class="org-svg" />
+</span>
+</div>
+<ol class="org-ol">
+<li>man invertiert (vgl. <a href="20230116210435-algorithmus_zur_ermittlung_der_inversen_matrix.html#ID-b0b03ccb-0ecb-4ade-a4d3-5058a3eacc24">Algorithmus zur Ermittlung der Inversen Matrix</a>) die Matrix und erhält<br /></li>
+</ol>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250129-duale_basis_und_invertieren_von_matrizen_3a9b3f04de888d907066656d0e443b5261d4b509.svg" alt="20250129-duale_basis_und_invertieren_von_matrizen_3a9b3f04de888d907066656d0e443b5261d4b509.svg" class="org-svg" />
+</span>
+</div>
+
 <p>
-mit der <a href="20221229005816-mehrfache_nullstelle.html#ID-919e08d0-c7da-4065-86b0-bb96a70a2504">Vielfachheit</a> \(n_i\)<br />
-Sei \(\overline{A}\) die <a href="20230508150838-diagonalmatrix.html#ID-67a3d409-7f5e-4767-ae97-b3dc496dd3bd">Diagonalmatrix</a> von \(A\), so<br />
+und erhält die <b>Spalten</b> <img src="ltximg/20250129-duale_basis_und_invertieren_von_matrizen_2a9f718a8726b86db4aed24f00424b9432f96f0a.svg" alt="20250129-duale_basis_und_invertieren_von_matrizen_2a9f718a8726b86db4aed24f00424b9432f96f0a.svg" class="org-svg" /> als duale Basis.<br />
 </p>
-</div>
-</div>
-<div id="outline-container-org19655e7" class="outline-3">
-<h3 id="org19655e7">b) Zerfallen \(\Rightarrow\) diagonalisierbar</h3>
-<div class="outline-text-3" id="text-org19655e7">
+
+
 <p>
-Sei \(f_A  \coloneqq \prod_{i=1}^r (x - \alpha_i)^{n_i}\) mit \(\alpha_1,...,\alpha_r\) als verschiedene <a href="20220303190024-eigenwert.html#ID-c96ef2bb-2cf6-4ca8-9d98-40991bd99031">Eigenwerte</a> von \(A\) und \(\mathrm{dim}_{K}V(\alpha_i)= v(A,\alpha_i) = n_i\) für \(i \in \{1,..,r\}\).<br />
-Für den <a href="20221009092955-unterraum.html#ID-854e21c6-b2ac-4d8c-b859-7797b3ddb35e">Untervektorraum</a> \(U = \bigoplus_{i=1}^r V(\alpha_i) \subseteq V\) ist dann \(\mathrm{dim}_{k}(U) = \sum_{i=1}^{r} n_i = \mathrm{deg}(f_A) = n\) und damit gilt dann:<br />
+die Äquivalenz beider Verfahren folgt aus:<br />
 </p>
-\begin{align*}
-U = \bigoplus_{i=1}^r V(\alpha_i) = V
-\end{align*}
-</div>
+<ul class="org-ul">
+<li><a href="20221210165755-transponieren_einer_matrixmultiplikation.html#ID-ff6455f3-9bec-4b3f-8e7a-11b0871adcf3">Transponieren einer Matrixmultiplikation als Antiisomorphismus</a> <br /></li>
+<li><a href="20221210165610-transponieren_einer_matrix_als_isomorphismus.html#ID-2fbb14a6-5fde-469b-8e1e-7a4788542c41">Transponieren einer Matrix als Isomorphismus</a>   <br /></li>
+</ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: nil</p>
 <p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2025-01-31 Fr 10:49</p>
+<p class="date">Created: 2025-01-31 Fr 10:42</p>
 </div>
 </body>
 </html>
