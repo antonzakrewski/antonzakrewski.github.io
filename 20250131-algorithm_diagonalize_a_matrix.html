@@ -6,7 +6,7 @@
 <!-- 2025-01-31 Fr 10:35 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>LinAlg 1 - wichtige Algorithmen</title>
+<title>algorithm: diagonalize a matrix</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
@@ -194,134 +194,68 @@
   .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
-<script>
-  window.MathJax = {
-    tex: {
-      ams: {
-        multlineWidth: '85%'
-      },
-      tags: 'ams',
-      tagSide: 'right',
-      tagIndent: '.8em'
-    },
-    chtml: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    svg: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    output: {
-      font: 'mathjax-modern',
-      displayOverflow: 'overflow'
-    }
-  };
-</script>
-
-<script
-  id="MathJax-script"
-  async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">LinAlg 1 - wichtige Algorithmen</h1>
-<div id="outline-container-org87c8570" class="outline-2">
-<h2 id="org87c8570">Disclaimer</h2>
-<div class="outline-text-2" id="text-org87c8570">
+<h1 class="title">algorithm: diagonalize a matrix</h1>
+<div id="outline-container-org2fff474" class="outline-2">
+<h2 id="org2fff474">Problem</h2>
+<div class="outline-text-2" id="text-org2fff474">
 <p>
-Das sind nur Algorithmen, die mir eingefallen sind.<br />
-Insbesondere erhebe ich keinen Anspruch auf Vollständigkeit, weitere Einreichungen sind erwünscht.<br />
+Let <img src="ltximg/20250131-algorithm_diagonalize_a_matrix_e97d8396e8125bc021268f9f190592002d144779.svg" alt="20250131-algorithm_diagonalize_a_matrix_e97d8396e8125bc021268f9f190592002d144779.svg" class="org-svg" /> be a <a href="20220303181007-matrix.html#ID-3234cd94-0d93-470b-a319-75288f97326e">matrix</a>.<br />
+Suppose <img src="ltximg/20250131-algorithm_diagonalize_a_matrix_916c362ec11687631f4cc94f340c13fef3d5f949.svg" alt="20250131-algorithm_diagonalize_a_matrix_916c362ec11687631f4cc94f340c13fef3d5f949.svg" class="org-svg" /> is diagonalizable (cf. <a href="20250121-sufficient_criterias_diagonalizable.html#ID-5472a0ad-6e69-4507-8d34-f6b120f67d21">criterias: diagonalizable Matrix</a>).<br />
 </p>
+
+<p>
+Then to diagonalize it, one has to find an invertible matrix <img src="ltximg/20250131-algorithm_diagonalize_a_matrix_5ad23266f6fb6dfb20fe74e5e37420e7747e73db.svg" alt="20250131-algorithm_diagonalize_a_matrix_5ad23266f6fb6dfb20fe74e5e37420e7747e73db.svg" class="org-svg" /> and a diagonal matrix <img src="ltximg/20250131-algorithm_diagonalize_a_matrix_6b14fc91d6dbde3f14593e622d19d5314285ab54.svg" alt="20250131-algorithm_diagonalize_a_matrix_6b14fc91d6dbde3f14593e622d19d5314285ab54.svg" class="org-svg" /> such that<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250131-algorithm_diagonalize_a_matrix_b2b508952dbd5a34361c21c3fd18e2c2c4e1682f.svg" alt="20250131-algorithm_diagonalize_a_matrix_b2b508952dbd5a34361c21c3fd18e2c2c4e1682f.svg" class="org-svg" />
+</span>
 </div>
 </div>
-<div id="outline-container-org2240ece" class="outline-2">
-<h2 id="org2240ece">Liste</h2>
-<div class="outline-text-2" id="text-org2240ece">
 </div>
-<div id="outline-container-org5d5320c" class="outline-3">
-<h3 id="org5d5320c">LGS</h3>
-<div class="outline-text-3" id="text-org5d5320c">
-<ul class="org-ul">
-<li><a href="20231129-einfacher_gauß_algorithmus.html#ID-da8871b2-95c4-4c4a-918a-69a0bf8985cd">einfacher gauß algorithmus</a> <br /></li>
-</ul>
+<div id="outline-container-org5433bfa" class="outline-2">
+<h2 id="org5433bfa">Steps</h2>
+<div class="outline-text-2" id="text-org5433bfa">
+<ol class="org-ol">
+<li><a href="20250121-algorithm_determine_eigenvalues.html#ID-47861fe9-31ff-4a09-9322-778a8bb6d976">determine the eigenvalues</a> <br /></li>
+<li><a href="20250121-algorithm_determine_eigenvectors.html#ID-199972d4-3f92-4014-9e2d-8daf3f20e488">determine the eigenspace</a> <br /></li>
+<li>find a <a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">basis</a> consisting of eigenvectors: find a basis for each Eigenspace. Then a Basis of <img src="ltximg/20250131-algorithm_diagonalize_a_matrix_f9a44ab724c25d336d326acbf98e515bcc40b054.svg" alt="20250131-algorithm_diagonalize_a_matrix_f9a44ab724c25d336d326acbf98e515bcc40b054.svg" class="org-svg" /> is given by taking the union of the basis<br /></li>
+<li>Suppose <img src="ltximg/20250131-algorithm_diagonalize_a_matrix_7332aeb4113bb8eb72f5c0240aea0076cad7fad7.svg" alt="20250131-algorithm_diagonalize_a_matrix_7332aeb4113bb8eb72f5c0240aea0076cad7fad7.svg" class="org-svg" /> form a basis consisting of eigenvectors (regarded as column vector), where <img src="ltximg/20250131-algorithm_diagonalize_a_matrix_a015dae1afce6eb5a976312edefaaeb9ac6e14e3.svg" alt="20250131-algorithm_diagonalize_a_matrix_a015dae1afce6eb5a976312edefaaeb9ac6e14e3.svg" class="org-svg" /> is the eigenvalue for <img src="ltximg/20250131-algorithm_diagonalize_a_matrix_9653c959b03b2abd16b748c101e3f1641d758427.svg" alt="20250131-algorithm_diagonalize_a_matrix_9653c959b03b2abd16b748c101e3f1641d758427.svg" class="org-svg" />. Then consider the matrix<br /></li>
+</ol>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250131-algorithm_diagonalize_a_matrix_c20688dc92013a2109aa2412af76343dd40aa803.svg" alt="20250131-algorithm_diagonalize_a_matrix_c20688dc92013a2109aa2412af76343dd40aa803.svg" class="org-svg" />
+</span>
 </div>
+<p>
+as <a href="20241217-basiswechselmatrix.html#ID-1866d32b-d5f8-4fe7-92f8-0e540e3d6489">basis change</a> from <img src="ltximg/20250131-algorithm_diagonalize_a_matrix_7765cf11955a16bfbebc657fbabf7a3935cd8716.svg" alt="20250131-algorithm_diagonalize_a_matrix_7765cf11955a16bfbebc657fbabf7a3935cd8716.svg" class="org-svg" /> to the standard basis <img src="ltximg/20250131-algorithm_diagonalize_a_matrix_c37eab9ba023bec7c9a2c92bd283a7ee1c70b515.svg" alt="20250131-algorithm_diagonalize_a_matrix_c37eab9ba023bec7c9a2c92bd283a7ee1c70b515.svg" class="org-svg" /><br />
+Then we get<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250131-algorithm_diagonalize_a_matrix_20ae8327ed3458cc0ddf340994bb4de2fd3ca491.svg" alt="20250131-algorithm_diagonalize_a_matrix_20ae8327ed3458cc0ddf340994bb4de2fd3ca491.svg" class="org-svg" />
+</span>
 </div>
-<div id="outline-container-org2f1a363" class="outline-3">
-<h3 id="org2f1a363">Duale Basis</h3>
-<div class="outline-text-3" id="text-org2f1a363">
-<ul class="org-ul">
-<li><a href="20230210112736-heuristik_zur_bestimmung_der_dualen_basis_fur_eine_andere_basis.html#ID-02258ddd-d527-4b67-a0ff-5f2705d3346f">Heuristik zur Bestimmung der dualen Basis für eine andere Basis</a>   <br /></li>
-<li><a href="20250129-duale_basis_und_invertieren_von_matrizen.html#ID-7b971d1b-98c5-4830-ad86-911851035cc3">duale Basis und invertieren von Matrizen</a>   <br /></li>
-</ul>
+
+<p>
+and<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20250131-algorithm_diagonalize_a_matrix_f6a90ada1314877ee2b67b855e17907b8fe5a00c.svg" alt="20250131-algorithm_diagonalize_a_matrix_f6a90ada1314877ee2b67b855e17907b8fe5a00c.svg" class="org-svg" />
+</span>
 </div>
-</div>
-<div id="outline-container-org1ae52a8" class="outline-3">
-<h3 id="org1ae52a8">Invertieren von Matrizen</h3>
-<div class="outline-text-3" id="text-org1ae52a8">
-<ul class="org-ul">
-<li><a href="20230116210435-algorithmus_zur_ermittlung_der_inversen_matrix.html#ID-b0b03ccb-0ecb-4ade-a4d3-5058a3eacc24">Algorithmus zur Ermittlung der Inversen Matrix</a>   <br /></li>
-<li><a href="20230118140914-inverse_matrix_in_abhangigkeit_von_der_determinante_und_adjunkte.html#ID-3493f14e-e09a-4677-9459-d622b79cc40c">Inverse Matrix in Abhängigkeit von der Determinante und Adjunkte</a> <br /></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org3bba8e1" class="outline-3">
-<h3 id="org3bba8e1">Basiswechsel</h3>
-<div class="outline-text-3" id="text-org3bba8e1">
-<ul class="org-ul">
-<li><a href="20241217-basiswechselmatrix_berechnen.html#ID-28ef274a-0d83-458c-9ef7-61e2837f8ea9">Basiswechselmatrix berechnen</a> <br /></li>
-<li><a href="20250129-darstellende_matrix_bestimmen.html#ID-d74d9586-1ed0-47b5-929d-f205c7b0bb81">Darstellende Matrix bestimmen</a>   <br /></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgd15e51d" class="outline-3">
-<h3 id="orgd15e51d">Determinanten</h3>
-<div class="outline-text-3" id="text-orgd15e51d">
-<ul class="org-ul">
-<li>Laplace Entwicklung<br /></li>
-<li>Regel von Sarrus<br /></li>
-<li>Gauß Umformung (siehe: <a href="20250129-zeilen_spaltenumformungen.html#ID-fcad87c4-3c5d-432f-81d8-22fac878b0d4">Wann darf ich Zeilen bzw. Spaltenumformungen verwenden</a>)<br /></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org0510949" class="outline-3">
-<h3 id="org0510949">Nullstellen von Polynome</h3>
-<div class="outline-text-3" id="text-org0510949">
-<ul class="org-ul">
-<li>Nullstellen raten bzw. für \(\mathbb{Z}/p \mathbb{Z}\) alle Möglichkeiten Ausprobieren<br /></li>
-<li><a href="20230110193456-ausklammern_von_nullstellen_von_polynomen.html#ID-3ce4a9e7-42fc-4fef-830e-2aeef8ca355b">Ausklammern von Nullstellen von Polynomen</a> <br /></li>
-<li><a href="20211115125130-quadratische_formel.html#ID-19312e47-2cd6-464f-bdd3-6e416d15d2ed">Quadratische Formel</a>   <br /></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgbe117b9" class="outline-3">
-<h3 id="orgbe117b9">eigenwerte</h3>
-<div class="outline-text-3" id="text-orgbe117b9">
-<ul class="org-ul">
-<li><a href="20250121-algorithm_determine_eigenvalues.html#ID-47861fe9-31ff-4a09-9322-778a8bb6d976">Algorithm: determine eigenvalues</a>   <br /></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgd626809" class="outline-3">
-<h3 id="orgd626809">eigenvektor</h3>
-<div class="outline-text-3" id="text-orgd626809">
-<ul class="org-ul">
-<li><a href="20250121-algorithm_determine_eigenvectors.html#ID-199972d4-3f92-4014-9e2d-8daf3f20e488">algorithm: determine eigenvectors</a>   <br /></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org3a84ef7" class="outline-3">
-<h3 id="org3a84ef7">diagonalisierbarkeit bestimmen</h3>
-<div class="outline-text-3" id="text-org3a84ef7">
-<ul class="org-ul">
-<li><a href="20250121-sufficient_criterias_diagonalizable.html#ID-5472a0ad-6e69-4507-8d34-f6b120f67d21">sufficient criterias: diagonalizable Matrix</a>    <br /></li>
-<li><a href="20250131-algorithm_diagonalize_a_matrix.html#ID-6f8e01d3-9cfe-4bd8-abe6-f7f2bec18f13">algorithm: diagonalize a matrix</a> <br /></li>
-</ul>
-</div>
+
+<p>
+Hence to determine <img src="ltximg/20250131-algorithm_diagonalize_a_matrix_dc8fc442dddded85f3f5ead0ba0954d560bc5651.svg" alt="20250131-algorithm_diagonalize_a_matrix_dc8fc442dddded85f3f5ead0ba0954d560bc5651.svg" class="org-svg" /> it remains to compute the inverse of <img src="ltximg/20250131-algorithm_diagonalize_a_matrix_895cec8cc7272fac0eae09a080e470e0c385d229.svg" alt="20250131-algorithm_diagonalize_a_matrix_895cec8cc7272fac0eae09a080e470e0c385d229.svg" class="org-svg" /><br />
+</p>
 </div>
 </div>
 </div>
