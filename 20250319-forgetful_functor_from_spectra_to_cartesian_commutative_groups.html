@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-03-19 Mi 14:14 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>forgetful functor from spectra to cartesian commutative groups</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">forgetful functor from spectra to cartesian commutative groups</h1>
+<div id="outline-container-orgea88330" class="outline-2">
+<h2 id="orgea88330">Proposition</h2>
+<div class="outline-text-2" id="text-orgea88330">
+<p>
+The forgetful functor<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org618bdf5" class="outline-2">
+<h2 id="org618bdf5">Proof</h2>
+<div class="outline-text-2" id="text-org618bdf5">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_2f23fa5e4ef8047a120fb45e11db3b83f2bb4bd5.svg" alt="20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_2f23fa5e4ef8047a120fb45e11db3b83f2bb4bd5.svg" class="org-svg" /> be a <a href="20250319-reduced_excisive_functor.html#ID-07b67eee-3ffc-4f2f-b80e-19f207b687cc">reduced excisive functor</a> <br />
+</p>
+</div>
+<div id="outline-container-orgf51c63f" class="outline-3">
+<h3 id="orgf51c63f">monoid</h3>
+<div class="outline-text-3" id="text-orgf51c63f">
+<p>
+todo: some coslice argument<br />
+</p>
+
+<p>
+using the <a href="20250307-quillen_formula_for_infinity_colimits_in_anima.html#ID-07d6e0e2-7fdb-4e3b-87e5-35aa4143aa6b">quillen formula for infinity colimits in Anima</a> / <a href="20250316-homotopy_pushout_and_single_cofibration.html#ID-0689814a-d303-4df3-a44b-656ae818f674">homotopy pushout and single cofibration</a> consider<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_00efce67314e3e8e3045a042fa2a4210313a94a9.svg" alt="20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_00efce67314e3e8e3045a042fa2a4210313a94a9.svg" class="org-svg" />
+</span>
+</div>
+<p>
+which is an <a href="20241017-infinity_pushout.html#ID-91244ae5-b853-45df-bbe0-af6ae9a8da47">pushout</a> as the morphisms out of <img src="file:///home/anton/html/ltximg/20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_e76a3a95873ecba75d94e0120c035c7ae7351774.svg" alt="20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_e76a3a95873ecba75d94e0120c035c7ae7351774.svg" class="org-svg" /> are is a <a href="20240704-cofibration.html#ID-ffcc319d-a3e4-4291-bdd1-634cb689792d">cofibrations</a> (cf. <a href="20240702-cofibration_as_monomorphism.html#ID-f9c4e9ae-48df-42d3-8f42-9995437f266e">cofibration between simplicial sets as monomorphism</a>, <a href="20240715-kan_quillen_model_structure_on_sset.html#ID-8ed0f48a-1d77-4a4b-86b7-d07c8988e3cf">Kan-quillen Model structure on sSet</a> )<br />
+</p>
+
+<p>
+Then since <img src="file:///home/anton/html/ltximg/20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_f9d4fff07675f599df559c5e656b52a1fd42a7f3.svg" alt="20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_f9d4fff07675f599df559c5e656b52a1fd42a7f3.svg" class="org-svg" /> is excisive, we get the pullback<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_92b6303c4592bf12e93afa2ad2bfe966e9198294.svg" alt="20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_92b6303c4592bf12e93afa2ad2bfe966e9198294.svg" class="org-svg" />
+</span>
+</div>
+<p>
+and since <img src="file:///home/anton/html/ltximg/20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_f9d4fff07675f599df559c5e656b52a1fd42a7f3.svg" alt="20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_f9d4fff07675f599df559c5e656b52a1fd42a7f3.svg" class="org-svg" /> is reduced, this simplifies to<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_aefe5d623d4625e29b28666edb7d04f292ee6d5e.svg" alt="20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_aefe5d623d4625e29b28666edb7d04f292ee6d5e.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Then by some &lt;pullback with terminal object&gt; we get an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a><br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_17ff68bb230082df9664df8473b4bed361373f69.svg" alt="20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_17ff68bb230082df9664df8473b4bed361373f69.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+and by induction<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_7b3d0bfec2962f1b691235d30ab6fd75a288d000.svg" alt="20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_7b3d0bfec2962f1b691235d30ab6fd75a288d000.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org5f2e4e7" class="outline-3">
+<h3 id="org5f2e4e7">not 100% sure</h3>
+<div class="outline-text-3" id="text-org5f2e4e7">
+<ul class="org-ul">
+<li>claim: pullback with terminal object as product / pushout with initial object as coproduct (hopefully works by passing to hocat)<br /></li>
+<li>correct unstraightening of the functor<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7a0511c" class="outline-3">
+<h3 id="org7a0511c">group</h3>
+<div class="outline-text-3" id="text-org7a0511c">
+<p>
+hopefully<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_21c5e68325d0d491134b628ce9742789ad3c2ae9.svg" alt="20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_21c5e68325d0d491134b628ce9742789ad3c2ae9.svg" class="org-svg" />
+</span>
+</div>
+<p>
+is a pushout<br />
+where<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_10cf9b460aa7413312e7f77be37ee9d71e89f705.svg" alt="20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_10cf9b460aa7413312e7f77be37ee9d71e89f705.svg" class="org-svg" />
+</span>
+</div>
+</div>
+<div id="outline-container-orgebfa4f2" class="outline-4">
+<h4 id="orgebfa4f2">proof as pushout</h4>
+<div class="outline-text-4" id="text-orgebfa4f2">
+<p>
+using <a href="20241126-lurie_theorem_about_colimits_in_anima.html#ID-f415dd21-9969-45bb-a513-9e8a97701537">Lurie theorem about colimits in Anima</a> and <a href="20241112-unstraightening_functor_of_cocartesian_fibrations.html#ID-9365931b-bbb7-4110-889e-31cff064eef1">unstraightening functor of cocartesian fibrations</a> <br />
+we get<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_8e958c58b94a7761bec5f29981e4c9cb4821e68f.svg" alt="20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_8e958c58b94a7761bec5f29981e4c9cb4821e68f.svg" class="org-svg" />
+</span>
+</div>
+<p>
+as <a href="20240128-simplicial_set.html#ID-43a75466-c729-429a-a459-56f226b81262">simplicial set</a> over<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_ef4e9e5e620c9b385e31c0d38ac507798f819595.svg" alt="20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_ef4e9e5e620c9b385e31c0d38ac507798f819595.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+which after applying the <a href="20240422-geometric_realization_as_left_adjoint.html#ID-2451576a-b59a-421b-bbc5-ea0414761bf6">geometric realization</a> is a <a href="20230330173711-kontraktibler_raum.html#ID-97035c96-d3da-46f5-afad-856a662cb0e5">contractible space</a>, hence was a <a href="20240703-contractible_simplicial_set.html#ID-5db3dfcd-9f98-41a8-9550-a49351d833cf">contractible simplicial set</a> <br />
+</p>
+
+<p>
+Then the colimit is given by<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_a49253e22e6b1e38671e63b9aa56009787709c05.svg" alt="20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_a49253e22e6b1e38671e63b9aa56009787709c05.svg" class="org-svg" />
+</span>
+</div>
+<p>
+where <img src="file:///home/anton/html/ltximg/20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_02892cda36843a9d966047b9804920b6756d861f.svg" alt="20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_02892cda36843a9d966047b9804920b6756d861f.svg" class="org-svg" /> as <a href="20250114-kan_replacement.html#ID-65a44d5f-4fb0-439a-a38b-1594774150e5">kan replacement</a> stays contractible, hence<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_60216690549176634741c18258bd40c9db7a6b64.svg" alt="20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_60216690549176634741c18258bd40c9db7a6b64.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org9912a34" class="outline-4">
+<h4 id="org9912a34">continuation</h4>
+<div class="outline-text-4" id="text-org9912a34">
+<p>
+and then<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_30bef917cc223ba4c51db113358dada7b946afc9.svg" alt="20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_30bef917cc223ba4c51db113358dada7b946afc9.svg" class="org-svg" />
+</span>
+</div>
+<p>
+is a <a href="20241017-infinity_pullback.html#ID-7aaac468-a0bb-4e73-bfd3-d4c591c10e4f">pullback</a>, showing that<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_c3ebed9daee9f6c26fab6ca29a2f88e1332627a6.svg" alt="20250319-forgetful_functor_from_spectra_to_cartesian_commutative_groups_c3ebed9daee9f6c26fab6ca29a2f88e1332627a6.svg" class="org-svg" />
+</span>
+</div>
+<p>
+is an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a><br />
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2025-03-19 Mi 14:14</p>
+</div>
+</body>
+</html>
