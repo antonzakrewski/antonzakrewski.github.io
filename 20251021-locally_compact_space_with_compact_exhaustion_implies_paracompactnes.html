@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-10-22 Mi 16:01 -->
+<!-- 2025-10-26 So 16:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>hausdorff space with compact exhaustion with interior implies paracompactness</title>
@@ -254,7 +254,7 @@ Now define for \(n \geq 2\)<br />
 V_{j,n} := U_j \cap \mathrm{int}(K_{n+1}) \cap (M \setminus K_{n-1})
 \end{align*}
 <p>
-and then cover \(\mathrm{cl}(\mathrm{int}(K_{n})) \setminus \mathrm{int}(K_{n-1})\) with finitely many \(V_{j,n}\), where we use that \(\mathrm{cl}(\mathrm{int}(K_{n})) \setminus \mathrm{int}(K_{n-1})\) is compact since \(\mathrm{cl}(\mathrm{int}(K_{n})) \subseteq \mathrm{cl}(K_{n}) = K_{n}\) (cf. <a href="20230305124527-abschluss_einer_teilmenge.html#ID-31866533-a3f7-4168-aa7e-4625b41b4790">Closure of a Subset</a>, <a href="20230511112904-abgeschlossenheit_von_kompakten_mengen.html#ID-77b86d0c-e901-449a-9147-602be657eae5">closedness of compact sets in Hausdorff spaces</a>, <a href="20230330212948-komplement_einer_abgeschlossenen_und_offenen_menge.html#ID-443ec431-b5d9-49af-93c0-172f5d49556b">Komplement einer abgeschlossenen und offenen Menge</a>, <a href="20230511112853-abgeschlossene_mengen_kompakter_raume_sind_kompakt.html#ID-2b714bee-6153-4623-8e5a-6c46e87e3474">closed subset of a compact space is compact set</a>)<br />
+and then cover \(K_n \setminus \mathrm{int}(K_{n-1})\) with finitely many \(V_{j,n}\), where we use that \(K_n \setminus \mathrm{int}(K_{n-1})\) is compact (cf. <a href="20230305124527-abschluss_einer_teilmenge.html#ID-31866533-a3f7-4168-aa7e-4625b41b4790">Closure of a Subset</a>, <a href="20230511112904-abgeschlossenheit_von_kompakten_mengen.html#ID-77b86d0c-e901-449a-9147-602be657eae5">closedness of compact sets in Hausdorff spaces</a>, <a href="20230330212948-komplement_einer_abgeschlossenen_und_offenen_menge.html#ID-443ec431-b5d9-49af-93c0-172f5d49556b">Komplement einer abgeschlossenen und offenen Menge</a>, <a href="20230511112853-abgeschlossene_mengen_kompakter_raume_sind_kompakt.html#ID-2b714bee-6153-4623-8e5a-6c46e87e3474">closed subset of a compact space is compact set</a>).<br />
 Then set \(\mathcal{V} = \bigcup_{n \in \mathbb{N}} \bigcup_{i=1}^{l_n} V_{i,n}\).<br />
 </p>
 
@@ -264,9 +264,9 @@ We claim that \(\mathcal{V}\) is a locally finite refinement of \(U_j\)<br />
 </p>
 <ol class="org-ol">
 <li>by definition, each \(V_{j,n}\) is a subset of some \(U_j\), so in particular each element in \(\mathcal{V}\) is a subset of some \(U_j\)<br /></li>
-<li>Let \(x \in M\), then there exists an \(n \in \mathbb{N}\) with \(x \in \mathrm{int}(K_n) \setminus \mathrm{int}(K_{n-1})\) since \(\bigcup_{\mathbb{N}} \mathrm{int}(K_n) = M\) and \(K_0 = \emptyset\), in particular \(x \in \mathrm{cl}(\mathrm{int}(K_{n+1})) \setminus \mathrm{int}(K_{n-1}) \supseteq \mathrm{int}(K_{n+1}) \setminus \mathrm{int}(K_{n-1})\). Hence it is covered by some \(V_{j,n}\), since the finite set \(V_{j,n}\) covers \(\mathrm{cl}(\mathrm{int}(K_{n+1})) \setminus \mathrm{int}(K_{n-1})\)<br /></li>
+<li>Let \(x \in M\), then there exists an \(n \in \mathbb{N}\) with \(x \in \mathrm{int}(K_n) \setminus \mathrm{int}(K_{n-1})\) since \(\bigcup_{\mathbb{N}} \mathrm{int}(K_n) = M\) and \(K_0 = \emptyset\), in particular \(x \in K_n \setminus \mathrm{int}(K_{n-1}) \supseteq \mathrm{int}(K_{n+1}) \setminus \mathrm{int}(K_{n-1})\). Hence it is covered by some \(V_{j,n}\), since the finite set \(V_{j,n}\) covers \(K_{n+1} \setminus \mathrm{int}(K_{n-1})\)<br /></li>
 
-<li>we claim that \(V_{j,n}\) already intersects only finitely many elements in \(\mathcal{V}\). Here each \(V_{j,n} \subseteq K_{n+1} \setminus K_{n-1}\) so it can only intersect \(V_{j',m}\) for \(m \in \{n-1,n,n+1\}\). But the set of \(V_{j',m}\) with fixed \(m\) (or \(m \in \{n-1,n,n+1\}\)) is finite by construction, so it can only intersect finitely many.<br /></li>
+<li>we claim that \(V_{j,n}\) already intersects only finitely many elements in \(\mathcal{V}\). Here each \(V_{j,n} \subseteq K_{n+1} \setminus K_{n-1}\) so it can only intersect \(V_{j',m}\) for \(m \in \{n-1,n,n+1\}\). But the set of \(V_{j',m} \in \mathcal{V}\) with fixed \(m\) (or \(m \in \{n-1,n,n+1\}\)) is finite by construction, so it can only intersect finitely many.<br /></li>
 </ol>
 </div>
 </div>
@@ -274,7 +274,7 @@ We claim that \(\mathcal{V}\) is a locally finite refinement of \(U_j\)<br />
 <div id="postamble" class="status">
 <p class="date">Date: nil</p>
 <p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2025-10-22 Mi 16:01</p>
+<p class="date">Created: 2025-10-26 So 16:08</p>
 </div>
 </body>
 </html>

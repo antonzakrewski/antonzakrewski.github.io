@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-10-26 So 11:01 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>quasi-abelian category of pairs</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">quasi-abelian category of pairs</h1>
+<div id="outline-container-org5c8774c" class="outline-2">
+<h2 id="org5c8774c">Definition</h2>
+<div class="outline-text-2" id="text-org5c8774c">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_172647d25b29099be43a3fb68ef114be787cc331.svg" alt="20250810-quasi_abelian_category_of_pairs_172647d25b29099be43a3fb68ef114be787cc331.svg" class="org-svg" /> be <a href="20230827-abelian_category.html#ID-9003af72-f684-4897-b096-c1d8a681c624">abelian categories</a> where <img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_d57c6320f303ad5a7cea3b569c1edb89225f4e35.svg" alt="20250810-quasi_abelian_category_of_pairs_d57c6320f303ad5a7cea3b569c1edb89225f4e35.svg" class="org-svg" /> is a <a href="20230225184516-volle_unterkategorie.html#ID-02c96fc8-ac4f-42b6-804d-bc08d25bfb2a">full subcategory</a> closed under <a href="20230911-subobject.html#ID-287d81f7-a81b-441c-947e-ba707aa4555b">subobjects</a> and quotient<br />
+</p>
+
+<p>
+Then the quasi-abelian category of pairs is defined as <a href="20230225184516-volle_unterkategorie.html#ID-02c96fc8-ac4f-42b6-804d-bc08d25bfb2a">full subcategory</a> of<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_1052d32ab02de8f595b276bbb0eb0b3b2cf5bd80.svg" alt="20250810-quasi_abelian_category_of_pairs_1052d32ab02de8f595b276bbb0eb0b3b2cf5bd80.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+where for <img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_c4ed5096ea7d2754626066f7295eb3e6a6a3c6de.svg" alt="20250810-quasi_abelian_category_of_pairs_c4ed5096ea7d2754626066f7295eb3e6a6a3c6de.svg" class="org-svg" /><br />
+</p>
+<ol class="org-ol">
+<li>the map is a <a href="20220819135911-monomorphismus.html#ID-60b63797-32fa-4d4e-a577-7616faa010ba">monomorphism</a> <br /></li>
+<li><img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_9e3e9af6a016fecbfc2d05675992f3df8555d9ce.svg" alt="20250810-quasi_abelian_category_of_pairs_9e3e9af6a016fecbfc2d05675992f3df8555d9ce.svg" class="org-svg" />  <br /></li>
+<li><img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_d6309e4c56f7d8f01fffbb79e83cecea55f16253.svg" alt="20250810-quasi_abelian_category_of_pairs_d6309e4c56f7d8f01fffbb79e83cecea55f16253.svg" class="org-svg" />   <br /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org2876b01" class="outline-2">
+<h2 id="org2876b01">structure</h2>
+<div class="outline-text-2" id="text-org2876b01">
+</div>
+<div id="outline-container-orgb2def4e" class="outline-3">
+<h3 id="orgb2def4e">additive</h3>
+<div class="outline-text-3" id="text-orgb2def4e">
+<p>
+inherited from <img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_e671417438d637047ce5dfb848997ccc20734a67.svg" alt="20250810-quasi_abelian_category_of_pairs_e671417438d637047ce5dfb848997ccc20734a67.svg" class="org-svg" /><br />
+</p>
+<ul class="org-ul">
+<li><a href="20240327-limit_functor_preserves_monomorphisms.html#ID-55bec8ef-8315-46a6-b781-b3c48c435a3e">limit functor preserves monomorphisms</a> <br /></li>
+<li><img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_bd1b6a090ba2e7381bf992c639ab86ddbb621c9d.svg" alt="20250810-quasi_abelian_category_of_pairs_bd1b6a090ba2e7381bf992c639ab86ddbb621c9d.svg" class="org-svg" /> is closed under sums<br /></li>
+<li><img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_8099302c15534133c0eedda33fa5268305f15639.svg" alt="20250810-quasi_abelian_category_of_pairs_8099302c15534133c0eedda33fa5268305f15639.svg" class="org-svg" /> commutes with sums (so again closure of <img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_bd1b6a090ba2e7381bf992c639ab86ddbb621c9d.svg" alt="20250810-quasi_abelian_category_of_pairs_bd1b6a090ba2e7381bf992c639ab86ddbb621c9d.svg" class="org-svg" /> suffices)<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0361bbd" class="outline-3">
+<h3 id="org0361bbd">kernel</h3>
+<div class="outline-text-3" id="text-org0361bbd">
+<p>
+using the <a href="20240316-snake_lemma.html#ID-d0a9d4c0-e63c-454e-b1d2-fc1e66b34811">Snake Lemma</a> <br />
+for<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_2da5e239508e7566ba0a9173fcb0790f684c5c53.svg" alt="20250810-quasi_abelian_category_of_pairs_2da5e239508e7566ba0a9173fcb0790f684c5c53.svg" class="org-svg" />
+</span>
+</div>
+<p>
+we have that<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_abe13badbb3a32caf906e827d5af72fca24ce957.svg" alt="20250810-quasi_abelian_category_of_pairs_abe13badbb3a32caf906e827d5af72fca24ce957.svg" class="org-svg" />
+</span>
+</div>
+<p>
+is long exact.<br />
+So in particular <img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_f9d868f050f76804022201f78955249d03689ea8.svg" alt="20250810-quasi_abelian_category_of_pairs_f9d868f050f76804022201f78955249d03689ea8.svg" class="org-svg" /> is a monomorhpism.<br />
+SO it remains to show that <img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_b1660f257de2cd66b2c2f0b97878baad5de11a15.svg" alt="20250810-quasi_abelian_category_of_pairs_b1660f257de2cd66b2c2f0b97878baad5de11a15.svg" class="org-svg" />.<br />
+For that we notice that<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_cd77eea7ef218a816463655593e2991206c37638.svg" alt="20250810-quasi_abelian_category_of_pairs_cd77eea7ef218a816463655593e2991206c37638.svg" class="org-svg" />
+</span>
+</div>
+<p>
+is <a href="20230722-short_exact_sequence.html#ID-7b01038e-f4c1-4e1e-ad52-a0c6a18008f3">short exact sequence</a> so in particular <img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_09a15070ef1f6495cadc74ed19ced424eec30eef.svg" alt="20250810-quasi_abelian_category_of_pairs_09a15070ef1f6495cadc74ed19ced424eec30eef.svg" class="org-svg" /> is a subobject and where <img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_49185321659f086af34e286413d4882a6bcf4726.svg" alt="20250810-quasi_abelian_category_of_pairs_49185321659f086af34e286413d4882a6bcf4726.svg" class="org-svg" /> lies in <img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_bd1b6a090ba2e7381bf992c639ab86ddbb621c9d.svg" alt="20250810-quasi_abelian_category_of_pairs_bd1b6a090ba2e7381bf992c639ab86ddbb621c9d.svg" class="org-svg" /> since it is the kernel<br />
+(cf. <a href="20240514-cutting_a_short_exact_sequence_out_of_a_long_exact_sequence.html#ID-7d8c7b40-2cdd-45e2-aa4f-b9f3f2aa3811">cutting a short exact sequence out of a long exact sequence</a>)<br />
+</p>
+
+<p>
+In particular the kernels are computed usually<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org9cbee9f" class="outline-3">
+<h3 id="org9cbee9f">cokernel</h3>
+<div class="outline-text-3" id="text-org9cbee9f">
+<p>
+For<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_2da5e239508e7566ba0a9173fcb0790f684c5c53.svg" alt="20250810-quasi_abelian_category_of_pairs_2da5e239508e7566ba0a9173fcb0790f684c5c53.svg" class="org-svg" />
+</span>
+</div>
+<p>
+we claim that the <a href="20230827-cokernel_category_theory.html#ID-3e52d31a-b97e-454b-b565-4ae3d2b26482">cokernel</a> is given by<br />
+For<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_5491f7a6b7d2de9b1141f9d9c4d54ec923ac78d9.svg" alt="20250810-quasi_abelian_category_of_pairs_5491f7a6b7d2de9b1141f9d9c4d54ec923ac78d9.svg" class="org-svg" />
+</span>
+</div>
+<p>
+using <a href="20250924-cofiber_in_the_arrow_category.html#ID-87566e86-a8d9-4d9e-848d-34aa8cf8f53b">cofiber in the arrow category</a> we conclude that the quotient <img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_a835d61d905e2122598aea9cf52d0eab96fd9e89.svg" alt="20250810-quasi_abelian_category_of_pairs_a835d61d905e2122598aea9cf52d0eab96fd9e89.svg" class="org-svg" /> lies in <img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_bd1b6a090ba2e7381bf992c639ab86ddbb621c9d.svg" alt="20250810-quasi_abelian_category_of_pairs_bd1b6a090ba2e7381bf992c639ab86ddbb621c9d.svg" class="org-svg" />.<br />
+</p>
+
+<p>
+Hence we only need to replace <img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_5ad43c8b2919370b45563c89dd56a8d997ac9a37.svg" alt="20250810-quasi_abelian_category_of_pairs_5ad43c8b2919370b45563c89dd56a8d997ac9a37.svg" class="org-svg" /> with <img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_96334bd5a573f43004ea81eaa1edd89863ab0c92.svg" alt="20250810-quasi_abelian_category_of_pairs_96334bd5a573f43004ea81eaa1edd89863ab0c92.svg" class="org-svg" /> or <img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_1e76d7692d9c5143f7ee0611586f7c58c11576cc.svg" alt="20250810-quasi_abelian_category_of_pairs_1e76d7692d9c5143f7ee0611586f7c58c11576cc.svg" class="org-svg" /><br />
+</p>
+</div>
+</div>
+<div id="outline-container-org8c61623" class="outline-3">
+<h3 id="org8c61623">regular epi mirrored under pullback</h3>
+<div class="outline-text-3" id="text-org8c61623">
+</div>
+<div id="outline-container-org59613fe" class="outline-4">
+<h4 id="org59613fe">epi</h4>
+<div class="outline-text-4" id="text-org59613fe">
+<p>
+<a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> <img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_186ff1b09a731413db9f6ed0b0b3a67d22467034.svg" alt="20250810-quasi_abelian_category_of_pairs_186ff1b09a731413db9f6ed0b0b3a67d22467034.svg" class="org-svg" /> is an epi<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org5ebe0dd" class="outline-4">
+<h4 id="org5ebe0dd">regular epi</h4>
+<div class="outline-text-4" id="text-org5ebe0dd">
+<p>
+We claim that a morphism is a regular epi iff<br />
+</p>
+<ol class="org-ol">
+<li>both maps <img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_763a32a553004c357a6acda6ffdb34d653996b1c.svg" alt="20250810-quasi_abelian_category_of_pairs_763a32a553004c357a6acda6ffdb34d653996b1c.svg" class="org-svg" /> are epis<br /></li>
+<li>the induced square on kernels<br /></li>
+</ol>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_2ec26df1c46902e403da6b40e9385e9c46a32ef6.svg" alt="20250810-quasi_abelian_category_of_pairs_2ec26df1c46902e403da6b40e9385e9c46a32ef6.svg" class="org-svg" />
+</span>
+</div>
+<p>
+is a pullback<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org56e13c7" class="outline-3">
+<h3 id="org56e13c7">regular mono mirrored under pushout</h3>
+<div class="outline-text-3" id="text-org56e13c7">
+</div>
+<div id="outline-container-org94e2ab1" class="outline-4">
+<h4 id="org94e2ab1">mono</h4>
+<div class="outline-text-4" id="text-org94e2ab1">
+<ul class="org-ul">
+<li>iff both maps <img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_5c3dfa4e6bca87ed5042d594d930ce74d42712ac.svg" alt="20250810-quasi_abelian_category_of_pairs_5c3dfa4e6bca87ed5042d594d930ce74d42712ac.svg" class="org-svg" /> are monomorhpisms.<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgee0fd27" class="outline-4">
+<h4 id="orgee0fd27">regular mono</h4>
+<div class="outline-text-4" id="text-orgee0fd27">
+<p>
+we claim that a mono is regular <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> the square<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20250810-quasi_abelian_category_of_pairs_e821f20073ec142487bb2849e534948df580d135.svg" alt="20250810-quasi_abelian_category_of_pairs_e821f20073ec142487bb2849e534948df580d135.svg" class="org-svg" />
+</span>
+</div>
+<p>
+is a <a href="20241017-infinity_pullback.html#ID-7aaac468-a0bb-4e73-bfd3-d4c591c10e4f">pullback</a><br />
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2025-10-26 So 11:01</p>
+</div>
+</body>
+</html>
