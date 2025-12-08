@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-12-08 Mo 07:50 -->
+<!-- 2025-12-08 Mo 13:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>LinAlg 1 - Best of von meinen Sachen</title>
+<title>Kriterien zum Nachweisen einer Basis</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
@@ -194,28 +194,179 @@
   .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">LinAlg 1 - Best of von meinen Sachen</h1>
-<div id="outline-container-orgb5a6e8a" class="outline-2">
-<h2 id="orgb5a6e8a">Liste</h2>
-<div class="outline-text-2" id="text-orgb5a6e8a">
-<ul class="org-ul">
-<li><a href="20251129-linalg_1_wichtige_algorithmen_25_26.html#ID-d0d6e4c3-c246-44a4-9a00-39c580bc817a">LinAlg 1 - wichtige Algorithmen (25/26)</a> (da hatten wir noch nicht alle dran ?)<br /></li>
-<li><a href="20251129-linalg_1_paar_dimensionen.html#ID-e30a9f31-2a5c-4faa-a788-ee795323662b">LinAlg 1 - paar Dimensionen von Vektorräumen</a> / <a href="20251130-linalg_1_wichtige_vektorraume.html#ID-ae987571-b886-4153-b394-45e46f369851">LinAlg 1 - paar wichtige Vektorräume</a> <br /></li>
-<li><a href="20250117-analogy_finite_sets_and_finite_dimensional_vector_space.html#ID-d504c047-4c64-498a-ab76-8ae3d6b6c7f7">analogy: finite sets and finite dimensional vector space</a><br /></li>
-<li><a href="20250117-linalg_1_paar_inhaltliche_klausurtipps.html#ID-f2db14fa-f5cd-4adf-b0bc-a7c7df42ea7f">LinAlg 1 - paar inhaltliche Klausurtipps &amp; Tricks &amp; Standardargumente</a> <br /></li>
-<li><a href="20250116-linalg_1_extra_aufgaben.html#ID-11c2994d-a66a-4cc6-972f-f92b170ccb1c">LinAlg 1 - Extra-Aufgaben</a><br /></li>
-<li><a href="20251208-kriterien_zum_nachweisen_einer_basis.html#ID-107c4e54-e15a-4c45-8919-fbd7dde17fdd">Kriterien zum Nachweisen einer Basis</a> <br /></li>
-</ul>
+<h1 class="title">Kriterien zum Nachweisen einer Basis</h1>
+<div id="outline-container-org2975cb6" class="outline-2">
+<h2 id="org2975cb6">List</h2>
+<div class="outline-text-2" id="text-org2975cb6">
+<p>
+Sei \(V\) ein <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">endlich</a> <a href="20220102135318-dimension.html#ID-3e484fb0-c9a8-485a-999b-4f0052bd13e4">dimensionaler</a> <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">K-Vektorraum</a> und \((v_1,...,v_n)\) eine Menge von Vektoren.<br />
+</p>
+</div>
+<div id="outline-container-orgb61ebd0" class="outline-3">
+<h3 id="orgb61ebd0">a) Nachrechnen: Erzeugendensystem + Dimension</h3>
+<div class="outline-text-3" id="text-orgb61ebd0">
+<p>
+Man kann zeigen:<br />
+a) die Dimension von \(V\) ist gegeben durch \(n\) (im wohl häufigsten Fall \(V = K^n\) kann man das wohl ablesen)<br />
+b) \((v_1,...,v_n)\) ist ein <a href="20221106152549-erzeugendensystem.html#ID-f76ea8a6-1176-46cf-a300-c2312e60e6d8">Erzeugendensystem eines Vektorraums</a> <br />
+Nach der <a href="20221211171225-satz_uber_die_aquivalenz_von_basis_minimales_erzeugendensystem_und_maximal_linear_unabhangige_teilmenge.html#ID-c340bcf8-acfa-464f-a3d5-ad947a2d1efd">Äquivalenz von Basis, minimales Erzeugendensystem und maximal linear unabhängige Teilmenge</a> <br />
+</p>
+</div>
+</div>
+<div id="outline-container-org4d4b623" class="outline-3">
+<h3 id="org4d4b623">b) Nachrechnen: Linear Unabhängig + Dimension</h3>
+<div class="outline-text-3" id="text-org4d4b623">
+<p>
+Man kann zeigen:<br />
+a) die Dimension von \(V\) ist gegeben durch \(n\) (im wohl häufigsten Fall \(V = K^n\) kann man das wohl ablesen)<br />
+b) \((v_1,...,v_n)\) ist <a href="20220207224644-lineare_unabhangigkeit.html#ID-c4d1496f-6012-4ade-8b98-3e29dad89ded">lineare unabhängig</a> <br />
+Nach der <a href="20221211171225-satz_uber_die_aquivalenz_von_basis_minimales_erzeugendensystem_und_maximal_linear_unabhangige_teilmenge.html#ID-c340bcf8-acfa-464f-a3d5-ad947a2d1efd">Äquivalenz von Basis, minimales Erzeugendensystem und maximal linear unabhängige Teilmenge</a> <br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgc7ffb27" class="outline-3">
+<h3 id="orgc7ffb27">c) invertierbare Abbildung: \(v_i\) als Spalten</h3>
+<div class="outline-text-3" id="text-orgc7ffb27">
+<p>
+Man kann zeigen dass der induzierte <a href="20221119162741-vektorraumhomomorphismus.html#ID-863f0f55-054c-413e-9cf4-2c2704ea5b14">VR-Homomorphismus</a><br />
+</p>
+\begin{align*}
+f: K^n \rightarrow& V \\
+e_i \mapsto& v_i
+\end{align*}
+<p>
+ein VR-Iso ist.<br />
+</p>
+
+<p>
+Das gilt, weil<br />
+</p>
+<ol class="org-ol">
+<li><a href="20230629-vektorraumepimorphismus_erhalt_erzeugendensysteme.html#ID-3f1ca98e-85f2-465a-bca6-8102b78a3b5f">Vektorraumepimorphismen erhalten Erzeugendensysteme</a><br /></li>
+<li><a href="20230629-vektorraummonomorphismus_erhalt_lineare_unabhangigkeit.html#ID-4a10163e-d34c-4abe-9675-860bf7f3c75e">Vektorraummonomorphismus erhält lineare Unabhängigkeit</a> <br /></li>
+<li>\(e_1,...,e_n\) eine Basis von \(K^n\) ist<br /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org9fe7e75" class="outline-3">
+<h3 id="org9fe7e75">d) Determinantenkriterium für Matrix mit \(v_i\) als Spalten</h3>
+<div class="outline-text-3" id="text-org9fe7e75">
+<p>
+Für den Fall \(V = K^n\) kann man die Matrix<br />
+</p>
+\begin{align*}
+A := \begin{pNiceMatrix} v_1 & ... & v_n \end{pNiceMatrix} 
+\end{align*}
+<p>
+ausschreiben und die Determinante ausrechnen.<br />
+Dann ist \((v_1,...,v_n)\) eine Basis <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">g.d.w.</a> \(\mathrm{det}(A) \neq 0\) da \(A\) zu der Abbildung \(f\) aus der c) korrespondiert und ein VR-Hom. \(f: K^n \rightarrow K^n\) invertierbar ist gdw die korrespondierende Matrix nichtnull determinante hat \(\mathrm{det}(A) \neq 0\).<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgce468f2" class="outline-3">
+<h3 id="orgce468f2">e) Determinantenkriterium für Matrix mit \(v_i\) als Zeilen</h3>
+<div class="outline-text-3" id="text-orgce468f2">
+<p>
+Für den Fall \(V = K^n\) kann man die Matrix<br />
+</p>
+\begin{align*}
+A^t =: \begin{pNiceMatrix} v_1 \\ \vdot \\ v_n \end{pNiceMatrix} 
+\end{align*}
+<p>
+ausschreiben und die Determinante ausrechnen.<br />
+Dann ist wegen \(\mathrm{det}(A^t) = \mathrm{det}(A)\) und der d) das Tupel \((v_1,...,v_n)\) eine Basis gdw \(\mathrm{det}(A^t) \neq 0\)<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgb6add49" class="outline-3">
+<h3 id="orgb6add49">f) Nachrechnen: Linear Unabhängig und Erzeugendensystem</h3>
+<div class="outline-text-3" id="text-orgb6add49">
+<p>
+man kann natürlich auch die Definition nachrechnen.<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org9ba2993" class="outline-2">
+<h2 id="org9ba2993">Negation</h2>
+<div class="outline-text-2" id="text-org9ba2993">
+<p>
+Das "funktioniert" bezieht sich im folgenden auf den Fall, dass \((v_1,...,v_n)\) keine Basis ist.<br />
+</p>
+</div>
+<div id="outline-container-org839e986" class="outline-3">
+<h3 id="org839e986">a) Dimensionsgründe (funktioniert manchmal)</h3>
+<div class="outline-text-3" id="text-org839e986">
+<p>
+Falls \(\mathrm{dim}(V) \neq n\) kann \((v_1,...,v_n)\) keine Basis sein.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org0d64d0f" class="outline-3">
+<h3 id="org0d64d0f">b) nicht linear unabhängig (funktioniert oft)</h3>
+<div class="outline-text-3" id="text-org0d64d0f">
+<p>
+selbsterklärend<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org80a96bd" class="outline-3">
+<h3 id="org80a96bd">c) kein erzeugendensystem (funktioniert oft)</h3>
+<div class="outline-text-3" id="text-org80a96bd">
+<p>
+selbsterklärend<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgd4d8ecb" class="outline-3">
+<h3 id="orgd4d8ecb">d) Determinante (funktioniert im Fall \(V = K^n\) immer)</h3>
+<div class="outline-text-3" id="text-orgd4d8ecb">
+<p>
+Falls \(V = K^n\) kann man auch nachrechnen dass die Matrix \(A\) bzw. \(A^t\) aus der d) bzw. e) \(\mathrm{det}(A) = 0\) bzw. äquivalent \(\mathrm{det}(A^t) = 0\) erfüllt.<br />
+</p>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: nil</p>
 <p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2025-12-08 Mo 07:50</p>
+<p class="date">Created: 2025-12-08 Mo 13:11</p>
 </div>
 </body>
 </html>
