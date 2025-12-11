@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-12-11 Do 16:47 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>fiber sequence of the inclusion of CP^n into CP infinity</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">fiber sequence of the inclusion of CP<sup>n</sup> into CP infinity</h1>
+<div id="outline-container-org41bf96b" class="outline-2">
+<h2 id="org41bf96b">Proposition</h2>
+<div class="outline-text-2" id="text-org41bf96b">
+<p>
+The inclusion of <img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_3f8a4a4db27cb3220a42f82ce83aa53bbba368c3.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_3f8a4a4db27cb3220a42f82ce83aa53bbba368c3.svg" class="org-svg" /> lives in a <a href="20241022-fiber_of_an_infinity_morphism.html#ID-315c0bce-7cf8-468b-9149-1e254debcf95">fiber</a> sequence<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_8b50c0d17cdc010764a82427fc9fa0cbe097f07d.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_8b50c0d17cdc010764a82427fc9fa0cbe097f07d.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org8cc8bcc" class="outline-2">
+<h2 id="org8cc8bcc">Proof</h2>
+<div class="outline-text-2" id="text-org8cc8bcc">
+<p>
+Let <img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_e48941c0a5a06c6d59dae7d59e3d9059c02d8183.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_e48941c0a5a06c6d59dae7d59e3d9059c02d8183.svg" class="org-svg" /> be the fiber of the inclusion.<br />
+Note that the skeleton inclusion <img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_2e7aa64f2139e75992c2bc0e7844a25a5295f42d.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_2e7aa64f2139e75992c2bc0e7844a25a5295f42d.svg" class="org-svg" /> is <img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_e25f2d7aa66fec8ca8fda0b2f1d38efc02a6e5c4.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_e25f2d7aa66fec8ca8fda0b2f1d38efc02a6e5c4.svg" class="org-svg" /> connected.<br />
+Furthermore <img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_abb07681d57fc92669346ac22107fc7f8dfacf4b.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_abb07681d57fc92669346ac22107fc7f8dfacf4b.svg" class="org-svg" /> is <a href="20250310-simply_connected_anima.html#ID-61761264-9731-42f7-80ef-72f6247f6ea7">simply connected.</a><br />
+Furthermore <img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_2c970fa62d541020c596e04ea9142d35ca32e67b.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_2c970fa62d541020c596e04ea9142d35ca32e67b.svg" class="org-svg" /> of <img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_665bf97a06c69d24b56d023dcde339bfface3604.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_665bf97a06c69d24b56d023dcde339bfface3604.svg" class="org-svg" /> has homology in degrees <img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_03ef60b6829a0b9e5d07d73025c8e6482db14fbe.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_03ef60b6829a0b9e5d07d73025c8e6482db14fbe.svg" class="org-svg" /> and above.<br />
+</p>
+
+<p>
+So <a href="20241028-relative_hurewicz_theorema.html#ID-7393ba54-9b0f-493c-91c8-ec1776028fa8">relative Hurewicz theorem</a> tells us that the homotopy of the fiber<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_2a3ca5e461ff4b0f8b3f7234fd7f93795b047daa.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_2a3ca5e461ff4b0f8b3f7234fd7f93795b047daa.svg" class="org-svg" />
+</span>
+</div>
+<p>
+and it has to be zero before that.<br />
+</p>
+
+<p>
+Now consider the <a href="20250514-serre_spectral_sequence.html#ID-16001db6-bfb8-4a57-80f4-4582c8a7d02e">cohomological serre spectral sequence</a>, here exemplarily for <img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_db29d3a78ed9d400d83de9d8ed74c7f7e1224d2a.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_db29d3a78ed9d400d83de9d8ed74c7f7e1224d2a.svg" class="org-svg" /><br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_6497fee62f61e35b1fc458124c74ecaf3c741481.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_6497fee62f61e35b1fc458124c74ecaf3c741481.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Now the element <img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_12861b45483688e80ae7c3e6951d46a1d65b255d.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_12861b45483688e80ae7c3e6951d46a1d65b255d.svg" class="org-svg" /> entry must be killed, since <img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_e69e01b1b21c1c2c769471a590983d6d33fec7e8.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_e69e01b1b21c1c2c769471a590983d6d33fec7e8.svg" class="org-svg" />.<br />
+Hence the map must be an isomorphism.<br />
+</p>
+
+<p>
+furthermore <a href="20251211-multiplication_of_a_multiplicative_spectral_sequence_under_different_pages.html#ID-6d9c061f-b270-41be-a4b0-3bfa30ffef70">multiplication of a multiplicative spectral sequence under different pages</a> tells us that <img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_6379142783a72cbf07874b85c64ef6fa31913954.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_6379142783a72cbf07874b85c64ef6fa31913954.svg" class="org-svg" /> must be nonzero in the <img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_6afe536e34a3f9b6c0fe361241238921ce06353d.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_6afe536e34a3f9b6c0fe361241238921ce06353d.svg" class="org-svg" /> page, since we will show that its differential under the leibniz rule will be nonzero:<br />
+</p>
+
+<p>
+The leibniz rule says up to sign<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_1c674cf27bc6b9e06f2e89aac9f5ca400b1c22e5.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_1c674cf27bc6b9e06f2e89aac9f5ca400b1c22e5.svg" class="org-svg" />
+</span>
+</div>
+<p>
+so in particular <img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_24c72150a49242e6da53434c64635e5cb2f27d15.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_24c72150a49242e6da53434c64635e5cb2f27d15.svg" class="org-svg" /> and each <img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_48b1265b166eca7170e2e240b7e76b291c5466b0.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_48b1265b166eca7170e2e240b7e76b291c5466b0.svg" class="org-svg" /> from the <img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_839b3d0802ce26490f86da23e7698f04373e88ee.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_839b3d0802ce26490f86da23e7698f04373e88ee.svg" class="org-svg" />-th row must be an isomorphism - hence up until the<br />
+</p>
+
+<p>
+Furthemore <img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_44e3883542b9c23ce8b480ac2e5435e0faa386c5.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_44e3883542b9c23ce8b480ac2e5435e0faa386c5.svg" class="org-svg" /> can't have homology in degrees above <img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_7e2e6d3883704d56a9210fc1e34e9ab46f8deb8c.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_7e2e6d3883704d56a9210fc1e34e9ab46f8deb8c.svg" class="org-svg" /> since then <img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_61a15dd70c59dafe325bb6370a983944adc5ec60.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_61a15dd70c59dafe325bb6370a983944adc5ec60.svg" class="org-svg" /> can't be killed.<br />
+</p>
+
+
+<p>
+therefore <a href="20251027-cohomology_sphere_is_equivalent_to_a_sphere.html#ID-39be9f1d-5d92-47ae-b6cb-9efb7c7af192">nilpotent cohomology sphere is equivalent to a sphere</a> shows that <img src="ltximg/20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_be9e7272f4c7f5f1080b958fbedfb3dcfef54b6b.svg" alt="20251211-fiber_sequence_of_the_inclusion_of_cp_n_into_cp_infinity_be9e7272f4c7f5f1080b958fbedfb3dcfef54b6b.svg" class="org-svg" /> as desired<br />
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2025-12-11 Do 16:47</p>
+</div>
+</body>
+</html>
