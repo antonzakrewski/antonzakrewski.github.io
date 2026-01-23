@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-01-23 Fr 06:48 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LinAlg 1 - extra wahr / falsch Aufgaben - misc (Lösungen)</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">LinAlg 1 - extra wahr / falsch Aufgaben - misc (Lösungen)</h1>
+<div id="outline-container-org06c54bc" class="outline-2">
+<h2 id="org06c54bc">Liste</h2>
+<div class="outline-text-2" id="text-org06c54bc">
+</div>
+<div id="outline-container-org726129e" class="outline-3">
+<h3 id="org726129e">Mengen</h3>
+<div class="outline-text-3" id="text-org726129e">
+<p>
+Seien <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_4c69daf2c6b10edd9f4b937edf6dc7baa7be3866.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_4c69daf2c6b10edd9f4b937edf6dc7baa7be3866.svg" class="org-svg" /> Mengen.<br />
+</p>
+</div>
+<div id="outline-container-orgd4df4e8" class="outline-4">
+<h4 id="orgd4df4e8">i) - falsch</h4>
+<div class="outline-text-4" id="text-orgd4df4e8">
+<p>
+Dann existiert eine Abbildung <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_245fd7f841aa5d3c006848dea8c41cd70ab04be3.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_245fd7f841aa5d3c006848dea8c41cd70ab04be3.svg" class="org-svg" /><br />
+</p>
+</div>
+</div>
+<div id="outline-container-org94c0822" class="outline-4">
+<h4 id="org94c0822">ii) - falsch</h4>
+<div class="outline-text-4" id="text-org94c0822">
+<p>
+Es gilt <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_f56b48fd3b8ed90b1b1e6e734e6f8eba9a274577.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_f56b48fd3b8ed90b1b1e6e734e6f8eba9a274577.svg" class="org-svg" /><br />
+</p>
+</div>
+</div>
+<div id="outline-container-org11c5ef1" class="outline-4">
+<h4 id="org11c5ef1">iii) - wahr</h4>
+<div class="outline-text-4" id="text-org11c5ef1">
+<p>
+Es gilt <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_639c1d3f4888365fd7c830c6d88b0a2100945bdc.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_639c1d3f4888365fd7c830c6d88b0a2100945bdc.svg" class="org-svg" /><br />
+</p>
+</div>
+</div>
+<div id="outline-container-org551f19f" class="outline-4">
+<h4 id="org551f19f">iv) - wahr</h4>
+<div class="outline-text-4" id="text-org551f19f">
+<p>
+Eine injektive Abbildung <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_103545b2ba9bd491b663c911a4383d507caaf70e.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_103545b2ba9bd491b663c911a4383d507caaf70e.svg" class="org-svg" /> ist immer surjektiv.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org7352c2a" class="outline-4">
+<h4 id="org7352c2a">v) - falsch</h4>
+<div class="outline-text-4" id="text-org7352c2a">
+<p>
+Die Projektion<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_38ab1cf43e0f36386a295b7e9eefd16dc52d9855.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_38ab1cf43e0f36386a295b7e9eefd16dc52d9855.svg" class="org-svg" />
+</span>
+</div>
+<p>
+ist surjektiv.<br />
+</p>
+
+<p>
+Die Abbildung ist surjektiv gdw <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_31571235d9f6f2f2356c61b3ec73d7832aca4754.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_31571235d9f6f2f2356c61b3ec73d7832aca4754.svg" class="org-svg" /><br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgda19507" class="outline-4">
+<h4 id="orgda19507">vi) - falsch</h4>
+<div class="outline-text-4" id="text-orgda19507">
+<p>
+Eine konstante Abbildung <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_245fd7f841aa5d3c006848dea8c41cd70ab04be3.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_245fd7f841aa5d3c006848dea8c41cd70ab04be3.svg" class="org-svg" /> (für <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_f186f54384c9f68a826de758a87fb116978cb760.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_f186f54384c9f68a826de758a87fb116978cb760.svg" class="org-svg" />) ist nie injektiv.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org0d0734a" class="outline-4">
+<h4 id="org0d0734a">vii) - wahr</h4>
+<div class="outline-text-4" id="text-org0d0734a">
+<p>
+Es existieren Mengen <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_3b96417c94403d685aee084ed3707092743890f9.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_3b96417c94403d685aee084ed3707092743890f9.svg" class="org-svg" /> und surjektive Abbildungen <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_fbeefd7c31776c53821bad0b55c3a0578044b0bf.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_fbeefd7c31776c53821bad0b55c3a0578044b0bf.svg" class="org-svg" /> so dass die Komposition<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_095a1184373e2b3f75494d76cfc9b63d3ef5cda2.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_095a1184373e2b3f75494d76cfc9b63d3ef5cda2.svg" class="org-svg" />
+</span>
+</div>
+<p>
+injektiv ist.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgd48860f" class="outline-4">
+<h4 id="orgd48860f">viii) - falsch</h4>
+<div class="outline-text-4" id="text-orgd48860f">
+<p>
+Sei <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_245fd7f841aa5d3c006848dea8c41cd70ab04be3.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_245fd7f841aa5d3c006848dea8c41cd70ab04be3.svg" class="org-svg" /> eine Abbildung und <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_04ddbdaff38a7a7aa7baa8d2ae0c49c5eed1d6b1.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_04ddbdaff38a7a7aa7baa8d2ae0c49c5eed1d6b1.svg" class="org-svg" />.<br />
+dann folgt <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_4c973dab38150e5060a2960e663ddf8ab7731794.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_4c973dab38150e5060a2960e663ddf8ab7731794.svg" class="org-svg" /><br />
+</p>
+
+<p>
+Die Aussage ist (nur) wahr, wenn <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_d13b7f98de49eefd9f759dbae8cc9b6439916179.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_d13b7f98de49eefd9f759dbae8cc9b6439916179.svg" class="org-svg" /> (hinreichend) injektiv ist.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgad99c0b" class="outline-4">
+<h4 id="orgad99c0b">ix) - falsch</h4>
+<div class="outline-text-4" id="text-orgad99c0b">
+<p>
+Sei <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_245fd7f841aa5d3c006848dea8c41cd70ab04be3.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_245fd7f841aa5d3c006848dea8c41cd70ab04be3.svg" class="org-svg" /> eine Abbildung und <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_398db5682af7fb346cfdd016b30238d676fcd0c2.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_398db5682af7fb346cfdd016b30238d676fcd0c2.svg" class="org-svg" />.<br />
+dann folgt <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_1a0308b4e7de09dd8aa6d9abf307b67fb846b654.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_1a0308b4e7de09dd8aa6d9abf307b67fb846b654.svg" class="org-svg" /><br />
+</p>
+
+<p>
+Die Aussage ist (nur) wahr, wenn <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_d13b7f98de49eefd9f759dbae8cc9b6439916179.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_d13b7f98de49eefd9f759dbae8cc9b6439916179.svg" class="org-svg" /> (hinreichend) surjektiv ist.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org0f3a9b5" class="outline-4">
+<h4 id="org0f3a9b5">x) - wahr</h4>
+<div class="outline-text-4" id="text-org0f3a9b5">
+<p>
+Seien <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_6484c21bbefe161767ca96fffa359296e8297db4.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_6484c21bbefe161767ca96fffa359296e8297db4.svg" class="org-svg" /> surjektive Abbildungen.<br />
+Dann ist auch <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7d1b6f0a998b166bb0926cfe1166ece980510c34.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7d1b6f0a998b166bb0926cfe1166ece980510c34.svg" class="org-svg" /> surjektiv<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgfb90e33" class="outline-4">
+<h4 id="orgfb90e33">xi) - wahr</h4>
+<div class="outline-text-4" id="text-orgfb90e33">
+<p>
+Seien <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_6484c21bbefe161767ca96fffa359296e8297db4.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_6484c21bbefe161767ca96fffa359296e8297db4.svg" class="org-svg" /> injektive Abbildungen zwischen endlichen Mengen.<br />
+Dann ist auch <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7d1b6f0a998b166bb0926cfe1166ece980510c34.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7d1b6f0a998b166bb0926cfe1166ece980510c34.svg" class="org-svg" /> injektiv<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org279b81d" class="outline-4">
+<h4 id="org279b81d">xii) - wahr</h4>
+<div class="outline-text-4" id="text-org279b81d">
+<p>
+Seien <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_6484c21bbefe161767ca96fffa359296e8297db4.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_6484c21bbefe161767ca96fffa359296e8297db4.svg" class="org-svg" /> injektive Abbildungen.<br />
+Dann ist auch <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7d1b6f0a998b166bb0926cfe1166ece980510c34.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7d1b6f0a998b166bb0926cfe1166ece980510c34.svg" class="org-svg" /> injektiv<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org098f750" class="outline-4">
+<h4 id="org098f750">xiii) - wahr</h4>
+<div class="outline-text-4" id="text-org098f750">
+<p>
+Seien <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_6484c21bbefe161767ca96fffa359296e8297db4.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_6484c21bbefe161767ca96fffa359296e8297db4.svg" class="org-svg" /> Abbildungen so dass <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7d1b6f0a998b166bb0926cfe1166ece980510c34.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7d1b6f0a998b166bb0926cfe1166ece980510c34.svg" class="org-svg" /> injektiv ist.<br />
+Dann ist auch <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_d13b7f98de49eefd9f759dbae8cc9b6439916179.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_d13b7f98de49eefd9f759dbae8cc9b6439916179.svg" class="org-svg" /> injektiv<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org5690031" class="outline-4">
+<h4 id="org5690031">xiv) - falsch</h4>
+<div class="outline-text-4" id="text-org5690031">
+<p>
+Seien <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_6484c21bbefe161767ca96fffa359296e8297db4.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_6484c21bbefe161767ca96fffa359296e8297db4.svg" class="org-svg" /> Abbildungen so dass <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7d1b6f0a998b166bb0926cfe1166ece980510c34.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7d1b6f0a998b166bb0926cfe1166ece980510c34.svg" class="org-svg" /> injektiv ist.<br />
+Dann ist auch <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_a4bb7e977c253b30a1a2ac7f28879e832feaa2e1.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_a4bb7e977c253b30a1a2ac7f28879e832feaa2e1.svg" class="org-svg" /> injektiv<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org2d65ff5" class="outline-4">
+<h4 id="org2d65ff5">xv) - falsch</h4>
+<div class="outline-text-4" id="text-org2d65ff5">
+<p>
+Seien <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_6484c21bbefe161767ca96fffa359296e8297db4.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_6484c21bbefe161767ca96fffa359296e8297db4.svg" class="org-svg" /> Abbildungen so dass <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7d1b6f0a998b166bb0926cfe1166ece980510c34.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7d1b6f0a998b166bb0926cfe1166ece980510c34.svg" class="org-svg" /> surjektiv ist.<br />
+Dann ist auch <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_d13b7f98de49eefd9f759dbae8cc9b6439916179.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_d13b7f98de49eefd9f759dbae8cc9b6439916179.svg" class="org-svg" /> surjektiv<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org2eb8ec2" class="outline-4">
+<h4 id="org2eb8ec2">xvi) - wahr</h4>
+<div class="outline-text-4" id="text-org2eb8ec2">
+<p>
+Seien <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_6484c21bbefe161767ca96fffa359296e8297db4.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_6484c21bbefe161767ca96fffa359296e8297db4.svg" class="org-svg" /> Abbildungen so dass <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7d1b6f0a998b166bb0926cfe1166ece980510c34.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7d1b6f0a998b166bb0926cfe1166ece980510c34.svg" class="org-svg" /> surjektiv ist.<br />
+Dann ist auch <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_a4bb7e977c253b30a1a2ac7f28879e832feaa2e1.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_a4bb7e977c253b30a1a2ac7f28879e832feaa2e1.svg" class="org-svg" /> surjektiv<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org1028b86" class="outline-4">
+<h4 id="org1028b86">xv) - falsch</h4>
+<div class="outline-text-4" id="text-org1028b86">
+<p>
+Seien <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_6484c21bbefe161767ca96fffa359296e8297db4.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_6484c21bbefe161767ca96fffa359296e8297db4.svg" class="org-svg" /> Abbildungen so dass <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7d1b6f0a998b166bb0926cfe1166ece980510c34.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7d1b6f0a998b166bb0926cfe1166ece980510c34.svg" class="org-svg" /> bijektiv ist.<br />
+Dann ist auch <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_d13b7f98de49eefd9f759dbae8cc9b6439916179.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_d13b7f98de49eefd9f759dbae8cc9b6439916179.svg" class="org-svg" /> bijektiv<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgc3a6424" class="outline-4">
+<h4 id="orgc3a6424">xvi) - falsch</h4>
+<div class="outline-text-4" id="text-orgc3a6424">
+<p>
+Seien <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_6484c21bbefe161767ca96fffa359296e8297db4.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_6484c21bbefe161767ca96fffa359296e8297db4.svg" class="org-svg" /> Abbildungen so dass <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7d1b6f0a998b166bb0926cfe1166ece980510c34.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7d1b6f0a998b166bb0926cfe1166ece980510c34.svg" class="org-svg" /> bijektiv ist.<br />
+Dann ist auch <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_a4bb7e977c253b30a1a2ac7f28879e832feaa2e1.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_a4bb7e977c253b30a1a2ac7f28879e832feaa2e1.svg" class="org-svg" /> bijektiv<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org536f4ad" class="outline-4">
+<h4 id="org536f4ad">xvii) - wahr</h4>
+<div class="outline-text-4" id="text-org536f4ad">
+<p>
+Sei <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_14e67d5ff50b5d17263998dbc8ed89e8869cdffe.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_14e67d5ff50b5d17263998dbc8ed89e8869cdffe.svg" class="org-svg" /> die Potenzmenge.<br />
+Die Abbildung<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_ee1f13ee6cb98484e3a6b2f8ef82206276316f80.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_ee1f13ee6cb98484e3a6b2f8ef82206276316f80.svg" class="org-svg" />
+</span>
+</div>
+<p>
+ist bijektiv.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org293ce67" class="outline-4">
+<h4 id="org293ce67">xviii) - falsch</h4>
+<div class="outline-text-4" id="text-org293ce67">
+<p>
+Die Menge <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_271be49308c4907aeccfe5e51496226b58dcb04b.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_271be49308c4907aeccfe5e51496226b58dcb04b.svg" class="org-svg" /> enthält <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_f18cc1115c6f5b31ce80fa74a72513986ca44890.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_f18cc1115c6f5b31ce80fa74a72513986ca44890.svg" class="org-svg" /> Elemente.<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org7cedd8f" class="outline-3">
+<h3 id="org7cedd8f">Gruppen</h3>
+<div class="outline-text-3" id="text-org7cedd8f">
+<p>
+Seien <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_b863710af3a64629f10a991bf83d34dcb6f90427.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_b863710af3a64629f10a991bf83d34dcb6f90427.svg" class="org-svg" /> Gruppen.<br />
+</p>
+</div>
+<div id="outline-container-orgabd6b97" class="outline-4">
+<h4 id="orgabd6b97">i) - wahr</h4>
+<div class="outline-text-4" id="text-orgabd6b97">
+<p>
+Es existiert stets ein Gruppenhomomorphismus <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_d5b78ce8fa6d3f39f29cc24b75e1327d1c7f4520.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_d5b78ce8fa6d3f39f29cc24b75e1327d1c7f4520.svg" class="org-svg" /><br />
+</p>
+
+<p>
+die Abbildung <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_f55ddb92791af0981032940bd7453f6829c970fd.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_f55ddb92791af0981032940bd7453f6829c970fd.svg" class="org-svg" /> ist ein Gruppenhomomorphismus.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org2d9006b" class="outline-4">
+<h4 id="org2d9006b">ii) - falsch</h4>
+<div class="outline-text-4" id="text-org2d9006b">
+<p>
+Es existiert eine Gruppe mit <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_b1c31e8ecaaa42322f538d9fc6b369bbdd7279a1.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_b1c31e8ecaaa42322f538d9fc6b369bbdd7279a1.svg" class="org-svg" /> Elementen und einer Untergruppe mit <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_fc76ab3479739e98bc58fec4214233b560a7db31.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_fc76ab3479739e98bc58fec4214233b560a7db31.svg" class="org-svg" /> Elementen.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org139e8e7" class="outline-4">
+<h4 id="org139e8e7">iii) - wahr</h4>
+<div class="outline-text-4" id="text-org139e8e7">
+<p>
+für einen Körper <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_b38a59450bab55982b006cf9aa75bfd47f38ce85.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_b38a59450bab55982b006cf9aa75bfd47f38ce85.svg" class="org-svg" /> ist die Gruppe <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_339ecae139b662ee9f9a1770f103092be0c6ef6b.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_339ecae139b662ee9f9a1770f103092be0c6ef6b.svg" class="org-svg" /> abelsch gdw. <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7151a3657245293a10542db935c1c6b6cc2a4529.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7151a3657245293a10542db935c1c6b6cc2a4529.svg" class="org-svg" /><br />
+</p>
+
+<ul class="org-ul">
+<li><a href="20250528-general_linear_group_never_abelian.html#ID-0ea43521-a3bf-4bcb-8876-705f26578f7d">general linear group never abelian</a> <br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd9b25de" class="outline-4">
+<h4 id="orgd9b25de">iv) - falsch</h4>
+<div class="outline-text-4" id="text-orgd9b25de">
+<p>
+Sei <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" class="org-svg" /> eine Gruppe und <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_427f334b7078f2a7d7d00560e7f5d8ea96813e29.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_427f334b7078f2a7d7d00560e7f5d8ea96813e29.svg" class="org-svg" /> Untergruppen der Ordnung <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_f18cc1115c6f5b31ce80fa74a72513986ca44890.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_f18cc1115c6f5b31ce80fa74a72513986ca44890.svg" class="org-svg" />.<br />
+Dann folgt <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_2cc33ebc2ba624d6d83ad7287069902a8ca5173d.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_2cc33ebc2ba624d6d83ad7287069902a8ca5173d.svg" class="org-svg" /><br />
+</p>
+
+<p>
+z.B. <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_a891ab2ca89e5a3086128f262c794e1b988b19bf.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_a891ab2ca89e5a3086128f262c794e1b988b19bf.svg" class="org-svg" /> und <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_80c005006e1d70b8c1ba0d8f1efc8403118cbb45.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_80c005006e1d70b8c1ba0d8f1efc8403118cbb45.svg" class="org-svg" /><br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgb58c6f3" class="outline-4">
+<h4 id="orgb58c6f3">v) - wahr</h4>
+<div class="outline-text-4" id="text-orgb58c6f3">
+<p>
+Sei <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" class="org-svg" /> eine Gruppe und <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_427f334b7078f2a7d7d00560e7f5d8ea96813e29.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_427f334b7078f2a7d7d00560e7f5d8ea96813e29.svg" class="org-svg" /> Untergruppen der Ordnung <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_f18cc1115c6f5b31ce80fa74a72513986ca44890.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_f18cc1115c6f5b31ce80fa74a72513986ca44890.svg" class="org-svg" />.<br />
+Dann folgt <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_a08debf4b78cc5cae0f8d603a7ff54014d02ec00.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_a08debf4b78cc5cae0f8d603a7ff54014d02ec00.svg" class="org-svg" />, d.h. es existiert ein Gruppenisomorphismus <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_a08debf4b78cc5cae0f8d603a7ff54014d02ec00.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_a08debf4b78cc5cae0f8d603a7ff54014d02ec00.svg" class="org-svg" /><br />
+</p>
+
+<p>
+Folgt daraus, dass es bis auf Isomorphie nur eine Gruppe mit zwei Elementen gibt:<br />
+Es gibt zwei Elemente<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgdca17f4" class="outline-4">
+<h4 id="orgdca17f4">vi) - falsch</h4>
+<div class="outline-text-4" id="text-orgdca17f4">
+<p>
+Sei <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" class="org-svg" /> eine Gruppe und <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_427f334b7078f2a7d7d00560e7f5d8ea96813e29.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_427f334b7078f2a7d7d00560e7f5d8ea96813e29.svg" class="org-svg" /> Normalteiler, so dass ein Gruppenisomorphismus <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_a08debf4b78cc5cae0f8d603a7ff54014d02ec00.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_a08debf4b78cc5cae0f8d603a7ff54014d02ec00.svg" class="org-svg" /> existiert.<br />
+Dann folgt <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_f405518b428bf8668b3f1890bce539fc28267da0.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_f405518b428bf8668b3f1890bce539fc28267da0.svg" class="org-svg" /><br />
+</p>
+
+<p>
+falsch z.B.<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_ded29194a5afbe2a4ffd56ee43d15f90cc1f56d8.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_ded29194a5afbe2a4ffd56ee43d15f90cc1f56d8.svg" class="org-svg" />
+</span>
+</div>
+<p>
+wobei <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_fa1c1d134867191346bbb79276acd0f2fdfbcd63.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_fa1c1d134867191346bbb79276acd0f2fdfbcd63.svg" class="org-svg" /> ein Gruppenisomorphismus ist.<br />
+wobei <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_c092032c7bc0436d985c66facba49605ce3b009d.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_c092032c7bc0436d985c66facba49605ce3b009d.svg" class="org-svg" /> <br />
+</p>
+</div>
+</div>
+<div id="outline-container-org52b216d" class="outline-4">
+<h4 id="org52b216d">vii) - wahr</h4>
+<div class="outline-text-4" id="text-org52b216d">
+<p>
+Es existiert eine Gruppe mit 2026 Elementen<br />
+</p>
+
+<p>
+wahr, z.B. $/2026 <br />
+</p>
+</div>
+</div>
+<div id="outline-container-org74c4c6b" class="outline-4">
+<h4 id="org74c4c6b">viii) - wahr</h4>
+<div class="outline-text-4" id="text-org74c4c6b">
+<p>
+Sei <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_b38a59450bab55982b006cf9aa75bfd47f38ce85.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_b38a59450bab55982b006cf9aa75bfd47f38ce85.svg" class="org-svg" /> ein Körper, <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" class="org-svg" /> eine Gruppe und <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_a8bd14a32304061276795bb7967e46c78ef4ebe2.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_a8bd14a32304061276795bb7967e46c78ef4ebe2.svg" class="org-svg" /> ein Gruppenhomomorphismus.<br />
+dann folgt <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_f0aea241430f680bc15172a3bd5b1fd11edde63d.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_f0aea241430f680bc15172a3bd5b1fd11edde63d.svg" class="org-svg" /><br />
+</p>
+</div>
+</div>
+<div id="outline-container-org07c8398" class="outline-4">
+<h4 id="org07c8398">ix) - wahr</h4>
+<div class="outline-text-4" id="text-org07c8398">
+<p>
+Sei <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_431c510f2e968a681610bf745fa86ed6dcbd304e.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_431c510f2e968a681610bf745fa86ed6dcbd304e.svg" class="org-svg" /> ein surjektiver Gruppenhomomorphismus.<br />
+Ist <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" class="org-svg" /> abelsch, so auch <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7fb417af05eeb2c7d5dd264a4acac431e528f8de.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7fb417af05eeb2c7d5dd264a4acac431e528f8de.svg" class="org-svg" /><br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgc3f498c" class="outline-4">
+<h4 id="orgc3f498c">x) - falsch</h4>
+<div class="outline-text-4" id="text-orgc3f498c">
+<p>
+Sei <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_431c510f2e968a681610bf745fa86ed6dcbd304e.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_431c510f2e968a681610bf745fa86ed6dcbd304e.svg" class="org-svg" /> ein surjektiver Gruppenhomomorphismus.<br />
+Ist <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7fb417af05eeb2c7d5dd264a4acac431e528f8de.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7fb417af05eeb2c7d5dd264a4acac431e528f8de.svg" class="org-svg" /> abelsch, so auch <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" class="org-svg" /><br />
+</p>
+</div>
+</div>
+<div id="outline-container-org57fbc94" class="outline-4">
+<h4 id="org57fbc94">xi) - wahr</h4>
+<div class="outline-text-4" id="text-org57fbc94">
+<p>
+Sei <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_3d46143f1a98d47ddfe1b1e8a3dfccb7f6e45adc.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_3d46143f1a98d47ddfe1b1e8a3dfccb7f6e45adc.svg" class="org-svg" /> ein injektiver Gruppenhomomorphismus.<br />
+Ist <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7fb417af05eeb2c7d5dd264a4acac431e528f8de.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7fb417af05eeb2c7d5dd264a4acac431e528f8de.svg" class="org-svg" /> abelsch, so auch <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" class="org-svg" /><br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgba66649" class="outline-4">
+<h4 id="orgba66649">xii) - falsch</h4>
+<div class="outline-text-4" id="text-orgba66649">
+<p>
+Sei <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_3d46143f1a98d47ddfe1b1e8a3dfccb7f6e45adc.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_3d46143f1a98d47ddfe1b1e8a3dfccb7f6e45adc.svg" class="org-svg" /> ein injektiver Gruppenhomomorphismus.<br />
+Ist <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" class="org-svg" /> abelsch, so auch <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7fb417af05eeb2c7d5dd264a4acac431e528f8de.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7fb417af05eeb2c7d5dd264a4acac431e528f8de.svg" class="org-svg" /><br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgfe2e644" class="outline-4">
+<h4 id="orgfe2e644">xiii) - wahr</h4>
+<div class="outline-text-4" id="text-orgfe2e644">
+<p>
+Sei <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_431c510f2e968a681610bf745fa86ed6dcbd304e.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_431c510f2e968a681610bf745fa86ed6dcbd304e.svg" class="org-svg" /> ein Gruppenisomorphismus<br />
+Dann ist <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" class="org-svg" /> abelsch gdw. <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7fb417af05eeb2c7d5dd264a4acac431e528f8de.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_7fb417af05eeb2c7d5dd264a4acac431e528f8de.svg" class="org-svg" /> abelsch ist.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgc9301a2" class="outline-4">
+<h4 id="orgc9301a2">xiv) - falsch</h4>
+<div class="outline-text-4" id="text-orgc9301a2">
+<p>
+Es existiert ein Normalteiler <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_de721480f092f09c468ba2ce883744403b6c9836.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_de721480f092f09c468ba2ce883744403b6c9836.svg" class="org-svg" />  mit <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_2441facf2bfc0def699d21b38cc28c94d720d7b4.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_2441facf2bfc0def699d21b38cc28c94d720d7b4.svg" class="org-svg" /><br />
+</p>
+
+<p>
+Wenn eine Untergruppe <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_a75c29866a42f30e908f44dfdd8a563f74933d4e.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_a75c29866a42f30e908f44dfdd8a563f74933d4e.svg" class="org-svg" /> einen 3-Zykel enthält, dann0<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org1915e6b" class="outline-4">
+<h4 id="org1915e6b">xv) - falsch</h4>
+<div class="outline-text-4" id="text-org1915e6b">
+<p>
+Je zwei Gruppen mit 4 Elementen sind Isomorph.<br />
+</p>
+
+<p>
+z.b. <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_723042fbd9ab30ec70d2ea4aec2fd5f1301d247e.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_723042fbd9ab30ec70d2ea4aec2fd5f1301d247e.svg" class="org-svg" />:<br />
+Für <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_b47912c422fe8d9c5824e73e7e1ad40baeb198d1.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_b47912c422fe8d9c5824e73e7e1ad40baeb198d1.svg" class="org-svg" /> gilt immer <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_ae3328f2d86d38a2db6b5418ee5a0f88dead0d70.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_ae3328f2d86d38a2db6b5418ee5a0f88dead0d70.svg" class="org-svg" />, während in <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_f5cdeb26c1e602aabcacc5d51bb9dacb994f22c4.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_f5cdeb26c1e602aabcacc5d51bb9dacb994f22c4.svg" class="org-svg" /> gilt <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_44e2c1b9137839154f5ea9b707126c2d1176d3e5.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_44e2c1b9137839154f5ea9b707126c2d1176d3e5.svg" class="org-svg" /><br />
+</p>
+</div>
+</div>
+<div id="outline-container-org2e2b759" class="outline-4">
+<h4 id="org2e2b759">xvi) - wahr</h4>
+<div class="outline-text-4" id="text-org2e2b759">
+<p>
+Es gilt für <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_e00b1f271769cc479490962c6c427b6a373be376.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_e00b1f271769cc479490962c6c427b6a373be376.svg" class="org-svg" /> die Gleichung<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_39185b9d84fe7cb4d0db930e47547d6310427ae0.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_39185b9d84fe7cb4d0db930e47547d6310427ae0.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org8b21537" class="outline-4">
+<h4 id="org8b21537">xvii) - falsch</h4>
+<div class="outline-text-4" id="text-org8b21537">
+<p>
+Für <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_aa0210698c870c42c0806f295528916f1e1d5d65.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_aa0210698c870c42c0806f295528916f1e1d5d65.svg" class="org-svg" /> gilt: <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_ba72883b49774f29d3307afbd2395eb7cf43b224.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_ba72883b49774f29d3307afbd2395eb7cf43b224.svg" class="org-svg" /><br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgcf96c94" class="outline-4">
+<h4 id="orgcf96c94">xviii) - wahr</h4>
+<div class="outline-text-4" id="text-orgcf96c94">
+<p>
+Für <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_aa0210698c870c42c0806f295528916f1e1d5d65.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_aa0210698c870c42c0806f295528916f1e1d5d65.svg" class="org-svg" /> gilt: <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_d70ba7b6ae9a69fdbd230d7435b5d6d4819fc17d.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_d70ba7b6ae9a69fdbd230d7435b5d6d4819fc17d.svg" class="org-svg" /><br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgbfb9157" class="outline-4">
+<h4 id="orgbfb9157">xiv) - falsch</h4>
+<div class="outline-text-4" id="text-orgbfb9157">
+<p>
+Es gilt für <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_e00b1f271769cc479490962c6c427b6a373be376.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_e00b1f271769cc479490962c6c427b6a373be376.svg" class="org-svg" /> die Gleichung<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_3f2cb16d1e7babd2de04bcee3dbd0d97e8063a68.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_3f2cb16d1e7babd2de04bcee3dbd0d97e8063a68.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org3bf819e" class="outline-4">
+<h4 id="org3bf819e">xv) - wahr</h4>
+<div class="outline-text-4" id="text-org3bf819e">
+<p>
+Es existieren Elemente <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_69aa27c1098e2b3814eaf6925171fe798777e3e1.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_69aa27c1098e2b3814eaf6925171fe798777e3e1.svg" class="org-svg" /> mit <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_5181be4b418424e5072383cfc75b8cd6a35ebac5.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_5181be4b418424e5072383cfc75b8cd6a35ebac5.svg" class="org-svg" /><br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgdbfee13" class="outline-4">
+<h4 id="orgdbfee13">xvi) - falsch</h4>
+<div class="outline-text-4" id="text-orgdbfee13">
+<p>
+Sei <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_43a589c368b6c097ede057a4cba64cc0bdda833f.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_43a589c368b6c097ede057a4cba64cc0bdda833f.svg" class="org-svg" /> eine Teilmenge, so dass gelte<br />
+</p>
+<ol class="org-ol">
+<li><img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_13d88ad07d573cb5c1cc92029f2f7b0725280793.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_13d88ad07d573cb5c1cc92029f2f7b0725280793.svg" class="org-svg" /><br /></li>
+<li><img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_88b576ddab46bea50702182e6af6d729d63a5b2b.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_88b576ddab46bea50702182e6af6d729d63a5b2b.svg" class="org-svg" /><br /></li>
+</ol>
+<p>
+Dann ist <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_5fd6b96827550b700ecc08ed128bdbb801a6c01e.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_5fd6b96827550b700ecc08ed128bdbb801a6c01e.svg" class="org-svg" /> eine Untergruppe<br />
+</p>
+
+<p>
+z.b. <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_4231d123f6fafcb3d69b42f119621e6bea126bc2.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_4231d123f6fafcb3d69b42f119621e6bea126bc2.svg" class="org-svg" /><br />
+</p>
+</div>
+</div>
+<div id="outline-container-org35440de" class="outline-4">
+<h4 id="org35440de">xvii) - falsch</h4>
+<div class="outline-text-4" id="text-org35440de">
+<p>
+Sei <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" class="org-svg" /> abelsch und <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_43a589c368b6c097ede057a4cba64cc0bdda833f.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_43a589c368b6c097ede057a4cba64cc0bdda833f.svg" class="org-svg" /> eine Teilmenge, so dass gelte<br />
+</p>
+<ol class="org-ol">
+<li><img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_13d88ad07d573cb5c1cc92029f2f7b0725280793.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_13d88ad07d573cb5c1cc92029f2f7b0725280793.svg" class="org-svg" /><br /></li>
+<li><img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_88b576ddab46bea50702182e6af6d729d63a5b2b.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_88b576ddab46bea50702182e6af6d729d63a5b2b.svg" class="org-svg" /><br /></li>
+</ol>
+<p>
+Dann ist Untergruppe<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgf55c0b3" class="outline-4">
+<h4 id="orgf55c0b3">xviii) - falsch</h4>
+<div class="outline-text-4" id="text-orgf55c0b3">
+<p>
+Sei <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" class="org-svg" /> endlich und <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_43a589c368b6c097ede057a4cba64cc0bdda833f.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_43a589c368b6c097ede057a4cba64cc0bdda833f.svg" class="org-svg" /> eine Teilmenge, so dass gelte<br />
+</p>
+<ol class="org-ol">
+<li><img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_13d88ad07d573cb5c1cc92029f2f7b0725280793.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_13d88ad07d573cb5c1cc92029f2f7b0725280793.svg" class="org-svg" /><br /></li>
+<li><img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_88b576ddab46bea50702182e6af6d729d63a5b2b.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_88b576ddab46bea50702182e6af6d729d63a5b2b.svg" class="org-svg" /><br /></li>
+</ol>
+<p>
+Dann ist Untergruppe<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org7e95d00" class="outline-4">
+<h4 id="org7e95d00">xix) - falsch</h4>
+<div class="outline-text-4" id="text-org7e95d00">
+<p>
+<img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_1f287bf1771e937897b3b77d9101db81b016fa14.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_1f287bf1771e937897b3b77d9101db81b016fa14.svg" class="org-svg" /> ist eine Gruppe.<br />
+</p>
+
+<p>
+da <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_42413db0f87db7eb3f434b72d5981c1ecdb37a2e.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_42413db0f87db7eb3f434b72d5981c1ecdb37a2e.svg" class="org-svg" /> kein inverses hat<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgc70d768" class="outline-4">
+<h4 id="orgc70d768">xx) - falsch</h4>
+<div class="outline-text-4" id="text-orgc70d768">
+<p>
+Die Alternierende Gruppe <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_ea23ca553a6b5f441d0ce859029ef247ae087b0a.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_ea23ca553a6b5f441d0ce859029ef247ae087b0a.svg" class="org-svg" /> hat eine Untergruppe mit <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_95a6954d9e65131f796b3e1b41e1220767dbba5f.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_95a6954d9e65131f796b3e1b41e1220767dbba5f.svg" class="org-svg" /> Elementen.<br />
+</p>
+
+<p>
+satz von Lagrange und <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_13d7ab0a8fa0c098323f44d2547a029790e9e2e6.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_13d7ab0a8fa0c098323f44d2547a029790e9e2e6.svg" class="org-svg" /> da <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_95a6954d9e65131f796b3e1b41e1220767dbba5f.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_95a6954d9e65131f796b3e1b41e1220767dbba5f.svg" class="org-svg" /> eine Primzahl ist.<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org686c0ca" class="outline-3">
+<h3 id="org686c0ca">Ringe</h3>
+<div class="outline-text-3" id="text-org686c0ca">
+</div>
+<div id="outline-container-org61e3230" class="outline-4">
+<h4 id="org61e3230">i) - falsch</h4>
+<div class="outline-text-4" id="text-org61e3230">
+<p>
+Sei <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_ea518bd97993aca1eda597eab134d364d53f04f4.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_ea518bd97993aca1eda597eab134d364d53f04f4.svg" class="org-svg" /> ein Ring und <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_21f454ea8fc712c35f81aa22f83871505f7e69fa.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_21f454ea8fc712c35f81aa22f83871505f7e69fa.svg" class="org-svg" /> mit <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_1f6791bfcd5d54340d930c8d6254d2a469555fa8.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_1f6791bfcd5d54340d930c8d6254d2a469555fa8.svg" class="org-svg" />.<br />
+Dann folgt <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_88d90c6bdda001a71c59be3cf26886018a39d6af.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_88d90c6bdda001a71c59be3cf26886018a39d6af.svg" class="org-svg" /> oder <img src="ltximg/20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_a1c3082947aa180377aba6144634a4cb916f7a21.svg" alt="20260121-linalg_1_extra_wahr_falsch_aufgaben_misc_losungen_a1c3082947aa180377aba6144634a4cb916f7a21.svg" class="org-svg" /><br />
+</p>
+
+<p>
+z.B. nullteiler<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2026-01-23 Fr 06:48</p>
+</div>
+</body>
+</html>
