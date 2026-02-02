@@ -6,7 +6,7 @@
 <!-- 2026-02-02 Mo 17:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>classification of groups of order p</title>
+<title>divisible group is in general not a Q-Vector space</title>
 <meta name="author" content="Anton Zakrewski" />
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
@@ -229,47 +229,50 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">classification of groups of order p</h1>
-<div id="outline-container-orge244473" class="outline-2">
-<h2 id="orge244473">Proposition</h2>
-<div class="outline-text-2" id="text-orge244473">
+<h1 class="title">divisible group is in general not a Q-Vector space</h1>
+<div id="outline-container-org27bb128" class="outline-2">
+<h2 id="org27bb128">Proposition</h2>
+<div class="outline-text-2" id="text-org27bb128">
 <p>
-Let \(G\) be a <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a> of <a href="20221225213606-ordnung_gruppe.html#ID-fb68b5de-9a0c-4c45-8ee9-eb232370ed2e">group order</a> \(p\) for a <a href="20211228193940-primzahl.html#ID-d7857a86-c778-478d-aa48-7e239fcd8076">prime number</a> \(p\).<br />
-Then \(G\) is <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphic</a> to \(\mathbb{Z}/p \mathbb{Z}\)<br />
+Let \(G\) be an n-<a href="20230914-divisible_group.html#ID-c8408812-b193-42a3-afc3-c53b96a1d718">divisible group</a> for each \(n \in \mathbb{N}\).<br />
+Then \(G\) is in general not the additive group of a \(\mathbb{Q}\)-vector space.<br />
 </p>
 </div>
 </div>
-<div id="outline-container-org7b248a5" class="outline-2">
-<h2 id="org7b248a5">Proof</h2>
-<div class="outline-text-2" id="text-org7b248a5">
+<div id="outline-container-org5a9cfe7" class="outline-2">
+<h2 id="org5a9cfe7">Proof</h2>
+<div class="outline-text-2" id="text-org5a9cfe7">
 <p>
-Let \(g \in G\) with \(g \neq 1 = e\).<br />
-Then by <a href="20240129-order_of_an_element_divides_order.html#ID-cbd9273a-809f-40c7-9245-a867d589822b">order of an element divides order</a> we conclude, that<br />
+Consider the <a href="20221210201536-faktorgruppe.html#ID-37068c77-35dd-45c0-8051-01704f97222c">quotient group</a> \(\mathbb{Q}/\mathbb{Z}\).<br />
+Here \(\mathbb{Z}\) is a normal subgroup, since \(\mathbb{Q}\) is an abelian group.<br />
+</p>
+
+<p>
+It is n-divisible for each \(n \in \mathbb{N}\): for \([ \frac{a}{b}]\) we may consider \([\frac{1}{n} \cdot \frac{a}{b}]\) which gives \(\int_{i=1}^n [ \frac{1}{n} \frac{a}{b}] = [ \sum_{i=1}^n \frac{1}{n} \cdot \frac{a}{b}] = [ \frac{a}{b}]\).<br />
+</p>
+
+<p>
+Now we want to show that \(\mathbb{Q}/ \mathbb{Z}\) can't be equipped with \(\mathbb{Q}\)-vector space structure:<br />
+Suppose there exists one, then we get<br />
 </p>
 \begin{align*}
-\mathrm{ord}(g) = p
+[0] =& [1] \\
+=& [\frac{1}{2} + \frac{1}{2}]
+=& [ \frac{1}{2}] + [ \frac{1}{2} ] \\
+=& 1 \cdot [ \frac{1}{2}] + 1 \cdot [\frac{1}{2}] \\
+=& 2 \cdot [ \frac{1}{2} ] \\
 \end{align*}
-<p>
-for \(g\) since \(g^1 = g \neq 0\) and <a href="20240129-order_of_an_element_divides_order.html#ID-cbd9273a-809f-40c7-9245-a867d589822b">order of an element divides order</a>.<br />
-</p>
 
 <p>
-Now consider the group homomorphism<br />
+Now in particular \([0]\) is the neutral element of the addition, so in particular \(\lambda \cdot [0] = [0]\) for any \(\lambda \in \mathbb{Q}\).<br />
+So consider the calculation<br />
 </p>
 \begin{align*}
-f: \mathbb{Z} \rightarrow G
-n \mapsto g^{n}
+[0] =& 2 \cdot [\frac{1}{2}] && \vert \cdot \frac{1}{2} \\
+[0] =& [\frac{1}{2}]
 \end{align*}
 <p>
-(cf. <a href="20260202-integers_is_the_free_abelian_group.html#ID-edecb0d5-c49c-452e-a8a2-e4f211b73142">Integers is the free abelian group</a>)<br />
-</p>
-
-<p>
-Now the <a href="20221224172932-homomorphiesatz_fur_gruppen.html#ID-b6c0c2a4-18ea-42b9-a13c-cc9e4a1c08a7">fundamental theorem</a> shows that \(G \simeq \mathbb{Z}/\mathrm{ker}(f)\) and after characterizing subgroups of \(\mathbb{Z}\) as \(n \mathbb{Z}\) this shows that \(G \simeq \mathbb{Z}/p \mathbb{Z}\) (where \(n = p\) since otherwise we would have different cardinalities)<br />
-</p>
-
-<p>
-For the classification of subgroups of \(\mathbb{Z}\), we may use the <a href="20220906102828-euklidischer_algorithmus.html#ID-46ca0f33-0265-49a8-a689-91968fb88b56">euklidischer Algorithmus</a>.<br />
+which is a contradiction, since \([0] \neq [\frac{1}{2}] \in \mathbb{Q}/\mathbb{Z}\)<br />
 </p>
 </div>
 </div>
