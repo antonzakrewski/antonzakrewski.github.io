@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-04-30 Do 08:10 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>derived hom(-,Z) is conservative</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">derived hom(-,Z) is conservative</h1>
+<div id="outline-container-org8154cb5" class="outline-2">
+<h2 id="org8154cb5">Proposition</h2>
+<div class="outline-text-2" id="text-org8154cb5">
+<p>
+The derived hom functor<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20260430-derived_hom_z_is_conservative_9efdddae88b1a064cac9dfbbcf8f13f3480b4cc1.svg" alt="20260430-derived_hom_z_is_conservative_9efdddae88b1a064cac9dfbbcf8f13f3480b4cc1.svg" class="org-svg" />
+</span>
+</div>
+<p>
+is a <a href="20240331-conservative_functor_between_infinity_categories.html#ID-37cd5c52-6d86-4178-9721-6908bb0a3087">conservative functor</a><br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgd4353b8" class="outline-2">
+<h2 id="orgd4353b8">Proof</h2>
+<div class="outline-text-2" id="text-orgd4353b8">
+<p>
+using <a href="20260318-exact_functor_reflecting_zero_object_and_conservative.html#ID-0c91a00f-8044-404d-890c-2cbfd713472e">exact functor reflecting zero object and conservative</a> it suffices to show that <img src="file:///home/anton/html/ltximg/20260430-derived_hom_z_is_conservative_11d1509d8d9c281380dfca4b440b753f4210f62b.svg" alt="20260430-derived_hom_z_is_conservative_11d1509d8d9c281380dfca4b440b753f4210f62b.svg" class="org-svg" /> is zero <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> <img src="file:///home/anton/html/ltximg/20260430-derived_hom_z_is_conservative_542d5d703f3c90578f829ea9bb609f758df8bb11.svg" alt="20260430-derived_hom_z_is_conservative_542d5d703f3c90578f829ea9bb609f758df8bb11.svg" class="org-svg" /> is the <a href="20230724-zero_group.html#ID-0f5c843a-aad5-40cb-9636-cf70849691aa">zero group</a>.<br />
+since each <a href="20260311-derived_category_of_a_hereditary_ring.html#ID-4d1a0fcd-dbb9-4572-baec-7fac4424af4d">object in the derived category of a hereditary ring splits</a>, we may assume that <img src="file:///home/anton/html/ltximg/20260430-derived_hom_z_is_conservative_542d5d703f3c90578f829ea9bb609f758df8bb11.svg" alt="20260430-derived_hom_z_is_conservative_542d5d703f3c90578f829ea9bb609f758df8bb11.svg" class="org-svg" /> lies in the <a href="20241031-heart_of_a_t_structure.html#ID-6cea50da-b823-4b1a-b388-f03c30ce512e">heart</a> and <img src="file:///home/anton/html/ltximg/20260430-derived_hom_z_is_conservative_465df3389292c3c4569f30e1ab47e485f7813443.svg" alt="20260430-derived_hom_z_is_conservative_465df3389292c3c4569f30e1ab47e485f7813443.svg" class="org-svg" />.<br />
+In particular, <img src="file:///home/anton/html/ltximg/20260430-derived_hom_z_is_conservative_3aff4410c687268039439b9c815f2bcb66689dbf.svg" alt="20260430-derived_hom_z_is_conservative_3aff4410c687268039439b9c815f2bcb66689dbf.svg" class="org-svg" /> or <img src="file:///home/anton/html/ltximg/20260430-derived_hom_z_is_conservative_be547d4124ccc23a4b3b1223fe5ed5d176bcb726.svg" alt="20260430-derived_hom_z_is_conservative_be547d4124ccc23a4b3b1223fe5ed5d176bcb726.svg" class="org-svg" /> and <img src="file:///home/anton/html/ltximg/20260430-derived_hom_z_is_conservative_f307785258be64fe4ef2da75e3cde3a799501148.svg" alt="20260430-derived_hom_z_is_conservative_f307785258be64fe4ef2da75e3cde3a799501148.svg" class="org-svg" /> is zero.<br />
+</p>
+
+<p>
+So let <img src="file:///home/anton/html/ltximg/20260430-derived_hom_z_is_conservative_f64a4f99de1ddd3756482f9479895eee4df0c78c.svg" alt="20260430-derived_hom_z_is_conservative_f64a4f99de1ddd3756482f9479895eee4df0c78c.svg" class="org-svg" /> be a <a href="20231212-projective_resolution.html#ID-0d6124f2-59f2-4f96-838a-e8b023821bc6">projective resolution</a> and consider <a href="20260429-short_exact_sequence_of_the_rational_circle_group.html#ID-d76984f4-1343-4fbf-88bf-909db74edcaf">short exact sequence of the rational circle group</a>.<br />
+Then we may consider the <a href="20241222-long_exact_sequence.html#ID-e3fbc2e4-7c9f-4d19-9391-c118cb77f08f">long exact sequences</a> of <a href="20230902-ext_functor.html#ID-2340be9f-a0cd-450b-9c17-88d439e9767f">Ext</a><br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20260430-derived_hom_z_is_conservative_856b2e3c5d96c393138b71c4d064573621872d87.svg" alt="20260430-derived_hom_z_is_conservative_856b2e3c5d96c393138b71c4d064573621872d87.svg" class="org-svg" />
+</span>
+</div>
+<p>
+where each column and row is exact.<br />
+</p>
+
+<p>
+Now we simplify<br />
+</p>
+<ol class="org-ol">
+<li><img src="file:///home/anton/html/ltximg/20260430-derived_hom_z_is_conservative_df911a20c33faf37a222dd3d9aaaea8d035f9bd9.svg" alt="20260430-derived_hom_z_is_conservative_df911a20c33faf37a222dd3d9aaaea8d035f9bd9.svg" class="org-svg" /> as <img src="file:///home/anton/html/ltximg/20260430-derived_hom_z_is_conservative_46edaa5d27b69c38aaaefb285e0849314d6f67e7.svg" alt="20260430-derived_hom_z_is_conservative_46edaa5d27b69c38aaaefb285e0849314d6f67e7.svg" class="org-svg" /> is <a href="20230727-projective_module.html#ID-d7827fce-3372-4b89-bd57-fafc2c16e937">projective</a> <br /></li>
+<li><img src="file:///home/anton/html/ltximg/20260430-derived_hom_z_is_conservative_7b9eeff631da5d0b2ffeffbdaed57d4b3df5ba48.svg" alt="20260430-derived_hom_z_is_conservative_7b9eeff631da5d0b2ffeffbdaed57d4b3df5ba48.svg" class="org-svg" /> as <img src="file:///home/anton/html/ltximg/20260430-derived_hom_z_is_conservative_65be762c8ce9ae9fe7c640d133fb5445456e6aff.svg" alt="20260430-derived_hom_z_is_conservative_65be762c8ce9ae9fe7c640d133fb5445456e6aff.svg" class="org-svg" /> are <a href="20230803-injective_module.html#ID-c14a1ecb-aad5-402f-b835-7857c7b39dfb">injective</a> (cf. <a href="20240611-divisible_abelian_group_as_injective_object.html#ID-e73b1920-b466-42c9-b5d6-e62dd48b47f5">divisible abelian group as injective object</a>, <a href="20240611-rational_circle_group_as_injective_group.html#ID-c05a5861-831a-4dbf-9f7d-aa2ca4bda5f8">rational circle group is an injective group</a>).<br /></li>
+<li><img src="file:///home/anton/html/ltximg/20260430-derived_hom_z_is_conservative_d663a8304912ab44174a64b235113e7129915320.svg" alt="20260430-derived_hom_z_is_conservative_d663a8304912ab44174a64b235113e7129915320.svg" class="org-svg" /> by assumption.<br /></li>
+</ol>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20260430-derived_hom_z_is_conservative_ee13efb09a14ba963b2d141c28bc74ef240a2ba2.svg" alt="20260430-derived_hom_z_is_conservative_ee13efb09a14ba963b2d141c28bc74ef240a2ba2.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Now <img src="file:///home/anton/html/ltximg/20260430-derived_hom_z_is_conservative_4fcd25d1729a5081f6acdac0944f9c502843e667.svg" alt="20260430-derived_hom_z_is_conservative_4fcd25d1729a5081f6acdac0944f9c502843e667.svg" class="org-svg" /> is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a> (cf. <a href="20240119-short_exact_sequence_and_isomorphism.html#ID-9e6ee09c-b000-484d-bc25-0aea36b3a0e1">sandwhiched by zero object and isomorphism</a>) and<br />
+<img src="file:///home/anton/html/ltximg/20260430-derived_hom_z_is_conservative_1ffd5304e78e1b8e75770e48171a606f673f40f6.svg" alt="20260430-derived_hom_z_is_conservative_1ffd5304e78e1b8e75770e48171a606f673f40f6.svg" class="org-svg" /> are <a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjective</a>.<br />
+</p>
+
+<p>
+Hence applying the <a href="20230902-four_lemma_of_monomorphisms.html#ID-ef104894-0d50-49ab-8e75-8aff8f7b1f00">Four-Lemma of monomorphisms</a> twice shows that <img src="file:///home/anton/html/ltximg/20260430-derived_hom_z_is_conservative_1ffd5304e78e1b8e75770e48171a606f673f40f6.svg" alt="20260430-derived_hom_z_is_conservative_1ffd5304e78e1b8e75770e48171a606f673f40f6.svg" class="org-svg" /> are also injective and therefore also isomorphism.<br />
+</p>
+
+<p>
+Then as <img src="file:///home/anton/html/ltximg/20260430-derived_hom_z_is_conservative_d85c6fac6b6fe24ffe872fa156b445bd53a52918.svg" alt="20260430-derived_hom_z_is_conservative_d85c6fac6b6fe24ffe872fa156b445bd53a52918.svg" class="org-svg" /> is <a href="20240331-conservative_functor_between_infinity_categories.html#ID-37cd5c52-6d86-4178-9721-6908bb0a3087">conservative</a> (cf. <a href="20260430-ordinary_hom_into_rational_circle_group_is_conservative.html#ID-e8bda778-9eb3-4cac-a3e1-5fa84904af17">ordinary hom into rational circle group is conservative</a>) and hence <img src="file:///home/anton/html/ltximg/20260430-derived_hom_z_is_conservative_72b6312e929c8025c1e700ea720710278d9faa92.svg" alt="20260430-derived_hom_z_is_conservative_72b6312e929c8025c1e700ea720710278d9faa92.svg" class="org-svg" /> is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a> - so in particular its <a href="20230827-cokernel_category_theory.html#ID-3e52d31a-b97e-454b-b565-4ae3d2b26482">cokernel</a>, which is by assumption <img src="file:///home/anton/html/ltximg/20260430-derived_hom_z_is_conservative_542d5d703f3c90578f829ea9bb609f758df8bb11.svg" alt="20260430-derived_hom_z_is_conservative_542d5d703f3c90578f829ea9bb609f758df8bb11.svg" class="org-svg" />, vanishes.<br />
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2026-04-30 Do 08:10</p>
+</div>
+</body>
+</html>
