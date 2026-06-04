@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-06-01 Mo 22:26 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>forgetful functor from E_n to E_m anima valued groups is never fully faithful</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">forgetful functor from E<sub>n</sub> to E<sub>m</sub> anima valued groups is never fully faithful</h1>
+<div id="outline-container-org9ace970" class="outline-2">
+<h2 id="org9ace970">Proposition</h2>
+<div class="outline-text-2" id="text-org9ace970">
+<p>
+Let <img src="file:///home/anton/html/ltximg/20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_aff35e6a072ea518ef06582a465acf77044d75dc.svg" alt="20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_aff35e6a072ea518ef06582a465acf77044d75dc.svg" class="org-svg" />, then the forgetful functor <img src="file:///home/anton/html/ltximg/20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_249c1fedd4366068bcc50aec4219cdd57aa8be0d.svg" alt="20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_249c1fedd4366068bcc50aec4219cdd57aa8be0d.svg" class="org-svg" /> is not <a href="20240701-fully_faithful_functor_between_infinity_categories.html#ID-bb0d3e0e-92a5-4687-999c-a99d4043ea38">fully faithful</a><br />
+</p>
+</div>
+</div>
+<div id="outline-container-org8a79d2f" class="outline-2">
+<h2 id="org8a79d2f">Proof</h2>
+<div class="outline-text-2" id="text-org8a79d2f">
+<p>
+observe that this functor corresponds to <img src="file:///home/anton/html/ltximg/20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_1fa518d5adb1f635c5e3024f10eee5d019723aea.svg" alt="20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_1fa518d5adb1f635c5e3024f10eee5d019723aea.svg" class="org-svg" />.<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_56ef673e52e83b4f14c6ca0ddb698d0a95157078.svg" alt="20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_56ef673e52e83b4f14c6ca0ddb698d0a95157078.svg" class="org-svg" />
+</span>
+</div>
+<p>
+(cf. <a href="20260601-recognition_principle_for_anima_valued_en_groups.html#ID-26fd93c3-27bb-4a4b-a88b-37d66ddffc38">recognition principle for anima valued En groups</a>).<br />
+</p>
+
+<p>
+So it suffices to show that <img src="file:///home/anton/html/ltximg/20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_1fa518d5adb1f635c5e3024f10eee5d019723aea.svg" alt="20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_1fa518d5adb1f635c5e3024f10eee5d019723aea.svg" class="org-svg" /> is not fully faithful.<br />
+</p>
+
+
+<p>
+Now <img src="file:///home/anton/html/ltximg/20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_33b8bdf012e948467bdf28c0af0d30dd64a44333.svg" alt="20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_33b8bdf012e948467bdf28c0af0d30dd64a44333.svg" class="org-svg" /> <a href="20260601-pointed_eilenberg_maclane_spaces_represent_reduced_cohomology.html#ID-9aaa213f-72ca-4107-9d58-64069028dc90">represents reduced cohomology</a>.<br />
+</p>
+
+<p>
+Then recall that there exists an adjunction <img src="file:///home/anton/html/ltximg/20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_4cce86dbddcbfb7c6d9c5f6c03fc13af41a5f694.svg" alt="20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_4cce86dbddcbfb7c6d9c5f6c03fc13af41a5f694.svg" class="org-svg" /> and hence also an adjunction <img src="file:///home/anton/html/ltximg/20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_ff28bf16d3d449ab7c82ebadff200d732bf4228e.svg" alt="20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_ff28bf16d3d449ab7c82ebadff200d732bf4228e.svg" class="org-svg" /> since <a href="20251007-left_adjoints_compose.html#ID-46a4ec53-fc67-467a-8857-8afd46e55f82">adjoints compose</a>.<br />
+Now under this adjunction, the functor <img src="file:///home/anton/html/ltximg/20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_4434a07d98253869d48484efb24001c925b2d0e1.svg" alt="20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_4434a07d98253869d48484efb24001c925b2d0e1.svg" class="org-svg" /> corresponds to<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///home/anton/html/ltximg/20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_b77b570ee723bc3fdae127bc8aeb0ea6d475c0d8.svg" alt="20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_b77b570ee723bc3fdae127bc8aeb0ea6d475c0d8.svg" class="org-svg" />
+</span>
+</div>
+<p>
+where we precompose with the <a href="20241203-infinity_counit_transformation.html#ID-93de1a23-d556-45a8-bf28-514f6b142bcb">counit</a> <img src="file:///home/anton/html/ltximg/20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_c29946e60addc5edd737dd23bae489e9f15b0fd2.svg" alt="20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_c29946e60addc5edd737dd23bae489e9f15b0fd2.svg" class="org-svg" />.<br />
+</p>
+
+<p>
+We claim that this map is not an <img src="file:///home/anton/html/ltximg/20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_6a8da2b089c95fa64a0b5b582bf1182dde7ea455.svg" alt="20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_6a8da2b089c95fa64a0b5b582bf1182dde7ea455.svg" class="org-svg" /> cohomology <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a>.<br />
+Recall the <a href="20251208-f2_cohomology_of_the_f2_eilenberg_maclane_space.html#ID-8f3aaeea-559a-48b7-9334-d6b7eb5d9156">F2 cohomology of the F2 Eilenberg MacLane Space</a>, then consider <img src="file:///home/anton/html/ltximg/20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_cce57b970a35609fff3622267fd199a843164dac.svg" alt="20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_cce57b970a35609fff3622267fd199a843164dac.svg" class="org-svg" />.<br />
+Then the counit induces an <img src="file:///home/anton/html/ltximg/20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_ca2a16e68693eb4a7be23582d3084d9e84a83a95.svg" alt="20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_ca2a16e68693eb4a7be23582d3084d9e84a83a95.svg" class="org-svg" /> linear map and we also know that <img src="file:///home/anton/html/ltximg/20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_6538c7306b224727cac63d6169a2f806b3e0f7bb.svg" alt="20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_6538c7306b224727cac63d6169a2f806b3e0f7bb.svg" class="org-svg" /> is nontrivial since <img src="file:///home/anton/html/ltximg/20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_c8010fd446f749a70403f71067a4171c64988ab4.svg" alt="20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_c8010fd446f749a70403f71067a4171c64988ab4.svg" class="org-svg" />.<br />
+But <img src="file:///home/anton/html/ltximg/20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_c75f15c88f24179976922139eebab9066e70f86e.svg" alt="20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_c75f15c88f24179976922139eebab9066e70f86e.svg" class="org-svg" /> is by <a href="20250113-stability_of_steenrod_operations.html#ID-8d1cd57f-a5cd-4f11-a6f5-31d7ed31c617">stability</a> and <a href="20250113-triviality_of_steenrod_operation.html#ID-a1aa838f-8ff1-4140-b44e-6da40cc41ee9">triviality</a> trivial, hence the map is not an isomorphism at least in degree <img src="file:///home/anton/html/ltximg/20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_2f160aff652cf00b428d073b5fde23d36cb3db39.svg" alt="20260601-forgetful_functor_from_e_n_to_e_m_anima_valued_groups_is_never_fully_faithful_2f160aff652cf00b428d073b5fde23d36cb3db39.svg" class="org-svg" />.<br />
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2026-06-01 Mo 22:26</p>
+</div>
+</body>
+</html>
