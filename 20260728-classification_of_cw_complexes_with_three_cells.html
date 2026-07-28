@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-07-28 Di 09:19 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>classification of CW complexes with three cells</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">classification of CW complexes with three cells</h1>
+<div id="outline-container-org9115e17" class="outline-2">
+<h2 id="org9115e17">Proposition</h2>
+<div class="outline-text-2" id="text-org9115e17">
+<p>
+Let <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_0099f65fd40126c7776411054132c35fd5793a2c.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_0099f65fd40126c7776411054132c35fd5793a2c.svg" class="org-svg" />, then depending on <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_e4b3d6f10424cbc18dcdc21d216c363a4ea05da1.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_e4b3d6f10424cbc18dcdc21d216c363a4ea05da1.svg" class="org-svg" /> and <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_ab1efe2e6b14760a933ac3195ddb68b806517ed6.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_ab1efe2e6b14760a933ac3195ddb68b806517ed6.svg" class="org-svg" /> there exist the following <a href="20230504195105-cw_komplex.html#ID-ee726694-2276-434b-8043-b02bf828177b">CW-Complexes</a> with cells in dimension <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_4eb3d6dc2a7f52ced8224b847951c99a8949242a.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_4eb3d6dc2a7f52ced8224b847951c99a8949242a.svg" class="org-svg" />:<br />
+</p>
+<ol class="org-ol">
+<li>exactly <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_b906a7dab4e176de50d51a138224cb8036f96722.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_b906a7dab4e176de50d51a138224cb8036f96722.svg" class="org-svg" /> if <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_a91599a7aa24e9da62969a503991a0be6d9c3190.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_a91599a7aa24e9da62969a503991a0be6d9c3190.svg" class="org-svg" /><br /></li>
+<li>exactly <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_c985b178cb09fe497a2330da376544feb0602b72.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_c985b178cb09fe497a2330da376544feb0602b72.svg" class="org-svg" /> many, namely <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_1157f793e57022dcdbf8ceccbed2035d9c9fe1e2.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_1157f793e57022dcdbf8ceccbed2035d9c9fe1e2.svg" class="org-svg" /> if <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_c209d89f26a3173e78d9f6eff39fc2543ba73c63.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_c209d89f26a3173e78d9f6eff39fc2543ba73c63.svg" class="org-svg" /> <br /></li>
+<li>exactly <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_44be70b932ad94ddb3a5255e853dc019a0c42721.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_44be70b932ad94ddb3a5255e853dc019a0c42721.svg" class="org-svg" /> many in either case, where this denotes the <i>set-theoretic</i> quotient of <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_3a7260cc0aa4162c84086accff7843117c5bf303.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_3a7260cc0aa4162c84086accff7843117c5bf303.svg" class="org-svg" /> modulo the sign action (in particular, not the group theoretic quotient)<br /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org0fe5789" class="outline-2">
+<h2 id="org0fe5789">Proof</h2>
+<div class="outline-text-2" id="text-org0fe5789">
+</div>
+<div id="outline-container-orga3fb231" class="outline-3">
+<h3 id="orga3fb231">1)</h3>
+<div class="outline-text-3" id="text-orga3fb231">
+<p>
+follows from <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_64ff6db50c80102a8dfa838d112a3b6305ce8675.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_64ff6db50c80102a8dfa838d112a3b6305ce8675.svg" class="org-svg" /><br />
+</p>
+</div>
+</div>
+<div id="outline-container-org47a4a73" class="outline-3">
+<h3 id="org47a4a73">2)</h3>
+<div class="outline-text-3" id="text-org47a4a73">
+<p>
+<a href="20260516-classification_of_cw_complexes_with_cells_in_dimension_n_n_1.html#ID-cf470017-0ad4-4de4-8e72-b38486f98d1e">classification of cw complexes with a single cell in dimension n, n+1</a><br />
+</p>
+</div>
+</div>
+<div id="outline-container-org4662788" class="outline-3">
+<h3 id="org4662788">3)</h3>
+<div class="outline-text-3" id="text-org4662788">
+<p>
+It remains to show the case of <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_f3bf21b2052df22d57542501fb91aab06e2fca8e.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_f3bf21b2052df22d57542501fb91aab06e2fca8e.svg" class="org-svg" />:<br />
+</p>
+
+<p>
+using something similar to: <a href="20260516-classification_technique_for_low_cell_cw_complexes.html#ID-b6c92617-c4cb-404a-af8c-0898392574c6">classification techniques for low cell cw complexes</a><br />
+Observe that any such three cell cw complex arises as cofiber of an element <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_b591b30944c1e62dd566c7c7e0bad54db072f4e1.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_b591b30944c1e62dd566c7c7e0bad54db072f4e1.svg" class="org-svg" />.<br />
+</p>
+
+
+<p>
+Moreover, <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_d741361e14c2116c47c92484d41f64e3c6cbacd1.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_d741361e14c2116c47c92484d41f64e3c6cbacd1.svg" class="org-svg" /> and <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_3e0ec391ba2e141de3639415ba45a4cca9e661c4.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_3e0ec391ba2e141de3639415ba45a4cca9e661c4.svg" class="org-svg" /> induce homotopy <a href="20241206-equivalent_objects_in_an_infinity_category.html#ID-cbb1ac2c-2755-4d4a-9a75-56978060b40f">equivalent</a> cw-complexes:<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_cf35229de29706ea06f4d72e705c030998ce53e5.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_cf35229de29706ea06f4d72e705c030998ce53e5.svg" class="org-svg" />
+</span>
+</div>
+<p>
+since both vertical maps are homotopy <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalences</a><br />
+</p>
+
+<p>
+Now assume that we have two maps <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_96bed33319df968e2c63eb20da58b0133a5d1c68.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_96bed33319df968e2c63eb20da58b0133a5d1c68.svg" class="org-svg" /> and a homotopy equivalence <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_ac232728062392b3d49c3da0a1dbd76df371b04c.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_ac232728062392b3d49c3da0a1dbd76df371b04c.svg" class="org-svg" />.<br />
+Then using <a href="20231121-space_equivalent_to_a_cw_complex.html#ID-ace9fc31-8838-451a-a70e-5df109738af3">CW-Approximation</a> we get a diagram<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_7a6aaae3f005840ba91550086029d5208c040602.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_7a6aaae3f005840ba91550086029d5208c040602.svg" class="org-svg" />
+</span>
+</div>
+<p>
+and since <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_f3bf21b2052df22d57542501fb91aab06e2fca8e.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_f3bf21b2052df22d57542501fb91aab06e2fca8e.svg" class="org-svg" />, the inclusion <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_e0b5216173c091a02a49e8c57c0664d56b531f23.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_e0b5216173c091a02a49e8c57c0664d56b531f23.svg" class="org-svg" /> induces an isomorphism <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_1d93b5cd70230cef8ade49d0c3f135317c14eefe.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_1d93b5cd70230cef8ade49d0c3f135317c14eefe.svg" class="org-svg" />.<br />
+</p>
+
+<p>
+In particular the map <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_ac232728062392b3d49c3da0a1dbd76df371b04c.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_ac232728062392b3d49c3da0a1dbd76df371b04c.svg" class="org-svg" /> is also an equivalence, so we get a diagram<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_45c207d0b78511d3c05d35a75df6a022fb3828f1.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_45c207d0b78511d3c05d35a75df6a022fb3828f1.svg" class="org-svg" />
+</span>
+</div>
+<p>
+which shows that the map <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_c52139c1fa3a8cec60d3dd14433e75d19eecb20f.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_c52139c1fa3a8cec60d3dd14433e75d19eecb20f.svg" class="org-svg" /> is an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a> (cf. <a href="20250608-homology_isomorphism_between_simply_connected_spaces_as_weak_equivalence.html#ID-47614675-31b8-44fa-9ca8-c2d09c7f27c8">homology isomorphism between simply connected spaces as weak equivalence</a>).<br />
+</p>
+
+<p>
+So now we take the fibers<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_a190d21181fc568477660ce04bb7270c61f3cb56.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_a190d21181fc568477660ce04bb7270c61f3cb56.svg" class="org-svg" />
+</span>
+</div>
+<p>
+where both fibers are <a href="20241206-equivalent_objects_in_an_infinity_category.html#ID-cbb1ac2c-2755-4d4a-9a75-56978060b40f">equivalent</a>, since both morphisms <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_74719c15d272151b02a43dae666c7e95361d35a8.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_74719c15d272151b02a43dae666c7e95361d35a8.svg" class="org-svg" /> are <a href="20241206-equivalent_objects_in_an_infinity_category.html#ID-cbb1ac2c-2755-4d4a-9a75-56978060b40f">equivalent</a> in the <a href="20230403183725-arrow_category.html#ID-0554b693-0143-4f63-be7a-4a7af587c98b">arrow category</a>.<br />
+Furthermore, we get induced maps from <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_6518da5ec41cf7fc648459a1f8850c40657ba8f6.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_6518da5ec41cf7fc648459a1f8850c40657ba8f6.svg" class="org-svg" /> since the compositions <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_bed0dee0fc01bd26140f51f3629b2c6be503a743.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_bed0dee0fc01bd26140f51f3629b2c6be503a743.svg" class="org-svg" /> are <a href="20230331213346-nullhomotopic.html#ID-a7d1984d-81e7-4e03-ad95-59bc1cdaeda8">nullhomotopic</a> <br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_e1aadd70201a91e0cc1fb2a6a424aedaf3c5a09e.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_e1aadd70201a91e0cc1fb2a6a424aedaf3c5a09e.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+In particular, the relative hurewicz theorem (cf. <a href="20241031-absolute_hurewicz_theorem_for_the_homotopy_fiber.html#ID-0cb280f6-f643-4844-94bd-1537616abf65">relative hurewicz theorem for the homotopy fiber</a> / <a href="20241021-long_exact_sequence_of_homotopy_groups_for_a_homotopy_cofibration_sequence.html#ID-914c9f24-ea51-4bf2-b298-ceeb2ae95792">long exact sequence of homotopy groups for a homotopy cofibration sequence</a>) shows - if I haven't messed up indices/index conventions - that the maps<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_9f31731bee16b738f1889029d2566799995aa033.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_9f31731bee16b738f1889029d2566799995aa033.svg" class="org-svg" />
+</span>
+</div>
+<p>
+are <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_d6f82db8df2b8ccd48647d03afba853edfd578f5.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_d6f82db8df2b8ccd48647d03afba853edfd578f5.svg" class="org-svg" /> connected, so in particular induce <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphisms</a> on <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_e17024dbdec817be72886f34adbe65878d80a56e.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_e17024dbdec817be72886f34adbe65878d80a56e.svg" class="org-svg" />.<br />
+</p>
+
+<p>
+This yields a diagram<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_2aba7244f01c6357b9901225941fb3ecefa571e1.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_2aba7244f01c6357b9901225941fb3ecefa571e1.svg" class="org-svg" />
+</span>
+</div>
+<p>
+or<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_173d8082ac2bad8163469c0fdcd082fea5c406c8.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_173d8082ac2bad8163469c0fdcd082fea5c406c8.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Now recall that the map <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_0e3bc12dd2447f3d9ac5d23913018d3da877a185.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_0e3bc12dd2447f3d9ac5d23913018d3da877a185.svg" class="org-svg" /> (<img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_d952918378b58da8f4a9b6462721f609c0b4f324.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_d952918378b58da8f4a9b6462721f609c0b4f324.svg" class="org-svg" />) is precisely the element in <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_3a7260cc0aa4162c84086accff7843117c5bf303.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_3a7260cc0aa4162c84086accff7843117c5bf303.svg" class="org-svg" /> which is the image of the prefered generator in <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_c23a175174f1aeded29f8bef8a1468291bb4d9d9.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_c23a175174f1aeded29f8bef8a1468291bb4d9d9.svg" class="org-svg" />.<br />
+Now in particular<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_ef36c8931ef962fa7339519eef7f932c4990fa74.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_ef36c8931ef962fa7339519eef7f932c4990fa74.svg" class="org-svg" />
+</span>
+</div>
+<p>
+commutes, and the composite (after taking the inverse of the bottom horizontal map) is given by a map<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_5bda1e2a516f109103b5984a84439660195c3e21.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_5bda1e2a516f109103b5984a84439660195c3e21.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+In particular,<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_8a95c7aa10e5ee2079a2df93dceee2723a9fcbec.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_8a95c7aa10e5ee2079a2df93dceee2723a9fcbec.svg" class="org-svg" />
+</span>
+</div>
+<p>
+and<br />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_7c90ad6b6880b6c24719d3be1a5f94621a034561.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_7c90ad6b6880b6c24719d3be1a5f94621a034561.svg" class="org-svg" />
+</span>
+</div>
+<p>
+commute, which shows that <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_f101580abe2c7842bd36fbccdcafc82883d4a1f8.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_f101580abe2c7842bd36fbccdcafc82883d4a1f8.svg" class="org-svg" /> as elements in <img src="ltximg/20260728-classification_of_cw_complexes_with_three_cells_3a7260cc0aa4162c84086accff7843117c5bf303.svg" alt="20260728-classification_of_cw_complexes_with_three_cells_3a7260cc0aa4162c84086accff7843117c5bf303.svg" class="org-svg" />.<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: nil</p>
+<p class="author">Author: Anton Zakrewski</p>
+<p class="date">Created: 2026-07-28 Di 09:19</p>
+</div>
+</body>
+</html>
