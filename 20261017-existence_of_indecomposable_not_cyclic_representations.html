@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>existence of indecomposable, non cyclic representations</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-df14d7ae-9412-4c01-9016-0e2a949255b2"></span><h1 class="title">existence of indecomposable, non cyclic representations</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $A$ be a <a href="20221125133249-k_algebra.html#ID-74ada59f-7a40-49a2-b525-be8af0628fe9">K-Algebra</a>, then there an <a href="20261013-indecomposable_representation.html#ID-5ec61ec7-94c1-48e4-ace6-125d0dbbb957">indecomposable representation</a> is in general not a <span class="broken-link" title="unresolved id:bce39d12-9e4e-49a4-a70e-8201e216a2f3">cyclic representation</span>.
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $A = \mathbb{C}[x,y]/(x^2,y^2,xy)$ and let $V$ be the \(A\)-module $\mathrm{Hom}_{A}(A,k)$.
+Then $A$ has a basis given by $1,x,y$
+First we show that it is indecomposable and then that it is not cyclic
+</p>
+
+<h3 id="indecomposable">indecomposable</h3>
+<p>
+Let $\partial_x,\partial_y, \partial_1$ be the dual basis.
+Then $x \partial_x = 1 = y \partial_y$ and $x$ and $y$ act by zero on the remaining combinations.
+Suppose there exist $M_1,M_2$ such that $M_1 \oplus M_2 = V^*$ as \(A\)-modules.
+Then there exists an vector $v = \alpha_1 \partial_1 + \alpha_x \partial_x + \alpha_y \partial_y \in M_1$ and $1 \partial_1 - v \in M_2$ since $1 \partial_1$ lies in $M_1 + M_2$.
+In particular $x \cdot v = \alpha_x \partial_1 = x \cdot (v + 1)$ which implies $\alpha_x = 0$ and similarly $\alpha_y = 0$ since $M_1 \cap M_2 =0$.
+</p>
+
+<p>
+Hence $v = \alpha_1 \partial_1 \in M_1$ for <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> $\alpha_1 \neq 0$ (otherwise proceed with $v + 1 \in M_2$).
+If $M_1 \oplus M_2 = 0$, then each vector ($\beta_1,\beta_x,\beta_y) \in M_2$ must satisfy $\beta_x = \beta_y = 0$ since we may multiply with $x$ and $y$ resp. to get $\beta_x \partial_1 \in M_2$.
+At last, similarly $\beta_1 =0$
+</p>
+
+<h3 id="not-cyclic">not cyclic</h3>
+<p>
+Let $k$ be the $A$ representation where $x,y$ act by zero.
+Then $\mathrm{Hom}_{A}(A,k) \cong k$ is a cyclic (1-dimensional) \(k\)-vector space as $x,y \mapsto 0$ and hence an element is determined by $1 \mapsto \lambda$ as a k-vector space.
+We claim that $\mathrm{Hom}_{A}(V^*,k)$ has dimension $\geq 2$ and that this suffices to see that $V^*$ is not cylcic
+If $V^*$ were cyclic, i.e. $V^* \cong A/I$, then $\mathrm{Hom}_{A}(V^*,k)$ would be a subvector space of a 1-dimensonal vector space, hence itself $0$ or $1$ dimensional.
+</p>
+
+<p>
+But here it suffices to see that $f_1: \partial_1 \mapsto 0, \partial_x \mapsto 1, \partial_y \mapsto 0$ and $f_1: \partial_1 \mapsto 0, \partial_x \mapsto 0, \partial_y \mapsto 1$ are \(A\)-linear and linearly independent over $k$.
+</p>
+
+
+</div>
+</body>
+</html>

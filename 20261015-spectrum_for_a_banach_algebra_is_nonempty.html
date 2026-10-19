@@ -8,15 +8,84 @@
 <meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
 <script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
 <span id="ID-17db98c8-3b95-485c-95fb-268051f467a5"></span><h1 class="title">spectrum for a banach algebra is nonempty</h1>
 
 <h2 id="proposition">Proposition</h2>
-
+<p>
+Let $A$ be a unital <a href="20240906-banach_algebra.html#ID-8aa30de4-2120-4e01-b506-c5e35a5709bf">Banach Algebra</a>.
+Then the <a href="20261016-unital_spectrum_for_a_unital_algebra.html#ID-4ebf157d-6066-4452-912b-c9c82c9d7b48">unital spectrum</a> is <a href="20220902125304-nichtleere_menge.html#ID-119fa0d9-a2b3-4b46-bb61-a6e590282321">nonempty</a>.
+</p>
 
 <h2 id="proof">Proof</h2>
+<p>
+Part of some spectral theorem (???) implies that for any linear functional $l: A \rightarrow \mathbb{C}$, the partial map
+</p>
+
+<div class="math-block">\begin{align*}
+l(R_{a}): \mathbb{C}  \rightarrow A \xrightarrow{\mathrm{ev}_{v_i}} \mathbb{C} \\   
+\lambda \mapsto l((a - \lambda)^{-1})
+\end{align*}</div>
+<p>
+is a <a href="20230306232528-holomorphe_funktion.html#ID-47dd90d3-19b3-4336-bf37-554413d69c02">holomorphic function</a> whereever defined.
+</p>
+
+<p>
+We want to show that if $R_a$ is defined on $\mathbb{C}$, that $R_a$ is then constant.
+Then $R_{a}$ has to be the constant zero map, since $R_{a}(n) \rightarrow 0$ as $\vert R_{a}(n) \vert \leq \frac{1}{n - \| a \|}$.
+This will be an evident contradiction with $R_a(-) \in A^{\times}$.
+It suffices to show that $l(R_{a})$ is constant for all $l$ since $\mathbb{C}$ is a <a href="20240210-coseparator.html#ID-851e9530-c296-4aea-b512-4ba442f9c12b">coseparator</a> in the category of banach spaces.
+Suppose $R_{a}(\lambda) - R_{a}(\lambda') \neq 0$, then there exsits a linear functional $l: A \rightarrow \mathbb{C}$ such that $l(R_{a}(\lambda) - R_{a}(\lambda')) \neq 0$ and hence $l(R_{a}(-))$ can't be constant.
+</p>
+
+<p>
+To show that $l \circ R_{a}(-)$ is constant, it suffices to show that it is bounded by <a href="20250525-bounded_entire_function_as_constant_function.html#ID-76669b2b-d45a-41eb-85bd-5ddb8db9c67c">Liouville's Theorem</a>.
+Now the map $l \circ R_a$ is in particular continuous and hence bounded on compacts like $\overline{B_{\| a \| + 1}(0)}$.
+Outside $\overline{B_{\| a \| + 1}(0)$ we have $\vert R_{a}(-) \vert \leq 1$ since for $\lambda$ with $\vert \lambda \vert \geq \| a \| + 1$, we get $\| a - \lambda \| \geq 1$ by the <a href="20230420132847-umgekehrte_dreiecksungleichung.html#ID-7b5a2782-1ef3-49b0-a51a-c9751470aaeb">reverse triangle inequality</a> and hence $ \| R_{a}(\lambda) \| &lt; 1$ and hence in particular bounded after applying $l$.
+</p>
 
 
 </div>

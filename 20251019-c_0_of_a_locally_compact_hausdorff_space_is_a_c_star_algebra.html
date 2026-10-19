@@ -8,16 +8,101 @@
 <meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
 <script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
 <span id="ID-8119b7d8-216c-41ed-a454-f396798a4a46"></span><h1 class="title">C_0 of a locally compact hausdorff space is a C-star algebra</h1>
 
 <h2 id="proposition">Proposition</h2>
-
+<p>
+Let $X$ be a  <a href="20230705-locally_compact_regular_space.html#ID-f89f4ba5-4eb9-448b-bf35-da8e5aeaa963">locally compact,</a> <a href="20221122074811-hausdorff_raum.html#ID-f49f9b47-9f16-456f-837f-7b9656c46aba">hausdorff</a> space.
+Then $C_0(X)$ is a <a href="20240906-c_algebra.html#ID-e1ebf280-bfcf-4bcf-a773-83be94617842">C-star Algebra</a> with the star structure given by pointwise conjugation (postcomposition with the conjugation)
+</p>
 
 <h2 id="proof">Proof</h2>
 
+<h3 id="star-algerba">star algerba</h3>
+<p>
+Observe that $\mathbb{C}$ with conjugation is a star-algebra.
+We proceed to show that $\mathrm{Hom}_{\mathrm{Set}}(X, \mathbb{C})$ admits a pointwise star algebra structure.
+Furthermore, $C_0(X) \subseteq C(x) \subseteq \mathrm{Hom}_{\mathrm{Set}}(X, \mathbb{C})$ is closed under the operations, since multiplication / addition / conjugation is <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a> on $\mathbb{C}$ and the product of functions in $C_0$ lies in $C_0$:
+Here for $f_1,f_2 \in C_0(X)$ and an $\varepsilon &gt; 0$ choose compacts $K_1,K_2$ such that $\vert f_1(X \setminus K_1) \vert \subseteq [0,1), \vert f_2(X \setminus K_2) \vert \subseteq [0,\varepsilon)$.
+</p>
+
+<p>
+Now we can encode every algebraic relation as a diagram, e.g. the antilinearity of the star operation of a star-algebra $A$ is precisely the commutative diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/552fd513ce7093edbcd9.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+and applying the product preserving hom functor $\mathrm{Hom}_{\mathrm{Set}}(X, -)$ to this diagram yields a diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/554498db0cc8f277f779.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+where specifically for the antilinearity we have to identify $\mathbb{C} \subseteq \mathrm{Hom}(X,\mathbb{C})$ via the diagonal (and see that in the case $X = \emptyset$, that $C_0(X) = 0$ is the zero *-algebra)
+</p>
+
+<h3 id="c-algebra">c-* algebra</h3>
+<p>
+let $l^2(X)$ be the <span class="broken-link" title="unresolved id:056477d8-2012-49d5-8101-1d5a6d8faafa">l^2 of the underlying set</span>.
+Now any element $f \in C_0(X)$ is bounded: choose a compact $K$ such that $\vert f(X \setminus K) \vert &lt; 1$ and then choose the maximum of $\vert f \vert$ restricted to $1$ and $K$.
+</p>
+
+<p>
+So in particular, for any $h \in l^2(X)$ we have $\| f \cdot h \|_2 \leq \vert f \vert_{\infty} \cdot \| h \|_2$ which also implies that $\| f \| \leq \| f \|_{\infty}$.
+Now we show $\| f \| = \| f \|_{\infty}$:
+For this choose a sequence $x_n \in X$ such that $\vert f(x_n) \vert \rightarrow \| f \|_{\infty}$.
+Then $f ( (1 \cdot x))$ shows $\|f \| &gt; \| f \|_{\infty}$.
+</p>
+
+<p>
+Now let $f_n$ be a cauchy sequence in $C_0$ with respect to  $\| - \|_{\infty}$, then the pointwise limit of this lies in $C(X)$ and it remains to show that it lies in $C_0(X)$:
+Let $\varepsilon &gt; 0$, then choose an $n &gt;&gt; 0$ such that $\vert f - f_n \|_{\infty} \vert &lt; \frac{\varepsilon}{2}$ and a $K$ such that $\vert f_{n}(X \setminus K) \vert &lt; \frac{\varepsilon}{2}$
+In particular, the triangle inequality then implies that $\vert f[X \setminus K] \vert &lt; \varepsilon$.
+</p>
 
 </div>
 </body>
