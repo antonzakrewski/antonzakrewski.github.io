@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:25 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Quaternion</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,44 +52,42 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Quaternion</h1>
-<div id="outline-container-org9cff6d9" class="outline-2">
-<h2 id="org9cff6d9"><span class="section-number-2">1.</span> Definition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-3f46036d-daf8-4b3f-a79a-31c4b070e907"></span><h1 class="title">Quaternion</h1>
+
+<h2 id="definition">Definition</h2>
 <p>
-Die Quaternionen \(\mathbb{H}\) sind eine <a href="20230603-field_extension.html#ID-afbdca38-90b9-4db1-9d10-cfd826cbfac6">Körpererweiterung</a> der <a href="20210702104546-komplexe_zahlen.html#ID-ca121ea4-6b83-47aa-a6f1-31a6e0d0667d">Komplexen Zahlen</a> zu einem <a href="20220304154607-quaternionen_als_schiefkorper.html#ID-e05c38e1-dd94-4827-95da-425d8ab4d00d">Schiefkörper</a> (siehe: <a href="20220304154607-quaternionen_als_schiefkorper.html#ID-e05c38e1-dd94-4827-95da-425d8ab4d00d">Quaternionen als Schiefkörper</a>) mittels:
+Die Quaternionen $\mathbb{H}$ sind eine <a href="20230603-field_extension.html#ID-afbdca38-90b9-4db1-9d10-cfd826cbfac6">Körpererweiterung</a> der <a href="20210702104546-komplexe_zahlen.html#ID-ca121ea4-6b83-47aa-a6f1-31a6e0d0667d">Komplexen Zahlen</a> zu einem <a href="20220304154607-quaternionen_als_schiefkorper.html#ID-e05c38e1-dd94-4827-95da-425d8ab4d00d">Schiefkörper</a> (siehe: <a href="20220304154607-quaternionen_als_schiefkorper.html#ID-e05c38e1-dd94-4827-95da-425d8ab4d00d">Quaternionen als Schiefkörper</a>) mittels:
 </p>
-<ul class="org-ul">
-<li><a href="20211231000453-imaginare_einheit_i.html#ID-a23f6243-7f05-47a7-bf9c-cc8ce2d6fdc9">Imaginäre Einheit i</a></li>
+<ul>
+<li><a href="20211231000453-imaginare_einheit_i.html#ID-a23f6243-7f05-47a7-bf9c-cc8ce2d6fdc9">Imaginäre Einheit i</a> </li>
+
 <li><a href="20211231224203-imaginare_einheit_k_quaternion.html#ID-2e5d7738-79ee-453f-a84a-45922843f46a">Imaginäre Einheit k (Quaternion)</a></li>
-<li><a href="20211231224146-imaginare_einheit_j_quaternion.html#ID-3c81ee61-ba29-4c9e-ac5b-bef90c8fb160">Imaginäre Einheit j (Quaternion)</a></li>
+
+<li><a href="20211231224146-imaginare_einheit_j_quaternion.html#ID-3c81ee61-ba29-4c9e-ac5b-bef90c8fb160">Imaginäre Einheit j (Quaternion)</a> </li>
 </ul>
-\begin{align*}
-h = a + b \cdot \mathrm{i} + c \cdot \mathrm{j} + d \cdot \mathrm{k} && a,b,c,d \in \mathbb{R}
-\end{align*}
+<div class="math-block">\begin{align*}
+h = a + b \cdot \mathrm{i} + c \cdot \mathrm{j} + d \cdot \mathrm{k} &amp;&amp; a,b,c,d \in \mathbb{R}
+\end{align*}</div>
 <p>
 mit komponentenweise definierter Addition und <a href="20211218210925-distributivgesetz.html#ID-3f15be90-7d67-4ab7-bdd0-cace7ebe5c2a">distributiver</a> Multiplikation unter folgenden Regeln:
 </p>
-\begin{align*}
- -1 =& \mathrm{i}^2 \\
-=& \mathrm{j}^2
-=& \mathrm{k}^2 \\
-=& \mathrm{i}\mathrm{j}\mathrm{k}
-\end{align*}
+
+<div class="math-block">\begin{align*}
+ -1 =&amp; \mathrm{i}^2 \\
+=&amp; \mathrm{j}^2
+=&amp; \mathrm{k}^2 \\
+=&amp; \mathrm{i}\mathrm{j}\mathrm{k}
+\end{align*}</div>
 <p>
 siehe auch:
 </p>
-<ul class="org-ul">
+<ul>
 <li><a href="20220304154833-multiplikationsregeln_quaternionen.html#ID-3281f2bb-c1ad-4e72-ae24-529068166914">Multiplikationsregeln: Quaternionen</a></li>
-<li><a href="20220304154607-quaternionen_als_schiefkorper.html#ID-e05c38e1-dd94-4827-95da-425d8ab4d00d">Quaternionen als Schiefkörper</a></li>
+
+<li><a href="20220304154607-quaternionen_als_schiefkorper.html#ID-e05c38e1-dd94-4827-95da-425d8ab4d00d">Quaternionen als Schiefkörper</a> </li>
 </ul>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:25</p>
+
+
 </div>
 </body>
 </html>

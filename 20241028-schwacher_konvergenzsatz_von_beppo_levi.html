@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>schwacher Konvergenzsatz von Beppo Levi</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-fbfe2376-af33-4411-a3fa-2715da375b43"></span><h1 class="title">schwacher Konvergenzsatz von Beppo Levi</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $(X, \mathcal{A})$ ein <a href="20230302132218-messraum.html#ID-7d8d7a50-6fe1-4cee-a847-365b73490c86">Messraum</a>, $(f_n) \in E$ eine folge von <a href="20241028-raum_der_elementarfunktionen.html#ID-dcbffd7a-1449-4cb8-a188-db4e7d65cb66">Elementarfunktionen</a> mit $f_n \nearrow f$.
+Dann gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{lim}_{n \rightarrow \infty} \int_{X} f_n \mathrm{d} \mu = \int_{X} f \mathrm{d} \mu
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+Sei eine Fallunterscheidung gegeben
+</p>
+
+<h3 id="mu-f-neq-0-infty">$\mu( \{f \neq 0\}) = \infty$</h3>
+<p>
+Sei $f = \sum_{j=1}^n \alpha_j \chi_{A_j}$
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> sei $\alpha_1 &gt; 0$ und $\mu(A_i) = \infty$
+</p>
+
+<p>
+Sei $A_i^{(n)} \coloneqq \{f_n &gt; \frac{a}{_1}2\}$
+Dann folgt, da $f_n$ monoton ist auch
+</p>
+
+<div class="math-block">\begin{align*}
+A_1^n \subseteq A_i^{n+1}
+\end{align*}</div>
+<p>
+und
+</p>
+
+<div class="math-block">\begin{align*}
+A \subseteq \bigcup_{n \in \mathbb{N}} A_1^{(n)} 
+\end{align*}</div>
+
+<p>
+Dann folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{lim}_{n \rightarrow \infty} ( \int_X f_n \mathrm{d} \mu) \geq \mathrm{lim} (\frac{a_1}{2} \mu(A_1^(n)))
+\end{align*}</div>
+
+
+
+<h3 id="mu-f-neq-0-infty">$\mu( \{f \neq 0\}) &lt; \infty$</h3>
+<p>
+Wegen $f_n \leq f$ gilt dann aufgrund der <a href="20241028-monotonie_des_integrals_fur_elementarfunktionen.html#ID-4b6c9956-a14d-4ad3-9a74-d7fc2378a92c">Monotonie des Integrals für Elementarfunktionen</a> auch
+</p>
+
+<div class="math-block">\begin{align*}
+\int_X f_n \mathrm{d} \mu \leq \int_X f \mathrm{d} \mu
+\end{align*}</div>
+<p>
+bzw. durch anwenden von $\mathrm{lim}$ auch
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{lim}_{n \rightarrow \infty} \int_X f_n \mathrm{d} \mu \leq \int_X f \mathrm{d} \mu
+\end{align*}</div>
+
+<p>
+Sei $\varepsilon &gt; 0$ gegeben, $c_n \coloneqq \{f - f_n &gt; \varepsilon \} \in \mathcal{A}$.
+Nach Annahme gilt dann $C_n \searrow \emptyset$ und
+</p>
+
+<div class="math-block">\begin{align*}
+\mu(C_n) &lt; \infty
+\end{align*}</div>
+<p>
+da $C_n \subseteq \{f \neq 0\}$
+</p>
+
+<p>
+Wegen der <a href="20241020-maß_und_von_oben_stetiger_inhalt.html#ID-90789e3c-8050-4af6-a6b6-9697903b3dee">stetigkeit von oben</a> folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{lim}_{n \rightarrow \infty} \mu(C_n) = 0
+\end{align*}</div>
+
+<p>
+Setze
+</p>
+
+<div class="math-block">\begin{align*}
+f_{\mathrm{max}} \coloneqq \mathrm{max}_{x \in X} f(x) &lt; \infty
+\end{align*}</div>
+
+<p>
+Dann ist
+</p>
+
+<div class="math-block">\begin{align*}
+\int_{X} f \mathrm{d} \mu - \int_X f_n \mathrm{d} \mu = \int_X \chi_{C_n} (f - f_n) \mathrm{d} \mu + \int_X \chi_{C_n^c} (f - f_n) \mathrm{d} \mu
+\end{align*}</div>
+<p>
+wobei
+</p>
+
+<div class="math-block">\begin{align*}
+ \int_X \chi_{C_n} (f - f_n) \mathrm{d} \mu + \int_X \chi_{C_n^c} (f - f_n) \leq f_{\mathrm{max}} \mathrm{d} \mu(C_n) \\
+\int_X \chi_{C_n^c} (f - f_n) \mathrm{d} \mu \leq \varepsilon \cdot \chi_{ \{f \neq 0\} \cap C_n^c}
+\end{align*}</div>
+
+<p>
+mit
+</p>
+
+<div class="math-block">\begin{align*}
+\chi_{ \{f \neq 0\} \cap C_n^c} \coloneqq M &lt; \infty
+\end{align*}</div>
+
+<p>
+Somit folgt dann
+</p>
+
+<div class="math-block">\begin{align*}
+\int_X f \mathrm{d} \mu - \mathrm{lim}_{n \rightarrow \infty} \int_X f_n \mathrm{d} \mu \leq \varepsilon M
+\end{align*}</div>
+<p>
+da
+</p>
+
+
+
+</div>
+</body>
+</html>

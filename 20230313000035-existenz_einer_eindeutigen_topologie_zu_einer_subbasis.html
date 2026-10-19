@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 22:12 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Existenz einer eindeutigen Topologie zu einer Subbasis</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,75 +52,56 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Existenz einer eindeutigen Topologie zu einer Subbasis</h1>
-<div id="outline-container-org9924449" class="outline-2">
-<h2 id="org9924449"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-cc400e87-17ce-4b6a-ad7c-f7ba320c6cf7"></span><h1 class="title">Existenz einer eindeutigen Topologie zu einer Subbasis</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(X\) eine <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> und \(\mathcal{S} \subseteq \mathcal{P}(X)\), so existiert eine eindeutige <a href="20220930230520-topologie_auf_einer_menge.html#ID-1ced2edb-806d-4fb8-ada3-ca97b7ea1d10">Topologie</a> \(\mathcal{T}\), so dass \(\mathcal{S}\) eine <a href="20230211131537-subbasis_einer_topologie.html#ID-9d1f4366-7535-41ca-bb72-967675fb06ab">Subbasis</a> ist.
+Sei $X$ eine <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> und $\mathcal{S} \subseteq \mathcal{P}(X)$, so existiert eine eindeutige <a href="20220930230520-topologie_auf_einer_menge.html#ID-1ced2edb-806d-4fb8-ada3-ca97b7ea1d10">Topologie</a> $\mathcal{T}$, so dass $\mathcal{S}$ eine <a href="20230211131537-subbasis_einer_topologie.html#ID-9d1f4366-7535-41ca-bb72-967675fb06ab">Subbasis</a> ist.
 </p>
-</div>
-</div>
-<div id="outline-container-org031efd4" class="outline-2">
-<h2 id="org031efd4"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<h2 id="beweis">Beweis</h2>
 <p>
 Sei
 </p>
-\begin{align*}
-\mathcal{T} \coloneqq& \{ \bigcup_{i \in I} A_i \vert A_i = \bigcap_{j = 1}^n S_{j,i}, S_{j,i} \in \mathcal{S}\}
-\end{align*}
-</div>
-<div id="outline-container-org20c5b04" class="outline-3">
-<h3 id="org20c5b04"><span class="section-number-3">2.1.</span> triviale mengen</h3>
-<div class="outline-text-3" id="text-2-1">
-<ol class="org-ol">
-<li>\(\emptyset\) folgt aus der leeren Vereinigung</li>
-<li>\(X\) folgt aus \(\bigcap_{i \in \emptyset} S_i\) oder der Bedingung für eine <a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">Basis</a></li>
+
+<div class="math-block">\begin{align*}
+\mathcal{T} \coloneqq&amp; \{ \bigcup_{i \in I} A_i \vert A_i = \bigcap_{j = 1}^n S_{j,i}, S_{j,i} \in \mathcal{S}\}
+\end{align*}</div>
+
+<h3 id="triviale-mengen">triviale mengen</h3>
+<ol>
+<li>$\emptyset$ folgt aus der leeren Vereinigung</li>
+
+<li>$X$ folgt aus $\bigcap_{i \in \emptyset} S_i$ oder der Bedingung für eine <a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">Basis</a> </li>
 </ol>
-</div>
-</div>
-<div id="outline-container-org8078d23" class="outline-3">
-<h3 id="org8078d23"><span class="section-number-3">2.2.</span> endlicher schnitt</h3>
-<div class="outline-text-3" id="text-2-2">
+<h3 id="endlicher-schnitt">endlicher schnitt</h3>
 <p>
-<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> für \(n = 2\), der allgemeine fall folgt durch Induktion:
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> für $n = 2$, der allgemeine fall folgt durch Induktion:
 Nach dem <a href="20230324121812-allgemeine_distributivgesetz_fur_vereinigung_und_schnitt.html#ID-2365d754-a288-4146-9866-3d818afa661b">Allgemeinen Distributivgesetz für Vereinigung und Schnitt</a> gilt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \left(\bigcup_{i \in I} A_i \right) \cap \left(\bigcup_{j \in J} B_j\right) = \bigcup_{(i,j) \in I \times J} A_i \cap B_j
-\end{align*}
+\end{align*}</div>
 <p>
-wobei \(A_i \cap B_j = \bigcap_{l = 1}^n S_l \bigcap_{k = 1}^m S_k\) ein endlicher Schnitt ist
+wobei $A_i \cap B_j = \bigcap_{l = 1}^n S_l \bigcap_{k = 1}^m S_k$ ein endlicher Schnitt ist
 </p>
-</div>
-</div>
-<div id="outline-container-org97105d9" class="outline-3">
-<h3 id="org97105d9"><span class="section-number-3">2.3.</span> beliebige Vereinigung</h3>
-<div class="outline-text-3" id="text-2-3">
+
+<h3 id="beliebige-vereinigung">beliebige Vereinigung</h3>
 <p>
 folgt aus der Konstruktion
 </p>
-\begin{align*}
-\bigcup_{j \in J} \bigcup_{i \in I} A_i^j =& \bigcup_{(i,j) \in I \times J} A_i^j 
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgc8e4516" class="outline-3">
-<h3 id="orgc8e4516"><span class="section-number-3">2.4.</span> bedingung als subbasis</h3>
-<div class="outline-text-3" id="text-2-4">
+
+<div class="math-block">\begin{align*}
+\bigcup_{j \in J} \bigcup_{i \in I} A_i^j =&amp; \bigcup_{(i,j) \in I \times J} A_i^j 
+\end{align*}</div>
+
+<h3 id="bedingung-als-subbasis">bedingung als subbasis</h3>
 <p>
-Nach Konstruktion ist die erzeugte <a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">basis</a> \(\mathcal{B}\) abgeschlossen gegenüber endlichen Schnitten, damit insbesondere auch pseudo-abgeschlossen als basis
-Ferner ist jede <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> in \(\mathcal{T}\) vereinigung oder endlicher schnitt einer basismenge und zudem ist \(\mathcal{S} \subseteq \mathcal{T}\)
+Nach Konstruktion ist die erzeugte <a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">basis</a> $\mathcal{B}$ abgeschlossen gegenüber endlichen Schnitten, damit insbesondere auch pseudo-abgeschlossen als basis
+Ferner ist jede <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> in $\mathcal{T}$ vereinigung oder endlicher schnitt einer basismenge und zudem ist $\mathcal{S} \subseteq \mathcal{T}$
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 22:12</p>
+
 </div>
 </body>
 </html>

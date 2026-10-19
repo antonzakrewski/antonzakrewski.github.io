@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>uniqueness of analytic functions via convergent sequence</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-18256f04-8d74-4836-b9b3-124d37b98298"></span><h1 class="title">uniqueness of analytic functions via convergent sequence</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\Omega \subseteq \mathbb{C}$ be <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> and <a href="20230118223336-zusammenhangender_raum.html#ID-bcc53507-bc5a-46d4-bd83-53e504f62b9d">connected</a>  and $f,g: \Omega \rightarrow \mathbb{C}$ be <a href="20231209-analytic_function.html#ID-3ec39bc4-c716-4b39-8d4e-89fa0ef19534">analytic functions</a>
+Suppose there exists a <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">convergent</a> <a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">sequence</a> $w_k \in \Omega$ with $w_k \neq w_j$ for $k\neq j$ and $\mathrm{lim} w_k \in \Omega$
+</p>
+
+<div class="math-block">\begin{align*}
+g(w_k) = f(w_k)
+\end{align*}</div>
+<p>
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+f = g
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> assume that $f' = f - g, g = 0$.
+Then it suffices to show that $f' = 0$
+Let $z_0 = \mathrm{lim} w_k$.
+</p>
+
+<p>
+Then since $z_0 \in \Omega$ we may write
+</p>
+
+<div class="math-block">\begin{align*}
+f'(z) = \sum_{n \in \mathbb{N}} a_n(z - z_0)^n
+\end{align*}</div>
+<p>
+on some disc.
+</p>
+
+<p>
+Assume that there exists some $a_n \neq 0$, let $a_m \neq 0$ be the one with smallest index $m$.
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+f'(z) = a_m(z - z_0)^m(1 + r(z))
+\end{align*}</div>
+
+<p>
+with $r(z) \rightarrow 0$ as $z \rightarrow z_0$ - which is to be regarded as remainder .
+Thus we may assume that $r(z) &gt; - 0.5$ for some small disk $D_{R'}(z_0)$ around $z_0$.
+</p>
+
+<p>
+Now within that disk we still find a convergent sequence $w_k \rightarrow z_0$.
+Then by assumption
+</p>
+
+<div class="math-block">\begin{align*}
+f'(w_k) = 0
+\end{align*}</div>
+<p>
+but also
+</p>
+
+<div class="math-block">\begin{align*}
+a_m(w_k - z_0)^m (1 + r(w_k)) \neq 0
+\end{align*}</div>
+
+<p>
+This shows a contradiction, hence $a_n = 0$ for all $n \in \mathbb{N}$
+</p>
+
+<p>
+This shows that $f' = 0$ on the original disk of convergence of $f'$.
+Hence $(f')^{-1}[0]$ has nonempty interior, i.e. $\mathrm{int}((f')^{-1}[0]) \neq \emptyset$.
+</p>
+
+<p>
+Now we will show that $\mathrm{int}((f')^{-1}[0]) \cap \Omega$ is also closed in $\Omega$
+Let $w_k \rightarrow z$ be a sequence with $w_k \in\mathrm{int}((f')^{-1}[0])$.
+</p>
+
+<p>
+Then we may repeat the argument above and get a small disk around $z$ with $f_{D_R(z)} = 0$.
+Hence $z \in \mathrm{int}((f')^{-1}[0]) \cap \Omega$
+</p>
+
+<p>
+Now by assumption $\mathrm{int}((f')^{-1}[0]) \cap \Omega \subseteq \Omega$ is both open (intersection of two opens), closed and nonempty, thus by connectivity of $\Omega$ it has to be $\Omega$
+</p>
+
+</div>
+</body>
+</html>

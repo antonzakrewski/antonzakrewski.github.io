@@ -1,90 +1,106 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 15:45 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>pullback of a monomorphism as monomorphism</title>
+<title>pullback of a monomorphism is a monomorphism in a 1-category</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">pullback of a monomorphism as monomorphism</h1>
-<div id="outline-container-org3d3cbba" class="outline-2">
-<h2 id="org3d3cbba"><span class="section-number-2">1.</span> Proposition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-c8584b8d-d8c2-4163-9cba-6705f17e4d81"></span><h1 class="title">pullback of a monomorphism is a monomorphism in a 1-category</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let <img src="ltximg/20230806-pullback_of_a_monomorphism_as_monomorphism_760824120891fc757bc0445145b027d09b237baa.svg" alt="20230806-pullback_of_a_monomorphism_as_monomorphism_760824120891fc757bc0445145b027d09b237baa.svg" class="org-svg" /> be a <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a>, <img src="ltximg/20230806-pullback_of_a_monomorphism_as_monomorphism_241be2f7b2e1ed205951d9f74bb29dd69f4888cd.svg" alt="20230806-pullback_of_a_monomorphism_as_monomorphism_241be2f7b2e1ed205951d9f74bb29dd69f4888cd.svg" class="org-svg" /> and <img src="ltximg/20230806-pullback_of_a_monomorphism_as_monomorphism_239881773191ac90700d7f146383ac463640ea90.svg" alt="20230806-pullback_of_a_monomorphism_as_monomorphism_239881773191ac90700d7f146383ac463640ea90.svg" class="org-svg" /> <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphisms</a>.
-Suppose <img src="ltximg/20230806-pullback_of_a_monomorphism_as_monomorphism_5461866a7289ba4c56a10a82a5622bfbdcb4ae22.svg" alt="20230806-pullback_of_a_monomorphism_as_monomorphism_5461866a7289ba4c56a10a82a5622bfbdcb4ae22.svg" class="org-svg" /> is a <a href="20220819135911-monomorphismus.html#ID-60b63797-32fa-4d4e-a577-7616faa010ba">monomorphism</a> and <img src="ltximg/20230806-pullback_of_a_monomorphism_as_monomorphism_cd0ff9796d5d44181802247ecadcd48ba7fe30fc.svg" alt="20230806-pullback_of_a_monomorphism_as_monomorphism_cd0ff9796d5d44181802247ecadcd48ba7fe30fc.svg" class="org-svg" /> a <a href="20230806-pullback.html#ID-730c4312-492d-4b9c-a347-9281309d3e6f">pullback</a>, then <img src="ltximg/20230806-pullback_of_a_monomorphism_as_monomorphism_8f5ebf05b94cb32c4d68af395e971482ad79bead.svg" alt="20230806-pullback_of_a_monomorphism_as_monomorphism_8f5ebf05b94cb32c4d68af395e971482ad79bead.svg" class="org-svg" /> is also a monomorphism.
+Let $\mathcal{C}$ be a <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a>, $A,B,C \in \mathrm{Ob}(\mathcal{C})$ and $f \in \mathrm{Hom}_{\mathcal{C}}(A,C), g \in \mathrm{Hom}_{\mathcal{C}}(B,C)$ <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphisms</a>.
+Suppose $f$ is a <a href="20220819135911-monomorphismus.html#ID-60b63797-32fa-4d4e-a577-7616faa010ba">monomorphism</a> and $P$ a <a href="20230806-pullback.html#ID-730c4312-492d-4b9c-a347-9281309d3e6f">pullback</a>, then $\pi_1 \in \mathrm{Hom}_{\mathcal{C}}(P,B)$ is also a monomorphism.
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20230806-pullback_of_a_monomorphism_as_monomorphism_f9b2d31ceda3382ddfa483809f4c17ee27fcc758.svg" alt="20230806-pullback_of_a_monomorphism_as_monomorphism_f9b2d31ceda3382ddfa483809f4c17ee27fcc758.svg" class="org-svg" />
-</span>
-</div>
-</div>
-</div>
-<div id="outline-container-org013e285" class="outline-2">
-<h2 id="org013e285"><span class="section-number-2">2.</span> Proof</h2>
-<div class="outline-text-2" id="text-2">
+<div class="equation-container"><span class="equation"><img src="ltximg/bf5d78516919cefbc672.svg" class="org-svg" alt="diagram" /></span></div>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="old-proof">old proof</h3>
 <p>
-Suppose there exists an <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">object</a> <img src="ltximg/20230806-pullback_of_a_monomorphism_as_monomorphism_c0e81f777daa870154e9b593b0de237c0d0b77c6.svg" alt="20230806-pullback_of_a_monomorphism_as_monomorphism_c0e81f777daa870154e9b593b0de237c0d0b77c6.svg" class="org-svg" /> and <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphisms</a> <img src="ltximg/20230806-pullback_of_a_monomorphism_as_monomorphism_99f6fa4ca87aa59027429948b377679e9a19a80a.svg" alt="20230806-pullback_of_a_monomorphism_as_monomorphism_99f6fa4ca87aa59027429948b377679e9a19a80a.svg" class="org-svg" />, such that
+Suppose there exists an <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">object</a> $H$ and <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphisms</a> $x,y \in \mathrm{Hom}_{\mathcal{C}}(H,P)$, such that
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20230806-pullback_of_a_monomorphism_as_monomorphism_1663b046b19c3377cb54b83738601babd190f256.svg" alt="20230806-pullback_of_a_monomorphism_as_monomorphism_1663b046b19c3377cb54b83738601babd190f256.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+\pi_1 \circ x = \pi_1 \circ y
+\end{align*}</div>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20230806-pullback_of_a_monomorphism_as_monomorphism_17464aadc1b4f47fe0d9a32bdf1107f1c86023b6.svg" alt="20230806-pullback_of_a_monomorphism_as_monomorphism_17464aadc1b4f47fe0d9a32bdf1107f1c86023b6.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/a89e05edb285d49793fa.svg" class="org-svg" alt="diagram" /></span></div>
 
 <p>
 Then by commutativity, we conclude, that
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20230806-pullback_of_a_monomorphism_as_monomorphism_2380f8cc2699c9093bd12ead394c8d1ddd210867.svg" alt="20230806-pullback_of_a_monomorphism_as_monomorphism_2380f8cc2699c9093bd12ead394c8d1ddd210867.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+f \circ \pi_1 \circ x =&amp; f \circ \pi_1 \circ y \\
+=&amp; g \circ \pi_2 \circ x \\
+=&amp; g \circ \pi_2 \circ y
+\end{align*}</div>
 <p>
-Since <img src="ltximg/20230806-pullback_of_a_monomorphism_as_monomorphism_5f965d0a56374955f8a17da7129fa95cde5a6603.svg" alt="20230806-pullback_of_a_monomorphism_as_monomorphism_5f965d0a56374955f8a17da7129fa95cde5a6603.svg" class="org-svg" /> is a <a href="20220819135911-monomorphismus.html#ID-60b63797-32fa-4d4e-a577-7616faa010ba">monomorphism</a>, it follows, that <img src="ltximg/20230806-pullback_of_a_monomorphism_as_monomorphism_eaa8f2db85bfad7e0bee1a053719781f530c3ee1.svg" alt="20230806-pullback_of_a_monomorphism_as_monomorphism_eaa8f2db85bfad7e0bee1a053719781f530c3ee1.svg" class="org-svg" /> and thus for
+Since $g$ is a <a href="20220819135911-monomorphismus.html#ID-60b63797-32fa-4d4e-a577-7616faa010ba">monomorphism</a>, it follows, that $\pi_2 \circ y = \pi_2 \circ x$ and thus for
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20230806-pullback_of_a_monomorphism_as_monomorphism_049c5f646c8bc60c1b21436a78a611a4598ae4c0.svg" alt="20230806-pullback_of_a_monomorphism_as_monomorphism_049c5f646c8bc60c1b21436a78a611a4598ae4c0.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+\alpha \coloneqq  \pi_1 \circ x = \pi_1 \circ y \\
+\beta \coloneqq \pi_2 \circ x = \pi_2 \circ y
+\end{align*}</div>
 <p>
-Then we get a <a href="20220821184957-kegel_kategorientheorie.html#ID-6a4a3003-6d34-434d-a743-fa5d5caed3ef">cone</a> 
+Then we get a <a href="20220821184957-kegel_kategorientheorie.html#ID-6a4a3003-6d34-434d-a743-fa5d5caed3ef">cone</a>
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20230806-pullback_of_a_monomorphism_as_monomorphism_c8790fc46627bbaf6dae3dd75a364368f729041a.svg" alt="20230806-pullback_of_a_monomorphism_as_monomorphism_c8790fc46627bbaf6dae3dd75a364368f729041a.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/f23e9d772176c894e1de.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
 Therefore, there exists a unique morphism
 </p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 15:45</p>
+
 </div>
 </body>
 </html>

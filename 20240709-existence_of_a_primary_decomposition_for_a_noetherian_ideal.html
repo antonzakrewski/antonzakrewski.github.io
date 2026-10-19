@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>existence of a primary decomposition for a noetherian ring</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-4b09d680-eff5-4886-9567-43994aad2cc8"></span><h1 class="title">existence of a primary decomposition for a noetherian ring</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $A$ be a <a href="20230725-noetherian_ring.html#ID-3bc5f76d-9774-4046-b432-697db6e9f77b">noetherian ring</a>, then each <a href="20230427200359-echtes_ideal.html#ID-fa54a328-b081-4a6c-9106-4348783138df">strict ideal</a> $\mathfrak{a} \subsetneq A$ admits a <a href="20240709-primary_decomposition.html#ID-e6fb74c8-ac54-4f3b-a9c1-7971d9f5c275">primary decomposition</a>.
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="reduction">reduction</h3>
+<p>
+using the
+</p>
+<ul>
+<li><a href="20240703-primary_ideal_and_quotient.html#ID-cb9cdb2a-5557-4c86-9148-fbb7ab0c7572">primary ideal and quotient</a></li>
+
+<li><a href="20230810-ideal_of_a_quotient_ring_and_ideal_containing_the_quotient.html#ID-9c43b79b-0355-4c2e-9cbb-20365510412a">correspondence theorem for ideals and quotient rings</a> </li>
+
+<li><a href="20230810-quotient_ring_of_a_noetherian_ring_as_noetherian_ring.html#ID-916588e0-c891-4ba9-9210-115ee0a5ea3d">quotient ring of a noetherian ring as noetherian ring</a>   </li>
+</ul>
+<p>
+it suffices to show that
+</p>
+
+<div class="math-block">\begin{align*}
+(0) \subseteq A/\mathfrak{A}
+\end{align*}</div>
+<p>
+has a primary decomposition.
+</p>
+
+
+<h3 id="proof">proof</h3>
+<p>
+Let
+</p>
+
+<div class="math-block">\begin{align*}
+S \coloneqq \{\mathfrak{a} \vert \subsetneq A \mathrm{ ideal}, \mathfrak{a}\mathrm{ has no primary decomposition}\}
+\end{align*}</div>
+<p>
+and assume that $S \neq \emptyset$.
+</p>
+
+<p>
+Then by <a href="20230812-noetherian_ring_and_existence_of_a_maximal_ideal_for_any_set_of_ideals.html#ID-d5be3e8c-2e1d-4750-8d91-f4030063db9c">noetherian ring and existence of a maximal ideal for any set of ideals</a> there exists an ideal $\mathfrak{a} \in S$ such that the <a href="20230725-zero_ideal.html#ID-44d27475-7790-426b-a9cc-8e321e6dd3d1">zero ideal</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\{0\} = A/\mathfrak{a} = A'
+\end{align*}</div>
+<p>
+is the maximal ideal, which is not primary.
+</p>
+
+<p>
+Hence there exists $x,y^n \neq 0$ for all $n \geq 0$ such that
+</p>
+
+<div class="math-block">\begin{align*}
+x \cdot y^n = 0
+\end{align*}</div>
+
+<p>
+Let
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Ann}(y) = \{x \in A \vert x \cdot y \} \subseteq A
+\end{align*}</div>
+<p>
+be the <a href="20230522201851-annihilator_als_ideal.html#ID-bd476ed4-8890-4eb6-9eab-8e2b8860e7ef">annihilator</a> we get an ascending chain of ideals
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Ann}(y) \subseteq \mathrm{Ann}(y^2) \subseteq \mathrm{Ann}(y^3)} \subseteq ...
+\end{align*}</div>
+
+<p>
+which stabilizes, as $A'$ is noetherian.
+</p>
+
+<p>
+Hence
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Ann}(y^n) = \mathrm{Ann}(y^{n+1})
+\end{align*}</div>
+
+
+<p>
+Consider
+</p>
+
+<div class="math-block">\begin{align*}
+(x), (y^n)
+\end{align*}</div>
+
+<p>
+By assumption, as $(0)$ is the maximal ideal without a primary decomposition.
+Hence there exists a primary decomposition of $(x), (y^n)$.
+</p>
+
+<p>
+Then it follows that
+</p>
+
+<div class="math-block">\begin{align*}
+(x) \cap (y^n)
+\end{align*}</div>
+<p>
+has a primary decomposition (<a href="20240709-primary_decomposotiion_of_an_intersection_of_ideals.html#ID-0f637f39-6319-4e49-9e13-05d87ff13bc4">primary decomposotiion of an intersection of ideals</a>).
+</p>
+
+<p>
+But then
+</p>
+
+<div class="math-block">\begin{align*}
+(x) \cap (y^n) = (x \cdot y^n) = (0)
+\end{align*}</div>
+<p>
+as ???
+</p>
+
+<p>
+contradiction
+</p>
+
+</div>
+</body>
+</html>

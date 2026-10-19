@@ -1,371 +1,174 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2025-12-02 Di 10:38 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>LinAlg 1 - Extra-Aufgaben</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">LinAlg 1 - Extra-Aufgaben</h1>
-<div id="outline-container-orgd2d77f0" class="outline-2">
-<h2 id="orgd2d77f0">Disclaimer</h2>
-<div class="outline-text-2" id="text-orgd2d77f0">
+<span id="ID-11c2994d-a66a-4cc6-972f-f92b170ccb1c"></span><h1 class="title">LinAlg 1 - Extra-Aufgaben</h1>
+
+<h2 id="disclaimer">Disclaimer</h2>
 <p>
-Das sind nur paar Aufgaben, die mir eingefallen sind.<br />
-Ihr könnt gerne weitere Aufgaben einreichen.<br />
-</p>
-</div>
-</div>
-<div id="outline-container-orgc3bf59c" class="outline-2">
-<h2 id="orgc3bf59c">Liste</h2>
-<div class="outline-text-2" id="text-orgc3bf59c">
-</div>
-<div id="outline-container-orgface23d" class="outline-3">
-<h3 id="orgface23d">1)</h3>
-<div class="outline-text-3" id="text-orgface23d">
-<p>
-Seien <img src="ltximg/20250116-linalg_1_extra_aufgaben_f5b4704ad62cca607fd1fb1791cba72f72e08911.svg" alt="20250116-linalg_1_extra_aufgaben_f5b4704ad62cca607fd1fb1791cba72f72e08911.svg" class="org-svg" /> K-VR und <img src="ltximg/20250116-linalg_1_extra_aufgaben_d12248ff7ac3f8a91a78fad720d1915d74d16604.svg" alt="20250116-linalg_1_extra_aufgaben_d12248ff7ac3f8a91a78fad720d1915d74d16604.svg" class="org-svg" />.<br />
-Zeige dass für <img src="ltximg/20250116-linalg_1_extra_aufgaben_5afad540f803e0a63a6a431f764919844f0ac62f.svg" alt="20250116-linalg_1_extra_aufgaben_5afad540f803e0a63a6a431f764919844f0ac62f.svg" class="org-svg" /> die Menge <img src="ltximg/20250116-linalg_1_extra_aufgaben_cf1444acc277f0a4b17d6cc75fa9811a3eea01fa.svg" alt="20250116-linalg_1_extra_aufgaben_cf1444acc277f0a4b17d6cc75fa9811a3eea01fa.svg" class="org-svg" /> entweder leer oder ein <a href="20221119123122-affiner_unterraum.html#ID-bfb9ff4c-c2f2-477c-bc90-88da2de01cf9">affiner Unterraum</a> ist, d.h.<br />
+Das sind nur paar Aufgaben, die mir eingefallen sind.
+Ihr könnt gerne weitere Aufgaben einreichen.
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250116-linalg_1_extra_aufgaben_af0669ac2e22f32964beb7d4a09fc2bef91c0fa7.svg" alt="20250116-linalg_1_extra_aufgaben_af0669ac2e22f32964beb7d4a09fc2bef91c0fa7.svg" class="org-svg" />
-</span>
-</div>
+<h2 id="liste">Liste</h2>
+
+<h3 id="1">1)</h3>
 <p>
-für einen vektor <img src="ltximg/20250116-linalg_1_extra_aufgaben_2ddb37bba898a49c4d433b4ea499f7a0cc72684d.svg" alt="20250116-linalg_1_extra_aufgaben_2ddb37bba898a49c4d433b4ea499f7a0cc72684d.svg" class="org-svg" /> und einen UVR <img src="ltximg/20250116-linalg_1_extra_aufgaben_27ba2481d3d9e821f17aa51ea11cee91d8777b8a.svg" alt="20250116-linalg_1_extra_aufgaben_27ba2481d3d9e821f17aa51ea11cee91d8777b8a.svg" class="org-svg" /> von <img src="ltximg/20250116-linalg_1_extra_aufgaben_71f3c871e6f005eb103abef281f091ca48e2cd2a.svg" alt="20250116-linalg_1_extra_aufgaben_71f3c871e6f005eb103abef281f091ca48e2cd2a.svg" class="org-svg" /><br />
-</p>
-</div>
-</div>
-<div id="outline-container-org03165bf" class="outline-3">
-<h3 id="org03165bf">2)</h3>
-<div class="outline-text-3" id="text-org03165bf">
-<p>
-Sei <img src="ltximg/20250116-linalg_1_extra_aufgaben_8b9ccc47f8b6158b4dd54f6da3d0b7f46ac04c52.svg" alt="20250116-linalg_1_extra_aufgaben_8b9ccc47f8b6158b4dd54f6da3d0b7f46ac04c52.svg" class="org-svg" /> ein <a href="20230303151710-vektorraumendomorphismus.html#ID-ecd3affd-0dbf-4f53-8c43-79af608c67e9">VR-Endomorphismus</a> mit <img src="ltximg/20250116-linalg_1_extra_aufgaben_20266e460ebb6c7d6701aa4df1840e88a5360670.svg" alt="20250116-linalg_1_extra_aufgaben_20266e460ebb6c7d6701aa4df1840e88a5360670.svg" class="org-svg" />.<br />
-Zeige dass<br />
+Seien $V,W$ K-VR und $\varphi: V \rightarrow W$.
+Zeige dass für $w \in W$ die Menge $\varphi^{-1}[w]$ entweder leer oder ein <a href="20221119123122-affiner_unterraum.html#ID-bfb9ff4c-c2f2-477c-bc90-88da2de01cf9">affiner Unterraum</a> ist, d.h.
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250116-linalg_1_extra_aufgaben_bd004f853c63b06eb0c31d80a89656a5ee2c321d.svg" alt="20250116-linalg_1_extra_aufgaben_bd004f853c63b06eb0c31d80a89656a5ee2c321d.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+\varphi^{-1}[w] =&amp; v + U \\
+\{\overline{v} \vert \overline{v} - v \in U\}
+\end{align*}</div>
 <p>
-ein <a href="20230227153105-vektorraumisomorphismus.html#ID-27b6dd7a-30ae-4eb8-b5c4-e1a268344d2e">VR-Isomorphismus</a> ist<br />
-</p>
-</div>
-</div>
-<div id="outline-container-org371fca8" class="outline-3">
-<h3 id="org371fca8">3) besseres Verständnis für wahr / falsch Aufgaben</h3>
-<div class="outline-text-3" id="text-org371fca8">
-<p>
-Seien<br />
+für einen vektor $v \in V$ und einen UVR $U$ von $V$
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250116-linalg_1_extra_aufgaben_c0490d5e9adb530b5d87f1fc175a3bfb8f4a753a.svg" alt="20250116-linalg_1_extra_aufgaben_c0490d5e9adb530b5d87f1fc175a3bfb8f4a753a.svg" class="org-svg" />
-</span>
-</div>
+<h3 id="2">2)</h3>
 <p>
-<a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildungen</a> zwischen <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Mengen</a>.<br />
-</p>
-</div>
-<div id="outline-container-org16e9c57" class="outline-4">
-<h4 id="org16e9c57">a)</h4>
-<div class="outline-text-4" id="text-org16e9c57">
-<p>
-Angenommen <img src="ltximg/20250116-linalg_1_extra_aufgaben_09d0ea6e5381c4201c1b2d5df552a7d1b0f61315.svg" alt="20250116-linalg_1_extra_aufgaben_09d0ea6e5381c4201c1b2d5df552a7d1b0f61315.svg" class="org-svg" /> ist injektiv, aber <img src="ltximg/20250116-linalg_1_extra_aufgaben_53712f7db394f146275ac2010cd81de6f1e07dd3.svg" alt="20250116-linalg_1_extra_aufgaben_53712f7db394f146275ac2010cd81de6f1e07dd3.svg" class="org-svg" /> ist nicht injektiv.<br />
-Wann ist <img src="ltximg/20250116-linalg_1_extra_aufgaben_9fb7e36fad8f5dbe5968127b3e7802f531984b40.svg" alt="20250116-linalg_1_extra_aufgaben_9fb7e36fad8f5dbe5968127b3e7802f531984b40.svg" class="org-svg" /> surjektiv ?<br />
-</p>
-</div>
-</div>
-<div id="outline-container-org3f73d22" class="outline-4">
-<h4 id="org3f73d22">b)</h4>
-<div class="outline-text-4" id="text-org3f73d22">
-<p>
-Angenommen <img src="ltximg/20250116-linalg_1_extra_aufgaben_09d0ea6e5381c4201c1b2d5df552a7d1b0f61315.svg" alt="20250116-linalg_1_extra_aufgaben_09d0ea6e5381c4201c1b2d5df552a7d1b0f61315.svg" class="org-svg" /> ist surjektiv, aber <img src="ltximg/20250116-linalg_1_extra_aufgaben_9fb7e36fad8f5dbe5968127b3e7802f531984b40.svg" alt="20250116-linalg_1_extra_aufgaben_9fb7e36fad8f5dbe5968127b3e7802f531984b40.svg" class="org-svg" /> ist nicht surjektiv..<br />
-Wann ist <img src="ltximg/20250116-linalg_1_extra_aufgaben_53712f7db394f146275ac2010cd81de6f1e07dd3.svg" alt="20250116-linalg_1_extra_aufgaben_53712f7db394f146275ac2010cd81de6f1e07dd3.svg" class="org-svg" /> injektiv ?<br />
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgb310645" class="outline-3">
-<h3 id="orgb310645">4)</h3>
-<div class="outline-text-3" id="text-orgb310645">
-</div>
-<div id="outline-container-orga26963c" class="outline-4">
-<h4 id="orga26963c">a) Vektorraum als projektives Objekt</h4>
-<div class="outline-text-4" id="text-orga26963c">
-<p>
-Seien <img src="ltximg/20250116-linalg_1_extra_aufgaben_dbb633cee37de3f489ca76449f3808600c799e5a.svg" alt="20250116-linalg_1_extra_aufgaben_dbb633cee37de3f489ca76449f3808600c799e5a.svg" class="org-svg" /> Vektorräume und<br />
+Sei $\varphi: V \rightarrow V$ ein <a href="20230303151710-vektorraumendomorphismus.html#ID-ecd3affd-0dbf-4f53-8c43-79af608c67e9">VR-Endomorphismus</a> mit $0 = \varphi^n = \varphi \circ ... \circ \varphi$.
+Zeige dass
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250116-linalg_1_extra_aufgaben_87f2f2935e1fe36859e95c61e9b8095834c68faf.svg" alt="20250116-linalg_1_extra_aufgaben_87f2f2935e1fe36859e95c61e9b8095834c68faf.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+\mathrm{id} + \varphi: V \rightarrow&amp; V \\
+v \mapsto&amp; v + \varphi(v)
+\end{align*}</div>
 <p>
-VR-Homomorphismen, so dass <img src="ltximg/20250116-linalg_1_extra_aufgaben_9fb7e36fad8f5dbe5968127b3e7802f531984b40.svg" alt="20250116-linalg_1_extra_aufgaben_9fb7e36fad8f5dbe5968127b3e7802f531984b40.svg" class="org-svg" /> ein VR-Epi ist.<br />
+ein <a href="20230227153105-vektorraumisomorphismus.html#ID-27b6dd7a-30ae-4eb8-b5c4-e1a268344d2e">VR-Isomorphismus</a> ist
+</p>
+
+
+
+
+<h3 id="3-besseres-verstandnis-fur-wahr-falsch-aufgaben">3) besseres Verständnis für wahr / falsch Aufgaben</h3>
+<p>
+Seien
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/a9d9b5bc207b1537a0d6.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+<a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildungen</a> zwischen <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Mengen</a>.
+</p>
+
+
+<h4 id="a">a)</h4>
+<p>
+Angenommen $g \circ f$ ist injektiv, aber $g$ ist nicht injektiv.
+Wann ist $f$ surjektiv ?
+</p>
+
+
+<h4 id="b">b)</h4>
+<p>
+Angenommen $g \circ f$ ist surjektiv, aber $f$ ist nicht surjektiv..
+Wann ist $g$ injektiv ?
+</p>
+
+
+
+<h3 id="4">4)</h3>
+
+<h4 id="a-vektorraum-als-projektives-objekt">a) Vektorraum als projektives Objekt</h4>
+<p>
+Seien $U,V,W$ Vektorräume und
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/88cccf02055c28733659.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+VR-Homomorphismen, so dass $f$ ein VR-Epi ist.
 </p>
 
 <p>
-Zeige dass eine Abbildung <img src="ltximg/20250116-linalg_1_extra_aufgaben_3eb6685af0f9b89d6d3c839f3cf5f3a3320f4d5c.svg" alt="20250116-linalg_1_extra_aufgaben_3eb6685af0f9b89d6d3c839f3cf5f3a3320f4d5c.svg" class="org-svg" /> existiert, so dass<br />
+Zeige dass eine Abbildung $h$ existiert, so dass
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250116-linalg_1_extra_aufgaben_94b6bd74ce65ee653fd2e10bbe7488adc55b668d.svg" alt="20250116-linalg_1_extra_aufgaben_94b6bd74ce65ee653fd2e10bbe7488adc55b668d.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/93996662d3a7e2360094.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-kommutiert, d.h.<br />
+kommutiert, d.h.
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250116-linalg_1_extra_aufgaben_cb728176cdd269bb18c46df4c78d36ce7f2a8fb0.svg" alt="20250116-linalg_1_extra_aufgaben_cb728176cdd269bb18c46df4c78d36ce7f2a8fb0.svg" class="org-svg" />
-</span>
-</div>
-</div>
-</div>
-<div id="outline-container-orgbd426b5" class="outline-4">
-<h4 id="orgbd426b5">b) Vektorraum als injektives Objekt</h4>
-<div class="outline-text-4" id="text-orgbd426b5">
+<div class="math-block">\begin{align*}
+f \circ h = g
+\end{align*}</div>
+
+
+<h4 id="b-vektorraum-als-injektives-objekt">b) Vektorraum als injektives Objekt</h4>
 <p>
-Seien <img src="ltximg/20250116-linalg_1_extra_aufgaben_dbb633cee37de3f489ca76449f3808600c799e5a.svg" alt="20250116-linalg_1_extra_aufgaben_dbb633cee37de3f489ca76449f3808600c799e5a.svg" class="org-svg" /> Vektorräume und<br />
+Seien $U,V,W$ Vektorräume und
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250116-linalg_1_extra_aufgaben_269e7643cebd0ef4af24b943471f79ffc11091b6.svg" alt="20250116-linalg_1_extra_aufgaben_269e7643cebd0ef4af24b943471f79ffc11091b6.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/98e01b34136ac084c548.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-VR-Homomorphismen, so dass <img src="ltximg/20250116-linalg_1_extra_aufgaben_9fb7e36fad8f5dbe5968127b3e7802f531984b40.svg" alt="20250116-linalg_1_extra_aufgaben_9fb7e36fad8f5dbe5968127b3e7802f531984b40.svg" class="org-svg" /> ein VR-Mono ist.<br />
+VR-Homomorphismen, so dass $f$ ein VR-Mono ist.
 </p>
 
 <p>
-Zeige dass eine Abbildung <img src="ltximg/20250116-linalg_1_extra_aufgaben_3eb6685af0f9b89d6d3c839f3cf5f3a3320f4d5c.svg" alt="20250116-linalg_1_extra_aufgaben_3eb6685af0f9b89d6d3c839f3cf5f3a3320f4d5c.svg" class="org-svg" /> existiert, so dass<br />
+Zeige dass eine Abbildung $h$ existiert, so dass
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250116-linalg_1_extra_aufgaben_b60ae2ee7c4d2971b0195906b5fa481626379ed2.svg" alt="20250116-linalg_1_extra_aufgaben_b60ae2ee7c4d2971b0195906b5fa481626379ed2.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/f1a59df800d4b5b9d26c.svg" class="org-svg" alt="diagram" /></span></div>
 
 <p>
-kommutiert, d.h.<br />
+kommutiert, d.h.
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250116-linalg_1_extra_aufgaben_1ccf1779d704b1bd3ce378edf8ff95b020759973.svg" alt="20250116-linalg_1_extra_aufgaben_1ccf1779d704b1bd3ce378edf8ff95b020759973.svg" class="org-svg" />
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2025-12-02 Di 10:38</p>
+<div class="math-block">\begin{align*}
+h \circ f = g
+\end{align*}</div>
+
 </div>
 </body>
 </html>

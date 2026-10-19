@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>algebraic topology 3 - Principal G-Bundles and fiber bundles</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-23264b19-ddda-4a3f-8b96-bd6ea7e5156a"></span><h1 class="title">algebraic topology 3 - Principal G-Bundles and fiber bundles</h1>
+
+<h2 id="aspects">Aspects</h2>
+<ul>
+<li><a href="20230226210828-topologische_gruppe.html#ID-0aa20bcb-5c3d-4d06-aeee-e61b46a46e48">topological group</a> </li>
+
+<li><a href="20240905-lie_group.html#ID-7f22c609-ba54-44fc-99d4-b401bcb0c871">lie group</a></li>
+
+<li><a href="20231019-algebraic_group.html#ID-6e41d6f1-0005-4d77-96d8-478585c2e9f1">algebraic group</a></li>
+
+<li><a href="20241113-discrete_topological_group.html#ID-5e9d7199-454f-4254-8f5d-efe4efe7d1ee">discrete topological group</a>   </li>
+
+<li><a href="20230605-homeomorphism_group.html#ID-686f2095-5d0a-425e-a9e7-3edda09b6fa7">homeomorphism group</a> </li>
+</ul>
+<h3 id="41">4.1)</h3>
+<ul>
+<li><a href="20241113-principal_action.html#ID-d26fc38a-91c8-48e6-ab60-ca91554fd8d2">principal action</a></li>
+
+<li><a href="20241113-principal_g_bundle.html#ID-41366781-604c-4d30-ac8e-985b2fb48728">principal g-bundle</a></li>
+
+<li><a href="20241113-morphism_of_principle_bundles.html#ID-2ce0c275-a17f-48b3-96b1-5edd015611a7">morphism of principle bundles</a> </li>
+</ul>
+<h3 id="42">4.2)</h3>
+<ul>
+<li><a href="20241113-principal_g_bundle_as_quotient_map.html#ID-fa0ad1bc-371b-491f-8b9e-795b80916c8e">principal g-bundle as quotient map</a> </li>
+
+<li><a href="20241113-principal_g_bundle_as_fibre_bundle.html#ID-29a2de8c-c6fe-40f1-9d6e-ba7fad48ccb4">principal g-bundle as fibre bundle</a> </li>
+
+<li><a href="20241113-principal_g_bundle_as_serre_fibration.html#ID-635f1942-ede0-4936-99dd-b9bfd8b4115c">principal g-bundle as serre fibration</a> </li>
+
+<li><a href="20241113-numerable_principal_g_bundle_as_hurewicz_fibration.html#ID-a5c34f99-fc14-4330-ad9c-7fe4686a50d8">numerable principal g-bundle as hurewicz fibration</a>   </li>
+
+<li><a href="20241113-numerable_principal_g_bundle.html#ID-4c248dad-9023-49e2-a59b-44fef836cde5">numerable principal g-bundle</a>   </li>
+
+<li><a href="20230627-existenz_einer_untergeordneten_partition_der_eins_fur_einen_parakompakten_raum.html#ID-6adf2bbf-d753-49b6-a5c2-320255535c8a">Existenz einer untergeordneten Partition der Eins für einen parakompakten Raum</a>   </li>
+</ul>
+<h3 id="43">4.3)</h3>
+<ul>
+<li><a href="20241113-associated_cocycles.html#ID-b414e85f-e450-4db5-b9b7-be8b88eb7e09">associated cocycles</a> </li>
+
+<li><a href="20241113-correspondence_between_associated_cocycles_and_principal_g_bundles.html#ID-5728ae3f-e40d-4e7f-a2a9-8c0e4387a952">correspondence between associated cocycles and principal g-bundles</a> - todo</li>
+
+<li><a href="20241113-fiber_of_a_principal_g_bundle_as_g_torsor.html#ID-766daead-5894-4941-815b-50c6edabdce8">fiber of a principal g-bundle as g-torsor</a>   </li>
+
+<li><a href="20241113-principal_g_action_as_free_action.html#ID-b2eff615-afcb-4eda-a48f-c80b579d06a5">principal g-action as free action</a>   </li>
+</ul>
+<h3 id="44-todo">4.4) todo</h3>
+<ul>
+<li><a href="20241113-weakly_proper_action.html#ID-619e787c-ddd7-4b71-8884-d9e87e173255">weakly proper action</a> </li>
+
+<li><a href="20241113-principal_g_action_as_weakly_proper_action.html#ID-27d49577-a589-4acf-87da-2cfdc71b18b4">principal g-action as weakly proper action</a> </li>
+</ul>
+<h3 id="45">4.5)</h3>
+<ul>
+<li><a href="20241113-principal_g_action_as_covering_like_action_for_a_discrete_group.html#ID-b99a17ca-e882-4d59-9bbb-b1742e8d3f13">principal g-action as covering like action for a discrete group</a> </li>
+
+<li><a href="20241114-principal_g_bundle_for_a_discrete_group_as_galois_covering.html#ID-94f939d4-8d50-48b8-9ed6-79aa21b19e60">principal g-bundle for a discrete group as galois covering</a> </li>
+</ul>
+<h3 id="46">4.6)</h3>
+<ul>
+<li><a href="20241113-trivial_g_bundle.html#ID-01ed3685-c37b-4aea-af9e-ce3952e9d29f">Trivial g-bundle</a> </li>
+
+<li><a href="20241113-principal_g_bundle_as_locally_trivial_bundle.html#ID-dab8814b-4c25-429f-a8f3-da7e7873662a">principal g-bundle as locally trivial bundle</a> </li>
+</ul>
+<h3 id="47">4.7)</h3>
+<ul>
+<li><a href="20241113-sphere_as_c2_bundle_of_the_real_projective_space.html#ID-101678cf-0f76-4f6a-b498-ca158ed42a35">sphere as C2 bundle of the real projective space</a> </li>
+
+<li><a href="20241113-sphere_as_s1_bundle_of_cpn.html#ID-82e9535c-429d-4703-ac6e-7d47966d2071">sphere as S1 bundle of complex projective space</a> </li>
+
+<li><a href="20241113-sphere_as_s3_bundle_of_quaternionic_projective_space.html#ID-c00df447-7fea-4055-853d-be4c586a16ae">sphere as S3 bundle of quaternionic projective space</a> </li>
+</ul>
+<h3 id="48">4.8)</h3>
+<ul>
+<li><a href="20241113-pullback_of_a_principle_g_bundle_as_principle_g_bundle.html#ID-c75818a8-d61b-4bb9-ba90-c8db612123fa">pullback of a principal g-bundle as principal g-bundle</a> (todo ish)</li>
+</ul>
+<h3 id="49">4.9)</h3>
+<ul>
+<li><a href="20241113-set_of_isomorphism_classes_of_principal_g_bundles.html#ID-67d227e9-82bd-4d79-8f1f-21af11c89106">set of isomorphism classes of principal g-bundles</a> </li>
+</ul>
+<h3 id="410">4.10)</h3>
+<ul>
+<li><a href="20241113-principle_g_bundle_functor.html#ID-d3eb8f43-6fe6-418a-b850-a5db92801283">set of principal g-bundle functor</a> </li>
+</ul>
+<h3 id="411">4.11)</h3>
+<ul>
+<li><a href="20241113-characteristic_class_of_a_topological_group_and_abelian_group.html#ID-b5615a8e-b51b-4e26-b7aa-ef61c01a7a62">characteristic class of a topological group and abelian group</a> </li>
+</ul>
+<h3 id="412">4.12)</h3>
+<ul>
+<li><a href="20241113-morphism_of_principal_g_bundles_as_isomorphism.html#ID-97860951-cbfe-4ece-8db4-a2216cb380fa">morphism of principal G-bundles as isomorphism</a> </li>
+</ul>
+<h3 id="413">4.13)</h3>
+<ul>
+<li><a href="20241125-trivial_principal_g_bundle_and_section.html#ID-59eace46-e742-4942-9acf-bbacd1210734">trivial principal g-bundle and section</a> </li>
+</ul>
+<h3 id="414">4.14)</h3>
+<ul>
+<li><a href="20241125-weakly_proper_action_and_section.html#ID-f39c636f-205f-4d0e-9cab-26b2481a2136">weakly proper action and section</a> </li>
+
+<li><a href="20241125-weakly_proper_action_and_principal_action.html#ID-301a8a8a-9775-4504-b945-7d268bb5ad1d">weakly proper action and principal action</a>   </li>
+
+<li><a href="20241125-weakly_proper_action_and_restriction_to_an_open_subset.html#ID-d1f95f73-c9fc-4a8d-99bf-207969bcec51">weakly proper action and restriction to an open subset</a>   </li>
+</ul>
+<h3 id="415">4.15)</h3>
+<ul>
+<li><a href="20240905-lie_group.html#ID-7f22c609-ba54-44fc-99d4-b401bcb0c871">lie group</a></li>
+
+<li><a href="20241125-general_linear_group_as_lie_group.html#ID-b2139a12-8fd4-4af5-9655-910a8f8836b9">general linear group as lie group</a>   </li>
+
+<li><a href="20241125-special_linear_group_as_lie_group.html#ID-09731e1d-4fd4-4a85-b7cf-35a82c72611c">special linear group as lie group</a> </li>
+
+<li><a href="20241125-product_of_group_objects_as_group_object.html#ID-9ab4d2d0-5ebb-4270-a94d-8596b73901b6">product of group objects as group object</a>   </li>
+
+<li><a href="20241125-orthogonal_group_as_lie_group.html#ID-ffe6855e-3197-4fcb-91b7-7fe568f44c79">orthogonal group as lie group</a>   </li>
+
+<li><a href="20241125-special_orthogonal_group_as_lie_group.html#ID-9d4126bb-4a5f-475b-832b-940e890e876c">special orthogonal group as lie group</a></li>
+
+<li><a href="20241125-closed_subgroup_theorem.html#ID-f7e93ea4-10ad-4f3d-b1ad-ba5a7c07bd73">closed-subgroup theorem</a>   </li>
+</ul>
+<ul>
+<li><a href="20241125-lie_group_modulo_closed_subgroup_as_smooth_manifold.html#ID-3300f50e-e207-4cc4-97c2-816879598bcc">lie group modulo closed subgroup as smooth manifold</a> </li>
+
+<li><a href="20241125-coprojection_of_lie_group_modulo_closed_subgroup_as_submersion.html#ID-0a523374-615b-4cb8-b68a-d1f5544e08f1">coprojection of lie group modulo closed subgroup as submersion</a> </li>
+
+<li><a href="20241125-subgroup_of_a_topological_group_acts_weakly_proper.html#ID-0981d5fc-98cd-4c45-a687-69ab9137acb8">subgroup of a topological group acts weakly proper</a>   - todo</li>
+
+<li><a href="20241125-principal_action_of_a_closed_subgroup_of_a_lie_group_as_principal_action.html#ID-0ccdda41-1633-441a-a818-b5f9d15baa7e">principal action of a closed subgroup of a lie group as principal action</a>   </li>
+</ul>
+<h3 id="416">4.16)</h3>
+<ul>
+<li><a href="20241125-homotopy_theorem_of_principal_g_bundles.html#ID-c68dd031-3018-4d85-ae6b-996f32613397">homotopy theorem of principal g-bundles</a> </li>
+</ul>
+<h3 id="417">4.17)</h3>
+<ul>
+<li><a href="20241125-classification_theorem_of_principal_g_bundles.html#ID-2035ed93-b9fe-485b-9a53-da2e11a85d0e">classification theorem of principal g-bundles</a> </li>
+
+<li></li>
+</ul>
+<h3 id="418">4.18)</h3>
+<ul>
+<li>for numerable principal g-bundle</li>
+
+<li><a href="20241113-numerable_principal_g_bundle.html#ID-4c248dad-9023-49e2-a59b-44fef836cde5">numerable principal g-bundle</a>   </li>
+
+<li><a href="20241126-numerable_principal_g_bundle_functor.html#ID-15081021-8a90-4da2-8aeb-af7dfdc610f6">numerable principal g-bundle functor</a>   </li>
+
+<li><a href="20241126-pullback_of_a_numerable_principal_g_bundle.html#ID-2db1fb2a-fb4f-4814-b098-9e5c2aa21a38">pullback of a numerable principal g-bundle</a>   </li>
+
+<li><a href="20230624-untergeordnete_partition_der_eins.html#ID-c043bd4e-d16e-4171-9fd9-653eb0dff1c6">subordinate partition of unity</a> </li>
+
+<li><a href="20241125-homotopy_theorem_of_numerable_principal_g_bundles.html#ID-842b314f-5237-446b-8b02-68403d970977">homotopy theorem of numerable principal g-bundles</a>   </li>
+
+<li><a href="20241125-classification_theorem_of_numerable_principal_g_bundles.html#ID-9bd21dfd-4873-4708-894b-2af95dc77c19">classification theorem of numerable principal g-bundles</a>   </li>
+</ul>
+<h3 id="419">4.19)</h3>
+<ul>
+<li><a href="20240413-classifying_space_of_a_group.html#ID-d74dcae1-3540-4157-a431-6b2ac69aecec">classifying space of a group</a> </li>
+
+<li><a href="20241125-classifying_space_of_a_topological_group.html#ID-72692a99-d4bb-4b05-bee8-78faba036965">classifying space of a topological group</a>   </li>
+
+<li><a href="20241125-classifying_space_and_characteristic_class.html#ID-fed4e0dc-0128-4a00-92e9-d323b0b1a3ca">classifying space and characteristic class</a> ???</li>
+</ul>
+<h3 id="420">4.20)</h3>
+<ul>
+<li><a href="20241125-associated_bundle.html#ID-dff00f34-ad7b-449e-bc61-a0c8cf70f2ca">associated bundle</a> </li>
+
+<li><a href="20241125-correspondence_between_isomorphism_classes_of_fibre_bundles_and_principal_aut_bundles.html#ID-d298c2f3-a271-40da-920b-f716af2a6b84">correspondence between isomorphism classes of fibre bundles and principal Aut bundles</a>   </li>
+
+<li></li>
+</ul>
+<h3 id="421">4.21)</h3>
+<ul>
+<li><a href="20241127-associated_bundle_of_a_morphism_of_topological_groups.html#ID-322d5ab9-966a-482f-b8f7-137f8efa4f56">associated bundle of a morphism of topological groups</a> </li>
+
+<li><a href="20241127-associated_bundle_of_a_continuous_group_homomorphism_as_principal_bundle.html#ID-6ff5ba4b-c83b-475e-8206-b18cf7555806">associated bundle of a continuous group homomorphism as principal bundle</a>   </li>
+
+<li><a href="20241127-morphism_of_topological_groups_induces_a_natural_transformation_on_principal_g_bundles.html#ID-2321087f-a72e-426c-8ca5-5c8f62ab048e">morphism of topological groups induces a natural transformation on principal g-bundles</a>   </li>
+
+<li></li>
+
+<li><a href="20241127-structure_group_of_a_fibre_bundle.html#ID-81fcea8b-46bb-4619-9240-bff0fcf5c49b">structure group of a fibre bundle</a>   </li>
+</ul>
+<h3 id="422">4.22)</h3>
+<ul>
+<li><a href="20230905-topological_vector_bundle.html#ID-821f2fea-f858-4555-ae30-90ea23209a2e">topological vector bundle</a>  </li>
+
+<li><a href="20241127-bundle_of_frames.html#ID-6f89fbac-1a88-4031-9feb-9d0c75863306">bundle of frames</a>  </li>
+
+<li><a href="20241127-associated_principal_gl_n_bundle_to_a_vector_bundle.html#ID-a4e941cc-d316-43fb-8860-f5babd092f0d">associated principal GL_n bundle to a vector bundle</a>   </li>
+
+<li><a href="20241127-vector_bundle_as_principal_gl_n_bundle.html#ID-9e6a35b4-ff83-4c75-909b-f4e65ee6a710">vector bundle as principal GL_n Bundle</a> </li>
+
+<li>equipping a vector bundle with a riemannian metric/ he5mitian metric &lt;~&gt; equivalent to  reducing to structure $O(n)$ resp. $U(n)$</li>
+
+<li><a href="20230905-direkte_summe_von_vektorbundeln.html#ID-084c66a8-e60d-4e6a-9b5c-585d83cb5e84">direct sum of vector bundles</a>   </li>
+</ul>
+<h3 id="423">4.23)</h3>
+<ul>
+<li><a href="20241127-classification_of_fibre_bundles_by_prnicipal_g_bundles.html#ID-15241a4b-9d16-466a-9b8c-dc57b684a9fc">classification of fibre bundles by prnicipal g-bundles</a> </li>
+
+<li><a href="20241127-fibre_bundle_over_a_contractible_space_as_trivial_bundle.html#ID-837e637c-e6b4-44d5-9613-f0e635db6afe">fibre bundle over a contractible space as trivial bundle</a>   </li>
+</ul>
+<h3 id="424">4.24)</h3>
+<ul>
+<li><a href="20241127-map_of_principal_g_bundles.html#ID-2699a95f-556f-4a85-88ad-feea978ec30b">map of principal g-bundles</a> </li>
+</ul>
+<h3 id="425">4.25)</h3>
+<ul>
+<li><a href="20241127-map_of_principal_g_bundles_as_pullback.html#ID-e3c5ccf8-9302-4a0f-9219-437e566521fa">map of principal g-bundles as pullback</a>   </li>
+</ul>
+<h3 id="426">4.26)</h3>
+<ul>
+<li><a href="20241127-correspondence_between_principal_g_bundle_maps_and_section.html#ID-6c763c4b-abf4-4352-8da6-3e182a1f0b06">correspondence between principal g-bundle maps and section</a> </li>
+</ul>
+<h3 id="427">4.27)</h3>
+<ul>
+<li><a href="20241127-weakly_contractible_principal_g_bundle_as_universal_bundle.html#ID-bb7d6d65-c46f-4c15-a747-1547c6e09b97">weakly contractible principal g-bundle as universal bundle</a> </li>
+</ul>
+<h3 id="428">4.28)</h3>
+<ul>
+<li><a href="20241214-numerable_principal_g_bundle_with_contractible_domain_as_universal_bundle.html#ID-09045e8b-6723-46be-9db4-28ff826bd54b">numerable principal g-bundle with contractible domain as universal bundle</a> </li>
+</ul>
+<h3 id="429">4.29)</h3>
+<ul>
+<li><a href="20241205-existence_of_a_universal_principal_g_bundle.html#ID-0c1e5706-aa68-417d-b8be-42667d9cf9d7">existence of a universal principal g-bundle</a> </li>
+</ul>
+<h3 id="430">4.30)</h3>
+<ul>
+<li><a href="20241202-weakly_contractible_principal_g_bundle_over_a_cw_complex.html#ID-6c2d77b2-36db-4334-8451-a731aaaecb11">weakly contractible principal g-bundle over a cw complex</a> - todo</li>
+</ul>
+<h3 id="431">4.31)</h3>
+<ul>
+<li><a href="20241202-loop_space_of_a_classifying_space_weakly_equivalent.html#ID-bfaf8710-45d1-40bf-b2fe-098021533da8">loop space of a classifying space weakly equivalent</a> </li>
+
+<li></li>
+</ul>
+<h3 id="432">4.32)</h3>
+<ul>
+<li><a href="20241127-associated_bundle_of_a_continuous_group_homomorphism_as_principal_bundle.html#ID-6ff5ba4b-c83b-475e-8206-b18cf7555806">associated bundle of a continuous group homomorphism as principal bundle</a> </li>
+
+<li><a href="20241127-morphism_of_topological_groups_induces_a_natural_transformation_on_principal_g_bundles.html#ID-2321087f-a72e-426c-8ca5-5c8f62ab048e">morphism of topological groups induces a natural transformation on principal g-bundles</a> </li>
+
+<li><a href="20241214-morphism_of_topological_groups_induces_morphism_on_classifying_space.html#ID-3973c55f-65ba-4eac-a1ef-1a21c5dc1444">morphism of topological groups induces morphism on classifying space</a> </li>
+
+<li><a href="20241214-classifying_space_functor.html#ID-0b0ed287-0361-4390-9967-3901f461f692">classifying space functor</a>   </li>
+</ul>
+<h3 id="433">4.33)</h3>
+<ul>
+<li></li>
+</ul>
+<ul>
+<li><a href="20250209-subgroup_quotient_as_principal_g_bundle_and_quotient.html#ID-bd37975b-db55-423f-9233-f56962dee7e2">subgroup quotient as principal g-bundle and quotient</a> </li>
+
+<li><a href="20250209-homotopy_fibration_of_a_principal_g_action_of_a_subgroup.html#ID-3ba7cf60-a2a8-414d-9f62-53e30a544f65">homotopy fibration of a principal G-action of a subgroup</a>   </li>
+
+<li><a href="20241202-quotient_of_topological_groups_as_fibre_of_classifying_spaces.html#ID-623ab74c-5b59-4e3b-955f-6ae75388d579">quotient of topological groups as fibre of classifying spaces</a> </li>
+
+<li></li>
+</ul>
+<p>
+Let $\iota: H \hookrightarrow G$ be an inclusion of <a href="20230226210828-topologische_gruppe.html#ID-0aa20bcb-5c3d-4d06-aeee-e61b46a46e48">topological groups</a> and
+</p>
+
+<div class="math-block">\begin{align*}
+G \rightarrow G/H
+\end{align*}</div>
+<p>
+the quotient.
+</p>
+
+<p>
+Then this
+</p>
+
+
+<h3 id="434">4.34)</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="435">4.35)</h3>
+<ul>
+<li></li>
+
+<li><a href="20231203-presentation_complex.html#ID-d6399ec3-86cf-443d-b6bf-297971f50518">presentation complex</a> </li>
+
+<li><a href="20231227-presentation_complex_induces_group_isomorphism_with_fundamental_group.html#ID-4b4078ce-3dbc-42d7-906a-2ea9013ec01c">presentation complex induces group isomorphism with fundamental group</a> </li>
+
+<li><a href="20241202-maps_up_to_homotopy_between_classifying_spaces_of_discrete_groups.html#ID-57e81c7a-d8d5-48af-877d-8015fb9960ba">maps up to homotopy between classifying spaces of discrete groups_</a>   </li>
+
+<li><a href="20241203-unpointed_maps_up_to_homotopy_between_classifying_spaces_of_discrete_groups.html#ID-aba0ce84-5b07-4a17-9d4a-b44e854066fc">unpointed maps up to homotopy between classifying spaces of discrete groups</a>   </li>
+
+<li>puppe sequence  </li>
+</ul>
+<h3 id="436">4.36)</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="437">4.37)</h3>
+
+<h3 id="438">4.38)</h3>
+
+<h3 id="439">4.39)</h3>
+
+<h3 id="440">4.40)</h3>
+<ul>
+<li><a href="20241203-principal_subgroup.html#ID-75f504bb-4deb-401f-9cfb-2fa9e1a18822">principal subgroup</a> </li>
+
+<li><a href="20241203-restricted_action_on_eg_for_a_principal_subgropu.html#ID-3cbde1ae-9b10-4dbb-8db3-190511fccf65">restricted action on EG for a principal subgroup</a>    </li>
+</ul>
+<h3 id="441">4.41)</h3>
+<ul>
+<li><a href="20241203-grassmanian_of_k_planes.html#ID-92479528-f46d-4d9a-bf75-faa6d8756a35">grassmanian of k-planes</a> </li>
+</ul>
+<h3 id="443">4.43)</h3>
+<ul>
+<li><a href="20241204-set_of_the_join_of_topological_spaces.html#ID-b32c21b4-f74c-4a00-aaf6-b8db35ff7488">set of the join of topological spaces</a> </li>
+</ul>
+<ul>
+<li><a href="20241204-join_of_topological_spaces.html#ID-8dac152a-ae15-44df-984a-930bf3d96bfe">strong join of topological spaces</a> </li>
+
+<li><a href="20241204-projection_of_the_join.html#ID-57342d30-867c-4c96-bc4c-3365539c42e6">projection of the join</a> </li>
+
+<li><a href="20241204-partial_projection_of_the_join.html#ID-185f22d3-ec8e-404f-9c86-3a75e034eee6">partial projection of the join</a>   </li>
+</ul>
+<ul>
+<li><a href="20241204-strong_join_of_t1_spaces_as_t1_spaces.html#ID-2c5f0f93-7fdf-4c41-a1ba-7c8f23d5de95">strong join of T1 spaces as T1 spaces</a>   </li>
+
+<li><a href="20241204-colimit_topology_of_the_joni.html#ID-1cd502b7-2d40-4769-abc3-3ea74a0df721">colimit topology of the join</a>   </li>
+
+<li><a href="20241204-weak_topology_of_the_join.html#ID-c556eb94-3682-4bfd-b84f-68f8b5345e4d">weak topology of the join</a> </li>
+
+<li></li>
+</ul>
+<ul>
+<li><a href="20241204-milnor_theorem_for_the_join_of_topological_groups.html#ID-4a2167a8-0497-4cb2-9f90-4ce8b3abf623">Milnor theorem for the join of topological groups</a>   </li>
+
+<li><a href="20241204-dold_theorem_for_the_join_of_topological_groups.html#ID-8147046b-0e9e-4b92-98cf-effd3e65803c">Dold theorem for the join of topological groups</a>   </li>
+</ul>
+<h3 id="446">4.46)</h3>
+<p>
+Let $G$ be a <a href="20230226210828-topologische_gruppe.html#ID-0aa20bcb-5c3d-4d06-aeee-e61b46a46e48">topological group</a>, $X_i$ a family of <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological spaces</a> with a right <a href="20231020-topological_group_action.html#ID-38e7118c-8f31-4e4f-b958-9af22f05af15">topological group action</a>
+</p>
+
+<p>
+Then this induces a right \(G\)-action on the
+</p>
+
+<div class="math-block">\begin{align*}
+(t_i \cdot x_i) = (t_i x_i \cdot g)
+\end{align*}</div>
+
+
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="welldefined">welldefined</h3>
+<p>
+follows as it does not change $t_i$ and thus also $\sum t_i$.
+</p>
+
+<h3 id="continuous">continuous</h3>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+\star_I X_i \times G \rar \dar &amp; \star_I X_i \dar \\
+\star_I X_i \rar &amp; [0,1]
+\end{tikzcd}
+\end{displaymath}</pre></div>
+
+<p>
+is
+</p>
+
+<p>
+Furthermore
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/309d4b18a03c7ed5e5fc.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+<h3 id="448">4.48)</h3>
+<ul>
+<li><a href="20241204-strong_join_of_topological_groups_induces_principal_g_action.html#ID-51b0a71d-303f-41f2-885a-d576aa60e3c4">strong join of topological groups induces principal G-action</a> </li>
+</ul>
+
+<h3 id="449">4.49)</h3>
+
+<h3 id="450">4.50)</h3>
+<ul>
+<li><a href="20241215-small_topological_category.html#ID-ee7a6ed6-e417-430f-8e99-77a023b07754">small topological category</a> </li>
+
+<li><a href="20241215-functor_of_topological_ctaegories.html#ID-196453eb-88c7-4342-ad19-b73438c61734">functor of small topological categories</a>   </li>
+
+<li><a href="20241215-topological_nerve.html#ID-a4912f86-02b8-4132-9647-36eba3b82915">nerve of a topological category</a>   </li>
+
+<li><a href="20241215-functor_of_topological_ctaegories.html#ID-196453eb-88c7-4342-ad19-b73438c61734">functor of small topological categories</a>   ??</li>
+</ul>
+<h3 id="451">4.51)</h3>
+<ul>
+<li><a href="20241215-g_space_induces_topological_category.html#ID-c549db27-e13e-4283-b57d-aa2fa9a1a443">G-Space induces topological category</a> </li>
+</ul>
+<h3 id="452">4.52)</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="453">4.53)</h3>
+
+<h3 id="454">4.54)</h3>
+
+<h3 id="455">4.55)</h3>
+<ul>
+<li><a href="20241204-homotopy_orbit.html#ID-520f53ed-3d0d-43a0-9cde-b41a55589051">homotopy orbit</a> </li>
+
+<li><a href="20241204-homotopy_orbit_of_a_principal_action.html#ID-c144bf75-101f-430b-814a-e37bb810da35">homotopy orbit of a principal action</a> </li>
+</ul>
+<h3 id="456">4.56)</h3>
+<ul>
+<li><a href="20241204-homotopy_type.html#ID-38437310-8a09-422f-80a1-4965b92c6003">homotopy type</a> </li>
+
+<li><a href="20241204-weak_homotopy_type.html#ID-83740988-6f52-4607-95dd-e1089d4ea38d">weak homotopy type</a>   </li>
+
+<li><a href="20241204-homotopy_orbit_welldefined_up_to_homotopy_equivalence.html#ID-dc331495-448f-4dac-ba66-f32af3f44546">homotopy orbit unique up to homotopy equivalence</a>   </li>
+
+<li><span class="broken-link" title="unresolved id:150cad94-65d9-4957-a29a-9d75ba0c50b8">fibration sequence of the homotopy orbits</span>  </li>
+</ul>
+<h3 id="457">4.57)</h3>
+<ul>
+<li><a href="20241204-homotopy_orbit_of_a_trivial_action.html#ID-61ef22cc-bea4-42f8-9a4d-79ac66ecad1a">homotopy orbit of a trivial action</a> </li>
+</ul>
+<h3 id="458">4.58)</h3>
+<ul>
+<li><a href="20241204-homotopy_orbit_functor.html#ID-573cb7a9-c71d-42c8-bfbd-514fa6b539df">homotopy orbit functor</a> </li>
+
+<li><a href="20241209-homotopy_orbit_functor_preserves_weak_equivalences.html#ID-c175ea15-ab12-4033-b22e-c4ef380afd77">homotopy orbit functor preserves weak equivalences</a> </li>
+</ul>
+<h3 id="459">4.59</h3>
+<ul>
+<li><a href="20241209-homotopy_orbit_of_a_finite_discrete_group.html#ID-1059d601-3ffa-4842-a10e-f6e36ffc9f3d">homotopy orbit of a finite discrete group</a> </li>
+</ul>
+</div>
+</body>
+</html>

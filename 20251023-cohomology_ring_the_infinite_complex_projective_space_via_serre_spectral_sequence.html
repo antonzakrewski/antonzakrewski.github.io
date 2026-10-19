@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>cohomology ring the infinite complex projective space via serre spectral sequence</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-f0bc19e0-6b76-4a5a-87e8-b6fed02ba8ba"></span><h1 class="title">cohomology ring the infinite complex projective space via serre spectral sequence</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $R$ be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a>, then the <a href="20250617-cohomology_with_local_coefficients.html#ID-034e0d6c-0f65-4a29-b536-8e27ce6005c5">cohomology</a>   of $\mathbb{C}\mathbb{P}^{\infty}$ is given by
+</p>
+
+<div class="math-block">\begin{align*}
+H^*(\mathbb{C}\mathbb{P}^n, R) \simeq R[x]
+\end{align*}</div>
+<p>
+for $\mathrm{deg}(x) = 2$
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+consider the <a href="20241022-fiber_of_an_infinity_morphism.html#ID-315c0bce-7cf8-468b-9149-1e254debcf95">fiber</a> sequence
+</p>
+
+<div class="math-block">\begin{align*}
+S^1 \rightarrow * \rightarrow \mathbb{C}\mathbb{P}^{\infty}
+\end{align*}</div>
+
+<p>
+and the <a href="20251022-multiplicative_cohomological_serre_spectral_sequence.html#ID-210757b1-73c5-47bb-b360-bf27ec81abba">multiplicative cohomological serre spectral sequence</a>.
+Now use that $\mathbb{C}\mathbb{P}^{\infty}$ is <a href="20250310-connected_anima.html#ID-3a5f1513-1e7e-49aa-90e7-a728c310990c">connected</a> and hence $H^{0}(\mathbb{C}\mathbb{P}, R) = R$
+We also know that
+</p>
+
+<div class="math-block">\begin{align*}
+H^*(S^1,R) = 
+    \begin{cases}
+    R &amp; \mbox{if } * \in \{0,1\} \\
+    0  &amp; \mbox{else } \\ 
+    \end{cases}
+\end{align*}</div>
+
+<p>
+so in particular we get $E^2_{*,n} = 0$ for $n &gt; 2$ and $E^{2}_{*,1} = E^{2}_{*,0}$
+</p>
+
+<p>
+Then we get
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/e1c26a4a03398e3817bf.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+Now $H^*(*,R) = R$ and the $E^3$ page collapses, so we have to kill everything that would nontrivially contribute to $H^{n}(*,R)$ for $n &lt; 0$
+But we can't kill for example the Term in $E_{1,0}^2$ so it follows by induction that every odd term must be zero.
+</p>
+
+<p>
+Thus
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/141d8309cfb0f1e37dcb.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Now let $x \in H^2(\mathbb{C}\mathbb{P}, R)$ be a generator.
+Let $y \in H^0(\mathbb{C}\mathbb{P}^{\infty}, H^1(S,R))$ be the element corresponding to $x$ under the differential.
+</p>
+
+<p>
+Then the differential satisfies the leibniz rule, so for $x\cdot y \in H^2(\mathbb{C}\mathbb{P}^{\infty}, H^1(S,R))$
+</p>
+
+<div class="math-block">\begin{align*}
+d^r(x \cdot y) = d^r(x) \cdot y + (-1)^{\mathrm{deg}(x)} x \cdot d^r(y) \\
+=&amp; 0 \cdot y + x \cdot x \\
+=&amp; x^2
+\end{align*}</div>
+
+</div>
+</body>
+</html>

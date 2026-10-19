@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>internal hom dualizes colimits</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-b913d711-e935-4a98-96ca-16e6e82a9cae"></span><h1 class="title">internal hom dualizes colimits</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $(\mathcal{V}, \otimes_{\mathcal{V}}, \mathds{1}_{\mathcal{V}})$ be a <a href="20240506-closed_monoidal_category.html#ID-2c471a85-1f2f-4cc4-b03d-b1f530462cb8">closed</a> <a href="20221223192944-monoidal_category.html#ID-e7314567-2c1d-4ebd-8aa0-323b3145b541">monoidal category</a>, $\underline{\mathrm{Hom}}(-,-)$ the <a href="20240506-inner_hom_of_a_monoidal_category.html#ID-51259d89-25c3-4295-a9da-d1b1e7232780">internal hom</a>
+Then $\underline{\mathrm{Hom}}(-,-)$ <a href="20231116-functor_dualizing_colimits_to_limits.html#ID-a8608b52-dd05-42b1-af0d-50efac81b033">functor dualizing colimits to limits</a> in the first component.
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Note that the <a href="20231110-tensor_functor_of_a_monoidal_category.html#ID-beccdd56-1629-4484-b2ea-36e115686584">tensor functor</a> is by assumption a <a href="20220831221344-linksadjungierte.html#ID-1e87e6b9-24df-41fb-bc1b-d35cfd2eaa7f">left adjoint</a>.
+Furthermore note that
+</p>
+<ol>
+<li><a href="20231017-hom_functor_preserves_colimits.html#ID-5ff9ae3e-1b7d-4f39-99df-dab65b127f6a">contravariant hom-functor dualizes small colimits to limits</a> </li>
+
+<li><a href="20231017-hom_functor_preserves_limits.html#ID-ce491494-9921-4e52-9745-a80f36ec7b61">covariant hom-functor preserves small limits</a> </li>
+</ol>
+<p>
+Hence by <a href="20240326-isomorphism_between_covariant_hom_sets_and_objects.html#ID-bdbc2ae0-8c61-44ed-8544-f12ea89dfeb5">covariant weak yoneda</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Hom}_{\mathcal{V}}(-, \underline{\mathrm{Hom}}(\mathrm{colim} B_i, -)) \cong&amp; \mathrm{Hom}_{\mathcal{V}}(- \times \mathrm{colim} B_i, -) \\
+\cong&amp; \mathrm{Hom}_{\mathcal{V}}(\mathrm{colim}(- \times B_i), -) \\
+\cong&amp; \mathrm{lim} \mathrm{Hom}_{\mathcal{V}}(- \times B_i, -) \\
+\cong&amp; \mathrm{lim} \mathrm{Hom}_{\mathcal{V}}(-, \underline{\mathrm{Hom}}(B_i, -)) \\
+\cong&amp; \mathrm{Hom}_{\mathcal{V}}(-, \mathrm{lim} \underline{\mathrm{Hom}}(B_i,-))
+\end{align*}</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>faithfully flat module and tensor functor as faithful functor</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-ae657676-fca4-48a6-a4bd-e9a637f7394f"></span><h1 class="title">faithfully flat module and tensor functor as faithful functor</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let \(R\) be a <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a> and $\mathrm{RMod}$ the <a href="20230225170152-kategorie_mod.html#ID-15b21b3a-18bb-4d60-a716-c69681d7222d">category RMod</a>.
+Suppose $M$ is a <a href="20230801-flat_module.html#ID-1fec67f0-a4f2-444f-a53f-3e8e7fcfc491">flat</a> <a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">module</a>
+</p>
+
+<p>
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol>
+<li>$M$ is <a href="20230803-faithfully_flat_module.html#ID-90fff949-02f7-46e7-beca-eacf14cbb932">faithfully flat</a> in the sense that $M \otimes N = 0 \Leftrightarrow N = 0$</li>
+
+<li>the <a href="20230812-tensoring_functor.html#ID-761d2307-1593-44ac-8782-0398791c46ec">tensoring functor</a> $M \otimes_{R} -: \mathrm{RMod} \rightarrow \mathrm{Ab}$ is <a href="20230301211921-treuer_funktor.html#ID-28e54961-a758-4c55-ba93-95268bcebd92">faithful</a> </li>
+
+<li>the <a href="20230812-tensoring_functor.html#ID-761d2307-1593-44ac-8782-0398791c46ec">tensoring functor</a> is <a href="20240618-functor_creating_exact_sequences.html#ID-acd29f12-d610-4647-b1e3-bb1ffb9bb5c5">faithfully exact functor</a> </li>
+</ol>
+<h2 id="proof">Proof</h2>
+<p>
+follows from:
+</p>
+<ul>
+<li><a href="20240626-faithfully_exact_functor_as_exact_and_faithful_functor.html#ID-2b12fee3-64ce-4d98-9774-7f76bcce93bf">faithfully exact functor as exact and faithful functor</a> </li>
+
+<li><a href="20240626-faithfully_exact_functor_and_zero_object.html#ID-aba64645-ce72-4aeb-9978-05d1229143de">faithfully exact functor and zero object</a>   </li>
+</ul>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+<p>
+using
+Let $f \in \mathrm{Hom}_{\mathrm{RMod}}()
+</p>
+
+<h3 id="2-implies-3">2) $\implies$ 3)</h3>
+
+
+<h3 id="3-implies-1">3) $\implies$ 1)</h3>
+<p>
+Let $M \otimes_{R} N = 0$.
+Then consider the exact sequences
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/db0074c18ab0ec6a1425.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+By assumption
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/12f3378218ef0111da5d.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+is exact showing that $N = 0$ (cf. <a href="20240312-sandwhich_by_isomorphisms_and_exact.html#ID-342db6fe-286c-49d3-b7f7-d39f65e78788">exactly sandwhiched by isomorphisms and zero object</a>)
+</p>
+
+
+<h3 id="2-implies-1">2) $\implies$ 1)</h3>
+<p>
+Suppose $M \otimes N = 0$
+Then consider
+</p>
+
+<div class="math-block">\begin{align*}
+M \otimes : \mathrm{Hom}_{\mathrm{RMod}}(N,N) \rightarrow \mathrm{Hom}_{\mathrm{Ab}}(M \otimes N-, M \otimes N) \cong \mathrm{Hom}_{\mathrm{Ab}}(M \otimes N,0 ) \cong \{0\}
+\end{align*}</div>
+
+<p>
+Then as $M \otimes $ is injective by assumption we conclude that
+</p>
+
+<div class="math-block">\begin{align*}
+\vert \mathrm{Hom}_{\mathrm{RMod}}(N,N) \vert = 1
+\end{align*}</div>
+<p>
+Hence the <a href="20220817165031-identitatsmorphismus.html#ID-18d8207c-a2f4-499b-ab59-b7efe4858e31">identity morphism</a> and the <a href="20230402144657-zero_morphism.html#ID-6cb7ce09-7038-4581-bc67-91d231a2be10">zero morphism</a> are the same, showing that $N$ is the <a href="20230517113245-nullmodul.html#ID-0de85912-72ca-4309-9566-8a117a409930">zero module</a>.
+</p>
+
+</div>
+</body>
+</html>

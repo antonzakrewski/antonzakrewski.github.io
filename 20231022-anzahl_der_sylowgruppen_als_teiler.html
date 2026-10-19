@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 18:49 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Anzahl der Sylowgruppen als Teiler</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,68 +52,64 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Anzahl der Sylowgruppen als Teiler</h1>
-<div id="outline-container-org632f0f7" class="outline-2">
-<h2 id="org632f0f7"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-6f76eb85-4adb-41dd-afd3-fb88ba27b327"></span><h1 class="title">Anzahl der Sylowgruppen als Teiler</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(G\) eine <a href="20221023195400-endliche_gruppe.html#ID-74087339-5710-41fb-ac85-6160c00c4671">endliche Gruppe</a> mit <a href="20221225213606-ordnung_gruppe.html#ID-fb68b5de-9a0c-4c45-8ee9-eb232370ed2e">Gruppenordnung</a> \(\vert G \vert = p^r m\) für eine <a href="20211228193940-primzahl.html#ID-d7857a86-c778-478d-aa48-7e239fcd8076">Primzahl</a> \(p \in \mathbb{P}\) mit \(p \not\mid m\).
-Sei ferner \(s_{p}\) die Anzahl der <a href="20230722-p_sylow_gruppe.html#ID-6dc01061-42f1-44f1-9c11-b313099f13e2">p-Sylow-Untergruppen</a>.
+Sei $G$ eine <a href="20221023195400-endliche_gruppe.html#ID-74087339-5710-41fb-ac85-6160c00c4671">endliche Gruppe</a> mit <a href="20221225213606-ordnung_gruppe.html#ID-fb68b5de-9a0c-4c45-8ee9-eb232370ed2e">Gruppenordnung</a> $\vert G \vert = p^r m$ für eine <a href="20211228193940-primzahl.html#ID-d7857a86-c778-478d-aa48-7e239fcd8076">Primzahl</a> $p \in \mathbb{P}$ mit $p \not\mid m$.
+Sei ferner $s_{p}$ die Anzahl der <a href="20230722-p_sylow_gruppe.html#ID-6dc01061-42f1-44f1-9c11-b313099f13e2">p-Sylow-Untergruppen</a>.
 Dann gilt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 s_p \mid m
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org04c66e7" class="outline-2">
-<h2 id="org04c66e7"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
 <p>
-Sei \(X = \{P_1,...,P_{s_p}\}\) die <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">menge</a> der \(p\)-sylow untergruppen von \(G\) (vgl. <a href="20221022204743-theorem_von_sylow.html#ID-2ff601f8-957e-4468-8455-10d9dbc40527">Sylowsatz über die Existenz einer p-Gruppe</a>)
+Sei $X = \{P_1,...,P_{s_p}\}$ die <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">menge</a> der \(p\)-sylow untergruppen von $G$ (vgl. <a href="20221022204743-theorem_von_sylow.html#ID-2ff601f8-957e-4468-8455-10d9dbc40527">Sylowsatz über die Existenz einer p-Gruppe</a>)
 Nach <a href="20240129-group_acts_by_conjugation_on_set_of_subgroups.html#ID-94b512e0-ad09-4f1a-a332-b16d208cb729">group acts by conjugation on set of subgroups</a> ist
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \varphi: G \times X \rightarrow X
-\end{align*}
+\end{align*}</div>
 <p>
 eine <a href="20230501095041-gruppenwirkung.html#ID-e8246fd3-cb62-4245-9ef1-59bc0326501a">gruppenwirkung</a>.
 </p>
 
 <p>
-Nach <a href="20231022-konjugieren_einer_sylowgruppe.html#ID-c930b4d0-f873-4304-b870-3ce4840bf26a">Konjugieren einer Sylowgruppe und einer p-Gruppe</a> ist diese auch <a href="20230802-transitive_group_action.html#ID-60b1288f-e80e-4738-8775-5c1360fdf2ec">transitiv</a>, d.h. es folgt für den <a href="20221221173558-orbit_gruppentheorie.html#ID-73c744de-33e1-4ea7-9b28-815229e1b186">orbit</a> von \(P \in X\)
+Nach <a href="20231022-konjugieren_einer_sylowgruppe.html#ID-c930b4d0-f873-4304-b870-3ce4840bf26a">Konjugieren einer Sylowgruppe und einer p-Gruppe</a> ist diese auch <a href="20230802-transitive_group_action.html#ID-60b1288f-e80e-4738-8775-5c1360fdf2ec">transitiv</a>, d.h. es folgt für den <a href="20221221173558-orbit_gruppentheorie.html#ID-73c744de-33e1-4ea7-9b28-815229e1b186">orbit</a> von $P \in X$
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \mathcal{O}_P = X
-\end{align*}
+\end{align*}</div>
 
 <p>
 Nach <a href="20231112-orbit_isomorphic_to_group_modulo_stabilizer.html#ID-0aa06d8e-98c7-420b-b8d3-a46b17c67b78">orbit isomorphic to group modulo stabilizer</a> folgt somit
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \mathcal{O}_P = \vert G : G_P \vert 
-\end{align*}
+\end{align*}</div>
 <p>
-wobei \(G_P\) als <a href="20230730-stabilisator_gruppentheorie.html#ID-07c74a34-381e-4b4c-b58f-ab73bfd5107d">stabilizer</a> eine <a href="20220911122242-untergruppe.html#ID-ded4020a-b34f-4433-9d64-2afa33a552d8">Untergruppe</a> ist und ferner \(P \subseteq G_P\), da \(P\) als Gruppe abgeschlossen gegenüber Multiplikation ist.
+wobei $G_P$ als <a href="20230730-stabilisator_gruppentheorie.html#ID-07c74a34-381e-4b4c-b58f-ab73bfd5107d">stabilizer</a> eine <a href="20220911122242-untergruppe.html#ID-ded4020a-b34f-4433-9d64-2afa33a552d8">Untergruppe</a> ist und ferner $P \subseteq G_P$, da $P$ als Gruppe abgeschlossen gegenüber Multiplikation ist.
 </p>
 
 <p>
 Somit folgt
 </p>
-\begin{align*}
-s_p =& \vert X \vert \\
-=& \vert G \vert : \vert G_p \vert 
-\end{align*}
+
+<div class="math-block">\begin{align*}
+s_p =&amp; \vert X \vert \\
+=&amp; \vert G \vert : \vert G_p \vert 
+\end{align*}</div>
 <p>
-mit \(p^r \mid \vert G_P \vert\), da \(P\) eine untergruppe ist (vgl. <a href="20221022204635-satz_von_lagrange.html#ID-678d0916-2cc1-45b5-8e6c-c438da465fec">Satz von Lagrange</a>)
+mit $p^r \mid \vert G_P \vert$, da $P$ eine untergruppe ist (vgl. <a href="20221022204635-satz_von_lagrange.html#ID-678d0916-2cc1-45b5-8e6c-c438da465fec">Satz von Lagrange</a>)
 </p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 18:49</p>
+
+
 </div>
 </body>
 </html>

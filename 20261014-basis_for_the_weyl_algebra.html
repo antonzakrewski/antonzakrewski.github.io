@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PBW-basis theorem for the weyl algebra</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-dea54cba-bea5-4e11-9e60-9aa8e88d5ea1"></span><h1 class="title">PBW-basis theorem for the weyl algebra</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+A basis for the <a href="20261014-weyl_algebra.html#ID-700abd24-07b4-4af9-b4b1-4558385b6474">Weyl algebra</a> is given by $x^i y^i$ for $i,j \geq 0$.
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+First we show that the $x^i y^i$ span $W$.
+So supose $xyx = x(xy - 1) = x^2y - x$.
+You can prove that by applying the defining relations always decreases the length of a monomial in $k&lt;x,y&gt;$.
+</p>
+
+<p>
+so it remains to show that this set is <a href="20220207224644-lineare_unabhangigkeit.html#ID-c4d1496f-6012-4ade-8b98-3e29dad89ded">linearly independent</a>.
+For this consider the following vector space $E = k[a][t,t^{-1}]$ and let $W$ act on $E$ by $xf =tf$ and $yf = \frac{df}{dt} f$ where this is the \(K[a]\) linear extension of $\frac{d t^n}{dt} = (a + n) t^{n-1})$.
+</p>
+
+
+<p>
+So here we have
+</p>
+
+<div class="math-block">\begin{align*}
+(xy + yx) f =&amp; t \frac{\mathrm{d}f}{\mathrm{d} t} - \frac{\mathrm{d} t f}{\mathrm{d} t} \\
+=&amp; t \cdot \frac{\mathrm{d}f}{\mathrm{d} t} - \frac{\mathrm{d} t f}{\mathrm{d} t} \\
+=&amp; t \cdot \frac{\mathrm{d} f}{\mathrm{d} t} - ( t \cdot \frac{\mathrm{d} f}{\mathrm{d} t} - \frac{\mathrm{d} t}{\mathrm{d} t} f) \\
+=&amp; -f \\
+= -1 f
+\end{align*}</div>
+
+<p>
+Suppose $\sum_{i,j} c_{i,j} x^i y^i = 0$ in the weil algebra.
+Then the operator $L = \sum_{i,j} c_{i,j} t^i (\frac{\mathrm{d}}{\mathrm{d} t})^j$ acts by zero.
+Now write $L$ as $\sum_{j}^{r} Q_j(t) \left( \frac{\mathrm{d}}{\mathrm{d} t}\right)^j$ where $Q_j$ are polynomials and $r$ is choosen such that $Q_r \neq 0$.
+</p>
+
+<p>
+Then $L(1) = \sum_{j=0}^n Q_j(t) a(a-1) (a - j + i) t^{-j} = 0$ in $k[a][t,t^{-1}]$.
+But then the leading term in the a's must be zero, so $Q_r(t) = 0$, hence $Q_j(t) = 0$.
+</p>
+
+</div>
+</body>
+</html>

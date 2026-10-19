@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>algebraic topology 4 - thom isomorphism for spherical fibrations</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-e0955a91-a171-41f0-8849-d2317cfd48f7"></span><h1 class="title">algebraic topology 4 - thom isomorphism for spherical fibrations</h1>
+
+<h2 id="aspects">Aspects</h2>
+
+<h3 id="21">2.1</h3>
+<ul>
+<li><a href="20250429-oriented_fibration_between_anima.html#ID-7c78e5a5-27d5-4ee9-beae-a65a2b1ad276">oriented spherical fibration between anima</a> </li>
+
+<li><a href="20250506-oriented_pointed_spherical_fibraiton.html#ID-990f0132-0d7e-4022-9892-a3143aaba4de">oriented pointed spherical fibration</a> - todo ???</li>
+
+<li><a href="20250429-oriented_fibration_and_oriented_homotopy_aut.html#ID-0a270b84-6cc1-49ae-8876-bddecfc284df">oriented fibration and oriented homotopy aut</a> </li>
+</ul>
+<h3 id="22">2.2</h3>
+<ul>
+<li><a href="20250429-thom_space.html#ID-7c98002e-20c8-4004-8857-466d68886ee3">Thom Space</a> </li>
+</ul>
+<h3 id="23">2.3</h3>
+<ul>
+<li><a href="20250501-infinity_pushout_and_cofiber.html#ID-89e4ea9d-e215-4b2d-80f9-2b5689bd2c52">infinity pushout and cofiber</a></li>
+
+<li><a href="20250501-thom_space_of_a_terminal_morphism_as_sphere.html#ID-832d7f76-781a-466f-ad72-25bac3ca9cb7">thom space of a terminal morphism as sphere</a>   </li>
+
+<li><a href="20250429-pullback_diagram_induces_map_between_thom_spaces.html#ID-adc06939-7fcf-482a-abd7-93be1d13e2c6">pullback diagram induces map between thom spaces</a>   </li>
+
+<li><a href="20250501-natural_map_from_sphere_to_thom_space.html#ID-9ff19f91-0bd7-4799-9741-dc06d4631788">natural map from sphere to thom space</a>   </li>
+</ul>
+<h3 id="24">2.4</h3>
+<ul>
+<li><a href="20250429-top_d.html#ID-e23e84ff-87b9-413b-9a34-baae9baaa0a7">Top(d)</a> </li>
+
+<li><a href="20250429-top_0_d.html#ID-8e8d3a09-54ad-4547-9134-ff46556b0430">Top_0(d)</a> </li>
+</ul>
+<h3 id="25">2.5</h3>
+<ul>
+<li><a href="20250429-top_0_d_homotopy_equivalent_to_top_d.html#ID-44b0462e-a932-4e97-a200-8d53ac4ee480">Top_0(d) homotopy equivalent to Top(d)</a> </li>
+</ul>
+<h3 id="26">2.6</h3>
+
+<h4 id="groups">groups</h4>
+<ul>
+<li><a href="20250429-f_d.html#ID-919fff5a-5781-4508-98c7-cfe1332779b4">F(d)</a>   </li>
+
+<li><a href="20250429-sf_d.html#ID-0fcfc07e-dcd5-4065-933a-a10837291230">SF(d)</a> </li>
+
+<li><a href="20250429-g_d.html#ID-3edb6e6e-94d7-421f-8693-d00a3ef99a91">G(d)</a> </li>
+
+<li><a href="20250429-sg_d.html#ID-11d6016e-6ade-4a01-aad8-7c69800019c0">SG(d)</a> </li>
+</ul>
+<h4 id="section"></h4>
+<ul>
+<li><a href="20250429-spherical_fibration.html#ID-5101116a-27b3-43c5-accd-2eb9fa285974">spherical fibration</a> </li>
+
+<li><a href="20250430-classification_of_fibrations_for_anima.html#ID-b476eb0e-0bd6-4f75-a5a0-761c7debdd6e">classification of fibrations with typical fibre F for anima</a>   </li>
+
+<li><a href="20250501-pointed_spherical_fibration.html#ID-784908b9-6bc8-4a1d-abc7-5addb6b9ea49">pointed spherical fibration</a>   </li>
+
+<li><a href="20250430-suspension_homomorphism_from_g_d_to_f_d.html#ID-0959e5b8-c0fa-45b5-bffd-53b997bc6839">suspension homomorphism from G(d) to F(d)</a> </li>
+
+<li><a href="20250819-suspension_homomorphism_from_sg_d_to_sf_d.html#ID-d1c11175-af40-4d80-aa85-2418548ef938">suspension homomorphism from SG(d) to SF(d)</a> </li>
+</ul>
+
+<ul>
+<li><a href="20250819-pointed_fibration_sequence.html#ID-8ba5428c-1434-49c3-a048-4794e9fcf5b0">pointed fibration sequence</a>   </li>
+
+<li><a href="20250819-pointed_fibration_with_typical_fiber_f.html#ID-059aee70-c0ec-4e6c-a195-0e2131cc145c">pointed fibration with typical fiber F</a> - todo</li>
+
+<li><a href="20250819-classification_of_pointed_fibrations_with_typical_fiber.html#ID-4dc9997f-54df-4005-9dfb-adcc44fa1111">classification of pointed fibrations with typical fiber F</a> </li>
+
+<li><a href="20250505-universal_pointed_fibration.html#ID-be421ead-1b7b-4a7a-8435-d46e60916e14">universal pointed fibration</a> - todo</li>
+
+<li><a href="20250819-section_of_the_universal_pointed_fibration.html#ID-68c082d3-4e97-42c6-a801-3a1b6f7774c1">section of the universal pointed fibration</a> </li>
+
+<li><a href="20250819-classification_of_pointed_fibrations.html#ID-f22b0062-3d47-42b0-883a-7bdd5b1be1dc">classification of pointed fibrations</a>   </li>
+</ul>
+<h4 id="todo">todo ???</h4>
+<ul>
+<li><a href="20250819-classification_of_pointed_oriented_spherical_fibrations.html#ID-5fb00228-125d-43de-ac9b-b3b69f59ccec">classification of pointed oriented spherical fibrations</a>  </li>
+
+<li><a href="20250819-classification_of_pointed_spherical_fibrations.html#ID-118c7dfb-2dd7-4dd1-b920-dcb99d5b6bc6">classification of pointed spherical fibrations</a> </li>
+
+<li><a href="20250819-classification_of_spherical_fibrations.html#ID-c44ff632-805e-4042-9c6f-eaf4a57a1aca">classification of spherical fibrations</a>   </li>
+
+<li><a href="20250819-classification_of_oriented_spherical_fibrations.html#ID-000002e5-73af-4d10-97d3-d66cfa9d2979">classification of oriented spherical fibrations</a>   </li>
+</ul>
+<h3 id="27">2.7</h3>
+<ul>
+<li><a href="20250429-pointed_thom_space_of_the_suspension_equivalent_to_thom_space.html#ID-b5339f54-657e-41ae-b335-eb06c167c150">pointed thom space of the suspension equivalent to thom space</a> </li>
+
+<li><a href="20250430-overview_group_homomorphisms_between_o_d_gl_d_top_0_d_f_d_and_g_d.html#ID-17e2e161-d43e-4f08-bbc4-e6c007bafb5d">overview: group homomorphisms between O(d),GL_d, Top_0(d), F(d) and G(d)</a> </li>
+
+<li><a href="20250819-group_homomorphism_from_o_d_to_homeo_s_d_1.html#ID-69b4f3dd-9351-4dd5-9965-8acc7bd49b80">group homomorphism from O(d) to Homeo(S^d-1)</a>   </li>
+
+<li><a href="20250819-group_homomorphism_from_top_0_d_to_pointed_homeo_s_d.html#ID-43ecf48a-1241-4aae-a565-30b05dcfb6f9">group homomorphism from Top_0(d) to pointed Homeo(S^d)</a>   </li>
+</ul>
+<h3 id="28">2.8</h3>
+<ul>
+<li><a href="20250429-pointed_thom_space.html#ID-98b8f07b-99d8-4f03-a11f-cbdc4c15a29f">pointed Thom space</a> </li>
+</ul>
+<h3 id="29">2.9</h3>
+<ul>
+<li><a href="20250430-join_functor_on_anima.html#ID-7bf3cabf-f2bb-452f-b3c0-b983e65a5699">join functor on anima</a> </li>
+
+<li><a href="20250429-infinity_smash_product.html#ID-c69c22dd-2865-4d5a-beec-11dadaada354">infinity smash product</a>   </li>
+
+<li><a href="20250501-smash_product_of_pointed_anima_spheres.html#ID-00defba7-b535-4d25-9187-cdfe215f5fcd">smash product of pointed anima spheres</a> </li>
+
+<li><a href="20250501-join_of_anima_spheres_as_sphere.html#ID-3e5f4c41-9795-4058-987b-649339e64b2e">join of anima spheres as sphere</a>  </li>
+</ul>
+<ul>
+<li><a href="20250501-join_homomorphism_of_f_d.html#ID-c33cbab4-8857-4d21-946a-6c6886094b38">join homomorphism of F(d)</a> </li>
+
+<li><a href="20250501-smash_homomorphism_of_g_d.html#ID-7ec8391b-ad8f-4e0d-afee-e66621b81b69">smash homomorphism of G(d)</a>    </li>
+</ul>
+<ul>
+<li><a href="20250506-join_homomorphism_and_join_on_anima.html#ID-423a5021-a26c-44e1-88a8-795f681472b2">join homomorphism and join on Anima</a>   </li>
+
+<li><a href="20250506-smash_homomorphism_and_smash_on_pointed_anima.html#ID-f21a6e39-16b4-410d-b143-4b7238726b50">smash homomorphism and smash on pointed Anima</a>   </li>
+</ul>
+<ul>
+<li><a href="20250501-product_of_spherical_fibrations.html#ID-d5e5f859-4dde-4f00-ac2c-3243e17866c4">smash product of pointed spherical fibrations</a></li>
+
+<li><a href="20250501-join_of_spherical_fibrations.html#ID-4290077d-14ff-4b38-887c-52f76e4ac149">join of spherical fibrations</a></li>
+</ul>
+<ul>
+<li><a href="20250501-direct_sum_of_spherical_fibrations.html#ID-7e5cbb07-160f-42b3-8cb5-580adcdf05b9">direct sum of spherical fibrations</a>   </li>
+
+<li><a href="20250501-direct_sum_of_pointed_spherical_fibrations.html#ID-3b77b9aa-d137-4413-b0c7-eab13e282391">direct sum of pointed spherical fibrations</a>  </li>
+</ul>
+<h3 id="210">2.10</h3>
+<ul>
+<li><a href="20250430-overview_group_homomorphisms_between_o_d_gl_d_top_0_d_f_d_and_g_d.html#ID-17e2e161-d43e-4f08-bbc4-e6c007bafb5d">overview: group homomorphisms between O(d),GL_d, Top_0(d), F(d) and G(d)</a> </li>
+
+<li><a href="20250430-inclusion_of_top_d_into_g_d.html#ID-f3d76630-6cec-4de1-a36c-239def5e9c36">inclusion of Top_0(d) into G(d)</a>   </li>
+
+<li><a href="homotopy-aut-space.html#ID-528ffd9d-4af4-42cd-b295-390e14044bd0">homotopy Aut space</a>   </li>
+</ul>
+<h3 id="211">2.11</h3>
+<ul>
+<li><a href="20250501-join_homomorphism_of_f_d.html#ID-c33cbab4-8857-4d21-946a-6c6886094b38">join homomorphism of G(d)</a> </li>
+
+<li><a href="20250501-smash_homomorphism_of_g_d.html#ID-7ec8391b-ad8f-4e0d-afee-e66621b81b69">smash homomorphism of F(d)</a>    </li>
+
+<li></li>
+</ul>
+<h3 id="213">2.13</h3>
+<ul>
+<li><a href="20250511-cofiber_of_the_projection_in_anima.html#ID-10edcc18-d21a-4764-ad31-57f5d181720a">cofiber of the projection in Anima</a></li>
+
+<li><a href="20250506-suspension_of_the_join_and_smash_product_commute_for_spherical_fibrations.html#ID-4f2083a1-1597-4569-8477-2082df911058">suspension of the join and smash product commute for spherical fibrations</a> </li>
+
+<li></li>
+</ul>
+<h3 id="214">2.14</h3>
+<ul>
+<li></li>
+
+<li><a href="20250506-suspension_of_the_nonempty_product.html#ID-f4cf5ad9-f2c5-4602-93c0-78c03e30ac63">suspension of the nonempty product</a> </li>
+</ul>
+<div class="equation-container"><span class="equation"><img src="ltximg/61a7fa34e7e3c04d5eb2.svg" class="org-svg" alt="diagram" /></span></div>
+<ul>
+<li><a href="20250501-join_homomorphism_of_f_d.html#ID-c33cbab4-8857-4d21-946a-6c6886094b38">join homomorphism of F(d)</a> </li>
+
+<li><a href="20250501-smash_homomorphism_of_g_d.html#ID-7ec8391b-ad8f-4e0d-afee-e66621b81b69">smash homomorphism of G(d)</a>    </li>
+</ul>
+<h3 id="215">2.15</h3>
+<ul>
+<li><a href="20250506-suspension_of_the_nonempty_product.html#ID-f4cf5ad9-f2c5-4602-93c0-78c03e30ac63">suspension of the nonempty product</a> </li>
+
+<li><a href="20250506-thom_space_commutes_with_smash_product.html#ID-a9035048-1164-4d8d-b6f5-d5e3a384cf25">pointed thom space commutes with smash product</a> </li>
+
+<li><a href="20250506-unpointed_thom_space_of_the_join.html#ID-e9439168-ab53-4c9a-9f73-b5fcfbd8f8b3">unpointed thom space of the join as smash proudct</a>   </li>
+</ul>
+<h3 id="216">2.16</h3>
+<ul>
+<li><a href="20250506-pointed_thom_space_of_the_sum_with_a_trivial_spherical_fibration.html#ID-28c28eea-c13a-4958-bf88-fc6b6a633b69">pointed thom space of the sum with a trivial spherical fibration</a> </li>
+
+<li><a href="20250506-thom_space_of_the_sum_with_a_trivial_spherical_fibration.html#ID-5a636e4a-15bf-4895-8d56-3729116bfe74">thom space of the sum with a trivial spherical fibration_</a>   </li>
+
+<li><a href="20250506-thom_space_of_a_trivial_fibration.html#ID-d43fe638-a1f6-46d2-8d67-7e96520ceda2">thom space of a trivial fibration</a>   </li>
+</ul>
+<h3 id="217">2.17</h3>
+<ul>
+<li><a href="20250510-oriented_spherical_fibration_and_cohomology.html#ID-4713c5d5-6cdd-4cd4-93e3-ddb486eadd90">oriented spherical fibration and cohomology</a> </li>
+</ul>
+<ul>
+<li><a href="20250510-spherical_fibration_and_f2_cohomology.html#ID-d20f23ce-4948-4b94-a7e2-f3840b43c01f">spherical fibration and F2 cohomology</a> </li>
+
+<li><a href="20250510-integral_homology_of_an_unoriented_spherical_fibration.html#ID-b32ef02d-b262-4c65-9717-6df372fd2444">integral homology of an unoriented spherical fibration</a> </li>
+
+<li></li>
+</ul>
+<h3 id="218">2.18</h3>
+<ul>
+<li><a href="20250506-thom_class_of_a_spherical_fibration.html#ID-327d3f7d-5755-4acc-a906-bc128165f032">thom class of an oriented spherical fibration</a> </li>
+
+<li><a href="20250506-f2_thom_class_of_a_spherical_fibration.html#ID-a12ec9de-b121-470a-a7ef-52ca74a0dad4">F2 thom class of a spherical fibration</a>   </li>
+</ul>
+<h3 id="219">2.19</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="220">2.20</h3>
+<ul>
+<li><a href="20250506-oriented_thom_class_invariant_under_pullback.html#ID-78835253-faf4-4f0a-8d05-6f34f1e76366">oriented thom class invariant under pullback</a> </li>
+
+<li><a href="20250506-f2_thom_class_invariant_under_pullback.html#ID-d681b47d-02e0-4e64-8f33-0544aaa2d58a">F2 thom class invariant under pullback</a>   </li>
+</ul>
+<ul>
+<li><a href="20250506-f2_thom_class_as_reduction_for_an_orientable_spherical_fibratio.html#ID-d59fdcf0-1037-4f99-b13a-564ffec11749">F2 thom class as reduction for an orientable spherical fibration</a> </li>
+</ul>
+<p>
+Let $\pi: E \rightarrow B$ be a an <a href="20250429-oriented_fibration_between_anima.html#ID-7c78e5a5-27d5-4ee9-beae-a65a2b1ad276">oriented spherical fibration between anima</a> with <a href="20250506-thom_class_of_a_spherical_fibration.html#ID-327d3f7d-5755-4acc-a906-bc128165f032">thom class of an oriented spherical fibration</a> $u(\pi)$. and $f: B' \rightarrow B$.
+with induced pullback $\pi': E' \rightarrow B'$ pullback of $\pi$ along $f$, call the induced map
+</p>
+
+<div class="math-block">\begin{align*}
+
+\end{align*}</div>
+
+<h3 id="221">2.21</h3>
+<ul>
+<li><a href="20250506-euler_class_of_a_spherical_fibration.html#ID-4b5bbe4c-c759-4354-a93d-060bac75d685">euler class of a spherical fibration</a> </li>
+
+<li><a href="20250506-euler_class_of_an_orientable_spherical_fibration.html#ID-4807143e-c176-466a-bf88-fde8d48846d6">euler class of an orientable spherical fibration</a>   </li>
+</ul>
+<ul>
+<li><a href="20250506-universal_orientable_euler_class.html#ID-af750d7a-a4f4-43b3-b927-7ffa7d148c52">universal orientable euler class</a> </li>
+
+<li><a href="20250506-universal_f2_euler_class.html#ID-ba1600c7-e004-4040-955e-9d2f617ef102">universal F2 euler class</a> </li>
+</ul>
+
+<h3 id="222">2.22</h3>
+<ul>
+<li><a href="20241113-characteristic_class_of_a_topological_group_and_abelian_group.html#ID-b5615a8e-b51b-4e26-b7aa-ef61c01a7a62">characteristic class of a topological group and abelian group</a> </li>
+
+<li><a href="20250511-euler_class_as_characteristic_class.html#ID-92707313-a2bb-4403-90f0-c96205a1eb8f">euler class as characteristic class</a> </li>
+
+<li><a href="20250511-euler_class_as_characteristic_class_for_oriented_spherical_fibrations.html#ID-b2d97b11-b1c1-4102-beb8-b8efca460472">euler class as characteristic class for oriented spherical fibrations</a>   </li>
+</ul>
+<h3 id="223">2.23</h3>
+<ul>
+<li><a href="20250507-euler_class_of_an_oriented_vector_bundle.html#ID-122ae0b0-dcf7-4cb5-9bab-a6c5c6ef0596">euler class of an oriented vector bundle</a> </li>
+
+<li><a href="20250507-f2_euler_class_of_a_vector_bundle.html#ID-9a8b998e-e1ad-4ee1-b490-858019714359">F2 euler class of a vector bundle</a>   </li>
+
+<li><a href="20250510-forgetful_functor_from_real_vector_bundles_to_spherical_fibrations.html#ID-2f7fade1-156e-48b6-af17-c93c3a94e702">forgetful functor from real vector bundles to spherical fibrations</a>   </li>
+
+<li><a href="20250510-forgetful_functor_from_oriented_real_vector_bundles_to_oriented_spherical_fibrations.html#ID-834462c5-fb61-47ff-be55-67eaee002e92">forgetful functor from oriented real vector bundles to oriented spherical fibrations</a>   </li>
+</ul>
+<ul>
+<li><a href="20250507-euler_class_of_an_oriented_r_d_vector_bundle.html#ID-0809999c-974a-4eb3-912a-dfa8de97756e">euler class of an oriented R^d fibre bundle</a> </li>
+
+<li><a href="20250507-f2_euler_class_of_a_r_d_fibre_bundle.html#ID-8f3a2acb-f9f2-48bb-9185-16094c27ba71">F2 euler class of a R^d fibre bundle</a>   </li>
+</ul>
+<ul>
+<li><a href="20250510-forgetful_functor_from_oriented_pointed_r_d_fibre_bundles_to_spherical_fibrations.html#ID-9acddd12-2903-40bf-aeda-d8d83836377c">forgetful functor from oriented pointed R^d fibre bundles to spherical fibrations</a>     </li>
+
+<li><a href="20250510-forgetful_functor_from_pointed_r_d_fibre_bundles_to_spherical_fibrations.html#ID-64f40644-3bde-4f3a-b032-a97ac1fe81fb">forgetful functor from pointed R^d fibre bundles to spherical fibrations_</a>   </li>
+</ul>
+
+<h3 id="224">2.24</h3>
+<ul>
+<li><a href="20250507-universal_oriented_thom_space.html#ID-046894d0-308d-4c92-a306-53ac3bd12d8d">universal oriented thom space</a> </li>
+
+<li><a href="20250507-universal_pointed_thom_space.html#ID-bc198f79-42a2-43b3-9110-5ea336d43ae4">universal pointed thom space_</a> </li>
+</ul>
+<h3 id="225">2.25</h3>
+<ul>
+<li><a href="20250513-composition_of_bf_d_1_to_bg_d_vanishes.html#ID-35a5d4e6-018c-43c5-b86c-3a7833b7daff">composition of BF(d-1) to BG(d) euler class vanishes</a> </li>
+
+<li><a href="20250513-composition_of_bsf_d_1_to_bsg_d_with_euler_class.html#ID-622c4534-4e8e-40cc-8824-b91ab8cde623">composition of BSF(d-1) to BSG(d) with euler class vanishes</a>   </li>
+
+<li><a href="20250513-euler_class_as_obstruction_for_destabilization.html#ID-8b9e626a-8a20-4cca-9e08-83970c0603f4">euler class as obstruction for destabilization</a>   </li>
+</ul>
+<p>
+Consider again $\mathrm{BSF}(d-1) \rightarrow \mathrm{BSg}(d)$
+This is a <a href="20241216-simple_map_between_connected_spaces.html#ID-9165624a-8124-41e5-aee6-c54040a6ff33">simple map</a>, since $\pi_1(\mathrm{BSF}(d-1)) = 0$.
+</p>
+
+<p>
+The map is
+Its <a href="20241022-fiber_of_an_infinity_morphism.html#ID-315c0bce-7cf8-468b-9149-1e254debcf95">fiber</a> is given by $S^{d-1}$, <a href="20250502-forgetful_map_from_bg_d_to_bf_d_1_as_d_1_connected.html#ID-4976e793-4f69-444d-b0b9-f77dd98e0c54">forgetful map from BF(d) to BG(d+1) as d-1 connected</a>
+</p>
+
+
+<p>
+then we may use <a href="20241218-fundamental_theorem_of_obstruction_theory.html#ID-06adf918-d7b5-49e3-acf5-c7180b033f0c">fundamental theorem of obstruction theory for simple maps</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/e07ad16845b5e238af70.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+to consdier
+</p>
+
+<p>
+By reasons similar to <a href="20241222-fundamental_application_of_obstruction_theory.html#ID-12fef7dc-33b2-4bef-9755-d1f192aee0a0">fundamental application of obstruction theory</a> we get an <a href="20241216-obstruction_class_of_a_simple_fibraiton.html#ID-6d861bd5-4250-4181-a190-cbee5de26d12">obstruction class</a> $\theta \in H^d(\mathrm{BSG}(d),\mathbb{Z})$.
+</p>
+
+
+<h3 id="226">2.26</h3>
+<ul>
+<li><a href="20250513-euler_class_as_obstruction_class.html#ID-4c0d5aa2-9a5f-4fbb-9089-0f1aa25747c9">euler class as obstruction class</a> </li>
+
+<li></li>
+</ul>
+<h3 id="227">2.27</h3>
+<p>
+Let $F = \mathrm{fib(\Sigma: BSG(d-1)) \rightarrow \mathrm{BSG}(d-1)}$ be the <a href="20241022-fiber_of_an_infinity_morphism.html#ID-315c0bce-7cf8-468b-9149-1e254debcf95">fiber</a> of the &lt;stabilization&gt;
+Then
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/9d6294df4b4510ec2cf5.svg" class="org-svg" alt="diagram" /></span></div>
+
+<h4 id="furthermore">furthermore</h4>
+<p>
+The diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/9777965aaae38d511ccd.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+is an <a href="20241017-infinity_pullback.html#ID-7aaac468-a0bb-4e73-bfd3-d4c591c10e4f">pullback</a>
+</p>
+
+<h2 id="proof">proof</h2>
+<p>
+The diagram
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+S^{d-1} \rar \dar &amp; S^{d-1}\dar \\ \\
+\mathrm{BSO}(d-1) \rar \dar &amp; \mathrm{BSF}(d-1) \dar{\pi} \\
+\mathrm{BSO}(d) \rar &amp; \mathrm{BSG}(d)
+\end{tikzcd}
+\end{displaymath}</pre></div>
+<p>
+is a <a href="20241017-infinity_pullback.html#ID-7aaac468-a0bb-4e73-bfd3-d4c591c10e4f">pullback</a>
+</p>
+
+
+<div class="equation-container"><span class="equation"><img src="ltximg/782db1e3059853dfeb91.svg" class="org-svg" alt="diagram" /></span></div>
+
+<ul>
+<li><a href="20250513-euler_class_as_obstruction_class.html#ID-4c0d5aa2-9a5f-4fbb-9089-0f1aa25747c9">euler class as obstruction class for</a> </li>
+
+<li><a href="20250513-primary_obstruction_class.html#ID-11e90a55-7447-49c7-8e4d-c55b3e2cb039">primary obstruction class_</a>   </li>
+
+<li><a href="20250513-euler_class_as_primary_obstruction_class_for_real_vector_bundles.html#ID-63f66407-afe7-4e71-800b-8e0beb631bf8">euler class as primary obstruction class for real vector bundles</a>   </li>
+</ul>
+<h3 id="228">2.28</h3>
+<ul>
+<li><a href="20250513-splitting_of_vector_bundles_for_low_dimensional_cw_complexes.html#ID-146057df-6a6c-42d5-8bb5-60a98285dce6">splitting of vector bundles for low dimensional CW complexes</a> </li>
+
+<li></li>
+</ul>
+<p>
+It turns out that
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/4a0e4d7c0cbddc7251c3.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+is roughly $2d-2$ cartesian
+</p>
+
+<ul>
+<li><a href="20250513-n_cartesian_square.html#ID-356cb5d5-160a-414b-90e5-0f2e7488848b">n-cartesian square</a></li>
+</ul>
+<h3 id="229">2.29</h3>
+<ul>
+<li><a href="20250513-thom_isomorphism.html#ID-69ff282c-ba7b-45d1-af72-89650ab4f156">thom isomorphism in F2</a> </li>
+
+<li><a href="20250513-thom_isomorphism_for_oriented_spherical_fibrations.html#ID-9aa149ae-7f96-4334-b99d-1ef82a8455b6">thom isomorphism for oriented spherical fibrations</a></li>
+</ul>
+<h3 id="230">2.30</h3>
+<ul>
+<li><a href="20250513-cysin_sequence.html#ID-ed86aa04-2650-4142-a7b6-3b5ae6fb9b5e">Gysin sequence</a> </li>
+
+<li><a href="20250513-gysin_sequence_for_an_oriented_fibration.html#ID-4c724811-83ea-40d5-90e1-db2efe676e8b">gysin sequence for an oriented fibration</a>   </li>
+
+<li><a href="20250513-cysin_short_exact_sequence_for_a_section.html#ID-d1c858d6-e62f-4a90-9447-bd2c2ee1fdaa">Gysin short exact sequence for a section</a>   </li>
+</ul>
+
+<h3 id="231">2.31</h3>
+<ul>
+<li><a href="20250513-cysin_short_exact_sequence_for_a_section.html#ID-d1c858d6-e62f-4a90-9447-bd2c2ee1fdaa">cysin short exact sequence for a section</a> </li>
+
+<li><a href="20250513-spherical_fibration_with_section_and_trivial_euler_class.html#ID-af67c297-1b5a-4c80-ab7b-152a9e018d79">spherical fibration with section and trivial euler class</a></li>
+</ul>
+
+<h3 id="232">2.32</h3>
+<ul>
+<li><a href="20250513-stiefel_whitney_class.html#ID-e517ed4b-8778-4ca0-b72d-f14039cb4466">stiefel whitney class</a> </li>
+
+<li><a href="20250513-wu_class.html#ID-0a1d7cee-2533-40e9-9c94-9902edb5f5b2">wu class</a> </li>
+
+<li><a href="20250513-total_stiefel_whitney_class.html#ID-45c379ca-4022-4de0-8657-1ce2bac89137">total stiefel whitney class</a> </li>
+
+<li><a href="20250513-total_wu_class.html#ID-e9d0dd48-3803-4c2e-945d-1a42852db99b">total wu class</a>   </li>
+</ul>
+<h3 id="233">2.33</h3>
+<p>
+-
+Let $f: B' \rightarrow B$, $\pi: E \rightarrow B$ and $\pi': E' \rightarrow B'$ be
+</p>
+
+
+<h3 id="234">2.34</h3>
+<ul>
+<li></li>
+
+<li><a href="20250520-euler_class_as_2_torsion_element_for_an_odd_spehrical_fibration.html#ID-f1eb20a5-e687-414b-9830-12a83b375e21">euler class as 2 torsion element for an odd spherical fibration</a>   </li>
+
+<li><a href="20250520-stable_top.html#ID-ce0e6da2-e74a-47c4-8cd9-b7468d6584fa">stable Top(-)</a> </li>
+
+<li></li>
+</ul>
+
+<h2 id="stuff-to-sort">Stuff- to sort</h2>
+<ul>
+<li><a href="20250429-oriented_fibration_between_anima.html#ID-7c78e5a5-27d5-4ee9-beae-a65a2b1ad276">oriented fibration between anima</a> </li>
+
+<li>&lt;anima straightening&gt; </li>
+</ul>
+<p>
+Let $\pi: E \rightarrow B$ be a <a href="20241216-homotopy_fibration_sequence.html#ID-087b8ed8-3089-4470-93f2-f108132c6fe8">homotopy fibration</a> with typical fibre $S^{d-1}$ and $B$ <a href="20230118223336-zusammenhangender_raum.html#ID-bcc53507-bc5a-46d4-bd83-53e504f62b9d">connected</a>
+</p>
+<ul>
+<li><a href="homotopy-aut-space.html#ID-528ffd9d-4af4-42cd-b295-390e14044bd0">homotopy Aut space</a> </li>
+
+<li><a href="20250429-oriented_homotopy_aut_of_an_anima_sphere.html#ID-3859dd3a-1b01-430a-801d-1f51652b418d">oriented homotopy Aut of an anima sphere</a> </li>
+
+<li><a href="20250429-homotopy_aut_of_an_anima.html#ID-3367e85f-ef43-4188-b847-47a32622acec">homotopy Aut of an anima</a> </li>
+
+<li><a href="20250429-oriented_fibration_and_oriented_homotopy_aut.html#ID-0a270b84-6cc1-49ae-8876-bddecfc284df">oriented fibration and oriented homotopy aut</a> </li>
+</ul>
+<ul>
+<li><a href="20250429-spherical_fibration.html#ID-5101116a-27b3-43c5-accd-2eb9fa285974">spherical fibration</a> </li>
+
+<li></li>
+</ul>
+<ul>
+<li>F(d), SF(d), G(d), SG(d)  </li>
+</ul>
+
+<ul>
+<li><a href="20250429-top_d.html#ID-e23e84ff-87b9-413b-9a34-baae9baaa0a7">Top(d)</a> </li>
+
+<li><a href="20250429-top_0_d.html#ID-8e8d3a09-54ad-4547-9134-ff46556b0430">Top_0(d)</a> </li>
+
+<li><a href="20250429-top_0_d_homotopy_equivalent_to_top_d.html#ID-44b0462e-a932-4e97-a200-8d53ac4ee480">Top_0(d) homotopy equivalent to Top(d)</a> </li>
+</ul>
+<ul>
+<li><a href="20250429-thom_space.html#ID-7c98002e-20c8-4004-8857-466d68886ee3">Thom Space</a> </li>
+
+<li><a href="20250429-thom_space_as_disk_bundle_modulo_sphere_bundle.html#ID-1405d285-d788-455b-86fd-21c9306320b8">Thom space as disk bundle modulo sphere bundle</a> </li>
+
+<li><a href="20250429-pointed_thom_space.html#ID-98b8f07b-99d8-4f03-a11f-cbdc4c15a29f">pointed Thom space</a> </li>
+
+<li><a href="20250429-pointed_thom_space_of_the_suspension_equivalent_to_thom_space.html#ID-b5339f54-657e-41ae-b335-eb06c167c150">pointed thom space of the suspension equivalent to thom space</a> </li>
+
+<li><a href="20241226-anima_over_a_kan_complex_as_functor_category.html#ID-4f412fdf-22f1-4adc-986d-710229e0f7e5">Anima over a kan complex as functor category</a></li>
+
+<li></li>
+</ul>
+<p>
+Let $\pi: B \rightarrow BG(d)$ be a &lt;pointed spherical fibration&gt; where $BG(d) \subseteq \mathrm{An}_*$ via &lt;&gt;
+</p>
+<ul>
+<li><a href="20250429-pointed_thom_space_as_colimit.html#ID-8ca4c67a-325d-4582-8170-529c2dfdca3a">pointed thom space as colimit</a> </li>
+
+<li><a href="20250429-unpointed_thom_space_is_not_the_colimit.html#ID-43d0c7b5-1a9d-4a56-9a19-2d9de6684dc6">unpointed thom space is not the colimit</a> </li>
+</ul>
+<ul>
+<li></li>
+</ul>
+<p>
+Given a <a href="20241017-infinity_pullback.html#ID-7aaac468-a0bb-4e73-bfd3-d4c591c10e4f">pullback</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/d60232692ddf6849897c.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+of &lt;spherical fibrations of rank d-1&gt; we get an induced map
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Th}(\pi') \rightarrow \mathrm{Th}(\pi)
+\end{align*}</div>
+
+<ul>
+<li></li>
+
+<li></li>
+
+<li><a href="20250429-infinity_smash_product.html#ID-c69c22dd-2865-4d5a-beec-11dadaada354">infinity smash product</a> </li>
+
+<li><a href="20250429-smash_product_induces_equivalence_between_g.html#ID-7df4ee22-795a-469e-8983-a5f750d7a0ac">smash product induces equivalence between G(-)</a> </li>
+
+<li><a href="20241112-straightening_unstraightening.html#ID-346c9515-16e1-4450-a781-b717804c6c8c">straightening-unstraightening</a>   </li>
+</ul>
+
+<ul>
+<li><a href="20250430-aut_of_an_object_in_an_infinity_category.html#ID-515d6a44-5b5c-4cab-b1d5-71e0f4ae4479">aut of an object in an infinity category</a> </li>
+
+<li><a href="20250430-infinity_functor_induces_morphism_between_aut.html#ID-8b4141d8-e582-4eea-a6c1-bedb0ce06b44">infinity functor induces morphism between Aut</a>   </li>
+
+<li><a href="20250430-endomorphism_mapping_anima_as_e_1_monoid.html#ID-8181c65b-881e-45bb-ae41-5feee365689c">endomorphism mapping anima as E_1 monoid</a>   </li>
+
+<li><a href="20250430-aut_anima_as_e_1_group.html#ID-d602bcef-c2fd-4a3b-85fe-17d5d592d393">aut anima as E_1 group</a>   </li>
+
+<li><a href="20250429-f_d.html#ID-919fff5a-5781-4508-98c7-cfe1332779b4">F(d)</a> </li>
+
+<li><a href="20250429-sf_d.html#ID-0fcfc07e-dcd5-4065-933a-a10837291230">SF(d)</a> </li>
+
+<li><a href="20250429-g_d.html#ID-3edb6e6e-94d7-421f-8693-d00a3ef99a91">G(d)</a> </li>
+
+<li><a href="20250429-sg_d.html#ID-11d6016e-6ade-4a01-aad8-7c69800019c0">SG(d)</a>   </li>
+
+<li><a href="20250510-colimit_of_a_product_diagram.html#ID-d478e162-35a2-4102-a9b2-85512269bfd3">colimit of a product diagram</a> </li>
+</ul>
+</div>
+</body>
+</html>

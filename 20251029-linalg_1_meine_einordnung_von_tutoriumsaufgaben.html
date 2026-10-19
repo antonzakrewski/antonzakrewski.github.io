@@ -1,208 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2026-02-01 So 14:02 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>LinAlg 1 - meine Einordnung von Tutoriumsaufgaben (25/26)</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -229,668 +52,155 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">LinAlg 1 - meine Einordnung von Tutoriumsaufgaben (25/26)</h1>
-<div id="outline-container-orgb2819dc" class="outline-2">
-<h2 id="orgb2819dc">Disclaimer</h2>
-<div class="outline-text-2" id="text-orgb2819dc">
-<ul class="org-ul">
-<li>diese Übersicht ist eher dafür da, um zu sehen, was man priorisieren sollte, wenn man sich mit der Vorlesung schwer tut.<br /></li>
-<li>ich weiß nicht, was die Klausur sein wird<br /></li>
-<li>insbesondere gehört auch zur Vorlesung, dass es eine erste Einführung in die universitäre Mathematik mit Fokus auf Algebra ist; d.h. ich glaube auch, dass eine nicht unmittelbar zum Kern der <b>Linearen Algebra</b> gehörende Aussage in der Klausur als 1er Bremse vorkommen wird.<br /></li>
-<li>was später relevant wird, hängt natürlich stark davon ab, was man später macht: meine Sichtweise ist stark algebraisch (&amp; homotopietheoretisch) geprägt<br /></li>
-<li>viele der anfänglichen Aussagen werden aber schon in paar Monaten deutlich leichter sein<br /></li>
-<li>wenn ich nachrechnen oder ähnliches schreibe, dann wüsste ich nicht richtig, wie man den Beweis/Trick abstrahieren kann.<br /></li>
+<span id="ID-5a99c0e7-ed4a-4ffd-9f17-a23d5a18805a"></span><h1 class="title">LinAlg 1 - meine Einordnung von Tutoriumsaufgaben (25/26)</h1>
+
+<h2 id="disclaimer">Disclaimer</h2>
+<ul>
+<li>diese Übersicht ist eher dafür da, um zu sehen, was man priorisieren sollte, wenn man sich mit der Vorlesung schwer tut.</li>
+
+<li>ich weiß nicht, was die Klausur sein wird  </li>
+
+<li>insbesondere gehört auch zur Vorlesung, dass es eine erste Einführung in die universitäre Mathematik mit Fokus auf Algebra ist; d.h. ich glaube auch, dass eine nicht unmittelbar zum Kern der <strong>Linearen Algebra</strong> gehörende Aussage in der Klausur als 1er Bremse vorkommen wird.</li>
+
+<li>was später relevant wird, hängt natürlich stark davon ab, was man später macht: meine Sichtweise ist stark algebraisch (&amp; homotopietheoretisch) geprägt</li>
+
+<li>viele der anfänglichen Aussagen werden aber schon in paar Monaten deutlich leichter sein</li>
+
+<li>wenn ich nachrechnen oder ähnliches schreibe, dann wüsste ich nicht richtig, wie man den Beweis/Trick abstrahieren kann.</li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org8fb607b" class="outline-2">
-<h2 id="org8fb607b">Liste</h2>
-<div class="outline-text-2" id="text-org8fb607b">
-</div>
-<div id="outline-container-orgcb4ae38" class="outline-3">
-<h3 id="orgcb4ae38">Blatt 1</h3>
-<div class="outline-text-3" id="text-orgcb4ae38">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-right" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-right">Aufgabe</th>
-<th scope="col" class="org-left">Resultat relevant für LA1 ?</th>
-<th scope="col" class="org-left">relevante Beweistechnik für LA1 ?</th>
-<th scope="col" class="org-left">später relevant</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-right">1)</td>
-<td class="org-left">ja</td>
-<td class="org-left">Gleichheit von Mengen über \(\subseteq, \supseteq\)</td>
-<td class="org-left">ja (Ana2, Ana3, &#x2026;)</td>
-</tr>
-
-<tr>
-<td class="org-right">2)</td>
-<td class="org-left">nein</td>
-<td class="org-left">denke nicht</td>
-<td class="org-left">Kommutative Algebra</td>
-</tr>
-
-<tr>
-<td class="org-right">3)</td>
-<td class="org-left">nein</td>
-<td class="org-left">denke nicht</td>
-<td class="org-left">hin und wieder</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="outline-container-org60131f8" class="outline-3">
-<h3 id="org60131f8">Blatt 2</h3>
-<div class="outline-text-3" id="text-org60131f8">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-right" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-right">Aufgabe</th>
-<th scope="col" class="org-left">Resultat relevant für LA1 ?</th>
-<th scope="col" class="org-left">relevante Beweistechnik  für LA1 ?</th>
-<th scope="col" class="org-left">später relevant</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-right">1)</td>
-<td class="org-left">nein</td>
-<td class="org-left">Sternchenaufgabe</td>
-<td class="org-left">Algebra</td>
-</tr>
-
-<tr>
-<td class="org-right">2)</td>
-<td class="org-left">ja (Symmetrische Gruppe, Determinante)</td>
-<td class="org-left">nachrechnen von Gruppeneigenschaften</td>
-<td class="org-left">Algebra etc.</td>
-</tr>
-
-<tr>
-<td class="org-right">3)</td>
-<td class="org-left">ja (Rechenregeln für Körper)</td>
-<td class="org-left">mit Rechenregeln von Körpern umgehen</td>
-<td class="org-left">Algebra &#x2026;</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="outline-container-orgfe784b4" class="outline-3">
-<h3 id="orgfe784b4">Blatt 3</h3>
-<div class="outline-text-3" id="text-orgfe784b4">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-right" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-right">Aufgabe</th>
-<th scope="col" class="org-left">Resultat relevant für LA1 ?</th>
-<th scope="col" class="org-left">relevante Beweistechnik für LA1 ?</th>
-<th scope="col" class="org-left">später relevant</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-right">1)</td>
-<td class="org-left">denke nicht</td>
-<td class="org-left">nachrechnen von Gruppeneigenschaften</td>
-<td class="org-left">Algebra</td>
-</tr>
-
-<tr>
-<td class="org-right">2)</td>
-<td class="org-left">ja</td>
-<td class="org-left">gruppenmonomorphismen (kommt später)</td>
-<td class="org-left">ja</td>
-</tr>
-
-<tr>
-<td class="org-right">3)</td>
-<td class="org-left">ja</td>
-<td class="org-left">nachrechnen von UVR</td>
-<td class="org-left">ja</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="outline-container-orge8c0e55" class="outline-3">
-<h3 id="orge8c0e55">Blatt 4</h3>
-<div class="outline-text-3" id="text-orge8c0e55">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-right" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-right">Aufgabe</th>
-<th scope="col" class="org-left">Resultat relevant für LA1 ?</th>
-<th scope="col" class="org-left">relevante Beweistechnik für LA1 ?</th>
-<th scope="col" class="org-left">später relevant</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-right">1)</td>
-<td class="org-left">nein</td>
-<td class="org-left">sehr: Lineare Unabhängigkeit nachrechnen</td>
-<td class="org-left">ja</td>
-</tr>
-
-<tr>
-<td class="org-right">2)</td>
-<td class="org-left">mittel</td>
-<td class="org-left">erzeugter UVR, Gleichheiten nachrechnen</td>
-<td class="org-left">ja (algebra)</td>
-</tr>
-
-<tr>
-<td class="org-right">3)</td>
-<td class="org-left">nein</td>
-<td class="org-left">sehr: lineare Unabhängigkeit nachrecnhen, in \(\mathbb{Z}/p \mathbb{Z}\)</td>
-<td class="org-left">ja</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="outline-container-org2168642" class="outline-3">
-<h3 id="org2168642">Blatt 5</h3>
-<div class="outline-text-3" id="text-org2168642">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-right" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-right">Aufgabe</th>
-<th scope="col" class="org-left">Resultat relevant für LA1 ?</th>
-<th scope="col" class="org-left">relevante Beweistechnik für LA1 ?</th>
-<th scope="col" class="org-left">später relevant</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-right">1</td>
-<td class="org-left">nein</td>
-<td class="org-left">Lemma 5.4 !: definition von VR-Hom. über Basen</td>
-<td class="org-left">Lemma 5.4!</td>
-</tr>
-
-<tr>
-<td class="org-right">2</td>
-<td class="org-left">nein</td>
-<td class="org-left">Linearität, Kern &amp; Bild berechnen (aber: später bessere Methoden!)</td>
-<td class="org-left">ja</td>
-</tr>
-
-<tr>
-<td class="org-right">3</td>
-<td class="org-left">denke nicht</td>
-<td class="org-left">Lemma 5.4/(injektives) bild von linear abhängigen mengen ist linear abhängig ,später: Dimensionssatz</td>
-<td class="org-left">mittel</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="outline-container-org4fcc2a1" class="outline-3">
-<h3 id="org4fcc2a1">Blatt 6</h3>
-<div class="outline-text-3" id="text-org4fcc2a1">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-right" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-right">Aufgabe</th>
-<th scope="col" class="org-left">Resultat relevant für LA1 ?</th>
-<th scope="col" class="org-left">relevante Beweistechnik für LA1 ?</th>
-<th scope="col" class="org-left">später relevant</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-right">1</td>
-<td class="org-left">eher nicht</td>
-<td class="org-left">Induktion, Linearkombinationen unter Homomorphismen</td>
-<td class="org-left">denke nicht</td>
-</tr>
-
-<tr>
-<td class="org-right">2</td>
-<td class="org-left">eher nicht</td>
-<td class="org-left">Dimensionsargument, Wohlordnung von \(\mathbb{N}\)</td>
-<td class="org-left">denke nicht</td>
-</tr>
-
-<tr>
-<td class="org-right">3</td>
-<td class="org-left">mittel</td>
-<td class="org-left">nachrechnen,</td>
-<td class="org-left">ja</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="outline-container-org51e920f" class="outline-3">
-<h3 id="org51e920f">Blatt 7</h3>
-<div class="outline-text-3" id="text-org51e920f">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-right" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-right">Aufgabe</th>
-<th scope="col" class="org-left">Resultat relevant für LA1 ?</th>
-<th scope="col" class="org-left">relevante Beweistechnik für LA1 ?</th>
-<th scope="col" class="org-left">später relevant</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-right">1</td>
-<td class="org-left">ja</td>
-<td class="org-left">bijektivität nachrechnen</td>
-<td class="org-left">ja</td>
-</tr>
-
-<tr>
-<td class="org-right">2</td>
-<td class="org-left">eher nicht</td>
-<td class="org-left">unendlich dimensionale VR als Gegenbeispiele</td>
-<td class="org-left">FunkAna</td>
-</tr>
-
-<tr>
-<td class="org-right">3</td>
-<td class="org-left">eher nicht</td>
-<td class="org-left">unendlich dimensionale VR als Gegenbeispiele</td>
-<td class="org-left">FunkAna</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="outline-container-orgf08428d" class="outline-3">
-<h3 id="orgf08428d">Blatt 8</h3>
-<div class="outline-text-3" id="text-orgf08428d">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-right" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-right">Aufgabe</th>
-<th scope="col" class="org-left">Resultat relevant für LA1 ?</th>
-<th scope="col" class="org-left">relevante Beweistechnik für LA1 ?</th>
-<th scope="col" class="org-left">später relevant</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-right">1</td>
-<td class="org-left">nein</td>
-<td class="org-left">nachrechnen von Linearität</td>
-<td class="org-left">denke nicht</td>
-</tr>
-
-<tr>
-<td class="org-right">2</td>
-<td class="org-left">kronecker delta, Identitäten mit Kronecker delta, Zentrum eines Matrizenrings</td>
-<td class="org-left">nachrechnen</td>
-<td class="org-left">elementare K-Theorie, &#x2026;</td>
-</tr>
-
-<tr>
-<td class="org-right">3</td>
-<td class="org-left">erstaunlich nützliche Identität (a)</td>
-<td class="org-left">Indizes tracken</td>
-<td class="org-left">Identität, für das Nilradikal in der b)</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="outline-container-org2935d4a" class="outline-3">
-<h3 id="org2935d4a">Blatt 9</h3>
-<div class="outline-text-3" id="text-org2935d4a">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-right" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-right">Aufgabe</th>
-<th scope="col" class="org-left">Resultat relevant für LA1 ?</th>
-<th scope="col" class="org-left">relevante Beweistechnik für LA1 ?</th>
-<th scope="col" class="org-left">später relevant</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-right">1</td>
-<td class="org-left">ja</td>
-<td class="org-left">Eindeutigkeit des inversen Elements,</td>
-<td class="org-left">ja</td>
-</tr>
-
-<tr>
-<td class="org-right">2</td>
-<td class="org-left">denke nicht</td>
-<td class="org-left">nachrechnen</td>
-<td class="org-left">ja (linalg2, diffgeo, physik)</td>
-</tr>
-
-<tr>
-<td class="org-right">3</td>
-<td class="org-left">nein</td>
-<td class="org-left">(viel) rechnen</td>
-<td class="org-left">denke nicht</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="outline-container-org863bc32" class="outline-3">
-<h3 id="org863bc32">Blatt 10</h3>
-<div class="outline-text-3" id="text-org863bc32">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">Aufgabe</th>
-<th scope="col" class="org-left">Resultat relevant für LA1 ?</th>
-<th scope="col" class="org-left">relevante Beweistechnik für LA1 ?</th>
-<th scope="col" class="org-left">später relevant</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">1</td>
-<td class="org-left">nein</td>
-<td class="org-left">Gauß Algorithmus !!!</td>
-<td class="org-left">ja</td>
-</tr>
-
-<tr>
-<td class="org-left">2a)</td>
-<td class="org-left">mittel</td>
-<td class="org-left">nachrechnen</td>
-<td class="org-left">manchmal</td>
-</tr>
-
-<tr>
-<td class="org-left">2b)</td>
-<td class="org-left">schon</td>
-<td class="org-left">nachrechnen</td>
-<td class="org-left">ja</td>
-</tr>
-
-<tr>
-<td class="org-left">2c)</td>
-<td class="org-left">denke nicht</td>
-<td class="org-left">nachrechnen</td>
-<td class="org-left">not sure</td>
-</tr>
-
-<tr>
-<td class="org-left">3)</td>
-<td class="org-left">denke nicht</td>
-<td class="org-left">nachrechnen</td>
-<td class="org-left">not sure</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="outline-container-orga883515" class="outline-3">
-<h3 id="orga883515">Blatt 11</h3>
-<div class="outline-text-3" id="text-orga883515">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">Aufgabe</th>
-<th scope="col" class="org-left">Resultat relevant für LA1 ?</th>
-<th scope="col" class="org-left">relevante Beweistechnik für LA1 ?</th>
-<th scope="col" class="org-left">später relevant</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">1</td>
-<td class="org-left">ja (Wirkung von Permutation auf die Determinante)</td>
-<td class="org-left">Leibniz Formal der Determinante</td>
-<td class="org-left">ja</td>
-</tr>
-
-<tr>
-<td class="org-left">2a+b)</td>
-<td class="org-left">mittel</td>
-<td class="org-left">Einsetzen</td>
-<td class="org-left">denke schon</td>
-</tr>
-
-<tr>
-<td class="org-left">2c)</td>
-<td class="org-left">denke nicht</td>
-<td class="org-left">Formel von \(E_{i,j} \cdot E_{k,l}\)</td>
-<td class="org-left">denke nicht</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="outline-container-org9e1d1d0" class="outline-3">
-<h3 id="org9e1d1d0">Blatt 12</h3>
-<div class="outline-text-3" id="text-org9e1d1d0">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-right" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-right">Aufgabe</th>
-<th scope="col" class="org-left">Resultat relevant für LA1 ?</th>
-<th scope="col" class="org-left">relevante Beweistechnik für LA1 ?</th>
-<th scope="col" class="org-left">später relevant</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-right">1</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-right">2</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-right">3</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="outline-container-org5ded58c" class="outline-3">
-<h3 id="org5ded58c">Blatt 13</h3>
-<div class="outline-text-3" id="text-org5ded58c">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-right" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-right">Aufgabe</th>
-<th scope="col" class="org-left">Resultat relevant für LA1 ?</th>
-<th scope="col" class="org-left">relevante Beweistechnik für LA1 ?</th>
-<th scope="col" class="org-left">später relevant</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-right">1</td>
-<td class="org-left">nein</td>
-<td class="org-left">lineare unabhängigkeit überprüfen</td>
-<td class="org-left">ja</td>
-</tr>
-
-<tr>
-<td class="org-right">2</td>
-<td class="org-left">ja</td>
-<td class="org-left">homomorphiesatz</td>
-<td class="org-left">ja</td>
-</tr>
-
-<tr>
-<td class="org-right">3</td>
-<td class="org-left">nein</td>
-<td class="org-left">Basis ausrechnen</td>
-<td class="org-left">ja</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2026-02-01 So 14:02</p>
+<h2 id="liste">Liste</h2>
+
+<h3 id="blatt-1">Blatt 1</h3>
+
+
+
+
+
+
+
+<table><thead><tr><th>Aufgabe</th><th>Resultat relevant für LA1 ?</th><th>relevante Beweistechnik für LA1 ?</th><th>später relevant</th></tr></thead><tbody><tr><td>1)</td><td>ja</td><td>Gleichheit von Mengen über $\subseteq, \supseteq$</td><td>ja (Ana2, Ana3, ...)</td></tr><tr><td>2)</td><td>nein</td><td>denke nicht</td><td>Kommutative Algebra</td></tr><tr><td>3)</td><td>nein</td><td>denke nicht</td><td>hin und wieder</td></tr></tbody></table>
+
+<h3 id="blatt-2">Blatt 2</h3>
+
+
+
+
+
+
+
+<table><thead><tr><th>Aufgabe</th><th>Resultat relevant für LA1 ?</th><th>relevante Beweistechnik  für LA1 ?</th><th>später relevant</th></tr></thead><tbody><tr><td>1)</td><td>nein</td><td>Sternchenaufgabe</td><td>Algebra</td></tr><tr><td>2)</td><td>ja (Symmetrische Gruppe, Determinante)</td><td>nachrechnen von Gruppeneigenschaften</td><td>Algebra etc.</td></tr><tr><td>3)</td><td>ja (Rechenregeln für Körper)</td><td>mit Rechenregeln von Körpern umgehen</td><td>Algebra ...</td></tr></tbody></table>
+<h3 id="blatt-3">Blatt 3</h3>
+
+
+
+
+
+
+
+<table><thead><tr><th>Aufgabe</th><th>Resultat relevant für LA1 ?</th><th>relevante Beweistechnik für LA1 ?</th><th>später relevant</th></tr></thead><tbody><tr><td>1)</td><td>denke nicht</td><td>nachrechnen von Gruppeneigenschaften</td><td>Algebra</td></tr><tr><td>2)</td><td>ja</td><td>gruppenmonomorphismen (kommt später)</td><td>ja</td></tr><tr><td>3)</td><td>ja</td><td>nachrechnen von UVR</td><td>ja</td></tr></tbody></table>
+
+<h3 id="blatt-4">Blatt 4</h3>
+
+
+
+
+
+
+
+<table><thead><tr><th>Aufgabe</th><th>Resultat relevant für LA1 ?</th><th>relevante Beweistechnik für LA1 ?</th><th>später relevant</th></tr></thead><tbody><tr><td>1)</td><td>nein</td><td>sehr: Lineare Unabhängigkeit nachrechnen</td><td>ja</td></tr><tr><td>2)</td><td>mittel</td><td>erzeugter UVR, Gleichheiten nachrechnen</td><td>ja (algebra)</td></tr><tr><td>3)</td><td>nein</td><td>sehr: lineare Unabhängigkeit nachrecnhen, in $\mathbb{Z}/p \mathbb{Z}$</td><td>ja</td></tr></tbody></table>
+<h3 id="blatt-5">Blatt 5</h3>
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Aufgabe</th><th>Resultat relevant für LA1 ?</th><th>relevante Beweistechnik für LA1 ?</th><th>später relevant</th></tr></thead><tbody><tr><td>1</td><td>nein</td><td>Lemma 5.4 !: definition von VR-Hom. über Basen</td><td>Lemma 5.4!</td></tr><tr><td>2</td><td>nein</td><td>Linearität, Kern &amp; Bild berechnen (aber: später bessere Methoden!)</td><td>ja</td></tr><tr><td>3</td><td>denke nicht</td><td>Lemma 5.4/(injektives) bild von linear abhängigen mengen ist linear abhängig ,später: Dimensionssatz</td><td>mittel</td></tr></tbody></table>
+<h3 id="blatt-6">Blatt 6</h3>
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Aufgabe</th><th>Resultat relevant für LA1 ?</th><th>relevante Beweistechnik für LA1 ?</th><th>später relevant</th></tr></thead><tbody><tr><td>1</td><td>eher nicht</td><td>Induktion, Linearkombinationen unter Homomorphismen</td><td>denke nicht</td></tr><tr><td>2</td><td>eher nicht</td><td>Dimensionsargument, Wohlordnung von $\mathbb{N}$</td><td>denke nicht</td></tr><tr><td>3</td><td>mittel</td><td>nachrechnen,</td><td>ja</td></tr></tbody></table>
+<h3 id="blatt-7">Blatt 7</h3>
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Aufgabe</th><th>Resultat relevant für LA1 ?</th><th>relevante Beweistechnik für LA1 ?</th><th>später relevant</th></tr></thead><tbody><tr><td>1</td><td>ja</td><td>bijektivität nachrechnen</td><td>ja</td></tr><tr><td>2</td><td>eher nicht</td><td>unendlich dimensionale VR als Gegenbeispiele</td><td>FunkAna</td></tr><tr><td>3</td><td>eher nicht</td><td>unendlich dimensionale VR als Gegenbeispiele</td><td>FunkAna</td></tr></tbody></table>
+<h3 id="blatt-8">Blatt 8</h3>
+
+
+
+
+
+
+
+<table><thead><tr><th>Aufgabe</th><th>Resultat relevant für LA1 ?</th><th>relevante Beweistechnik für LA1 ?</th><th>später relevant</th></tr></thead><tbody><tr><td>1</td><td>nein</td><td>nachrechnen von Linearität</td><td>denke nicht</td></tr><tr><td>2</td><td>kronecker delta, Identitäten mit Kronecker delta, Zentrum eines Matrizenrings</td><td>nachrechnen</td><td>elementare K-Theorie, ...</td></tr><tr><td>3</td><td>erstaunlich nützliche Identität (a)</td><td>Indizes tracken</td><td>Identität, für das Nilradikal in der b)</td></tr></tbody></table>
+
+<h3 id="blatt-9">Blatt 9</h3>
+
+
+
+
+
+
+
+<table><thead><tr><th>Aufgabe</th><th>Resultat relevant für LA1 ?</th><th>relevante Beweistechnik für LA1 ?</th><th>später relevant</th></tr></thead><tbody><tr><td>1</td><td>ja</td><td>Eindeutigkeit des inversen Elements,</td><td>ja</td></tr><tr><td>2</td><td>denke nicht</td><td>nachrechnen</td><td>ja (linalg2, diffgeo, physik)</td></tr><tr><td>3</td><td>nein</td><td>(viel) rechnen</td><td>denke nicht</td></tr></tbody></table>
+
+<h3 id="blatt-10">Blatt 10</h3>
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Aufgabe</th><th>Resultat relevant für LA1 ?</th><th>relevante Beweistechnik für LA1 ?</th><th>später relevant</th></tr></thead><tbody><tr><td>1</td><td>nein</td><td>Gauß Algorithmus !!!</td><td>ja</td></tr><tr><td>2a)</td><td>mittel</td><td>nachrechnen</td><td>manchmal</td></tr><tr><td>2b)</td><td>schon</td><td>nachrechnen</td><td>ja</td></tr><tr><td>2c)</td><td>denke nicht</td><td>nachrechnen</td><td>not sure</td></tr><tr><td>3)</td><td>denke nicht</td><td>nachrechnen</td><td>not sure</td></tr></tbody></table>
+<h3 id="blatt-11">Blatt 11</h3>
+
+
+
+
+
+
+
+<table><thead><tr><th>Aufgabe</th><th>Resultat relevant für LA1 ?</th><th>relevante Beweistechnik für LA1 ?</th><th>später relevant</th></tr></thead><tbody><tr><td>1</td><td>ja (Wirkung von Permutation auf die Determinante)</td><td>Leibniz Formal der Determinante</td><td>ja</td></tr><tr><td>2a+b)</td><td>mittel</td><td>Einsetzen</td><td>denke schon</td></tr><tr><td>2c)</td><td>denke nicht</td><td>Formel von $E_{i,j} \cdot E_{k,l}$</td><td>denke nicht</td></tr></tbody></table>
+
+<h3 id="blatt-12">Blatt 12</h3>
+
+
+
+
+
+
+
+<table><thead><tr><th>Aufgabe</th><th>Resultat relevant für LA1 ?</th><th>relevante Beweistechnik für LA1 ?</th><th>später relevant</th></tr></thead><tbody><tr><td>1</td><td></td><td></td><td></td></tr><tr><td>2</td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td></tr></tbody></table>
+
+<h3 id="blatt-13">Blatt 13</h3>
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Aufgabe</th><th>Resultat relevant für LA1 ?</th><th>relevante Beweistechnik für LA1 ?</th><th>später relevant</th></tr></thead><tbody><tr><td>1</td><td>nein</td><td>lineare unabhängigkeit überprüfen</td><td>ja</td></tr><tr><td>2</td><td>ja</td><td>homomorphiesatz</td><td>ja</td></tr><tr><td>3</td><td>nein</td><td>Basis ausrechnen</td><td>ja</td></tr></tbody></table>
+
 </div>
 </body>
 </html>

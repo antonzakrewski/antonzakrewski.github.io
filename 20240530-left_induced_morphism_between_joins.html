@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>left induced morphism between joins</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-f8e8b87b-9873-46e2-b87d-7fbcc3960a5b"></span><h1 class="title">left induced morphism between joins</h1>
+
+<h2 id="definition-proposition">Definition / Proposition</h2>
+<p>
+Let $X,Y,Y'$ be <a href="20240128-simplicial_set.html#ID-43a75466-c729-429a-a459-56f226b81262">simplicial sets</a>, $- \star -$ the <a href="20240331-join_of_a_simplicial_set.html#ID-227017d8-1330-4443-a579-4b23bf49a296">join</a> and $\varphi: Y \rightarrow Y'$ a <a href="20240129-morphism_of_simplicial_objects.html#ID-1c4a03f5-0ed4-416f-b7d4-021b146efe89">morphism of simplicial sets</a>.
+Then there exists an induced <a href="20240129-morphism_of_simplicial_objects.html#ID-1c4a03f5-0ed4-416f-b7d4-021b146efe89">morphism of simplicial sets</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\varphi \star X: Y \star X \rightarrow&amp; Y' \star X  \\
+[n] \mapsto&amp; \overline{\varphi}[n]
+\end{align*}</div>
+
+<p>
+where
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{\varphi}[n]: \coprod_{(I_n,J_n) \in \mathrm{Cut}([n])} Y(I_n) \times X(J_n) \rightarrow \coprod_{(I_n,J_n) \in \mathrm{Cut}([n])} Y'(I_n) \times X(J_n)
+\end{align*}</div>
+<p>
+is the morphism induced by universal property of the coproduct and the universal property of the product for
+</p>
+
+<div class="math-block">\begin{align*}
+(\varphi([n],\mathrm{id}): Y(I_n) \times X(J_n) \rightarrow Y'(I_n) \times X(J_n)
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+
+
+<p>
+It remains to show that this is natural.
+Suppose $\alpha: [n] \rightarrow [m]$ is a morphism in $\Delta$
+</p>
+
+
+<p>
+Let $I_m,J_m \in \mathrm{Cut}([m])$ be a cut and $\alpha_{J}: \varphi^{-1}[J_m] = J_n \rightarrow J_m$ be the induced morphism.
+then it follows by naturality of $\varphi$
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/c1b40d3a64edfd920870.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+commutes
+</p>
+
+<p>
+Thus it follows by naturality of the <a href="20230404141718-categorical_product.html#ID-c6b25f4e-7486-4399-bea3-ace8da2a18c9">product</a> and <a href="20230404161607-categorical_coproduct.html#ID-25822c41-825b-480b-b8a6-eeb904ca5649">coproduct</a>, that
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/995564439b725432888d.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+commutes
+</p>
+
+<p>
+(cf. <a href="20231017-lim_functor.html#ID-f28b6497-b4ac-44c3-8c8b-b27932cd6ecc">lim functor</a>, <a href="20231017-colim_functor.html#ID-0b96cbbc-2a63-4980-b022-537651776cc8">colim functor</a>)
+</p>
+
+</div>
+</body>
+</html>

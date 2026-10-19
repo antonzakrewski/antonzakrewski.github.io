@@ -1,284 +1,114 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2025-01-15 Mi 20:34 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>equalizer in Ring</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">equalizer in Ring</h1>
-<div id="outline-container-orgc28ae7a" class="outline-2">
-<h2 id="orgc28ae7a">Proposition</h2>
-<div class="outline-text-2" id="text-orgc28ae7a">
+<span id="ID-a2d78405-69ad-43b1-8583-607b269cd875"></span><h1 class="title">equalizer in Ring</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let <img src="ltximg/20240128-equalizer_in_ring_ed8d003b66e6574aa9fb9345deda6426c5a39a2b.svg" alt="20240128-equalizer_in_ring_ed8d003b66e6574aa9fb9345deda6426c5a39a2b.svg" class="org-svg" /> be <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">rings</a> and<br />
+Let $R,S$ be <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">rings</a> and
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20240128-equalizer_in_ring_6deb3591fbf00fa087a4b53456112b5cf92e253c.svg" alt="20240128-equalizer_in_ring_6deb3591fbf00fa087a4b53456112b5cf92e253c.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/721a9ee00d28e9530a38.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-be <a href="20221226010233-ringhomomorphismus.html#ID-136298f7-3132-4bd7-934f-0eefaa48fcf9">ring-homomorphism</a><br />
+be <a href="20221226010233-ringhomomorphismus.html#ID-136298f7-3132-4bd7-934f-0eefaa48fcf9">ring-homomorphism</a>
 </p>
 
 <p>
-Then the <a href="20230804-equalizer.html#ID-b6f325ea-2d24-43be-977b-2981baad9524">equalizer</a> exists and is given by<br />
+Then the <a href="20230804-equalizer.html#ID-b6f325ea-2d24-43be-977b-2981baad9524">equalizer</a> exists and is given by
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20240128-equalizer_in_ring_02a942e62edf9810603d6fddf3d282ff4b0870a0.svg" alt="20240128-equalizer_in_ring_02a942e62edf9810603d6fddf3d282ff4b0870a0.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+\mathrm{Eq}(\varphi, \psi) \coloneqq \{r \in R \vert \varphi(r) = \psi(r)\}
+\end{align*}</div>
 <p>
-with the natural inclusion <img src="ltximg/20240128-equalizer_in_ring_182347000392dbaeed23d82f1d471eac849e8350.svg" alt="20240128-equalizer_in_ring_182347000392dbaeed23d82f1d471eac849e8350.svg" class="org-svg" /><br />
-</p>
-</div>
-</div>
-<div id="outline-container-org45699e6" class="outline-2">
-<h2 id="org45699e6">Proof</h2>
-<div class="outline-text-2" id="text-org45699e6">
-</div>
-<div id="outline-container-org01d2c78" class="outline-3">
-<h3 id="org01d2c78"><img src="ltximg/20240128-equalizer_in_ring_67f6a89d0e2d9ad277d063e0f4d422d5b4fd0faa.svg" alt="20240128-equalizer_in_ring_67f6a89d0e2d9ad277d063e0f4d422d5b4fd0faa.svg" class="org-svg" /></h3>
-<div class="outline-text-3" id="text-org01d2c78">
-<p>
-Note that <img src="ltximg/20240128-equalizer_in_ring_9b431eb75dce9ab6a85f5920816397dc8b70ddcd.svg" alt="20240128-equalizer_in_ring_9b431eb75dce9ab6a85f5920816397dc8b70ddcd.svg" class="org-svg" /> and <img src="ltximg/20240128-equalizer_in_ring_42cc3ab66165c2291f85fe0fde0a841cac2c7fe5.svg" alt="20240128-equalizer_in_ring_42cc3ab66165c2291f85fe0fde0a841cac2c7fe5.svg" class="org-svg" /><br />
-</p>
-</div>
-</div>
-<div id="outline-container-org6730bf0" class="outline-3">
-<h3 id="org6730bf0">additive closed</h3>
-<div class="outline-text-3" id="text-org6730bf0">
-<p>
-Suppose <img src="ltximg/20240128-equalizer_in_ring_5f2ba5cdc3d96b53345289967f495c6058c51e8e.svg" alt="20240128-equalizer_in_ring_5f2ba5cdc3d96b53345289967f495c6058c51e8e.svg" class="org-svg" /> such that <img src="ltximg/20240128-equalizer_in_ring_d901b7ba3242d3f0a40174bd02505a06e9064890.svg" alt="20240128-equalizer_in_ring_d901b7ba3242d3f0a40174bd02505a06e9064890.svg" class="org-svg" />.<br />
-Then<br />
+with the natural inclusion $\iota: \mathrm{Eq}(\varphi, \psi) \hookrightarrow R$
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20240128-equalizer_in_ring_5e55114a2f60a3e239ac05332eed04db9f482482.svg" alt="20240128-equalizer_in_ring_5e55114a2f60a3e239ac05332eed04db9f482482.svg" class="org-svg" />
-</span>
-</div>
-</div>
-</div>
-<div id="outline-container-org8aa4d86" class="outline-3">
-<h3 id="org8aa4d86">multiplicative closed</h3>
-<div class="outline-text-3" id="text-org8aa4d86">
+<h2 id="proof">Proof</h2>
+
+<h3 id="01">$0,1$</h3>
 <p>
-Suppose <img src="ltximg/20240128-equalizer_in_ring_5f2ba5cdc3d96b53345289967f495c6058c51e8e.svg" alt="20240128-equalizer_in_ring_5f2ba5cdc3d96b53345289967f495c6058c51e8e.svg" class="org-svg" /> such that <img src="ltximg/20240128-equalizer_in_ring_d901b7ba3242d3f0a40174bd02505a06e9064890.svg" alt="20240128-equalizer_in_ring_d901b7ba3242d3f0a40174bd02505a06e9064890.svg" class="org-svg" />.<br />
-Then it follows, that<br />
+Note that $\varphi(1) = 1_S = \psi(1)$ and $\varphi(0) = 0_S = \psi(0)$
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20240128-equalizer_in_ring_14e0f5d29f6d4b9d744c99be9ccb14ed6c8f4940.svg" alt="20240128-equalizer_in_ring_14e0f5d29f6d4b9d744c99be9ccb14ed6c8f4940.svg" class="org-svg" />
-</span>
-</div>
+<h3 id="additive-closed">additive closed</h3>
 <p>
-and hence <img src="ltximg/20240128-equalizer_in_ring_b7b01c30a55eef7f157e9cd7d9d93a3bc0f07341.svg" alt="20240128-equalizer_in_ring_b7b01c30a55eef7f157e9cd7d9d93a3bc0f07341.svg" class="org-svg" /><br />
+Suppose $r_1,r_2 \in R$ such that $\varphi(r_i) = \psi(r_i)$.
+Then
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2025-01-15 Mi 20:34</p>
+
+<div class="math-block">\begin{align*}
+\varphi(r_1 + r_2) =&amp; \varphi(r_1) + \varphi(r_2) \\
+=&amp; \psi(r_1) + \psi(r_2) \\
+=&amp; \psi(r_1 + r_2)
+\end{align*}</div>
+
+<h3 id="multiplicative-closed">multiplicative closed</h3>
+<p>
+Suppose $r_1,r_2 \in R$ such that $\varphi(r_i) = \psi(r_i)$.
+Then it follows, that
+</p>
+
+<div class="math-block">\begin{align*}
+\varphi(r_1 \cdot r_2) =&amp; \varphi(r_1) \cdot \varphi(r_2) \\
+=&amp; \psi(r_1) \cdot \psi(r_2) \\
+=&amp; \psi(r_1 \cdot r_2)
+\end{align*}</div>
+<p>
+and hence $r_1 \cdot r_2 \in \mathrm{Eq}(\varphi, \psi)$
+</p>
+
 </div>
 </body>
 </html>

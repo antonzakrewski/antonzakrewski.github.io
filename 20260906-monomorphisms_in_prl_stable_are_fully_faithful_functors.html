@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>monomorphisms in PrL stable are exactly fully faithful functors</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-990f2f2e-41ad-4602-9f61-3e16f87a51e1"></span><h1 class="title">monomorphisms in PrL stable are exactly fully faithful functors</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+The class of <a href="20220819135911-monomorphismus.html#ID-60b63797-32fa-4d4e-a577-7616faa010ba">monomorphisms</a> in <a href="20250323-category_prl_stable.html#ID-f400012e-c819-48bc-b121-7876ecf688e4">category PrL stable</a> is precisely the class of <a href="20240701-fully_faithful_functor_between_infinity_categories.html#ID-bb0d3e0e-92a5-4687-999c-a99d4043ea38">fully faithful</a> <a href="20240404-functor_between_infinity_categories.html#ID-7428dc84-9acd-49bc-8e93-b1541326a6b9">functors</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="monomorphisms-are-fully-faithful">monomorphisms are fully faithful</h3>
+<p>
+Recall that the forgetful functor $\mathrm{Pr}^L_{\mathrm{st}} \rightarrow \mathrm{Cat}$ <a href="20241017-infinity_functor_preserving_limits_of_a_shape.html#ID-e13812db-b82b-43ed-8ab6-2913dcaf81a6">preserves</a> <a href="infinity-limit.html#ID-a8bcf958-5282-4984-8415-7a64cca74613">limits</a>, hence monomorphisms in $\mathrm{Pr}^L_{\mathrm{st}}$ are monomorphisms in $\mathrm{Cat}$ (cf. <a href="20260909-limit_preserving_functor_preserves_monomorphisms.html#ID-8de6e45c-2499-46c4-be00-7fc918fa9da8">limit preserving functor preserves monomorphisms</a>, <a href="20260909-monomorphisms_in_category_cat.html#ID-4a234d10-7839-4778-bc23-399bfa1469cb">monomorphisms in category Cat</a>).
+Hence for any $x,y \in \mathcal{C}$ and any monomorphism $\mathcal{F}: x \rightarrow y$, the map $\mathrm{Hom}_{\mathcal{C}}(x,y) \rightarrow \mathrm{Hom}_{\mathcal{D}}(\mathcal{F}(x), \mathcal{F}(y))$ is an inclusion of connected components, i.e. an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a> on $\pi_1$ and above.
+So it remains to show that it is also a $\pi_0$ isomorphism.
+</p>
+
+<p>
+But there exists a natural <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/9c3314473088ecae0096.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+hence we can detect the map on $\pi_0$ as $\pi_1$ of $\mathrm{Hom}_{\mathcal{C}}(\Omega x,y) \rightarrow \mathrm{Hom}_{\mathcal{D}}(\Omega \mathcal{F}(x), \mathcal{F}(y))$.
+</p>
+
+
+<h3 id="fully-faithful-implies-monomorphisms">fully faithful implies monomorphisms</h3>
+<p>
+Suppose $\mathcal{F}: \mathcal{C} \rightarrow \mathcal{D}$ is a fully faithful functor, then the functor $\mathcal{C} \times_{\mathcal{D}} \mathcal{C} \rightarrow \mathcal{C}$ is also fully faithful (cf. <a href="20260413-limits_in_prl.html#ID-64436991-7e74-4c7e-b0bf-d7a6f83e9453">limits in PrL are computed in Cat</a> &amp; <a href="20250619-fully_faithful_functors_under_pullbacks.html#ID-c80cfc35-1174-452a-81c7-19e0f2fa9253">fully faithful functors under pullbacks</a>).
+Moreover, the functor  $\mathcal{C} \times_{\mathcal{D}} \rightarrow \mathcal{C}$  is <a href="20240701-essentially_surjective_functor_between_infinity_categories.html#ID-5ac08772-563a-4b4c-8dbf-e734628e4351">essentially surjective</a> (cf. <a href="20260831-relative_diagonal_is_split_mono.html#ID-a0f9ff21-8c7d-4dcc-83e0-45df731f3970">relative diagonal is split mono</a>)
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/a97342a4897f680bd573.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+</div>
+</body>
+</html>

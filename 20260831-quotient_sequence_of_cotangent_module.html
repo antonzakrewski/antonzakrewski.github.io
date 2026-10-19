@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>quotient sequence of cotangent module</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-8978a381-8374-47b3-89bb-1114eb16654d"></span><h1 class="title">quotient sequence of cotangent module</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $R \rightarrow S$ be a <a href="20221226010233-ringhomomorphismus.html#ID-136298f7-3132-4bd7-934f-0eefaa48fcf9">ring-homomorphism</a> and let $f: S \twoheadrightarrow S'$ be a surjective (?) <a href="20221226010233-ringhomomorphismus.html#ID-136298f7-3132-4bd7-934f-0eefaa48fcf9">ring-homomorphism</a> with <a href="20230827-kernel_category_theory.html#ID-1f1c40b0-77e0-4949-8893-3cb7b0166eba">kernel</a> $I$.
+Then the following sequence of $S'$ modules is <a href="20230722-exact_group_homomorphisms.html#ID-aa569635-5f4a-4c4a-9e9b-af9c577e377d">exact</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/6c1b97b13798ceead4f8.svg" class="org-svg" alt="diagram" /></span></div>
+
+<h2 id="proof">Proof</h2>
+<p>
+observe that there exists a commutative diagram
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+&amp; I \otimes_{S} S \rar \dar &amp; \rar \dar S \otimes_{S} S &amp; \rar \dar \Omega_{S/R} \otimes_{S/R} \otimes S \dar \\
+I^2/I \rar{\cong}  &amp; \rar I \otimes_{S} S/I &amp; \rar S \otimes_{S} S/I &amp; \rar \Omega_{S/R} \otimes_{S/R} \otimes S/I 
+\end{tikzcd}
+\end{displaymath}</pre></div>
+<p>
+where $S \rightarrow \Omega_{S/R}$ is the <a href="20260904-universal_derivation.html#ID-3190f5af-861d-448b-8594-22886c4eb558">universal derivation</a>.
+</p>
+
+<p>
+We need to show that the <a href="20230827-cokernel_category_theory.html#ID-3e52d31a-b97e-454b-b565-4ae3d2b26482">cokernel</a> is $\Omega_{S'/R}$.
+</p>
+
+<p>
+So let $S \rightarrow M$ be an \(S\)-derivation where the $S$ module structure of $M$ comes from the restriction of scalars of an $S'$ module structure.
+Then we claim that $\partial$ factors through $S \twoheadrightarrow S'$ <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> $\partial_{I} = 0$.
+one direction is clear, so suppes $\partial_{I} = 0$.
+Then $\partial$ factors as a map of sets through $S/I$ and the induced $\overline{\partial}$ is a derivation (todo: )
+</p>
+
+<p>
+Now this shows
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Hom}_{S'}(\Omega_{S'/R}, M) \cong \mathrm{Der}_{R}(S',M) \cong \{\partial \in \mathrm{Der}_{R}(S,M) \vert \partial_{I} = 0\} \cong \{hpi: \mathrm{Hom}_{S'}(\Omega_{S/R} \otimes_{S} S', M \vert  \varphi \circ \overline{d} = 0)\} = \mathrm{Hom}_{S'}(\mathrm{coker} \overline{d} M
+\end{align*}</div>
+
+<p>
+where $d$ is the universal derivation
+</p>
+
+</div>
+</body>
+</html>

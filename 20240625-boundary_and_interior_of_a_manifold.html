@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>boundary and interior of a manifold as disjoint union</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-16feeaf7-cb79-468c-b1af-f9d73f6217e8"></span><h1 class="title">boundary and interior of a manifold as disjoint union</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $W$ be a \(n+1\)-dimensional <a href="20240607-manifold_with_boundary.html#ID-4b5854ef-a389-4076-9c87-d81fc63653bd">topological manifold with boundary</a>
+Then $W$ is a disjoint union of the <a href="20240624-boundary_of_a_manifold.html#ID-96ca948d-0f96-4eae-be30-a37a2bdea8d9">boundary of a manifold</a> and the <a href="20240624-interior_of_a_manifold.html#ID-800668f1-55a6-4d8a-afc1-6eea1445a912">interior of a manifold</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Note that each point admits a chart, hence is at least in one of the boundary or the interior, as
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{R}^n \times (\infty,0) \cup \mathbb{R}^n \times [0] = \mathbb{R}^n \times \mathbb{R}_{\geq 0}
+\end{align*}</div>
+
+<p>
+It remains to show disjointness, i.e. that a point $x$ in a boundary is not an interior point:
+</p>
+
+<p>
+Consider the <a href="20240611-local_singular_homology_of_a_point.html#ID-8afcdce9-ac24-4763-8e9f-6115cab9f0de">local singular homology</a> and <a href="20240615-excision_for_local_homology.html#ID-e0ee4f59-b6ba-4470-97ef-2c7716a63299">excision for local homology</a>:
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+H_n(W, W \setminus \{x\}) \simeq H_n(U, U \setminus \{x\}) \simeq H_n(\mathbb{R}^n \times \mathbb{R}_{\geq 0}, \mathbb{R}^n \times \mathbb{R}_{\geq 0} \setminus \{\varphi(x)\})
+\end{align*}</div>
+<p>
+Then by <a href="20240626-relative_homology_of_two_contractible_spaces.html#ID-45bd5fd0-2b11-4fac-b0e9-67c01449159b">relative homology of two contractible spaces</a> this is $0$.
+</p>
+
+<p>
+But $H_n(W, W \setminus \{x\})$ for an interior point is given by
+</p>
+
+<div class="math-block">\begin{align*}
+H_n(\mathbb{R}^{n+1}, \mathbb{R}^{n+1} \setminus \varphi(x))
+\end{align*}</div>
+<p>
+after possibly restricting $\mathbb{R}^n \times \mathbb{R}_{\geq 0}$ to a neighbourhood isomorphic to $\mathbb{R}^{n+1}$.
+</p>
+
+
+</div>
+</body>
+</html>

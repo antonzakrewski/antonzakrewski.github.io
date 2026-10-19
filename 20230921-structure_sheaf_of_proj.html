@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 18:26 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>structure sheaf of Proj</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,85 +52,62 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">structure sheaf of Proj</h1>
-<div id="outline-container-org1f31b76" class="outline-2">
-<h2 id="org1f31b76"><span class="section-number-2">1.</span> Definition / Proposition</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-Let \(R = \bigoplus_{n \in \mathbb{N}_0} R_n\) be a <a href="20230904-graded_ring.html#ID-4b5d1725-b787-457e-ab10-5ff5daf130e6">N-graded ring</a> and \(\mathrm{Proj}(R)\) the <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">set</a> of <a href="20230921-nonirrelevant_ideal.html#ID-a9f4a0ba-3f3a-48f3-8565-bbf3f23bec79">nonirrelevant ideals</a> equipped with the <a href="20230920-zariski_topology_on_proj.html#ID-bb3f2be8-7f6d-4389-9352-6d4bfb7da9e5">Zariski topology on Proj</a>.
-Then the structure sheaf on \(\mathrm{Proj}\) is defined as <a href="20230825-ringed_space.html#ID-58bbaf4e-7310-4524-8008-513e209f798d">ringed space</a>:
-</p>
-<ol class="org-ol">
-<li>for an <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">set</a> \(U \subseteq \mathrm{Proj}\), \(\mathcal{O}_{\mathrm{Proj}}(U)\) is the <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">subset</a> of <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">functions</a></li>
-</ol>
-\begin{align*}
-f: U \rightarrow \coprod_{\mathfrak{p} \in U} R_{\mathfrak{p}}
-\end{align*}
-<p>
-where \(R_{\mathfrak{p}}\) is the <a href="20240225-proj_localization.html#ID-d71a29f1-7927-4da0-bdb7-c62f3ae781c9">proj localization</a> 
-</p>
-<ol class="org-ol">
-<li>such that for \(\mathfrak{p} \in U\) it follows, that \(f(\mathfrak{p}) \in R_{\mathfrak{p}}\)</li>
-<li>and there exists an <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> <a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">neighbourhood</a> \(V \subseteq U\) with \(\mathfrak{p} \in V\) and <a href="20230904-homogeneous_element_of_a_graded_ring.html#ID-fd539c7c-8b05-474a-bb3a-4c98614a5953">homogeneous elements</a> \(s,t \in R_m\) for an \(m \in M\)</li>
-<li>for \(\mathfrak{q} \in V\) it follows, that \(f(\mathfrak{q}) = \frac{s}{t} \in R_{\mathfrak{q}}\)</li>
-</ol>
+<span id="ID-c7b1fcf0-f6ee-434b-a6f2-f11b777d9d20"></span><h1 class="title">structure sheaf of Proj</h1>
 
+<h2 id="definition-proposition">Definition / Proposition</h2>
 <p>
-and the canonical restriction   
+Let \(R = \bigoplus_{n \in \mathbb{N}_0} R_n\) be a <a href="20230904-graded_ring.html#ID-4b5d1725-b787-457e-ab10-5ff5daf130e6">N-graded ring</a> and $\mathrm{Proj}(R)$ the <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">set</a> of <a href="20230921-nonirrelevant_ideal.html#ID-a9f4a0ba-3f3a-48f3-8565-bbf3f23bec79">nonirrelevant ideals</a> equipped with the <a href="20230920-zariski_topology_on_proj.html#ID-bb3f2be8-7f6d-4389-9352-6d4bfb7da9e5">Zariski topology on Proj</a>.
+Then the structure sheaf on $\mathrm{Proj}$ is defined as <a href="20230825-ringed_space.html#ID-58bbaf4e-7310-4524-8008-513e209f798d">ringed space</a>:
 </p>
-\begin{align*}
-\mathrm{res}_{U,V}: \mathcal{O}_{\mathrm{Proj}}(U) \rightarrow& \mathcal{O}_{\mathrm{Proj}}(V) \\
-f \mapsto& f_{\vert V}
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org1b78f9f" class="outline-2">
-<h2 id="org1b78f9f"><span class="section-number-2">2.</span> Proof</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org965ef1b" class="outline-3">
-<h3 id="org965ef1b"><span class="section-number-3">2.1.</span> <a href="20230603-presheaf_of_sets.html#ID-d49e3c63-1428-4b98-9f00-238ae7770cbf">presheaf</a></h3>
-<div class="outline-text-3" id="text-2-1">
-</div>
-<div id="outline-container-org5eb3792" class="outline-4">
-<h4 id="org5eb3792"><span class="section-number-4">2.1.1.</span> welldefined restriction</h4>
-<div class="outline-text-4" id="text-2-1-1">
+<ol>
+<li>for an <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">set</a> $U \subseteq \mathrm{Proj}$, $\mathcal{O}_{\mathrm{Proj}}(U)$ is the <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">subset</a> of <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">functions</a> </li>
+</ol>
+<div class="math-block">\begin{align*}
+f: U \rightarrow \coprod_{\mathfrak{p} \in U} R_{\mathfrak{p}}
+\end{align*}</div>
 <p>
-analog <a href="20230914-structure_shaef_of_the_spectrum.html#ID-4d38655d-6db1-48aa-a5cc-db31a4ae4228">structure sheaf of the spectrum</a> 
+where $R_{\mathfrak{p}}$ is the <a href="20240225-proj_localization.html#ID-d71a29f1-7927-4da0-bdb7-c62f3ae781c9">proj localization</a>
 </p>
-</div>
-</div>
-<div id="outline-container-org5375706" class="outline-4">
-<h4 id="org5375706"><span class="section-number-4">2.1.2.</span> commuting</h4>
-<div class="outline-text-4" id="text-2-1-2">
+<ol>
+<li>such that for $\mathfrak{p} \in U$ it follows, that $f(\mathfrak{p}) \in R_{\mathfrak{p}}$</li>
+
+<li>and there exists an <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> <a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">neighbourhood</a> $V \subseteq U$ with $\mathfrak{p} \in V$ and <a href="20230904-homogeneous_element_of_a_graded_ring.html#ID-fd539c7c-8b05-474a-bb3a-4c98614a5953">homogeneous elements</a> $s,t \in R_m$ for an $m \in M$</li>
+
+<li>for $\mathfrak{q} \in V$ it follows, that $f(\mathfrak{q}) = \frac{s}{t} \in R_{\mathfrak{q}}$</li>
+</ol>
+<p>
+and the canonical restriction
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{res}_{U,V}: \mathcal{O}_{\mathrm{Proj}}(U) \rightarrow&amp; \mathcal{O}_{\mathrm{Proj}}(V) \\
+f \mapsto&amp; f_{\vert V}
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="idd49e3c63-1428-4b98-9f00-238ae7770cbfpresheaf"><a href="20230603-presheaf_of_sets.html#ID-d49e3c63-1428-4b98-9f00-238ae7770cbf">presheaf</a></h3>
+
+<h4 id="welldefined-restriction">welldefined restriction</h4>
+<p>
+analog <a href="20230914-structure_shaef_of_the_spectrum.html#ID-4d38655d-6db1-48aa-a5cc-db31a4ae4228">structure sheaf of the spectrum</a>
+</p>
+
+<h4 id="commuting">commuting</h4>
 <p>
 follows from definition
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgef9ae0f" class="outline-3">
-<h3 id="orgef9ae0f"><span class="section-number-3">2.2.</span> <a href="20230827-locality_of_a_sheaf.html#ID-7c0202e8-3ecf-43ea-af6c-94e7061a3eb7">locality of a sheaf</a></h3>
-<div class="outline-text-3" id="text-2-2">
+
+<h3 id="id7c0202e8-3ecf-43ea-af6c-94e7061a3eb7locality-of-a-sheaf"><a href="20230827-locality_of_a_sheaf.html#ID-7c0202e8-3ecf-43ea-af6c-94e7061a3eb7">locality of a sheaf</a></h3>
 <p>
-follows from 
+follows from
 </p>
-</div>
-</div>
-<div id="outline-container-orgee92d41" class="outline-3">
-<h3 id="orgee92d41"><span class="section-number-3">2.3.</span> <a href="20230827-glueing_of_a_sheaf.html#ID-ab522f89-f8c0-4cc1-b73a-2948704402b4">glueing of a sheaf</a></h3>
-<div class="outline-text-3" id="text-2-3">
+
+<h3 id="idab522f89-f8c0-4cc1-b73a-2948704402b4glueing-of-a-sheaf"><a href="20230827-glueing_of_a_sheaf.html#ID-ab522f89-f8c0-4cc1-b73a-2948704402b4">glueing of a sheaf</a></h3>
 <p>
 analogue <a href="20230916-glueing_lemma_for_regular_functions.html#ID-e9726aab-6996-4e75-b4e6-6b810eebb27b">glueing lemma for regular functions on an affine variety</a>
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 18:26</p>
+
 </div>
 </body>
 </html>

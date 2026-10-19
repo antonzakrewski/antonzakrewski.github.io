@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>mittlerer quadratischer Fehler als Summe von Varianz und Bias</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-c8fda39b-9b4e-4ed3-b712-4fe07c001a45"></span><h1 class="title">mittlerer quadratischer Fehler als Summe von Varianz und Bias</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $(X, \mathcal{F}, \mathbb{P}_{\vartheta}})$ ein <a href="20241228-statistisches_modell.html#ID-0cb4eab0-75fb-408d-bfdb-0c760f2a9fd0">statistische Modell</a>, $\tau: \Theta \rightarrow \mathbb{R}$ und $T: X \rightarrow \mathbb{R}$ ein <a href="20241228-schatzer.html#ID-b8990c41-24a9-413e-9314-f5a9ad8bc4b2">Schätzer</a>.
+Dann gilt für den <a href="20241228-mittlerer_quadratische_fehler.html#ID-5f18ae7a-3c8a-4600-8937-9ea1f62bf069">mittlerer quadratische Fehler</a>, die <a href="20211216204733-varianz.html#ID-9eaf3916-528b-4578-befd-2a1ca3841eb4">Varianz</a>  und den <a href="20241228-bias_eines_schatzers.html#ID-323ebb94-d6a2-488d-9828-be50b14c868c">Bias</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{F}_T(\theta) = \mathbb{V}_\theta[T] + \mathbb{B}_T(\theta)^2
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+Es gilt nach Definition &amp; <a href="20241116-linearitat_des_erwartungswerts.html#ID-ef105a04-933f-48cf-8099-95171c914301">linearität des Erwartungswerts</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{F}_{T}(\theta) =&amp; \mathbb{E}_{\theta}[(T - \tau(\theta))^2] \\
+=&amp; \mathbb{E}_{\theta}[((T - \mathbb{E}_\theta(T)) + (\mathbb{E}_\theta(T) - \tau(\theta)))^2] \\
+=&amp; \mathbb{E}_{\theta}[(T - \mathbb{E}_{\theta}(T))^2] + \mathbb{E}[2 \cdot (T - \mathbb{E}_{\theta}(T)) \cdot  ( \mathbb{E}_{\theta}(T) - \tau(\theta))] + \mathbb{E}[(\mathbb{E}_{\theta}(T) - \tau(\theta))^2] \\
+=&amp; \mathbb{V}_\theta[T]  + \mathbb{B}_T(\theta)^2
+\end{align*}</div>
+<p>
+wobei die letzte gelichung aus der Verschiebeformel folgt
+</p>
+
+</div>
+</body>
+</html>

@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:51 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Konvergenzverhalten von Potenzreihen in Abhängigkeit von dem Konvergenzradius</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,51 +52,36 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Konvergenzverhalten von Potenzreihen in Abhängigkeit von dem Konvergenzradius</h1>
-<div id="outline-container-org95ec9c1" class="outline-2">
-<h2 id="org95ec9c1"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-c9dff176-dafa-4922-8194-922b101a01ce"></span><h1 class="title">Konvergenzverhalten von Potenzreihen in Abhängigkeit von dem Konvergenzradius</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(\sum_{n=1}^{\infty} a_n z^n\) eine <a href="20221204223941-potenzreihe.html#ID-dab65874-6741-4bba-97fe-d305f01190aa">Potenzreihe</a> mit <a href="20221221125942-konvergenzradius.html#ID-ed39dc3e-08d0-4b04-bfa2-e3b0bc367301">Konvergenzradius</a> \(R\).
+Sei $\sum_{n=1}^{\infty} a_n z^n$ eine <a href="20221204223941-potenzreihe.html#ID-dab65874-6741-4bba-97fe-d305f01190aa">Potenzreihe</a> mit <a href="20221221125942-konvergenzradius.html#ID-ed39dc3e-08d0-4b04-bfa2-e3b0bc367301">Konvergenzradius</a> $R$.
 Dann folgt:
 </p>
-<ul class="org-ul">
-<li>ist \(\vert z \vert < R\), so <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergiert</a> die <a href="20211222222904-reihe_mathe.html#ID-ae236532-f177-4c70-806b-a1be965ef5e4">Reihe</a> <a href="20220718130957-absolute_reihe.html#ID-96128527-4a42-424c-b629-68bce48ddccb">konvergent</a></li>
-<li>ist \(\vert z \vert > R\), so <a href="20220105155509-divergenz_einer_folge.html#ID-7c931d09-3c01-4dac-b0d0-02b4458741f7">divergiert</a> die <a href="20211222222904-reihe_mathe.html#ID-ae236532-f177-4c70-806b-a1be965ef5e4">Reihe</a></li>
+<ul>
+<li>ist $\vert z \vert &lt; R$, so <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergiert</a> die <a href="20211222222904-reihe_mathe.html#ID-ae236532-f177-4c70-806b-a1be965ef5e4">Reihe</a> <a href="20220718130957-absolute_reihe.html#ID-96128527-4a42-424c-b629-68bce48ddccb">konvergent</a> </li>
+
+<li>ist $\vert z \vert &gt; R$, so <a href="20220105155509-divergenz_einer_folge.html#ID-7c931d09-3c01-4dac-b0d0-02b4458741f7">divergiert</a> die <a href="20211222222904-reihe_mathe.html#ID-ae236532-f177-4c70-806b-a1be965ef5e4">Reihe</a> </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org8f21714" class="outline-2">
-<h2 id="org8f21714"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orgaf65ea7" class="outline-3">
-<h3 id="orgaf65ea7"><span class="section-number-3">2.1.</span> a)</h3>
-<div class="outline-text-3" id="text-2-1">
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="a">a)</h3>
 <p>
-Nach dem <a href="20220527114556-nullfolgenkriterium.html#ID-c025c821-0f3d-48e4-a186-f7cc4b9b169d">Nullfolgenkriterium</a> gilt, dass \(a_n \cdot z_0^n\) eine <a href="20220105153234-nullfolge.html#ID-7249b9ac-2afc-4157-9427-c368e5d287d3">Nullfolge</a> sein muss.
-Daraus folgt, dass für <a href="20221013222501-fast_alle.html#ID-a3da14cb-05c1-4f9e-a68a-a693980f5ede">fast alle</a> \(n\) gilt: $ &vert; a<sub>n</sub> &sdot; z<sub>0</sub><sup>n</sup> &vert; &lt; 1$, das heißt wir können <a href="20221013222501-fast_alle.html#ID-a3da14cb-05c1-4f9e-a68a-a693980f5ede">fast alle</a> summen majorisieren durch
+Nach dem <a href="20220527114556-nullfolgenkriterium.html#ID-c025c821-0f3d-48e4-a186-f7cc4b9b169d">Nullfolgenkriterium</a> gilt, dass $a_n \cdot z_0^n$ eine <a href="20220105153234-nullfolge.html#ID-7249b9ac-2afc-4157-9427-c368e5d287d3">Nullfolge</a> sein muss.
+Daraus folgt, dass für <a href="20221013222501-fast_alle.html#ID-a3da14cb-05c1-4f9e-a68a-a693980f5ede">fast alle</a> $n$ gilt: $ \vert a_n \cdot z_0^n \vert &lt; 1$, das heißt wir können <a href="20221013222501-fast_alle.html#ID-a3da14cb-05c1-4f9e-a68a-a693980f5ede">fast alle</a> summen majorisieren durch
 </p>
-\begin{align*}
-\sum_{n=k}^{\infty} \vert a_n \cdot z^n \vert < \sum_{n=k}^{\infty} \vert a_n \cdot \left(\frac{z}{z_0} \right)^n \cdot z^n < \sum_{n=1}^{\infty} 1 \cdot \left(\frac{z}{z_0} \right)^n
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org913732b" class="outline-3">
-<h3 id="org913732b"><span class="section-number-3">2.2.</span> b)</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<div class="math-block">\begin{align*}
+\sum_{n=k}^{\infty} \vert a_n \cdot z^n \vert &lt; \sum_{n=k}^{\infty} \vert a_n \cdot \left(\frac{z}{z_0} \right)^n \cdot z^n &lt; \sum_{n=1}^{\infty} 1 \cdot \left(\frac{z}{z_0} \right)^n
+\end{align*}</div>
+
+<h3 id="b">b)</h3>
 <p>
-Es gilt, dass ein \(z'\) existiert, so dass gilt \(\vert z \vert > \vert z' \vert > R\) und folglich die <a href="20221204223941-potenzreihe.html#ID-dab65874-6741-4bba-97fe-d305f01190aa">Potenzreihe</a> für \(z'\) nicht <a href="20220718130957-absolute_reihe.html#ID-96128527-4a42-424c-b629-68bce48ddccb">absolut konvergiert</a>.
-Falls \(z\) <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergieren</a> würde, so würde auch \(z'\) <a href="20220718130957-absolute_reihe.html#ID-96128527-4a42-424c-b629-68bce48ddccb">absolut konvergiert</a>, also <a href="20210305204939-beweis_durch_widerspruch.html#ID-ee659788-c975-494a-aef0-85087f3db839">Beweis durch Widerspruch</a> 
+Es gilt, dass ein $z'$ existiert, so dass gilt $\vert z \vert &gt; \vert z' \vert &gt; R$ und folglich die <a href="20221204223941-potenzreihe.html#ID-dab65874-6741-4bba-97fe-d305f01190aa">Potenzreihe</a> für $z'$ nicht <a href="20220718130957-absolute_reihe.html#ID-96128527-4a42-424c-b629-68bce48ddccb">absolut konvergiert</a>.
+Falls $z$ <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergieren</a> würde, so würde auch $z'$ <a href="20220718130957-absolute_reihe.html#ID-96128527-4a42-424c-b629-68bce48ddccb">absolut konvergiert</a>, also <a href="20210305204939-beweis_durch_widerspruch.html#ID-ee659788-c975-494a-aef0-85087f3db839">Beweis durch Widerspruch</a>
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:51</p>
+
 </div>
 </body>
 </html>

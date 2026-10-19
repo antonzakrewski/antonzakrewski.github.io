@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>typesetting spectral sequences</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-774fd5c0-1592-41e0-aadb-d6dc518f07c0"></span><h1 class="title">typesetting spectral sequences</h1>
+
+<h2 id="some-problems-i-encountered-some-fixes-so-that-i-remember-them">Some problems i encountered + some fixes (so that I remember them)</h2>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/6c5f155221ac11cffb4f.svg" class="org-svg" alt="diagram" /></span></div>
+
+<ul>
+<li>for some reasons use "{stuff}" so no runaway argument</li>
+
+<li>use clip=false</li>
+
+<li>use y axis gap  </li>
+
+<li>use xscale =</li>
+
+<li>consider different font sizes:</li>
+<ul>
+<li>\class["{H_1(B,H_2(F,R))}"{font=\footnotesize} ](0,0)</li>
+
+<li>\class["{H_1(B,H_2(F,R))}"{font=\small} ](1,0)</li>
+</ul></ul>
+
+<h3 id="benefits-to-use-sseqdata">benefits to use sseqdata</h3>
+<ul>
+<li>multiple pages</li>
+</ul>
+
+<div class="equation-container"><pre class="render-failed">\begin{sseqdata}[classes = { draw = none }]
+\class(1,1)
+\class(0,3)
+\d["\cdot 2"]2(1,1)
+\replacesource["othersource"]
+\replacetarget["othertarget"]
+\end{sseqdata}</pre></div>
+<p>
+\printpage[page = 3]
+</p>
+
+<ul>
+<li>replacetarget / replacesource: references arrow before</li>
+
+<li>\replaceclass["name"]()  </li>
+</ul>
+</div>
+</body>
+</html>

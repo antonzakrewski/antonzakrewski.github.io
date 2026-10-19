@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>algebraic k-theory - low algebraic k-theory</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-a1d2b5f2-b570-4125-808f-24445dea3909"></span><h1 class="title">algebraic k-theory - low algebraic k-theory</h1>
+
+<h2 id="aspects">Aspects</h2>
+
+<h3 id="31-prelim">3.1 prelim</h3>
+<ul>
+<li>rings are assumed to be unital &amp; associative, in general not commutative</li>
+
+<li>r-modules are right R-modules  </li>
+
+<li>$\mathrm{RMod}(R)$ as right modules over $R$</li>
+</ul>
+<h3 id="31">3.1</h3>
+<ul>
+<li><a href="20230531104455-endlich_erzeugter_modul.html#ID-b8bbecb1-a067-40a2-a8c8-3c4119252b18">finitely generated module</a> = finite     </li>
+
+<li><a href="20230801-finitely_presented_module.html#ID-7ccb4638-bc9e-414e-a304-75a46e1f34f5">finitely presented module</a>   </li>
+
+<li><a href="20240529-coherent_module.html#ID-35df9c79-23c4-4135-9d25-d9fe847f921e">coherent module</a>   </li>
+
+<li><a href="20250505-finite_projective_module.html#ID-469e6e1a-935f-41f5-a2c4-ac9754390664">finite projective module</a>   </li>
+
+<li><a href="20241011-stably_free_module.html#ID-bbb41955-7c95-4ae1-9306-eecc2ee0d372">stably free module</a>   </li>
+</ul>
+<h3 id="32">3.2</h3>
+<ul>
+<li><a href="20250505-right_coherent_ring.html#ID-23d1001e-e1ad-445d-9b35-b977bbf28759">right coherent ring</a> &amp; <a href="20240528-left_coherent_ring.html#ID-a3c588a3-14fb-4c7b-8bd8-1eab89e19683">left coherent ring</a> </li>
+
+<li><a href="20240529-noetherian_ring_as_coherent_ring.html#ID-a206b689-2123-4f39-9dcc-22bd0242b275">noetherian ring as coherent ring</a>   </li>
+
+<li><a href="20240529-category_of_noetherian_modules_as_abelian_category.html#ID-f8a9576d-a8db-4af2-a12a-58377792ae4c">category of coherent modules as abelian category</a>   </li>
+
+<li><a href="20250505-finitely_presented_module_as_coherent_module_over_a_coherent_ring.html#ID-eff524c5-9955-4672-a98d-01ef5d419f13">finitely presented module as coherent module over a coherent ring</a> </li>
+
+<li><a href="20250508-finitely_presented_modules_over_a_coherent_ring_as_abelian_category.html#ID-2d7b8dc1-1ffc-4e45-9116-5a65af1c506b">finitely presented modules over a coherent ring as abelian category</a> </li>
+
+<li><a href="20230803-finitely_generated_and_projective_module_as_finitely_presented_module.html#ID-d191782e-3886-44bf-8c7c-eb16addbe7a8">finitely generated and projective module as finitely presented module</a> </li>
+
+<li><a href="20240504-compact_object_in_rmod_as_finitely_generated_module.html#ID-d61b1b19-aa03-424a-aff8-da74bbc94aec">compact object in RMod as finitely presented module</a> </li>
+
+<li><a href="20240216-projective_module_as_flat_module.html#ID-09d6dfa4-1297-43ee-885b-5b56c58cc541">projective module as flat module</a>   </li>
+
+<li><a href="20240224-projective_module_and_hom_covariant_functor_as_right_exact_functor.html#ID-b8988af3-d01b-4a45-81ed-5120301c257b">projective module and hom covariant functor as right exact functor</a>   </li>
+</ul>
+<h3 id="33">3.3</h3>
+<ul>
+<li><a href="20230801-projective_module_as_free_module_for_a_pid.html#ID-3fba905f-ddbd-4bd7-8940-e359901fd2d7">projective module as free module for a PID</a> </li>
+
+<li><a href="20240529-finitely_generated_projective_module_over_a_pid_as_free_module.html#ID-c1205ab2-4aac-48d6-bddc-0be09c52c3d4">finitely generated projective module over a PID as free module</a>   </li>
+
+<li>TODO  </li>
+</ul>
+<h3 id="34">3.4</h3>
+<ul>
+<li><a href="20241212-sections_of_a_bundle_as_projective_module_for_a_paracompact_space.html#ID-6dc230ca-adb2-4d24-ae88-a871c8274f0d">sections of a bundle as projective module for a compact hausdorff space</a> </li>
+
+<li>todo</li>
+</ul>
+<h3 id="35">3.5</h3>
+<ul>
+<li>todo</li>
+</ul>
+<h3 id="36">3.6</h3>
+<ul>
+<li><a href="20230725-jacobson_radical.html#ID-7ee4f832-79a1-47c6-9602-c636a3ba8daa">Jacobson radical</a> </li>
+</ul>
+<h3 id="37">3.7</h3>
+<ul>
+<li><a href="jacobson-radical-as-two-sided-ideal.html#ID-01f7c6cc-f8b6-4c88-8666-69853d5daaa4">jacobson radical as two sided ideal</a> </li>
+</ul>
+<h3 id="38">3.8</h3>
+<ul>
+<li><a href="20230725-jacobson_radical_and_unit.html#ID-28204f4f-4d91-47fc-8f23-c64eb381aa0f">Jacobson radical and unit</a> </li>
+</ul>
+<h3 id="39">3.9</h3>
+<ul>
+<li><a href="20250505-i_adically_complete_ring.html#ID-67943c1b-c93d-4dbe-83cd-0d82058abd44">I-adically complete ring</a>  </li>
+</ul>
+<h3 id="310">3.10</h3>
+<ul>
+<li><a href="20230803-nakayama_lemma.html#ID-5abe6681-6514-4bb1-84ae-09d96a08c20e">Nakayama Lemma Arguments</a> </li>
+</ul>
+<h3 id="311">3.11</h3>
+<ul>
+<li><a href="20250505-isomorphic_projective_modules_and_basechange_to_quotient_with_jacobson.html#ID-7bf2d888-2436-4a04-a2e8-087401978be0">isomorphic projective modules and basechange to quotient with jacobson</a></li>
+</ul>
+<h3 id="312">3.12</h3>
+<ul>
+<li><a href="20250505-basechange_along_an_i_adically_complete_quotient_essentially_surjective_on_finite_projective_modules.html#ID-0e3a6f22-be2b-4c2a-b57b-357eef2e7082">basechange along an I-adically complete quotient essentially surjective on finite projective modules</a>   </li>
+</ul>
+<h3 id="313">3.13</h3>
+<ul>
+<li><a href="20241107-monodi_proj_for_a_ring.html#ID-04057817-db8d-404b-bab6-b6923490798d">monoid Proj for a ring</a> </li>
+</ul>
+<h3 id="314">3.14</h3>
+<ul>
+<li><a href="20250505-proj_r_for_an_i_adically_complete_ring.html#ID-82de8225-fbff-4fe5-b9ea-57b6dc63e008">Proj(R) for an I-adically complete ring</a> </li>
+</ul>
+<h3 id="315">3.15</h3>
+<ul>
+<li><a href="20250505-groupoid_core_of_proj_r_for_an_i_adically_complete_ring_in_general_not_equivalent.html#ID-51136ba3-9f9d-47ef-9908-6c6741c0a0d0">groupoid core of Proj(R) for an I-adically complete ring in general not equivalent</a> </li>
+</ul>
+<h3 id="316">3.16</h3>
+<ul>
+<li><a href="20240613-fintiely_generated_projective_module_over_a_local_ring_as_free_module.html#ID-80177dcd-efd8-493e-8dca-7dfaf65ebb37">finitely generated projective module over a local ring as free module</a> </li>
+</ul>
+<h3 id="317">3.17</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="318">3.18</h3>
+<ul>
+<li><a href="20240518-locally_free_module.html#ID-9a7002f9-dcc1-4564-8a3f-af8d390ecdf4">locally free module</a>   </li>
+</ul>
+<h3 id="319">3.19</h3>
+<ul>
+<li><a href="20250505-locally_free_finite_projective_and_tensor_as_free.html#ID-bc3af92e-89cd-4a15-8bc1-a4ad522e7f79">finite locally free, finite projective and finitely presented and locally free</a>   </li>
+</ul>
+<h3 id="320">3.20</h3>
+
+<ul>
+<li><a href="20250505-finitely_generated_module_over_a_noetherian_ring_as_coherent_module.html#ID-2014082f-cfb3-4b18-a5aa-eb1653b43f85">finitely generated module over a noetherian ring as coherent module</a></li>
+
+<li><a href="20240528-left_coherent_ring.html#ID-a3c588a3-14fb-4c7b-8bd8-1eab89e19683">left coherent ring</a> &amp; <a href="20250505-right_coherent_ring.html#ID-23d1001e-e1ad-445d-9b35-b977bbf28759">right coherent ring</a> </li>
+
+<li><a href="20250505-finitely_presented_module_as_coherent_module_over_a_coherent_ring.html#ID-eff524c5-9955-4672-a98d-01ef5d419f13">finitely presented module as coherent module over a coherent ring</a> - todo  </li>
+
+<li><a href="20240529-category_of_noetherian_modules_as_abelian_category.html#ID-f8a9576d-a8db-4af2-a12a-58377792ae4c">category of coherent modules as abelian category</a>   </li>
+
+<li><a href="20240328-category_of_fintiely_generated_modules_over_a_noetherian_ring_as_abelian_category.html#ID-dbee07b6-c1a3-4cb2-beae-ea9cfd18165c">category of finitely generated modules over a noetherian ring as abelian category</a>   </li>
+
+<li><a href="20230803-finitely_generated_and_projective_module_as_finitely_presented_module.html#ID-d191782e-3886-44bf-8c7c-eb16addbe7a8">finitely generated and projective module as finitely presented module</a> - todo</li>
+
+<li><a href="20240504-compact_object_in_rmod_as_finitely_generated_module.html#ID-d61b1b19-aa03-424a-aff8-da74bbc94aec">compact object in RMod as finitely presented module</a></li>
+
+<li><a href="20240216-projective_module_as_flat_module.html#ID-09d6dfa4-1297-43ee-885b-5b56c58cc541">projective module as flat module</a> - todo (noncommutative case)</li>
+
+<li><a href="20250505-left_flat_module.html#ID-60559bb2-1484-41aa-a340-0f7f4e81b348">left flat module</a> / <a href="20250505-right_flat_module.html#ID-0c94da95-6731-4839-8a2d-86bdb8b95a69">right flat module</a> - todo</li>
+
+<li><a href="20230803-finitely_presented_module_and_projective_flat_module.html#ID-509ed811-2f60-4e0f-b42c-36f1b71aa852">finitely presented module and projective / flat module</a> - todo</li>
+
+<li>3.3 - todo</li>
+
+<li><a href="20230801-projective_module_as_free_module_for_a_pid.html#ID-3fba905f-ddbd-4bd7-8940-e359901fd2d7">projective module as free module for a PID</a>   </li>
+
+<li></li>
+
+<li>$V$ projective  , finite dimensino</li>
+
+<li><a href="20250505-artin_w_wedderburn.html#ID-45d4b05f-b99a-4664-bd88-f1a7d95ced99">artin-wedderburn</a>   </li>
+</ul>
+<ul>
+<li><a href="20241212-sections_of_a_bundle_as_projective_module_for_a_paracompact_space.html#ID-6dc230ca-adb2-4d24-ae88-a871c8274f0d">sections of a bundle as projective module for a compact hausdorff</a> </li>
+</ul>
+<ul>
+<li><a href="20230725-jacobson_radical.html#ID-7ee4f832-79a1-47c6-9602-c636a3ba8daa">Jacobson radical</a> </li>
+
+<li><a href="jacobson-radical-as-two-sided-ideal.html#ID-01f7c6cc-f8b6-4c88-8666-69853d5daaa4">jacobson radical as two sided ideal</a> </li>
+
+<li><a href="20230725-jacobson_radical_and_unit.html#ID-28204f4f-4d91-47fc-8f23-c64eb381aa0f">Jacobson radical and unit</a> </li>
+
+<li><a href="20250505-jacobson_radical_and_simple_module.html#ID-e6014f29-9c95-4403-95f0-950eb671cd92">jacobson radical and simple module</a>   </li>
+
+<li>local ring assumed to be comumtative   </li>
+
+<li>&lt;jacobson radical as maximal ideal&gt;   </li>
+
+<li><a href="20250505-i_adically_complete_ring.html#ID-67943c1b-c93d-4dbe-83cd-0d82058abd44">I-adically complete ring</a> </li>
+
+<li><a href="20250505-nilpotent_ideal_and_i_adically_complete.html#ID-5e96e7ef-1455-494a-aed8-01c7e7b652da">nilpotent ideal and I-adically complete</a>   </li>
+
+<li><a href="20250505-i_adically_complete_ring_and_jacobson_radical.html#ID-d89d88cf-98d7-4f9f-8621-6c0377291808">I-adically complete ring and jacobson radical</a></li>
+
+<li><a href="20230803-nakayama_lemma.html#ID-5abe6681-6514-4bb1-84ae-09d96a08c20e">Nakayama Lemma Arguments</a>   </li>
+
+<li><a href="20240604-nakayama_s_lemma_not_true_for_non_finitely_generated_modules.html#ID-e7d543bc-b1bf-42bf-bdcb-d8606cf78111">nakayama's lemma not true for non finitely generated modules</a> </li>
+
+<li><a href="20230726-simple_module.html#ID-659c4f01-8fc4-44e2-a341-17690ba85449">simple module</a>   </li>
+
+<li><a href="20250505-i_adically_complete_ring_and_matrix_ring.html#ID-3fc63701-90ba-4176-8530-5f19a23e5663">I-adically complete ring and matrix ring</a> </li>
+
+<li><a href="20250310-category_proj_of_a_ring.html#ID-00e58c89-b111-4d2a-b4b6-33a254d69592">category Proj of a Ring</a> </li>
+
+<li><a href="20241107-monodi_proj_for_a_ring.html#ID-04057817-db8d-404b-bab6-b6923490798d">monoid Proj for a ring</a> </li>
+
+<li>$\tau_{\leq 0} \mathrm{Proj}(R) = \mathrm{Proj}(R)/\mathrm{iso}$ </li>
+
+<li><a href="20250505-proj_r_for_an_i_adically_complete_ring.html#ID-82de8225-fbff-4fe5-b9ea-57b6dc63e008">Proj(R) for an I-adically complete ring</a> </li>
+
+<li><a href="20250505-groupoid_core_of_proj_r_for_an_i_adically_complete_ring_in_general_not_equivalent.html#ID-51136ba3-9f9d-47ef-9908-6c6741c0a0d0">groupoid core of Proj(R) for an I-adically complete ring in general not equivalent</a> </li>
+
+<li><a href="20240613-fintiely_generated_projective_module_over_a_local_ring_as_free_module.html#ID-80177dcd-efd8-493e-8dca-7dfaf65ebb37">finitely generated projective module over a local ring as free module</a> </li>
+
+<li><a href="20241012-finitely_generated_projective_module_as_locally_free_module.html#ID-100f8099-4ddd-483d-a08e-1c0280a56393">finitely generated projective module as finite locally free module</a> </li>
+</ul>
+
+
+
+<h3 id="other">other</h3>
+<ul>
+<li>for local: &lt;conservative&gt;</li>
+
+<li><a href="20250505-i_adically_complete_ring_and_jacobson_radical.html#ID-d89d88cf-98d7-4f9f-8621-6c0377291808">I-adically complete ring and jacobson radical</a> </li>
+
+<li></li>
+</ul>
+<h3 id="section"></h3>
+<ul>
+<li><a href="20250507-vector_bundle_over_a_scheme.html#ID-c1bc523d-56c3-47b2-8404-7e3cee76b540">vector bundle over a scheme</a> </li>
+
+<li><a href="20250507-vector_bundles_over_an_affine_scheme_as_finite_projective_module.html#ID-7af3e583-f34f-428c-9d7b-2472c7013c6a">vector bundles over an affine scheme as finite projective module</a>   </li>
+</ul>
+<h3 id="321">3.21</h3>
+<ul>
+<li><a href="20241011-rank_of_a_finitely_generated_module.html#ID-24bee54e-cdd0-4848-a62a-f934cacec98c">rank of a finitely generated projective module</a> / <a href="20241012-rank_of_a_module_over_a_commutative_ring.html#ID-2fc193c9-27cf-4e26-91cc-33917eee026c">rank of a finitely generated projective module over a commutative ring</a> </li>
+
+<li><a href="20241012-rank_map_as_locally_constant_map.html#ID-7e459e96-da79-45f2-aab5-bd6a56881327">rank map as locally constant map</a>   </li>
+
+<li><a href="20241114-projective_module_of_constant_rank.html#ID-c63c3287-12b1-4cdb-a746-e3de22dcc1b8">projective module of constant rank</a>   </li>
+
+<li><a href="20241114-connected_spectrum_and_constant_rank.html#ID-e1b14ba3-ab6f-43f3-87aa-582145dd73d7">connected spectrum and constant rank</a>   </li>
+</ul>
+<h3 id="322">3.22</h3>
+<ul>
+<li><a href="20241012-algebraic_line_bundle.html#ID-bce9eeb9-3622-428d-a3ee-3d634ed5a8ee">algebraic line bundle</a> </li>
+</ul>
+<h3 id="323">3.23</h3>
+<ul>
+<li><a href="20241128-extension_of_scalars_of_algebraic_line_bundles.html#ID-3a3cd168-dce6-4011-82eb-7080c757bd3a">extension of scalars of algebraic line bundles</a> </li>
+
+<li><a href="20241128-invertible_module_as_algebraic_line_bundle.html#ID-f739dea9-2fb8-44ee-8640-816db3465bb0">invertible module as algebraic line bundle</a>  - TODO</li>
+</ul>
+<h3 id="324">3.24</h3>
+<ul>
+<li><a href="20250315-picard_groupoid.html#ID-a51c1ad7-81c3-42df-8fa0-377ca336ee98">picard groupoid</a> (todo)</li>
+
+<li><a href="20240709-group_of_invertible_modules.html#ID-c4cebda7-67cc-46c4-87a4-e22be996e530">picard group for a commutative ring</a> </li>
+
+<li><a href="20250507-picard_groupoid_of_a_commutative_ring.html#ID-dbe22afd-e3bd-4e7f-815d-00e4eba5e490">picard groupoid of a commutative ring</a>   </li>
+</ul>
+<h2 id="32-k-0r">3.2 $K_0(R)$</h2>
+
+<h3 id="325">3.25</h3>
+<ul>
+<li><a href="20241011-k0_of_a_ring.html#ID-d82bf086-c3d3-444b-abaf-919a7b964832">K0 of a ring</a> </li>
+</ul>
+<h3 id="326">3.26</h3>
+<ul>
+<li><a href="20240210-grothendieck_monoid_functor.html#ID-e8a570aa-cd46-4e94-8e30-76b83169ae6e">grothendieck group functor</a> </li>
+
+<li><a href="20250507-grothendieck_group_functor_preserves_products.html#ID-3485756d-c8ff-4bee-aeec-cb54a5d627eb">grothendieck group functor preserves products</a> </li>
+</ul>
+<h3 id="327">3.27</h3>
+<ul>
+<li><a href="20231025-cancellative_semigroup.html#ID-d2bbca79-b8c0-4e7a-9ab5-6da94985fd30">cancellative semigroup</a> </li>
+
+<li><a href="20250507-cancellative_abelian_monoid_and_injection.html#ID-5b5f0f90-09d1-4730-92c7-df4452e6a6dc">cancellative abelian monoid and injection</a> </li>
+
+<li><a href="20250507-absorbing_element.html#ID-c8d584b6-4643-4bb2-bc45-7a8e6acdb0d0">absorbing element</a> </li>
+</ul>
+<h3 id="328">3.28</h3>
+<ul>
+<li><a href="20241107-extension_of_scalars_preserves_projective_modules.html#ID-fb3696dc-6dfb-4fbc-989a-06bfb89e9ea9">extension of scalars preserves projective modules</a> </li>
+
+<li><a href="20241011-k0_functor_from_ring.html#ID-456e3b4e-628a-4403-b581-6b468824d633">K0 functor from Ring</a>   </li>
+</ul>
+<h3 id="329">3.29</h3>
+<ul>
+<li><a href="20240525-tensor_product_of_bimodules.html#ID-38b47d9d-52ae-46b8-b779-c20bd302cff1">tensor product of bimodules</a> </li>
+
+<li><a href="20240808-right_exact_functor_from_r_mod_determined_by_free_modules.html#ID-34087737-ac94-4344-bf4f-b5312b6023bc">right exact functor from R-Mod determined by free modules</a>   </li>
+
+<li><a href="20250507-colimit_preserving_functor_between_modules_as_tensor_product.html#ID-4735f7f5-597e-4b1a-bbd4-2c89d6d1e26a">colimit preserving functor between modules as tensor product</a>   </li>
+
+<li><a href="20250507-k_0_functorial_on_bimodule_morphisms.html#ID-9e28ad6e-35de-4ea9-a0e7-001b3a69a2f3">K_0 functorial on bimodule morphisms</a> </li>
+</ul>
+<h3 id="330">3.30</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="332">3.32</h3>
+<ul>
+<li><a href="20230726-artinian_ring_and_finite_amount_of_maximal_ideals.html#ID-2f915adc-7946-4091-880c-566abbff2398">Artinian ring and finite amount of maximal ideals</a> </li>
+
+<li><a href="20250507-artinian_ring_and_finite_amount_of_prime_ideals.html#ID-4b5a998f-0593-47a6-8b2b-dd34e7fd9599">artinian ring and finite amount of prime ideals</a></li>
+
+<li><a href="20230726-prime_ideal_and_maximal_ideal_in_an_artinian_ring.html#ID-31e181bb-3187-4f31-b1e5-1ddd2ec6ea9d">prime ideal and maximal ideal in an artinian ring</a>  </li>
+
+<li><a href="20230726-artinian_ring_and_finite_product_of_artinian_local_rings.html#ID-b4fb0f9f-20ab-49ea-b0d4-4623fc016af9">Artinian ring and finite product of artinian local rings</a>   </li>
+
+<li><a href="20250421-k0_of_an_artinian_ring.html#ID-bbf24955-af1d-43bc-8d3f-982dd3feb6c1">k0 of an artinian ring</a>   </li>
+</ul>
+<h3 id="333">3.33</h3>
+<ul>
+<li><a href="20241107-monodi_proj_for_a_ring.html#ID-04057817-db8d-404b-bab6-b6923490798d">monoid Proj for a ring</a> </li>
+
+<li></li>
+
+<li><a href="20250507-k0_of_a_ring_as_ring.html#ID-4af137a5-c66f-4a79-a0d8-13558b432173">K0 of a ring as ring</a>   </li>
+
+<li><a href="20250507-k0_of_a_ring_as_ring.html#ID-4af137a5-c66f-4a79-a0d8-13558b432173">K0 of a ring as ring</a> </li>
+</ul>
+<h3 id="334">3.34</h3>
+<ul>
+<li><a href="20241114-grothendieck_group_rig_structure.html#ID-ce05b3f5-76cd-4f98-9d40-00cf23c156a4">grothendieck group preserves rig structure</a>   </li>
+
+<li><a href="20241114-grothendieck_group_functor_sends_rig_homomorphisms_to_ring_homomorphisms.html#ID-e728c798-1f3e-4e18-8a03-87698188aedf">grothendieck group functor sends rig homomorphisms to ring homomorphisms</a> </li>
+</ul>
+<h3 id="335">3.35</h3>
+<ul>
+<li><a href="20250507-rank_function_of_k0.html#ID-3906694c-e95e-403f-b1d8-a35ccd5451a0">rank function of k0</a> </li>
+</ul>
+<h3 id="336">3.36</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="337">3.37</h3>
+
+<h3 id="339">3.39</h3>
+<ul>
+<li><a href="20241011-stably_free_module.html#ID-bbb41955-7c95-4ae1-9306-eecc2ee0d372">stably finite free module</a> </li>
+
+<li><a href="20250507-stably_finite_free_module_and_reduced_k0.html#ID-f8dc1512-c536-47c3-b303-559b6f9b7ef5">stably finite free module and reduced K0</a> </li>
+
+<li><a href="20250507-stably_finite_free_module_in_general_not_free.html#ID-b06084ee-3424-4fc9-972c-4f1a1c9a9090">stably finite free module in general not free</a>   </li>
+
+<li><a href="20250507-stably_isomorphic_line_bundles_as_isomorphic_line_bundles.html#ID-706288f7-5ff1-4b8a-b4f3-3ffb51e9c6d5">stably isomorphic line bundles as isomorphic line bundles</a> </li>
+</ul>
+<h3 id="340">3.40</h3>
+<ul>
+<li><a href="20250507-bass_serre_cancellation.html#ID-d8448f57-ac50-4b83-9f4b-1861705de1ce">bass serre cancellation</a> </li>
+
+<li><a href="20250507-serre_cancelllation.html#ID-4d279998-0a67-41e5-a48d-46e67b3bd128">serre cancelllation</a> </li>
+
+<li><a href="20250507-bass_cancellation.html#ID-bd912f66-7e88-4434-9f93-55400a224e07">bass cancellation_</a>   </li>
+</ul>
+<h3 id="341">3.41</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="342">3.42</h3>
+<ul>
+<li><a href="20250509-symmetric_group_acts_on_symmetric_monoidal_infinity_category.html#ID-dae2ae4e-61f4-4512-9abb-2b705802a036">symmetric group acts on symmetric monoidal infinity category</a> </li>
+
+<li>can i drop ?  </li>
+</ul>
+<h3 id="343">3.43</h3>
+<ul>
+<li><a href="20250509-n_th_symmetric_power.html#ID-7023b2fb-d5a9-4252-8525-f2d050b096ca">n-th symmetric power</a> </li>
+
+<li><a href="20250509-n_th_divided_power.html#ID-6bbe7381-2c0b-4814-a465-205b4364a1d5">n-th divided power</a>   </li>
+
+<li><a href="20250509-n_th_exterior_power.html#ID-3a3468a3-5e41-4b39-98e3-aacf14640836">n-th exterior power</a>   </li>
+
+<li></li>
+</ul>
+<h3 id="344">3.44</h3>
+<ul>
+<li><a href="20250509-symmetric_power_of_a_free_module_as_free_module.html#ID-958510a7-68a6-4473-b3e5-1920ef23aeb7">symmetric power of a free module as free module</a> </li>
+
+<li><a href="20250509-divided_power_of_a_free_module_as_free_module.html#ID-9913f023-74f9-4b04-a7b2-8a23836fc660">divided power of a free module as free module</a> </li>
+
+<li><a href="20241128-exterior_power_of_a_free_module.html#ID-04b153ca-6b5e-47d1-9547-84c3f79a6312">exterior power of a free module</a> </li>
+</ul>
+<ul>
+<li><a href="20250509-functor_preserving_free_modules_preserves_projective_modules.html#ID-db809e69-4f73-4ad2-b005-8a53e1f7f1fd">functor preserving free modules preserves projective modules</a> </li>
+
+<li><a href="20250509-functor_preserving_finite_free_modules_preserves_finite_projective_modules.html#ID-ce355be5-dd2f-442a-a381-56ea2f8d4cf8">functor preserving finite free modules preserves finite projective modules</a>   </li>
+</ul>
+<ul>
+<li><a href="20250509-determinant_of_a_finite_projective_module.html#ID-c4d57de3-62a8-4c12-9152-3585a9a6ff9e">determinant of a finite projective module</a>   </li>
+</ul>
+<ul>
+<li><a href="20250509-rank_decomposition_of_spec_for_a_finite_projective_module.html#ID-efe2cc65-fdaf-4e5a-a7b6-e0a444017b56">rank decomposition of spec for a finite projective module</a> </li>
+
+<li><a href="20250509-rank_decomposition_of_a_ring_for_a_finite_projective_module.html#ID-7c3d5c4c-ef1a-489f-b445-80efb3f916c4">rank decomposition of a ring for a finite projective module</a>   </li>
+
+<li><a href="20250509-rank_decomposition_of_a_finite_projective_module.html#ID-1cea904e-b7cc-4f66-9c42-d3c2143f9876">rank decomposition of a finite projective module_</a>   </li>
+</ul>
+<ul>
+<li><a href="20250509-rank_map_of_a_finitely_projective_module_as_bounded_map.html#ID-50f8d201-5887-41b0-9193-e77dabf38788">rank map of a finitely projective module as bounded map</a>   </li>
+
+<li></li>
+
+<li><a href="20241128-exterior_power_of_a_module.html#ID-91a9fea4-b514-4620-a41a-d6f0c718ca2d">exterior power of a module</a>-</li>
+
+<li><a href="20250509-exterior_power_of_a_module_as_graded_module.html#ID-e769e2e2-e69b-4482-83e2-fee8af07dee8">exterior power of a module as graded module</a>   </li>
+
+<li><a href="20250509-exterior_power_and_tensor_product.html#ID-ac1899fe-399b-48fe-ac30-bd5d4951b83b">exterior power and tensor product</a>   </li>
+</ul>
+<h3 id="345">3.45</h3>
+<ul>
+<li><a href="20250509-determinant_of_a_sum_of_finite_projective_modules.html#ID-0f2e87d9-0a18-4cd8-affe-5b3454a838f4">determinant of a sum of finite projective modules</a> </li>
+</ul>
+<h3 id="346">3.46</h3>
+<ul>
+<li><a href="20250512-determinant_of_a_finite_projective_module_for_a_noetherian_ring_of_dimension_1.html#ID-e7e8aa27-7dd5-4584-8567-d815a56370f3">determinant of a finite projective module for a noetherian ring of dimension 1</a></li>
+
+<li></li>
+</ul>
+<h3 id="347">3.47</h3>
+<ul>
+<li><a href="20250512-determinant_functor_from_proj_to_picard.html#ID-dead7539-cfe3-4e3f-9be5-885f5c0cb8f0">determinant functor from PRoj to Picard</a> </li>
+
+<li><a href="20250512-determinant_functor_from_proj_to_picard_as_monoidal_functor.html#ID-22f6c598-a3e6-4b44-95c7-1adb6d3df7b2">determinant functor from Proj to Picard as monoidal functor</a></li>
+
+<li><a href="20250512-determinant_functor_from_proj_to_picard_not_symmetric_monoidal.html#ID-d48a809a-4a7a-4660-81b5-66b7b758f50c">determinant functor from Proj to Picard not symmetric monoidal</a> </li>
+
+<li><a href="20250512-z_picard_groupoid_of_a_ring.html#ID-fe2a584d-1729-47fc-981a-97fab4d157d9">Z-Picard groupoid of a Ring</a> </li>
+
+<li><a href="20250512-monoidal_structure_on_z_picard_groupoid.html#ID-1907d446-068c-4b4c-9024-8a7e6ec142de">monoidal structure on Z-Picard groupoid of a ring</a>   </li>
+
+<li><a href="20250512-determinant_functor_from_proj_to_z_picard_as_symmetric_monoidal_functor.html#ID-3e220e28-2cc0-432f-92c9-03e17ad9d75c">determinant functor from Proj to Z-Picard as symmetric monoidal functor</a> </li>
+
+<li><a href="20250512-isomorphism_classes_of_z_picard.html#ID-77ce12e0-c978-4a19-b7d4-acb22116ab8b">isomorphism classes of Z-Picard of a Ring</a>   </li>
+
+<li></li>
+</ul>
+<h3 id="348">3.48</h3>
+<ul>
+<li><a href="20250512-determinant_functor_from_k0.html#ID-c9b97569-23c8-404f-855e-8c805ca777da">determinant functor from K0</a> </li>
+
+<li><a href="20250512-determinant_functor_from_k0_as_surjection.html#ID-f862dfb4-0326-45a2-9fc1-b19350c2c677">determinant functor from K0 as surjection</a> </li>
+
+<li><a href="20250512-determinant_functor_from_k0_as_isomorphism_for_a_noetherian_ring_of_dimension_1.html#ID-67c98394-cf04-412f-a6ee-f84285cb5382">determinant functor from K0 as isomorphism for a noetherian ring of dimension 1</a> </li>
+
+<li><a href="20241011-reduced_k0_of_a_ring.html#ID-843c64ae-36d2-4a4a-8749-77e5620f4023">reduced k0 of a ring</a>   </li>
+
+<li><a href="20250512-reduced_k0_of_a_commutative_ring_as_kernel.html#ID-d9dec018-ce8c-4db1-8304-ab5266e5ac89">reduced k0 of a commutative ring as kernel</a>   </li>
+</ul>
+<h3 id="349">3.49</h3>
+<ul>
+<li><a href="20230812-integral_domain_and_connected_spectrum.html#ID-6ce88de7-002e-45bb-b88f-9fcd84df780d">integral domain and connected spectrum</a> </li>
+
+<li><a href="20250512-dedekind_domain_as_noetherian_domain_of_dimension_1.html#ID-c8c8f457-9bf4-4c95-94c2-ab32777c7236">dedekind domain as noetherian domain of dimension 1</a>   </li>
+
+<li><a href="20250512-picard_group_of_a_dedekind_domain_as_invertible_ideals.html#ID-bf4386e5-72fe-4c05-97ab-c5f7d2bd9764">picard group of a dedekind domain as invertible ideals</a> </li>
+
+<li></li>
+</ul>
+<h2 id="k-1r">$K_1(R)$</h2>
+
+<h3 id="350">3.50</h3>
+<ul>
+<li><a href="20241017-k1_of_a_ring.html#ID-85079b35-3708-4579-8d9f-1651ff26a697">K1 of a ring</a> </li>
+
+<li></li>
+</ul>
+<h3 id="351">3.51</h3>
+<ul>
+<li><a href="20241017-infinite_elementary_linear_group_functor.html#ID-ebf99473-55d2-43c3-849a-78da99feb754">infinite elementary linear group functor</a> </li>
+</ul>
+<h3 id="352">3.52</h3>
+<ul>
+<li><a href="20250109-whitehead_theorem_for_k1.html#ID-88c07e4e-dc37-4972-9052-aeca2d3deaa0">whitehead theorem for k1 of a ring</a> </li>
+
+<li><a href="20250512-center_of_the_infinite_elementary_linear_group.html#ID-65e83607-6197-476c-afd1-e37c1d7b4364">center of the infinite elementary linear group</a> </li>
+
+<li><a href="20250512-infinite_elementary_linear_group_as_perfect_group.html#ID-8ca6378b-b293-480c-be9f-11c2f35e8f3c">infinite elementary linear group as perfect group</a>   </li>
+
+<li><a href="20250109-elementary_linear_group_as_perfect_group_for_n_greater_2.html#ID-578c1537-2d9a-4d40-8c1d-6e6f97741ca5">elementary linear group as perfect group for n greater 2</a> </li>
+</ul>
+<h3 id="353">3.53</h3>
+<ul>
+<li><a href="20250109-determinant_map_of_k1_of_a_ring.html#ID-def37a6f-1053-40a6-ae96-64dbf9e23f73">determinant map of k1 of a ring</a> </li>
+
+<li></li>
+</ul>
+<h3 id="354">3.54</h3>
+<ul>
+<li><a href="20250109-sk1_of_a_commutative_ring.html#ID-dc095560-591f-4710-a47d-87cf1c14edbe">sk1 of a commutative ring</a></li>
+</ul>
+<h3 id="355">3.55</h3>
+<ul>
+<li><a href="20250512-infinite_special_linear_group.html#ID-2693ec64-8e3a-476d-b1a7-f9d933657a5d">infinite special linear group</a> </li>
+
+<li><a href="20250512-k1_of_a_euclidean_domain.html#ID-4c02c8f2-da17-4b54-8fc5-bdf8f147ceb3">k1 of a euclidean domain</a> </li>
+
+<li></li>
+</ul>
+<h2 id="k-2r">$K_2(R)$</h2>
+
+<h3 id="359">3.59</h3>
+<ul>
+<li><a href="20250512-k2_of_a_ring.html#ID-eceb7ea4-0f91-4ccc-92b0-b36a0a61d12b">K2 of a ring</a> </li>
+
+<li><a href="20250512-einberg_group.html#ID-62f7eafd-74d1-4880-8dd1-1bbcc3d8b484">steinberg group</a> </li>
+</ul>
+<h3 id="360">3.60</h3>
+<ul>
+<li><a href="20250512-k2_of_a_ring_as_center_of_the_steinberg_group.html#ID-b3e13da5-c935-480e-a8e3-4bcdfe2cd228">k2 of a ring as center of the steinberg group</a> </li>
+
+<li><a href="central-extension-of-groups.html#ID-e71edc9f-ba72-4b74-8b72-d1c52c2e8180">central extension of groups</a>   </li>
+</ul>
+<h3 id="361">3.61</h3>
+<ul>
+<li><a href="20250512-k2_of_a_ring_as_center_of_the_steinberg_group.html#ID-b3e13da5-c935-480e-a8e3-4bcdfe2cd228">k2 of a ring as center of the steinberg group</a>   </li>
+
+<li><a href="20250512-surjection_of_a_group_induces_map_on_centers.html#ID-0f2bf589-40a4-4ecc-86ee-2e7a37caf75b">surjection of a group induces map on centers</a>   </li>
+</ul>
+<h3 id="362">3.62</h3>
+
+<h3 id="363">3.63</h3>
+<ul>
+<li><a href="20250516-element_in_second_group_cohomology_induces_central_extension.html#ID-7d06b0bc-629c-4ec0-b65d-771e662d265e">element in second group cohomology induces central extension</a> </li>
+</ul>
+<h3 id="364">3.64</h3>
+<ul>
+<li><a href="20250514-existence_of_an_initial_central_extension_for_a_group_with_free_abelianization.html#ID-fa5ffdfb-1b04-4006-b6cb-0b26484d1967">existence of an initial central extension for a group with free abelianization</a> </li>
+</ul>
+<h3 id="365">3.65</h3>
+
+<h3 id="366">3.66</h3>
+<ul>
+<li><a href="20250514-central_extension_and_group_cohomology.html#ID-eee5d0f0-0d07-4d7b-bd9b-7e3d91ca8e92">correspondence between central extension and 2 group cohomology</a> </li>
+</ul>
+<h3 id="367">3.67</h3>
+
+<h3 id="368">3.68</h3>
+
+<h3 id="369">3.69</h3>
+
+<h3 id="370">3.70</h3>
+<ul>
+<li><a href="20250516-infinite_alternating_group.html#ID-35a67ee8-3bc8-4392-986d-1a1f5e8524f6">infinite alternating group</a> </li>
+
+<li><a href="20250516-infinite_symmetric_group.html#ID-53210a69-5012-46cd-8865-9bbb16918041">infinite symmetric group</a>   </li>
+
+<li><a href="20250516-infinite_alternating_group_as_sequential_colimit.html#ID-557a61a1-63a3-487d-bef8-f350dea53e21">infinite alternating group as sequential colimit</a>   </li>
+</ul>
+<h3 id="371">3.71</h3>
+<ul>
+<li><a href="20250514-matsumoto_theorem_about_k_theory_of_a_ring.html#ID-c69aacec-b558-464a-803b-1c5470c57c36">Matsumoto theorem about K-Theory of a Ring</a> </li>
+</ul>
+<h2 id="exercises">exercises</h2>
+
+<ul>
+<li><a href="20241107-k0_of_a_product_of_rings.html#ID-4c23c301-12ee-42c0-b2a2-d86022f2c960">K0 of a product of rings</a> </li>
+
+<li>&lt;todo&gt;</li>
+
+<li><a href="20241107-morita_equivalence_of_a_ring_with_the_matric_ring.html#ID-663ff961-32b6-4caf-bcfe-c1f8a158c888">morita equivalence of a ring with the matrix ring</a>   </li>
+
+<li><a href="20250507-k0_of_a_ring_and_matrix_ring.html#ID-a3bfa316-8da7-44dc-9550-66ce5b1c3e3d">k0 of a ring and matrix ring</a> </li>
+
+<li></li>
+</ul>
+
+
+<h2 id="other">other</h2>
+
+
+</div>
+</body>
+</html>

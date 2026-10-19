@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>anima is postnikov complete</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-80bb09e0-fba3-4281-bcd1-396f0f32f80b"></span><h1 class="title">anima is postnikov complete</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+The <a href="20240713-infinity_category_of_spaces.html#ID-7a8f95e9-9a42-40a5-aa46-7fabec2ef09a">category of Anima</a> is <a href="20260824-postnikov_complete_category.html#ID-8472cb29-2425-4fd5-a75d-cb70de4ad1aa">postnikov complete category</a>.
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="idbb0d3e0e-92a5-4687-999c-a99d4043ea38fully-faithful"><a href="20240701-fully_faithful_functor_between_infinity_categories.html#ID-bb0d3e0e-92a5-4687-999c-a99d4043ea38">fully faithful</a></h3>
+<p>
+We need to show that the canonical map
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Hom}_{\mathrm{An}}(X,Y) \rightarrow \lim_{n \in \mathbb{N}} \mathrm{Hom}_{\mathrm{An}_{\leq n}}(\tau_{\leq n} X, \tau_{\leq n} Y) 
+\end{align*}</div>
+<p>
+is an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a>
+</p>
+
+<p>
+For that we may notice that the <a href="20250331-n_truncation_as_right_adjoint.html#ID-3a6161e8-a16b-4b56-a5f0-b516b0dbfc16">n-truncation functor is a left adjoint</a>, hence there exists a <a href="20230403223458-naturally_equivalence.html#ID-bdae894c-5a91-4942-9322-61756858ec78">natural equivalence</a> $\mathrm{Hom}_{\mathrm{An}_{\leq n}}(\tau_{\leq n} X, \tau_{\leq n} Y) \simeq \mathrm{Hom}_{\mathrm{An}_{\leq n}}(X, \tau_{\leq n} Y)$.
+Furthermore there exists an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\lim_{n \in \mathbb{N}} \mathrm{Hom}_{\mathrm{An}_{\leq n}}(X, \tau_{\leq n} Y) \simeq&amp; \mathrm{Hom}_{\mathrm{An}_{\leq n}}(X, \lim_{n \in \mathbb{N}} \tau_{\leq n} Y) \\
+\simeq&amp; \mathrm{Hom}_{\mathrm{An}_{\leq n}}(X, Y) 
+\end{align*}</div>
+<p>
+where we have used the equivalence $\lim_{n \in \mathbb{N}} \tau_{\leq n} Y$
+</p>
+
+<h3 id="id5ac08772-563a-4b4c-8dbf-e734628e4351essentially-surjective-wonky"><a href="20240701-essentially_surjective_functor_between_infinity_categories.html#ID-5ac08772-563a-4b4c-8dbf-e734628e4351">essentially surjective</a> - wonky</h3>
+<p>
+Let $(X_n) \in \lim_{n \in \mathbb{N}} \mathrm{An}_{\leq n}$ be an <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">object</a>.
+Then there exist <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalences</a> $\tau_{\leq m} X_n \simeq X_{\mathrm{min}(n,m)}$.
+</p>
+
+<p>
+Moreover, we may take the <a href="infinity-limit.html#ID-a8bcf958-5282-4984-8415-7a64cca74613">limit</a> and some <a href="20251022-limit_of_anima_with_eventually_constant_homotopy_groups.html#ID-062b8507-6e81-4711-a7f3-9fd42c301677">sequential limit of anima with eventually constant homotopy groups</a> shows that $\lim_{n} X_n$ has $\tau_{\leq m} (\lim_{n} X_n) \simeq X_m$, i.e. $\lim_n X_n$ maps to $X_n$.
+</p>
+
+</div>
+</body>
+</html>

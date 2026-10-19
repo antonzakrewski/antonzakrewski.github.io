@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>recursion formula for amount of spanning trees for a multigraph</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-c13456a0-a178-4f7f-ba20-1ec4a0ee5f14"></span><h1 class="title">recursion formula for amount of spanning trees for a multigraph</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $G = (V,E)$ be a <a href="20250507-multigraph.html#ID-1ab5682d-709a-431b-ba4c-64fffe10adbe">undirected multigraph</a> and $e \in E$.
+Then the amount of <a href="20221217211259-spannbaum.html#ID-a9c913ae-a223-4c78-9565-d14f7c4fb71c">Spanning Trees</a> $\tau(G)$ is given by
+</p>
+
+<div class="math-block">\begin{align*}
+\tau(G) = \tau(G \setminus \{e\}) + \tau(G / e)
+\end{align*}</div>
+
+<p>
+see:
+</p>
+<ul>
+<li><a href="20250510-contraction_of_an_edge.html#ID-4eb1b95d-c59f-4eab-84c3-7ddd536849b9">contraction of edges in a graph</a> </li>
+</ul>
+<h2 id="proof">Proof</h2>
+<p>
+denote
+</p>
+
+<div class="math-block">\begin{align*}
+\tau_{e^+}(G) \coloneqq \mathrm{amount of spanning trees with } e \\
+\tau_{e^-}(G) \coloneqq \mathrm{amount of spanning trees without } e
+\end{align*}</div>
+
+<p>
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+\tau(G) = \tau_{e^+}(G) + \tau_{e^-}(G)
+\end{align*}</div>
+<p>
+and furthermore
+</p>
+
+<div class="math-block">\begin{align*}
+\tau_{e^{-}}(G) = \tau(G \setminus \{e\})
+\end{align*}</div>
+
+<p>
+Hence it suffices to show that there exists a bijection between spannig trees $\tau(G / \{e\}$ and $\tau_{e^+}(G)$
+</p>
+
+<p>
+This is given by mapping a spanning tree $T$ of $G$ containing $e$ to $T/e$:
+</p>
+
+<p>
+A quotient of a connected graph is also connected and $T/e$ is acyclic, as any circle which goes through the source or target of $e$ can be lifted to a circle in $T$ (by case distinction, whether the circle)
+</p>
+
+</div>
+</body>
+</html>

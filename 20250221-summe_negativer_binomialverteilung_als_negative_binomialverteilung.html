@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>summe negativer binomialverteilung als negative Binomialverteilung</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-2d9770f1-72c2-4b46-bb27-e46efd29814c"></span><h1 class="title">summe negativer binomialverteilung als negative Binomialverteilung</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $p \in (0,1)$, dann ist die Summe zweier <a href="unabhangige-zufallsvariablen.html#ID-152c420c-ac1d-45ea-ac35-510acca4cf46">unabhängiger</a> <a href="20241102-negative_binomialverteilung.html#ID-a9892e0c-f4dc-45b4-b8c0-57231e4e3138">negativer Binomialverteilungen</a> $X^{r_1}, X^{r_2}$ zu $r_1,r_2 \in \mathbb{N}$ gegeben durch die Zähldichte von
+</p>
+
+<div class="math-block">\begin{align*}
+p_{r_1 + r_2}(k)
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+Sei $p^{r_1 + r_2}$ die Zähldichte von der Summe der beiden negativen Binomialverteilungen.
+Dann bleibt zu zeigen
+</p>
+
+<div class="math-block">\begin{align*}
+p^{r_1 + r_2}(k) = p_{r_1 + r_2}(k)
+\end{align*}</div>
+
+
+<h3 id="r-2-1">$r_2 = 1$</h3>
+<p>
+Dann gilt wegen der unabhängigkeit
+</p>
+
+<div class="math-block">\begin{align*}
+p^{r_1 + r_2}(k) =&amp; \sum_{i = 0}^k \mathbb{P}(X^{r_2} = i, X^{r_1} = k - i) \\
+=&amp; \sum_{i=0}^k \mathbb{P}(X^{1} = i) \cdot \mathbb{P}(X^{r_2} = k - i ) \\
+=&amp; \sum_{i=0}^k \binom{r_1 + i - 1}{i} (1 - p)^{i} p^{r_2} \cdot \binom{r_2 + k - i - 1}{k - i}(1 - p)^{k-i} \cdot p^{r_2} \\
+=&amp;  (1 - p)^{k} p^{r_2 + r_1} \cdot \sum_{i=0}^k \binom{r_1 + i - 1}{i}  \cdot \binom{r_2 + k - i - 1}{k - i} \\
+=&amp; (1 - p)^{k} p^{r_2 + r_1} \sum_{i=0}^k \binom{r_2 + r_1 + k - 1}{k} \\
+\end{align*}</div>
+<p>
+wobei die letzte Identität aus <a href="20230426204214-summenformel_uber_beide_werte_des_binomialkoeffizienten.html#ID-352ae9c4-905e-4b4b-8186-0918b3ce5ae4">Summenformel über beide Werte des Binomialkoeffizienten</a>
+</p>
+
+<h3 id="allgemeiner-fall">allgemeiner Fall</h3>
+<p>
+folgt durch induktion für
+</p>
+
+<div class="math-block">\begin{align*}
+p^{r_2} = p^{\sum_{i=1}^{r_2} 1}
+\end{align*}</div>
+
+
+
+</div>
+</body>
+</html>

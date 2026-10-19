@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>idempotent adjunction induces bousfield localizations</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-3d78d706-184f-4ccf-9f77-84aeda36f2d0"></span><h1 class="title">idempotent adjunction induces bousfield localizations</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathcal{C}, \mathcal{D}$ be <a href="20240404-simplicial_set_as_infinity_category.html#ID-4635a6ee-1ad5-44cb-8e36-4a934f5ae4bf">categories</a>, $\mathcal{F}: \mathcal{C} \rightarrow \mathcal{D}, \mathcal{G}: \mathcal{D} \rightarrow \mathcal{C}$ <a href="20240404-functor_between_infinity_categories.html#ID-7428dc84-9acd-49bc-8e93-b1541326a6b9">functors</a> and $\mathcal{F} \dashv \mathcal{G}$ an <a href="20241017-infinity_adjunction.html#ID-cb1237b5-7275-4001-a47a-3d146d4664e4">adjunction.</a>
+Assume that this adjunction is an <a href="20260721-idempotent_adjunction.html#ID-6048129e-3cd0-4cfc-aa51-4c53ebb467ee">idempotent adjunction</a>, then the inclusion $\mathcal{C}_{\mathrm{fix}} \hookrightarrow \mathcal{C}$ is a <a href="20241017-infinity_right_adjoint.html#ID-1ed94fd7-42a4-4328-a280-17e516d76e3d">right adjoint</a> and the inclusion $\mathcal{D}_0 \hookrightarrow \mathcal{D}$ is a <a href="20241017-infinity_left_adjoint.html#ID-2ba0e3a5-7a57-4093-837c-b1f0feabd7c2">left adjoint</a> with right adjoint $\mathcal{G} \circ \mathcal{F}$ and left adjoint $\mathcal{F} \circ \mathcal{G}$.
+</p>
+
+<p>
+In other words, $\mathcal{C}_{\mathrm{fix}} \simeq \mathcal{D}_{\mathrm{fix}}$ is a <a href="20250110-left_bousfield_localization.html#ID-92822a0b-cdc7-45b9-bbf8-30e49a290671">left Bousfield localization</a> of $\mathcal{C}$ and a <a href="20250102-bousfield_localization.html#ID-0289401d-a871-4e2d-bd40-b33d54e0d4f5">right bousfield localization</a> of $\mathcal{D}$
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="mathcalc-mathrmfix-hookrightarrow-mathcalc">$\mathcal{C}_{\mathrm{fix}} \hookrightarrow \mathcal{C}$</h3>
+<p>
+Let $c \in \mathcal{C}$ and $c_0 \simeq \mathcal{G}(d_0)$ be an element in $\mathcal{C}_0$.
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Hom}_{\mathcal{C}}(c, c_0) \simeq&amp; \mathrm{Hom}_{\mathcal{C}}(c, \mathcal{R}(d_0)) \\
+\simeq&amp; \mathrm{Hom}_{\mathcal{D}}(\mathcal{F}(c), d_0) \\
+\simeq&amp; \mathrm{Hom}_{\mathcal{D}_0}(\mathcal{F}(c), d_0) \\
+\simeq&amp; \mathrm{Hom}_{\mathcal{C}_0}(\mathcal{G}\mathcal{F}(c), \mathcal{G}(d_0)) \\
+\simeq&amp; \mathrm{Hom}_{\mathcal{C}_0}(\mathcal{G}\mathcal{F}(c), c_0)
+\end{align*}</div>
+<p>
+where we have used that $\mathcal{F}, \mathcal{G}$ are <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a> when restricted to $\mathcal{C}_0$ and $\mathcal{D}_0$.
+<a href="20241126-infinity_left_adjoint_and_objectwise_representable.html#ID-ba787352-72b5-46ff-b3df-37298a50301b">pointwise construction of left adjoints</a> &amp; <a href="20241126-infinity_right_adjoint_and_objectwise_representable.html#ID-3aa68e00-8737-401b-a250-49faff83e0e3">pointwise construction of right adjoints</a>
+use:
+</p>
+<ul>
+<li><a href="20250325-adjunction_restrict_to_full_subcategories.html#ID-c98dec69-131d-4781-b567-3f6bd92681ea">infinity adjunctions restrict to full subcategories</a> </li>
+</ul>
+</div>
+</body>
+</html>

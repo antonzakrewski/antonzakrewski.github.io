@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stetigkeit der Skalarmultiplikation</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-3c06613a-cddd-4f33-8e0d-49bb225019e8"></span><h1 class="title">Stetigkeit der Skalarmultiplikation</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X$ be a <a href="20221005101046-normierter_vektorraum.html#ID-2ba5953b-83c1-4e4f-8a82-198c6bbbd76a">normed vector space</a> over $\mathbb{K}$.
+Then scalar multiplication
+</p>
+
+<div class="math-block">\begin{align*}
+\cdot \colon \mathbb{K} \times X \rightarrow&amp; X \\
+(\lambda,x) \mapsto \lambda \cdot x
+\end{align*}</div>
+<p>
+is a <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a> <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">map</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+we show that it is <a href="20221208094811-folgenstetigkeit.html#ID-934a1a9a-3464-4876-babd-3ece8651719e">sequentially continuous</a>.
+So let $x_n \rightarrow x, \lambda_n \rightarrow \lambda$ be <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">convergent</a> sequences.
+Then $\| x_n\|$ is bounded by some $k$.
+Then we get
+</p>
+
+<div class="math-block">\begin{align*}
+\| \lambda \cdot x - \lambda_n x_n\| =&amp; \| \lambda \cdot x - \lambda \cdot x_n + \lambda \cdot x_n -  \lambda_n \cdot x_n \|
+\leq&amp; \| \lambda (x - x_n) \| + \| (\lambda - \lambda_n) x_n \| \\
+\leq&amp; \vert \lambda \vert \| x - x_n \| + \vert \lambda - \lambda_n \vert \cdot \| x_n \| \\
+\leq&amp; \vert \lambda \vert \| x - x_n \| + \vert \lambda - \lambda_n \vert \cdot \| x_n \| \\
+\xrightarrow{n \rightarrow \infty}&amp; \lambda \cdot 0 + 0 \cdot k \\
+=&amp; 0
+\end{align*}</div>
+<p>
+where we have used <a href="20230506130948-stetigkeit_der_norm.html#ID-95077cc6-84d2-4fcc-b765-b2fec0bfffe3">Stetigkeit der Norm</a>
+</p>
+
+</div>
+</body>
+</html>

@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 14:57 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Eindeutigkeit des totalen Differentials</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,59 +52,56 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Eindeutigkeit des totalen Differentials</h1>
-<div id="outline-container-org1970724" class="outline-2">
-<h2 id="org1970724"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-15e2a4ca-a43c-4957-8cb3-6ba31624e085"></span><h1 class="title">Eindeutigkeit des totalen Differentials</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(f: \mathbb{R}^m \rightarrow \mathbb{R}^n\) eine <a href="20230601102558-totale_differenzierbarkeit.html#ID-2bdfcfac-76de-4f04-b2c7-6eca0297c586">total differenzierbare</a> <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktion</a>, dann ist das <a href="20221113224442-totales_differential.html#ID-9361fe82-74cf-489a-8551-9da7453a92b7">totales Differential</a> eindeutig bestimmt.
+Sei $f: \mathbb{R}^m \rightarrow \mathbb{R}^n$ eine <a href="20230601102558-totale_differenzierbarkeit.html#ID-2bdfcfac-76de-4f04-b2c7-6eca0297c586">total differenzierbare</a> <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktion</a>, dann ist das <a href="20221113224442-totales_differential.html#ID-9361fe82-74cf-489a-8551-9da7453a92b7">totales Differential</a> eindeutig bestimmt.
 </p>
-</div>
-</div>
-<div id="outline-container-org17cb159" class="outline-2">
-<h2 id="org17cb159"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<h2 id="beweis">Beweis</h2>
 <p>
-Seien \(L,L' \in \mathrm{Hom}_{\mathbb{R}}(\mathbb{R}^m,\mathbb{R}^n)\) totale differentiale, so folgt nach Annahme
+Seien $L,L' \in \mathrm{Hom}_{\mathbb{R}}(\mathbb{R}^m,\mathbb{R}^n)$ totale differentiale, so folgt nach Annahme
 </p>
-\begin{align*}
-F(x) =&  F(x_0) + L(x - x_0) + r(x) \\
-F(x) =&  F(x_0) + L'(x-x_0) + r'(x) 
-\end{align*}
+
+<div class="math-block">\begin{align*}
+F(x) =&amp;  F(x_0) + L(x - x_0) + r(x) \\
+F(x) =&amp;  F(x_0) + L'(x-x_0) + r'(x) 
+\end{align*}</div>
 <p>
 Damit gilt für die Differenz
 </p>
-\begin{align*}
-0 =& F(x_0) - F(x_0) + L(x - x_0) - L'(x - x_0) + r(x) - r'(x) \\
-0 =& (L - L')(x - x_0) + r(x) - r'(x) && \vert - (r(x) - r'(x))\\
-r'(x) - r(x) =& (L - L')(x - x_0)
-\end{align*}
+
+<div class="math-block">\begin{align*}
+0 =&amp; F(x_0) - F(x_0) + L(x - x_0) - L'(x - x_0) + r(x) - r'(x) \\
+0 =&amp; (L - L')(x - x_0) + r(x) - r'(x) &amp;&amp; \vert - (r(x) - r'(x))\\
+r'(x) - r(x) =&amp; (L - L')(x - x_0)
+\end{align*}</div>
 <p>
-Zudem gilt \(r(x),r'(x) \in o(\| x - x_0 \|)\) und damit auch \(r'(x) - r(x) \in o(\| x - x_0\|)\) (vgl. <a href="20230913-sublineare_abbildungen_als_vektorraum.html#ID-b1b4b719-0266-49a1-ad1e-1cc308e354a1">sublineare Abbildungen als Vektorraum</a>) - besserer name ?
+Zudem gilt $r(x),r'(x) \in o(\| x - x_0 \|)$ und damit auch $r'(x) - r(x) \in o(\| x - x_0\|)$ (vgl. <a href="20230913-sublineare_abbildungen_als_vektorraum.html#ID-b1b4b719-0266-49a1-ad1e-1cc308e354a1">sublineare Abbildungen als Vektorraum</a>) - besserer name ?
 </p>
-\begin{align*}
-(L - L')(x - x_0) =& r'(x) - r(x) \\
-=& o(\| x - x_0 \|)
-\end{align*}
+
+<div class="math-block">\begin{align*}
+(L - L')(x - x_0) =&amp; r'(x) - r(x) \\
+=&amp; o(\| x - x_0 \|)
+\end{align*}</div>
 <p>
-Dabei ist \((L - L')\) ein <a href="20230601104215-linearer_operator.html#ID-f0820723-a046-4b6e-bb52-0e14a4bbb688">linear</a> (vgl. <a href="20221125102950-lemma_uber_die_menge_von_homomorphismen_als_vektorraum.html#ID-fc08811e-0e8a-4761-960f-6c4ec8ba9c46">Menge der Homomorphismen als Vektorraum</a>) und damit wegen der Größenordnung gleich \(0\):
+Dabei ist $(L - L')$ ein <a href="20230601104215-linearer_operator.html#ID-f0820723-a046-4b6e-bb52-0e14a4bbb688">linear</a> (vgl. <a href="20221125102950-lemma_uber_die_menge_von_homomorphismen_als_vektorraum.html#ID-fc08811e-0e8a-4761-960f-6c4ec8ba9c46">Menge der Homomorphismen als Vektorraum</a>) und damit wegen der Größenordnung gleich $0$:
 </p>
 
 <p>
-Sei \(x  \coloneqq x_0 + tv\) mit \(v \in \mathbb{R}^n\), \(t \in \mathbb{R}\) für \(tv\) hinreichend klein, so folgt:
+Sei $x  \coloneqq x_0 + tv$ mit $v \in \mathbb{R}^n$, $t \in \mathbb{R}$ für $tv$ hinreichend klein, so folgt:
 </p>
-\begin{align*}
-(L - L') (tv) =& o(t) \\
-(L - L') (tv) =& t \cdot (L - L')v \\
- \Rightarrow& (L - L')(v) = 0
-\end{align*}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 14:57</p>
+
+<div class="math-block">\begin{align*}
+(L - L') (tv) =&amp; o(t) \\
+(L - L') (tv) =&amp; t \cdot (L - L')v \\
+ \Rightarrow&amp; (L - L')(v) = 0
+\end{align*}</div>
+
+
+
+
 </div>
 </body>
 </html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>abelian arrow category with quotient for an abelian subcategory closed under quotients and subobjects</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-26125283-4264-4f1b-8ba6-967464eddc2f"></span><h1 class="title">abelian arrow category with quotient for an abelian subcategory closed under quotients and subobjects</h1>
+
+<h2 id="definition-proposition">Definition / Proposition</h2>
+<p>
+Let $\mathcal{A} \subseteq \mathcal{B}$ be an <a href="20250707-abelian_full_subcategory.html#ID-0e0a4eb4-67f4-42b7-ac95-fba6415fad24">abelian subcategory</a> which is closed under <a href="20230914-quotient_object.html#ID-4ba8c757-1b9f-472c-bb28-c54df04b26cb">quotients</a> and <a href="20230911-subobject.html#ID-287d81f7-a81b-441c-947e-ba707aa4555b">subobjects</a>.
+Let $\mathrm{Fun}_{\mathcal{A}}(\Delta^1, \mathcal{B})$ be the <a href="20240920-full_sub_infinity_category.html#ID-9e204c6a-f799-4623-ae56-89de8ef5a212">full subcategory</a> of the <a href="20230403183725-arrow_category.html#ID-0554b693-0143-4f63-be7a-4a7af587c98b">arrow category</a> containing <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphisms</a> $f: A \rightarrow B$ where the <a href="20230827-cokernel_category_theory.html#ID-3e52d31a-b97e-454b-b565-4ae3d2b26482">cokernel</a> $B/A$ lies in $\mathcal{A}$.
+</p>
+
+<p>
+I think this is wrong :(
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+We claim that $\mathrm{Fun}_{\mathcal{A}}(\Delta^1, \mathcal{B})\subseteq \mathrm{Fun}(\Delta^1, \mathcal{B})$ is a <a href="20240920-full_sub_infinity_category.html#ID-9e204c6a-f799-4623-ae56-89de8ef5a212">full subcategory</a> closed under finite <a href="infinity-limit.html#ID-a8bcf958-5282-4984-8415-7a64cca74613">limit</a>s and <a href="20241016-colimit_in_an_infinity_category.html#ID-de45d65c-0326-401d-93b3-f10a929be459">colimit</a>s.
+</p>
+
+<h3 id="additive">additive</h3>
+<p>
+note that the $0$ object $0 \rightarrow 0$ lies there
+Furthermore finite sums commute with <a href="20230827-cokernel_category_theory.html#ID-3e52d31a-b97e-454b-b565-4ae3d2b26482">cokernels</a>
+</p>
+
+<h3 id="kernel">kernel</h3>
+<p>
+let
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+A\rar \dar &amp; B \rar \dar[dashed] &amp; B/A \dar\\
+A' \rar &amp; B' \rar[dashed] &amp; B'/A'
+\end{tikzcd}
+# \end{displaymath}
+be a sequence where $B/A,B'/A' \in \mathcal{A}$.
+
+We claim that the kernel in $\mathrm{Fun}(\Delta^1, \mathcal{B})$ already lies in the subcategor.
+Since $\mathcal{A}$ is closed under kernels we may conclude that $\mathrm{ker}(A \rightarrow A') \in \mathcal{A}$
+
+Hence it suffices to show that the quotient of $\mathrm{ker}(B \rightarrow B')/\mathrm{ker}(A \rightarrow A')$ lies in $\mathcal{A}$
+
+Then we replace the diagram above to get a sequence with exact rows
+#+OPTIONS: tex:dvisvgm
+\begin{displaymath}
+\begin{tikzcd}
+&amp; A\rar \dar &amp; B \dar \rar[dashed] &amp; B/A \dar \rar &amp; 0\\
+0 \rar &amp; \mathrm{im}(A \rightarrow A') \rar &amp; B' \rar[dashed] &amp; B'/A'
+\end{tikzcd}
+\end{displaymath}</pre></div>
+
+<p>
+so in particular we may apply the snake lemma to get an exact sequence (abusing notation for $\mathrm{ker}, \mathrm{coker}$)
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/a93bae690a90bc5583a9.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+We want to show that $\mathrm{coker}(\mathrm{ker}(A) \rightarrow \mathrm{ker}(B))$ lies in $\mathcal{A}$
+</p>
+
+<p>
+By <a href="20240514-cutting_a_short_exact_sequence_out_of_a_long_exact_sequence.html#ID-7d8c7b40-2cdd-45e2-aa4f-b9f3f2aa3811">cutting a short exact sequence out of a long exact sequence</a> we get a exact sequence
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/7bc5d3e3db75d8954c91.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+which shows that $\mathrm{coker}(\mathrm{ker}(A) \rightarrow \mathrm{ker}(B))$ is a subobject of $\mathrm{ker}(B/A)$.
+Hence $\mathrm{coker}(\mathrm{ker}(A) \rightarrow \mathrm{ker}(B))$ lies in particular in $\mathcal{A}$ since $\mathrm{ker}(B/A)$ is kernel in $\mathcal{A}$
+</p>
+
+<h3 id="cokernel">cokernel</h3>
+<p>
+follows from:
+<a href="20250924-cofiber_in_the_arrow_category.html#ID-87566e86-a8d9-4d9e-848d-34aa8cf8f53b">cofiber in the arrow category</a>
+</p>
+
+</div>
+</body>
+</html>

@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 18:02 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>equivalence of local sections</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,64 +52,48 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">equivalence of local sections</h1>
-<div id="outline-container-org74c1337" class="outline-2">
-<h2 id="org74c1337"><span class="section-number-2">1.</span> Definition / Proposition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-58ad1e15-1649-4f81-88e3-aa5b84056bd4"></span><h1 class="title">equivalence of local sections</h1>
+
+<h2 id="definition-proposition">Definition / Proposition</h2>
 <p>
-Let \((X, \mathcal{T})\) be a <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological space</a> and \(\mathcal{V}\) a <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a> and \(\mathcal{F}\) a <a href="20230818-v_valued_presheaf.html#ID-0b3df3a6-6fbc-4d13-bce5-3199c201cd8f">V-valued</a> <a href="20230603-presheaf_of_sets.html#ID-d49e3c63-1428-4b98-9f00-238ae7770cbf">presheaf</a>.
-Then <a href="20230828-local_section.html#ID-e606f7c9-2dc4-48b2-a1a1-a988c02158fd">local sections</a> \((O_1,s_1), (O_2,s_2)\) are said to be equivalent at \(x \in X\), if there exists an <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> set \(U \subseteq X\) such that \(U \subseteq O_1, U \subseteq O_2\) and \(x \in U\) with
+Let $(X, \mathcal{T})$ be a <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological space</a> and $\mathcal{V}$ a <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a> and $\mathcal{F}$ a <a href="20230818-v_valued_presheaf.html#ID-0b3df3a6-6fbc-4d13-bce5-3199c201cd8f">V-valued</a> <a href="20230603-presheaf_of_sets.html#ID-d49e3c63-1428-4b98-9f00-238ae7770cbf">presheaf</a>.
+Then <a href="20230828-local_section.html#ID-e606f7c9-2dc4-48b2-a1a1-a988c02158fd">local sections</a> $(O_1,s_1), (O_2,s_2)$ are said to be equivalent at $x \in X$, if there exists an <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> set $U \subseteq X$ such that $U \subseteq O_1, U \subseteq O_2$ and $x \in U$ with
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \mathrm{res}_{U}(s_1) = \mathrm{res}_{U}(s_2)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orga15d5a0" class="outline-2">
-<h2 id="orga15d5a0"><span class="section-number-2">2.</span> Proof (as <a href="20211230190101-aquivalenzklasse.html#ID-5ee76318-ae03-4cb3-877f-6b6ff88ad6fa">equivalence class</a>)</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org997d687" class="outline-3">
-<h3 id="org997d687"><span class="section-number-3">2.1.</span> <a href="20220929191559-symmetrische_relation.html#ID-ecd19bf0-673a-47ba-b40f-3331655ff473">symmetric relation</a></h3>
-<div class="outline-text-3" id="text-2-1">
+\end{align*}</div>
+
+<h2 id="proof-as-id5ee76318-ae03-4cb3-877f-6b6ff88ad6faequivalence-class">Proof (as <span class="broken-link" title="unresolved id:5ee76318-ae03-4cb3-877f-6b6ff88ad6fa">equivalence class</span>)</h2>
+
+<h3 id="idecd19bf0-673a-47ba-b40f-3331655ff473symmetric-relation"><a href="20220929191559-symmetrische_relation.html#ID-ecd19bf0-673a-47ba-b40f-3331655ff473">symmetric relation</a></h3>
 <p>
-follows from the symmetry of \(=\)
+follows from the symmetry of $=$
 </p>
-</div>
-</div>
-<div id="outline-container-org69e49de" class="outline-3">
-<h3 id="org69e49de"><span class="section-number-3">2.2.</span> <a href="20220929192418-reflexive_relation.html#ID-a6016d54-aefb-460f-9da3-37388a9a4941">reflexive Relation</a></h3>
-<div class="outline-text-3" id="text-2-2">
+
+<h3 id="ida6016d54-aefb-460f-9da3-37388a9a4941reflexive-relation"><a href="20220929192418-reflexive_relation.html#ID-a6016d54-aefb-460f-9da3-37388a9a4941">reflexive Relation</a></h3>
 <p>
-follows from \(U = O\) for \((O,s)\)
+follows from $U = O$ for $(O,s)$
 </p>
-</div>
-</div>
-<div id="outline-container-org0c1116c" class="outline-3">
-<h3 id="org0c1116c"><span class="section-number-3">2.3.</span> <a href="20220929192405-transitive_relation.html#ID-b1ee8b48-b51c-4099-b1c8-27dd3e757e0b">transitive Relation</a></h3>
-<div class="outline-text-3" id="text-2-3">
+
+<h3 id="idb1ee8b48-b51c-4099-b1c8-27dd3e757e0btransitive-relation"><a href="20220929192405-transitive_relation.html#ID-b1ee8b48-b51c-4099-b1c8-27dd3e757e0b">transitive Relation</a></h3>
 <p>
-Let \((O_1,s_1),(O_2,s_2),(O_3,s_3)\) and restrictions \(U_1,U_2\) such that
+Let $(O_1,s_1),(O_2,s_2),(O_3,s_3)$ and restrictions $U_1,U_2$ such that
 </p>
-\begin{align*}
-\mathrm{res}_{U_1}(s_1) =& \mathrm{res}_{U_1}(s_2) \\
-\mathrm{res}_{U_2}(s_2) =& \mathrm{res}_{U_2}(s_3)
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\mathrm{res}_{U_1}(s_1) =&amp; \mathrm{res}_{U_1}(s_2) \\
+\mathrm{res}_{U_2}(s_2) =&amp; \mathrm{res}_{U_2}(s_3)
+\end{align*}</div>
 <p>
-Then \(U_1 \cap U_2\) is <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> (cf. <a href="20221002144436-abgeschlossenheit_gegenuber_schnitten_topologie.html#ID-12083782-9ff4-46b9-9b75-6be9b008d6cb">Openness of a finite intersection of open sets</a>) hence
+Then $U_1 \cap U_2$ is <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> (cf. <a href="20221002144436-abgeschlossenheit_gegenuber_schnitten_topologie.html#ID-12083782-9ff4-46b9-9b75-6be9b008d6cb">Openness of a finite intersection of open sets</a>) hence
 </p>
-\begin{align*}
-\mathrm{res}_{U_1 \cap U_2}(s_1) =& \mathrm{res}_{U_1 \cap U_2}(s_2) \\
-=& \mathrm{res}_{U_1 \cap U_2}(s_3)
-\end{align*}
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 18:02</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{res}_{U_1 \cap U_2}(s_1) =&amp; \mathrm{res}_{U_1 \cap U_2}(s_2) \\
+=&amp; \mathrm{res}_{U_1 \cap U_2}(s_3)
+\end{align*}</div>
+
 </div>
 </body>
 </html>

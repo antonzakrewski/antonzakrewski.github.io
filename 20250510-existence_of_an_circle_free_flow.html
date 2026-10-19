@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>existence of an circle free flow</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-b5adcd21-f66c-4e78-8323-a273a5689222"></span><h1 class="title">existence of an circle free flow</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $N$ be a <a href="20250508-network_graph.html#ID-b0096be3-39ac-43e4-bf2c-900b52d5f5de">network</a> and $f$ a <a href="20250508-flow.html#ID-b184cddc-3ff2-4fed-99ce-eceb63fe54e0">flow</a>.
+Then there exists a flow $g$ with
+</p>
+<ol>
+<li>$\mathrm{val}(g) = \mathrm{val}(f)$ (cf. <a href="20250508-value_of_a_flow.html#ID-311079b3-680d-460a-8882-b5bf354e1d0a">value of a flow</a>) </li>
+
+<li>$g$ is <a href="20250510-circle_in_a_flow.html#ID-f34e8b47-18df-46e0-a9c2-4e4a9e7288c2">circlefree</a> </li>
+</ol>
+<h2 id="proof">Proof</h2>
+<p>
+Suppose $f$ has a circle indexed by $v_1,...,v_k$.
+Let $c \coloneqq \mathrm{min}(f(v_1,v_2))$.
+Then define
+</p>
+
+<div class="math-block">\begin{align*}
+g_1(v_i,v_j) \coloneqq 
+    \begin{cases}
+    f(v_i,v_j) &amp; \mbox{if } v_i,v_j \mathrm{ not in circle} \\
+    f(v_i,v_j) - c  &amp; \mbox{else } \\ 
+    \end{cases}
+\end{align*}</div>
+<p>
+and iterate until you get a circle free flow:
+</p>
+
+<h3 id="welldefined-flow">welldefined flow</h3>
+<p>
+note that $g_1$ satisfies the capacity restrictions, since $g_1 &lt; f$.
+Furthermore flow conservation also follows from flow conservation of $f$:
+Let $v$ be any vertex, then we claim that the difference between input and output does not change, since any vertex $w$ which appears in the circle $n$ times gets $n \cdot c$ less as total input and $n \cdot c$ less as total output.
+</p>
+
+<h3 id="algorithm-ends">algorithm ends</h3>
+<p>
+Note that only finitely many edges of a flow are active.
+Furthermore this algorithm makes a dgevertex inactive, namely each (at least one) edge which has $f(e) = c$
+</p>
+
+
+</div>
+</body>
+</html>

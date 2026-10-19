@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>dimension der summe von zwei Vektorräumen</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-b95e63bc-863b-4350-8385-43dc377be71e"></span><h1 class="title">dimension der summe von zwei Vektorräumen</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $K$ ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a>, $W$ ein <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">K-Vektorraum</a> und $U,V \subseteq W$ <a href="20221009092955-unterraum.html#ID-854e21c6-b2ac-4d8c-b859-7797b3ddb35e">Untervektorräume</a>.
+Dann gilt für die <a href="20220102135318-dimension.html#ID-3e484fb0-c9a8-485a-999b-4f0052bd13e4">dimension</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{dim}(U + V) + \mathrm{dim}(U \cap V) = \mathrm{dim}(U) + \mathrm{dim}(V)
+\end{align*}</div>
+
+<p>
+siehe:
+</p>
+<ul>
+<li><a href="20221227225328-direktes_produkt_von_vektorraumen.html#ID-634b3569-cc17-463c-9dcd-3b07e264f9bf">direct product of vector spaces</a> </li>
+
+<li><a href="20221115083550-summe_zweier_vektorraume.html#ID-da2e73df-a954-4165-a658-a914c6adabcf">Summe zweier Vektorräume</a>   </li>
+</ul>
+<h2 id="beweis">Beweis</h2>
+<p>
+Es gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{dim}(U \times V) = \mathrm{dim}(U) + \mathrm{dim}(V)
+\end{align*}</div>
+<p>
+da eine Basis von $U \times V$ gegeben ist durch die Wahl einer Basis $u_i$ von $U$ und der Wahl einer Basis $v_i$ von $V$:
+Dann ist $ \{(u_i,0) \} \cup \{0,v_i\}$ eine Basis von $U \times V$
+(todo)
+</p>
+
+
+<p>
+Betrachte dann die Abbildung
+</p>
+
+<div class="math-block">\begin{align*}
+f: U \times V \rightarrow&amp; W \\
+(u,v) \mapsto&amp; u - v
+\end{align*}</div>
+<p>
+(nachrechnen: diese Abbildung ist ein Vektorraumhomomorphismus)
+</p>
+
+<p>
+diese Abbildung hat per Definition $\mathrm{im}(f) = U + V$
+Es bleibt zu zeigen, dass
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{dim}(\mathrm{ker}(f)) = \mathrm{dim}(U + V)
+\end{align*}</div>
+<p>
+da dann aufgrund des <a href="20230123044300-rangsatz.html#ID-2e30f05f-ed0c-4a47-86e3-5d6e3330d830">Rangsatzes</a> folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{dim}(U + V) + \mathrm{dim}(U \cap V) =&amp; \mathrm{dim}(U + V) + \mathrm{dim}(\mathrm{ker}(f)) \\
+=&amp; \mathrm{dim}(U \times V) \\
+=&amp; \mathrm{dim}(U) + \mathrm{dim}(V)
+\end{align*}</div>
+
+<p>
+Es reicht aus, zu zeigen dass
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{ker}(f) \cong U \cap V
+\end{align*}</div>
+
+
+<p>
+Betrachte die Abbildung, welche gegeben durch die Diagonalabbildung und die Inklusion
+</p>
+
+<div class="math-block">\begin{align*}
+\Delta: U \cap V \rightarrow&amp; U \times V \\
+(x) \mapsto&amp; (x,x)
+\end{align*}</div>
+<p>
+(nachrechnen: diese Abbildung ist \(K\)-linear)
+</p>
+
+<p>
+Dann gilt, dass $\Delta$ einen Isomorphismus auf den Untervektorraum des Kerns bestimmt:
+</p>
+
+<p>
+Es gilt, dass
+</p>
+<ol>
+<li>$f \circ \Delta = 0$ die Nullabbildung ist, d.h. für ein $x \in U \cap V$ gilt</li>
+</ol>
+<div class="math-block">\begin{align*}
+f(\Delta(x)) =&amp; f((x,x)) \\
+=&amp; x - x \\
+=&amp; 0
+\end{align*}</div>
+<p>
+Somit können wir $\Delta$ auf den Kern von $f$ einschränken und es ist eine wohldefinierte Abbildung
+</p>
+
+<div class="math-block">\begin{align*}
+\Delta: U \cap V \rightarrow&amp; \mathrm{ker}(f) \\
+(x) \mapsto&amp; (x,x)
+\end{align*}</div>
+
+<ol>
+<li>$\Delta$ eine injektive Abbildung ist. Dies folgt unmittelbar, z.B. aus <a href="20221117113054-lemma_uber_die_aquivalenz_von_einem_monomorphismus_und_einem_minimalen_kern.html#ID-a7df72cc-6dd4-456c-aad8-2622472e7b0c">minimal kernel and monomorphism</a>, da $\Delta(x) = 0 = (0,0)$ genau dann wenn $x = 0$ </li>
+</ol>
+<ol>
+<li>$\Delta$ surjektiv auf den Kern abbildet: Gegeben ein Element $x = (u,v) \in \mathrm{\mathrm{ker}(f)}$ so gilt</li>
+</ol>
+<div class="math-block">\begin{align*}
+0 =&amp; f(x) =&amp; u - v
+\end{align*}</div>
+<p>
+Damit folgt
+</p>
+
+<div class="math-block">\begin{align*}
+u =&amp; v 
+\end{align*}</div>
+<p>
+in $W$
+</p>
+
+<p>
+Zudem gilt wegen $\mathrm{ker}(f) \subseteq U \times V$ auch $u \in U, v \in V$ bzw. $u = v \in U \cap V$.
+</p>
+
+<p>
+Somit ist $\Delta(u) = (u,u) = (u,v)$
+</p>
+
+
+<p>
+Aus 1), 2), 3) folgt somit
+</p>
+
+<div class="math-block">\begin{align*}
+U \cap V \cong \mathrm{ker}(f)
+\end{align*}</div>
+
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>operatornorm in general does not assume the supremum</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-2c322537-45ea-454d-90d7-7fafcbc38510"></span><h1 class="title">operatornorm in general does not assume the supremum</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $l_0 = \{x \in l^{\infty} : \mathrm{lim}_{n \rightarrow \infty} x_n = 0\}$ be the &lt;?&gt;
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+consider $l_0$ (<a href="20260506-l0_space_of_sequences.html#ID-3dc5bccc-9a4c-4ee1-ba8e-bba6c8414d24">l0 space of sequences</a>) with the <a href="20230110111654-supremumsnorm.html#ID-4e52ce2f-dff5-4404-ad69-4b1f6dcf95cc">Supremumsnorm</a>.
+Then consider the map
+</p>
+
+<div class="math-block">\begin{align*}
+T: (x_n) \rightarrow ((1 - \frac{1}{n+1}) x_n)
+\end{align*}</div>
+
+<p>
+it is linear, since it is the (categorical) product of linear maps and we claim that its <a href="20230228183044-operatornorm_als_echte_norm.html#ID-ee5d7893-af98-4807-8118-00bde790b509">Operatornorm</a> is $1$:
+</p>
+
+<div class="math-block">\begin{align*}
+\frac{\|T(e_i) \| }{\| e_i \|} = \frac{(1 - \frac{1}{n+1}}{1} \xrightarrow{n \rightarrow \infty} 1
+\end{align*}</div>
+<p>
+where $e_i \coloneqq (\delta_{i,n})_n$, in other words $\| T \| \geq 1$.
+But we claim that $\frac{\|T(x_n) \| }{\| x_n \|} &lt; 1$ for each $x \in l_0 \setminus \{0\}$:
+</p>
+
+<p>
+Let $x \neq 0$ and w.l.o.g. assume that $x_m \neq 0$.
+Then
+</p>
+
+<div class="math-block">\begin{align}
+\| T(x) \| =&amp; \sum_{n \neq m} (1 - \frac{1}{n+1}) \vert x_n \vert + \frac{1}{m+1} \vert x_m \vert \\ 
+  \leq&amp; \sum_{n \neq m} \vert x_n \vert + \frac{1}{m+1} \vert x_m \vert \\
+  &lt;&amp; \sum_{n \neq m} \vert x_n \vert + \vert x_m \vert \\
+=&amp; \| x \|
+\end{align}</div>
+<p>
+which shows $\| T \| \leq 1$ and more importantly, that there does not exist an $x$ such that $\| T(x) \| = \frac{\| T \|}{\| x \|}$
+</p>
+
+
+</div>
+</body>
+</html>

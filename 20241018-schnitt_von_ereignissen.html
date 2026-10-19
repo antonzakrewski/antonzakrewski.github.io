@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>schnitt von Ereignissen</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-2d4d274d-d91e-43b9-a879-44aa4232b509"></span><h1 class="title">schnitt von Ereignissen</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $(\Omega, \mathcal{F}, \mathbb{P})$ ein <a href="20220903151423-wahrscheinlichkeitsraum.html#ID-0a7fdeda-13a2-44be-bc7e-d6ab02447255">Wahrscheinlichkeitsraum</a>.
+Seien $A,B \in \mathcal{F}$ ereignisse, so dass $A \cup B = \mathcal{F}$.
+</p>
+
+<p>
+Dann gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{P}(A \cap B) = \mathbb{P}(A) \mathbb{P}(B) - \mathbb{P}(A^C) \mathbb{P}(B^C)
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+nach der <a href="20241015-subtraktivitat_eines_inhalts.html#ID-e768ef1b-bfd6-49c6-bb98-6cf549671de6">Subtraktivität eines Inhalts</a> gilt $\mathbb{P}(A^C) = 1 - \mathbb{P}(A)$.
+Damit folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{P}(A) \mathbb{P}(B) - \mathbb{P}(A^C) \mathbb{P}(B^C) =&amp; \mathbb{P}(A) \mathbb{P}(B) - (1 - \mathbb{P}(A)) (1 - \mathbb{P}(B^C)) \\
+=&amp; \mathbb{P}(A) \mathbb{P}(B) - 1 - \mathbb{P}(A) \mathbb{P}(B)  + \mathbb{P}(A) + \mathbb{P}(B) \\
+=&amp; \mathbb{P}(A) + \mathbb{P}(B) - 1 \\
+=&amp; \mathbb{P}(A \cap B \coprod A \setminus B) + \mathbb{P}(B) - 1 \\
+=&amp; \mathbb{P}(A \cap B) + \mathbb{P}(A \setminus B) + \mathbb{P}(B) - 1
+\end{align*}</div>
+<p>
+dabei sind $A \setminus B, B$ disjunkt mit $A \setminus B \cup B = \Omega$, d.h. es gilt $\mathbb{P}(A \setminus B) + \mathbb{P}(B) = \mathbb{P}(\Omega) = 1$
+</p>
+
+<p>
+damit folgt
+</p>
+
+
+<div class="math-block">\begin{align*}
+\mathbb{P}(A \cap B) + \mathbb{P}(A \setminus B) + \mathbb{P}(B) - 1 =&amp; \mathbb{P}(A \cap B)
+\end{align*}</div>
+
+<p>
+bzw. die gewünschte Gleichung
+</p>
+
+</div>
+</body>
+</html>

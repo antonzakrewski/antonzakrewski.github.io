@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hilbertraum als direkte Summe von einem abgeschlossenen Unterraum und dem orthogonalen Komplement</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-485912da-04e6-44d0-bea5-7024673a60fa"></span><h1 class="title">Hilbertraum als direkte Summe von einem abgeschlossenen Unterraum und dem orthogonalen Komplement</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $\mathcal{H}$ ein <a href="20241116-hilbertraum.html#ID-c884ff07-da92-448d-a745-6f23fee0c6e3">Hilbertraum</a> und $U \subseteq \mathcal{H}$ <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossen</a>
+Dann ist $\mathcal{H}$ als <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">Vektorraum</a> gegeben durch
+</p>
+
+<div class="math-block">\begin{align*}
+U \oplus U^{\bot}
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="a-eindeutigkeit">a) eindeutigkeit</h3>
+<ul>
+<li><a href="20230712-direktheit_der_summe_mit_dem_orthogonalen_komplement.html#ID-435c688d-9c35-4725-8693-51cba98315a5">Schnitt eines Unterraums mit dem Orthogonalen Komplement</a></li>
+</ul>
+<h3 id="b-existenz">b) existenz</h3>
+<p>
+Sei $x \in \mathcal{H}$ gegeben.
+Dann wähle eine folge $y_n \in U$ mit
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{lim}_{n \rightarrow \infty} \| x - y_n \| = \mathrm{inf}_{y \in U} \| x - y \| \eqqcolon \delta \geq 0
+\end{align*}</div>
+
+
+<p>
+Setze $a \coloneqq x - y_m, b \coloneqq x - y_n$.
+Dann gilt nach der <a href="20241117-parallelogramidentitat.html#ID-30ab922b-fb8c-4a98-9acd-314c0aa34394">Parallelogramidentität</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\frac{1}{2} \left( \| x - y_m + x - y_n \|^2 + \| y_n - y_m \|^2 \right) =&amp; \| x - y_m \|^2 + \| x - y_n \|^2
+\end{align*}</div>
+<p>
+bzw.
+</p>
+
+<div class="math-block">\begin{align*}
+\| x - y_m \| + \| x - y_n \| -  \| 2x - y_m - y_n \|^2 = \frac{1}{2} \| y_m - y_n \|
+\end{align*}</div>
+
+<p>
+Dann gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\| 2x - y_m - y_n \|^2 =&amp; 2 \cdot \| x - \frac{y_m + y_n}{2} \|
+\end{align*}</div>
+<p>
+und ferner liegt $\frac{y_m + y_n}{2} \in U$
+</p>
+
+<p>
+Damit gilt die Abschätzung
+</p>
+
+<div class="math-block">\begin{align*}
+\| 2x - y_m - y_n \|^2 \geq 2 \cdot \delta^2
+\end{align*}</div>
+
+<p>
+Zudem gilt nach Annahme $\| x - y_m \|^2, \| x - y_n \|^2 \rightarrow \delta^2$
+</p>
+
+<p>
+Somit folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{lim}_{m,n \rightarrow \infty} \mathrm{sup} \frac{1}{2} \| y_m - y_n \|^2 \leq \partial^2 + \partial ^2 - 2 \partial^2 = 0
+\end{align*}</div>
+<p>
+bzw. dass $y_n$ eine <a href="20220105223523-fundamental_folge.html#ID-45b890ea-39cc-4f8c-bf97-4de5c09d772a">Cauchy</a> folge ist.
+</p>
+
+<p>
+Da $\mathcal{H}$ nach Annahme vollständig ist, existiert ein Grenzwert $u$
+Nach <a href="20230312221725-charakterisierung_einer_abgeschlossene_menge_durch_konvergente_folgen_in_einem_metrischen_raum.html#ID-a9367a62-48cf-43e9-b4ca-ea264fb789ed">Charakterisierung einer abgeschlossene Menge durch konvergente Folgen in einem metrischen Raum</a> liegt $u \in \mathcal{U}$
+</p>
+
+<p>
+Sei $v \coloneqq x - u$
+Dann gilt $x = v + u$ und es bleibt zu zeigen, dass $v \in U^\bot$
+</p>
+
+<p>
+Definiere für $u' \in U$ und $t \in \mathbb{R}$
+</p>
+
+<div class="math-block">\begin{align*}
+f(t) \coloneqq \| x - u - t u' \|^2 = \| x - u \|^2 + t^2 \| u' \| - 2 t \mathrm{Re}( \langle x - u, u'\rangle
+\end{align*}</div>
+
+<p>
+Dann ist per definition von $u$  ist $t = 0$ ein globales Minimum ???
+Damit gilt auch
+</p>
+
+<div class="math-block">\begin{align*}
+0 = \frac{\partial }{\partial t} f(t)_{\vert t = 0} = - 2 \mathrm{Re}( \langle x - u, u'\rangle)
+\end{align*}</div>
+<p>
+Analog auch für $f( \mathrm{i} \cdot t)$ falls $\mathbb{K} = \mathbb{C}$ gilt.
+Dann folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\langle x - u, u'\rangle = 0
+\end{align*}</div>
+<p>
+und somit $x - u = v \in U^\bot$
+</p>
+
+</div>
+</body>
+</html>

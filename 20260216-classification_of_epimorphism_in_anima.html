@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>classification of epimorphism in anima</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-bc920a7d-fd98-475e-b12e-a5843bfddf20"></span><h1 class="title">classification of epimorphism in anima</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $f: X \rightarrow Y$ be a map between <a href="20240404-infinity_groupoid.html#ID-b516d6fd-fec1-4d8a-8efa-b2ad1f1bb283">anima</a>
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol>
+<li>$f$ is an <a href="20220819135905-epimorphismus.html#ID-ad206194-a416-4910-a5c4-d72528ae5ba0">epimorphism</a> </li>
+
+<li>$f$ is an <a href="20250425-acyclic_map_between_spaces.html#ID-f4e36710-8925-4856-9968-b0ca0484121b">acyclic map</a>, i.e. a (co-)homology isomorphism </li>
+</ol>
+<h2 id="proof">Proof</h2>
+<p>
+First recall that a mrophism $f: X \rightarrow Y$ is an epimorphism, <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> for each $Z$, the map $f^*: \mathrm{Hom}_{\mathrm{An}}(Y,Z) \rightarrow \mathrm{Hom}_{\mathrm{An}}(X,Z)$ is a <a href="20220819135911-monomorphismus.html#ID-60b63797-32fa-4d4e-a577-7616faa010ba">monomorphism</a> in <a href="20240404-infinity_groupoid.html#ID-b516d6fd-fec1-4d8a-8efa-b2ad1f1bb283">anima</a>.
+</p>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+<p>
+Now monomorphisms are precisely the inclusions of path components, hence isomorphisms on $\pi_1(-)$ and above as well as a monomorphism on $\pi_0$.
+</p>
+
+<p>
+Now by <a href="20241111-representability_of_singular_cohomology.html#ID-952986ff-6928-4bb1-ba71-c254b8f2698f">representability of singular cohomology</a>, we get that $H_*(-, \mathbb{Z})$ is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a> for $* \geq 1$.
+Now it remains to show that it is an isomorphism on $H_0(-, \mathbb{Z})$, but there it suffices to use the suspension isomorphism and show that $\Sigma X \rightarrow \Sigma Y$ is an epimorphism.
+</p>
+
+<p>
+This follows as the forgetful functor $\mathrm{An}_* \rightarrow \mathrm{An}$ preserves and detects <a href="20241017-infinity_pushout.html#ID-91244ae5-b853-45df-bbe0-af6ae9a8da47">pushouts</a>, i.e. we can lift $f: X \rightarrow Y$ to a pointed map which then remains an epimorphism.
+Then the suspension functor is colimit preserving functor $-\wedge S^1: \mathrm{An}_{*} \rightarrow \mathrm{An}_*$, which therefore also preserves epimorphisms, i.e. $\Sigma f$ is an epimorphsim in $\mathrm{An}_*$ and $\mathrm{An}$.
+</p>
+
+<h3 id="2-implies-1">2) $\implies$ 1)</h3>
+<p>
+Let $f$ be an acyclic map, then we need to show that
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/0df56b05f11219ad3a7c.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+is a <a href="20241017-infinity_pushout.html#ID-91244ae5-b853-45df-bbe0-af6ae9a8da47">pushout</a> diagram in the <a href="20240713-infinity_category_of_spaces.html#ID-7a8f95e9-9a42-40a5-aa46-7fabec2ef09a">category of Anima</a> or in the category $\mathrm{An}_{/Y}$, since the forgetful functor $\mathrm{An} \rightarrow \mathrm{An}_{/Y}$.
+</p>
+
+<p>
+Now $\mathrm{An}$ satisfies descent, so we have $\mathrm{An}_{/Y} \simeq \mathrm{An}_{/ \mathrm{colim}_Y *} \simeq \lim_{Y} \mathrm{An}_{/*}$.
+Here each transition functor is colimit preserving (<a href="20250529-colimits_in_anima_are_universal.html#ID-0acf2cad-8a48-4b0b-aee0-1bc1a5db9605">colimits in anima are universal</a>), hence epimorphism preserving and it suffices to show that $\mathrm{fib}_y \rightarrow *$ is an <a href="20220819135905-epimorphismus.html#ID-ad206194-a416-4910-a5c4-d72528ae5ba0">epimorphism</a> for each $y \in y$.
+In other words, we need to show that
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/5db61080854ceff21216.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+is a <a href="20241017-infinity_pushout.html#ID-91244ae5-b853-45df-bbe0-af6ae9a8da47">pushout</a> or in other words, that $\Sigma \mathrm{fib}_y$ is <a href="20240703-contractible_simplicial_set.html#ID-5db3dfcd-9f98-41a8-9550-a49351d833cf">contractible.</a>
+But $\Sigma \mathrm{fib}_y$ is the <a href="20230801-suspension_topology.html#ID-0d472330-27b9-463e-933c-86b3f324550e">suspension</a> of an acyclic anima, hence contractible (cf. <a href="20260418-suspension_of_an_acyclic_space_is_contractible.html#ID-ae36a3f1-0203-4444-9b69-59a6d89bde56">suspension of an acyclic space is contractible</a>).
+</p>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>

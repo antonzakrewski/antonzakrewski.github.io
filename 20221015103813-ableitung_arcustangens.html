@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:36 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ableitung Arkustangens</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,47 +52,41 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Ableitung Arkustangens</h1>
-<div id="outline-container-org7c76c37" class="outline-2">
-<h2 id="org7c76c37"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
-\begin{align*}
-\arctan'(x) =& \frac{1}{1 + x^2}
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org092d9b0" class="outline-2">
-<h2 id="org092d9b0"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+<span id="ID-f0c298bb-befb-486a-a09e-4e4c49b925e8"></span><h1 class="title">Ableitung Arkustangens</h1>
+
+<h2 id="satz">Satz</h2>
+
+<div class="math-block">\begin{align*}
+\arctan'(x) =&amp; \frac{1}{1 + x^2}
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
 <p>
 Aufgrund der Definition des <a href="20221009192726-arkuskotangens.html#ID-f8e28bac-2565-4b87-b532-f23de504d455">Arkuskotangens</a> als <a href="20210318211130-umkehrfunktion.html#ID-35d2e288-1bec-4daf-866a-99566d5d0d8f">Umkehrfunktion</a> gilt
 </p>
-\begin{align*}
-\tan(\arctan(x)) =& x 
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\tan(\arctan(x)) =&amp; x 
+\end{align*}</div>
 <p>
 Aufgrund der <a href="20221015110424-ableitung_tangens.html#ID-fa398e10-2fcc-4b06-bc7f-b0a691f61739">Ableitung des Tangens</a> und der <a href="20210412125148-kettenregel.html#ID-2a4a6de8-4c4d-45bc-97f3-de18cfd2aac7">Kettenregel</a> gilt:
 </p>
-\begin{align*}
-\tan(\arctan(x)) =& x && \vert \frac{\mathrm{d}}{\mathrm{d}x} \\
-\sec(\arctan(x))^2 \cdot \arctan'(x)=&  1 && \vert \cdot \frac{1}{\sec(\arctan(x))^2}\\
-\arctan'(x) =& \frac{1}{\sec(\arctan(x))^2} 
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\tan(\arctan(x)) =&amp; x &amp;&amp; \vert \frac{\mathrm{d}}{\mathrm{d}x} \\
+\sec(\arctan(x))^2 \cdot \arctan'(x)=&amp;  1 &amp;&amp; \vert \cdot \frac{1}{\sec(\arctan(x))^2}\\
+\arctan'(x) =&amp; \frac{1}{\sec(\arctan(x))^2} 
+\end{align*}</div>
 <p>
-Aufgrund der <a href="20221015105512-trigonometrische_identitat_tangens_und_sekans.html#ID-2a5176f5-298f-487f-b866-0997ad4cd5f2">Trigonometrische Identität des Tangens und Sekans</a> $sec(y)<sup>2</sup> =&amp; 1 + tan(y)<sup>2</sup> gilt:
+Aufgrund der <a href="20221015105512-trigonometrische_identitat_tangens_und_sekans.html#ID-2a5176f5-298f-487f-b866-0997ad4cd5f2">Trigonometrische Identität des Tangens und Sekans</a> $\sec(y)^2 =&amp; 1 + \tan(y)^2 gilt:
 </p>
-\begin{align*}
-\arctan'(x) =& \frac{1}{\sec(\arctan(x))^2} \\
-=& \frac{1}{1 + \tan(arctan(x))^2} \\
-=& \frac{1}{1 + x^2}
-\end{align*}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:36</p>
+
+<div class="math-block">\begin{align*}
+\arctan'(x) =&amp; \frac{1}{\sec(\arctan(x))^2} \\
+=&amp; \frac{1}{1 + \tan(arctan(x))^2} \\
+=&amp; \frac{1}{1 + x^2}
+\end{align*}</div>
+
 </div>
 </body>
 </html>

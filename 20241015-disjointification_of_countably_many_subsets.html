@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>disjointification of countably many subsets</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-1b9448af-456e-48ef-81a1-5ee658bfe666"></span><h1 class="title">disjointification of countably many subsets</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X$ be a <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">set</a>, $A_n \in \mathcal{P}(X)$ <a href="20220903164044-abzahlbar.html#ID-96f3063e-a99a-4c33-93c2-5c9f99f15717">countably</a> many <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">subsets</a>
+Then there exist $B_n \subseteq A_n$ with
+</p>
+<ol>
+<li>$B_n \subseteq A_n$</li>
+
+<li>$B_n$ are pairwise <a href="20211226220255-disjunkte_mengen.html#ID-2000e1f4-7e9e-45f9-91ed-16ded8a15190">disjoint</a>    </li>
+
+<li>$\bigcup A_n = \coprod B_n$   </li>
+</ol>
+<p>
+using
+</p>
+<ol>
+<li><a href="20211227205752-komplement_mengenlehre.html#ID-76b857a4-da6d-4333-b837-cc1009f534e2">complements</a> </li>
+
+<li>and finite intersections / finite unions</li>
+</ol>
+
+<h2 id="proof">Proof</h2>
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> assume that $A_n \neq A_m$ for $n \neq m$, otherwise us e.g. $\emptyset$
+Let
+</p>
+
+<div class="math-block">\begin{align*}
+B_0 \coloneqq A_0
+\end{align*}</div>
+<p>
+and define
+</p>
+
+<div class="math-block">\begin{align*}
+B_{n+1} \coloneqq A_{n+1} \setminus (\coprod_{j=1}^n B_j)
+\end{align*}</div>
+
+<p>
+Then for $B_i,B_j$ with <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> $i &gt; j$ it follows that
+</p>
+
+<div class="math-block">\begin{align*}
+B_i \cap B_j =&amp; A_{i} \setminus (\coprod_{l=1}^i B_l) \cap B_j \\
+\subseteq&amp; A_i \setminus B_j \cap B_j \\
+=&amp; \emptyset
+\end{align*}</div>
+<p>
+hence they are pairwise disjoint.
+</p>
+
+<p>
+Let $a \in \bigcup A_i$, and let $n$ be the smallest natural number such that $a \in A_n$ (note that $\mathbb{N}$ is <a href="20220929195946-wohlordnung.html#ID-8f3e284b-c3c9-4aaf-8bf5-5eadc47faa78">well-ordered</a>).
+Then it follows that $a \not\in \bigcup_{i=1}^{n-1} A_i \supseteq \bigcup_{i=1}^{n-1} B_i$ and thus $a \in A_{n} \setminus \bigcup_{i=1}^{n-1} B_i$
+</p>
+
+</div>
+</body>
+</html>

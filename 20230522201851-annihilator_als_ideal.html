@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 22:40 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>annihilator as strict ideal</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,85 +52,64 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">annihilator as strict ideal</h1>
-<div id="outline-container-org926ed61" class="outline-2">
-<h2 id="org926ed61"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-bd476ed4-8890-4eb6-9eab-8e2b8860e7ef"></span><h1 class="title">annihilator as strict ideal</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(R\) ein <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">Ring</a> und \(M\) ein $R$-<a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">Modul</a> und \(S \subseteq M\) a <a href="20230222204739-untermodul.html#ID-72f8c93c-c8cd-4dd0-b1c4-81e2efb54d75">submodule</a>, \(S \not\subseteq \{0\}\) dann ist \(\mathrm{Ann}_R(S)\) ein echtes <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">Ideal</a> von \(R\).
+Sei $R$ ein <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">Ring</a> und $M$ ein $R$-<a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">Modul</a> und $S \subseteq M$ a <a href="20230222204739-untermodul.html#ID-72f8c93c-c8cd-4dd0-b1c4-81e2efb54d75">submodule</a>, $S \not\subseteq \{0\}$ dann ist $\mathrm{Ann}_R(S)$ ein echtes <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">Ideal</a> von $R$.
 </p>
-</div>
-</div>
-<div id="outline-container-org985b4ec" class="outline-2">
-<h2 id="org985b4ec"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orgd1fa474" class="outline-3">
-<h3 id="orgd1fa474"><span class="section-number-3">2.1.</span> <a href="20211008174655-abelsche_gruppe.html#ID-7281c9cf-564f-4c4c-8c3f-fc1424ac85f8">abelsche</a> <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">Gruppe</a></h3>
-<div class="outline-text-3" id="text-2-1">
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="id7281c9cf-564f-4c4c-8c3f-fc1424ac85f8abelsche-idb6023bc8-458a-44e4-982a-6623378f4b4fgruppe"><a href="20211008174655-abelsche_gruppe.html#ID-7281c9cf-564f-4c4c-8c3f-fc1424ac85f8">abelsche</a> <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">Gruppe</a></h3>
 <p>
 Nach dem <a href="20221023183201-kriterium_fur_eine_untergruppe.html#ID-b15853e8-4de4-4318-9060-5fc9b4225f25">Kriterium für eine Untergruppe</a> zeigen wir:
-Es gilt \(0 \in \mathrm{Ann}_R(M)\), d.h. <a href="20220902125304-nichtleere_menge.html#ID-119fa0d9-a2b3-4b46-bb61-a6e590282321">nichtleer</a>.
-Sei \(a, a' \in \mathrm{Ann}_R(M)\), so gilt für beliebiges \(m \in M\):
+Es gilt $0 \in \mathrm{Ann}_R(M)$, d.h. <a href="20220902125304-nichtleere_menge.html#ID-119fa0d9-a2b3-4b46-bb61-a6e590282321">nichtleer</a>.
+Sei $a, a' \in \mathrm{Ann}_R(M)$, so gilt für beliebiges $m \in M$:
 </p>
-\begin{align*}
-(a - a') \cdot m =& am - a'm \\
-=& 0 - 0 \\
-=& 0
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgd1c7659" class="outline-3">
-<h3 id="orgd1c7659"><span class="section-number-3">2.2.</span> Ideal</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<div class="math-block">\begin{align*}
+(a - a') \cdot m =&amp; am - a'm \\
+=&amp; 0 - 0 \\
+=&amp; 0
+\end{align*}</div>
+
+<h3 id="ideal">Ideal</h3>
 <p>
-Sei \(a \in \mathrm{Ann}_R(M)\) und \(r \in R\), so gilt für beliebiges \(m \in M\)
+Sei $a \in \mathrm{Ann}_R(M)$ und $r \in R$, so gilt für beliebiges $m \in M$
 </p>
-</div>
-<div id="outline-container-org378f1ec" class="outline-4">
-<h4 id="org378f1ec"><span class="section-number-4">2.2.1.</span> links</h4>
-<div class="outline-text-4" id="text-2-2-1">
-\begin{align*}
-(r \cdot a) \cdot m =& r \cdot (a \cdot m) \\
-=& r \cdot 0 \\
-=& 0
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org668c23e" class="outline-4">
-<h4 id="org668c23e"><span class="section-number-4">2.2.2.</span> rechts</h4>
-<div class="outline-text-4" id="text-2-2-2">
-\begin{align*}
-(a \cdot r) \cdot m =& a \cdot (r \cdot m) \\
-=& r \cdot m' \\
-=& 0
-\end{align*}
+
+<h4 id="links">links</h4>
+
+<div class="math-block">\begin{align*}
+(r \cdot a) \cdot m =&amp; r \cdot (a \cdot m) \\
+=&amp; r \cdot 0 \\
+=&amp; 0
+\end{align*}</div>
+
+<h4 id="rechts">rechts</h4>
+
+<div class="math-block">\begin{align*}
+(a \cdot r) \cdot m =&amp; a \cdot (r \cdot m) \\
+=&amp; r \cdot m' \\
+=&amp; 0
+\end{align*}</div>
 <p>
-where \(m \coloneqq r \cdot m \in S\)
+where $m \coloneqq r \cdot m \in S$
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-org18694de" class="outline-3">
-<h3 id="org18694de"><span class="section-number-3">2.3.</span> echt</h3>
-<div class="outline-text-3" id="text-2-3">
+
+<h3 id="echt">echt</h3>
 <p>
-Nach annamhe existiert ein \(m \in S \setminus \{0\}\) und damit gilt für \(1 \in R\) auch
+Nach annamhe existiert ein $m \in S \setminus \{0\}$ und damit gilt für $1 \in R$ auch
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 1 \cdot m  = m \neq 0
-\end{align*}
+\end{align*}</div>
 <p>
-bzw. \(1 \not\in \mathrm{Ann}_R(S)\)
+bzw. $1 \not\in \mathrm{Ann}_R(S)$
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 22:40</p>
+
 </div>
 </body>
 </html>

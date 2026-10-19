@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:32 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Markovkette</title>
+<title>homogene Markovkette</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,26 +52,38 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Markovkette</h1>
-<div id="outline-container-org502dc6a" class="outline-2">
-<h2 id="org502dc6a"><span class="section-number-2">1.</span> Definition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-7ed34770-d827-4d65-806c-4590f95b642b"></span><h1 class="title">homogene Markovkette</h1>
+
+
+<h2 id="definition">Definition</h2>
 <p>
-Ein <a href="20220904101545-stochastischer_prozess.html#ID-f8282d3f-70e9-4b53-b34d-5cebe1260497">stochastischer Prozess</a>  mit diskreter Zeit und <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">endlichem</a> <a href="20220904101327-zustandsraum.html#ID-9c8ff692-6b30-4e2d-9fad-0b1894476a4d">Zustandsraum</a> \(S\) heißt Markovkette, genau dann wenn für alle \(n \in \mathbb{N}\) und \(t_1 < t_2 < … < t_n, x_1,...,x_n \in S\) mit  \(\mathbb{P}(X_{t_n-1} = x_{n-1,...,X_{t_1}}=x_1) > 0\) gilt
+Sei $(\Omega, \mathcal{F}, \mathbb{P})$ ein <a href="20220903151423-wahrscheinlichkeitsraum.html#ID-0a7fdeda-13a2-44be-bc7e-d6ab02447255">Wahrscheinlichkeitsraum</a>, $X_i: \Omega \rightarrow E$ eine <a href="20241031-diskrete_zufallsvariable.html#ID-f9464aac-5978-497d-8c23-be9f8a6fd8b3">diskrete Zufallsvariable</a> und $\pi$ eine <a href="20250203-stochastische_matrix.html#ID-60fd6f7b-4d3b-4ab9-a79e-6c5cbf3f463d">stochastische Matrix</a> auf $E$.
+Dann ist $X_i$ eine Markovkette mit Zustandsraum $E$ und Übergangsmatrix $\pi$ falls gilt
 </p>
-\begin{align*}
-\mathbb{P}(X_{t_n} \vert X_{t_{n-1}} = x_{n-1},...,X_{t_1} = x_1) =&   \mathbb{P}(X_{t_n} = x_n \vert X_{t_{n-1}} = x_{n-1})
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\mathbb{P}(X_{n+1} = x_{n+1} \vert X_0 = x_0,...,X_n = x_n) = \pi(x_n,x_{n+1})
+\end{align*}</div>
 <p>
-"Für Aussage über die Zukunft reicht uns die Gegenwart aus, die Vergangenheit liefert keine zusätzlichen Informationen"
+für beliebige $n \in \mathbb{N}_0$, $x_{n+1} \in E$ und $(x_0,...,x_n) \in E^{n+1}$ mit
 </p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:32</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{P}(X_0 = x_0,...,X_n = x_n) &gt; 0
+\end{align*}</div>
+
+<p>
+Dabei heißt die <a href="20241116-verteilung_einer_zufallsvariable.html#ID-b799b8b9-5304-401c-b83d-19af480100b5">Verteilung</a> von $X_0$ die Angfangsverteilung der Kette und die <a href="20241022-maß_auf_einer_diskreten_abzahlbaren_sigma_algebra_bestimmt_durch_einzelelemente.html#ID-41d943c8-05d2-4b6f-b32a-e5df10e2c915">Zähldichte</a>
+</p>
+
+
+<div class="math-block">\begin{align*}
+\alpha(x) \coloneqq \mathbb{P}(X_0 = x)
+\end{align*}</div>
+
+
+
+
 </div>
 </body>
 </html>

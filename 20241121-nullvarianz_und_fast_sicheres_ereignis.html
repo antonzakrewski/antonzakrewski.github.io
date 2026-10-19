@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nullvarianz und fast sicheres Ereignis</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-c5a04b87-6c69-410c-b9f1-c89660a81e1e"></span><h1 class="title">Nullvarianz und fast sicheres Ereignis</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $(X, \mathcal{A}, \mu)$ ein <a href="20220903151423-wahrscheinlichkeitsraum.html#ID-0a7fdeda-13a2-44be-bc7e-d6ab02447255">Wahrscheinlichkeitsraum</a>, $X \in \mathcal{L}(X)$ eine <a href="20241028-zufallsvariable.html#ID-6798db97-4391-4eed-acb0-86d90bc1ec7f">Zufallsvariable</a> und $\mathrm{const}_c: X \rightarrow \mathbb{R}$ eine Konstante.
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol>
+<li>$\mathbb{V}(X) = 0$</li>
+
+<li>$\exists c \in \mathbb{R} : \mathbb{P}(X = c) = 1$</li>
+</ol>
+
+<p>
+siehe: <a href="20211216204733-varianz.html#ID-9eaf3916-528b-4578-befd-2a1ca3841eb4">Varianz</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+<p>
+<a href="20210305204929-beweis_durch_gegenbeispiel.html#ID-82f7f698-c489-4630-b2a1-ec7a6228b374">Proof by contraposition</a>
+</p>
+
+<p>
+Es gilt $(X - \mathbb{E}[X])^2 \geq 0$.
+Sei $e \coloneqq \mathbb{E}[X]$.
+Dann existiert nach Annahme mind. ein $c$ mit $c \neq e$ und $\mathbb{P}(X = c)$.
+Es folgt
+</p>
+
+<div class="math-block">\begin{align*}
+(X - \mathbb{E}[X])^2(c) &gt; 0
+\end{align*}</div>
+<p>
+und somit dann auch
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{E}[(X - e)^2] \geq (X - \mathbb{E}[X])^2(c) \cdot \mathbb{P}(X = \pm c) \geq (X - \mathbb{E}[X])^2(c) \cdot \mathbb{P}(X = c) &gt; 0
+\end{align*}</div>
+<p>
+wobei die erste gleichung aus dre <a href="20241116-monotonie_des_erwartungswerts.html#ID-b1318e94-02a6-46bb-b8bc-672ebc1eca19">Monotonie des Erwartungswerts</a> folgt
+</p>
+
+
+<h3 id="2-implies-1">2) $\implies$ 1)</h3>
+<p>
+dann folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{E}[X] =&amp; \sum_{c \in X[\Omega]} c \cdot \mathbb{P}(X = c) \\
+=&amp; c \cdot \mathbb{P}(X = c) \\
+=&amp; c
+\end{align*}</div>
+<p>
+bzw.
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{E}[X^2] =&amp; \sum_{c \in X[\Omega]} c^2 \cdot \mathbb{P}(X^2 = c^2) \\
+=&amp; \sum_{c \in X[\Omega]} c^2 \cdot \mathbb{P}(X = \pm c) \\
+=&amp; c^2 \cdot \mathbb{P}(X = \pm c) \\
+=&amp; c^2
+\end{align*}</div>
+
+
+
+</div>
+</body>
+</html>

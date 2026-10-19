@@ -1,278 +1,96 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2025-03-17 Mo 16:54 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>infinity operad</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">infinity operad</h1>
+<span id="ID-c7cfb23c-f4af-4d83-9bff-0a3a73a51534"></span><h1 class="title">infinity operad</h1>
+
+<h2 id="definition">Definition</h2>
 <p>
-An infinity operad is an <a href="20240404-functor_between_infinity_categories.html#ID-7428dc84-9acd-49bc-8e93-b1541326a6b9">infinity functor</a><br />
+An infinity operad is an <a href="20240404-functor_between_infinity_categories.html#ID-7428dc84-9acd-49bc-8e93-b1541326a6b9">infinity functor</a>
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250314-infinity_operad_1d63da7c9eeaa4f7c2321356160992b8422f8981.svg" alt="20250314-infinity_operad_1d63da7c9eeaa4f7c2321356160992b8422f8981.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+p: \mathcal{O}^{\otimes} \rightarrow N(\mathrm{Fin}_*)
+\end{align*}</div>
 <p>
-between <a href="20240404-simplicial_set_as_infinity_category.html#ID-4635a6ee-1ad5-44cb-8e36-4a934f5ae4bf">infinity categories</a> (cf. <a href="20241110-category_fin.html#ID-decdce32-a0c7-4acf-9b1c-ffb3fe613e44">category Fin*</a>) such that<br />
+between <a href="20240404-simplicial_set_as_infinity_category.html#ID-4635a6ee-1ad5-44cb-8e36-4a934f5ae4bf">categories</a> (cf. <a href="20241110-category_fin.html#ID-decdce32-a0c7-4acf-9b1c-ffb3fe613e44">category Fin*</a>) such that
 </p>
-<ol class="org-ol">
-<li>the pullback<br /></li>
+<ol>
+<li>the pullback</li>
+</ol>
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+\mathcal{O}^{\otimes}' \dar \rar &amp; \mathcal{O}^{\otimes} \dar \\
+N(\mathrm{Fin}_{*,\mathrm{inert}}) \rar &amp; N(\mathrm{Fin}_*)
+\end{tikzcd}
+\end{displaymath}</pre></div>
+<p>
+is a <a href="20241016-cocartesian_fibration.html#ID-7a1a4669-5b45-4337-a199-3e24eacd9d71">cocartesian fibration</a>, i.e. we may lift <a href="20241110-inert_morphism.html#ID-1e659ed0-d382-4158-8072-9b153e16b46c">inert morphisms</a> to <a href="20241016-p_cocartesian_morphism.html#ID-1a049281-84c6-4689-9a2e-e1e073ad9645">cocartesian morphisms</a>
+</p>
+<ol>
+<li>(under possibly <a href="20241112-straightening_unstraightening_of_cocartesian_fibrations.html#ID-71d63726-6d70-49c3-87f9-5cc35d66544c">straightening-unstraightening of cocartesian fibrations</a> ) this $\mathcal{O}^{\otimes}' \rightarrow N(\mathrm{Fin}_{*,\mathrm{inert}})$ satisfies the <a href="20250308-segal_condition_as_coproduct_to_product.html#ID-7153e98e-ea61-417c-82d1-00f9b0b310cd">segal condition</a> </li>
 </ol>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250314-infinity_operad_193d0f388f9a70d7a2f48920775781d3e3b9dc9a.svg" alt="20250314-infinity_operad_193d0f388f9a70d7a2f48920775781d3e3b9dc9a.svg" class="org-svg" />
-</span>
-</div>
 <p>
-is a <a href="20241016-cocartesian_fibration.html#ID-7a1a4669-5b45-4337-a199-3e24eacd9d71">cocartesian fibration</a>, i.e. we may lift <a href="20241110-inert_morphism.html#ID-1e659ed0-d382-4158-8072-9b153e16b46c">inert morphisms</a> to <a href="20241016-p_cocartesian_morphism.html#ID-1a049281-84c6-4689-9a2e-e1e073ad9645">cocartesian morphisms</a> <br />
-</p>
-<ol class="org-ol">
-<li>(under possibly <a href="20241112-straightening_unstraightening_of_cocartesian_fibrations.html#ID-71d63726-6d70-49c3-87f9-5cc35d66544c">straightening-unstraightening of cocartesian fibrations</a> ) this <img src="ltximg/20250314-infinity_operad_e317b9c1696cc4d4769da644a8165245beb98638.svg" alt="20250314-infinity_operad_e317b9c1696cc4d4769da644a8165245beb98638.svg" class="org-svg" /> satisfies the <a href="20250308-segal_condition_as_coproduct_to_product.html#ID-7153e98e-ea61-417c-82d1-00f9b0b310cd">segal condition</a> <br /></li>
-<li>Let <img src="ltximg/20250314-infinity_operad_8b50ac20d27e37c4ceb61849b5620cdd754e9dec.svg" alt="20250314-infinity_operad_8b50ac20d27e37c4ceb61849b5620cdd754e9dec.svg" class="org-svg" />, <img src="ltximg/20250314-infinity_operad_a015d5359118b5e9c29e7f322a10e1ac5d5b3e93.svg" alt="20250314-infinity_operad_a015d5359118b5e9c29e7f322a10e1ac5d5b3e93.svg" class="org-svg" /> be objects resp. morphism.<br /></li>
-</ol>
-<p>
-Let <img src="ltximg/20250314-infinity_operad_418491f7caaf3381b6b32f73cb845e4b395704e0.svg" alt="20250314-infinity_operad_418491f7caaf3381b6b32f73cb845e4b395704e0.svg" class="org-svg" /> be the union of those <a href="20240921-connected_component_of_a_simplicial_set.html#ID-68dd3a5a-57e4-4b56-bc09-0c60abf5a258">connected components</a>, which lie over <img src="ltximg/20250314-infinity_operad_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" alt="20250314-infinity_operad_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" class="org-svg" />, i.e. applying the functor <img src="ltximg/20250314-infinity_operad_0470bf19704b54fa8e7269021c7e16e9c17d75b9.svg" alt="20250314-infinity_operad_0470bf19704b54fa8e7269021c7e16e9c17d75b9.svg" class="org-svg" /> sends them to <img src="ltximg/20250314-infinity_operad_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" alt="20250314-infinity_operad_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" class="org-svg" />.<br />
-Then <a href="20241016-p_cocartesian_morphism.html#ID-1a049281-84c6-4689-9a2e-e1e073ad9645">p-cocartesian</a> lifts of <img src="ltximg/20250314-infinity_operad_def34971190673b929bf41cf835f6f1272916c5a.svg" alt="20250314-infinity_operad_def34971190673b929bf41cf835f6f1272916c5a.svg" class="org-svg" /> (cf. <a href="20250314-projection_morphism_in_fin.html#ID-c1618098-a44a-4623-851a-9d22b83eb03c">projection morphisms in Fin*</a>) induce an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a><br />
+TODO condition 3)
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250314-infinity_operad_1083b9be3f26511ea0d6339ed1a785a5a09a5f94.svg" alt="20250314-infinity_operad_1083b9be3f26511ea0d6339ed1a785a5a09a5f94.svg" class="org-svg" />
-</span>
-</div>
-<p>
-where <img src="ltximg/20250314-infinity_operad_d1b2853aec92136a022e65fc06e02d558df5ded3.svg" alt="20250314-infinity_operad_d1b2853aec92136a022e65fc06e02d558df5ded3.svg" class="org-svg" /> is the image of <img src="ltximg/20250314-infinity_operad_c21d87356081329417b1937ab2c8bbdf8a11cb7e.svg" alt="20250314-infinity_operad_c21d87356081329417b1937ab2c8bbdf8a11cb7e.svg" class="org-svg" /> under the lift of <img src="ltximg/20250314-infinity_operad_def34971190673b929bf41cf835f6f1272916c5a.svg" alt="20250314-infinity_operad_def34971190673b929bf41cf835f6f1272916c5a.svg" class="org-svg" /><br />
-</p>
 
-<p>
-Think of the last condition as:<br />
-a) after using the equivalences<br />
-</p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250314-infinity_operad_ce27c92c636eea31333955842fec7050ae5b58af.svg" alt="20250314-infinity_operad_ce27c92c636eea31333955842fec7050ae5b58af.svg" class="org-svg" />
-</span>
-</div>
-<p>
-decomposing any "multilinear"morphism "compatible" with <img src="ltximg/20250314-infinity_operad_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" alt="20250314-infinity_operad_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" class="org-svg" /><br />
-</p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250314-infinity_operad_1dcc5f29aebaa45de243ea60b8a9ba634ba58b76.svg" alt="20250314-infinity_operad_1dcc5f29aebaa45de243ea60b8a9ba634ba58b76.svg" class="org-svg" />
-</span>
-</div>
-<p>
-as<br />
-</p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250314-infinity_operad_5b27a4d6e77a3aadafaa786582ef2e45fa6d590f.svg" alt="20250314-infinity_operad_5b27a4d6e77a3aadafaa786582ef2e45fa6d590f.svg" class="org-svg" />
-</span>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2025-03-17 Mo 16:54</p>
+
+
 </div>
 </body>
 </html>

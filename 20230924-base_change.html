@@ -1,89 +1,103 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 18:28 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>base change functor</title>
+<title>1-base change functor</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">base change functor</h1>
-<div id="outline-container-orgb807ccd" class="outline-2">
-<h2 id="orgb807ccd"><span class="section-number-2">1.</span> Definition / Proposition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-e680a48b-5edd-4dd5-acee-967cf31bfd59"></span><h1 class="title">1-base change functor</h1>
+
+<h2 id="definition-proposition">Definition / Proposition</h2>
 <p>
-Let <img src="ltximg/20230924-base_change_760824120891fc757bc0445145b027d09b237baa.svg" alt="20230924-base_change_760824120891fc757bc0445145b027d09b237baa.svg" class="org-svg" /> be a <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a> such that <a href="20230806-pullback.html#ID-730c4312-492d-4b9c-a347-9281309d3e6f">pullbacks</a> exist and <img src="ltximg/20230924-base_change_efe171f0a2f8b6816f5fad3194d2b1517f8948a4.svg" alt="20230924-base_change_efe171f0a2f8b6816f5fad3194d2b1517f8948a4.svg" class="org-svg" />
-Then the base change for <img src="ltximg/20230924-base_change_5461866a7289ba4c56a10a82a5622bfbdcb4ae22.svg" alt="20230924-base_change_5461866a7289ba4c56a10a82a5622bfbdcb4ae22.svg" class="org-svg" /> is the induced <a href="20220830173246-kovarianter_funktor.html#ID-c5286004-d249-4969-86d5-c75655b7f5d3">covariant functor</a> between the <a href="20230510092709-slice_category.html#ID-1e81c30c-0f74-4f7c-bf95-400bc8889156">slice categories</a> 
+Let $\mathcal{C}$ be a <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a> such that <a href="20230806-pullback.html#ID-730c4312-492d-4b9c-a347-9281309d3e6f">pullbacks</a> exist and $f \in \mathrm{Hom}_{\mathcal{C}}(X,Y)$
+Then the base change for $f$ is the induced <a href="20220830173246-kovarianter_funktor.html#ID-c5286004-d249-4969-86d5-c75655b7f5d3">covariant functor</a> between the <a href="20230510092709-slice_category.html#ID-1e81c30c-0f74-4f7c-bf95-400bc8889156">slice categories</a>
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20230924-base_change_d7a2360dbeee4e961ad80d2540ae8b6a3554b483.svg" alt="20230924-base_change_d7a2360dbeee4e961ad80d2540ae8b6a3554b483.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+f^*: \mathcal{C}/Y \rightarrow \mathcal{C}/X
+\end{align*}</div>
 <p>
-given by 
+given by
 </p>
 
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20230924-base_change_7f3916662044ee35425280bd61bc1bc93e4b269b.svg" alt="20230924-base_change_7f3916662044ee35425280bd61bc1bc93e4b269b.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+f^*: (p: A \rightarrow Y) \mapsto&amp; (p^*: X \times_{f,p} \rightarrow X)
+(h: (p: A \rightarrow Y) \rightarrow (q: B \rightarrow Y) \mapsto&amp; (h': (X \times_Y A) \rightarrow (X \times_Y B)
+\end{align*}</div>
 <p>
-for the <a href="20230806-pullback.html#ID-730c4312-492d-4b9c-a347-9281309d3e6f">pullback</a> 
+for the <a href="20230806-pullback.html#ID-730c4312-492d-4b9c-a347-9281309d3e6f">pullback</a>
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20230924-base_change_da2ce25aee0e8f956666781a63edb1a17cad16c9.svg" alt="20230924-base_change_da2ce25aee0e8f956666781a63edb1a17cad16c9.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/5fecfb220387b84a8488.svg" class="org-svg" alt="diagram" /></span></div>
 
 <p>
 where morphisms for
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20230924-base_change_474b132b84cbf329f0db6de866c91bb0fa12a67e.svg" alt="20230924-base_change_474b132b84cbf329f0db6de866c91bb0fa12a67e.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/52bcdaba3ca8e4a3b882.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
 are given by the universal property of the pullback
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20230924-base_change_cbcac7a54451486c44d095c8d462cc951d117e83.svg" alt="20230924-base_change_cbcac7a54451486c44d095c8d462cc951d117e83.svg" class="org-svg" />
-</span>
-</div>
-</div>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/0bd6554e24c6cf75e542.svg" class="org-svg" alt="diagram" /></span></div>
 
-<div id="outline-container-org5e6a33e" class="outline-2">
-<h2 id="org5e6a33e"><span class="section-number-2">2.</span> Proof</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org982142c" class="outline-3">
-<h3 id="org982142c"><span class="section-number-3">2.1.</span> morphism existence</h3>
-<div class="outline-text-3" id="text-2-1">
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="morphism-existence">morphism existence</h3>
 <p>
 Note that by assumption
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20230924-base_change_170c7fe012b3c024555ccacd22a27ef15c299e4b.svg" alt="20230924-base_change_170c7fe012b3c024555ccacd22a27ef15c299e4b.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/571e6ddb99277a8f0aff.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
 commutes.
 </p>
@@ -92,20 +106,12 @@ commutes.
 Thus we get
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20230924-base_change_eaa0d783e60a28656ec9a8d1c1467145f3b2f0e2.svg" alt="20230924-base_change_eaa0d783e60a28656ec9a8d1c1467145f3b2f0e2.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/ef81467822c004f586bf.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
 and therefore
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20230924-base_change_d904e876e8661cc87bc25950a4f9243c9f5217d7.svg" alt="20230924-base_change_d904e876e8661cc87bc25950a4f9243c9f5217d7.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/46feb127ee0f7bae7dc3.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
 commutes.
 </p>
@@ -114,41 +120,24 @@ commutes.
 Hence by universal property, there exists a unique morphism
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20230924-base_change_e54db328ada030b648bf33448f34a154a71cdd79.svg" alt="20230924-base_change_e54db328ada030b648bf33448f34a154a71cdd79.svg" class="org-svg" />
-</span>
-</div>
-</div>
-</div>
-<div id="outline-container-orgb81981c" class="outline-3">
-<h3 id="orgb81981c"><span class="section-number-3">2.2.</span> morphism welldefined</h3>
-<div class="outline-text-3" id="text-2-2">
+<div class="equation-container"><span class="equation"><img src="ltximg/754e753d3a508f8e4d14.svg" class="org-svg" alt="diagram" /></span></div>
+
+<h3 id="morphism-welldefined">morphism welldefined</h3>
 <p>
 follows from commutativity of
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20230924-base_change_61a7ab084f88ffa3b77a6f56bed4b208cdae6d40.svg" alt="20230924-base_change_61a7ab084f88ffa3b77a6f56bed4b208cdae6d40.svg" class="org-svg" />
-</span>
-</div>
-</div>
-</div>
-<div id="outline-container-orgca70ab4" class="outline-3">
-<h3 id="orgca70ab4"><span class="section-number-3">2.3.</span> functorality</h3>
-<div class="outline-text-3" id="text-2-3">
+<div class="equation-container"><span class="equation"><img src="ltximg/bff6de62e858238a927f.svg" class="org-svg" alt="diagram" /></span></div>
+
+<h3 id="functorality">functorality</h3>
 <p>
-since the <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphisms</a> are uniquely given by the <a href="20231017-lim_functor.html#ID-f28b6497-b4ac-44c3-8c8b-b27932cd6ecc">lim functor</a>, this follows from functorality of <img src="ltximg/20230924-base_change_93b4852410a199ecd67d1c1eb6f4699ee6783221.svg" alt="20230924-base_change_93b4852410a199ecd67d1c1eb6f4699ee6783221.svg" class="org-svg" />.
+since the <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphisms</a> are uniquely given by the <a href="20231017-lim_functor.html#ID-f28b6497-b4ac-44c3-8c8b-b27932cd6ecc">lim functor</a>, this follows from functorality of $\mathrm{lim}_I$.
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 18:28</p>
+
+
+
+
+
 </div>
 </body>
 </html>

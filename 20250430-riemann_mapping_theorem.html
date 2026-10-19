@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>riemann mapping theorem</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-acab093b-da11-44f3-8564-d11a05f2daa8"></span><h1 class="title">riemann mapping theorem</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\Sigma \subsetneq \mathbb{C}$ be <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a>, <a href="20220902125304-nichtleere_menge.html#ID-119fa0d9-a2b3-4b46-bb61-a6e590282321">nonempty</a>  and <a href="20231212-simply_connected_space.html#ID-ebb69dd9-193c-49e5-9d69-dad026b1a8ea">simply connected space</a>.
+Then for every $z_0 \in \Omega$ there exists a unique <a href="20250615-conformal_map.html#ID-b1396ed0-5bc6-466a-8e74-f7f9c57231a2">conformal map</a> $F: \Omega \rightarrow D_1(0)$ with
+</p>
+
+<div class="math-block">\begin{align*}
+F(z_0) =&amp; 0 \\
+F'(z_0) \in \mathbb{R}^+ = (0,\infty)
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="uniqueness">uniqueness</h3>
+<p>
+Assume $F,G: \Omega \rightarrow \mathbb{D}$ satisfy $F(z_0) = G(z_0) = 0, F'(z_0), G'(z_0) &gt; 0$ then $H \coloneqq F \circ G^{-1}$ is a conformal automorphism of $\mathbb{D}$ that fixes the origin.
+Hence by  <a href="20250615-pointed_conformal_automorphisms_of_the_disk.html#ID-ba56ee0f-237e-4438-94ad-569496eee319">pointed conformal automorphisms of the disk</a> we get $H(-) = \mathrm{e}^{\mathrm{i} \theta} w$ for some $\theta \in \mathbb{R}$.
+</p>
+
+<p>
+This shows
+</p>
+
+<div class="math-block">\begin{align*}
+H(w) = e^{\mathrm{i}\theta} w
+\end{align*}</div>
+<p>
+or
+</p>
+
+<div class="math-block">\begin{align*}
+H'(w) = e^{\mathrm{i} \theta}
+\end{align*}</div>
+
+<p>
+Thus using hte <a href="20230118163257-kettenregel.html#ID-b4eb3b33-2c52-4f4f-9889-cdbb92adfaa2">Kettenregel</a> &amp; <a href="20221003224421-ableitung_der_umkehrfunktion.html#ID-8658ebdd-f2a9-40ad-92c3-f7036b01c480">Ableitung der Umkehrfunktion</a>
+</p>
+
+<div class="math-block">\begin{align*}
+1 =&amp; H'(0) \\
+=&amp; F'(G^{-1}(0)) \cdot (G^{-1})'(0) \\
+=&amp; F'(G^{-1}(0)) \&gt;dot \frac{1}{G'(G^{-1}(0))} \\
+=&amp; \frac{F'(z_0)}{G'(z_0)} &gt; 0
+\end{align*}</div>
+
+
+<p>
+Thus $F = G$
+</p>
+
+<h3 id="existence">existence</h3>
+
+<h4 id="reduction-to-mathbbd">reduction to $\mathbb{D}$</h4>
+<p>
+Let $\Omega \subsetneq \mathbb{C}$ be <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a>, <a href="20220902125304-nichtleere_menge.html#ID-119fa0d9-a2b3-4b46-bb61-a6e590282321">nonempty</a>  and <a href="20231212-simply_connected_space.html#ID-ebb69dd9-193c-49e5-9d69-dad026b1a8ea">simply connected space</a>.
+Then there exists an open and simply connected $\tilde{\Omega} \subseteq \mathbb{D}$ with $0\in \tilde{\Omega}$ and a conformal map $F: \Omega \rightarrow \tilde{\Omega}$ such that $F(z_0) = 0$ and $F'(z_0) &gt; 0$.
+</p>
+
+
+<h4 id="mathbbd">$\mathbb{D}$</h4>
+<p>
+Let $\Omega\subseteq \mathbb{C}$  be open with $0\in \Omega$.
+Then we show that
+</p>
+
+<div class="math-block">\begin{align*}
+s \coloneqq \mathrm{sup} \{\vert f'(0) \vert : f: \Omega \rightarrow \mathbb{D}, \mathrm{ conformal and} f(0) = 0\}
+\end{align*}</div>
+<p>
+is attained
+</p>
+
+<h5 id="nonempty">nonempty</h5>
+
+<h5 id="finite">finite</h5>
+
+<h5 id="attained">attained</h5>
+<p>
+Let $f_n$ be a maximizing sequence.
+Since $f_n(\Omega \subseteq \mathbb{D}$ we may conclude that $f_n$ is <a href="20250702-uniformly_bounded_sequence_of_functions.html#ID-e6c15417-24f7-4748-8ac7-3db32304395b">uniformly bounded</a> on $\Omega$.
+Thusby  <a href="20250702-montel_theorem.html#ID-a0dc6296-1e21-4388-b364-78f29b7f6baf">montel theorem</a> we may assume that $f_n$ <a href="20230110113621-gleichmaßige_konvergenz_einer_funktionenfolge.html#ID-e895942f-e89f-4078-875a-79790b2e125b">uniformly converges</a> $f_n \rightarrow f$ on <a href="20230412003456-compact_set.html#ID-d09ae6d2-2b5c-41c1-a54d-3259d3e2f0f0">compact</a> subsets in $\Omega$.
+</p>
+
+<p>
+In particular note that $f(0) = \mathrm{lim}_{n \rightarrow \infty} f_n(0) = 0$.
+</p>
+
+<p>
+By the <a href="20250525-uniform_convergence_of_holomorphic_functions_as_holomorphic_function.html#ID-90755709-9c3b-4def-9733-c18ad88fe75b">uniform convergence of holomorphic functions as holomorphic function</a> we note that $f$ is holomorphic on $\Omega$ and we also have $f_n' $\rightarrow f'$ on compact subsets of $\Omega$ (cf. <a href="20250525-uniform_convergence_of_holomorphic_functions_and_derivative.html#ID-11cb2d93-f5a0-440f-ad31-c767f551ef8e">uniform convergence of holomorphic functions and derivative</a>) and thus
+</p>
+
+<div class="math-block">\begin{align*}
+\vert f'(0) \vert = \mathrm{lim}_{n \rightarrow \infty} \vert f_n'(0) \vert = s
+\end{align*}</div>
+
+<p>
+In particular $f'(0) \neq 0$.
+</p>
+
+
+<h5 id="f-bijection">$f$ bijection</h5>
+
+<h5 id="f-restricts-to-interior-ie-mathbbdsubseteq-overlinemathbbd">$f$ restricts to interior, i.e. $\mathbb{D}\subseteq \overline{\mathbb{D}}$</h5>
+
+<h4 id="section"></h4>
+
+
+
+</div>
+</body>
+</html>

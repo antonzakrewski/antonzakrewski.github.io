@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>tensor product of bimodules</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-38b47d9d-52ae-46b8-b779-c20bd302cff1"></span><h1 class="title">tensor product of bimodules</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let \(R,S_1,S_2\) be <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">rings</a>, $M$ an \(S_1,R\) and $N$ an \(R,S_2\) <a href="20230825-bimodule.html#ID-5c24133d-ebe8-445c-bb1a-d2ec406c84f8">bimodules</a>
+Then the <a href="20240416-general_tensor_functor_of_modulse.html#ID-1cbe1b69-75af-416e-a115-dbd56f995672">tensor product</a>
+</p>
+
+<div class="math-block">\begin{align*}
+M \otimes_{R} N
+\end{align*}</div>
+<p>
+is a \(S_1,S_2\) bimodule via
+</p>
+
+<div class="math-block">\begin{align*}
+s_1 \cdot_{S_1} (m \otimes_{R} n) \cdot_{S_2} s_2 =&amp; (s_1 \cdot m \otimes_{R} n \cdot s_2)
+\end{align*}</div>
+<p>
+on <a href="20230802-elementary_tensor.html#ID-dfa3ac83-6b3c-4da9-a45e-4241edcaf0dd">elementary tensors</a> and distributive extension
+</p>
+
+<p>
+Note that any left (right) $R$ module is a \(R,\mathbb{Z}\) (reps. \(\mathbb{Z}, R\)) module  (cf. <a href="20240524-r_module_as_r_z_module.html#ID-c6f4de87-fa14-4412-bb78-701fc69dd43d">R-module as R,Z module</a>)
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="associativity">associativity</h3>
+<p>
+follows as
+</p>
+
+<div class="math-block">\begin{align*}
+((s_1 \cdot_{S_1} (m \otimes_R n)) \cdot_{S_2} s_2) =&amp; (s_1 \cdot_{S_1} m \otimes_R n) \cdot_{S_2} s_2 \\
+=&amp; (s_1 \cdot_{S_1} m \otimes_R n \cdot_{S_2} s_2) \\
+=&amp; s_1 \cdot_{S_1} (m \otimes_R n \cdot_{S_2} s_2) \\
+=&amp; s_1 \cdot_{S_1} ((m \otimes_R n) \cdot_{S_2} s_2)
+\end{align*}</div>
+
+
+<h4 id="unit">unit</h4>
+<p>
+follows from
+</p>
+
+<div class="math-block">\begin{align*}
+1 \cdot_{S_1} M \otimes_R N \cdot_{S_2} 1 = (1 \cdot m \otimes_R n \cdot 1) \\
+=&amp; (m \otimes_R n)
+\end{align*}</div>
+
+<h4 id="multiplicativity">multiplicativity</h4>
+<p>
+follows as
+</p>
+
+<div class="math-block">\begin{align*}
+s \cdot (s' \cdot (m \otimes_R n)) =&amp; s \cdot (s' \cdot m \otimes_R n) \\
+=&amp; (s \cdot s' \cdot m \otimes_R n) \\
+=&amp; ((s \cdot s') \cdot m \otimes_{R} n ) \\
+=&amp; (s \cdot s') \cdot (m \otimes_R n)
+\end{align*}</div>
+<p>
+and analogously for $S_2$
+</p>
+
+<h4 id="distributivity">distributivity</h4>
+<p>
+follows as
+</p>
+
+<div class="math-block">\begin{align*}
+(s_1 + s_2) \cdot (m \otimes_R n) =&amp; ((s_1 + s_2) \cdot m \otimes_R n) \\
+=&amp; (s_1 \cdot m \otimes_R n) + (s_2 \cdot m \otimes_R n)
+\end{align*}</div>
+<p>
+see:
+</p>
+<ul>
+<li><a href="20230811-distributivity_of_an_elementary_tensor.html#ID-eac423cd-6cb2-468d-bac3-20f5844fa71c">distributivity of an elementary tensor</a> </li>
+
+<li><a href="20230809-distributivity_of_the_tensor_product.html#ID-4825808a-7735-4f6f-92f0-ef3561139cce">distributivity of the tensor product</a>   </li>
+</ul>
+
+</div>
+</body>
+</html>

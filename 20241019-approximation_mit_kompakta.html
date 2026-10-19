@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>approximation mit Kompakta</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-9bf3f1b6-f64e-4cd1-a410-2e16a133e8c0"></span><h1 class="title">approximation mit Kompakta</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $X$ ein <a href="20221122074811-hausdorff_raum.html#ID-f49f9b47-9f16-456f-837f-7b9656c46aba">hausdorff</a> raum und $\mu$ ein <a href="20241019-endlicher_inhalt.html#ID-cd855649-e91b-4678-a30c-5d2fc5f382da">endlicher Inhalt</a> auf einem <a href="20241010-ring_of_sets.html#ID-96a10eeb-f89d-4001-a253-a040a7bbe64a">Mengenring</a> $\mathcal{R} \subseteq \mathcal{P}(X)$.
+Falls für alle $A \in \mathcal{R}$ und $\varepsilon &gt; 0$ ein <a href="20230121142600-kompaktheit_topologie.html#ID-58037a78-9969-4077-ad91-ce5e70c6c32c">kompaktum</a> $K \subseteq X$ und $B \in \mathcal{R}$ existiret mit
+</p>
+
+<div class="math-block">\begin{align*}
+B \subseteq K \subseteq A
+\end{align*}</div>
+<p>
+und $\mu(A \setminus B) &lt; \varepsilon$
+</p>
+
+<p>
+Dann ist $\mu$ ein <a href="20241019-epsilon_stetigkeit_eines_inhalts.html#ID-093ca4a7-c34a-4586-a3d6-1dd778ec2298">epsilon stetiger Inhalt</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Sei $A_n \searrow A \in \mathcal{R}$ eine folge mit $\mu(A_n) \geq \varepsilon$ für fast alle $n$ und ein $\varepsilon &gt; 0$.
+Wähle eine folge $\varepsilon_n &gt; 0$ mit $\sum_{n \in \mathbb{N}} \varepsilon_n &lt; \frac{\varepsilon}{2}$, z.b. die skalierte geometrische Reihe
+</p>
+
+<p>
+Wähle dann zu jedem $A_n$ ein kompaktum $K_n \subseteq X$ und $B_n \in \mathcal{R}$ mit $B_n \subseteq K_n \subseteq A_n$ und
+</p>
+
+<div class="math-block">\begin{align*}
+\mu(A_n \setminus B_n) &lt; \varepsilon_n
+\end{align*}</div>
+
+<p>
+Da gilt
+</p>
+
+<div class="math-block">\begin{align*}
+B_n = A_n \setminus (A_n \setminus B_n)
+\end{align*}</div>
+<p>
+und
+</p>
+
+<div class="math-block">\begin{align*}
+\bigcap_{n=1}^n B_n = (\bigcap_{n=1}^n A_n) \setminus (\bigcap_{n=1}^n (A_n \setminus B_n))
+\end{align*}</div>
+
+<p>
+folgt aus der <a href="20241015-subtraktivitat_eines_inhalts.html#ID-e768ef1b-bfd6-49c6-bb98-6cf549671de6">Subtraktivität eines Inhalts</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mu(\bigcap_{n=1}^N) = \mu(\bigcap_{n=1}^N A_n) - \mu(\bigcup_{n=1}^N (A_n \setminus B_n))
+\end{align*}</div>
+
+<p>
+wegen der <a href="20241015-subadditivitat_eines_inhalts.html#ID-723f412d-34ff-4217-8580-6de88f4c5c06">subadditivität eines inhalts</a> gilt ferner
+</p>
+
+<div class="math-block">\begin{align*}
+\mu(\bigcup_{n=1}^N (A_n \setminus B_n)) \leq&amp; \sum_{n=1}^N \mu(A_n \setminus B_n) \\
+=&amp; \sum_{n=1}^N \varepsilon_n
+&lt;&amp; \frac{\varepsilon}{2}
+\end{align*}</div>
+
+<p>
+Damit folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\mu(\bigcap_{n=1}^N B_n) \geq \mu(\bigcap_{n=1}^N A_n) -  \frac{\varepsilon}{2} \\
+=&amp; \mu(A_N) - \frac{\varepsilon}{2} \\
+=&amp; \frac{\varepsilon}{2}
+&gt;&amp; 0
+\end{align*}</div>
+
+<p>
+Somit folgt $\emptyset \neq \bigcap_{n=1}^N B_n \subseteq \bigcap_{n=1}^N K_N$.
+Damit ist jedes $K_n$ <a href="20220902125304-nichtleere_menge.html#ID-119fa0d9-a2b3-4b46-bb61-a6e590282321">nichtleer</a> und wegen <a href="20230711-schnitt_einer_kette_kompakter_mengen_ist_nichtleer.html#ID-8f835956-15a1-4cab-a18a-714bafb0ce7c">Schnitt einer Kette kompakter Mengen ist nichtleer</a>  + <a href="20230511112904-abgeschlossenheit_von_kompakten_mengen.html#ID-77b86d0c-e901-449a-9147-602be657eae5">closedness of compact sets in Hausdorff spaces</a> folgt auch, dass $\bigcap K_n$ nichtleer ist.
+Somit folgt, dass $A = \bigcap A_n \supseteq \bigcap K_n$ auch nichtleer ist.
+</p>
+
+</div>
+</body>
+</html>

@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 22:16 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ganze Zahlen als kommutativer Ring</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,148 +52,112 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Ganze Zahlen als kommutativer Ring</h1>
-<div id="outline-container-org50f5ce2" class="outline-2">
-<h2 id="org50f5ce2"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-320c2db9-2e34-4b6b-bec5-6a596e89ebdf"></span><h1 class="title">Ganze Zahlen als kommutativer Ring</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
 Die <a href="20210702104458-ganze_zahlen.html#ID-179209f5-5cb0-426c-b035-470f9b3935a8">Ganze Zahlen</a> mit der <a href="20220723085309-verknupfung_mathe.html#ID-03371b0b-4778-4ca8-8e67-9361dd544d83">Verknüpfung</a>:
 </p>
-\begin{align*}
-(a,b) + (a',b') =& (a + a',b + b') \\
-(a,b) \cdot (a',b') =& (aa' + bb', ab' + a'b)
-\end{align*}
+
+<div class="math-block">\begin{align*}
+(a,b) + (a',b') =&amp; (a + a',b + b') \\
+(a,b) \cdot (a',b') =&amp; (aa' + bb', ab' + a'b)
+\end{align*}</div>
 
 <p>
-ein <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">kommutativer Ring</a> 
+ein <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">kommutativer Ring</a>
 </p>
-</div>
-</div>
-<div id="outline-container-org1ce561f" class="outline-2">
-<h2 id="org1ce561f"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org2449687" class="outline-3">
-<h3 id="org2449687"><span class="section-number-3">2.1.</span> <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">welldefined</a></h3>
-<div class="outline-text-3" id="text-2-1">
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="id81e35048-a75d-47ae-ada1-99f600ac072fwelldefined"><a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">welldefined</a></h3>
 <p>
-Sei \((a,b) \sim (a',b')\) und \((c,d) \sim (c',d')\) so folgt:
+Sei $(a,b) \sim (a',b')$ und $(c,d) \sim (c',d')$ so folgt:
 </p>
-</div>
-<div id="outline-container-org90fbae7" class="outline-4">
-<h4 id="org90fbae7"><span class="section-number-4">2.1.1.</span> Addition</h4>
-<div class="outline-text-4" id="text-2-1-1">
+
+<h4 id="addition">Addition</h4>
 <p>
 Es gilt damit
 </p>
-\begin{align*}
-a + b' =& a' + b \\
-c + d' =& c' + d 
-\end{align*}
+
+<div class="math-block">\begin{align*}
+a + b' =&amp; a' + b \\
+c + d' =&amp; c' + d 
+\end{align*}</div>
 <p>
 Addition der beiden Seiten ergibt
 </p>
-\begin{align*}
-a + b' + c + d' =& a' + b + c' + d \\
-(a + c) + (b' + d') =& (a' + c') + (b + d)
-\end{align*}
+
+<div class="math-block">\begin{align*}
+a + b' + c + d' =&amp; a' + b + c' + d \\
+(a + c) + (b' + d') =&amp; (a' + c') + (b + d)
+\end{align*}</div>
 <p>
 Es folgt aus der Addition
 </p>
-\begin{align*}
-(a,b) + (c,d) =& (a + c, b + d) \\
-(a',b') + (c',d') =& (a' + c', b' + d')
-\end{align*}
+
+<div class="math-block">\begin{align*}
+(a,b) + (c,d) =&amp; (a + c, b + d) \\
+(a',b') + (c',d') =&amp; (a' + c', b' + d')
+\end{align*}</div>
 <p>
-Insgesamt folgt dadurch \((a + c, b + d) \sim (a' + c', b' + d')\), was zu zeigen war
+Insgesamt folgt dadurch $(a + c, b + d) \sim (a' + c', b' + d')$, was zu zeigen war
 </p>
-</div>
-</div>
-<div id="outline-container-orgd0df5f5" class="outline-4">
-<h4 id="orgd0df5f5"><span class="section-number-4">2.1.2.</span> Multiplikation</h4>
-<div class="outline-text-4" id="text-2-1-2">
+
+<h4 id="multiplikation">Multiplikation</h4>
 <p>
 todo
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-org7035d69" class="outline-3">
-<h3 id="org7035d69"><span class="section-number-3">2.2.</span> <a href="20211008174655-abelsche_gruppe.html#ID-7281c9cf-564f-4c4c-8c3f-fc1424ac85f8">abelsche</a> <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">Gruppe</a> bezüglich Addition</h3>
-<div class="outline-text-3" id="text-2-2">
-</div>
-<div id="outline-container-org2b3bf99" class="outline-4">
-<h4 id="org2b3bf99"><span class="section-number-4">2.2.1.</span> Kommutativ</h4>
-<div class="outline-text-4" id="text-2-2-1">
+
+<h3 id="id7281c9cf-564f-4c4c-8c3f-fc1424ac85f8abelsche-idb6023bc8-458a-44e4-982a-6623378f4b4fgruppe-bezuglich-addition"><a href="20211008174655-abelsche_gruppe.html#ID-7281c9cf-564f-4c4c-8c3f-fc1424ac85f8">abelsche</a> <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">Gruppe</a> bezüglich Addition</h3>
+
+<h4 id="kommutativ">Kommutativ</h4>
 <p>
 folgt aus den <a href="20230324155712-naturliche_zahlen_als_kommutativer_halbring.html#ID-9325ce85-d826-47bb-bc08-48d95e0ad33e">Natürliche Zahlen als kommutativer Halbring</a>:
 </p>
-\begin{align*}
-(a,b) + (a',b') =& (a + a', b + b') \\
-=& (a' + a, b' + b) \\
-=& (a',b') + (a,b)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orga84fc8d" class="outline-4">
-<h4 id="orga84fc8d"><span class="section-number-4">2.2.2.</span> neutrales Element</h4>
-<div class="outline-text-4" id="text-2-2-2">
+
+<div class="math-block">\begin{align*}
+(a,b) + (a',b') =&amp; (a + a', b + b') \\
+=&amp; (a' + a, b' + b) \\
+=&amp; (a',b') + (a,b)
+\end{align*}</div>
+
+<h4 id="neutrales-element">neutrales Element</h4>
 <p>
-\((a,a)\) ist das evidente neutrale Element:
+$(a,a)$ ist das evidente neutrale Element:
 </p>
-\begin{align*}
-(a, a) + (a',b') =& (a + a', a + b') \\
-(a + a') + b' =& a' + (a + b') 
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org27f16da" class="outline-4">
-<h4 id="org27f16da"><span class="section-number-4">2.2.3.</span> inverses element</h4>
-<div class="outline-text-4" id="text-2-2-3">
+
+<div class="math-block">\begin{align*}
+(a, a) + (a',b') =&amp; (a + a', a + b') \\
+(a + a') + b' =&amp; a' + (a + b') 
+\end{align*}</div>
+
+<h4 id="inverses-element">inverses element</h4>
 <p>
-\((b,a)\) ist das evidente inverse Element für \((a,b)\)
+$(b,a)$ ist das evidente inverse Element für $(a,b)$
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 (b,a) + (a,b) = (b + a, a + b)
-\end{align*}
-</div>
-</div>
-</div>
-<div id="outline-container-org2ceb9df" class="outline-3">
-<h3 id="org2ceb9df"><span class="section-number-3">2.3.</span> <a href="20210702075732-kommutative_halbgruppe.html#ID-3129b3de-8dee-454a-8bea-cbb7b6294418">Kommutative Halbgruppe</a>  bezüglich Multiplikation</h3>
-<div class="outline-text-3" id="text-2-3">
-</div>
-<div id="outline-container-orge4fa013" class="outline-4">
-<h4 id="orge4fa013"><span class="section-number-4">2.3.1.</span> kommutativ</h4>
-<div class="outline-text-4" id="text-2-3-1">
+\end{align*}</div>
+
+<h3 id="id3129b3de-8dee-454a-8bea-cbb7b6294418kommutative-halbgruppe-bezuglich-multiplikation"><a href="20210702075732-kommutative_halbgruppe.html#ID-3129b3de-8dee-454a-8bea-cbb7b6294418">Kommutative Halbgruppe</a>  bezüglich Multiplikation</h3>
+
+<h4 id="kommutativ">kommutativ</h4>
 <p>
 folgt aus den <a href="20230324155712-naturliche_zahlen_als_kommutativer_halbring.html#ID-9325ce85-d826-47bb-bc08-48d95e0ad33e">Natürliche Zahlen als kommutativer Halbring</a>:
 </p>
-</div>
-</div>
-<div id="outline-container-org27a844c" class="outline-4">
-<h4 id="org27a844c"><span class="section-number-4">2.3.2.</span> abgeschlossenheit</h4>
-<div class="outline-text-4" id="text-2-3-2">
+
+<h4 id="abgeschlossenheit">abgeschlossenheit</h4>
 <p>
-folgt aus der abgeschlossenheit 
+folgt aus der abgeschlossenheit
 </p>
-</div>
-</div>
-<div id="outline-container-orgc2c21e9" class="outline-4">
-<h4 id="orgc2c21e9"><span class="section-number-4">2.3.3.</span> neutrale element</h4>
-<div class="outline-text-4" id="text-2-3-3">
+
+<h4 id="neutrale-element">neutrale element</h4>
 <p>
-Das neutrale Element ist \((1,0)\)
+Das neutrale Element ist $(1,0)$
 </p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 22:16</p>
+
 </div>
 </body>
 </html>

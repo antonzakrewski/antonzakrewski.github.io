@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>functor from grothendieck topologies to subcategories admits a left adjoint</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-7133920a-c8e6-4ace-bc8b-85959ef450b9"></span><h1 class="title">functor from grothendieck topologies to subcategories admits a left adjoint</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathcal{C}$ be a <a href="20240404-simplicial_set_as_infinity_category.html#ID-4635a6ee-1ad5-44cb-8e36-4a934f5ae4bf">category</a>
+Then the <a href="20240404-functor_between_infinity_categories.html#ID-7428dc84-9acd-49bc-8e93-b1541326a6b9">functor</a> $\mathrm{Sh}_{-}: \{\textrm{topologies on } \mathcal{C}\}^{\mathrm{op}} \rightarrow&amp; \{\textrm{subcategories of } \mathcal{P}(\mathcal{C})\}$ (cf. <a href="20260806-functor_from_the_poset_of_grothendieck_topologies_to_subcategories_of_the_presheaf_category.html#ID-8c9f7655-8fbf-4226-9af1-bac2e4bb523b">functor from the poset of grothendieck topologies to subcategories of the presheaf category via sheaves</a>) admits a <a href="20241017-infinity_left_adjoint.html#ID-2ba0e3a5-7a57-4093-837c-b1f0feabd7c2">left adjoint</a>
+</p>
+
+<p>
+In other words, for any subcategory $\mathcal{E}$, there exists a finest topology $\tau_{\mathcal{E}}$ such that $\mathcal{E} \subesteq \mathrm{Sh}_{\tau_{\mathcal{E}}}(\mathcal{C})$.
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $R \subseteq よ(X)$ be a <a href="20230923-sieve.html#ID-4682cea8-3c62-49f6-ae4c-3deb9dd4dec6">sieve</a>.
+Then we say that $R$ is a <a href="20240905-covering_sieve.html#ID-62c096c0-eeb3-4c12-8693-82570ec3d432">covering sieve</a> <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> every <a href="20241021-infinity_presheaf.html#ID-463d818a-2c01-4c74-a241-fd6db6e244fd">presheaf</a> in $\mathcal{E}$ <a href="20250831-descent_of_a_presheaf.html#ID-cd6e7dc2-9935-4c5f-8793-0ff22b2048e2">satisfies descent</a> along $f^*(R) \subseteq よ(Y)$ for any map $f: Y \rightarrow X$.
+Then this - if it is a well-defined grothendieck topology - is the finest topology: If $R$ is a non-covering sieve, than $\mathrm{Sh}_{\tau \cup R} \not\supseteq \mathcal{E}$ since then there exists a presheaf which does not satisfy descent for $R$, hence does not lie in $\mathrm{Sh}_{\tau \cup R}(\mathcal{C})$.
+</p>
+
+
+<h3 id="well-defined-grothendieck-topology">Well-defined grothendieck topology</h3>
+<p>
+Observe that any representable presheaf is for trivial reasons a covering sieve, since every presheaf satisfies descent for the maximal sieve.
+Moreover, sieves are closed under pullbacks by some <a href="20250121-glueing_lemma_for_infinity_pullbacks.html#ID-6626a145-a80b-42f9-90d1-fcd32579aeaf">glueing lemma for infinity pullbacks</a>.
+</p>
+
+
+
+<p>
+Let $R,S \subseteq よ(X)$, where $R$ is a \(\tau\)-covering sieve and assume that for all $f: Y \rightarrow X$ in $R$, $f^*(S) \subseteq よ(Y)$ is a $\tau$ covering iseev.
+Then we need to show that $S$ is a $\tau$ covering sieve, i.e. the dashed map is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a> for all $\mathcal{F} \in \mathcal{E}$.
+</p>
+
+
+<div class="equation-container"><span class="equation"><img src="ltximg/af132b6b9a7951a6aab3.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+We show that all other there morphisms are isomorphisms:
+</p>
+<ol>
+<li>is a isomorphism by assumption, since $\tau$ is covering.</li>
+
+<li>furthermore, $R \cong \mathrm{colim}_{Y \in \mathrm{El}(R)} よ(Y)$ and hence $R \cap S \cong \mathrm{colim}_{Y \in \mathrm{El}(R)} よ(Y) \times_{よ(X)} S$ where we have used <a href="20260807-colimits_are_universal_in_a_1_presheaf_category.html#ID-6bb1569d-30d7-4a51-955e-1af876c705a4">colimits are universal in a 1-presheaf category.</a> hence the map is given by $\lim_{Y \in \mathrm{El}(R)} \mathcal{F}(Y) \rightarrow \mathcal{F}(よ(Y) \times_{よ(X)} S)$ which is a limit of <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphisms</a>, since $よ(Y) \times_{よ(X)} S \rightarrow よ(Y)$ is a covering by assupmtion for any map $f \in R$</li>
+
+<li>$S \cong \mathrm{colim}_{Y \in \mathrm{El}(S)} よ(Y)$ so the third map is  $\lim_{Y \in \mathrm{El}(S)} \mathcal{F}(Y) \rightarrow \mathcal{F}(よ(Y) \times_{よ(X)} R)$, where $よ(Y) \times_{よ(X}} R \rightarrow R$ is a covering as $R \rightarrow X$ is a covering.</li>
+</ol>
+<p>
+TODO:
+</p>
+<ul>
+<li>should show that $f^*(S) \rightarrow Y$ satisfies descent for an arbitrary $f: Y \rightarrow X$.</li>
+</ul>
+
+</div>
+</body>
+</html>

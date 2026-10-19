@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>tree contains at least two leafs</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-401bcb37-3e26-4434-9744-b5232e8869a6"></span><h1 class="title">tree contains at least two leafs</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $G = (V,E)$ be a <a href="20221024152607-baum.html#ID-b2969a00-e313-42e8-afe1-62a33cb45013">tree</a> with $\vert V \vert \geq 2$.
+Then $G$ contains at least 2 <a href="20230327231133-blatt_graph.html#ID-71b73961-4304-4a0a-a379-14f1cb91fac3">leaf</a>s
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="circular-proof">circular proof</h3>
+<p>
+assume $\vert V \vert \geq 2$, then in particular the <a href="20250426-minimal_degree_of_a_graph.html#ID-7e86ee9c-e5e1-4480-83d1-05a2e55d6202">minimal degree of a graph</a> is given by at least $1$ (even precisely one) since $G$ is connected.
+Then using <a href="20250426-sum_of_degrees_of_a_graph.html#ID-9c48eadb-2611-4985-8565-7e3b1a5fbb72">sum of degrees of a graph</a> and <a href="20250429-tree_and_connected_graph_and_edges.html#ID-3cd80a67-1b6a-4f66-9659-7f3f6b6347d2">tree and connected graph and edges</a> we get
+</p>
+
+<div class="math-block">\begin{align*}
+\sum_{v \in V(G)} d_G(v) =&amp; 2 \cdot E(G) \\
+=&amp; 2 \cdot V(G) - 2
+\end{align*}</div>
+<p>
+where this equality shows, that there exist at least $2$ vertices with $d_G(v_1) = d_G(v_2)$ as otherwise
+</p>
+
+<div class="math-block">\begin{align*}
+\sum_{v \in V(G)} d_G(v) &gt; 2 \cdot V(G) - 2
+\end{align*}</div>
+
+<h3 id="proof-by-contradiction">proof by contradiction</h3>
+<p>
+Assume that $G$ contains precisely one leaf (the other case follows from <a href="20250427-graph_with_minimal_degree_2_contains_circle.html#ID-11b7ad8e-490e-463d-abea-bca290a9385b">graph with minimal degree 2 contains circle</a>).
+Then let $v_0$ denote the leaf and follow the algorithm of <a href="20250427-graph_with_minimal_degree_2_contains_circle.html#ID-11b7ad8e-490e-463d-abea-bca290a9385b">graph with minimal degree 2 contains circle</a>.
+This provides a cycle, hence contradiction to the assumption.
+</p>
+
+<p>
+Here the algorithm can be done by the following way:
+</p>
+<ul>
+<li>choose an adjacent vertex $v_{i+1}$ to $v_i$, such that the edge $\{v_i,v_{i+1}\}$ has not been chosen before</li>
+
+<li>repeat this until you can't anymore</li>
+
+<li>since $G$ contains finitely many edges, this algorithm has to terminate.</li>
+</ul>
+<p>
+Then we are stuck in some $v_n$.
+If $\mathrm{d}_G(V_n) = 1$, then we got another leaf (note that it has to be distinct, since we have already marked the only edge connecting $v_0$)
+Otherwise for $\mathrm{d}_G(V_n) \geq 2$ this implies that we have already marked an edge $v_n \rightarrow v_l$. showing that $v_n = v_{l+1}$ or $v_n = v_{l-1}$.
+</p>
+
+<p>
+This in particular provides a <a href="20250429-weg_in_einem_graph.html#ID-59873f55-cb18-408e-a651-3a69893fd5a3">walk</a> $v_n \rightarrow v_n$ where by construction each edge was distinct, hence the graph is not acyclic.
+Contradiction to our definition
+</p>
+
+</div>
+</body>
+</html>

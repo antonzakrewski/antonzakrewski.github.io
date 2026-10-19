@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>paracompact manifold with countably many components implies second countability</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-4ee3acda-7fcb-442c-a406-4e35d734374c"></span><h1 class="title">paracompact manifold with countably many components implies second countability</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X$ be a <a href="20221113224914-mannigfaltigkeit.html#ID-635e5ff5-f006-46bf-891a-869ae972d6e6">topological manifold</a> with the assumption, that it is <a href="20230406114101-paracompact_space.html#ID-e335d767-4989-4ad5-ba4e-28c7559ae05a">paracompact</a> and has <a href="20220903164044-abzahlbar.html#ID-96f3063e-a99a-4c33-93c2-5c9f99f15717">countably</a> many <a href="20230308142726-zusammenhangskomponente.html#ID-1428682d-f6f4-4d4c-b52c-bc0087485f33">connected components</a>.
+Then it is also <a href="20230211132410-zweite_abzahlbarkeitsaxiom.html#ID-155a3f29-5e48-4647-a11e-5bc32b501755">secondcountable</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="connected-component-admits-second-countable-basis">connected component admits second countable basis</h3>
+<p>
+Assume that $X$ is <a href="20230118223336-zusammenhangender_raum.html#ID-bcc53507-bc5a-46d4-bd83-53e504f62b9d">connected</a>.
+</p>
+
+<p>
+We will show that $X$ is covered by countably many euclidean spaces (which in particular are second countable) to conclude that $X$ is second countable (cf. <a href="20240612-countable_open_cover_by_second_countable_subspaces.html#ID-bb3b3420-ba70-42fb-9c04-c64ac538f8de">countable open cover by second countable subspaces</a>)
+Let $\mathcal{U}$ be the open cover which we will inductively define via $\mathcal{U} = \bigcup_{n \in \mathbb{N}} \mathcal{U}_n$.
+We want to show that $\mathcal{U}$ will cover $X$ and that each $\mathcal{U}_n$ is countable.
+</p>
+
+<p>
+Choose an <a href="20221125072633-offene_uberdeckung.html#ID-f64293ce-3838-4f49-b45d-07666123c2c9">open cover</a> by euclidean spaces $U_i$ and a <a href="20230330201224-lokalendliche_uberdeckung.html#ID-3d3c4568-277e-490d-a949-43ec881fd2ff">locally finite</a> <a href="20230406114448-refinement.html#ID-a6603a8e-c953-4650-a2d0-6502a10f9891">refinement</a> $O_i$.
+Then choose a point $x_0 \in X$ (<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> $X \neq \emptyset$) and a neighbourhood $U_x$ which intersects only finitely many $O_i$ and set $\mathcal{U}_0 = \{U_x\}$.
+Now for each point $x_{1,j} \in O_i$ for $i \in \{1,...,n\}$ choose a neighbourhood $U_{x_{1,j}}$ where each $U_{x_{1,j}}$ intersects only finitely many $O_{l}$.
+Then using <a href="20251021-euclidean_space_is_countably_compact.html#ID-3fa27dcd-8ff8-49bf-8683-3a2dd4c13071">euclidean space is countably compact</a> we note that countably many from $U_{x_{1,j}}$ suffice for each $O_i$ (here we only have finitely many $O_i$).
+Thus set $\mathcal{U}_1 = \{U_{x_{1,j}}\}$ where we only need countably many.
+</p>
+
+<p>
+Each of $U_{x_{1,j}}$ intersects only finitely man $O_i$, so repeat this process and define $\mathcal{U}_2,....$ analagoously.
+</p>
+
+<p>
+we claim that $\mathcal{U} = \bicgup \mathcal{U}_n$ covers $X$.
+Since $X$ is connected, it suffices to show that the <a href="20211227205752-komplement_mengenlehre.html#ID-76b857a4-da6d-4333-b837-cc1009f534e2">complement</a>  of $V \coloneqq \bigcup_{U \in \mathcal{U}} U$ is open (since $x_0 \in V$ is <a href="20220902125304-nichtleere_menge.html#ID-119fa0d9-a2b3-4b46-bb61-a6e590282321">nonempty</a>).
+So let $x \not\in V$, then there exists an $O_x$ from the locally finite refinement with $x \in O_x$.
+then it follows that $O_x \subseteq X \setminus V$ as otherwise we would have covered $O_X$ in some step before.
+</p>
+
+
+
+<h3 id="id5f2cf789-f08f-436a-a118-a3225d38292ccountable-product-of-second-countable-spaces-as-second-countable"><a href="20230629-abzahlbare_produkt_zweitabzahlbarer_raume_als_zweitabzahlbarer_raum.html#ID-5f2cf789-f08f-436a-a118-a3225d38292c">countable product of second countable spaces as second countable</a></h3>
+<ul>
+<li><a href="20231212-locally_path_connected_space_as_coproduct_of_connected_components.html#ID-abed8341-45b3-4bb3-88e9-af05de86062c">locally path connected space as coproduct of connected components</a> </li>
+</ul>
+<p>
+https://math.stackexchange.com/questions/527642/the-equivalence-between-paracompactness-and-second-countablity-in-a-locally-eucl
+</p>
+
+
+</div>
+</body>
+</html>

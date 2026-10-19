@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>universal property of the semidirect product</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-d1e49468-17cb-48f8-a9be-d5d3710ef04d"></span><h1 class="title">universal property of the semidirect product</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\varphi: N \rightarrow \mathrm{Aut}_{\mathrm{Grp}}(H)$ be a <a href="20220928134932-gruppenhomomorphismus.html#ID-7d86b4b2-8f83-4da4-b1ef-08c3d37aa417">group-homomorphism</a> and $H \ltimes N$ the <a href="20230807-semidirektes_produkt.html#ID-1a59594e-f846-47fe-acd6-f69e365d0b93">semidirect product</a> (sitting in $H \rightarrow H \ltimes N \rightarrow N$).
+Then there exists a canonical bijection between
+</p>
+<ol>
+<li>pairs of <a href="20220928134932-gruppenhomomorphismus.html#ID-7d86b4b2-8f83-4da4-b1ef-08c3d37aa417">group-homomorphisms</a> $f: N \rightarrow G,g: H \rightarrow G$ such that $g(\varphi_n(h)) = f(n) g(h) f(n^{-1})$</li>
+
+<li><a href="20220928134932-gruppenhomomorphismus.html#ID-7d86b4b2-8f83-4da4-b1ef-08c3d37aa417">group-homomorphisms</a> $\psi: H \ltimes N \rightarrow G$ </li>
+</ol>
+<p>
+given by
+</p>
+
+<div class="math-block">\begin{align*}
+(f: N \rightarrow G,g: H \rightarrow G) \mapsto (H \ltimes N \rightarrow G, (h,n) \mapsto f(n) \cdot g(h)) \\
+(\psi: H \ltimes N \rightarrow G) \mapsto (\psi_{\vert N}: N \rightarrow G, \psi_{\vert H}: H \rightarrow G)
+\end{align*}</div>
+<p>
+where under the (implicit) splitting we may regard $N$ as subgroup of $H \ltimes N$
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+<p>
+Define the map as indicated
+</p>
+
+<div class="math-block">\begin{align*}
+H \ltimes N \rightarrow&amp; G \\
+(h,n) \mapsto&amp; f(n) \cdot g(h)
+\end{align*}</div>
+
+<p>
+Then we may calculate
+</p>
+
+<div class="math-block">\begin{align*}
+(g \ltimes f)((h,n), (h',n')) =&amp; (g \ltimes f)(h \cdot \varphi_n(h), n \cdot n') \\
+=&amp; g(h) \cdot g(\varphi_n(h')) \cdot f(n) \cdot f(n') \\
+=&amp; g(h) \cdot f(n) \cdot g(h) \cdot f(n^{-1}) \cdot f(n) \cdot f(n') \\
+=&amp; g(h) \cdot f(n) \cdot g(h) \cdot f(n') \\
+=&amp; (g \ltimes f)((h,n)) \cdot (g \ltimes f)(h',n')
+\end{align*}</div>
+
+<h3 id="2-implies-1">2) $\implies$ 1)</h3>
+<p>
+Let $\psi: H \ltimes N $\rightarrow G$ be a homomorphism.
+Then define as above
+</p>
+
+<div class="math-block">\begin{align*}
+\psi_{\vert N}: N \rightarrow&amp; G \\
+n \mapsto&amp; \psi(1,n) \\
+\psi_{\vert H}: H \rightarrow&amp; G
+h \mapsto \psi(h,1)
+\end{align*}</div>
+<p>
+where
+</p>
+
+<p>
+Note that in particular $\psi(n,h) = \psi((n,1) \cdot (1,h))$ so in particular the construction (if welldefined) is bijective
+So it remains to show that
+</p>
+
+<div class="math-block">\begin{align*}
+\psi_{\vert H}(\varphi_n(h)) = \psi_{\vert N}(n) \psi_{\vert H}(h) \psi_{\vert N}(n^{-1})
+\end{align*}</div>
+
+<p>
+Here we note that
+</p>
+
+<div class="math-block">\begin{align*}
+ (\varphi_n(h), 1) =&amp; (\varphi_n(h), n) \cdot (1, n^{-1}) \\
+=&amp; (1,n) \cdot (h,1) \cdot (1, n^{-1}) 
+\end{align*}</div>
+<p>
+and hence as $\psi$ is a group homomorphism
+</p>
+
+<div class="math-block">\begin{align*}
+\psi_{\vert H}(\varphi_n(h)) =&amp; \psi(\varphi_n(h),1) \\
+=&amp; \psi((1,n) \cdot (h,1) \cdot (1,n^{-1})) \\
+=&amp; \psi(1,n) \cdot \psi(h,1) \cdot \psi(1,n^{-1}) \\
+=&amp; \psi_{\vert N}(n) \cdot \psi_{\vert H}(h) \cdot \psi_{\vert N}(n^{-1}) \\
+\end{align*}</div>
+
+</div>
+</body>
+</html>

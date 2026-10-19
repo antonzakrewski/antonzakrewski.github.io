@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 15:01 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Äquivalenz von Matrizen als Äquivalenzrelation</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,63 +52,47 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Äquivalenz von Matrizen als Äquivalenzrelation</h1>
-<div id="outline-container-orgb41f97c" class="outline-2">
-<h2 id="orgb41f97c"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-21596ed3-8d40-4be5-ab40-81ae479c24fd"></span><h1 class="title">Äquivalenz von Matrizen als Äquivalenzrelation</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(R\) ein <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">kommutativer Ring</a> \(R\) und \(A,B \in R^{n \times m}\) <a href="20220303181007-matrix.html#ID-3234cd94-0d93-470b-a319-75288f97326e">Matrizen</a>.
+Sei $R$ ein <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">kommutativer Ring</a> $R$ und $A,B \in R^{n \times m}$ <a href="20220303181007-matrix.html#ID-3234cd94-0d93-470b-a319-75288f97326e">Matrizen</a>.
 Dann ist die <a href="20230608-aquivalente_matrizen.html#ID-f05c96d0-f2e4-46e4-a543-4407cc8135c8">Äquivalenz von Matrizen</a> eine <a href="20211227225754-aquivalenzrelation_mengenlehre.html#ID-bf83e0aa-4df1-48a5-b910-2837942bdd19">Äquivalenzrelation</a>.
 </p>
-</div>
-</div>
-<div id="outline-container-orga212669" class="outline-2">
-<h2 id="orga212669"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org9982f15" class="outline-3">
-<h3 id="org9982f15"><span class="section-number-3">2.1.</span> symmetrie</h3>
-<div class="outline-text-3" id="text-2-1">
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="symmetrie">symmetrie</h3>
 <p>
-Sei \(B = P \cdot A \cdot Q\), so folgt durch Multiplikation mit \(P^{-1},Q^{-1}\)
+Sei $B = P \cdot A \cdot Q$, so folgt durch Multiplikation mit $P^{-1},Q^{-1}$
 </p>
-\begin{align*}
-P^{-1} B Q^{-1} =& A
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgf66a323" class="outline-3">
-<h3 id="orgf66a323"><span class="section-number-3">2.2.</span> reflexivität</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<div class="math-block">\begin{align*}
+P^{-1} B Q^{-1} =&amp; A
+\end{align*}</div>
+
+<h3 id="reflexivitat">reflexivität</h3>
 <p>
-Es gilt \(A = E \cdot A \cdot E\)
+Es gilt $A = E \cdot A \cdot E$
 </p>
-</div>
-</div>
-<div id="outline-container-orga457688" class="outline-3">
-<h3 id="orga457688"><span class="section-number-3">2.3.</span> transitivität</h3>
-<div class="outline-text-3" id="text-2-3">
+
+<h3 id="transitivitat">transitivität</h3>
 <p>
-Seien \(A,B,C\) gegeben mit 
+Seien $A,B,C$ gegeben mit
 </p>
-\begin{align*}
-A =& P \cdot B \cdot Q \\
-B =& P' \cdot C \cdot Q'
-\end{align*}
+
+<div class="math-block">\begin{align*}
+A =&amp; P \cdot B \cdot Q \\
+B =&amp; P' \cdot C \cdot Q'
+\end{align*}</div>
 <p>
 so folgt:
 </p>
-\begin{align*}
-A =& P \cdot P' \cdot C \cdot Q' \cdot Q
-\end{align*}
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 15:01</p>
+
+<div class="math-block">\begin{align*}
+A =&amp; P \cdot P' \cdot C \cdot Q' \cdot Q
+\end{align*}</div>
+
 </div>
 </body>
 </html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>skeleton of a simplicial set as pushout</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-e223261f-14e9-47c8-b3fc-422a6e5f0f02"></span><h1 class="title">skeleton of a simplicial set as pushout</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X$ be a <a href="20240128-simplicial_set.html#ID-43a75466-c729-429a-a459-56f226b81262">simplicial set</a>, then the \(n\)-th skeleton is given by the <a href="20230806-pushforward.html#ID-a4141d87-68ee-4337-8f80-997a6d4b4091">pushout</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/2653f2221433c821a7d1.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+where
+</p>
+<ol>
+<li>$\partial \Delta^n \rightarrow \Delta^n$ is given by the inclusion</li>
+
+<li>$x: \Delta^n \rightarrow \mathrm{Sk}_n(X)$ is given by &lt;yoneda&gt; for $x \in X_n$</li>
+
+<li>$\mathrm{colim} \Delta^{n-1} \cong \partial \Delta^n \rightarrow \mathrm{Sk}_{n-1}(X)$ given by the restriction</li>
+</ol>
+<h2 id="proof">Proof</h2>
+<p>
+Given maps
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/dfe778443862bb63cf0c.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+define
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Sk}_n \rightarrow Y
+\end{align*}</div>
+<p>
+via
+</p>
+
+<div class="math-block">\begin{align*}
+x \mapsto 
+    \begin{cases}
+    \epsilon_{\mathrm{Sk}_{n-1}}(x) &amp; \mbox{if } x \in \mathrm{Sk}_{n-1} \\
+y
+    \end{cases}
+\end{align*}</div>
+<p>
+for
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/a00debb42c6cea4035e6.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+<h4 id="welldefined">welldefined</h4>
+<p>
+todo
+</p>
+
+<h4 id="uniqueness">uniqueness</h4>
+<p>
+note that each choice had to be made this way
+</p>
+
+
+<h3 id="alternatively">alternatively</h3>
+<p>
+using <a href="20231219-colimit_of_functors.html#ID-b4a3da07-aa3b-45e9-bf50-48fe9bb5fc82">colimit of functors for a cocomplete codomain</a> we may evaluate at the \(k\)-simplices.
+</p>
+
+<p>
+Then
+</p>
+
+<h4 id="k-n">$k &lt; n$</h4>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/ae35865ca0183c417035.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+by <a href="20241016-square_with_parallel_isos_as_pushout.html#ID-5cf9e47d-aada-4e59-815c-7284aec691fa">square with parallel isos as pushout</a>
+</p>
+
+
+
+
+<h4 id="k-n">$k = n$</h4>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/ae35865ca0183c417035.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Let $x \in \mathrm{sk}_k(X)_k$.
+Then it is either degenerate or non degenerate
+</p>
+
+<p>
+if it is non degenerate, then $x \in I_n$ and $\Delta_n^k \ni \mathrm{id}_{[n]} \mapsto x$.
+Hence it lives in the image of the lower horizontal map.
+</p>
+
+<p>
+If it is degenare, then there exists a surjection $f: [n] \rightarrow [n-1]$ and $y \in X_{n-1}$ such that $f^*(y) = x$.
+Hence $y \in \mathrm{sk}_{n-1}(X)$.
+Thus $x$ lives in the image of the right vertical map.
+</p>
+
+<p>
+to get a pushout take $\alpha \in I_n$ resp. $\alpha: \Delta^n \rightarrow X$ and assume
+Let $f \in \Delta_n^n = \mathrm{Hom}([n], [n])$ such that $f^*(\alpha) \in \mathrm{sk}_{n-1}(X)$.
+</p>
+
+<p>
+Then we have to show that $f$ is not surjective, i.e. $f \in (\partial \Delta^n)_n$
+</p>
+
+<p>
+This is equivalent to $f$ not being the identity, as $f$ has to be order preserving.
+</p>
+
+<p>
+If $f$ is the identity, then $f^*(\alpha) = \alpha \not\in \mathrm{sk}_{n-1}(x)$
+</p>
+
+
+<h4 id="k-n">$k &gt; n$</h4>
+<p>
+Let $y \in (\mathrm{sk}_n(X))_k$.
+Then $y = f^*(x)$ for some simplex $x \in X_l$ with $l &lt; k$ and $f: [k] \rightarrow [l]$
+</p>
+
+<p>
+either $l = n$ or $l &lt; n$ as $y \in \mathrm{sk}_n(X)_k$ (cf. <a href="20240918-n_skeleton_of_a_simplicial_set_as_generated_simplicial_set.html#ID-82c6b238-22fa-477b-b590-496bd8fa303b">n-skeleton of a simplicial set as generated simplicial set</a>)
+</p>
+
+<p>
+if $l = n$ then $x$ comes from the lower horizontal map, hence $f^*(x)$ also comes from the lower horizontal map.
+</p>
+
+<p>
+similar in the case $k = n$, the square is a pushout (todo)
+</p>
+
+</div>
+</body>
+</html>

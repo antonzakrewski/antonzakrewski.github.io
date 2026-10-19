@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 15:45 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>abelian quotientgroup and commutator subgroup</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,83 +52,71 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">abelian quotientgroup and commutator subgroup</h1>
-<div id="outline-container-orgf332f4a" class="outline-2">
-<h2 id="orgf332f4a"><span class="section-number-2">1.</span> Proposition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-ee3c02b0-1c09-4cf4-a803-cc765d039711"></span><h1 class="title">abelian quotientgroup and commutator subgroup</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let \(G\) be a <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a>, \(G^{(1)}\) the <a href="20230808-kommutatorgruppe.html#ID-06a85ad0-3007-4ec7-8478-52f45f7cd091">commutator subgroup</a> and \(N \trianglelefteq G\) a <a href="20221210192900-normalteiler.html#ID-f971f946-d0ca-444a-a450-efbef237a278">normal subgroup</a> 
+Let $G$ be a <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a>, $G^{(1)}$ the <a href="20230808-kommutatorgruppe.html#ID-06a85ad0-3007-4ec7-8478-52f45f7cd091">commutator subgroup</a> and $N \trianglelefteq G$ a <a href="20221210192900-normalteiler.html#ID-f971f946-d0ca-444a-a450-efbef237a278">normal subgroup</a>
 <a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
 </p>
-<ol class="org-ol">
-<li>\(G^{(1)} \subseteq N\)</li>
-<li>\(G/N\) is <a href="20211008174655-abelsche_gruppe.html#ID-7281c9cf-564f-4c4c-8c3f-fc1424ac85f8">abelian</a></li>
+<ol>
+<li>$G^{(1)} \subseteq N$</li>
+
+<li>$G/N$ is <a href="20211008174655-abelsche_gruppe.html#ID-7281c9cf-564f-4c4c-8c3f-fc1424ac85f8">abelian</a> </li>
 </ol>
-</div>
-</div>
-<div id="outline-container-orgc9de2fe" class="outline-2">
-<h2 id="orgc9de2fe"><span class="section-number-2">2.</span> Proof</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orgd8bba93" class="outline-3">
-<h3 id="orgd8bba93"><span class="section-number-3">2.1.</span> 1) \(\implies\) 2)</h3>
-<div class="outline-text-3" id="text-2-1">
+<h2 id="proof">Proof</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
 <p>
-Let \(g_1, g_2 \in G\), then \([g_1g_2] \in N\)
+Let $g_1, g_2 \in G$, then $[g_1g_2] \in N$
 </p>
-\begin{align*}
-g_1N \cdot g_2N =& g_1g_2 N \\
-=& g_1 g_2 [g_1g_2]N \\
-=& g_1 g_2 [g_2^{-1}g_1^{-1}] N \\
-=& g_1 g_2 (g_2^{-1}g_1^{-1}g_2g_1) N \\
-=& g_2g_1 N
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org4d631b9" class="outline-3">
-<h3 id="org4d631b9"><span class="section-number-3">2.2.</span> 2) \(\implies\) 1)</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<div class="math-block">\begin{align*}
+g_1N \cdot g_2N =&amp; g_1g_2 N \\
+=&amp; g_1 g_2 [g_1g_2]N \\
+=&amp; g_1 g_2 [g_2^{-1}g_1^{-1}] N \\
+=&amp; g_1 g_2 (g_2^{-1}g_1^{-1}g_2g_1) N \\
+=&amp; g_2g_1 N
+\end{align*}</div>
+
+<h3 id="2-implies-1">2) $\implies$ 1)</h3>
 <p>
-Let \(g_1,g_2 \in G\), then 
+Let $g_1,g_2 \in G$, then
 </p>
-\begin{align*}
-g_1 g_2 N =& g_2 g_1 N \\
-\end{align*}
+
+<div class="math-block">\begin{align*}
+g_1 g_2 N =&amp; g_2 g_1 N \\
+\end{align*}</div>
 <p>
 Hence
 </p>
-\begin{align*}
-g_1 g_2 N =& g_2 g_1 N && \vert g_2^{-1}g_1^{-1} \cdot \\
-N =& g_2^{-1}g_1^{-1} g_2 g_1 N
-\end{align*}
+
+<div class="math-block">\begin{align*}
+g_1 g_2 N =&amp; g_2 g_1 N &amp;&amp; \vert g_2^{-1}g_1^{-1} \cdot \\
+N =&amp; g_2^{-1}g_1^{-1} g_2 g_1 N
+\end{align*}</div>
 <p>
 or equivalently
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 g_2^{-1}g_1^{-1} g_2 g_1 \in N \\
 [g_2^{-1}g_1^{-1}] \in N
-\end{align*}
+\end{align*}</div>
 <p>
-Since \(g_1g_2\) are arbitrary, we conclude
+Since $g_1g_2$ are arbitrary, we conclude
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 G^{(1)} \subseteq N
-\end{align*}
+\end{align*}</div>
 
 <p>
-See:  
+See:
 </p>
-<ul class="org-ul">
-<li><a href="20230808-commutator_subgroup_as_normal_subgroup.html#ID-9a1c8b32-66ed-4476-8b7f-028171d282dd">commutator subgroup as normal subgroup</a></li>
+<ul>
+<li><a href="20230808-commutator_subgroup_as_normal_subgroup.html#ID-9a1c8b32-66ed-4476-8b7f-028171d282dd">commutator subgroup as normal subgroup</a> </li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 15:45</p>
 </div>
 </body>
 </html>

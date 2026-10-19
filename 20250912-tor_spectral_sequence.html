@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>tor spectral sequence for ring spectra</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-dc493055-1de3-44a8-82fa-851134c0f4b3"></span><h1 class="title">tor spectral sequence for ring spectra</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $R\in \mathrm{RingSp}$$ be an \(\mathbb{E}_1\)-<a href="20250604-ring_spectrum.html#ID-591ff318-1cac-44c2-90ea-6c84148de8eb">ring spectrum</a>.
+Let $M$ be a &lt;left module&gt;, $N$ a &lt;right module&gt;.
+</p>
+
+<p>
+Then there exists a &lt;convergent&gt; <a href="20250826-spectral_sequence.html#ID-37b89bcc-af64-4182-9e25-2a7ac65f9ec4">spectral sequence</a>
+</p>
+
+
+<div class="math-block">\begin{align*}
+E_{i,j}^2 = \mathrm{Tor}^{\pi_* R}_i(\pi_* M, \pi_* N)_j \Rightarrow \pi_{i+j}(M \otimes_{R} N)
+\end{align*}</div>
+
+<p>
+where $\mathrm{Tor}_i^{\pi_* R}(\pi_* M, \pi_* N) \in \mathrm{Mod}(R)$ is again graded
+</p>
+
+<p>
+see:
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+consider the filtered spectrum
+</p>
+
+<div class="math-block">\begin{align*}
+\tau_{\geq *} M \otimes_{\tau_{\geq *} R } \tau_{\geq *} N
+\end{align*}</div>
+<p>
+as tensor product in filtered spectra (&lt;restricts to it&gt;)
+</p>
+
+<p>
+Then the <a href="20241016-colimit_in_an_infinity_category.html#ID-de45d65c-0326-401d-93b3-f10a929be459">colimit</a> is given by
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{colim} \simeq M \otimes_{R} N
+\end{align*}</div>
+<p>
+since $\mathrm{colim}: \mathrm{Fil}(\mathrm{Sp}) \rightarrow \mathrm{Sp}$ is a <a href="20250317-symmetric_monoidal_infinity_functor.html#ID-58e3cc78-f94d-460d-b655-29030f21a65b">symmetric monoidal functor</a>
+</p>
+
+<p>
+Furthermore the <a href="infinity-limit.html#ID-a8bcf958-5282-4984-8415-7a64cca74613">limit</a> is given by $0$. (since each spectrum has bounded homotopy groups - todo).
+</p>
+
+<p>
+for each spectrum in $\mathrm{fil}_{\geq *}(\mathrm{Sp})$ the limit is given by $0$ because more mand moer homotopy groups will be $0$.
+</p>
+
+<p>
+Associated graded is symmetric monoidal:
+</p>
+
+
+<div class="math-block">\begin{align*}
+\mathrm{gr}^* \simeq&amp; \mathrm{gr}^*(\tau_{\geq *} M) \otimes_{\mathrm{gr}^*(\tau_{\geq *} R)} \mathrm{gr}^*(\tau_{\geq *} N) 
+\simeq&amp; \Simga^* \pi_* M \otimes_{\Sigma^ \pi_* R} \Sigma^* \pi_* N \\
+\simeq&amp; \Simga^* (\pi_*(M ) \otimes_{\pi_* R} \pi_*N)
+\end{align*}</div>
+<p>
+where we use thta &lt;$\mathrm{gr}^*$&gt; is symmetric monoidal.
+and that $\Sigma^*$ is at least \(\mathbb{E}_1\)-monoidal.
+</p>
+
+<p>
+or
+</p>
+
+<div class="math-block">\begin{align*}
+E^2_{i,j} =&amp; \pi_{i+j} \mathrm{gr}^j =&amp; \pi_*{i+j} (\Sigma^j (\pi_{*}M \otimes_{\pi_* R} \pi_*(N)) \\
+\simeq&amp; \pi_i((\pi_* M \otimes_{\pi_* R} \pi_* N)_j) \\
+\simeq&amp; H_i(\pi_* M \otimes_{\pi_* R} \pi_* N) \\
+\simeq&amp; \mathrm{Tor}_{i}^{\pi_* R}(\pi_* M, \pi_* N)_j
+\end{align*}</div>
+
+
+
+
+</div>
+</body>
+</html>

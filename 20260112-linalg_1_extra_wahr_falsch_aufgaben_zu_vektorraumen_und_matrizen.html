@@ -1,208 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2026-02-18 Mi 20:24 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>LinAlg 1 - extra wahr / falsch Aufgaben zu Vektorräumen und Matrizen</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -229,869 +52,630 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">LinAlg 1 - extra wahr / falsch Aufgaben zu Vektorräumen und Matrizen</h1>
-<div id="outline-container-org09827af" class="outline-2">
-<h2 id="org09827af">Warnung</h2>
-<div class="outline-text-2" id="text-org09827af">
+<span id="ID-889f09cd-8a26-4455-98b4-a2e767cdd994"></span><h1 class="title">LinAlg 1 - extra wahr / falsch Aufgaben zu Vektorräumen und Matrizen</h1>
+
+<h2 id="warnung">Warnung</h2>
 <p>
-Ich hatte 30 Fragen erstellt und wurde gebeten, mehr Fragen aufzuschreiben.<br />
-Ich denke ich werde in meinem Montagstutorium jetzt öfters wahr / falsch Aufgaben besprechen, ihr dürft gerne<br />
+Ich hatte 30 Fragen erstellt und wurde gebeten, mehr Fragen aufzuschreiben.
+Ich denke ich werde in meinem Montagstutorium jetzt öfters wahr / falsch Aufgaben besprechen, ihr dürft gerne
 </p>
 
 <p>
-Ich glaube dass diese Fragen eher schwieriger sind als typische wahr / falsch fragen in der Klausur.<br />
-Auf jeden Fall gibt es hier einige wahr / falsch aufgaben, die zu schwer wären.<br />
+Ich glaube dass diese Fragen eher schwieriger sind als typische wahr / falsch fragen in der Klausur.
+Auf jeden Fall gibt es hier einige wahr / falsch aufgaben, die zu schwer wären.
 </p>
-</div>
-</div>
-<div id="outline-container-orga8b1b33" class="outline-2">
-<h2 id="orga8b1b33">Liste</h2>
-<div class="outline-text-2" id="text-orga8b1b33">
-</div>
-<div id="outline-container-org618c157" class="outline-3">
-<h3 id="org618c157">Vektorräume &amp; Matrizen</h3>
-<div class="outline-text-3" id="text-org618c157">
+
+<h2 id="liste">Liste</h2>
+
+<h3 id="vektorraume-matrizen">Vektorräume &amp; Matrizen</h3>
 <p>
-Sei \(K\) ein Körper.<br />
-Sei im Folgenden \(\varphi: V \rightarrow W\) eine K-lineare Abbildung zwischen endlich dimensionalen K-VR.<br />
+Sei $K$ ein Körper.
+Sei im Folgenden $\varphi: V \rightarrow W$ eine K-lineare Abbildung zwischen endlich dimensionalen K-VR.
 </p>
-</div>
-<div id="outline-container-org6607b18" class="outline-4">
-<h4 id="org6607b18">i)</h4>
-<div class="outline-text-4" id="text-org6607b18">
+
+<h4 id="i">i)</h4>
 <p>
-Sei \(M \subseteq V\) eine Teilmenge und \(\varphi[M] \subseteq W\) ein UVR.<br />
-Dann ist \(M\) auch ein UVR von \(V\).<br />
+Sei $M \subseteq V$ eine Teilmenge und $\varphi[M] \subseteq W$ ein UVR.
+Dann ist $M$ auch ein UVR von $V$.
 </p>
-</div>
-</div>
-<div id="outline-container-orga640939" class="outline-4">
-<h4 id="orga640939">ii)</h4>
-<div class="outline-text-4" id="text-orga640939">
+
+<h4 id="ii">ii)</h4>
 <p>
-Seien \(v \neq v'\) Vektoren in \(V\), so existiert eine K-lineare Abbildung \(f: V \rightarrow K\) mit \(f(v) \neq f(v')\)<br />
+Seien $v \neq v'$ Vektoren in $V$, so existiert eine K-lineare Abbildung $f: V \rightarrow K$ mit $f(v) \neq f(v')$
 </p>
-</div>
-</div>
-<div id="outline-container-org093e0df" class="outline-4">
-<h4 id="org093e0df">iii)</h4>
-<div class="outline-text-4" id="text-org093e0df">
+
+<h4 id="iii">iii)</h4>
 <p>
-Seien \(V,W\) Vektorräume über dem Körper \(K = \mathbb{Z}/p \mathbb{Z}\) und \(\psi: V \rightarrow W\) ein Gruppenhomomorphismus zwischen den additiven Gruppen.<br />
-Dann ist \(\psi\) schon ein Vektorraumhomomorphismus.<br />
+Seien $V,W$ Vektorräume über dem Körper $K = \mathbb{Z}/p \mathbb{Z}$ und $\psi: V \rightarrow W$ ein Gruppenhomomorphismus zwischen den additiven Gruppen.
+Dann ist $\psi$ schon ein Vektorraumhomomorphismus.
 </p>
-</div>
-</div>
-<div id="outline-container-orgda056f0" class="outline-4">
-<h4 id="orgda056f0">iv)</h4>
-<div class="outline-text-4" id="text-orgda056f0">
+
+<h4 id="iv">iv)</h4>
 <p>
-Seien \(V,W\) Vektorräume über dem Körper \(K = \mathbb{Q}\) und \(\psi: V \rightarrow W\) ein Gruppenhomomorphismus zwischen den additiven Gruppen.<br />
-Dann ist \(\psi\) schon ein Vektorraumhomomorphismus.<br />
+Seien $V,W$ Vektorräume über dem Körper $K = \mathbb{Q}$ und $\psi: V \rightarrow W$ ein Gruppenhomomorphismus zwischen den additiven Gruppen.
+Dann ist $\psi$ schon ein Vektorraumhomomorphismus.
 </p>
-</div>
-</div>
-<div id="outline-container-org444f854" class="outline-4">
-<h4 id="org444f854">v)</h4>
-<div class="outline-text-4" id="text-org444f854">
+
+<h4 id="v">v)</h4>
 <p>
-Sei \(\{v_1,...,v_n\}\) eine Basis von \(V\) und \(U \subseteq V\) ein UVR.<br />
-Dann ist \(U \cap \{v_1,...,v_n\}\) eine Basis von \(U\)<br />
+Sei $\{v_1,...,v_n\}$ eine Basis von $V$ und $U \subseteq V$ ein UVR.
+Dann ist $U \cap \{v_1,...,v_n\}$ eine Basis von $U$
 </p>
-</div>
-</div>
-<div id="outline-container-org98a15d7" class="outline-4">
-<h4 id="org98a15d7">vi)</h4>
-<div class="outline-text-4" id="text-org98a15d7">
+
+<h4 id="vi">vi)</h4>
 <p>
-Wenn \(\{v_1,v_2,v_3\}\) linear abhängig ist, dann ist \(v_3\) eine Linearkombination von \(v_1\) und \(v_2\).<br />
+Wenn $\{v_1,v_2,v_3\}$ linear abhängig ist, dann ist $v_3$ eine Linearkombination von $v_1$ und $v_2$.
 </p>
-</div>
-</div>
-<div id="outline-container-org5d0558d" class="outline-4">
-<h4 id="org5d0558d">vii)</h4>
-<div class="outline-text-4" id="text-org5d0558d">
+
+<h4 id="vii">vii)</h4>
 <p>
-Es gilt \(\mathrm{dim}(K^{n \times m}) = n \cdot m\)<br />
+Es gilt $\mathrm{dim}(K^{n \times m}) = n \cdot m$
 </p>
-</div>
-</div>
-<div id="outline-container-org70e7c2f" class="outline-4">
-<h4 id="org70e7c2f">viii)</h4>
-<div class="outline-text-4" id="text-org70e7c2f">
+
+<h4 id="viii">viii)</h4>
 <p>
-Sei \(A: K^n \rightarrow K^n\) ein Automorphismus.<br />
-Dann ist \(\mathrm{tr}(A) = \mathrm{dim}(K^n) = n\)<br />
+Sei $A: K^n \rightarrow K^n$ ein Automorphismus.
+Dann ist $\mathrm{tr}(A) = \mathrm{dim}(K^n) = n$
 </p>
-</div>
-</div>
-<div id="outline-container-org364b7ac" class="outline-4">
-<h4 id="org364b7ac">ix)</h4>
-<div class="outline-text-4" id="text-org364b7ac">
+
+<h4 id="ix">ix)</h4>
 <p>
-\(\varphi\) bildet linear unabhängige Mengen auf linear unabhängige Mengen ab.<br />
+$\varphi$ bildet linear unabhängige Mengen auf linear unabhängige Mengen ab.
 </p>
-</div>
-</div>
-<div id="outline-container-orge884278" class="outline-4">
-<h4 id="orge884278">x)</h4>
-<div class="outline-text-4" id="text-orge884278">
+
+<h4 id="x">x)</h4>
 <p>
-Jeder VR besitzt stets mindestens zwei UVR.<br />
+Jeder VR besitzt stets mindestens zwei UVR.
 </p>
-</div>
-</div>
-<div id="outline-container-org513d274" class="outline-4">
-<h4 id="org513d274">xi)</h4>
-<div class="outline-text-4" id="text-org513d274">
+
+<h4 id="xi">xi)</h4>
 <p>
-Für beliebige Matrizen \(A,B \in K^{n \times n}\) gilt: \((A + B)^2 = A^2 + B^2 + 2AB\)<br />
+Für beliebige Matrizen $A,B \in K^{n \times n}$ gilt: $(A + B)^2 = A^2 + B^2 + 2AB$
 </p>
-</div>
-</div>
-<div id="outline-container-org400dd7f" class="outline-4">
-<h4 id="org400dd7f">xii)</h4>
-<div class="outline-text-4" id="text-org400dd7f">
+
+<h4 id="xii">xii)</h4>
 <p>
-Es existieren Matrizen \(A,B \in K^{5 \times 5} \setminus \{0\}\) mit \(A \cdot B = 0\)<br />
+Es existieren Matrizen $A,B \in K^{5 \times 5} \setminus \{0\}$ mit $A \cdot B = 0$
 </p>
-</div>
-</div>
-<div id="outline-container-org0bb5313" class="outline-4">
-<h4 id="org0bb5313">xiii)</h4>
-<div class="outline-text-4" id="text-org0bb5313">
+
+<h4 id="xiii">xiii)</h4>
 <p>
-Es existiert eine Matrix \(A \in K^{5 \times 5} \setminus \{0\}\) mit \(A \cdot A = 0\)<br />
+Es existiert eine Matrix $A \in K^{5 \times 5} \setminus \{0\}$ mit $A \cdot A = 0$
 </p>
-</div>
-</div>
-<div id="outline-container-org81f9361" class="outline-4">
-<h4 id="org81f9361">xiv)</h4>
-<div class="outline-text-4" id="text-org81f9361">
+
+<h4 id="xiv">xiv)</h4>
 <p>
-Für \(A \in K^{n \times n}\) gilt \(\mathrm{det}(A + E_n) = \mathrm{det}(A) + 1\)<br />
+Für $A \in K^{n \times n}$ gilt $\mathrm{det}(A + E_n) = \mathrm{det}(A) + 1$
 </p>
-</div>
-</div>
-<div id="outline-container-org367fd52" class="outline-4">
-<h4 id="org367fd52">xv)</h4>
-<div class="outline-text-4" id="text-org367fd52">
+
+<h4 id="xv">xv)</h4>
 <p>
-Für \(A,B \in K^{n \times n} \setminus \mathrm{GL}_n(K)\) gilt \(\mathrm{det}(A + B) = 0\)<br />
+Für $A,B \in K^{n \times n} \setminus \mathrm{GL}_n(K)$ gilt $\mathrm{det}(A + B) = 0$
 </p>
-</div>
-</div>
-<div id="outline-container-org0ef4df7" class="outline-4">
-<h4 id="org0ef4df7">xvi)</h4>
-<div class="outline-text-4" id="text-org0ef4df7">
+
+<h4 id="xvi">xvi)</h4>
 <p>
-Sei \(f: V \rightarrow V\) eine \(K\)-lineare Abbildung, so folgt \(\mathrm{ker}(f) \cap \mathrm{im}(f) = \{0\}\)<br />
+Sei $f: V \rightarrow V$ eine \(K\)-lineare Abbildung, so folgt $\mathrm{ker}(f) \cap \mathrm{im}(f) = \{0\}$
 </p>
-</div>
-</div>
-<div id="outline-container-org9cce50b" class="outline-4">
-<h4 id="org9cce50b">xvii)</h4>
-<div class="outline-text-4" id="text-org9cce50b">
+
+<h4 id="xvii">xvii)</h4>
 <p>
-Sei \(A \in K^{n \times n}\) eine Matrix und \(B = A^t\) die transponierte.<br />
-Seien \(\varphi_A, \varphi_B: K^n \rightarrow K^n\) die zugehörigen VR-Homomorphismen.<br />
-Dann gilt \(\mathrm{im}(\varphi_A) = \mathrm{im}(\varphi_B)\)<br />
+Sei $A \in K^{n \times n}$ eine Matrix und $B = A^t$ die transponierte.
+Seien $\varphi_A, \varphi_B: K^n \rightarrow K^n$ die zugehörigen VR-Homomorphismen.
+Dann gilt $\mathrm{im}(\varphi_A) = \mathrm{im}(\varphi_B)$
 </p>
-</div>
-</div>
-<div id="outline-container-org21382ca" class="outline-4">
-<h4 id="org21382ca">xviii)</h4>
-<div class="outline-text-4" id="text-org21382ca">
+
+<h4 id="xviii">xviii)</h4>
 <p>
-Sei \(A \in K^{n \times n}\) eine Matrix und \(B = A^t\) die transponierte.<br />
-Seien \(\varphi_A, \varphi_B: K^n \rightarrow K^n\) die zugehörigen VR-Homomorphismen.<br />
-Dann gilt \(\mathrm{dim}(\mathrm{im}(\varphi_A)) = \mathrm{dim}(\mathrm{im}(\varphi_B))\)<br />
+Sei $A \in K^{n \times n}$ eine Matrix und $B = A^t$ die transponierte.
+Seien $\varphi_A, \varphi_B: K^n \rightarrow K^n$ die zugehörigen VR-Homomorphismen.
+Dann gilt $\mathrm{dim}(\mathrm{im}(\varphi_A)) = \mathrm{dim}(\mathrm{im}(\varphi_B))$
 </p>
-</div>
-</div>
-<div id="outline-container-org2c05675" class="outline-4">
-<h4 id="org2c05675">xix)</h4>
-<div class="outline-text-4" id="text-org2c05675">
+
+<h4 id="xix">xix)</h4>
 <p>
-Sei \(A \in K^{n \times n}\) eine Matrix und \(B \in K^{n \times m}\)<br />
-Sei \(C = (A,B) \in K^{n \times (n + m)}\).<br />
-Dann gilt \(\mathrm{rank}(C) = \mathrm{rank}(A)\)<br />
+Sei $A \in K^{n \times n}$ eine Matrix und $B \in K^{n \times m}$
+Sei $C = (A,B) \in K^{n \times (n + m)}$.
+Dann gilt $\mathrm{rank}(C) = \mathrm{rank}(A)$
 </p>
-</div>
-</div>
-<div id="outline-container-org773a6b8" class="outline-4">
-<h4 id="org773a6b8">xx)</h4>
-<div class="outline-text-4" id="text-org773a6b8">
+
+<h4 id="xx">xx)</h4>
 <p>
-Sei \(A \in K^{n \times n}\) eine Matrix und \(B \in K^{n \times m}\)<br />
-Sei \(C = (A,B) \in K^{n \times (n + m)}\).<br />
-Dann gilt \(\mathrm{rank}(C) \neq \mathrm{rank}(A)\)<br />
+Sei $A \in K^{n \times n}$ eine Matrix und $B \in K^{n \times m}$
+Sei $C = (A,B) \in K^{n \times (n + m)}$.
+Dann gilt $\mathrm{rank}(C) \neq \mathrm{rank}(A)$
 </p>
-</div>
-</div>
-<div id="outline-container-org11a8003" class="outline-4">
-<h4 id="org11a8003">xxi)</h4>
-<div class="outline-text-4" id="text-org11a8003">
+
+<h4 id="xxi">xxi)</h4>
 <p>
-Sei \(A \in K^{n \times n}\) eine Matrix und \(B \in K^{n \times m}\)<br />
-Sei \(C = (A,B) \in K^{n \times (n + m)}\).<br />
-Dann gilt \(\mathrm{rank}(C) \geq \mathrm{rank}(A)\)<br />
+Sei $A \in K^{n \times n}$ eine Matrix und $B \in K^{n \times m}$
+Sei $C = (A,B) \in K^{n \times (n + m)}$.
+Dann gilt $\mathrm{rank}(C) \geq \mathrm{rank}(A)$
 </p>
-</div>
-</div>
-<div id="outline-container-org2e90413" class="outline-4">
-<h4 id="org2e90413">xxii)</h4>
-<div class="outline-text-4" id="text-org2e90413">
+
+<h4 id="xxii">xxii)</h4>
 <p>
-Sei \(A \in K^{n \times n}\) eine Matrix und \(B \in K^{n \times m}\)<br />
-Sei \(C = (A,B) \in K^{n \times (n + m)}\).<br />
-Dann gilt \(\mathrm{rank}(C) \leq \mathrm{rank}(A)\)<br />
+Sei $A \in K^{n \times n}$ eine Matrix und $B \in K^{n \times m}$
+Sei $C = (A,B) \in K^{n \times (n + m)}$.
+Dann gilt $\mathrm{rank}(C) \leq \mathrm{rank}(A)$
 </p>
-</div>
-</div>
-<div id="outline-container-org84ed592" class="outline-4">
-<h4 id="org84ed592">xxiii)</h4>
-<div class="outline-text-4" id="text-org84ed592">
+
+<h4 id="xxiii">xxiii)</h4>
 <p>
-Sei ein lineares Gleichungssystem<br />
+Sei ein lineares Gleichungssystem
 </p>
-\begin{align*}
-\alpha_{1,1} x_1 + ... \alpha_{1,n} x_n =& y_1 \\
-\ddots& \\
-\alpha_{m,1} x_1 + ... \alpha_{m,n} x_n =& y_m \\
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\alpha_{1,1} x_1 + ... \alpha_{1,n} x_n =&amp; y_1 \\
+\ddots&amp; \\
+\alpha_{m,1} x_1 + ... \alpha_{m,n} x_n =&amp; y_m \\
+\end{align*}</div>
 <p>
-gegeben.<br />
-Seien \((\beta_1,...,\beta_n), (\beta_1',...,\beta_n')\) Lösungen vom linearen Gleichungssystem.<br />
-Dann ist auch \((\beta_1 + \beta_1',...,\beta_n + \beta_n')\) eine Lösung.<br />
+gegeben.
+Seien $(\beta_1,...,\beta_n), (\beta_1',...,\beta_n')$ Lösungen vom linearen Gleichungssystem.
+Dann ist auch $(\beta_1 + \beta_1',...,\beta_n + \beta_n')$ eine Lösung.
 </p>
-</div>
-</div>
-<div id="outline-container-org0d675e6" class="outline-4">
-<h4 id="org0d675e6">xxiv)</h4>
-<div class="outline-text-4" id="text-org0d675e6">
+
+<h4 id="xxiv">xxiv)</h4>
 <p>
-Die Abbildung<br />
+Die Abbildung
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 f: \mathbb{R} \rightarrow \mathbb{R} \\
 x \mapsto mx + t_0
-\end{align*}
+\end{align*}</div>
 <p>
-ist linear für \(m,t_0 \in \mathbb{R}\)<br />
+ist linear für $m,t_0 \in \mathbb{R}$
 </p>
-</div>
-</div>
-<div id="outline-container-orgee18c80" class="outline-4">
-<h4 id="orgee18c80">xxv)</h4>
-<div class="outline-text-4" id="text-orgee18c80">
+
+<h4 id="xxv">xxv)</h4>
 <p>
-Sei \(A \in K^{n \times n}\) eine Matrix mit \(A^t = \alpha A\) für ein \(\alpha \in K \setminus \{1\}\).<br />
-Dann folgt \(A = 0\)<br />
+Sei $A \in K^{n \times n}$ eine Matrix mit $A^t = \alpha A$ für ein $\alpha \in K \setminus \{1\}$.
+Dann folgt $A = 0$
 </p>
-</div>
-</div>
-<div id="outline-container-org9f67e39" class="outline-4">
-<h4 id="org9f67e39">xxvi)</h4>
-<div class="outline-text-4" id="text-org9f67e39">
+
+<h4 id="xxvi">xxvi)</h4>
 <p>
-Es gilt für \(A \in K^{n \times n}\)<br />
+Es gilt für $A \in K^{n \times n}$
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \mathrm{det}(-A) = (-1) \mathrm{det}(A)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgf30c9fa" class="outline-4">
-<h4 id="orgf30c9fa">xxvii)</h4>
-<div class="outline-text-4" id="text-orgf30c9fa">
+\end{align*}</div>
+
+<h4 id="xxvii">xxvii)</h4>
 <p>
-Es gilt für \(A \in K^{n \times n}\) und \(\alpha \in K\)<br />
+Es gilt für $A \in K^{n \times n}$ und $\alpha \in K$
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \mathrm{det}(\alpha \cdot A) = \alpha \cdot \mathrm{det}(A)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgd485673" class="outline-4">
-<h4 id="orgd485673">xxviii)</h4>
-<div class="outline-text-4" id="text-orgd485673">
+\end{align*}</div>
+
+<h4 id="xxviii">xxviii)</h4>
 <p>
-Es gilt für \(A \in \mathrm{Gl}_n(K)\) <br />
+Es gilt für $A \in \mathrm{Gl}_n(K)$
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \mathrm{det}(A^{-1}) = (-1) \cdot \mathrm{det}(A)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgbc03df1" class="outline-4">
-<h4 id="orgbc03df1">xxix)</h4>
-<div class="outline-text-4" id="text-orgbc03df1">
+\end{align*}</div>
+
+<h4 id="xxix">xxix)</h4>
 <p>
-Sei \(A \in K^{n \times n}\) so dass die Abbildung<br />
+Sei $A \in K^{n \times n}$ so dass die Abbildung
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 A: K^n \rightarrow K^n 
 x \mapsto x \cdot A 
-\end{align*}
+\end{align*}</div>
 <p>
-surjektiv ist.<br />
-Dann folgt \(\mathrm{det}(A) \neq 0\)<br />
+surjektiv ist.
+Dann folgt $\mathrm{det}(A) \neq 0$
 </p>
-</div>
-</div>
-<div id="outline-container-orgb825070" class="outline-4">
-<h4 id="orgb825070">xxx)</h4>
-<div class="outline-text-4" id="text-orgb825070">
+
+<h4 id="xxx">xxx)</h4>
 <p>
-Sei \(A \in K^{n \times n}\) so dass die Abbildung<br />
+Sei $A \in K^{n \times n}$ so dass die Abbildung
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 A: K^n \rightarrow K^n 
 x \mapsto A \cdot x
-\end{align*}
+\end{align*}</div>
 <p>
-surjektiv ist.<br />
-Dann folgt \(\mathrm{det}(A) \neq 0\)<br />
+surjektiv ist.
+Dann folgt $\mathrm{det}(A) \neq 0$
 </p>
-</div>
-</div>
-<div id="outline-container-org75851e0" class="outline-4">
-<h4 id="org75851e0">xxxi)</h4>
-<div class="outline-text-4" id="text-org75851e0">
+
+
+<h4 id="xxxi">xxxi)</h4>
 <p>
-Es existiert eine Matrix \(A \in K^{n \times n}\) mit \(\mathrm{det}(A) = 0\) so dass<br />
+Es existiert eine Matrix $A \in K^{n \times n}$ mit $\mathrm{det}(A) = 0$ so dass
 </p>
-\begin{align*}
-A: K^n \rightarrow& K^n \\
-x \mapsto& A x
-\end{align*}
+
+<div class="math-block">\begin{align*}
+A: K^n \rightarrow&amp; K^n \\
+x \mapsto&amp; A x
+\end{align*}</div>
 <p>
-injektiv ist<br />
+injektiv ist
 </p>
-</div>
-</div>
-<div id="outline-container-orgba538e6" class="outline-4">
-<h4 id="orgba538e6">xxxii)</h4>
-<div class="outline-text-4" id="text-orgba538e6">
+
+<h4 id="xxxii">xxxii)</h4>
 <p>
-Der Schnitt von zwei Untervektorräumen ist nichtleer.<br />
+Der Schnitt von zwei Untervektorräumen ist nichtleer.
 </p>
-</div>
-</div>
-<div id="outline-container-org3f52b2a" class="outline-4">
-<h4 id="org3f52b2a">xxxiii)</h4>
-<div class="outline-text-4" id="text-org3f52b2a">
+
+<h4 id="xxxiii">xxxiii)</h4>
 <p>
-Sei \(K^n\) gegeben und \(U_1,U_2\) zwei \(n-1\) dimensionale Unterräume.<br />
-Dann ist \(U_1 \cap U_2\) ein \(n-2\) dimensionaler Raum<br />
+Sei $K^n$ gegeben und $U_1,U_2$ zwei $n-1$ dimensionale Unterräume.
+Dann ist $U_1 \cap U_2$ ein $n-2$ dimensionaler Raum
 </p>
-</div>
-</div>
-<div id="outline-container-org48e0fa5" class="outline-4">
-<h4 id="org48e0fa5">xxxiii)</h4>
-<div class="outline-text-4" id="text-org48e0fa5">
+
+<h4 id="xxxiii">xxxiii)</h4>
 <p>
-Die Relation<br />
+Die Relation
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 v_1 \sim v_2 
     \begin{cases}
     v_1 = v_2 \\
     \{v_1, v_2\} \textrm{ ist linear abhängig} 
     \end{cases}
-\end{align*}
+\end{align*}</div>
 <p>
-definiert eine Äquivalenzrelation auf \(V \setminus \{0\}\)<br />
+definiert eine Äquivalenzrelation auf $V \setminus \{0\}$
 </p>
-</div>
-</div>
-<div id="outline-container-orgc78a565" class="outline-4">
-<h4 id="orgc78a565">xxxiv)</h4>
-<div class="outline-text-4" id="text-orgc78a565">
+
+<h4 id="xxxiv">xxxiv)</h4>
 <p>
-Sei \(V\) ein endlich erzeugter Vektorraum.<br />
-Dann ist \(V\) auch endlich dimensional.<br />
+Sei $V$ ein endlich erzeugter Vektorraum.
+Dann ist $V$ auch endlich dimensional.
 </p>
-</div>
-</div>
-<div id="outline-container-orgb0425f4" class="outline-4">
-<h4 id="orgb0425f4">xxxv)</h4>
-<div class="outline-text-4" id="text-orgb0425f4">
+
+<h4 id="xxxv">xxxv)</h4>
 <p>
-Jeder Vektorraum besitzt eine kanonische Basis.<br />
-Alternativ: Jeder Vektorraum besitzt eine kanonische Basis.<br />
+Jeder Vektorraum besitzt eine kanonische Basis.
+Alternativ: Jeder Vektorraum besitzt eine kanonische Basis.
 </p>
-</div>
-</div>
-<div id="outline-container-org44cec65" class="outline-4">
-<h4 id="org44cec65">xxxvi)</h4>
-<div class="outline-text-4" id="text-org44cec65">
+
+<h4 id="xxxvi">xxxvi)</h4>
 <p>
-Sei \(\{v_1,...,v_{n-1}\}\) eine \(n-1\) elementige Teilmenge von \(K^{n}\).<br />
-Dann existiert ein \(v_n\) so dass \(\{v_1,...,v_{n-1},v_n\}\) eine Basis ist.<br />
+Sei $\{v_1,...,v_{n-1}\}$ eine $n-1$ elementige Teilmenge von $K^{n}$.
+Dann existiert ein $v_n$ so dass $\{v_1,...,v_{n-1},v_n\}$ eine Basis ist.
 </p>
-</div>
-</div>
-<div id="outline-container-org60d5bee" class="outline-4">
-<h4 id="org60d5bee">xxxvii)</h4>
-<div class="outline-text-4" id="text-org60d5bee">
+
+<h4 id="xxxvii">xxxvii)</h4>
 <p>
-Sei \(\{v_1,...,v_{n+1}\}\) eine \(n+1\) elementige Teilmenge von \(K^{n+1}\).<br />
-Dann ist eine Teilmenge von \(\{v_1,...,v_{n+1}\}\) eine Basis.<br />
+Sei $\{v_1,...,v_{n+1}\}$ eine $n+1$ elementige Teilmenge von $K^{n+1}$.
+Dann ist eine Teilmenge von $\{v_1,...,v_{n+1}\}$ eine Basis.
 </p>
-</div>
-</div>
-<div id="outline-container-orgaa1cafd" class="outline-4">
-<h4 id="orgaa1cafd">xxxviii)</h4>
-<div class="outline-text-4" id="text-orgaa1cafd">
+
+<h4 id="xxxviii">xxxviii)</h4>
 <p>
-Seien \(V,W\) endlich dimensionale Vektorräume und \(\varphi: V \rightarrow W\) ein VR-Mono.<br />
-Dann ist \(\varphi\) auch ein VR-Iso<br />
+Seien $V,W$ endlich dimensionale Vektorräume und $\varphi: V \rightarrow W$ ein VR-Mono.
+Dann ist $\varphi$ auch ein VR-Iso
 </p>
-</div>
-</div>
-<div id="outline-container-orgee72724" class="outline-4">
-<h4 id="orgee72724">xxxix)</h4>
-<div class="outline-text-4" id="text-orgee72724">
+
+<h4 id="xxxix">xxxix)</h4>
 <p>
-Sei \(A \in \mathbb{Q}^{n \times m} \subseteq \mathbb{R}^{n \times m}\) eine Matrix bzw. das dazugehörige Lineare Gleichungssystem.<br />
-Angenommen \(A\) hat reelle Lösungen, dann hat \(A\) auch rationale Lösungen.<br />
+Sei $A \in \mathbb{Q}^{n \times m} \subseteq \mathbb{R}^{n \times m}$ eine Matrix bzw. das dazugehörige Lineare Gleichungssystem.
+Angenommen $A$ hat reelle Lösungen, dann hat $A$ auch rationale Lösungen.
 </p>
-</div>
-</div>
-<div id="outline-container-orgd29f25b" class="outline-4">
-<h4 id="orgd29f25b">xl)</h4>
-<div class="outline-text-4" id="text-orgd29f25b">
+
+<h4 id="xl">xl)</h4>
 <p>
-Seien \(V,W\) endlich erzeugte \(\mathbb{Q}\)-Vektorräume und \(f: V \rightarrow W\) eine \(\mathbb{Q}\)-lineare Abbildung.<br />
-Angenommen \(\mathrm{dim}(V) > \mathrm{dim}(W)\), dann folgt für \(w \in \mathrm{im}(f)\)<br />
+Seien $V,W$ endlich erzeugte \(\mathbb{Q}\)-Vektorräume und $f: V \rightarrow W$ eine \(\mathbb{Q}\)-lineare Abbildung.
+Angenommen $\mathrm{dim}(V) &gt; \mathrm{dim}(W)$, dann folgt für $w \in \mathrm{im}(f)$
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \vert f^{-1}[ \{w\}] \vert = \infty
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgdee81d9" class="outline-4">
-<h4 id="orgdee81d9">xli)</h4>
-<div class="outline-text-4" id="text-orgdee81d9">
+\end{align*}</div>
+
+<h4 id="xli">xli)</h4>
 <p>
-Sei \(V\) ein endlich dimensionaler VR und \(L_1,L_2: V \rightarrow V\) VR-Endomorphismen.<br />
-Dann gilt<br />
+Sei $V$ ein endlich dimensionaler VR und $L_1,L_2: V \rightarrow V$ VR-Endomorphismen.
+Dann gilt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \mathrm{rank}(L_1) + \mathrm{rank}(L_2) - \mathrm{dim}(V) \leq \mathrm{rank}(L_1 \circ L_2)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org081f3db" class="outline-4">
-<h4 id="org081f3db">xlii)</h4>
-<div class="outline-text-4" id="text-org081f3db">
+\end{align*}</div>
+
+<h4 id="xlii">xlii)</h4>
 <p>
-Sei \(V\) ein endlich dimensionaler VR und \(L_1,L_2: V \rightarrow V\) VR-Endomorphismen.<br />
-Dann gilt<br />
+Sei $V$ ein endlich dimensionaler VR und $L_1,L_2: V \rightarrow V$ VR-Endomorphismen.
+Dann gilt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \mathrm{rank}(L_1) + \mathrm{rank}(L_2) - \mathrm{dim}(V) \geq \mathrm{rank}(L_1 \circ L_2)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orge4cf2af" class="outline-4">
-<h4 id="orge4cf2af">xliii)</h4>
-<div class="outline-text-4" id="text-orge4cf2af">
+\end{align*}</div>
+
+<h4 id="xliii">xliii)</h4>
 <p>
-Sei \(V\) ein endlich dimensionaler VR und \(L_1,L_2: V \rightarrow V\) VR-Endomorphismen.<br />
-Dann gilt<br />
+Sei $V$ ein endlich dimensionaler VR und $L_1,L_2: V \rightarrow V$ VR-Endomorphismen.
+Dann gilt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \mathrm{rank}(L_1) + \mathrm{rank}(L_2) - \mathrm{dim}(V) = \mathrm{rank}(L_1 \circ L_2)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org489b40e" class="outline-4">
-<h4 id="org489b40e">xliv)</h4>
-<div class="outline-text-4" id="text-org489b40e">
+\end{align*}</div>
+
+<h4 id="xliv">xliv)</h4>
 <p>
-Sei \(U \subseteq V\) eine additive untergruppe von einem \(K\)-Vektorraum.<br />
-Dann ist \(U\) schon ein UVR<br />
+Sei $U \subseteq V$ eine additive untergruppe von einem \(K\)-Vektorraum.
+Dann ist $U$ schon ein UVR
 </p>
-</div>
-</div>
-<div id="outline-container-orgb22428d" class="outline-4">
-<h4 id="orgb22428d">xlv)</h4>
-<div class="outline-text-4" id="text-orgb22428d">
+
+<h4 id="xlv">xlv)</h4>
 <p>
-Es existiert ein Körper \(K\), so dass \(\mathbb{Z}\) ein \(K\)-VR ist.<br />
+Es existiert ein Körper $K$, so dass $\mathbb{Z}$ ein \(K\)-VR ist.
 </p>
-</div>
-</div>
-<div id="outline-container-org3192da2" class="outline-4">
-<h4 id="org3192da2">xlvi)</h4>
-<div class="outline-text-4" id="text-org3192da2">
+
+<h4 id="xlvi">xlvi)</h4>
 <p>
-Für jeden VR-Endomorphismus \(f: V \rightarrow V\) gilt<br />
+Für jeden VR-Endomorphismus $f: V \rightarrow V$ gilt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 V = \mathrm{ker}(f) \oplus \mathrm{im}(f)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgda777c8" class="outline-4">
-<h4 id="orgda777c8">xlvii)</h4>
-<div class="outline-text-4" id="text-orgda777c8">
+\end{align*}</div>
+
+<h4 id="xlvii">xlvii)</h4>
 <p>
-seien \(f: V \rightarrow W, g: W \rightarrow V\) \(K\)-linear und \(g \circ f = \mathrm{id}_V\).<br />
-Dann gilt<br />
+seien $f: V \rightarrow W, g: W \rightarrow V$ \(K\)-linear und $g \circ f = \mathrm{id}_V$.
+Dann gilt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \mathrm{im}(f) \cap \mathrm{ker}(g) = \{0\}
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgcabb015" class="outline-4">
-<h4 id="orgcabb015">xlviii)</h4>
-<div class="outline-text-4" id="text-orgcabb015">
+\end{align*}</div>
+
+<h4 id="xlviii">xlviii)</h4>
 <p>
-seien \(f: V \rightarrow W, g: W \rightarrow V\) \(K\)-linear und \(g \circ f = \mathrm{id}_V\).<br />
-Dann gilt<br />
+seien $f: V \rightarrow W, g: W \rightarrow V$ \(K\)-linear und $g \circ f = \mathrm{id}_V$.
+Dann gilt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \mathrm{im}(g) \cap \mathrm{ker}(f) = \{0\}
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgeaa2e99" class="outline-4">
-<h4 id="orgeaa2e99">xlix)</h4>
-<div class="outline-text-4" id="text-orgeaa2e99">
+\end{align*}</div>
+
+<h4 id="xlix">xlix)</h4>
 <p>
-Sei \(f: V \rightarrow V\) eine K-lineare abbildung zwischen endlich dimensionalen VR.<br />
-Dann sind äquivalent<br />
+Sei $f: V \rightarrow V$ eine K-lineare abbildung zwischen endlich dimensionalen VR.
+Dann sind äquivalent
 </p>
-<ol class="org-ol">
-<li>\(V = \mathrm{im}(f) + \mathrm{ker}(f)\) <br /></li>
-<li>\(V  = \mathrm{im}(f) \oplus \mathrm{ker}(f)\)<br /></li>
+<ol>
+<li>$V = \mathrm{im}(f) + \mathrm{ker}(f)$ </li>
+
+<li>$V  = \mathrm{im}(f) \oplus \mathrm{ker}(f)$</li>
 </ol>
-</div>
-</div>
-<div id="outline-container-org458a0a2" class="outline-4">
-<h4 id="org458a0a2">l)</h4>
-<div class="outline-text-4" id="text-org458a0a2">
+<h4 id="l">l)</h4>
 <p>
-Sei \(p\) eine Primzahl, dann existiert ein Lineares Gleichungssystem über \(\mathbb{Z}/p \mathbb{Z}\) mit genau \(p-1\) vielen Lösengen<br />
+Sei $p$ eine Primzahl, dann existiert ein Lineares Gleichungssystem über $\mathbb{Z}/p \mathbb{Z}$ mit genau $p-1$ vielen Lösengen
 </p>
-</div>
-</div>
-<div id="outline-container-org46d4e5b" class="outline-4">
-<h4 id="org46d4e5b">li)</h4>
-<div class="outline-text-4" id="text-org46d4e5b">
+
+<h4 id="li">li)</h4>
 <p>
-Sei \(V\) ein 7-dimensionaler K-VR und \(U_1,U_2\) UVR von dimension \(5\) und \(4\).<br />
-Dann ist \(U_1 \cap U_2\) mindestens 2 dimensional<br />
+Sei $V$ ein 7-dimensionaler K-VR und $U_1,U_2$ UVR von dimension $5$ und $4$.
+Dann ist $U_1 \cap U_2$ mindestens 2 dimensional
 </p>
-</div>
-</div>
-<div id="outline-container-org6fb4c02" class="outline-4">
-<h4 id="org6fb4c02">lii)</h4>
-<div class="outline-text-4" id="text-org6fb4c02">
+
+<h4 id="lii">lii)</h4>
 <p>
-Sei \(A \in K^{n \times n}\) mit \(A \cdot A^t = E_n\)<br />
-Dann gilt \(\mathrm{det}(A) = \pm 1\)<br />
+Sei $A \in K^{n \times n}$ mit $A \cdot A^t = E_n$
+Dann gilt $\mathrm{det}(A) = \pm 1$
 </p>
-</div>
-</div>
-<div id="outline-container-org515dc75" class="outline-4">
-<h4 id="org515dc75">liii)</h4>
-<div class="outline-text-4" id="text-org515dc75">
+
+<h4 id="liii">liii)</h4>
 <p>
-Sei \(A \in K^{m \times n}\) so dass die induzierte Abbildung \(f: K^n \rightarrow K^m\) surjektiv ist.<br />
-Dann folgt dass \(A \cdot A^t: K^m \rightarrow K^m\) invertierbar ist.<br />
+Sei $A \in K^{m \times n}$ so dass die induzierte Abbildung $f: K^n \rightarrow K^m$ surjektiv ist.
+Dann folgt dass $A \cdot A^t: K^m \rightarrow K^m$ invertierbar ist.
 </p>
-</div>
-</div>
-<div id="outline-container-org3d6919d" class="outline-4">
-<h4 id="org3d6919d">liv)</h4>
-<div class="outline-text-4" id="text-org3d6919d">
+
+<h4 id="liv">liv)</h4>
 <p>
-Es existiert ein endlich dimensionaler K-VR \(V\) und endomorphismen \(f_1,f_2: V \rightarrow V\) mit<br />
+Es existiert ein endlich dimensionaler K-VR $V$ und endomorphismen $f_1,f_2: V \rightarrow V$ mit
 </p>
-<ol class="org-ol">
-<li>\(f_1,f_2 \neq 0\)<br /></li>
-<li>\(f_1 \circ f_2 = f_2 \circ f_1 = 0\)   <br /></li>
+<ol>
+<li>$f_1,f_2 \neq 0$</li>
+
+<li>$f_1 \circ f_2 = f_2 \circ f_1 = 0$   </li>
 </ol>
-</div>
-</div>
-<div id="outline-container-orgf4d4ed8" class="outline-4">
-<h4 id="orgf4d4ed8">lv)</h4>
-<div class="outline-text-4" id="text-orgf4d4ed8">
+<h4 id="lv">lv)</h4>
 <p>
-Sei \(V\) ein endlich dimensionaler K-VR und \(f_1: V \rightarrow V\) ein nicht-invertierbarer Endomorphismus.<br />
-Dann existiert ein Endomorphismus \(f_2\) mit<br />
+Sei $V$ ein endlich dimensionaler K-VR und $f_1: V \rightarrow V$ ein nicht-invertierbarer Endomorphismus.
+Dann existiert ein Endomorphismus $f_2$ mit
 </p>
-<ol class="org-ol">
-<li>\(f_2 \neq 0\)<br /></li>
-<li>\(f_1 \circ f_2 = f_2 \circ f_1 = 0\)   <br /></li>
+<ol>
+<li>$f_2 \neq 0$</li>
+
+<li>$f_1 \circ f_2 = f_2 \circ f_1 = 0$   </li>
 </ol>
-</div>
-</div>
-<div id="outline-container-org6ada380" class="outline-4">
-<h4 id="org6ada380">lvi)</h4>
-<div class="outline-text-4" id="text-org6ada380">
+<h4 id="lvi">lvi)</h4>
 <p>
-Sei \(V\) ein endlich dimensionaler K-VR und \(f_1: V \rightarrow V\) ein Endomorphismus.<br />
-Dann existiert ein Endomorphismus \(f_2\) mit<br />
+Sei $V$ ein endlich dimensionaler K-VR und $f_1: V \rightarrow V$ ein Endomorphismus.
+Dann existiert ein Endomorphismus $f_2$ mit
 </p>
-<ol class="org-ol">
-<li>\(f_2 \neq 0\)<br /></li>
-<li>\(f_1 \circ f_2 = f_2 \circ f_1 = 0\)   <br /></li>
+<ol>
+<li>$f_2 \neq 0$</li>
+
+<li>$f_1 \circ f_2 = f_2 \circ f_1 = 0$   </li>
 </ol>
-</div>
-</div>
-<div id="outline-container-org7cdd368" class="outline-4">
-<h4 id="org7cdd368">lvii)</h4>
-<div class="outline-text-4" id="text-org7cdd368">
+<h4 id="lvii">lvii)</h4>
 <p>
-Sei \(f: V \rightarrow W\) ein VR-Homomorphismus.<br />
-Sei \(\{v_1,...,v_n\}\) linear unabhängig und \(\mathrm{ker}(f) \cap \{v_1,...,v_n\} = \emptyset.
-Dann ist auch \{f(v_1),...,f(v_n)\}\) linear unabhängig.<br />
+Sei $f: V \rightarrow W$ ein VR-Homomorphismus.
+Sei $\{v_1,...,v_n\}$ linear unabhängig und $\mathrm{ker}(f) \cap \{v_1,...,v_n\} = \emptyset.
+Dann ist auch \{f(v_1),...,f(v_n)\}$ linear unabhängig.
 </p>
-</div>
-</div>
-<div id="outline-container-orgf429a55" class="outline-4">
-<h4 id="orgf429a55">lviii)</h4>
-<div class="outline-text-4" id="text-orgf429a55">
+
+<h4 id="lviii">lviii)</h4>
 <p>
-Sei \(f: V \rightarrow W\) ein VR-Homomorphismus.<br />
-Angenommen \(\{f(v_1),...,f(v_n)\}\) ist linear unabhängig und hat \(n\) elemente.<br />
-Dann ist auch \(\{v_1,...,v_n\}\) linear unabhängig.<br />
+Sei $f: V \rightarrow W$ ein VR-Homomorphismus.
+Angenommen $\{f(v_1),...,f(v_n)\}$ ist linear unabhängig und hat $n$ elemente.
+Dann ist auch $\{v_1,...,v_n\}$ linear unabhängig.
 </p>
-</div>
-</div>
-<div id="outline-container-org35d6ebf" class="outline-4">
-<h4 id="org35d6ebf">lix)</h4>
-<div class="outline-text-4" id="text-org35d6ebf">
+
+<h4 id="lix">lix)</h4>
 <p>
-Sei \(W \subseteq V\) eine teilmenge.<br />
-Angenommen jede endliche teilmenge von \(W\) ist linear unabhängig.<br />
-Dann ist auch \(W\) linear unabhängig.<br />
+Sei $W \subseteq V$ eine teilmenge.
+Angenommen jede endliche teilmenge von $W$ ist linear unabhängig.
+Dann ist auch $W$ linear unabhängig.
 </p>
-</div>
-</div>
-<div id="outline-container-org4dd7e87" class="outline-4">
-<h4 id="org4dd7e87">lx)</h4>
-<div class="outline-text-4" id="text-org4dd7e87">
+
+<h4 id="lx">lx)</h4>
 <p>
-Sei \(f: V \rightarrow W\) ein VR-Homomorphismus.<br />
-Sei \(\{v_1,...,v_m\}\) linear unabhängig so dass \(\{v_1,...,v_n\}\) eine Basis von \(\mathrm{ker}(f)\) ist.<br />
-Dann ist \(\{f(v_{n+1}),...,f(v_{m})\}\) linear unabhängig.<br />
+Sei $f: V \rightarrow W$ ein VR-Homomorphismus.
+Sei $\{v_1,...,v_m\}$ linear unabhängig so dass $\{v_1,...,v_n\}$ eine Basis von $\mathrm{ker}(f)$ ist.
+Dann ist $\{f(v_{n+1}),...,f(v_{m})\}$ linear unabhängig.
 </p>
-</div>
-</div>
-<div id="outline-container-org139671a" class="outline-4">
-<h4 id="org139671a">lxi)</h4>
-<div class="outline-text-4" id="text-org139671a">
+
+<h4 id="lxi">lxi)</h4>
 <p>
-Sei \(f: W \rightarrow V\) ein VR-Homomorphismus.<br />
-Sei \(\mathcal{B}\) eine Basis von \(W\), so dass \(f[\mathcal{B}]\) eine Basis von \(V\) ist.<br />
-Dann ist \(f\) ein Isomorphismus.<br />
+Sei $f: W \rightarrow V$ ein VR-Homomorphismus.
+Sei $\mathcal{B}$ eine Basis von $W$, so dass $f[\mathcal{B}]$ eine Basis von $V$ ist.
+Dann ist $f$ ein Isomorphismus.
 </p>
-</div>
-</div>
-<div id="outline-container-org5d20745" class="outline-4">
-<h4 id="org5d20745">lxii)</h4>
-<div class="outline-text-4" id="text-org5d20745">
+
+<h4 id="lxii">lxii)</h4>
 <p>
-Sei \(f: W \rightarrow V\) ein VR-Homomorphismus.<br />
-Sei für jede Basis \(\mathcal{B}\) von \(W\) das Bild \(f[\mathcal{B}]\) eine Basis von \(V\).<br />
-Dann ist \(f\) ein Isomorphismus.<br />
+Sei $f: W \rightarrow V$ ein VR-Homomorphismus.
+Sei für jede Basis $\mathcal{B}$ von $W$ das Bild $f[\mathcal{B}]$ eine Basis von $V$.
+Dann ist $f$ ein Isomorphismus.
 </p>
-</div>
-</div>
-<div id="outline-container-org751600d" class="outline-4">
-<h4 id="org751600d">lxiii)</h4>
-<div class="outline-text-4" id="text-org751600d">
+
+<h4 id="lxiii">lxiii)</h4>
 <p>
-Sei \(f: W \rightarrow V\) ein VR-Homomorphismus.<br />
-Sei \(\mathcal{B}\) eine Basis von \(W\), so dass \(f[\mathcal{B}]\) linear abhängig ist.<br />
-Dann ist \(f\) ein VR-Epimorphismus.<br />
+Sei $f: W \rightarrow V$ ein VR-Homomorphismus.
+Sei $\mathcal{B}$ eine Basis von $W$, so dass $f[\mathcal{B}]$ linear abhängig ist.
+Dann ist $f$ ein VR-Epimorphismus.
 </p>
-</div>
-</div>
-<div id="outline-container-orgcd40124" class="outline-4">
-<h4 id="orgcd40124">lxiv)</h4>
-<div class="outline-text-4" id="text-orgcd40124">
+
+<h4 id="lxiv">lxiv)</h4>
 <p>
-Sei \(f: W \rightarrow V\) ein VR-Homomorphismus.<br />
-Sei für jede Basis \(\mathcal{B}\) von \(W\) das Bild \(f[\mathcal{B}]\) linear unabhängig von \(V\).<br />
-Dann ist \(f\) ein Monomorphismus.<br />
+Sei $f: W \rightarrow V$ ein VR-Homomorphismus.
+Sei für jede Basis $\mathcal{B}$ von $W$ das Bild $f[\mathcal{B}]$ linear unabhängig von $V$.
+Dann ist $f$ ein Monomorphismus.
 </p>
-</div>
-</div>
-<div id="outline-container-org1b1b840" class="outline-4">
-<h4 id="org1b1b840">lxv)</h4>
-<div class="outline-text-4" id="text-org1b1b840">
+
+<h4 id="lxv">lxv)</h4>
 <p>
-Die Abbildung<br />
+Die Abbildung
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 f: \mathbb{Z}/2 \mathbb{Z} \rightarrow \mathbb{Z}/2 \mathbb{Z}  \\
 x \mapsto x^2
-\end{align*}
+\end{align*}</div>
 <p>
-ist \(\mathbb{Z}/2 \mathbb{Z}\)-linear<br />
+ist \(\mathbb{Z}/2 \mathbb{Z}\)-linear
 </p>
-</div>
-</div>
-<div id="outline-container-orgf03b8ab" class="outline-4">
-<h4 id="orgf03b8ab">lxvi)</h4>
-<div class="outline-text-4" id="text-orgf03b8ab">
+
+<h4 id="lxvi">lxvi)</h4>
 <p>
-Es existiert ein K-VR, so dass \(\emptyset\) eine Basis ist.<br />
+Es existiert ein K-VR, so dass $\emptyset$ eine Basis ist.
 </p>
-</div>
-</div>
-<div id="outline-container-org061ae45" class="outline-4">
-<h4 id="org061ae45">lxvii)</h4>
-<div class="outline-text-4" id="text-org061ae45">
+
+<h4 id="lxvii">lxvii)</h4>
 <p>
-Sei \(V\) ein endlich erzeugter K-VR und \(W\) ein UVR.<br />
-Dann existiert ein endomorphismus \(f: V \rightarrow V\) so dass ein VR-Isomorphismus \(V/\mathrm{ker}(f) \cong W\) existiert.<br />
+Sei $V$ ein endlich erzeugter K-VR und $W$ ein UVR.
+Dann existiert ein endomorphismus $f: V \rightarrow V$ so dass ein VR-Isomorphismus $V/\mathrm{ker}(f) \cong W$ existiert.
 </p>
-</div>
-</div>
-<div id="outline-container-org6e4fa49" class="outline-4">
-<h4 id="org6e4fa49">lxviii)</h4>
-<div class="outline-text-4" id="text-org6e4fa49">
+
+<h4 id="lxviii">lxviii)</h4>
 <p>
-Sei \(U \subseteq V\) ein UVR.<br />
-Sei \(v \in U, w \in V \setminus U\), dann gilt \(w + u \not\in U\)<br />
+Sei $U \subseteq V$ ein UVR.
+Sei $v \in U, w \in V \setminus U$, dann gilt $w + u \not\in U$
 </p>
-</div>
-</div>
-<div id="outline-container-org2921e4a" class="outline-4">
-<h4 id="org2921e4a">lxix)</h4>
-<div class="outline-text-4" id="text-org2921e4a">
+
+<h4 id="lxix">lxix)</h4>
 <p>
-Sei \(U \subseteq V\) ein UVR.<br />
-Sei \(\lambda \in K\) und \(v \in V \setminus U\), dann gilt auch<br />
+Sei $U \subseteq V$ ein UVR.
+Sei $\lambda \in K$ und $v \in V \setminus U$, dann gilt auch
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \lambda \cdot v \not\in U
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgc2d3e8c" class="outline-4">
-<h4 id="orgc2d3e8c">lxx)</h4>
-<div class="outline-text-4" id="text-orgc2d3e8c">
+\end{align*}</div>
+
+<h4 id="lxx">lxx)</h4>
 <p>
-Sei \(f: V \rightarrow W\) kein VR-Isomorphismus.<br />
-Dann folgt \(\mathrm{dim}(V) \neq \mathrm{dim}(W)\)<br />
+Sei $f: V \rightarrow W$ kein VR-Isomorphismus.
+Dann folgt $\mathrm{dim}(V) \neq \mathrm{dim}(W)$
 </p>
-</div>
-</div>
-<div id="outline-container-org96adb56" class="outline-4">
-<h4 id="org96adb56">lxxi)</h4>
-<div class="outline-text-4" id="text-org96adb56">
+
+<h4 id="lxxi">lxxi)</h4>
 <p>
-Sei \(V\) ein  Vektorraum und \(U\) ein Untervektorraum mit \(\mathrm{dim}(V) = \mathrm{dim}(U)\).<br />
-Dann folgt auch \(U = V\)<br />
+Sei $V$ ein  Vektorraum und $U$ ein Untervektorraum mit $\mathrm{dim}(V) = \mathrm{dim}(U)$.
+Dann folgt auch $U = V$
 </p>
-</div>
-</div>
-<div id="outline-container-org2263f70" class="outline-4">
-<h4 id="org2263f70">lxxii)</h4>
-<div class="outline-text-4" id="text-org2263f70">
+
+<h4 id="lxxii">lxxii)</h4>
 <p>
-Sei \(V\) ein endlich erzeugter Vektorraum und \(U\) ein Untervektorraum mit \(\mathrm{dim}(V) = \mathrm{dim}(U)\).<br />
-Dann folgt auch \(U = V\)<br />
+Sei $V$ ein endlich erzeugter Vektorraum und $U$ ein Untervektorraum mit $\mathrm{dim}(V) = \mathrm{dim}(U)$.
+Dann folgt auch $U = V$
 </p>
-</div>
-</div>
-<div id="outline-container-orgf43a3eb" class="outline-4">
-<h4 id="orgf43a3eb">lxxiii)</h4>
-<div class="outline-text-4" id="text-orgf43a3eb">
+
+<h4 id="lxxiii">lxxiii)</h4>
 <p>
-Jede Teilmenge einer linear unabhängigen Menge ist linear unabhängig.<br />
+Jede Teilmenge einer linear unabhängigen Menge ist linear unabhängig.
 </p>
-</div>
-</div>
-<div id="outline-container-org2b7747c" class="outline-4">
-<h4 id="org2b7747c">lxxiv)</h4>
-<div class="outline-text-4" id="text-org2b7747c">
+
+<h4 id="lxxiv">lxxiv)</h4>
 <p>
-Seien \(V,W\) K-VR mit \(\mathrm{dim}(V) = 5, \mathrm{dim}(W) = 3\) und \(f: V \rightarrow W\) ein VR-Epi.<br />
-Dann existiert ein Unterraum \(U\) mit \(\mathrm{dim}(U) = 2\) und einem VR-Iso \(V/U \rightarrow W\)<br />
+Seien $V,W$ K-VR mit $\mathrm{dim}(V) = 5, \mathrm{dim}(W) = 3$ und $f: V \rightarrow W$ ein VR-Epi.
+Dann existiert ein Unterraum $U$ mit $\mathrm{dim}(U) = 2$ und einem VR-Iso $V/U \rightarrow W$
 </p>
-</div>
-</div>
-<div id="outline-container-orgbec2d69" class="outline-4">
-<h4 id="orgbec2d69">lxxv)</h4>
-<div class="outline-text-4" id="text-orgbec2d69">
+
+<h4 id="lxxv">lxxv)</h4>
 <p>
-Seien \(\{v_1,...,v_m\}, \{w_1,...,w_n\}\) Erzeugendensysteme von \(V\).<br />
-Dann gilt \(m = n\)<br />
+Seien $\{v_1,...,v_m\}, \{w_1,...,w_n\}$ Erzeugendensysteme von $V$.
+Dann gilt $m = n$
 </p>
-</div>
-</div>
-<div id="outline-container-orgf221355" class="outline-4">
-<h4 id="orgf221355">lxxvi)</h4>
-<div class="outline-text-4" id="text-orgf221355">
+
+
+<h4 id="lxxvi">lxxvi)</h4>
 <p>
-Sei \((\mathbb{R},+,\cdot)\) die reellen Zahlen mit der üblichen Multiplikation &amp; Addition.<br />
-Dann ist \(\mathbb{R}\) eine \(\mathbb{Q}\)-VR<br />
+Sei $(\mathbb{R},+,\cdot)$ die reellen Zahlen mit der üblichen Multiplikation &amp; Addition.
+Dann ist $\mathbb{R}$ eine \(\mathbb{Q}\)-VR
 </p>
-</div>
-</div>
-<div id="outline-container-org03368dd" class="outline-4">
-<h4 id="org03368dd">lxxvii)</h4>
-<div class="outline-text-4" id="text-org03368dd">
+
+<h4 id="lxxvii">lxxvii)</h4>
 <p>
-Sei \(p \in \mathbb{P}\) prim und \((G,+)\) eine abelsche Gruppe, so dass für jedes element \(g \in G\) gilt \(\sum_{i=1}^p g = 0\).<br />
-Dann ist \(G\) die zugrundeliegende abelsche Gruppe eines \(\mathbb{Z}/p \mathbb{Z}\) Vektorraums.<br />
+Sei $p \in \mathbb{P}$ prim und $(G,+)$ eine abelsche Gruppe, so dass für jedes element $g \in G$ gilt $\sum_{i=1}^p g = 0$.
+Dann ist $G$ die zugrundeliegende abelsche Gruppe eines $\mathbb{Z}/p \mathbb{Z}$ Vektorraums.
 </p>
-</div>
-</div>
-<div id="outline-container-org6f75eff" class="outline-4">
-<h4 id="org6f75eff">lxxviii)</h4>
-<div class="outline-text-4" id="text-org6f75eff">
+
+<h4 id="lxxviii">lxxviii)</h4>
 <p>
-Sei \((G,+)\) eine abelsche Gruppe, so dass für jedes element \(g \in G\) und jede natürliche Zahl \(n \in \mathbb{N}\) ein \(g'\) existiert mit \(\sum_{i=1}^n g' = g\).<br />
-Dann ist \(G\) die zugrundeliegende abelsche Gruppe eines \(\mathbb{Q}\) Vektorraums.<br />
+Sei $(G,+)$ eine abelsche Gruppe, so dass für jedes element $g \in G$ und jede natürliche Zahl $n \in \mathbb{N}$ ein $g'$ existiert mit $\sum_{i=1}^n g' = g$.
+Dann ist $G$ die zugrundeliegende abelsche Gruppe eines $\mathbb{Q}$ Vektorraums.
 </p>
-</div>
-</div>
-<div id="outline-container-org87f1497" class="outline-4">
-<h4 id="org87f1497">lxxix)</h4>
-<div class="outline-text-4" id="text-org87f1497">
+
+<h4 id="lxxix">lxxix)</h4>
 <p>
-Sei \(f: K^3 \rightarrow K^2\) eine K-lineare Abbildung.<br />
-Dann enthält \(\mathrm{ker}(f)\) unendlich viele Elemente.<br />
+Sei $f: K^3 \rightarrow K^2$ eine K-lineare Abbildung.
+Dann enthält $\mathrm{ker}(f)$ unendlich viele Elemente.
 </p>
-</div>
-</div>
-<div id="outline-container-org4a187a1" class="outline-4">
-<h4 id="org4a187a1">lxxx)</h4>
-<div class="outline-text-4" id="text-org4a187a1">
+
+<h4 id="lxxx">lxxx)</h4>
 <p>
-Es gibt einen Vektorraumisomorphismus \(K[X]/\mathrm{span}(X) \cong K\)<br />
+Es gibt einen Vektorraumisomorphismus $K[X]/\mathrm{span}(X) \cong K$
 </p>
-</div>
-</div>
-<div id="outline-container-orgecd3f98" class="outline-4">
-<h4 id="orgecd3f98">lxxxi)</h4>
-<div class="outline-text-4" id="text-orgecd3f98">
+
+<h4 id="lxxxi">lxxxi)</h4>
 <p>
-Sei \(A \in K^{n \times n}\) eine matrix, so dass gilt \(A^n = 0\).<br />
-Dann folgt \(\mathrm{det}(A) = 0\)<br />
+Sei $A \in K^{n \times n}$ eine matrix, so dass gilt $A^n = 0$.
+Dann folgt $\mathrm{det}(A) = 0$
 </p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2026-02-18 Mi 20:24</p>
+
 </div>
 </body>
 </html>

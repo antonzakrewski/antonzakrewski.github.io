@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 22:28 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Minimumsmetrik</title>
+<title>Minimumsmetrik mit konstant 1</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,62 +52,45 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Minimumsmetrik</h1>
-<div id="outline-container-org33f3ff4" class="outline-2">
-<h2 id="org33f3ff4"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-74069492-c2fb-4b4f-a525-1cd31b1ff0cb"></span><h1 class="title">Minimumsmetrik mit konstant 1</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \((M,d)\) ein <a href="20221002145259-metrischer_raum.html#ID-6b95a0b5-83e0-43cc-830f-05b416769fe1">metrischer Raum</a>, dann ist
+Sei $(M,d)$ ein <a href="20221002145259-metrischer_raum.html#ID-6b95a0b5-83e0-43cc-830f-05b416769fe1">metrischer Raum</a>, dann ist
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 d_{\mathrm{min}}  \coloneqq \mathrm{min}(1,d)
-\end{align*}
+\end{align*}</div>
 <p>
-ebenfalls eine <a href="20220716173517-metrik.html#ID-0aa21afc-5f24-4618-a61e-e5ebf2e9640c">Metrik</a> 
+ebenfalls eine <a href="20220716173517-metrik.html#ID-0aa21afc-5f24-4618-a61e-e5ebf2e9640c">Metrik</a>
 </p>
-</div>
-</div>
-<div id="outline-container-org3fc9a05" class="outline-2">
-<h2 id="org3fc9a05"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orgfbc3e96" class="outline-3">
-<h3 id="orgfbc3e96"><span class="section-number-3">2.1.</span> <a href="20220716173740-symmetrie_einer_metrik.html#ID-cafdfd5e-6eaf-42ad-9742-16c91f4ac8c3">Symmetrie einer Metrik</a></h3>
-<div class="outline-text-3" id="text-2-1">
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="idcafdfd5e-6eaf-42ad-9742-16c91f4ac8c3symmetrie-einer-metrik"><a href="20220716173740-symmetrie_einer_metrik.html#ID-cafdfd5e-6eaf-42ad-9742-16c91f4ac8c3">Symmetrie einer Metrik</a></h3>
 <p>
-folgt aus der Symmetrie von \(d\)
+folgt aus der Symmetrie von $d$
 </p>
-</div>
-</div>
-<div id="outline-container-orga4bd1c3" class="outline-3">
-<h3 id="orga4bd1c3"><span class="section-number-3">2.2.</span> Dreiecksungleichung</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<h3 id="dreiecksungleichung">Dreiecksungleichung</h3>
 <p>
 Es gilt:
 </p>
-\begin{align*}
-d_{\mathrm{min}}(x,y) =& \mathrm{min}(1,d(x,y)) \\
-\leq& \mathrm{min}(d(x,z) + d(z,y),1) \\
-\leq& \mathrm{min}(d(x,z), 1) + \mathrm{min}(d(z,y), 1) 
-\end{align*}
-</div>
-</div>
 
-<div id="outline-container-org2701c4e" class="outline-3">
-<h3 id="org2701c4e"><span class="section-number-3">2.3.</span> Positive Definitheit</h3>
-<div class="outline-text-3" id="text-2-3">
-<ul class="org-ul">
-<li>\(d_{\mathrm{min}}(x,x) = \mathrm{min}(d(x,x),1) = \mathrm{min}(0,1) = 0\)</li>
-<li>sei \(x \neq y\) , so folt \(d_{\mathrm{min}}(x,y) \geq d(x,y) > 0\)</li>
+<div class="math-block">\begin{align*}
+d_{\mathrm{min}}(x,y) =&amp; \mathrm{min}(1,d(x,y)) \\
+\leq&amp; \mathrm{min}(d(x,z) + d(z,y),1) \\
+\leq&amp; \mathrm{min}(d(x,z), 1) + \mathrm{min}(d(z,y), 1) 
+\end{align*}</div>
+
+
+<h3 id="positive-definitheit">Positive Definitheit</h3>
+<ul>
+<li>$d_{\mathrm{min}}(x,x) = \mathrm{min}(d(x,x),1) = \mathrm{min}(0,1) = 0$</li>
+
+<li>sei $x \neq y$ , so folt $d_{\mathrm{min}}(x,y) \geq d(x,y) &gt; 0$</li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 22:28</p>
 </div>
 </body>
 </html>

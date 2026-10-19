@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Schnitt von den Vereinigungen</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-e06aabec-c925-4b0d-bd24-63ded9a3c0ad"></span><h1 class="title">Schnitt von den Vereinigungen</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $X$ eine <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a>, $B \subseteq X$ eine <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">Teilmenge</a> und $A_i \subseteq X$ eine <a href="20220823154734-mengenfamilie.html#ID-d5f647a4-b9c9-406e-82fc-ceeaacb27fd9">Familie</a> von Teilmengen
+Dann gilt für die <a href="20230317161154-allgemeine_vereinigung.html#ID-69c0d505-311b-4ea6-a337-8450d6529d02">Vereinigung</a> und für den <a href="20230317161158-allgemeiner_schnitt.html#ID-d7547939-8d3f-48f8-b2fd-cfb5734ae78f">Durchschnitt</a>
+</p>
+
+<div class="math-block">\begin{align*}
+(\bigcap_{i \in I} A_i) \cup B =&amp; \bigcap_{i \in I} (A_i \cup B)
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="subseteq">$\subseteq$</h3>
+<p>
+Sei $x \in (\bigcap_{i \in I} A_i) \cup B$.
+Dann ist zu zeigen, dass $x \in \bigcap_{i \in I} (A_i \cup B)$, also nach Definition von $\bigcap$, dass für beliebiges $i \in I$ gilt: $x \in (A_i \cup B)$
+</p>
+
+<p>
+Nach Definition von $\cup$ folgt also $x \in \bigcup_{i \in I} A_i$ oder $x \in B$.
+Sei im folgenden eine Fallunterscheidung
+</p>
+
+<h4 id="a-x-in-bigcup-i-in-i-a-i">a) $x \in \bigcup_{i \in I} A_i$</h4>
+<p>
+Dann gilt für alle $i \in I$ auch $x \in A_i$.
+Somit gilt auch für alle $i \in I : x \in A_i$ bzw. $x \in A_i \cup B$ (nach Definition von $\cup$).
+Da $i$ beliebig war, gilt $x \in (A_i \cup B)$ für alle $i \in I$ bzw. $x \in \bigcap_{i \in I} (A_i \cap B)$
+</p>
+
+<h4 id="b-x-in-b">b) $x \in B$</h4>
+<p>
+Dann folgt für beliebiges $i \in I$ auch $x \in A_i \cup B$, da gilt $x \in B$
+</p>
+
+<h3 id="supseteq">$\supseteq$</h3>
+<p>
+Sei $x \in \bigcap_{i \in I}(A_i \cup B)$.
+Dann ist zu zeigen, dass $x \in (\bigcap_{i\in I} A_i ) \cup B$ bzw. dass gilt: $x \in \bigcup_{i \in I} A_i$ oder $x \in B$.
+</p>
+
+
+<p>
+Sei $x \in \bigcap_{i \in I}(A_i \cup B)$, dann gilt $x \in (A_i \cup B)$ für alle $i \in I$
+Nach dem <a href="20221222213710-law_of_the_excluded_middle.html#ID-524ddc36-d896-4dee-99b9-a24cdd38520e">Law of the excluded middle</a> können wir eine Fallunterscheidung mit $x \in B$ oder $x \not\in B$ machen
+</p>
+
+<h4 id="x-in-b">$x \in B$</h4>
+<p>
+dann folgt auch das oder, d.h. $x \in B$ oder $x \in A_i$ (schließlich gilt $x \in B$)
+</p>
+
+<h4 id="x-notin-b">$x \not\in B$</h4>
+<p>
+Dann folgt aus einem <a href="20210305204939-beweis_durch_widerspruch.html#ID-ee659788-c975-494a-aef0-85087f3db839">Beweis durch Widerspruch</a>, dass $x \in A_i$ für alle $i \in I$ liegt.
+Angenommen nicht $x \in A_i$ für alle $i \in I$.
+Dann existiert ein $i \in I$ mit $x \not\in A_i$.
+</p>
+
+<p>
+Damit folgt aber auch aus der Annahme $x \not\in B$, dass $x \not\in A_i \cup B$ gilt.
+Somit existiert aber auch ein $i \in I$, so dass $x \not\in \bigcap_{i \in I} (A_i \cup B)$ gilt.
+Dies ist ein Widerspruch zur Annahme, $x \in \bigcap_{i \in I}(A_i \cup B)$
+</p>
+
+
+</div>
+</body>
+</html>

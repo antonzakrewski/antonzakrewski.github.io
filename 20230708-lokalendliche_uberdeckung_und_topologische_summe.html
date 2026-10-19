@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 15:16 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>lokalendliche Überdeckung und topologische Summe</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,47 +52,31 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">lokalendliche Überdeckung und topologische Summe</h1>
-<div id="outline-container-org5a84f20" class="outline-2">
-<h2 id="org5a84f20"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-a788d54e-c329-47b2-8027-4b0235d8e236"></span><h1 class="title">lokalendliche Überdeckung und topologische Summe</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \((X_i, \mathcal{T}_i)\) eine <a href="20220823154734-mengenfamilie.html#ID-d5f647a4-b9c9-406e-82fc-ceeaacb27fd9">Familie</a> <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topologischer Räume</a> und \((U_{j,i})_{j}\) <a href="20230227163531-uberdeckung.html#ID-804615a8-2307-4f8e-8f51-f4be70e817b3">Überdeckungen</a> sowie \(\coprod_{i \in I} X_i\) die <a href="20230303000539-topologische_summe.html#ID-7c03dcbb-604d-4d61-9d6d-2d50e50aa5a6">topologische Summe</a>.
+Sei $(X_i, \mathcal{T}_i)$ eine <a href="20220823154734-mengenfamilie.html#ID-d5f647a4-b9c9-406e-82fc-ceeaacb27fd9">Familie</a> <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topologischer Räume</a> und $(U_{j,i})_{j}$ <a href="20230227163531-uberdeckung.html#ID-804615a8-2307-4f8e-8f51-f4be70e817b3">Überdeckungen</a> sowie $\coprod_{i \in I} X_i$ die <a href="20230303000539-topologische_summe.html#ID-7c03dcbb-604d-4d61-9d6d-2d50e50aa5a6">topologische Summe</a>.
 <a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
 </p>
-<ol class="org-ol">
-<li>\((U_{j,i})_{j}\) ist <a href="20230330211854-lokalendliches_mengensystem.html#ID-bffd65a2-1765-486c-b04c-fb57dc333680">lokalendlich</a> für beliebiges \(i \in I\)</li>
-<li>Die gesamte <a href="20230227163531-uberdeckung.html#ID-804615a8-2307-4f8e-8f51-f4be70e817b3">Überdeckung</a> von \(U_{j,i}\) für \(j,i\) ist lokalendlich</li>
+<ol>
+<li>$(U_{j,i})_{j}$ ist <a href="20230330211854-lokalendliches_mengensystem.html#ID-bffd65a2-1765-486c-b04c-fb57dc333680">lokalendlich</a> für beliebiges $i \in I$</li>
+
+<li>Die gesamte <a href="20230227163531-uberdeckung.html#ID-804615a8-2307-4f8e-8f51-f4be70e817b3">Überdeckung</a> von $U_{j,i}$ für $j,i$ ist lokalendlich</li>
 </ol>
-</div>
-</div>
-<div id="outline-container-orga02015b" class="outline-2">
-<h2 id="orga02015b"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org0b2ef31" class="outline-3">
-<h3 id="org0b2ef31"><span class="section-number-3">2.1.</span> 1) \(\implies\) 2)</h3>
-<div class="outline-text-3" id="text-2-1">
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
 <p>
-Sei \(x \in \coprod_{i \in I} X_i\), so existiert nach Annahme genau ein \(X_i\) mit \(x \in X_i\).
-In diesem \(X_i\) existiert nach Annahme ein 
+Sei $x \in \coprod_{i \in I} X_i$, so existiert nach Annahme genau ein $X_i$ mit $x \in X_i$.
+In diesem $X_i$ existiert nach Annahme ein
 </p>
-</div>
-</div>
-<div id="outline-container-orgb4f935d" class="outline-3">
-<h3 id="orgb4f935d"><span class="section-number-3">2.2.</span> 2) \(\implies\) 1)</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<h3 id="2-implies-1">2) $\implies$ 1)</h3>
 <p>
 klar
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 15:16</p>
+
 </div>
 </body>
 </html>

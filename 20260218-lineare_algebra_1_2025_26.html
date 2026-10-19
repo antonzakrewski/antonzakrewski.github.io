@@ -1,254 +1,83 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2026-04-15 Mi 15:44 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lineare Algebra 1 - 2025/26</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Lineare Algebra 1 - 2025/26</h1>
-<div id="outline-container-org3d5c5e0" class="outline-2">
-<h2 id="org3d5c5e0">Liste</h2>
-<div class="outline-text-2" id="text-org3d5c5e0">
-<ul class="org-ul">
-<li><a href="20251202-linalg_1_paar_bessere_sachen.html#ID-850ef8a7-ab13-496a-b015-d368e233c08e">LinAlg 1 - Best of von meinen Sachen</a> <br /></li>
+<span id="ID-52202fb2-8a8c-4a94-b3dd-41bb8bdc02b6"></span><h1 class="title">Lineare Algebra 1 - 2025/26</h1>
 
-<li><a href="20251006-linalg_1_tutorium_1_25_26.html#ID-1594200a-9066-4b31-aab3-4ff1eca0af8d">LinAlg 1 - Tutorium 1 (25/26)</a> <br /></li>
-<li><a href="20251022-linalg_1_tutorium_2_25_26.html#ID-f4fd27ed-050b-467c-b8e9-002384d06508">LinAlg 1 - Tutorium 2 (25/26)</a> <br /></li>
-<li><a href="20251031-lineare_algebra_1_tutorium_3_25_26.html#ID-c9bc1dc4-06c3-44cc-a675-e47544290bd4">LinAlg 1 - Tutorium 3 (25/26)</a>  <br /></li>
-<li><a href="20251110-linalg_1_tutorium_4_25_26.html#ID-be065946-0366-40f6-819c-200aac8a4d61">LinAlg 1 - Tutorium 4 (25/26)</a> <br /></li>
-<li><a href="20251123-linalg_1_tutorium_5.html#ID-0683c377-31fc-4899-b913-1ba5635193b4">LinAlg 1 - Tutorium 5 (25/26)</a>   <br /></li>
-<li><a href="20251123-linalg_1_tutorium_6_25_26.html#ID-70edc890-379d-44ea-b8e5-26af507d35b5">LinAlg 1 - Tutorium 6 (25/26)</a>   <br /></li>
-<li><a href="20251129-linalg_1_tutorium_7_25_26.html#ID-73160e6b-96e8-4269-a4d1-59e1f2ddeccf">LinAlg 1 - Tutorium 7 (25/26)</a>   <br /></li>
-<li><a href="20251208-linalg_1_tutorium_8_25_26.html#ID-a2acb916-28d2-4d21-880b-4c9801ece0e6">LinAlg 1 - Tutorium 8 (25/26)</a> <br /></li>
-<li><a href="20251215-linalg_1_tutorium_9_25_26.html#ID-3c1c1e56-6acb-4f35-a240-115424847ee8">LinAlg 1 - Tutorium 9 (25/26)</a><br /></li>
-<li>LinAlg 1 - Tutorium 10 (25/26) - wurde vertreten, da rotiert wurde<br /></li>
-<li><a href="20260110-linalg_1_tutorium_11_25_26.html#ID-eb6e72dc-dc55-4206-a3df-0b7833fccd7d">LinAlg 1 - Tutorium 11 (25/26)</a>:<br /></li>
-<li><a href="20260123-linalg_1_tutorium_12_25_26.html#ID-e740e93e-01dd-423d-aa0b-28cc9e67887f">LinAlg 1 - Tutorium 12 (25/26)</a>   <br /></li>
-<li><a href="20260123-linalg_1_tutorium_13_25_26.html#ID-ec5143ce-d737-4f65-bbae-55b9d9bf7377">LinAlg 1 - Tutorium 13 (25/26)</a>   <br /></li>
-<li><a href="20260130-linalg_1_tutorium_14_25_26.html#ID-3c192cef-d5e9-479a-99b1-28664b5b856c">LinAlg 1 - Tutorium 14 (25/26)</a>  <br /></li>
-
-<li>Empfehlung: Problemlabs auf Moodle (auch paar Übersichtsblätter !)<br /></li>
-<li><a href="20251029-linalg_1_meine_einordnung_von_tutoriumsaufgaben.html#ID-5a99c0e7-ed4a-4ffd-9f17-a23d5a18805a">LinAlg 1 - meine Einordnung von Tutoriumsaufgaben</a> <br /></li>
-<li><a href="20251101-linalg_1_meine_einordnung_von_ubungsaufgaben.html#ID-f83a8ace-924e-4a36-a83b-237c416d43db">LinAlg 1 - meine Einordnung von Übungsaufgaben</a>   <br /></li>
-<li><a href="20251025-linalg_1_prasenzaufgabe.html#ID-15921c13-cb2e-47b2-abe2-22671084e1d3">LinAlg 1 - meine Vorstellung zu Präsenzaufgabe</a> <br /></li>
-<li><a href="20251025-linalg_1_ubungsblattkorrekturen_25_26.html#ID-b21e9f6a-6211-46a5-b702-4dd78fba531b">LinAlg 1 - Übungsblattkorrekturen (25/26)</a>   <br /></li>
-
-<li><a href="20260126-linalg_1_wahr_falsch_aufgabne.html#ID-c9859344-4973-4384-85c9-32a9a34f5df8">LinAlg 1 - Wahr / Falsch Aufgaben</a> <br /></li>
-<li><a href="20260131-linalg_1_extra_rechenaufgaben.html#ID-ec644e59-cd53-4203-b7a5-52dda6cfdee5">LinAlg 1 - Extra Rechenaufgaben</a>   <br /></li>
-<li><a href="20260206-linalg_1_gute_extra_rechenaufgaben.html#ID-e170d8e2-a21d-4bd0-be68-e81414629792">LinAlg 1 - gute Extra-Rechenaufgaben</a> <br /></li>
+<h2 id="liste">Liste</h2>
+<ul>
+<li><a href="20251202-linalg_1_paar_bessere_sachen.html#ID-850ef8a7-ab13-496a-b015-d368e233c08e">LinAlg 1 - Best of von meinen Sachen</a> </li>
 </ul>
-</div>
-<div id="outline-container-org156af9a" class="outline-3">
-<h3 id="org156af9a">other</h3>
-<div class="outline-text-3" id="text-org156af9a">
-<ul class="org-ul">
-<li><a href="20251026-wie_ich_einen_beweis_im_ersten_semester_angehen_wurde.html#ID-0d9b3437-692d-412b-8684-e5ca97d9131b">Wie ich einen Beweis im ersten Semester angehen und aufschreiben würde</a> <br /></li>
-<li><a href="20251129-linalg_1_paar_dimensionen.html#ID-e30a9f31-2a5c-4faa-a788-ee795323662b">LinAlg 1 - paar Dimensionen</a> <br /></li>
-<li><a href="20251130-linalg_1_wichtige_vektorraume.html#ID-ae987571-b886-4153-b394-45e46f369851">LinAlg 1 - paar wichtige Vektorräume</a>   <br /></li>
-<li><a href="20250117-analogy_finite_sets_and_finite_dimensional_vector_space.html#ID-d504c047-4c64-498a-ab76-8ae3d6b6c7f7">analogy: finite sets and finite dimensional vector space</a>   <br /></li>
-<li><a href="20251129-linalg_1_wichtige_algorithmen_25_26.html#ID-d0d6e4c3-c246-44a4-9a00-39c580bc817a">LinAlg 1 - wichtige Algorithmen (25/26)</a>   <br /></li>
-<li><a href="20251127-unique_polynomial_with_degree_n_for_n_1_many_roots.html#ID-3b209f45-6448-4c8c-a03a-97c35807ff03">unique polynomial with degree n for n+1 many values</a> <br /></li>
+<ul>
+<li><a href="20251006-linalg_1_tutorium_1_25_26.html#ID-1594200a-9066-4b31-aab3-4ff1eca0af8d">LinAlg 1 - Tutorium 1 (25/26)</a> </li>
+
+<li><a href="20251022-linalg_1_tutorium_2_25_26.html#ID-f4fd27ed-050b-467c-b8e9-002384d06508">LinAlg 1 - Tutorium 2 (25/26)</a> </li>
+
+<li><a href="20251031-lineare_algebra_1_tutorium_3_25_26.html#ID-c9bc1dc4-06c3-44cc-a675-e47544290bd4">LinAlg 1 - Tutorium 3 (25/26)</a>  </li>
+
+<li><a href="20251110-linalg_1_tutorium_4_25_26.html#ID-be065946-0366-40f6-819c-200aac8a4d61">LinAlg 1 - Tutorium 4 (25/26)</a> </li>
+
+<li><a href="20251123-linalg_1_tutorium_5.html#ID-0683c377-31fc-4899-b913-1ba5635193b4">LinAlg 1 - Tutorium 5 (25/26)</a>   </li>
+
+<li><a href="20251123-linalg_1_tutorium_6_25_26.html#ID-70edc890-379d-44ea-b8e5-26af507d35b5">LinAlg 1 - Tutorium 6 (25/26)</a>   </li>
+
+<li><a href="20251129-linalg_1_tutorium_7_25_26.html#ID-73160e6b-96e8-4269-a4d1-59e1f2ddeccf">LinAlg 1 - Tutorium 7 (25/26)</a>   </li>
+
+<li><a href="20251208-linalg_1_tutorium_8_25_26.html#ID-a2acb916-28d2-4d21-880b-4c9801ece0e6">LinAlg 1 - Tutorium 8 (25/26)</a> </li>
+
+<li><a href="20251215-linalg_1_tutorium_9_25_26.html#ID-3c1c1e56-6acb-4f35-a240-115424847ee8">LinAlg 1 - Tutorium 9 (25/26)</a></li>
+
+<li>LinAlg 1 - Tutorium 10 (25/26) - wurde vertreten, da rotiert wurde</li>
+
+<li><a href="20260110-linalg_1_tutorium_11_25_26.html#ID-eb6e72dc-dc55-4206-a3df-0b7833fccd7d">LinAlg 1 - Tutorium 11 (25/26)</a>: </li>
+
+<li><a href="20260123-linalg_1_tutorium_12_25_26.html#ID-e740e93e-01dd-423d-aa0b-28cc9e67887f">LinAlg 1 - Tutorium 12 (25/26)</a>   </li>
+
+<li><a href="20260123-linalg_1_tutorium_13_25_26.html#ID-ec5143ce-d737-4f65-bbae-55b9d9bf7377">LinAlg 1 - Tutorium 13 (25/26)</a>   </li>
+
+<li><a href="20260130-linalg_1_tutorium_14_25_26.html#ID-3c192cef-d5e9-479a-99b1-28664b5b856c">LinAlg 1 - Tutorium 14 (25/26)</a>  </li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2026-04-15 Mi 15:44</p>
+<ul>
+<li>Empfehlung: Problemlabs auf Moodle (auch paar Übersichtsblätter !)</li>
+
+<li><a href="20251029-linalg_1_meine_einordnung_von_tutoriumsaufgaben.html#ID-5a99c0e7-ed4a-4ffd-9f17-a23d5a18805a">LinAlg 1 - meine Einordnung von Tutoriumsaufgaben</a> </li>
+
+<li><a href="20251101-linalg_1_meine_einordnung_von_ubungsaufgaben.html#ID-f83a8ace-924e-4a36-a83b-237c416d43db">LinAlg 1 - meine Einordnung von Übungsaufgaben</a>   </li>
+
+<li><a href="20251025-linalg_1_prasenzaufgabe.html#ID-15921c13-cb2e-47b2-abe2-22671084e1d3">LinAlg 1 - meine Vorstellung zu Präsenzaufgabe</a> </li>
+
+<li><a href="20251025-linalg_1_ubungsblattkorrekturen_25_26.html#ID-b21e9f6a-6211-46a5-b702-4dd78fba531b">LinAlg 1 - Übungsblattkorrekturen (25/26)</a>   </li>
+</ul>
+<ul>
+<li><a href="20260126-linalg_1_wahr_falsch_aufgabne.html#ID-c9859344-4973-4384-85c9-32a9a34f5df8">LinAlg 1 - Wahr / Falsch Aufgaben</a> </li>
+
+<li><a href="20260131-linalg_1_extra_rechenaufgaben.html#ID-ec644e59-cd53-4203-b7a5-52dda6cfdee5">LinAlg 1 - Extra Rechenaufgaben</a>   </li>
+
+<li><a href="20260206-linalg_1_gute_extra_rechenaufgaben.html#ID-e170d8e2-a21d-4bd0-be68-e81414629792">LinAlg 1 - gute Extra-Rechenaufgaben</a> </li>
+</ul>
+<h3 id="other">other</h3>
+<ul>
+<li><a href="20251026-wie_ich_einen_beweis_im_ersten_semester_angehen_wurde.html#ID-0d9b3437-692d-412b-8684-e5ca97d9131b">Wie ich einen Beweis im ersten Semester angehen und aufschreiben würde</a> </li>
+
+<li><a href="20251129-linalg_1_paar_dimensionen.html#ID-e30a9f31-2a5c-4faa-a788-ee795323662b">LinAlg 1 - paar Dimensionen</a> </li>
+
+<li><a href="20251130-linalg_1_wichtige_vektorraume.html#ID-ae987571-b886-4153-b394-45e46f369851">LinAlg 1 - paar wichtige Vektorräume</a>   </li>
+
+<li><a href="20250117-analogy_finite_sets_and_finite_dimensional_vector_space.html#ID-d504c047-4c64-498a-ab76-8ae3d6b6c7f7">analogy: finite sets and finite dimensional vector space</a>   </li>
+
+<li><a href="20251129-linalg_1_wichtige_algorithmen_25_26.html#ID-d0d6e4c3-c246-44a4-9a00-39c580bc817a">LinAlg 1 - wichtige Algorithmen (25/26)</a>   </li>
+
+<li><a href="20251127-unique_polynomial_with_degree_n_for_n_1_many_roots.html#ID-3b209f45-6448-4c8c-a03a-97c35807ff03">unique polynomial with degree n for n+1 many values</a> </li>
+</ul>
 </div>
 </body>
 </html>

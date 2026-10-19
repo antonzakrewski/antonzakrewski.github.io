@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:46 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>multiplicativity of the determinant</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,62 +52,57 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">multiplicativity of the determinant</h1>
-<div id="outline-container-org743156c" class="outline-2">
-<h2 id="org743156c"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-3755c9f1-a210-4ed2-981d-efabc6596635"></span><h1 class="title">multiplicativity of the determinant</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(R\) ein <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">Ring</a> und \(A,B \in R^{n \times n}\)
+Sei $R$ ein <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">Ring</a> und $A,B \in R^{n \times n}$
 Dann gilt:
 </p>
-\begin{align*}
-\mathrm{det}(AB) =& \mathrm{det}(A)\mathrm{det}(B)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org852f163" class="outline-2">
-<h2 id="org852f163"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<div class="math-block">\begin{align*}
+\mathrm{det}(AB) =&amp; \mathrm{det}(A)\mathrm{det}(B)
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
 <p>
-Nach der <a href="20230118134616-determinante_als_abstrakte_volumenfunktion.html#ID-0ab6e1a0-fdd2-4812-9280-8946871f58ba">Determinante als Abstrakte Volumenfunktion</a> und der Definition als <a href="20221224174816-abstrakte_volumenfunktion.html#ID-2fb7bc59-c528-4fe5-87d0-a64b484262fc">abstrakten Volumenfunktion</a> gilt für die <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a> 
+Nach der <a href="20230118134616-determinante_als_abstrakte_volumenfunktion.html#ID-0ab6e1a0-fdd2-4812-9280-8946871f58ba">Determinante als Abstrakte Volumenfunktion</a> und der Definition als <a href="20221224174816-abstrakte_volumenfunktion.html#ID-2fb7bc59-c528-4fe5-87d0-a64b484262fc">abstrakten Volumenfunktion</a> gilt für die <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a>
 </p>
-\begin{align*}
-f_B: (R^n)^n \rightarrow& R \\
-\begin{pmatrix} z_1 \\ \vdots \\ z_n \end{pmatrix} \mapsto& f_{det}(\begin{pmatrix} z_1 B \\ \vdots \\ z_n B \end{pmatrix} \\
-=& \mathrm{det}(AB)
-\end{align*}
+
+<div class="math-block">\begin{align*}
+f_B: (R^n)^n \rightarrow&amp; R \\
+\begin{pmatrix} z_1 \\ \vdots \\ z_n \end{pmatrix} \mapsto&amp; f_{det}(\begin{pmatrix} z_1 B \\ \vdots \\ z_n B \end{pmatrix} \\
+=&amp; \mathrm{det}(AB)
+\end{align*}</div>
 <p>
 Es folgt, dass die <a href="20221224174816-abstrakte_volumenfunktion.html#ID-2fb7bc59-c528-4fe5-87d0-a64b484262fc">Abstrakte Volumenfunktion</a> eine skalierte <a href="20221126201331-determinante.html#ID-eb5c60bd-2e36-4d02-aa16-f58c8e846d07">Determinante</a> ist, d.h. es gilt:
 </p>
-\begin{align*}
-f_B( \begin{pmatrix} z_1 \\ \vdots \\ z_n \end{pmatrix} ) =& f_{det}(\begin{pmatrix} z_1 \\ \vdots \\ z_n \end{pmatrix} ) \cdot c(B) \\
-=& \mathrm{det}(A) \cdot c(B)
-\end{align*}
+
+<div class="math-block">\begin{align*}
+f_B( \begin{pmatrix} z_1 \\ \vdots \\ z_n \end{pmatrix} ) =&amp; f_{det}(\begin{pmatrix} z_1 \\ \vdots \\ z_n \end{pmatrix} ) \cdot c(B) \\
+=&amp; \mathrm{det}(A) \cdot c(B)
+\end{align*}</div>
 
 <p>
-Sei \(A = E_n\), so folgt
+Sei $A = E_n$, so folgt
 </p>
-\begin{align*}
-\mathrm{det}(B) =& \mathrm{det}(E_n \cdot B) \\
-=& f_B(\begin{pmatrix} e_1 \\ \vdots \\ e_2 \end{pmatrix}  \\
-=& \det(E_n) \cdot c(B) \\
-=& c(B)
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\mathrm{det}(B) =&amp; \mathrm{det}(E_n \cdot B) \\
+=&amp; f_B(\begin{pmatrix} e_1 \\ \vdots \\ e_2 \end{pmatrix}  \\
+=&amp; \det(E_n) \cdot c(B) \\
+=&amp; c(B)
+\end{align*}</div>
 <p>
-Also gilt \(c(B) = \mathrm{det}(B)\)
+Also gilt $c(B) = \mathrm{det}(B)$
 und daraus folgt für:
 </p>
-\begin{align*}
-f_{det}(AB) =& \det(Ab) \\
-=& \det(A) \cdot \det(B)
-\end{align*}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:46</p>
+
+<div class="math-block">\begin{align*}
+f_{det}(AB) =&amp; \det(Ab) \\
+=&amp; \det(A) \cdot \det(B)
+\end{align*}</div>
+
 </div>
 </body>
 </html>

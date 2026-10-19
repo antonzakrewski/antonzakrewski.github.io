@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 15:01 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>totale Differenzierbarkeit induziert Richtungsableitungen</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,47 +52,41 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">totale Differenzierbarkeit induziert Richtungsableitungen</h1>
-<div id="outline-container-orgbc97dc5" class="outline-2">
-<h2 id="orgbc97dc5"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-Sei \(F: U \rightarrow \mathbb{R}^m\) <a href="20230601102558-totale_differenzierbarkeit.html#ID-2bdfcfac-76de-4f04-b2c7-6eca0297c586">total differenzierbar</a>, so existieren alle <a href="20220303084101-richtungsableitung.html#ID-4bf38220-c604-4253-a2eb-7579626f53ac">Richtungsableitung</a> von \(F\) in \(x\) und es gilt:
-</p>
-\begin{align*}
-(\partial_v F)(x) = d F_x(v)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgada1fe1" class="outline-2">
-<h2 id="orgada1fe1"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-Folgt aus der <a href="20230606-kettenregel_fur_das_totale_differential.html#ID-8b45d9e9-87fb-42ce-a53c-b1aca5fac3e5">Kettenregel</a> und der <a href="20220104114218-komposition.html#ID-7dbdf503-309d-418b-8b3d-5c2fe27bbfeb">Komposition</a> mit \(p_v\):
-</p>
-\begin{align*}
-p_v: (-\varepsilon, \varepsilon) \rightarrow& U \\
-t \mapsto& x + t \cdot v
-\end{align*}
+<span id="ID-ac68770b-cb02-4739-af26-31e87c73c861"></span><h1 class="title">totale Differenzierbarkeit induziert Richtungsableitungen</h1>
 
-\begin{align*}
-(\partial_V F)(x) =& \frac{\mathrm{d}}{\mathrm{d}t}F(x + tv) \\
-=& \mathrm{d}(t \mapsto F(x + tv))_0(1)
-\end{align*}
+<h2 id="satz">Satz</h2>
 <p>
-Nach der Kettenregel ist diese <a href="20230601102558-totale_differenzierbarkeit.html#ID-2bdfcfac-76de-4f04-b2c7-6eca0297c586">total differenzierbar</a> mit <a href="20230118224205-ableitung.html#ID-162033bf-f6b9-49d6-a75b-07c444a70de4">Ableitung</a> 
+Sei $F: U \rightarrow \mathbb{R}^m$ <a href="20230601102558-totale_differenzierbarkeit.html#ID-2bdfcfac-76de-4f04-b2c7-6eca0297c586">total differenzierbar</a>, so existieren alle <a href="20220303084101-richtungsableitung.html#ID-4bf38220-c604-4253-a2eb-7579626f53ac">Richtungsableitung</a> von $F$ in $x$ und es gilt:
 </p>
-\begin{align*}
-( \mathrm{d} F_x \circ d (t \mapsto x + tv))(1) =& \mathrm{d} F_x \circ \mathrm{id}_{\mathbb{R}} \cdot v\\
-=& \mathrm{d} F_x(v)
-\end{align*}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 15:01</p>
+
+<div class="math-block">\begin{align*}
+(\partial_v F)(x) = d F_x(v)
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
+<p>
+Folgt aus der <a href="20230606-kettenregel_fur_das_totale_differential.html#ID-8b45d9e9-87fb-42ce-a53c-b1aca5fac3e5">Kettenregel</a> und der <a href="20220104114218-komposition.html#ID-7dbdf503-309d-418b-8b3d-5c2fe27bbfeb">Komposition</a> mit $p_v$:
+</p>
+
+<div class="math-block">\begin{align*}
+p_v: (-\varepsilon, \varepsilon) \rightarrow&amp; U \\
+t \mapsto&amp; x + t \cdot v
+\end{align*}</div>
+
+
+<div class="math-block">\begin{align*}
+(\partial_V F)(x) =&amp; \frac{\mathrm{d}}{\mathrm{d}t}F(x + tv) \\
+=&amp; \mathrm{d}(t \mapsto F(x + tv))_0(1)
+\end{align*}</div>
+<p>
+Nach der Kettenregel ist diese <a href="20230601102558-totale_differenzierbarkeit.html#ID-2bdfcfac-76de-4f04-b2c7-6eca0297c586">total differenzierbar</a> mit <a href="20230118224205-ableitung.html#ID-162033bf-f6b9-49d6-a75b-07c444a70de4">Ableitung</a>
+</p>
+
+<div class="math-block">\begin{align*}
+( \mathrm{d} F_x \circ d (t \mapsto x + tv))(1) =&amp; \mathrm{d} F_x \circ \mathrm{id}_{\mathbb{R}} \cdot v\\
+=&amp; \mathrm{d} F_x(v)
+\end{align*}</div>
+
 </div>
 </body>
 </html>

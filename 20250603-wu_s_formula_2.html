@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Wu&#x27;s Formula 2 for BG</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-d8cf3495-65e5-4fe6-aa27-895f3e536398"></span><h1 class="title">Wu&#x27;s Formula 2 for BG</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Consider the <a href="20250520-f2_cohomology_of_bg.html#ID-7d954ef2-4c2f-4185-b042-2830685d4771">F2-cohomology of BG</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{F}_2[w_1,w_2,...,] \subseteq H^*(\mathrm{BG}, \mathbb{F}_2) 
+\end{align*}</div>
+
+<p>
+Then for $i,j &gt; 0;q
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Sq}^i(w_j) = \sum_{k=0}^i \binom{j+k-i-1}{k} w_{j+k} w_{i-k}
+\end{align*}</div>
+<p>
+where the convention for the binomial coefficient $\binom{a}{b}$ is
+</p>
+<ul>
+<li>the binomial coefficient modulo $2$ if $b \leq a$</li>
+
+<li>1 if (a,b) = (-1,0)</li>
+
+<li>0 else  </li>
+</ul>
+<p>
+In particular for $i &gt; j$ the RHS vanishes by convention (as <a href="20250113-triviality_of_steenrod_operation.html#ID-a1aa838f-8ff1-4140-b44e-6da40cc41ee9">triviality of steenrod operation</a>)
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+define an ordering of pairs $(i,j)$ with
+</p>
+<ol>
+<li>$(i,j) \leq (i',j')$ the <a href="20250531-lexicographic_order.html#ID-d88c379a-19a0-4a94-8f3a-6961046a9dae">lexicographic order</a> where the second component is more important than the first # with the (reverse) <a href="20250531-lexicographic_order.html#ID-d88c379a-19a0-4a94-8f3a-6961046a9dae">lexicographic order</a> with respect and</li>
+</ol>
+
+<h3 id="case-i-1">case $i = 1$</h3>
+<p>
+Then we get $(1,j)$ and
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Sq}^1(w_j) = 
+\end{align*}</div>
+<p>
+by
+</p>
+
+<h3 id="induction-ove-ri">induction ove r$i$</h3>
+<p>
+suppose $\mathrm{Sq}^a(w_b)$ satisfies the deserved formula nad for all $(a,b) \leq (i-1,j)$.
+Now prove that $\mathrm{Sq}^i(w_j)$ astisfies the desired formula
+</p>
+
+<p>
+Assume that $i\leq j$
+</p>
+
+
+<div class="math-block">\begin{align*}
+\mathrm{Sq}\mathrm{Sq}^i(\mathrm{Sq}^j(u)) =&amp; \mathrm{Sq}^i(w_j \cdot u) \\
+=&amp; \mathrm{Sq}^i(w_j) + \sum_{n=1}^i \mathrm{Sq}^{i-1}(w_j) w_n \cdot u
+\end{align*}</div>
+
+<p>
+But the <a href="20250113-adem_relation_of_steenrod_operations.html#ID-fddb3901-c7d1-46f1-bdc0-df56468d8497">Adem relations</a> show that
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Sq}^i(\mathrm{Sq}^j(u)) = \sum_{m=0}^{\lfloor \frac{i}{2} \rfloor } \binom{j-m-1}{i-2m} \mathrm{Sq}^{i+j-m} \mathrm{Sq}^m(u)
+\end{align*}</div>
+
+<p>
+which shows
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Sq}^i(w_j) \cdot u = 
+\end{align*}</div>
+
+
+<p>
+where using the <a href="20250603-sum_of_binomial_coefficients.html#ID-9367e600-f4bd-4793-bd47-070428e72edf">sum of binomial coefficients with same base mod 2</a>
+</p>
+
+
+<p>
+Now apply the <a href="20250513-thom_isomorphism.html#ID-69ff282c-ba7b-45d1-af72-89650ab4f156">thom isomorphism in F2</a> to cancel $u$
+and get
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Sq}^i(w_j) = \sum_{k=1}^i \mathrm{Sq}^{i-n}(w_i) w_n + \sum_{n=0}^{\rfloor \frac{i}{2} \lfloor} \sum_{t=0}^{i + j - m} \binom{j-m-1}{i-2m} \mathrm{Sq}^t(w_m) \cdot w_{i+j-m-t}
+\end{align*}</div>
+
+<p>
+...
+</p>
+
+
+<p>
+In this formual there appear 4 kinds of temrs
+</p>
+
+<p>
+a) $w_{a} w_{b} w_{i+j-a-b}$ with $0 &lt; a &lt; b &lt; i, a + b \leq i$
+b) $w_{a}^2 w_{i+j-2a}$ with $0 &lt; a &lt; \lfloor \frac{i}{2} \rfloor$
+c) $w_a \cdot w_{i+j-a}$ with $0&lt; a \leq i$
+d) $w_{i+j}$
+</p>
+
+<p>
+So we have to compute the coefficients of these
+</p>
+
+<p>
+a) $\binom{j-b-1}{i-a-b} + \binom{j-a-1}{i-a-b} + \sum_{n=0}^{\lfloor \frac{i}{2} \rfloor} \binom{j-n-1}{i-2n} \binom{k -a -1}{b - n} = 0$
+b) $0$
+c) $\binom{j-1}{i-a} + \sum_{n=0}^{\lfloor \frac{i}{2} \rfloor} \binom{j-n-1}{i-2a} \binom{n-1}{a-n} = 0$
+d) $\binom{j-i-1}{i}$
+</p>
+
+
+</div>
+</body>
+</html>

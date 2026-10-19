@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>equivalent characterization of a bounded/continuous operator</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-9212207d-51e9-4ec1-9985-82a3e7791243"></span><h1 class="title">equivalent characterization of a bounded/continuous operator</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $T: X \rightarrow Y$ be a <a href="20230601104215-linearer_operator.html#ID-f0820723-a046-4b6e-bb52-0e14a4bbb688">linear operator</a>.
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol>
+<li>$T$ is <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a></li>
+
+<li>$T$ is <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a> in some $x_0 \in X$</li>
+
+<li>there exists some $c &lt; \infty$ such that $\| T x \| \leq c \| x \|$ for every $x \in X$ </li>
+
+<li>$T$ is a bounded operator.</li>
+</ol>
+<h2 id="proof">Proof</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+<p>
+special case
+</p>
+
+<h3 id="2-implies-3">2) $\implies$ 3)</h3>
+<p>
+Assume that for each $n \in \mathbb{N}$, there exists an $y_n$ such that $\| T y_n \| &gt; \| y_n \| \geq n$.
+Then we define for $n \geq 1$ the sequence $x_n \coloneqq \frac{1}{n \| y_n \|} y_n \in X$. Observe that $\| x_n \| = \frac{1}{n} \xrightarrow{n \rightarrow \infty} 0$ and hence $(x_n + x_0)_{n \in \mathbb{N}} \xrightarrow{n \rightarrow \infty} x_0$.
+But $\| T(x_n) \| = \frac{1}{n \| y_n \|} \| T(y_n) \| &gt; 1$.
+Hence $T(x_n + x_0)$ does not converge to $T(x_n)$.
+This is a contradiction to the statement, that $T$ is continuous in $x_0$
+</p>
+
+<h3 id="3-implies-4">3) $\implies$ 4)</h3>
+<p>
+special case
+</p>
+
+<h3 id="4-implies-1">4) $\implies$ 1)</h3>
+<p>
+Suppose $T$ is bounded.
+We show that $T$ is <a href="20221208094811-folgenstetigkeit.html#ID-934a1a9a-3464-4876-babd-3ece8651719e">sequentially continuous</a>.
+</p>
+
+<p>
+Let $x_n \rightarrow x$ be a converging sequence.
+Then $\|x_n - x \| \xrightarrow{n \rightarrow \infty} 0$.
+But as $T$ is bounded, we get
+</p>
+
+<div class="math-block">\begin{align*}
+\| T(x_n - x) \| \leq c \cdot \| x_n - x \| \xrightarrow{n \rightarrow \infty}
+\end{align*}</div>
+<p>
+hence $T$ is (sequentially) continuous in $x$.
+As $X$ is a metric space and $x$ was arbitary, this shows that $T$ is <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a>
+</p>
+
+</div>
+</body>
+</html>

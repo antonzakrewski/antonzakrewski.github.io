@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 22:33 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ordnungsisomorphismus von einer dichten, abzählbaren Menge auf die rationalen Zahlen</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,68 +52,49 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Ordnungsisomorphismus von einer dichten, abzählbaren Menge auf die rationalen Zahlen</h1>
-<div id="outline-container-org8254ec2" class="outline-2">
-<h2 id="org8254ec2"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-7c69961e-eeb0-4f40-beb2-55709a4cfa89"></span><h1 class="title">Ordnungsisomorphismus von einer dichten, abzählbaren Menge auf die rationalen Zahlen</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Seien \(A \subseteq (a,b), B \subseteq (a',b')\) mit \(a,b,a',b' \in \overline{\mathbb{R}}\) <a href="20221124232157-dichte_menge_topologie.html#ID-921fe319-4945-4303-a9a5-3723804e0737">dichte</a>, <a href="20220903164044-abzahlbar.html#ID-96f3063e-a99a-4c33-93c2-5c9f99f15717">abzählbare</a> <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Mengen</a>, so existiert eine <a href="20230507232220-ordnungsisomorphismus.html#ID-348d7f3c-1eb8-43cf-bbeb-d01096a4674b">Ordnungsisomorphismus</a>
+Seien $A \subseteq (a,b), B \subseteq (a',b')$ mit $a,b,a',b' \in \overline{\mathbb{R}}$ <a href="20221124232157-dichte_menge_topologie.html#ID-921fe319-4945-4303-a9a5-3723804e0737">dichte</a>, <a href="20220903164044-abzahlbar.html#ID-96f3063e-a99a-4c33-93c2-5c9f99f15717">abzählbare</a> <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Mengen</a>, so existiert eine <a href="20230507232220-ordnungsisomorphismus.html#ID-348d7f3c-1eb8-43cf-bbeb-d01096a4674b">Ordnungsisomorphismus</a>
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 f: A \rightarrow B
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org29b2537" class="outline-2">
-<h2 id="org29b2537"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orgc8fec9b" class="outline-3">
-<h3 id="orgc8fec9b"><span class="section-number-3">2.1.</span> Konstruktion</h3>
-<div class="outline-text-3" id="text-2-1">
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="konstruktion">Konstruktion</h3>
 <p>
-Wir wissen, dass \(A, B\) kein Maximum/Minimum haben, da sonst \(\overline{A} = [x_{\mathrm{min}},x_{\mathrm{max}}]\) gilt und analog auch für \(B\).
-Man wähle ein beliebiges Element \(b_1 \in B \eqqcolon B_0\) und ein \(a_1 \in A \eqqcolon A_0\) und setze \(f(a_1)  \coloneqq b_i\).
-Damit erhält man jeweils zwei Mengen \(B_{1,-}  \coloneqq \{b \in B_{1-1} \vert b < b_1\}, B_{1,+}  \coloneqq \{b \in B_{1-1} \vert b > b_1\}, A_{1,-}  \coloneqq \{a \in A_{1-1} \vert a < a_1\}, A_{1,+}  \coloneqq \{a \in A_{1-1} \vert a > a_1\}\) und wiederhole dies.
-Falls dabei für ein \(B_{i,}\) ein beschränktes Intervall \((c,c')\) vorliegt, wähle man eine Zahl in \((c + \frac{1}{3} (c' - c), c + \frac{2}{3}(c' - c))\), d.h. im mittleren Drittel aus.
+Wir wissen, dass $A, B$ kein Maximum/Minimum haben, da sonst $\overline{A} = [x_{\mathrm{min}},x_{\mathrm{max}}]$ gilt und analog auch für $B$.
+Man wähle ein beliebiges Element $b_1 \in B \eqqcolon B_0$ und ein $a_1 \in A \eqqcolon A_0$ und setze $f(a_1)  \coloneqq b_i$.
+Damit erhält man jeweils zwei Mengen $B_{1,-}  \coloneqq \{b \in B_{1-1} \vert b &lt; b_1\}, B_{1,+}  \coloneqq \{b \in B_{1-1} \vert b &gt; b_1\}, A_{1,-}  \coloneqq \{a \in A_{1-1} \vert a &lt; a_1\}, A_{1,+}  \coloneqq \{a \in A_{1-1} \vert a &gt; a_1\}$ und wiederhole dies.
+Falls dabei für ein $B_{i,}$ ein beschränktes Intervall $(c,c')$ vorliegt, wähle man eine Zahl in $(c + \frac{1}{3} (c' - c), c + \frac{2}{3}(c' - c))$, d.h. im mittleren Drittel aus.
 </p>
 
 <p>
-Dabei ist \(f\) &#x2013; eingeschränkt auf die Definitionsmenge &#x2013; nach jedem Schritt Ordnungserhaltend.
-Wir definieren dann \(f\) als Grenzwert
+Dabei ist $f$ -- eingeschränkt auf die Definitionsmenge -- nach jedem Schritt Ordnungserhaltend.
+Wir definieren dann $f$ als Grenzwert
 </p>
-</div>
-</div>
-<div id="outline-container-org0640954" class="outline-3">
-<h3 id="org0640954"><span class="section-number-3">2.2.</span> Wohldefiniertheit</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<h3 id="wohldefiniertheit">Wohldefiniertheit</h3>
 <p>
 Zur <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">Wohldefiniertheit</a>:
-Sei \(a \in A\) und <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> nicht nach endlich vielen Schritten definiert, so erhält man jeweils eine <a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">Folge</a> \(a_i^+, a_i^-\) ausgewählt aus einer der beiden Hälften, welche gegen \(a\) von beiden Seiten konvergiert.
+Sei $a \in A$ und <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> nicht nach endlich vielen Schritten definiert, so erhält man jeweils eine <a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">Folge</a> $a_i^+, a_i^-$ ausgewählt aus einer der beiden Hälften, welche gegen $a$ von beiden Seiten konvergiert.
 Diese beiden folgen sind monoton und beschränkt, d.h. sie konvergieren
-Analog erhält man eine Folge \(f(a_i)\), welche <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergiert</a>, da 
+Analog erhält man eine Folge $f(a_i)$, welche <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergiert</a>, da
 </p>
-</div>
-</div>
-<div id="outline-container-org4ca31a3" class="outline-3">
-<h3 id="org4ca31a3"><span class="section-number-3">2.3.</span> surjektiv</h3>
-</div>
 
-<div id="outline-container-org04fe0a9" class="outline-3">
-<h3 id="org04fe0a9"><span class="section-number-3">2.4.</span> injektiv</h3>
-<div class="outline-text-3" id="text-2-4">
+<h3 id="surjektiv">surjektiv</h3>
+
+
+<h3 id="injektiv">injektiv</h3>
 <p>
-Seine \(a,a' \in A\) verschiedene Werte, so existiert nach Annahme ein \(a'' \in (a,a')\) für <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> \(a < a'\).
-Dieses \(a'\) teilt nach KonstruÜ
+Seine $a,a' \in A$ verschiedene Werte, so existiert nach Annahme ein $a'' \in (a,a')$ für <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> $a &lt; a'$.
+Dieses $a'$ teilt nach KonstruÜ
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 22:33</p>
+
 </div>
 </body>
 </html>

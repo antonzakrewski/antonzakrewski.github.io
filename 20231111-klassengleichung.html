@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 19:09 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Klassengleichung</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,86 +52,78 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Klassengleichung</h1>
-<div id="outline-container-org2260bbc" class="outline-2">
-<h2 id="org2260bbc"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-a6fff4d6-1226-43c9-98a6-9e25b695c941"></span><h1 class="title">Klassengleichung</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(G\) eine <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">Gruppe</a>, die <a href="20230730-konjugation_als_gruppenwirkung.html#ID-99b9bcc0-41f5-4761-a4d5-7fb1ed4f9038">Konjugation als Gruppenwirkung</a>.
+Sei $G$ eine <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">Gruppe</a>, die <a href="20230730-konjugation_als_gruppenwirkung.html#ID-99b9bcc0-41f5-4761-a4d5-7fb1ed4f9038">Konjugation als Gruppenwirkung</a>.
 </p>
-\begin{align*}
-\varphi: G \times G \rightarrow& G \\
-(g_1,g_2) \mapsto& g_1 \cdot g_2 \cdot g_1^{-1}
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\varphi: G \times G \rightarrow&amp; G \\
+(g_1,g_2) \mapsto&amp; g_1 \cdot g_2 \cdot g_1^{-1}
+\end{align*}</div>
 
 <p>
 Dann gilt
 </p>
-\begin{align*}
-\vert G \vert = \vert Z \vert + \sum_{\vert \mathcal{O}_x \vert > x} \vert \mathcal{O}_x \vert
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\vert G \vert = \vert Z \vert + \sum_{\vert \mathcal{O}_x \vert &gt; x} \vert \mathcal{O}_x \vert
+\end{align*}</div>
 <p>
-für die <a href="20221221173558-orbit_gruppentheorie.html#ID-73c744de-33e1-4ea7-9b28-815229e1b186">orbits</a> \(\mathcal{O}_x\) und das <a href="20230226213449-zentrum_einer_gruppe.html#ID-1a8fbb74-8226-4029-90aa-f7f67bddbfb5">Zentrum</a> \(Z\)
+für die <a href="20221221173558-orbit_gruppentheorie.html#ID-73c744de-33e1-4ea7-9b28-815229e1b186">orbits</a> $\mathcal{O}_x$ und das <a href="20230226213449-zentrum_einer_gruppe.html#ID-1a8fbb74-8226-4029-90aa-f7f67bddbfb5">Zentrum</a> $Z$
 </p>
-</div>
-</div>
-<div id="outline-container-org433ad28" class="outline-2">
-<h2 id="org433ad28"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orgbbb2935" class="outline-3">
-<h3 id="orgbbb2935"><span class="section-number-3">2.1.</span> \(\vert G \vert \geq \vert Z \vert + \sum_{\vert \mathcal{O}_x \vert > x} \vert \mathcal{O}_x \vert\)</h3>
-<div class="outline-text-3" id="text-2-1">
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="vert-g-vert-geq-vert-z-vert-sum-vert-mathcalo-x-vert-x-vert-mathcalo-x-vert">$\vert G \vert \geq \vert Z \vert + \sum_{\vert \mathcal{O}_x \vert &gt; x} \vert \mathcal{O}_x \vert$</h3>
 <p>
-Sei \(g_2 \in G\).
-Dann folgt aus \(g_2 \in Z\) auch für beliebiges \(g_1 \in G\):
+Sei $g_2 \in G$.
+Dann folgt aus $g_2 \in Z$ auch für beliebiges $g_1 \in G$:
 </p>
-\begin{align*}
-g_1 g_2 g_1^{-1} =& g_1 g_1^{-1} g_2 \\
-=& g_2
-\end{align*}
+
+<div class="math-block">\begin{align*}
+g_1 g_2 g_1^{-1} =&amp; g_1 g_1^{-1} g_2 \\
+=&amp; g_2
+\end{align*}</div>
 <p>
-D.h. \(g_2 \not\in \coprod_{ \vert \mathcal{O}_x \vert > 1}\)
+D.h. $g_2 \not\in \coprod_{ \vert \mathcal{O}_x \vert &gt; 1}$
 </p>
 
 <p>
-Damit sind \(Z\) und \(\coprod_{ \vert \mathcal{O}_x \vert > 1}\) disjunkt und es folgt, da über disjunkte \(\mathcal{O}_x\) (als äquivalenzklassen) addiert wird
+Damit sind $Z$ und $\coprod_{ \vert \mathcal{O}_x \vert &gt; 1}$ disjunkt und es folgt, da über disjunkte $\mathcal{O}_x$ (als äquivalenzklassen) addiert wird
 </p>
-\begin{align*}
-\vert G \vert \geq \vert Z \vert + \sum_{\vert \mathcal{O}_x \vert > x} \vert \mathcal{O}_x \vert
-\end{align*}
-</div>
-</div>
 
-<div id="outline-container-orgbe17709" class="outline-3">
-<h3 id="orgbe17709"><span class="section-number-3">2.2.</span> \(\vert G \vert \leq \vert Z \vert + \sum_{\vert \mathcal{O}_x \vert > x} \vert \mathcal{O}_x \vert\)</h3>
-<div class="outline-text-3" id="text-2-2">
+<div class="math-block">\begin{align*}
+\vert G \vert \geq \vert Z \vert + \sum_{\vert \mathcal{O}_x \vert &gt; x} \vert \mathcal{O}_x \vert
+\end{align*}</div>
+
+
+<h3 id="vert-g-vert-leq-vert-z-vert-sum-vert-mathcalo-x-vert-x-vert-mathcalo-x-vert">$\vert G \vert \leq \vert Z \vert + \sum_{\vert \mathcal{O}_x \vert &gt; x} \vert \mathcal{O}_x \vert$</h3>
 <p>
-Sei \(g_2 \not\in Z\), so existiert ein \(g_1 \in G\) mit 
+Sei $g_2 \not\in Z$, so existiert ein $g_1 \in G$ mit
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 g_2 \cdot g_1 \neq g_1 \cdot g_2
-\end{align*}
+\end{align*}</div>
 <p>
 Somit gilt auch
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 g_2 \cdot g_1 \cdot g_2^{-1} \neq g_1
-\end{align*}
+\end{align*}</div>
 <p>
-und damit auch \(\varphi(g_1,g_2) \neq g_1\) resp. für den <a href="20221221173558-orbit_gruppentheorie.html#ID-73c744de-33e1-4ea7-9b28-815229e1b186">orbit</a> 
+und damit auch $\varphi(g_1,g_2) \neq g_1$ resp. für den <a href="20221221173558-orbit_gruppentheorie.html#ID-73c744de-33e1-4ea7-9b28-815229e1b186">orbit</a>
 </p>
-\begin{align*}
-\vert \mathcal{O}_{g_1} \vert > 1
-\end{align*}
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 19:09</p>
+
+<div class="math-block">\begin{align*}
+\vert \mathcal{O}_{g_1} \vert &gt; 1
+\end{align*}</div>
+
+
 </div>
 </body>
 </html>

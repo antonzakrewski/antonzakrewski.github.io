@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>endliche Reihe von stochastischer konvergenz und konvergenz fast überall</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-e2bd118f-6a3b-422b-8ff5-a8e77b03d134"></span><h1 class="title">endliche Reihe von stochastischer konvergenz und konvergenz fast überall</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $(\Omega, \mathcal{F}, \mathbb{P})$ ein <a href="20220903151423-wahrscheinlichkeitsraum.html#ID-0a7fdeda-13a2-44be-bc7e-d6ab02447255">Wahrscheinlichkeitsraum</a>, $X_n,X$ reellwertige <a href="20241028-zufallsvariable.html#ID-6798db97-4391-4eed-acb0-86d90bc1ec7f">Zufallsvariablen</a>
+Angenommen für alle $\varepsilon &gt; 0$ ist
+</p>
+
+<div class="math-block">\begin{align*}
+\sum_{n=1}^{\infty} \mathbb{P}(\vert X_n - X \vert &gt; \varepsilon) &lt; \infty
+\end{align*}</div>
+<p>
+dann <a href="20241102-fast_uberall_konvergente_funktionenfolge.html#ID-14cfd263-e7b6-4db8-a28a-64133f0d442f">konvergiert es auch fast überall</a>
+</p>
+
+<div class="math-block">\begin{align*}
+X_n \rightarrow X
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+Es ist zu zeigen, dass
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{P}(\{X_n \rightarrow X\}) = 1
+\end{align*}</div>
+<p>
+gilt.
+</p>
+
+<p>
+Dabei ist
+</p>
+
+<div class="math-block">\begin{align*}
+\{X_n \rightarrow X\} = \bigcap_{l \in \mathbb{N}^+} \bigcup_{n = 0}^{\infty} \bigcap_{m = n}^\infty X \setminus \{\vert X_m - X \vert &gt; \frac{1}{l}\}
+\end{align*}</div>
+<p>
+also die Menge der Punkte $x$, so dass für beliebiges $\frac{1}{l} &gt; 0$ ein $n \in \mathbb{N}$ existiert mit $x \in X \setminus \{\vert X_m - X \vert &gt; \frac{1}{l}\} = \{ \vert X_m - X \vert \leq \frac{1}{l}\}$.
+</p>
+
+<p>
+Nach <a href="20250225-schnitt_von_fast_sicheren_ereignissen_als_fast_sicheres_ereignis.html#ID-64a31509-e212-4a2b-b634-46cd8ed79d65">schnitt von fast sicheren Ereignissen als fast sicheres Ereignis</a> reicht es aus, zu zeigen dass
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{P}(\bigcup_{n = 0}^{\infty} \bigcap_{m=n}^{\infty} X \setminus \{\vert X_m - X \vert &gt; \frac{1}{l}\}) = 1
+\end{align*}</div>
+<p>
+Nach <a href="20241126-maß_kommutiert_mit_limes_inferior.html#ID-57742c19-179b-4670-834b-b71278e7673f">maß kommutiert mit limes inferior</a> folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{P}(\bigcup_{n = 0}^{\infty} \bigcap_{m=n}^{\infty} X \setminus \{\vert X_m - X \vert &gt; \frac{1}{l}\}) =&amp; \mathrm{lim} \mathrm{inf} \mathbb{P}(X \setminus \{\vert X_m - X \vert &gt; \frac{1}{l}\}) \\
+=&amp; \mathrm{lim} 1 - \mathbb{P}(\{\vert X_m - X \vert &gt; \frac{1}{l}\}) \\
+=&amp; 1
+\end{align*}</div>
+
+
+
+
+
+
+
+</div>
+</body>
+</html>

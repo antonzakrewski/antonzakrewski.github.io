@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:46 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linearität der Determinante bezüglich einer Zeile</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,48 +52,41 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Linearität der Determinante bezüglich einer Zeile</h1>
-<div id="outline-container-org8a4f6e5" class="outline-2">
-<h2 id="org8a4f6e5"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-Sei \(R\) ein <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">kommutativer Ring</a> und seien \(z_i,z_j,z_j' \in R^{n}\), \(r,r' \in R\).
-Dann folgt
-</p>
-\begin{align*}
-\mathrm{det} \left( z_1 , z_2 , \dots , r \cdot z_j + r' \cdot z_j' , \dots , z_n \right)  =& 
-\mathrm{det} \left( z_1 , z_2 , \dots , r \cdot z_j , \dots , z_n \right) + \mathrm{det} \left( z_1 , z_2 , \dots , r' \cdot z_j' , \dots , z_n \right) 
-=& 
-\end{align*}
+<span id="ID-e423112a-0525-4274-a068-decaeede7aea"></span><h1 class="title">Linearität der Determinante bezüglich einer Zeile</h1>
 
-\begin{align*}
-\det \begin{pmatrix} z_1 \\ \vdots \\ r \cdot z_j + r' \cdot z_j' \\ \vdots \\ z_n \end{pmatrix} =& r \cdot \det \begin{pmatrix} z_1 \\ \vdots \\ z_j  \\ \vdots \\ z_n \end{pmatrix} + r' \cdot \det \begin{pmatrix} z_1 \\ \vdots \\ s'_j  \\ \vdots \\ z_n \end{pmatrix} 
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org2bfdf57" class="outline-2">
-<h2 id="org2bfdf57"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(z_j = \left( \alpha_{j1},...,\alpha_{jn}\right)\) und \(z_j = \left( \alpha'_{j1},...,\alpha'_{jn}\right)\).
+Sei $R$ ein <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">kommutativer Ring</a> und seien $z_i,z_j,z_j' \in R^{n}$, $r,r' \in R$.
 Dann folgt
 </p>
-\begin{align*}
-\det \begin{pmatrix} z_1 \\ \vdots \\ r \cdot z_j + r' \cdot z_j' \\ \vdots \\ z_n \end{pmatrix} =& 
+
+<div class="math-block">\begin{align*}
+\mathrm{det} \left( z_1 , z_2 , \dots , r \cdot z_j + r' \cdot z_j' , \dots , z_n \right)  =&amp; 
+\mathrm{det} \left( z_1 , z_2 , \dots , r \cdot z_j , \dots , z_n \right) + \mathrm{det} \left( z_1 , z_2 , \dots , r' \cdot z_j' , \dots , z_n \right) 
+=&amp; 
+\end{align*}</div>
+
+
+<div class="math-block">\begin{align*}
+\det \begin{pmatrix} z_1 \\ \vdots \\ r \cdot z_j + r' \cdot z_j' \\ \vdots \\ z_n \end{pmatrix} =&amp; r \cdot \det \begin{pmatrix} z_1 \\ \vdots \\ z_j  \\ \vdots \\ z_n \end{pmatrix} + r' \cdot \det \begin{pmatrix} z_1 \\ \vdots \\ s'_j  \\ \vdots \\ z_n \end{pmatrix} 
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
+<p>
+Sei $z_j = \left( \alpha_{j1},...,\alpha_{jn}\right)$ und $z_j = \left( \alpha'_{j1},...,\alpha'_{jn}\right)$.
+Dann folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\det \begin{pmatrix} z_1 \\ \vdots \\ r \cdot z_j + r' \cdot z_j' \\ \vdots \\ z_n \end{pmatrix} =&amp; 
 \sum_{\tau \in S_n} \mathrm{sgn}(\tau)\alpha_{1\tau(1)} ... \left(r \alpha_{j\tau(j)} + r' \alpha'_{j\tau(j)}\right)...\alpha_{n\tau(n)} \\
-=& \sum_{\tau \in S_n} \mathrm{sgn}(\tau)\alpha_{1\tau(1)} ... \left(r \alpha_{j\tau(j)}\right)...\alpha_{n\tau(n)} +
+=&amp; \sum_{\tau \in S_n} \mathrm{sgn}(\tau)\alpha_{1\tau(1)} ... \left(r \alpha_{j\tau(j)}\right)...\alpha_{n\tau(n)} +
 \sum_{\tau \in S_n} \mathrm{sgn}(\tau)\alpha_{1\tau(1)} ... \left(r' \alpha'_{j\tau(j)}\right)...\alpha_{n\tau(n)}  \\
-=& r \cdot \sum_{\tau \in S_n} \mathrm{sgn}(\tau)\alpha_{1\tau(1)} ... \alpha_{j\tau(j)}...\alpha_{n\tau(n)} +
+=&amp; r \cdot \sum_{\tau \in S_n} \mathrm{sgn}(\tau)\alpha_{1\tau(1)} ... \alpha_{j\tau(j)}...\alpha_{n\tau(n)} +
 r' \sum_{\tau \in S_n} \mathrm{sgn}(\tau)\alpha_{1\tau(1)} ... \alpha'_{j\tau(j)}...\alpha_{n\tau(n)}  \\
-=& r \cdot \det \begin{pmatrix} z_1 \\ \vdots \\ z_j  \\ \vdots \\ z_n \end{pmatrix} + r' \cdot \det \begin{pmatrix} z_1 \\ \vdots \\ s'_j  \\ \vdots \\ z_n \end{pmatrix} 
-\end{align*}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:46</p>
+=&amp; r \cdot \det \begin{pmatrix} z_1 \\ \vdots \\ z_j  \\ \vdots \\ z_n \end{pmatrix} + r' \cdot \det \begin{pmatrix} z_1 \\ \vdots \\ s'_j  \\ \vdots \\ z_n \end{pmatrix} 
+\end{align*}</div>
+
 </div>
 </body>
 </html>

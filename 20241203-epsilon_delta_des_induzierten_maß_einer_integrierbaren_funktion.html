@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>epsilon delta des induzierten Maß einer integrierbaren Funktion</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-a7fa3637-8513-49e2-9603-aeb616141d9c"></span><h1 class="title">epsilon delta des induzierten Maß einer integrierbaren Funktion</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $(X, \mathcal{A}, \mu)$ ein <a href="20241019-maßraum.html#ID-2135bec8-c3bb-4fca-a24a-21334f66d7ae">Maßraum</a>, $f: X \rightarrow \mathbb{R}$ eine <a href="20241104-l1_als_vektorraum.html#ID-2139cad6-af38-41a9-a4e3-66f820f5127f">L1</a> Abbildung mit $f \geq 0$.
+Dann existiert für $\varepsilon &gt; 0$ ein $\delta$ so dass für das <a href="20241127-integrierbare_positive_funktion_induziert_ma.html#ID-2fb9271a-51f7-4f46-b783-5ad971f4ee41">induzierte Maß</a> $\nu_f$ gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\mu(A) &lt; \delta \Rightarrow \nu_{f}(A) &lt; \varepsilon
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> sei für $n \in \mathbb{N}$ die Menge
+</p>
+
+<div class="math-block">\begin{align*}
+\{f \geq n\}
+\end{align*}</div>
+<p>
+keine <a href="20220902125205-nullmenge.html#ID-4edd0c4c-7828-4cbc-a25d-1031fecd0d5f">Nullmenge</a>
+</p>
+
+<p>
+Sonst gilt $f &lt; n + 1$ <a href="20241102-fast_uberall.html#ID-9d225c6c-ef25-44c8-9cb2-4d677ed59727">fast überall</a> und damit reicht wegen der <a href="20241102-monotonie_des_integrals.html#ID-f1f54453-7243-4847-bc75-79df4f5afda7">monotonie des Integrals</a> auch
+</p>
+
+<div class="math-block">\begin{align*}
+\delta = \frac{\varepsilon}{n+1}
+\end{align*}</div>
+<p>
+aus, da für $A$ mit $\mu(A) &lt; \delta$ auch gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\int_{A} f \mathrm{d} \mu &lt;&amp; \int_A (n+1) \mathrm{d} \mu \\
+=&amp; \mu(A) \cdot (n + 1)\\
+=&amp; \frac{\varepsilon}{n+1} (n+1)
+=&amp; \varepsilon
+\end{align*}</div>
+
+
+
+<p>
+Sei $L \coloneqq \int_{X} f \mathrm{d} \mu &lt; \infty$.
+Dann ist das induzierte Maß ein endliches Maß.
+Damit ist es von oben stetig (cf. <a href="20241019-stetiger_und_von_oben_stetiger_inhalt_fur_ein_endliches_maß.html#ID-02f423ed-a6b8-47dc-a350-d1df6d03ec14">stetiger und von oben stetiger Inhalt für einen endlichen Inhalt</a>)
+</p>
+
+
+<p>
+Es ist
+</p>
+
+<div class="math-block">\begin{align*}
+\bigcap_{n \in \mathbb{N}} \{f \geq n\} = \{f = \infty\}
+\end{align*}</div>
+<p>
+eine <a href="20220902125205-nullmenge.html#ID-4edd0c4c-7828-4cbc-a25d-1031fecd0d5f">Nullmenge</a>
+</p>
+
+<p>
+Dann gilt für den <a href="20241019-von_oben_stetiges_maß.html#ID-fd8150d4-9ff1-4a70-829c-c50c55dbd15e">von oben stetiger Inhalt</a>
+</p>
+
+<div class="math-block">\begin{align*}
+0 =&amp; \nu_f( \bigcap \{f \geq n\}) \\
+=&amp; \mathrm{lim}_{n \rightarrow \infty} \nu_f( \{f \geq n\}) \\
+\end{align*}</div>
+<p>
+d.h. für hinreichend großes $n \in \mathbb{N}$ gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\nu_f( \{f \geq n\}) &lt; \frac{1}{2} \varepsilon
+\end{align*}</div>
+
+<p>
+Setze $\delta = \mu( \{f \geq n\})$.
+Dann ist $\delta &gt; 0$ da $\{f \geq n\}$ nach Annahme keine Nullmenge ist.
+</p>
+
+<p>
+Für $A$ mit $\mu(A) &lt; \delta$ folgt dann
+</p>
+
+<div class="math-block">\begin{align*}
+\nu_{f}(A) =&amp; \nu_f(A \cap \{f \geq n\}) + \nu_f(A \setminus \{f \geq n\}) \\
+\leq&amp; \nu_f(A \cap \{f \geq n\}) + \nu_f(\{f \geq n\} \setminus A) \\
+=&amp; \nu_f( \{f \geq n\})
+&lt;&amp; \varepsilon
+\end{align*}</div>
+
+<p>
+Dabei gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\int_A f \mathrm{d} \mu =&amp; \int_{A \cap \{f \geq n\}} f \mathrm{d} \mu + \int_{A \setminus \{f \geq n\}} f \mathrm{d} \mu\\
+\leq&amp; \int_{A \cap \{f \geq n\}} f \mathrm{d} \mu + \int_{A \setminus \{f \geq n\}} n \mathrm{d} \mu\\
+=&amp; \int_{A \cap \{f \geq n\}} f \mathrm{d} \mu + \mu(A \setminus \{f \geq n\}) \\
+=&amp; \int_{A \cap \{f \geq n\}} f \mathrm{d} \mu + n \cdot \mu(A) - n \cdot \mu(A \cap \{f \geq n\}) \\
+\leq&amp; \int_{ \{f \geq n\}} f \mathrm{d} \mu + n \cdot \mu( \{f \geq n\}) \\
+=&amp; \int_{ \{f \geq n\}} f \mathrm{d} \mu + \int_{ \{f \geq n\}} n \mathrm{d} \mu \\
+\leq&amp; \int_{ \{f \geq n\}} f \mathrm{d} \mu + \int_{ \{f \geq n\}} f \mathrm{d} \mu \\
+&lt;&amp; \varepsilon
+\end{align*}</div>
+
+</div>
+</body>
+</html>

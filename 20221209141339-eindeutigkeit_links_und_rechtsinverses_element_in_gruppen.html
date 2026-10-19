@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:43 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Eindeutigkeit Links- und Rechtsinverses Element in Gruppen</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,42 +52,50 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Eindeutigkeit Links- und Rechtsinverses Element in Gruppen</h1>
-<div id="outline-container-org55058c7" class="outline-2">
-<h2 id="org55058c7"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-ff7baf40-33c9-4bca-a77b-cd1bf2c7a945"></span><h1 class="title">Eindeutigkeit Links- und Rechtsinverses Element in Gruppen</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(G\) eine <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">Gruppe</a> und \(a,b,c,e \in G\) mit \(e\) als <a href="20210702074906-neutrales_element_mathe.html#ID-2a95aac8-42e6-4724-9f37-15f6143a35ca">Neutrales Element</a> , so dass gilt:
+Sei $G$ eine <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">Gruppe</a> und $a,b,c,e \in G$ mit $1$ als <a href="20210702074906-neutrales_element_mathe.html#ID-2a95aac8-42e6-4724-9f37-15f6143a35ca">Neutrales Element</a> , so dass gilt:
 </p>
-\begin{align*}
-a \circ b =& e \\
-c \circ a =& e
-\end{align*}
+
+<div class="math-block">\begin{align*}
+a \circ a_r =&amp; 1 \\
+a_l \circ a =&amp; 1
+\end{align*}</div>
+<p>
+d.h. $a_r$ ist ein rechtsinverses Element von $a$ und $a_l$ ein linksinverses Element von $a$
+</p>
+
 <p>
 Dann folgt:
 </p>
-\begin{align*}
-b =& c
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgddec89b" class="outline-2">
-<h2 id="orgddec89b"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-\begin{align*}
-ba =& eba \\
-=& caba \\
-=& cea \\
-=& ca \\
-=& e
-\end{align*}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:43</p>
+
+<div class="math-block">\begin{align*}
+a_r =&amp; a_l
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
+<p>
+Es gilt
+</p>
+
+<div class="math-block">\begin{align*}
+a_l =&amp; a_l \cdot 1 \\
+=&amp; a_l \cdot (a \cdot a_r) \\
+=&amp; (a_l \cdot a) \cdot a_r \\
+=&amp; 1 \cdot a_r \\
+=&amp; a_r
+\end{align*}</div>
+<p>
+wobei wir $1$ als neutrales Element hinzufügen dürfen.
+Dann nutzen wir die Identität $1 = a \cdot a_r$ aus (gilt nach Annahme von $a_r$) und dann wegen Assoziativität umklammern.
+die letzten beiden Schritte nutzen aus, dass $a_l \cdot a = 1$ gilt bzw. das $1$ das neutrale Element ist.
+</p>
+
+
+
+
 </div>
 </body>
 </html>

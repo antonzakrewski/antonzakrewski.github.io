@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>topology of a colimit</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-b014a6b7-16a8-4710-b886-314005aa4a97"></span><h1 class="title">topology of a colimit</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathrm{Top}$ be the <a href="20230225170221-kategorie_top.html#ID-55f8744f-3e21-4c41-889f-06a52add975b">category Top</a> and $I: \mathcal{I} \rightarrow \mathrm{Top}$ a <a href="20230925-small_diagram.html#ID-f1377f73-3c8c-4c1e-b76e-c33734ce29f1">small diagram</a>.
+Then the <a href="20230725-colimit.html#ID-581b1561-25d0-479a-b0cc-063c894e10be">colimit</a> exists and is given by the <a href="20211226220255-disjunkte_mengen.html#ID-2000e1f4-7e9e-45f9-91ed-16ded8a15190">disjoint</a> union
+</p>
+
+<div class="math-block">\begin{align*}
+\coprod X_i/ \sim
+\end{align*}</div>
+<p>
+modulo the <a href="20240128-generated_equivalence_relation.html#ID-44d14808-162d-44c2-bd04-748edf64544f">generated equivalence relation</a> by
+</p>
+
+<div class="math-block">\begin{align*}
+x \sim y \Leftrightarrow \exists X_j, f(x) = g(x) \in X_j
+\end{align*}</div>
+<p>
+where a subset $O$ is open <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> the <a href="20211230205442-urbild_mengenlehre.html#ID-55e63f0f-4499-43f1-af07-5c56577a9c73">preimage</a> under the coprojection $\iota_i^{-1}[O]$ is open for all $\iota_i: X_i \rightarrow \mathrm{colim}(I)$
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="existence">existence</h3>
+<ul>
+<li><a href="20230923-category_top_as_cocomplete_category.html#ID-1b76d082-a506-40ba-9517-2b74e9ebaf0c">category Top as cocomplete category</a> </li>
+</ul>
+<h3 id="underlying-set">underlying set</h3>
+<p>
+corollary of
+</p>
+<ul>
+<li><a href="20230923-forgetful_functor_from_top_to_set_admits_right_adjoints.html#ID-35084dc5-100a-4792-a4da-2a4025b5032b">forgetful functor from Top to Set as left adjoint</a>  </li>
+
+<li><a href="20231207-colimit_in_set.html#ID-34d24f31-a0d5-41bc-9075-f7b2a863c18f">colimit in set</a> </li>
+</ul>
+<p>
+hence the underlying set is given up to bijection by the colimit in set.
+Therefore it remains to show, that the topology does the job.
+</p>
+
+<h3 id="topology">topology</h3>
+
+<h4 id="welldefined-topology">welldefined topology</h4>
+
+<h5 id="trivial-opens">trivial opens</h5>
+<p>
+follows from $\iota_i^{-1}[\emptyset] = \emptyset, \iota_i^{-1}[\mathrm{colim}(I)] = X_i$
+</p>
+
+<h5 id="arbitrary-union">arbitrary union</h5>
+<p>
+follows as <a href="20230228184501-urbild_von_der_vereinigung.html#ID-ef62accd-bba7-4498-b471-ae964570b67e">preimages commute with unions</a> and the union of opens in $X_i$ is again open
+</p>
+
+<h5 id="finite-intersection">finite intersection</h5>
+<p>
+follows as <a href="20230228184214-urbild_vom_durchschnitt.html#ID-55918080-5c82-4743-9578-74dda4c85693">preimage commute with intersections</a> and the finite intersection of opens in $X_i$ is open
+</p>
+
+<h4 id="map-welldefined">map welldefined</h4>
+<p>
+Suppose there exist maps $f_i: X_i \rightarrow Z$.
+Then consider the unique, induced set theoretic map in $\mathrm{Set}$
+</p>
+
+<div class="math-block">\begin{align*}
+f: \mathrm{colim}(I) \rightarrow Z
+\end{align*}</div>
+
+<p>
+it follows that
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/3ada7311fe37b29ab2ad.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+commutes.
+</p>
+
+<p>
+Furthermore for an open $O \subseteq Z$ it holds that
+</p>
+
+<div class="math-block">\begin{align*}
+f_{i}^{-1}[O] 
+\end{align*}</div>
+<p>
+is open.
+</p>
+
+<p>
+Hence $f^{-1}[[O_i]$ is open, as $f_i^{-1}[\iota^{-1}[O]]$ is open.
+</p>
+
+</div>
+</body>
+</html>

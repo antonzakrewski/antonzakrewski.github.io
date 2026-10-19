@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>separable hilbert space and countable orthonormal basis</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-a92ddcbc-b660-4de6-a4ad-34b5486a9949"></span><h1 class="title">separable hilbert space and countable orthonormal basis</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X \neq 0$ be <a href="20230521021534-hilbert_space.html#ID-6c70b215-2588-4ecc-9240-f21ab3ec7d81">Hilbert space</a>.
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol>
+<li>$X$ admits a <a href="20220903164044-abzahlbar.html#ID-96f3063e-a99a-4c33-93c2-5c9f99f15717">countable</a> <a href="20221113213002-orthonormalbasis.html#ID-0b12dce4-b595-4efc-9eec-157043948f68">Orthonormalbasis</a>  </li>
+
+<li>$X$ is <a href="20230307213929-seperabler_raum.html#ID-6e659d10-83a5-4a03-88b7-119feee141fa">separable</a> </li>
+</ol>
+<h2 id="proof">Proof</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+<p>
+<a href="20260510-normed_space_with_schauder_basis_is_separable.html#ID-26bd1f4b-ab88-4114-8427-6b03083b177c">normed space with schauder basis is separable</a>
+</p>
+
+<h3 id="2-implies-1">2) $\implies$ 1)</h3>
+<p>
+Let $D = \{x_n\}$ be a <a href="20221124232157-dichte_menge_topologie.html#ID-921fe319-4945-4303-a9a5-3723804e0737">dense</a> in $X$.
+We then construct a <a href="20260526-orthonormal_basis_in_a_hilbert_space.html#ID-9daee6b6-a3b5-401e-8645-8156508c3993">orthonormal basis</a> using the <a href="20221024135619-gram_schmidtsches_orthogonalisierungsverfahren.html#ID-4af8f824-6544-4092-822b-ca0fda310c6b">Gram-Schmidtsches Orthogonalisierungsverfahren</a>.
+We define inductively $\{e_n\}$
+</p>
+<ol>
+<li>choose an $x_l \in D$ with $x_l \not\in \mathrm{span}(e_1,...,e_m)$ and $l$ minimal.</li>
+
+<li>using gram-schmidt to extend this to an ortonormal set $e_1,...,e_{m+1}$</li>
+</ol>
+<p>
+and continuing this process (which only terminates if $\mathrm{dim}(X) &lt; \infty$.
+</p>
+
+<p>
+We claim that $e_n$ is an orthonormal set (see: gram schmidt) and $\mathrm{span}( \{e_n \vert n \in \mathbb{N}\})$ is dense in $x$.
+</p>
+
+<p>
+For this it suffices to observe that each $x_n$ lies in $\mathrm{span}(e_1,...,e_m)$ for some $m$ (e.g. $m = n$).
+</p>
+
+<p>
+It remains to show that $\{e_n\}^{\bot} = \{0\}$.
+For this it suffices to use <a href="20260524-orthogonal_complement_of_the_closure_of_the_generated_subspace.html#ID-aae7bbeb-c186-4131-8ce9-3c3c00ff2fa3">orthogonal complement of the closure of the generated subspace</a>.
+</p>
+
+</div>
+</body>
+</html>

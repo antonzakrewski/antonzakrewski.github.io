@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-12 Sa 23:03 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Distributivgesetz für Vereinigung und Schnitt</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,55 +52,41 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Distributivgesetz für Vereinigung und Schnitt</h1>
-<div id="outline-container-orgb5a6a31" class="outline-2">
-<h2 id="orgb5a6a31"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-95eae3f0-560a-49e4-ac8d-86cfc8c32f2c"></span><h1 class="title">Distributivgesetz für Vereinigung und Schnitt</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Seien \(A,B,C \subseteq M\) <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Mengen</a>, so folgt
+Seien $A,B,C \subseteq M$ <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Mengen</a>, so folgt
 </p>
-\begin{align*}
-A \cap \left(B \cup C\right) =& (A \cap B) \cup (A \cap C) \\
-A \cup \left(B \cap C\right) =& (A \cup B ) \cap (A \cup C)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org41edddb" class="outline-2">
-<h2 id="org41edddb"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org65c2d42" class="outline-3">
-<h3 id="org65c2d42"><span class="section-number-3">2.1.</span> a)</h3>
-<div class="outline-text-3" id="text-2-1">
+
+<div class="math-block">\begin{align*}
+A \cap \left(B \cup C\right) =&amp; (A \cap B) \cup (A \cap C) \\
+A \cup \left(B \cap C\right) =&amp; (A \cup B ) \cap (A \cup C)
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="a">a)</h3>
 <p>
 folgt aus dem <a href="20220929224749-kommutativgesetz_logik.html#ID-6e0a2497-c10a-40e8-80e4-286a179a34fa">Kommutativgesetz</a> für <a href="20211223095503-disjunktion_logik.html#ID-efaa31dc-0565-4a79-9bae-a633992277d2">Disjunktion</a> und <a href="20211223095538-konjunktion_logik.html#ID-4a71a4a5-377d-4e65-9e82-24d1e1957940">Konjunktion</a>:
 </p>
-\begin{align*}
-A \cap  (B \cup C) =& \{x \vert x \in A \land x \in (B \cup C) \} \\
-=& \{x \vert x \in A \land x \in \{y \vert y \in B \lor y \in C\}\} \\
-=& \{x \vert x \in A \land (x \in B \lor x \in C)\} \\
-=& \{x \vert (x \in A \land x \in B) \lor (x \in A \land x \in C)\} \\
-=& \{x \vert x \in \{y \vert y \in A \lor y \in B \} \lor x \in \{y \vert y \in A \lor y \in C \} \} \\
-=& \{x \vert x \in (A \cap B) \lor x  \in (A \cap C) \} \\
-=& \{x \vert x \in (A \cap B) \cup (A \cap c) \} \\
-=& (A \cap B) \cup (A \cap c)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org0fa80e6" class="outline-3">
-<h3 id="org0fa80e6"><span class="section-number-3">2.2.</span> b)</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<div class="math-block">\begin{align*}
+A \cap  (B \cup C) =&amp; \{x \vert x \in A \land x \in (B \cup C) \} \\
+=&amp; \{x \vert x \in A \land x \in \{y \vert y \in B \lor y \in C\}\} \\
+=&amp; \{x \vert x \in A \land (x \in B \lor x \in C)\} \\
+=&amp; \{x \vert (x \in A \land x \in B) \lor (x \in A \land x \in C)\} \\
+=&amp; \{x \vert x \in \{y \vert y \in A \lor y \in B \} \lor x \in \{y \vert y \in A \lor y \in C \} \} \\
+=&amp; \{x \vert x \in (A \cap B) \lor x  \in (A \cap C) \} \\
+=&amp; \{x \vert x \in (A \cap B) \cup (A \cap c) \} \\
+=&amp; (A \cap B) \cup (A \cap c)
+\end{align*}</div>
+
+<h3 id="b">b)</h3>
 <p>
 todo
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-12 Sa 23:03</p>
+
 </div>
 </body>
 </html>

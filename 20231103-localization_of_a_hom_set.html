@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 19:01 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>localization and hom-functor</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,46 +52,38 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">localization and hom-functor</h1>
-<div id="outline-container-org8feb9c6" class="outline-2">
-<h2 id="org8feb9c6"><span class="section-number-2">1.</span> Proposition</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-Let \(A\) be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a>, \(S \subseteq A\) a <a href="20230724-multiplicatively_closed_set.html#ID-d3df0441-9f2f-476f-b18e-d513ae149906">multiplicatively closed</a> <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">subset</a> and \(\mathrm{AMod}\) the <a href="20230225170152-kategorie_mod.html#ID-15b21b3a-18bb-4d60-a716-c69681d7222d">category RMod</a>.
-</p>
+<span id="ID-31a9ab7a-bc1a-46a5-942d-8f7717abeba5"></span><h1 class="title">localization and hom-functor</h1>
 
+<h2 id="proposition">Proposition</h2>
 <p>
+Let $A$ be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a>, $S \subseteq A$ a <a href="20230724-multiplicatively_closed_set.html#ID-d3df0441-9f2f-476f-b18e-d513ae149906">multiplicatively closed</a> <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">subset</a> and $\mathrm{AMod}$ the <a href="20230225170152-kategorie_mod.html#ID-15b21b3a-18bb-4d60-a716-c69681d7222d">category RMod</a>.
 Then for the <a href="20230803-localization_as_functor.html#ID-eabcac67-80dc-4a38-bdd4-f6a90d607ccc">localization functor for modules</a>
 </p>
-\begin{align*}
-\mathrm{S^{-1}}(-) \mathrm{AMod} \rightarrow& \mathrm{S^{-1}AMod} \\
-A \mapsto& S^{-1}A 
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\mathrm{S^{-1}}(-) \mathrm{AMod} \rightarrow&amp; \mathrm{S^{-1}AMod} \\
+A \mapsto&amp; S^{-1}A 
+\end{align*}</div>
 
 <p>
 and the <a href="20230302220438-hom_funktor.html#ID-188d17e0-5587-4a90-8927-2d8eb57adc90">hom-functor</a> it
 </p>
-\begin{align*}
-\mathrm{Hom}_{R}(-, -): \mathrm{RMod}^{\mathrm{op}} \times \mathrm{RMod} \rightarrow& \mathrm{RMod} \\
-(M,N) \mapsto& \mathrm{Hom}_{\mathrm{RMod}}(M,N)
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\mathrm{Hom}_{R}(-, -): \mathrm{RMod}^{\mathrm{op}} \times \mathrm{RMod} \rightarrow&amp; \mathrm{RMod} \\
+(M,N) \mapsto&amp; \mathrm{Hom}_{\mathrm{RMod}}(M,N)
+\end{align*}</div>
 <p>
-there exists <a href="20220821182915-naturliche_transformation_kategorientheorie.html#ID-4e6e50c0-c0df-44ff-a140-bebfa492ef7e">natural transformation</a> 
+there exists <a href="20220821182915-naturliche_transformation_kategorientheorie.html#ID-4e6e50c0-c0df-44ff-a140-bebfa492ef7e">natural transformation</a>
 </p>
-\begin{align*}
-\eta: S^{-1} (\mathrm{Hom}_{A}(-,-)) \rightarrow& \mathrm{Hom}_{S^{-1}A}(S^{-1}(-), S^{-1}(-))
- S^{-1} \mathrm{Hom}_{A}(M,N) \mapsto& \mathrm{Hom}_{S^{-1}A}(S^{-1}M,S^{-1}N)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org511ea80" class="outline-2">
-<h2 id="org511ea80"><span class="section-number-2">2.</span> Proof</h2>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 19:01</p>
+
+<div class="math-block">\begin{align*}
+\eta: S^{-1} (\mathrm{Hom}_{A}(-,-)) \rightarrow&amp; \mathrm{Hom}_{S^{-1}A}(S^{-1}(-), S^{-1}(-)) \\
+ S^{-1} \mathrm{Hom}_{A}(M,N) \mapsto&amp; \mathrm{Hom}_{S^{-1}A}(S^{-1}M,S^{-1}N)
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+
 </div>
 </body>
 </html>

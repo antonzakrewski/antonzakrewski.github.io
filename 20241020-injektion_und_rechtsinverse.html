@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Injektion und Rechtsinverse</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-8ecae26f-bcd1-47ea-a956-60a46e9177c5"></span><h1 class="title">Injektion und Rechtsinverse</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $f: X \rightarrow Y$ eine <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a> zwischen <a href="20220902125304-nichtleere_menge.html#ID-119fa0d9-a2b3-4b46-bb61-a6e590282321">nichtleeren</a> <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Mengen</a>.
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol>
+<li>$f$ ist <a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injektiv</a> </li>
+
+<li>$f$ ist ein Rechtsinverses von einer Abbildung $g: Y \rightarrow X$</li>
+</ol>
+<h2 id="proof">Proof</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+<p>
+Man wähle ein beliebiges Element $x_0 \in X$.
+Dann definiere man
+</p>
+
+<div class="math-block">\begin{align*}
+g: Y \rightarrow&amp; X \\
+y \mapsto 
+    \begin{cases}
+     x &amp; \mbox{if } x \in f^{-1}[y] \neq \emptyset \\
+     x_0  &amp; \mbox{else } f^{-1}[y] = \emptyset \\ 
+    \end{cases}
+\end{align*}</div>
+<p>
+Man bemerke dass $y \mapsto x$ für $x \in f^{-1}[y]$ wohldefiniert ist, da wegen der Injektivität höchstens Element im Urbild $f^{-1}[y]$ liegt (je nach Definition von Injektivität: übungsaufgabe).
+</p>
+
+
+<h3 id="2-implies-1">2) $\implies$ 1)</h3>
+<p>
+Seien $x,x' \in X$ mit $f(x) = f(x') = y$.
+Dann folgt
+</p>
+
+<div class="math-block">\begin{align*}
+g(f(x)) =&amp; g(y) \\
+=&amp; g(f(x'))
+\end{align*}</div>
+
+<p>
+Gleichzeitig gilt
+</p>
+
+<div class="math-block">\begin{align*}
+g(f(x)) =&amp; (g \circ f)(x) \\
+=&amp; (\mathrm{id}_X)(x) \\
+=&amp; x
+\end{align*}</div>
+
+<p>
+Analog auch $g(f(x')) = x'$.
+</p>
+
+<p>
+Damit folgt dann wegen der Gleichung oben
+</p>
+
+<div class="math-block">\begin{align*}
+x = x'
+\end{align*}</div>
+<p>
+was zu zeigen war.
+</p>
+
+
+
+</div>
+</body>
+</html>

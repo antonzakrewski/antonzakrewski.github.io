@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 22:31 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Summe über Binomialkoeffizienten mit einem Inversen</title>
+<title>Summe über Binomialkoeffizienten mit einem multiplikativem Inversen</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,57 +52,56 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Summe über Binomialkoeffizienten mit einem Inversen</h1>
-<div id="outline-container-org4e38cf5" class="outline-2">
-<h2 id="org4e38cf5"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-277164f2-5e3d-43a5-bcc5-9718b381849d"></span><h1 class="title">Summe über Binomialkoeffizienten mit einem multiplikativem Inversen</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Seien \(m,n \in \mathbb{N}_0\) mit \(0 \leq m \leq n\), so gilt:
+Seien $m,n \in \mathbb{N}_0$ mit $0 \leq m \leq n$, so gilt:
 </p>
-\begin{align*}
-\sum_{k=0}^{m} \binom{m}{k} \binom{n}{k}^{-1} =& \frac{n+1}{n+1-m}
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org4b81b03" class="outline-2">
-<h2 id="org4b81b03"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<div class="math-block">\begin{align*}
+\sum_{k=0}^{m} \binom{m}{k} \binom{n}{k}^{-1} =&amp; \frac{n+1}{n+1-m}
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
 <p>
 Aus der Aussage über die <a href="20230501101104-multiplikation_von_binomialkoeffizienten_mit_gleichem_oberen_unteren_wert.html#ID-40160c83-df7e-48c5-b452-e2869910d706">Multiplikation von Binomialkoeffizienten mit gleichem oberen/unteren Wert</a> folgt:
 </p>
-\begin{align*}
-\binom{n}{m} \binom{m}{k} =& \binom{n}{k} \binom{n-k}{m-k} \\
-\frac{1}{\binom{n}{k}} =& \frac{\binom{n-k}{m-k}}{\binom{n}{m} \cdot \binom{m}{k}}
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\binom{n}{m} \binom{m}{k} =&amp; \binom{n}{k} \binom{n-k}{m-k} \\
+\frac{1}{\binom{n}{k}} =&amp; \frac{\binom{n-k}{m-k}}{\binom{n}{m} \cdot \binom{m}{k}}
+\end{align*}</div>
 <p>
-Daraus folgt dann 
+Daraus folgt dann
 </p>
-\begin{align*}
-\sum_{k=0}^{m} \binom{m}{k} \binom{n}{k} =& \sum_{k=0}^{m} \frac{\binom{n-k}{m-k}}{\binom{n}{m} \cdot \binom{m}{k}} \cdot \binom{m}{k} \\
-=& \frac{1}{\binom{n}{m}} \cdot \sum_{k=0}^{m} \binom{n-k}{m-k}
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\sum_{k=0}^{m} \binom{m}{k} \binom{n}{k} =&amp; \sum_{k=0}^{m} \frac{\binom{n-k}{m-k}}{\binom{n}{m} \cdot \binom{m}{k}} \cdot \binom{m}{k} \\
+=&amp; \frac{1}{\binom{n}{m}} \cdot \sum_{k=0}^{m} \binom{n-k}{m-k}
+\end{align*}</div>
 <p>
 Durch Umordnung erhalten wir
 </p>
-\begin{align*}
-\frac{1}{\binom{n}{m}} \cdot \sum_{k=0}^{m} \binom{n-k}{m-k} =& \frac{1}{\binom{n}{m}} \cdot \sum_{k=0}^{m} \binom{n-m+k}{k}
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\frac{1}{\binom{n}{m}} \cdot \sum_{k=0}^{m} \binom{n-k}{m-k} =&amp; \frac{1}{\binom{n}{m}} \cdot \sum_{k=0}^{m} \binom{n-m+k}{k}
+\end{align*}</div>
 <p>
 Aus der <a href="20230426204214-summenformel_uber_beide_werte_des_binomialkoeffizienten.html#ID-352ae9c4-905e-4b4b-8186-0918b3ce5ae4">Summenformel über beide Werte des Binomialkoeffizienten</a> folgt:
 </p>
-\begin{align*}
-\sum_{k=0}^{m} \binom{m}{k} \binom{n}{k} =& \\
-=& \frac{1}{\binom{n}{m}} \cdot \sum_{k=0}^{m} \binom{n-m+k}{k} \\
-=& \frac{m! \cdot (n-m)!}{n!} \cdot \frac{(n+1)!}{m! \cdot (n+1-m)!} \\
-=& \frac{n+1}{n+1-m}
-\end{align*}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 22:31</p>
+
+<div class="math-block">\begin{align*}
+\sum_{k=0}^{m} \binom{m}{k} \binom{n}{k} =&amp; \\
+=&amp; \frac{1}{\binom{n}{m}} \cdot \sum_{k=0}^{m} \binom{n-m+k}{k} \\
+=&amp; \frac{m! \cdot (n-m)!}{n!} \cdot \frac{(n+1)!}{m! \cdot (n+1-m)!} \\
+=&amp; \frac{n+1}{n+1-m}
+\end{align*}</div>
+
+
+
+
+
 </div>
 </body>
 </html>

@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 19:01 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Disjunktion definiert als Implikation</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,50 +52,43 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Disjunktion definiert als Implikation</h1>
-<div id="outline-container-org60004b0" class="outline-2">
-<h2 id="org60004b0"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-65228aa5-9b05-41b2-be55-f30a4bda632d"></span><h1 class="title">Disjunktion definiert als Implikation</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
 Die <a href="20231104-disjunction.html#ID-a8860676-1178-41cc-aaa5-d13f57bbfbd5">Disjunktion</a> äquivalent zu <a href="20231022-elimination_and_introduction_rule_for_the_disjunction.html#ID-1beb796b-2a02-4ce3-9fec-105bff5f8c61">elimination rule for the disjunction</a> / <a href="20231114-introduction_rule_for_the_disjunction.html#ID-b7e59364-1ec9-4256-9f0e-2434402e7fab">introduction rule for the disjunction</a> definiert durch
 </p>
-\begin{align*}
-(\lor)_i^+: A_i \rightarrow& A_0 \lor A_i && i \in \{1,2\}\\
-(\lor)^-: A \lor B \rightarrow& (A \rightarrow C) \rightarrow (B \rightarrow C) \rightarrow C
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org0803349" class="outline-2">
-<h2 id="org0803349"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org6d1448e" class="outline-3">
-<h3 id="org6d1448e"><span class="section-number-3">2.1.</span> Elimination / Introduction impliziert Axiome</h3>
-<div class="outline-text-3" id="text-2-1">
-</div>
-<div id="outline-container-org24f0bc2" class="outline-4">
-<h4 id="org24f0bc2"><span class="section-number-4">2.1.1.</span> \((\lor)_i^+\)</h4>
-<div class="outline-text-4" id="text-2-1-1">
+
+<div class="math-block">\begin{align*}
+(\lor)_i^+: A_i \rightarrow&amp; A_0 \lor A_i &amp;&amp; i \in \{1,2\}\\
+(\lor)^-: A \lor B \rightarrow&amp; (A \rightarrow C) \rightarrow (B \rightarrow C) \rightarrow C
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="elimination-introduction-impliziert-axiome">Elimination / Introduction impliziert Axiome</h3>
+
+<h4 id="lor-i">$(\lor)_i^+$</h4>
 <p>
 Es gilt
 </p>
-\begin{prooftree}
+
+<div class="equation-container"><pre class="render-failed">\begin{prooftree}
 \hypo{[u: $A_0$]}
 \infer1[ $\lor_1^+$]{$A_0 \lor A_1$}
 \infer1[ $\rightarrow^+$ u]{$A_0 \rightarrow (A_0 \lor A_1)$}
-\end{prooftree}
+\end{prooftree}</pre></div>
 
-\begin{prooftree}
+
+<div class="equation-container"><pre class="render-failed">\begin{prooftree}
 \hypo{[u: $A_1$]}
 \infer1[ $\lor_0^+$]{$A_0 \lor A_1$}
 \infer1[ $\rightarrow^+$ u]{$A_1 \rightarrow (A_0 \lor A_1)$}
-\end{prooftree}
-</div>
-</div>
-<div id="outline-container-org9e879dc" class="outline-4">
-<h4 id="org9e879dc"><span class="section-number-4">2.1.2.</span> \((\lor)^-\)</h4>
-<div class="outline-text-4" id="text-2-1-2">
-\begin{prooftree}
+\end{prooftree}</pre></div>
+
+<h4 id="lor-">$(\lor)^-$</h4>
+
+<div class="equation-container"><pre class="render-failed">\begin{prooftree}
 \hypo{[ $A \lor B$]}
 
 \hypo{[ $A \rightarrow C$]}
@@ -103,27 +103,25 @@ Es gilt
 \infer1[ $\rightarrow^+$]{$B \rightarrow C \rightarrow C$}
 \infer1[ $\rightarrow^+$]{$(A \rightarrow C) \rightarrow (B \rightarrow C) \rightarrow C$}
 \infer1[ $\rightarrow^+$]{$A \lor B \rightarrow (A \rightarrow C) \rightarrow (B \rightarrow C) \rightarrow C$}
-\end{prooftree}
-</div>
-</div>
-</div>
+\end{prooftree}</pre></div>
 
-<div id="outline-container-orga107cd8" class="outline-3">
-<h3 id="orga107cd8"><span class="section-number-3">2.2.</span> Axiome implizieren Elimination / Introduction</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<h3 id="axiome-implizieren-elimination-introduction">Axiome implizieren Elimination / Introduction</h3>
 <p>
 Es gilt, ohne Verwendung der Eliminations- / Einführungsregel für die Disjunktion:
 </p>
-\begin{prooftree}
+
+<div class="equation-container"><pre class="render-failed">\begin{prooftree}
 \hypo{$A_i \rightarrow A_0 \lor A_1$}
 \hypo{}
 \ellipsis{M}{A_i}
 \infer2[ $\rightarrow^-$]{$A_0 \lor A_1$}
-\end{prooftree}
+\end{prooftree}</pre></div>
 <p>
 bzw.
 </p>
-\begin{prooftree}
+
+<div class="equation-container"><pre class="render-failed">\begin{prooftree}
 \ellipsis{M}{$A \lor B$}
 \hypo{u: $A \lor B \rightarrow (A \rightarrow C) \rightarrow (B \rightarrow C) \rightarrow C$}
 \infer2[ $\rightarrow^-$]{ $(A \rightarrow C) \rightarrow (B \rightarrow C) \rightarrow C$}
@@ -138,25 +136,15 @@ bzw.
 \infer1[ $\rightarrow^+ b$]{$B \rightarrow C$}
 
 \infer2[ $\rightarrow^-$]{C}
-\end{prooftree}
-</div>
-</div>
+\end{prooftree}</pre></div>
 
 
-<div id="outline-container-orgb7dcd0e" class="outline-3">
-<h3 id="orgb7dcd0e"><span class="section-number-3">2.3.</span> Konklusion</h3>
-<div class="outline-text-3" id="text-2-3">
+
+<h3 id="konklusion">Konklusion</h3>
 <p>
 Damit sind alle gentzen-herleitbare (axiom-herleitbare) Formeln axiom-herleitbar (gentzen-herleitbar) und damit sind die beiden Mengen der herleitbaren Formeln jeweils gleich
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 19:01</p>
+
 </div>
 </body>
 </html>

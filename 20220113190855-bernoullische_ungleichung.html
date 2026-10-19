@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:26 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Bernoullische Ungleichung</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,100 +52,82 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Bernoullische Ungleichung</h1>
-<div id="outline-container-org39b2c74" class="outline-2">
-<h2 id="org39b2c74"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
-\begin{align*}
+<span id="ID-79311398-5b9d-44f1-ac34-ce295a6e0763"></span><h1 class="title">Bernoullische Ungleichung</h1>
+
+<h2 id="satz">Satz</h2>
+
+<div class="math-block">\begin{align*}
 (1 + x)^n \geq 1 + nx \quad n \in \mathbb{N}, x \geq -1
-\end{align*}
+\end{align*}</div>
 <p>
-Mit gleichheit <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">g.d.w.</a> \(n = 0\) oder \(n = 1\) oder \(x = 0\)
+Mit gleichheit <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">g.d.w.</a> $n = 0$ oder $n = 1$ oder $x = 0$
 </p>
-</div>
-</div>
-<div id="outline-container-org07f938f" class="outline-2">
-<h2 id="org07f938f"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-<ul class="org-ul">
-<li><a href="20210305204948-beweis_durch_vollstandige_induktion.html#ID-c79953c3-855e-432d-9321-047dd5decac8">durch vollständige Induktion</a></li>
+
+<h2 id="beweis">Beweis</h2>
+<ul>
+<li><a href="20210305204948-beweis_durch_vollstandige_induktion.html#ID-c79953c3-855e-432d-9321-047dd5decac8">durch vollständige Induktion</a> </li>
 </ul>
-</div>
-<div id="outline-container-org4fcb47b" class="outline-3">
-<h3 id="org4fcb47b"><span class="section-number-3">2.1.</span> Induktionsanfang</h3>
-<div class="outline-text-3" id="text-2-1">
-\begin{align*}
+<h3 id="induktionsanfang">Induktionsanfang</h3>
+
+<div class="math-block">\begin{align*}
 (1 + x)^0 = 1 = 1 + 0 \cdot x\\
 (1 + x)^1 = 1 + x = 1 + 1 \cdot x
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org463cbae" class="outline-3">
-<h3 id="org463cbae"><span class="section-number-3">2.2.</span> Induktionsschritt</h3>
-<div class="outline-text-3" id="text-2-2">
-\begin{align*}
-(1 + x)^{n+1} =& (1 + x) \cdot (1+x)^n \\
-=& (1 + x)^n + (x)(1+x)^n \\
-1 + (n+1)x =& 1 + nx + x \\
+\end{align*}</div>
+
+<h3 id="induktionsschritt">Induktionsschritt</h3>
+
+<div class="math-block">\begin{align*}
+(1 + x)^{n+1} =&amp; (1 + x) \cdot (1+x)^n \\
+=&amp; (1 + x)^n + (x)(1+x)^n \\
+1 + (n+1)x =&amp; 1 + nx + x \\
 (1 + x)^n \geq 1 + nx \\
-(x)(1+x)^n > x
-% (x)(1+x)^n =& \begin{cases}
-% \binom{ & \mbox{if } x > 0  \\
-% \sum_{k=0}^n \binom{n}{k} 1 & \mbox{if } x = 0 \\ 
-%  & \mbox{if } -1 \geq x < 0 \\ 
+(x)(1+x)^n &gt; x
+% (x)(1+x)^n =&amp; \begin{cases}
+% \binom{ &amp; \mbox{if } x &gt; 0  \\
+% \sum_{k=0}^n \binom{n}{k} 1 &amp; \mbox{if } x = 0 \\ 
+%  &amp; \mbox{if } -1 \geq x &lt; 0 \\ 
 \end{cases}
-\end{align*}
-</div>
-<div id="outline-container-orgcc99479" class="outline-4">
-<h4 id="orgcc99479"><span class="section-number-4">2.2.1.</span> für \(x = 0\)</h4>
-<div class="outline-text-4" id="text-2-2-1">
-\begin{align*}
+\end{align*}</div>
+
+<h4 id="fur-x-0">für $x = 0$</h4>
+
+<div class="math-block">\begin{align*}
 (0)(1 + 0)^n = 0 = x
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org362b36f" class="outline-4">
-<h4 id="org362b36f"><span class="section-number-4">2.2.2.</span> für \(x > 0\)</h4>
-<div class="outline-text-4" id="text-2-2-2">
-\begin{align*}
-(x) (1 + x)^n =& \sum_{k=0}^n \binom{n}{k} 1^{n-k} y^k \\
-=& x \cdot (1 + (...)) \\
-=& x + x \cdot (...)
-\end{align*}
-<ul class="org-ul">
+\end{align*}</div>
+
+<h4 id="fur-x-0">für $x &gt; 0$</h4>
+
+<div class="math-block">\begin{align*}
+(x) (1 + x)^n =&amp; \sum_{k=0}^n \binom{n}{k} 1^{n-k} y^k \\
+=&amp; x \cdot (1 + (...)) \\
+=&amp; x + x \cdot (...)
+\end{align*}</div>
+<ul>
 <li>weil:</li>
 </ul>
-\begin{align*}
-x > 0 \Rightarrow x \cdot x > 0
-\end{align*}
-<ul class="org-ul">
-<li>siehe: <a href="20211223084436-anordnungsaxiome.html#ID-87bafb9b-c74f-47e4-9ac2-ef86909a7185">Anordnungsaxiome</a></li>
+<div class="math-block">\begin{align*}
+x &gt; 0 \Rightarrow x \cdot x &gt; 0
+\end{align*}</div>
+<ul>
+<li>siehe: <a href="20211223084436-anordnungsaxiome.html#ID-87bafb9b-c74f-47e4-9ac2-ef86909a7185">Anordnungsaxiome</a> </li>
 </ul>
-\begin{align*}
-\Rightarrow x \cdot (...) > 0
-\end{align*}
-</div>
-</div>
+<div class="math-block">\begin{align*}
+\Rightarrow x \cdot (...) &gt; 0
+\end{align*}</div>
 
-<div id="outline-container-org2d33d18" class="outline-4">
-<h4 id="org2d33d18"><span class="section-number-4">2.2.3.</span> für \(-1 \leq x < 0\)</h4>
-<div class="outline-text-4" id="text-2-2-3">
-\begin{align*}
-(1 + x) \geq& 0 \\
-(1 + x)^n \geq& 0 \\
-(1 + x)^n \leq& 1 \\
+
+<h4 id="fur-1-leq-x-0">für $-1 \leq x &lt; 0$</h4>
+
+<div class="math-block">\begin{align*}
+(1 + x) \geq&amp; 0 \\
+(1 + x)^n \geq&amp; 0 \\
+(1 + x)^n \leq&amp; 1 \\
 % wie formal zu beweisen ? 
 1 \cdot x \leq (1 + x)^n \cdot x
-\end{align*}
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:26</p>
+\end{align*}</div>
+
+
+
 </div>
 </body>
 </html>

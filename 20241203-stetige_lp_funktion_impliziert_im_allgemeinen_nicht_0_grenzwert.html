@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>stetige lp funktion impliziert im allgemeinen nicht 0 grenzwert</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-15fb7a5c-7bcc-4126-92a3-18182e52e847"></span><h1 class="title">stetige lp funktion impliziert im allgemeinen nicht 0 grenzwert</h1>
+
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $f: \mathbb{R} \rightarrow \mathbb{R}$ eine <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">stetige</a> <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a> <a href="20241116-lp_raum.html#ID-71341a95-9e48-4c08-9eb6-e8d5a5f0f22c">L1</a> Abbildung.
+Dann gilt i.A. nicht
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{lim}_{ \vert x \vert \rightarrow \infty} f(x)= 0
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let
+</p>
+
+<div class="math-block">\begin{align*}
+f_n: [0,1] \rightarrow&amp; [0,1] \\
+x \mapsto&amp; 
+    \begin{cases}
+    2^n x &amp; \mbox{if } x \leq \frac{1}{2} \cdot \frac{1}{2^n} \\
+\mathrm{max}(0,1 - 2^n x)  &amp; \mbox{if } x \geq \frac{1}{2} \cdot \frac{1}{2^n} \\ 
+    \end{cases}
+\end{align*}</div>
+
+<p>
+And define
+</p>
+
+<div class="math-block">\begin{align*}
+f: \mathbb{R}^+ \rightarrow&amp; [0,1] \\
+x \mapsto f_{\mathrm{floor}(x)}(x - \mathrm{floor}(x))
+\end{align*}</div>
+
+<p>
+and then extend such that this map is zero on the negative half of $\mathbb{R}$
+</p>
+
+
+<p>
+this is <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a> by the <a href="20230330151432-stetige_fortsetzung_zweier_abbildungen_von_einer_uberdeckung.html#ID-43361c3e-7e6f-4ffb-a0ec-7988d859da0d">glueing lemma for a locally finite, closed covering</a>
+</p>
+
+<p>
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+f \leq \sum_{n=0}^{\infty} \chi_{[n, n + \frac{1}{2^n}]}
+\end{align*}</div>
+<p>
+where the RHS is <a href="20221014122223-lebesgue_integrierbar.html#ID-256bdd18-94ed-434b-9847-bee1c2965eaf">lebesgue integrable</a>, since
+</p>
+
+<div class="math-block">\begin{align*}
+\int_{\mathbb{R}} \sum_{n=0}^{\infty} \chi_{[n, n + \frac{1}{2^n}]} =&amp; \sum_{n=0}^\infty 2^n \\
+=&amp; 2
+\end{align*}</div>
+
+<p>
+But
+</p>
+
+<div class="math-block">\begin{align*}
+f(n + \frac{1}{2^{n+1}}) = 1
+\end{align*}</div>
+
+<p>
+with
+with
+</p>
+
+<div class="math-block">\begin{align*}
+n + \frac{1}{2^{n+1}} \rightarrow \infty
+\end{align*}</div>
+<p>
+for $n \rightarrow \infty$
+</p>
+
+<p>
+modulo some technical detail
+</p>
+
+
+</div>
+</body>
+</html>

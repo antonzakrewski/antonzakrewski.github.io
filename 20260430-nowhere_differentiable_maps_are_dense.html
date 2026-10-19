@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>nowhere differentiable maps are dense</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-15d0411d-72de-4437-9546-7faf66f0e1a7"></span><h1 class="title">nowhere differentiable maps are dense</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $N \subseteq C([0,1])$ be the <a href="20230211132940-unterraumtopologie.html#ID-e38ab938-b4e6-4094-98a1-4a8dec808b54">subspace</a> of <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a> <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">maps</a>, which are not differentiable at any point.
+Then $N$ is <a href="20221124232157-dichte_menge_topologie.html#ID-921fe319-4945-4303-a9a5-3723804e0737">dense</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $A_n$ be subspace of <a href="20260430-pseudodifferential_maps.html#ID-b46aca44-e223-4c33-9d64-4f1ad49bfca8">pseudo n-lipschitz map</a>.
+We claim that $N \supseteq C([0,1]) \setminus (\bigcup_{n \in \mathbb{N}} A_n)$.
+</p>
+
+<p>
+Let $f \not\in N$, i.e. assume that $f$ is differentiable at a point $x$ with differential $f'(x) &lt; n$ for $n &gt;&gt; 0$.
+Then there exists an $\varepsilon &gt; 0$ such that
+</p>
+
+<div class="math-block">\begin{align*}
+\vert f(x) - f(y) \vert \leq (n+1) \vert x - y \vert
+\end{align*}</div>
+<p>
+for $y \in [0,1] \setminus (x - \varepsilon, x + \varepsilon)$
+as $f$ can be linearly approximated at $x$ with sublinear error term.
+</p>
+
+<p>
+Now consider the continuous map
+</p>
+
+<div class="math-block">\begin{align*}
+g: [0,1] \setminus (x - \varepsilon, x + \varepsilon) \rightarrow&amp; \mathbb{R} \\
+y \mapsto \frac{\vert f(x) - f(y) \vert }{\vert x - y \vert}
+\end{align*}</div>
+<p>
+Which is welldefined since $x \not\in [0,1] \setminus (x - \varepsilon, x + \varepsilon)$.
+Moreover, $[0,1] \setminus (x - \varepsilon, x + \varepsilon)$ is compact, so $g$ attains a maximum $m$.
+</p>
+
+<p>
+In particular,
+</p>
+
+<div class="math-block">\begin{align*}
+\vert f(x) - f(y) \vert \leq l \cdot \vert x - y \vert
+\end{align*}</div>
+<p>
+for $l \in \mathbb{N}$ with $l &gt; \mathrm{max}(m,n+1)$.
+In other words, $f$ lies in $A_l$ and hence $f \not\in C([0,1]) \setminus (\bigcup_{n \in \mathbb{N}} A_n)$.
+</p>
+
+<p>
+Now recall that $A_n$ is nowhere dense (i.e. $C([0,1] \setminus A_n$ is dense, cf. <a href="20260430-nowhere_differentiable_maps_are_dense.html#ID-15d0411d-72de-4437-9546-7faf66f0e1a7">nowhere differentiable maps are dense</a> &amp; <a href="20230313220506-nirgends_dicht_und_uberall_dicht_des_komplements.html#ID-b65902e6-22f7-4a04-885f-f993d1684e85">nirgends dicht und Komplement enthält offene dichte Menge</a>) and that $C([0,1])$ is a complete metric space.
+So baires theorem shows that $C([0,1]) \setminus (\bigcup_{n \in \mathbb{N}} A_n) = \bigcap_{n \in \mathbb{N}} C([0,1]) \setminus A_n$ is dense and hence in particular so is $N$.
+</p>
+
+</div>
+</body>
+</html>

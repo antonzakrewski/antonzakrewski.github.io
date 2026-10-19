@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>system der messbaren Mengen als sigma-Algebra</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-d99d36de-1fdb-4dbe-b87a-4e403c461ff4"></span><h1 class="title">system der messbaren Mengen als sigma-Algebra</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $(X, \mathcal{F})$ ein <a href="20241010-ring_of_sets.html#ID-96a10eeb-f89d-4001-a253-a040a7bbe64a">Mengenring</a>, $\mu: \mathcal{F} \rightarrow [0,\infty]$ ein <a href="inhalt.html#ID-1a69a538-d4c2-4bfd-b723-404df4b12769">inhalt</a> und $\mu^*$ das <a href="20241019-induzierte_außere_maß.html#ID-f8fd5538-1f36-4076-9a5b-3973c863976e">induzierte äußere Maß</a>.
+Dann ist das <a href="20241019-system_der_messbaren_mengen.html#ID-e6e507c3-beb5-48a5-b13e-be4b4743ae28">system der messbaren Mengen</a> eine <a href="20220903142815-sigma_algebra.html#ID-54306c73-fba1-4737-a42e-adc9ce14a354">sigma-algebra</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Sei $Q \subseteq X$ im folgenden beliebig und $A_n,B \in \mathcal{A}^*$.
+</p>
+
+<h3 id="mengenalgebra">mengenalgebra</h3>
+<p>
+Wir zeigen, dass $\mathcal{A}$ eine <a href="20241014-algebra_of_sets.html#ID-22d52b23-bf30-41e9-a8fd-bcf99ce44f24">Mengenalgebra</a> ist
+</p>
+
+<h4 id="x-in-mathcala">$X \in \mathcal{A}^*$</h4>
+<p>
+folgt aus
+</p>
+
+<div class="math-block">\begin{align*}
+\mu(Q) =&amp; \mu(Q) + 0 \\
+=&amp; \mu(Q \cap X) + \mu(\emptyset) \\
+=&amp; \mu(Q \cap X) + \mu(Q \setminus X)
+\end{align*}</div>
+
+<h4 id="komplement">komplement</h4>
+<p>
+folgt aus
+</p>
+
+<div class="math-block">\begin{align*}
+\mu(Q) =&amp; \mu(Q \cap B) + \mu(Q \setminus B) \\
+=&amp; \mu(Q \setminus (X \setminus B)) \mu(Q \cap (X \setminus B))
+\end{align*}</div>
+
+<h4 id="endliche-vereinigung">endliche vereinigung</h4>
+<p>
+Seien $A,B \in \mathcal{A}^*$.
+Dann gilt für eine beliebige Teilmenge von $\mathcal{P}(X)$
+</p>
+
+<div class="math-block">\begin{align*}
+\mu^*(Q) = \mu^*(Q \cap A) + \mu^*(Q \setminus A)
+\end{align*}</div>
+<p>
+und für $Q \cap A$, $q \setminus A$ als Teilmengen auch
+</p>
+
+<div class="math-block">\begin{align*}
+\mu^*(Q \cap A) =&amp; \mu^*(Q \cap A \cap B) + \mu^*((Q \cap A) \setminus B)\\
+=&amp;  \mu^*(Q \cap A \cap B) + \mu^*((Q \cap A) \cap Q \setminus B)\\
+\mu^*(Q \setminus A) =&amp; \mu^*((Q \setminus A) \cap B) + \mu^*((Q \setminus A) \setminus B) \\
+=&amp; \mu^*((Q \setminus A) \cap B) + \mu^*((Q \setminus (A \cup B))
+\end{align*}</div>
+
+<p>
+Setze nun $Q \rightarrow Q \cap (A \cup B)$ bzw. $Q \rightarrow Q \cap B$.
+Dann erhält man wegen
+</p>
+
+<div class="math-block">\begin{align*}
+\mu*(Q \cap B) = \mu^*(Q \cap B \cap A) + \mu^*((Q \cap B) \cap Q \setminus A)
+\end{align*}</div>
+
+
+<div class="math-block">\begin{align*}
+\mu^*((Q \cap (A \cup B)) =&amp; \mu^*(Q \cap (A \cup B) \cap B) + \mu^*(Q \cap (A \cup B) \cap Q \setminus B) \\
+=&amp; \mu*(Q \cap B) + \mu^*(Q \cap A \cap Q \setminus B) \\
+=&amp; \mu^*(Q \cap B \cap A) + \mu^*((Q \cap B) \cap Q \setminus A) + \mu^*(Q \cap A \cap Q \setminus B) 
+\end{align*}</div>
+
+<p>
+indem man oben einsetzt, erhält man die gewünschte
+</p>
+
+<div class="math-block">\begin{align*}
+\mu^*(Q) =&amp; \mu^*(Q \cap A) + \mu^*(Q \setminus A) \\
+=&amp; \mu^*(Q \cap A \cap B) + \mu^*((Q \cap A) \cap Q \setminus B) + \mu^*((Q \setminus A) \cap B) + \mu^*((Q \setminus (A \cup B)) \\
+=&amp; \mu^*(Q \cap (A \cup B))
+\end{align*}</div>
+
+<h3 id="schnittstabiles-idbcb5094a-c8e2-441c-aedf-7532987cbf50dynkin-system">schnittstabiles <a href="20221127174202-dynkin_system.html#ID-bcb5094a-c8e2-441c-aedf-7532987cbf50">Dynkin-System</a></h3>
+<p>
+endliche schnitte und teilmengendifferenz folgt als Mengenalgebra.
+bleibt <a href="20241014-disjunkt_vereinigungsstabiles_mengensystem.html#ID-955c51ac-7f83-4e1b-905a-33c4c0fc94d9">disjunkt vereinigungsstabilität</a> zu zeigen.
+</p>
+
+<p>
+Seien $A_n \in \mathcal{A}^*$ paarweise disjunkt und $A \coloneqq \coprod A_n$.
+Dann gilt da $A_1,A_2$ disjunkt sind.
+</p>
+
+<div class="math-block">\begin{align*}
+\mu^*(Q \cap (A_1 \cup A_2)) =&amp; \mu^*(Q \cap (A_1 \cup A_2) \cap A_1)) + \mu^*(Q \cap (A_1 \cup A_2) \cap Q \setminus A_2) \\
+=&amp; \mu^*(Q \cap A_1) + \mu^*(Q \cap A_2)
+\end{align*}</div>
+
+<p>
+Sei $B_n \coloneqq \coprod A_n$, dann folgt durch Induktion auch
+</p>
+
+<div class="math-block">\begin{align*}
+\mu^*(Q \cap B_n) = \sum_{j=1}^n \mu^*(Q \cap A_j)
+\end{align*}</div>
+<p>
+da $B_{n}, A_{n+1}$ disjunkt sind.
+</p>
+
+<p>
+Dann folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\mu^*(Q) = \mu^*(Q \cap B_n) + \mu^*(Q \setminus B_n)
+\end{align*}</div>
+<p>
+mit $Q \setminus B_n \supseteq Q \setminus A$, d.h. $\mu^*(Q \setminus B_n) \geq \mu^*(Q \setminus A)$
+</p>
+
+
+<p>
+Damit lässt sich aufgrund der Monotonie Abschätzen
+</p>
+
+<div class="math-block">\begin{align*}
+\mu^*(Q) \geq \sum_{j=1}^n \mu^*(Q \cap A_j) + \mu^*(Q \setminus A)
+\end{align*}</div>
+<p>
+für alle $n \in \mathbb{N}$ und $Q \in \mathcal{P}(X)$.
+</p>
+
+<p>
+Damit folgt auch durch Limesbildung
+</p>
+
+<div class="math-block">\begin{align*}
+\mu^*(Q) \geq \sum_{n \in \mathbb{N}} \mu^*(Q \cap A_n) + \mu^*(Q \setminus A) \\
+
+\end{align*}</div>
+<p>
+Ferner folgt aus der <a href="20241019-sub_sigma_additive_map.html#ID-ec1453e4-0015-4359-9a78-97e13889f328">sub sigma-additivität</a> (cf. <a href="20241019-induzierte_außere_maß.html#ID-f8fd5538-1f36-4076-9a5b-3973c863976e">induzierte äußere Maß</a>)
+</p>
+
+<div class="math-block">\begin{align*}
+\mu^*(Q) \leq \sum_{n \in \mathbb{N}} \mu^*(Q \cap A_n) + \mu^*(Q \setminus A)
+\end{align*}</div>
+
+
+<p>
+bzw. damit Gleichheit
+</p>
+
+<p>
+Somit gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\mu^*(Q) = \mu^*(Q \setminus \coprod A_n) + \mu^*(Q \cap (\coprod A_n))
+\end{align*}</div>
+<p>
+bzw. $\coprod A_n \in \mathcal{A}^*$
+</p>
+
+
+<h3 id="sigma-algebra">sigma algebra</h3>
+<p>
+folgt aus
+<a href="20241014-sigma_algebra_als_schnittstabiles_dynkin_system.html#ID-1db0d9a2-1077-4a91-a34f-2e6433d0b788">sigma algebra als schnittstabiles dynkin System</a>
+</p>
+
+
+
+
+
+
+</div>
+</body>
+</html>

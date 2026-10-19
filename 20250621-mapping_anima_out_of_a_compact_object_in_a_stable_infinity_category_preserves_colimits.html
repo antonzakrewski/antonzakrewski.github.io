@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>mapping spectrum out of a compact object in a stable infinity category preserves colimits</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-b91f8b78-dd60-4ddf-bc80-5684fec63717"></span><h1 class="title">mapping spectrum out of a compact object in a stable infinity category preserves colimits</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathcal{C}$ be a <a href="20230923-cocomplete_category.html#ID-89cedbd1-199b-47a8-bc3f-574dd3accda9">cocomplete</a> <a href="20241017-stable_infinity_category.html#ID-baac6abf-7cfd-4eb9-9764-dfc1933edba4">stable infinity category</a> and $x \in \mathcal{C}$ an <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">object</a>
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol>
+<li>$x$ is a <a href="20241016-kappa_compact_object.html#ID-4a8967b2-7c84-4c8b-b590-aadea095f9fd">compact object</a></li>
+
+<li>$\mathrm{map}_{\mathcal{C}}(x,-)$ <a href="20241017-infinity_functor_preserving_colimits_of_a_shape.html#ID-896858bc-5a83-4c8f-94bf-8c2250524596">preserves</a> <a href="20241016-colimit_in_an_infinity_category.html#ID-de45d65c-0326-401d-93b3-f10a929be459">colimits</a></li>
+</ol>
+<h2 id="proof">Proof</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+<p>
+Let $x$ be compact.
+</p>
+
+<p>
+we need to show that $\mathrm{map}_{\mathcal{C}}(x,-): \mathcal{C} \rightarrow \mathrm{Sp}$ preserves filtered and finite colimits.
+It preserves finite colimits since $\mathrm{map}_{\mathcal{C}}(x,-)$ is an <a href="20230726-exact_functor.html#ID-9541d8fb-ddba-43d6-941a-32b3b3bd7086">exact functor</a>  (cf. <a href="20250329-left_right_and_exact_functor_between_stable_infinity_categories.html#ID-fbf1046a-b5da-41ec-8c9d-c6c76c643521">left / right and exact functor between stable infinity categories</a>, <a href="20250824-mapping_spectrum_functor_is_exact.html#ID-1f08d219-e7e7-4afb-a10d-36603fc2af36">mapping spectrum functor is exact in both variables</a>).
+</p>
+
+<p>
+So we need to show that it preserves filtered colimits, i.e., for any filtered diagram $I \rightarrow \mathcal{C}$, the canonical map $\mathrm{colim} \mathrm{map}_{\mathcal{C}}(x,c_i) \rightarrow \mathrm{map}_{\mathcal{C}}(x,\mathrm{colim} c_i)$ is an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a>.
+Using <a href="20250418-whitehead_theroem_for_stable_infinity_categories.html#ID-d82a08ed-ecad-4d2b-a3e8-ff39d862c571">whitehead</a> it suffices to show that $\pi_n(\mathrm{colim} \mathrm{map}_{\mathcal{C}}(x,c_i)) \rightarrow \pi_n(\mathrm{map}_{\mathcal{C}}(x,\mathrm{colim} c_i))$ is an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a> for $n \in \mathbb{Z}$.
+we know that we can detect the connective part on the underlying anima, so this map is in particular an equivalence for $n \in \mathbb{N}_0$.
+Furthermore, we can identify
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/8a8be421a15459356795.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+where the bottom dashed morphism is also an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a> as $x[-n]$ is compact, since $(-)[n]: \mathcal{C} \rightarrow \mathcal{C}$ is an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a> of <a href="20240404-simplicial_set_as_infinity_category.html#ID-4635a6ee-1ad5-44cb-8e36-4a934f5ae4bf">categories</a> and hence preserevs compact objects.
+</p>
+
+
+
+
+<h3 id="2-implies-1">2) $\implies$ 1)</h3>
+<p>
+follows as $\Omega^{\infty}: \mathrm{Sp} \rightarrow \mathrm{An}$ <a href="20241017-infinity_functor_preserving_colimits_of_a_shape.html#ID-896858bc-5a83-4c8f-94bf-8c2250524596">preserves</a> <a href="20241016-colimit_in_an_infinity_category.html#ID-de45d65c-0326-401d-93b3-f10a929be459">colimits</a> hence $\mathrm{Hom}_{\mathcal{C}}(x,-)$ is the composition of filtered colimit preserving functors.
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/97819fa13304eb08f6e9.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+
+</div>
+</body>
+</html>

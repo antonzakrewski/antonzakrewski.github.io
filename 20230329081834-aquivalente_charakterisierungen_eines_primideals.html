@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 22:17 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>prime ideal and quotient ring as integral domain</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,70 +52,54 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">prime ideal and quotient ring as integral domain</h1>
-<div id="outline-container-orgd0b9a30" class="outline-2">
-<h2 id="orgd0b9a30"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-Sei \(R\) ein <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">kommutativer</a> <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">Ring</a> und \(I\) ein <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">Ideal</a>.
-</p>
+<span id="ID-e4e6f25e-6d27-4bc1-8dd8-4de9325fd407"></span><h1 class="title">prime ideal and quotient ring as integral domain</h1>
 
+<h2 id="satz">Satz</h2>
 <p>
+Sei $R$ ein <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">kommutativer</a> <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">Ring</a> und $I$ ein <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">Ideal</a>.
 <a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
 </p>
-<ol class="org-ol">
-<li>\(I\) ist ein <a href="20230329081717-primideal.html#ID-a8ae10f5-3b84-4fab-9e76-b006780ccc7f">Primideal</a></li>
-<li>\(R/I\) ist ein <a href="20221226125648-integritatsbereich.html#ID-d39ae041-9db9-423e-8655-20e929ceaf48">Integritätsbereich</a> (damit auch ungleich vom <a href="20230112165803-nullring.html#ID-638f0759-37dc-472c-bb27-7cfccbd3c550">Nullring</a>)</li>
+<ol>
+<li>$I$ ist ein <a href="20230329081717-primideal.html#ID-a8ae10f5-3b84-4fab-9e76-b006780ccc7f">Primideal</a></li>
+
+<li>$R/I$ ist ein <a href="20221226125648-integritatsbereich.html#ID-d39ae041-9db9-423e-8655-20e929ceaf48">Integritätsbereich</a> (damit auch ungleich vom <a href="20230112165803-nullring.html#ID-638f0759-37dc-472c-bb27-7cfccbd3c550">Nullring</a>)</li>
 </ol>
-</div>
-</div>
-<div id="outline-container-org0e8398e" class="outline-2">
-<h2 id="org0e8398e"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orga8763cc" class="outline-3">
-<h3 id="orga8763cc"><span class="section-number-3">2.1.</span> a)</h3>
-<div class="outline-text-3" id="text-2-1">
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="a">a)</h3>
 <p>
-Sei \(I\) ein <a href="20230329081717-primideal.html#ID-a8ae10f5-3b84-4fab-9e76-b006780ccc7f">Primideal</a> und \(x,y \in R\) mit
+Sei $I$ ein <a href="20230329081717-primideal.html#ID-a8ae10f5-3b84-4fab-9e76-b006780ccc7f">Primideal</a> und $x,y \in R$ mit
 </p>
-\begin{align*}
-(x + I) \cdot (y + I) =& x y + I \\
-=& 0 + I
-\end{align*}
+
+<div class="math-block">\begin{align*}
+(x + I) \cdot (y + I) =&amp; x y + I \\
+=&amp; 0 + I
+\end{align*}</div>
 <p>
-Dies ist der Fall <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">g.d.w.</a> \(x \cdot y \in I\) gilt und damit folgt nach Annahme \(x \in I\) oder \(y \in I\).
-Sei <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> \(x \in I\), so folgt aber auch
+Dies ist der Fall <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">g.d.w.</a> $x \cdot y \in I$ gilt und damit folgt nach Annahme $x \in I$ oder $y \in I$.
+Sei <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> $x \in I$, so folgt aber auch
 </p>
-\begin{align*}
-(x + I) =& I \\
-=& 0 + I
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org289f88f" class="outline-3">
-<h3 id="org289f88f"><span class="section-number-3">2.2.</span> b)</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<div class="math-block">\begin{align*}
+(x + I) =&amp; I \\
+=&amp; 0 + I
+\end{align*}</div>
+
+<h3 id="b">b)</h3>
 <p>
-Sei \(R/I\) ein <a href="20221226125648-integritatsbereich.html#ID-d39ae041-9db9-423e-8655-20e929ceaf48">Integritätsbereich</a> und \(x,y \in R\) mit \(x \cdot y \in I\)
+Sei $R/I$ ein <a href="20221226125648-integritatsbereich.html#ID-d39ae041-9db9-423e-8655-20e929ceaf48">Integritätsbereich</a> und $x,y \in R$ mit $x \cdot y \in I$
 Dann folgt
 </p>
-\begin{align*}
-0 + I =& x \cdot y + I \\
-=& (x + I) \cdot (y + I)
-\end{align*}
+
+<div class="math-block">\begin{align*}
+0 + I =&amp; x \cdot y + I \\
+=&amp; (x + I) \cdot (y + I)
+\end{align*}</div>
 <p>
-und da \(R/I\) ein <a href="20221226125648-integritatsbereich.html#ID-d39ae041-9db9-423e-8655-20e929ceaf48">Integritätsbereich</a> ist, folgt <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> \(x + I = 0 + I\) und damit \(x \in I\)
-Damit ist \(I\) nach Definition ein <a href="20230329081717-primideal.html#ID-a8ae10f5-3b84-4fab-9e76-b006780ccc7f">Primideal</a>, da zudem auch ein \(r \in R\) existiert mit \(r + I \neq 0 + I\) bzw. \(r \not\in I\), i.e. \(I\) ist ein echtes ideal
+und da $R/I$ ein <a href="20221226125648-integritatsbereich.html#ID-d39ae041-9db9-423e-8655-20e929ceaf48">Integritätsbereich</a> ist, folgt <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> $x + I = 0 + I$ und damit $x \in I$
+Damit ist $I$ nach Definition ein <a href="20230329081717-primideal.html#ID-a8ae10f5-3b84-4fab-9e76-b006780ccc7f">Primideal</a>, da zudem auch ein $r \in R$ existiert mit $r + I \neq 0 + I$ bzw. $r \not\in I$, i.e. $I$ ist ein echtes ideal
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 22:17</p>
+
 </div>
 </body>
 </html>

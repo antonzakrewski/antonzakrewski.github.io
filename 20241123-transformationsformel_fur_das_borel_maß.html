@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>transformationsformel für das lebesgue maß</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-f1c975d1-8c1f-4a10-b4bc-d13c871fc63d"></span><h1 class="title">transformationsformel für das lebesgue maß</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Seien $U,V \subseteq \mathbb{R}^d$ <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a> und sei $\varphi: U \rightarrow V$ ein $C^1$ <a href="20230301205440-diffeomorphismus.html#ID-573a56f9-0240-4c4a-a241-ee598afdd9f5">Diffeomorphismus</a>.
+Dann gilt für $A \subseteq U$ und $A \in \mathcal{B}^d$ auch
+</p>
+
+<div class="math-block">\begin{align*}
+\lambda^d(\varphi(A)) = \int_{A} \vert \mathrm{det}(D_{\varphi})(x) \vert \mathrm{d} \lambda^d(x)
+\end{align*}</div>
+
+<p>
+wobei $D_{\varphi}$ die <a href="20230606-jacobi_matrix.html#ID-be661208-14c1-4aaa-a9b0-e96751d62adf">Jacobi Matrix</a> ist.
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Ein Drama in 6 Akten
+</p>
+
+<h3 id="akt-1-reduktion-auf-lokale">Akt 1 - Reduktion auf Lokale</h3>
+
+<h4 id="aussage">Aussage</h4>
+<p>
+Es gilt, dass
+</p>
+
+<div class="math-block">\begin{align*}
+\lambda^d(\varphi(A)) = \int_{A} \vert \mathrm{det}(D_{\varphi})(x) \vert \mathrm{d} \lambda^d(x)
+\end{align*}</div>
+<p>
+äquivalent ist zu: für alle $y \in U$ existiert eine <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offene</a> <a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">Umgebung</a> $U_y \subseteq U$ und
+</p>
+
+<div class="math-block">\begin{align*}
+\lambda^d(\varphi_{\vert U_y}(A')) = \int_{A'} \vert \mathrm{det}(D_{\varphi_{\vert U_y}})(x) \vert \mathrm{d} \lambda^d(x)
+\end{align*}</div>
+<p>
+für $A' \subseteq U_y, A' \in \mathcal{B}^d$
+</p>
+
+<h4 id="beweis">Beweis</h4>
+
+<h5 id="1-rightarrow-2">1) $\Rightarrow$ 2)</h5>
+<p>
+gilt, da von einer globalen Aussage auf eine lokale spezifiziert wird (= Spezialfall)
+</p>
+
+<h5 id="2-rightarrow-1">2) $\Rightarrow$ 1)</h5>
+
+
+<p>
+Über <a href="20231110-lands_self_indexing_trick.html#ID-5ea87d82-3211-46ad-8c58-8104bf45e830">Lands self indexing trick</a> wähle man eine offene <a href="20230227163531-uberdeckung.html#ID-804615a8-2307-4f8e-8f51-f4be70e817b3">Überdeckung</a>.
+Nach <a href="20241123-open_euclidean_set_covered_by_a_countable_subcover.html#ID-5d724d3c-c5a7-4998-8c06-850e46f4ebc1">open euclidean set covered by a countable subcover</a> erhält man $U_{y_i}$
+</p>
+
+<p>
+nach <a href="20241015-disjointification_of_countably_many_subsets.html#ID-1b9448af-456e-48ef-81a1-5ee658bfe666">disjointification of countably many subsets</a> erhält man abzählbar viele, <a href="20211226220255-disjunkte_mengen.html#ID-2000e1f4-7e9e-45f9-91ed-16ded8a15190">disjunkte</a> <a href="20220904000156-messbare_teilmenge.html#ID-3c8333c0-2cec-4457-b3c0-cb5b1ac00fae">messbare Teilmengen</a>
+</p>
+
+<div class="math-block">\begin{align*}
+U = \coprod_{j \in \mathbb{N}} B_j
+\end{align*}</div>
+
+<p>
+Sei $A \in \mathcal{B}^d$ mit $A \subseteq U$.
+Dann sind $\varphi(A \cap B_j)_{j \in \mathbb{N}}$ paarweise disjunkt, da $B_j$ paarweise disjunkt sind und $\varphi$ <a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injektiv</a> ist. (cf. <a href="20230708-bild_einer_injektion_und_disjunkte_vereinigung.html#ID-e59cde1f-0697-4acb-9bcf-27cf13521eb3">Bild einer Injektion und disjunkte Vereinigung</a>)
+</p>
+
+<p>
+Damit folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\lambda^d(\varphi(A)) =&amp; \lambda^d(\coprod_{j \in \mathbb{N}} \varphi(A \cap B_j)) \\
+=&amp; \sum_{j=1}^{\infty} \lambda^d(\varphi(A \cap B_j) \\
+\end{align*}</div>
+<p>
+wobei hier die <a href="20220903163940-sigma_additivitat.html#ID-74369b78-426b-4272-95f6-66d2fdf933b4">sigma-Additivität</a> einfließt
+</p>
+
+<p>
+Nach Annahme gilt $\lambda^d( \varphi(A \cap B_j)) = \int_{\mathbb{R}^d} \vert \mathrm{det}(D(\varphi)(x)) \vert \chi_{A \cap B_j}(x) \mathrm{d} x$ bzw.
+</p>
+
+<div class="math-block">\begin{align*}
+\sum_{j=1}^{\infty} \lambda^d(\varphi(A \cap B_j) =&amp; \sum_{j=1}^\infty  \int_{\mathbb{R}^d} \vert \mathrm{det}(D(\varphi)(x)) \vert \chi_{A \cap B_j}(x) \mathrm{d} x
+\end{align*}</div>
+
+<p>
+Nach <a href="20241102-monotone_konvergenz_nach_beppo_levi.html#ID-1e30c517-bdfc-4450-b455-3171447d4a55">Monotone Konvergenz nach Beppo Levi</a> folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\sum_{j=1}^\infty  \int_{\mathbb{R}^d} \vert \mathrm{det}(D(\varphi)(x)) \vert \chi_{A \cap B_j}(x) \mathrm{d} x =&amp; \int_{\mathbb{R}^d} \vert \mathrm{det}(D_{\varphi}(x) \vert \sum_{j=1}^\infty \chi_{A \cap B_j} (x) \mathrm{d} x
+\end{align*}</div>
+<p>
+und wegen $\sum_{j=1}^\infty \chi_{A \cap B_j}(x) \mathrm{d} = \chi_{\coprod (A \cap B_j)}}(x)$ folgt auch
+</p>
+
+<div class="math-block">\begin{align*}
+ \int_{\mathbb{R}^d} \vert \mathrm{det}(D_{\varphi}(x) \vert \sum_{j=1}^\infty \chi_{A \cap B_j} (x) \mathrm{d} x
+=&amp; 
+\int_{A} \vert \mathrm{det}(D_{\varphi}(x) \vert d x
+\end{align*}</div>
+
+<h3 id="akt-2-komposition-von-diffeos">Akt 2 - Komposition von Diffeos</h3>
+
+<h4 id="aussage">Aussage</h4>
+<p>
+Seien
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/eaa607aee16bf6e21505.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+$C^1$ diffeos, so dass die Transformationsformel für beide gelte.
+</p>
+
+<p>
+Dann gilt die Transformationsformel auch für die komposition $\Psi \circ \varphi$
+</p>
+
+<h4 id="beweise">Beweise</h4>
+<p>
+Nach der <a href="20241123-transformationsformel_fur_das_integral.html#ID-bcb792cc-586e-4fea-b1cb-9921b71ac8c7">Transformationsformel für das Lebesgue Integral</a> dürfen wir annehmen
+</p>
+
+<div class="math-block">\begin{align*}
+\lambda^d( (\Psi \circ \varphi)(A)) =&amp; \int_{\varphi(A)} \vert \mathrm{det}(D_{\Psi}(x) \vert \mathrm{d} x \\
+=&amp; \int_A \vert \mathrm{det}(D_{\Psi})(\varphi(x)) \vert \cdot \vert \mathrm{det}(D_{\varphi}(x) \vert \mathrm{d} x \\
+\end{align*}</div>
+
+<p>
+Nach der <a href="20221224180209-multiplikativitat_der_determinante.html#ID-3755c9f1-a210-4ed2-981d-efabc6596635">Multiplikativität der Determinante</a> / <a href="20230606-kettenregel_fur_das_totale_differential.html#ID-8b45d9e9-87fb-42ce-a53c-b1aca5fac3e5">Kettenregel für das totale Differential</a> gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\int_A \vert \mathrm{det}(D_{\Psi})(\varphi(x)) \vert \cdot \vert \mathrm{det}(D_{\varphi}(x) \vert \mathrm{d} x  =&amp; \int_A \vert \vert \mathrm{det}( D_{\Psi \circ \varphi}(x) \vert \mathrm{d} x
+\end{align*}</div>
+
+<h3 id="akt-3-permutations">Akt 3 - Permutations</h3>
+<p>
+Sei
+</p>
+
+<div class="math-block">\begin{align*}
+\sigma_{j,k}: \mathbb{R}^n \rightarrow \mathbb{R}^n
+e_i \mapsto 
+    \begin{cases}
+    e_j  &amp; \mbox{if } i = k  \\  
+e_k  &amp; \mbox{if } i = j \\ 
+    e_i  &amp; \mbox{else } \\ 
+    \end{cases}
+\end{align*}</div>
+<p>
+Dann gilt aufgrund der &lt;&gt;
+und
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{det}(\sigma_{j,k})(x) = -1 
+\end{align*}</div>
+<p>
+bzw.
+</p>
+
+<div class="math-block">\begin{align*}
+\vert \mathrm{det}(\sigma_{j,k})(x) \vert = 1 
+\end{align*}</div>
+
+<h3 id="akt-4-">Akt 4 -</h3>
+
+<h3 id="akt-5-induktionsanfang">Akt 5 - Induktionsanfang</h3>
+<p>
+Sei $[a,b[ \subseteq U$ ein Intervall für $a \leq b$.
+Dann gilt die Transformationsformel wegen  <a href="20221014124244-erster_teil_hauptsatz_der_differential_und_integralrechnung.html#ID-e0e0cb56-fe62-41ce-b1fa-b53d5765d542">Erster Hauptsatz der Differential- und Integralrechnung</a> / <a href="20221014124312-zweiter_hauptsatz_der_differential_und_integralrechnung.html#ID-2738cccc-2b00-4aa9-b6bd-ca0b0a59f749">Zweiter Hauptsatz der Differential- und Integralrechnung</a>
+Denn
+</p>
+
+<div class="math-block">\begin{align*}
+\lambda(\varphi[a,b)) =&amp; \vert \varphi(b) - \varphi(a) \vert \\
+=&amp; \vert \int_{a}^b \varphi'(x) \mathrm{d} x \vert \\
+=&amp; \int_{a}^b \vert \varphi'(x) \vert \mathrm{d} x \\
+=&amp; \int_{[a,b)} \vert \mathrm{det}(D_{\varphi}(x) \vert d \lambda'(x) 
+\end{align*}</div>
+
+<p>
+wobei $\varphi$ nicht das vorzeichen wechselt, da $\varphi'$ stetig und ungleich $0$ ist.
+</p>
+
+<p>
+Damit gilt die Transformationsformationsformel auf $I \cap U$, bzw. einem <a href="20220903220209-durchschnittsstabiles_mengensystem.html#ID-a906d84c-c195-4e55-be6d-90250dd84272">schnittstabilen</a> Erzeuger von $\mathcal{B} \cap U$.
+</p>
+
+
+<h3 id="akt-6-induktionsschritt">Akt 6 - Induktionsschritt</h3>
+
+<h4 id="aussage">Aussage</h4>
+<p>
+sei $d \in \mathbb{N} \setminus \{1\}$
+Angenommen die &lt;&gt; gilt für $d - 1$, so ist zu zeigen, dass die Aussage auch für $d$ gilt
+</p>
+
+<h4 id="beweis">Beweis</h4>
+
+</div>
+</body>
+</html>

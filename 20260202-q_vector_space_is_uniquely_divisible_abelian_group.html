@@ -1,277 +1,140 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2026-02-02 Mo 17:15 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Q-Vector space is uniquely divisible abelian group</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Q-Vector space is uniquely divisible abelian group</h1>
-<div id="outline-container-orgc5db4be" class="outline-2">
-<h2 id="orgc5db4be">Proposition</h2>
-<div class="outline-text-2" id="text-orgc5db4be">
+<span id="ID-e84a1f74-04c8-4153-993e-7bc8c1d73026"></span><h1 class="title">Q-Vector space is uniquely divisible abelian group</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let <img src="ltximg/20260202-q_vector_space_is_uniquely_divisible_abelian_group_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" alt="20260202-q_vector_space_is_uniquely_divisible_abelian_group_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" class="org-svg" /> be a <a href="20260202-uniquely_divisible_group.html#ID-28895c55-7639-4ad3-877d-1d8965891fed">uniquely divisible</a> <a href="20211008174655-abelsche_gruppe.html#ID-7281c9cf-564f-4c4c-8c3f-fc1424ac85f8">abelian</a> <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a>.<br />
+Let $G$ be a <a href="20260202-uniquely_divisible_group.html#ID-28895c55-7639-4ad3-877d-1d8965891fed">uniquely divisible</a> <a href="20211008174655-abelsche_gruppe.html#ID-7281c9cf-564f-4c4c-8c3f-fc1424ac85f8">abelian</a> <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a>.
 </p>
 
 <p>
-Then <img src="ltximg/20260202-q_vector_space_is_uniquely_divisible_abelian_group_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" alt="20260202-q_vector_space_is_uniquely_divisible_abelian_group_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" class="org-svg" /> admits a unique <img src="ltximg/20260202-q_vector_space_is_uniquely_divisible_abelian_group_18278694fe7f6074e0af9a085482864d1d5964cc.svg" alt="20260202-q_vector_space_is_uniquely_divisible_abelian_group_18278694fe7f6074e0af9a085482864d1d5964cc.svg" class="org-svg" />-vectorspace structure.<br />
-</p>
-</div>
-</div>
-<div id="outline-container-orgbdb2702" class="outline-2">
-<h2 id="orgbdb2702">Proof</h2>
-<div class="outline-text-2" id="text-orgbdb2702">
-<p>
-Let <img src="ltximg/20260202-q_vector_space_is_uniquely_divisible_abelian_group_aa0210698c870c42c0806f295528916f1e1d5d65.svg" alt="20260202-q_vector_space_is_uniquely_divisible_abelian_group_aa0210698c870c42c0806f295528916f1e1d5d65.svg" class="org-svg" /> and <img src="ltximg/20260202-q_vector_space_is_uniquely_divisible_abelian_group_4234e1326038d734e28cb30344b25e1242505be4.svg" alt="20260202-q_vector_space_is_uniquely_divisible_abelian_group_4234e1326038d734e28cb30344b25e1242505be4.svg" class="org-svg" />.<br />
-Then there exists an <img src="ltximg/20260202-q_vector_space_is_uniquely_divisible_abelian_group_c6162a87a3c343c371111025c1853c781db35576.svg" alt="20260202-q_vector_space_is_uniquely_divisible_abelian_group_c6162a87a3c343c371111025c1853c781db35576.svg" class="org-svg" /> such that <img src="ltximg/20260202-q_vector_space_is_uniquely_divisible_abelian_group_84906516684ff80a01097208e9792f5c56b9f508.svg" alt="20260202-q_vector_space_is_uniquely_divisible_abelian_group_84906516684ff80a01097208e9792f5c56b9f508.svg" class="org-svg" />.<br />
-Then define<br />
+Then $G$ admits a unique \(\mathbb{Q}\)-vectorspace structure.
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20260202-q_vector_space_is_uniquely_divisible_abelian_group_d1bb0a3933008ed3732af5837ddaac3432b558e4.svg" alt="20260202-q_vector_space_is_uniquely_divisible_abelian_group_d1bb0a3933008ed3732af5837ddaac3432b558e4.svg" class="org-svg" />
-</span>
-</div>
+<h2 id="proof">Proof</h2>
+<p>
+Let $g \in G$ and $\frac{a}{b} \in \mathbb{Q}$.
+Then there exists an $g_b \in G$ such that $\sum_{i=1}^b g_b = g$.
+Then define
+</p>
+
+<div class="math-block">\begin{align*}
+\frac{a}{b} \cdot g \coloneqq \sum_{i=1}^a g_b
+\end{align*}</div>
 
 <p>
-One can then show that this then is a welldefined <img src="ltximg/20260202-q_vector_space_is_uniquely_divisible_abelian_group_18278694fe7f6074e0af9a085482864d1d5964cc.svg" alt="20260202-q_vector_space_is_uniquely_divisible_abelian_group_18278694fe7f6074e0af9a085482864d1d5964cc.svg" class="org-svg" />-vector space.<br />
+One can then show that this then is a welldefined \(\mathbb{Q}\)-vector space.
 </p>
 
 <p>
-Here one would use the uniqueness to show (pseudo-)associativity, distributivity etc.<br />
+Here one would use the uniqueness to show (pseudo-)associativity, distributivity etc.
 </p>
-</div>
-<div id="outline-container-orgfb94a9f" class="outline-3">
-<h3 id="orgfb94a9f">Remark</h3>
-<div class="outline-text-3" id="text-orgfb94a9f">
+
+<h3 id="remark">Remark</h3>
 <p>
-this is a proof using methods from commutative algebra:<br />
+this is a proof using methods from commutative algebra:
 </p>
 
 <p>
-Let <img src="ltximg/20260202-q_vector_space_is_uniquely_divisible_abelian_group_fceaf1888cb184a11f8f0a24003ac2da3d6a9639.svg" alt="20260202-q_vector_space_is_uniquely_divisible_abelian_group_fceaf1888cb184a11f8f0a24003ac2da3d6a9639.svg" class="org-svg" /> be an abelian group, <img src="ltximg/20260202-q_vector_space_is_uniquely_divisible_abelian_group_4778c5cfed404145fdf2f67ff7ad1a9e566f1105.svg" alt="20260202-q_vector_space_is_uniquely_divisible_abelian_group_4778c5cfed404145fdf2f67ff7ad1a9e566f1105.svg" class="org-svg" /> the ring consisting of group-isomorphism (under pointwise addition and composition).<br />
+Let $M$ be an abelian group, $\mathrm{End}_{\mathrm{Ab}}(M)$ the ring consisting of group-isomorphism (under pointwise addition and composition).
 </p>
 
 <p>
-Then a <img src="ltximg/20260202-q_vector_space_is_uniquely_divisible_abelian_group_b38a59450bab55982b006cf9aa75bfd47f38ce85.svg" alt="20260202-q_vector_space_is_uniquely_divisible_abelian_group_b38a59450bab55982b006cf9aa75bfd47f38ce85.svg" class="org-svg" /> vector space structure is precisely a ring homomorphism <img src="ltximg/20260202-q_vector_space_is_uniquely_divisible_abelian_group_73fb662db8d52262da1bdc5ef3e02f268d439882.svg" alt="20260202-q_vector_space_is_uniquely_divisible_abelian_group_73fb662db8d52262da1bdc5ef3e02f268d439882.svg" class="org-svg" />.<br />
-If <img src="ltximg/20260202-q_vector_space_is_uniquely_divisible_abelian_group_fceaf1888cb184a11f8f0a24003ac2da3d6a9639.svg" alt="20260202-q_vector_space_is_uniquely_divisible_abelian_group_fceaf1888cb184a11f8f0a24003ac2da3d6a9639.svg" class="org-svg" /> is uniquely divisible, then the map<br />
+Then a $K$ vector space structure is precisely a ring homomorphism $K \rightarrow \mathrm{End}_{\mathrm{Ab}}(M)$.
+If $M$ is uniquely divisible, then the map
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20260202-q_vector_space_is_uniquely_divisible_abelian_group_35189f75a15d3548d323e8e635aa2106ed7d952c.svg" alt="20260202-q_vector_space_is_uniquely_divisible_abelian_group_35189f75a15d3548d323e8e635aa2106ed7d952c.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+n \cdot : M \rightarrow&amp; M \\
+x \mapsto&amp; n \cdot x \\
+\end{align*}</div>
 <p>
-is an isomorphism, so in particular lives in the unit <img src="ltximg/20260202-q_vector_space_is_uniquely_divisible_abelian_group_abe540dd72b73a9101f55153ef20380c3962d314.svg" alt="20260202-q_vector_space_is_uniquely_divisible_abelian_group_abe540dd72b73a9101f55153ef20380c3962d314.svg" class="org-svg" />.<br />
-So by the universal property of <img src="ltximg/20260202-q_vector_space_is_uniquely_divisible_abelian_group_5a60bb58cf55ac8461fbc2130a4e1a3b2913b8ec.svg" alt="20260202-q_vector_space_is_uniquely_divisible_abelian_group_5a60bb58cf55ac8461fbc2130a4e1a3b2913b8ec.svg" class="org-svg" /> there exists an extension<br />
+is an isomorphism, so in particular lives in the unit $\mathrm{End}_{\mathrm{Ab}}(M)^{\times}$.
+So by the universal property of $\mathbb{Z} \rightarrow \mathbb{Q}$ there exists an extension
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20260202-q_vector_space_is_uniquely_divisible_abelian_group_2ff0564b0f76177ade52ab1138a4cb8c9afd69eb.svg" alt="20260202-q_vector_space_is_uniquely_divisible_abelian_group_2ff0564b0f76177ade52ab1138a4cb8c9afd69eb.svg" class="org-svg" />
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2026-02-02 Mo 17:15</p>
+<div class="equation-container"><span class="equation"><img src="ltximg/b98eaa1f2b66f3975622.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+<h3 id="remark-2">Remark 2</h3>
+<p>
+An even better proof:
+Recall that $\mathbb{Q}$ is the localization of $\mathbb{Z}$ along all primes $p$ and the localization is the filtered/sequential colimit
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{Z} \xrightarrow{\cdot p_1}  \xrightarrow{ \cdot p_1 \cdot p_2} \xrightarrow{\cdot p_1 \cdot p_2 \cdot p_3} ...
+\end{align*}</div>
+<p>
+(cf. <a href="20240422-localization_of_a_module_as_filtered_colimit_of_free_modules.html#ID-05991ffb-b14a-4af3-b9f9-2330e049eac6">localization of a module as filtered colimit of modules</a>).
+</p>
+
+<p>
+Now $G \otimes_{\mathbb{Z}} \mathbb{Q}$ lives in $\mathrm{Mod}_{\mathbb{Q}}$ and it suffices to show that $G \otimes_{\mathbb{Z}} \mathbb{Q} \simeq G$.
+But $G \otimes_{\mathbb{Z}} -$ <a href="20241017-infinity_functor_preserving_colimits_of_a_shape.html#ID-896858bc-5a83-4c8f-94bf-8c2250524596">preserves</a> <a href="20241016-colimit_in_an_infinity_category.html#ID-de45d65c-0326-401d-93b3-f10a929be459">colimits</a> and is <a href="20250616-additive_infinity_functor.html#ID-c4d788ac-1077-4e55-8b41-3691c39f38bb">additive</a>, hence $G \otimes_{\mathbb{Z}} \mathbb{Q}$ is <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphic</a> to the colimit of
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/0aaa2a5fcf9924d9e4c2.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Here the vertical morphisms are <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphisms</a> by assumption (unique divisibility of $G$) and hence the colimit of this diagram is <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphic</a> to $G$ (cf.
+</p>
+
+<ul>
+<li></li>
+</ul>
 </div>
 </body>
 </html>

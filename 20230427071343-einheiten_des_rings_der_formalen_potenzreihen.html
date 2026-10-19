@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 22:27 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>unit in the ring of formal power series</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,52 +52,37 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">unit in the ring of formal power series</h1>
-<div id="outline-container-org4305f44" class="outline-2">
-<h2 id="org4305f44"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-cbfa24e6-7e6b-4dea-8542-30d435eb8965"></span><h1 class="title">unit in the ring of formal power series</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(R\) ein <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">Ring</a> und \(R^{\mathbb{N}}\) der <a href="20230427070950-ring_der_formalen_potenzreihen.html#ID-8c920542-3559-472f-8af9-c0d8690cf10a">Ring der formalen Potenzreihen</a>, dann ist die <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> <a href="20221226125808-einheit_ring.html#ID-a3b1e1af-c3e3-433c-a4dd-2ee2c6e1d69a">Einheiten</a>
+Sei $R$ ein <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">Ring</a> und $R^{\mathbb{N}}$ der <a href="20230427070950-ring_der_formalen_potenzreihen.html#ID-8c920542-3559-472f-8af9-c0d8690cf10a">Ring der formalen Potenzreihen</a>, dann ist die <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> <a href="20221226125808-einheit_ring.html#ID-a3b1e1af-c3e3-433c-a4dd-2ee2c6e1d69a">Einheiten</a>
 </p>
 
-\begin{align*}
+<div class="math-block">\begin{align*}
 (R^{\mathbb{N}})^{\times} = \{(a_0,...) \vert a_0 \in R^{\times}\}
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org7f6d187" class="outline-2">
-<h2 id="org7f6d187"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orgb54c94e" class="outline-3">
-<h3 id="orgb54c94e"><span class="section-number-3">2.1.</span> alle Einheiten enthalten</h3>
-<div class="outline-text-3" id="text-2-1">
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="alle-einheiten-enthalten">alle Einheiten enthalten</h3>
 <p>
-Sei \(a_0 \not\in R^{\times}\), so folgt nach Annahme für die erste Komponente \(a_0 \cdot b_0 \neq 1\) 
+Sei $a_0 \not\in R^{\times}$, so folgt nach Annahme für die erste Komponente $a_0 \cdot b_0 \neq 1$
 </p>
-</div>
-</div>
-<div id="outline-container-org990f139" class="outline-3">
-<h3 id="org990f139"><span class="section-number-3">2.2.</span> ist eine Einheit</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<h3 id="ist-eine-einheit">ist eine Einheit</h3>
 <p>
-Wir definieren \(b_0\) induktiv und zeigen, dass es ein <a href="20211218210712-inverses_element.html#ID-f9edb7bd-9975-4606-9f12-698118b3d992">inverses element</a> ist:
-Sei \(b_0 = a_0^{-1}\), insbesondere folgt damit \(a_0 \cdot b_0 = 1\)
-Für \(b_i\) mit \(i \geq 1\) sei dann \(r_i  \coloneqq \sum_{j=0}^{i-1} a_j b_{i-j}\), wobei nach Annahme \(b_0,...,b_{i-1}\) definiert sind
-Dann sei \(b_i  \coloneqq a_{0}^{-1} \cdot (-r_i)\) und es folgt:
+Wir definieren $b_0$ induktiv und zeigen, dass es ein <a href="20211218210712-inverses_element.html#ID-f9edb7bd-9975-4606-9f12-698118b3d992">inverses element</a> ist:
+Sei $b_0 = a_0^{-1}$, insbesondere folgt damit $a_0 \cdot b_0 = 1$
+Für $b_i$ mit $i \geq 1$ sei dann $r_i  \coloneqq \sum_{j=0}^{i-1} a_j b_{i-j}$, wobei nach Annahme $b_0,...,b_{i-1}$ definiert sind
+Dann sei $b_i  \coloneqq a_{0}^{-1} \cdot (-r_i)$ und es folgt:
 </p>
-\begin{align*}
-\sum_{j=0}^{i} a_j b_{i-j} =& r_i + a_0 \cdot a_0^{-1} \cdot (-r_i) \\
-=& 0
-\end{align*}
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 22:27</p>
+
+<div class="math-block">\begin{align*}
+\sum_{j=0}^{i} a_j b_{i-j} =&amp; r_i + a_0 \cdot a_0^{-1} \cdot (-r_i) \\
+=&amp; 0
+\end{align*}</div>
+
 </div>
 </body>
 </html>

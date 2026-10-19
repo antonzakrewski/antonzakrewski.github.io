@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 18:13 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Cauchy-Riemann Differentialgleichung</title>
+<title>Cauchy-Riemann equation</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,61 +52,80 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Cauchy-Riemann Differentialgleichung</h1>
-<div id="outline-container-orgde1f4ff" class="outline-2">
-<h2 id="orgde1f4ff"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-13488c3e-ab22-4d6c-82f4-c26366682848"></span><h1 class="title">Cauchy-Riemann equation</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(f: U \rightarrow \mathbb{C}\) eine <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktion</a> für \(U \subseteq \mathbb{C}\) <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a>.
+Sei $f: U \rightarrow \mathbb{C}$ eine <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktion</a> für $U \subseteq \mathbb{C}$ <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a>.
 </p>
 
 <p>
 <a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
 </p>
-<ol class="org-ol">
-<li>\(f\) ist <a href="20230306232528-holomorphe_funktion.html#ID-47dd90d3-19b3-4336-bf37-554413d69c02">holomorph</a></li>
-<li>für \(f\) aufgefasst als <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktion</a> \(g(x,y) \coloneqq f(x + \mathrm{i} y)\) gilt</li>
-</ol>
-\begin{align*}
-\frac{\partial g}{\partial x} = - \mathrm{i} \frac{\partial g}{\partial y}
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgdebb480" class="outline-2">
-<h2 id="orgdebb480"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org90b6b74" class="outline-3">
-<h3 id="org90b6b74"><span class="section-number-3">2.1.</span> 1) \(\implies\) 2)</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-nach der Aussage über <a href="20230906-holomorphe_funktion_und_grenzwert.html#ID-08b51c6e-0e7f-45d6-8cd4-98791a0634cf">holomorphe Funktion und grenzwert</a> 
-</p>
-\begin{align*}
-\frac{\partial g}{x}(x,y) =& \lim_{\varepsilon \to 0}\left(\frac{g(x + \varepsilon, y) - g(x,y)}{\varepsilon}\right)  \\
-=& \lim_{\varepsilon \to 0}\left(\frac{f(x + \mathrm{i}y + \varepsilon) - f(x + \mathrm{i} y)}{\varepsilon}\right) \\
-\end{align*}
-<p>
-Nach Annahme der holomorphie gilt
-</p>
-\begin{align*}
-=& f'(x + \mathrm{i}y) \\
-=& \lim_{\varepsilon \to 0}\left(\frac{f(x + \mathrm{i} (y + \varepsilon)) - f(x + \mathrm{i}y)}{\varepsilon}\right) \\
-=& - \mathrm{i} \cdot \lim_{\varepsilon \to 0}\left(\frac{g(x,y + \varepsilon) - g(x,y)}{\mathrm{i} \varepsilon}\right)  \\
-=& - \mathrm{i} \frac{\partial g}{fhpartial y}(x,y)
-\end{align*}
-</div>
-</div>
+<ol>
+<li>$f$ ist <a href="20230306232528-holomorphe_funktion.html#ID-47dd90d3-19b3-4336-bf37-554413d69c02">holomorph</a> </li>
 
-<div id="outline-container-org9463060" class="outline-3">
-<h3 id="org9463060"><span class="section-number-3">2.2.</span> 2) \(\implies\) 1)</h3>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 18:13</p>
+<li>für $f$ aufgefasst als <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktion</a> $g(x,y) \coloneqq f(x + \mathrm{i} y)$ gilt</li>
+</ol>
+<div class="math-block">\begin{align*}
+\frac{\partial g}{\partial x} = - \mathrm{i} \frac{\partial g}{\partial y}
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+
+
+<p>
+Suppose $f$ is holomorphic.
+Then in particular
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{lim}_{h \rightarrow 0} \frac{f(z_0 + h) - f(z_0) - f'(z_0) h}{h} = 0
+\end{align*}</div>
+<p>
+and we conclude that
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/0d602bad0dbdecf95ebf.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+<h3 id="2-implies-1">2) $\implies$ 1)</h3>
+<p>
+Identify $F = (u,v)^T$ for $u,v: \mathbb{R}^2 \rightarrow \mathbb{R}$.
+Then since $u,v$ are differentiable we get for $H = (H_1,H_2)^T$
+</p>
+
+<div class="math-block">\begin{align*}
+u(x_0 + H_1,y_0 + H_2) - u(x_0,y_0) = \frac{\partial u}{\partial x} H_1 + \frac{\partial u}{y} H_2 + \vert H \vert \psi(H) \\ 
+v(x_0 + H_1,y_0 + H_2) - v(x_0,y_0) = \frac{\partial v}{\partial x} H_1 + \frac{\partial u}{y} H_2 + \vert H \vert \psi(H) \\ 
+\end{align*}</div>
+<p>
+for $\psi_1(H),\psi_2(H) \rightarrow 0$ as $H \rightarrow 0$.
+Let $h \coloneqq H_1 + \mathrm{i} H_2$.
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+f(z_0 + h) - f(z) = \left(\frac{\partial u}{\partial x} + \mathrm{i} \frac{\partial v}{\partial x}\right) H_1 + \left(\frac{\partial u}{\partial y} + \mathrm{i} \frac{\partial v}{\partial y}\right) H_2 + \vert h \vert (\psi_1(H) + \mathrm{i} \psi_2(H))
+\end{align*}</div>
+<p>
+which evaluates as
+</p>
+
+<div class="math-block">\begin{align*}
+\left(\frac{\partial u}{\partial x} + \mathrm{i} \frac{\partial v}{\partial x}\right) H_1 + \left(\frac{\partial u}{\partial y} + \mathrm{i} \frac{\partial v}{\partial y}\right) H_2 + \vert h \vert (\psi_1(H) + \mathrm{i} \psi_2(H)) =&amp; \left(\frac{\partial u}{\partial x} - \mathrm{i} \frac{\partial u}{\partial y}\right) (H_1 + \mathrm{i} H_2) + \vert h \vert \psi(h)
+\end{align*}</div>
+<p>
+for $\psi(h) \coloneqq (\psi_1(H) + \mathrm{i} \psi_2(H))$ where $\psi(h) \rightarrow 0$ as $h \rightarrow 0$
+</p>
+
+
+<p>
+Hence $f$ is given as linear function with vanishing remanider
+</p>
+
 </div>
 </body>
 </html>

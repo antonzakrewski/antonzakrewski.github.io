@@ -1,298 +1,468 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2026-06-04 Do 19:27 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Einführung in die Ethik - Zettelkasten</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Einführung in die Ethik - Zettelkasten</h1>
-<div id="outline-container-org1860166" class="outline-2">
-<h2 id="org1860166">VL1</h2>
-<div class="outline-text-2" id="text-org1860166">
-<ul class="org-ul">
-<li><a href="20260424-konsequentialismus.html#ID-159ad679-fd58-43d3-8b4c-7bf12a55b467">Konsequentialismus</a> / <a href="20260424-deontologie.html#ID-70914c69-5be7-4129-acd8-9a1d8285f661">Deontologie</a> / <a href="20260424-tugendethik.html#ID-81976ab0-3712-4f54-a1cf-046cbf0ad66f">Tugendethik</a>   <br /></li>
+<span id="ID-b86ffd12-db23-4f81-af1c-da4e84da69e3"></span><h1 class="title">Einführung in die Ethik - Zettelkasten</h1>
 
-<li><a href="20260427-axiologie.html#ID-06180e2d-a30a-4b7a-aae5-e49426db8133">axiologie</a> / <a href="20260427-deontisch.html#ID-ed43e604-6c07-46db-b652-3fc970885761">deontisch</a> <br /></li>
-<li><a href="20260427-instrumentelle_werte.html#ID-fd051082-092a-4c8d-966c-c1c040b9b403">instrumentelle Werte</a> / <a href="20260427-intrinsische_werte.html#ID-691bbc31-b0bb-4ee5-b37d-2d27c9ee2e56">intrinsische Werte</a> <br /></li>
-<li><a href="20260427-moral_agent.html#ID-368957f4-dd93-4c16-8f51-f93817ea26f3">moral agent</a> / <a href="20260427-moral_patient.html#ID-bf6ae502-8c1c-4e45-8cbe-1005581d8670">moral patient</a> <br /></li>
-<li><a href="20260427-deskriptiv.html#ID-7c978fd8-8261-42c9-a8f4-e8d17bca6218">deskriptiv</a> / <a href="20260427-normativ.html#ID-34e51455-8caf-409a-80ed-5b479a8ea8aa">normativ_</a> <br /></li>
-<li><a href="20260427-mittel_von_handlungen.html#ID-a6797aa4-5915-42b0-83c9-b3056d105ba1">Mittel von Handlungen</a> / <a href="20260427-unerwunschte_nebenwirkung_von_handlungen.html#ID-457c4262-5abe-4644-a79c-63c3babed03c">unerwünschte Nebenwirkung von Handlungen</a> <br /></li>
+<h2 id="vl-1-done">VL 1 - done</h2>
+<ul>
+<li><a href="20260424-konsequentialismus.html#ID-159ad679-fd58-43d3-8b4c-7bf12a55b467">Konsequentialismus</a> / <a href="20260424-deontologie.html#ID-70914c69-5be7-4129-acd8-9a1d8285f661">Deontologie</a> / <a href="20260424-tugendethik.html#ID-81976ab0-3712-4f54-a1cf-046cbf0ad66f">Tugendethik</a></li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgdb8677b" class="outline-2">
-<h2 id="orgdb8677b">VL2</h2>
-<div class="outline-text-2" id="text-orgdb8677b">
-<ul class="org-ul">
-<li><a href="20260424-4_prinzipien_des_utilitarismus_nach_bentham.html#ID-ea0a764f-38f8-4bee-b298-0c623eab3573">4 Prinzipien des Utilitarismus nach Bentham</a> <br /></li>
-<li><a href="20260424-unterschiedliche_dimensionen_des_utilitarismus.html#ID-8f955b08-d0d7-4fbc-a7d7-a44a318526e2">unterschiedliche Dimensionen des Utilitarismus</a> <br /></li>
-<li><a href="20260428-mill_s_utilitarismus.html#ID-b88dfa80-507d-4a5f-aad9-3c7e215fcfaa">Mill's utilitarismus</a> <br /></li>
+<ul>
+<li><a href="20260520-deskriptive_ethik.html#ID-127a93fb-7475-4fad-aa58-f01acfb8f0c5">deskriptive Ethik</a> / <a href="20260520-metaethik.html#ID-cee00656-364c-4c2f-a8ce-096b78d182d0">Metaethik</a> / <a href="20260618-normative_ethik.html#ID-196bc168-6f2a-438c-a79a-0d76d33b28f3">normative Ethik</a> / <a href="20260618-angewandte_ethik.html#ID-6d93ff67-4cc1-4e6d-b649-06d3d029e339">angewandte ethik</a></li>
 
-<li><a href="20260428-philosophy_of_swine.html#ID-86e84c78-e277-4be1-a8b0-feebc818fae3">philosophy of swine</a>   <br /></li>
-<li><a href="20260428-no_harm_principle_und_common_sense_moral.html#ID-60f16902-8388-450d-8998-d740b8ab23fa">"no harm principle" und "common-sense-moral"</a>   <br /></li>
-<li><a href="20260428-axiologischer_einwand_am_klassischen_utilitarismus.html#ID-996bdd5f-e0f2-4162-aa81-6e968b53e407">axiologischer einwand am klassischen Utilitarismus</a>   <br /></li>
-<li><a href="20260428-moral_saints_kritik.html#ID-33ee6c66-cee1-4c9b-a250-78963ede1f1e">"moral saints" kritik</a> / <a href="20260428-paradox_of_hedonism.html#ID-5d80ebb4-b73b-476a-b79a-de81ae80f8cb">paradox of hedonism</a> ~&gt;<br /></li>
+<li><a href="20260427-axiologie.html#ID-06180e2d-a30a-4b7a-aae5-e49426db8133">axiologie</a> / <a href="20260427-deontisch.html#ID-ed43e604-6c07-46db-b652-3fc970885761">deontisch</a> &amp; <a href="20260427-deskriptiv.html#ID-7c978fd8-8261-42c9-a8f4-e8d17bca6218">deskriptiv</a> / <a href="20260427-normativ.html#ID-34e51455-8caf-409a-80ed-5b479a8ea8aa">normativ</a></li>
+
+<li><a href="20260618-aktuer_relativ_akteur_neutrale_handlungsgrunde_werte.html#ID-ccfee977-435e-4036-9f33-50b9e0aedb46">aktuer-relativ / akteur-neutrale Werte</a> / <a href="20260618-aktuer_relativ_akteur_neutrale_handlungsgrunde.html#ID-00146484-4743-4298-8bc0-d128ee201a84">aktuer-relativ / akteur-neutrale Handlungsgründe</a></li>
+
+<li><a href="20260427-instrumentelle_werte.html#ID-fd051082-092a-4c8d-966c-c1c040b9b403">instrumentelle Werte</a> / <a href="20260427-intrinsische_werte.html#ID-691bbc31-b0bb-4ee5-b37d-2d27c9ee2e56">intrinsische Werte</a></li>
+
+<li><a href="20260427-moral_agent.html#ID-368957f4-dd93-4c16-8f51-f93817ea26f3">moral agent</a> / <a href="20260427-moral_patient.html#ID-bf6ae502-8c1c-4e45-8cbe-1005581d8670">moral patient</a></li>
+
+<li><a href="20260618-zweck_von_handlungen.html#ID-22211909-b1a7-415c-aa5b-ac2272be61b1">Zweck von Handlungen</a> /  <a href="20260427-mittel_von_handlungen.html#ID-a6797aa4-5915-42b0-83c9-b3056d105ba1">Mittel von Handlungen</a> / <a href="20260427-unerwunschte_nebenwirkung_von_handlungen.html#ID-457c4262-5abe-4644-a79c-63c3babed03c">unerwünschte Nebenwirkung von Handlungen</a></li>
+
+<li>Trolley-problem</li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orge7f5e2b" class="outline-2">
-<h2 id="orge7f5e2b">VL3</h2>
-<div class="outline-text-2" id="text-orge7f5e2b">
-<ul class="org-ul">
-<li><a href="20260428-mill_s_utilitarismus.html#ID-b88dfa80-507d-4a5f-aad9-3c7e215fcfaa">Mill's utilitarismus</a> <br /></li>
-<li><a href="20260427-subjektives_sollen.html#ID-e0500275-9575-4831-8beb-f6fb730a6abb">subjektives sollen</a> / <a href="20260427-objektives_sollen.html#ID-585a37ec-1951-4015-a4ce-d32a76f9b869">objektives sollen</a> <br /></li>
+<h2 id="vl-2-done">VL 2 - done</h2>
+<ul>
+<li><a href="20260424-4_prinzipien_des_utilitarismus_nach_bentham.html#ID-ea0a764f-38f8-4bee-b298-0c623eab3573">4 Prinzipien des Utilitarismus nach Bentham</a></li>
+
+<li><a href="20260429-richtigkeitskriterimu.html#ID-caf72b17-3ed1-4ec9-814e-59aa2272ddc0">Richtigkeitskriterium</a> / <a href="20260429-entscheidungsverfahren.html#ID-b335b324-51cc-4921-aebb-92ed8e9c5b41">Entscheidungsverfahren in der ethik</a></li>
+
+<li><a href="20260424-wertmonismus_wertpluralismus.html#ID-5e53dba4-5f35-4020-a2de-d961a6ef298a">Wertmonismus / Wertpluralismus</a></li>
+
+<li><a href="20260428-moral_patients_im_praferenz_und_hedonistischem_utilitarismus.html#ID-99035a51-5a00-4e74-b8b0-8e8e50ea485a">moral patients im Präferenz und Hedonistischem Utilitarismus</a></li>
+</ul>
+<ul>
+<li><a href="20260424-unterschiedliche_dimensionen_des_utilitarismus.html#ID-8f955b08-d0d7-4fbc-a7d7-a44a318526e2">unterschiedliche Dimensionen des Utilitarismus</a></li>
+
+<li><a href="20260428-mill_s_utilitarismus.html#ID-b88dfa80-507d-4a5f-aad9-3c7e215fcfaa">Mill's utilitarismus</a></li>
+
+<li><a href="20260428-philosophy_of_swine.html#ID-86e84c78-e277-4be1-a8b0-feebc818fae3">philosophy of swine</a></li>
+
+<li><a href="20260428-no_harm_principle.html#ID-fb4e0e0b-8984-4ece-b9f3-5dc1d04f9196">"no harm principle"</a></li>
+
+<li><a href="20260428-common_sense_moral.html#ID-9fec89d7-3b75-4dac-b8db-1f88b3487bb2">"common-sense-moral"</a></li>
+
+<li><a href="20260618-benthams_nutzlichkeitskalkul.html#ID-724a31ed-dbcd-448a-aa2a-a3f3bdd568d1">Benthams Nützlichkeitskalkül</a></li>
+</ul>
+<h2 id="vl-3-done">VL 3 - done</h2>
+<ul>
+<li><a href="20260624-argumente_fur_benthams_utilitarismus.html#ID-78c8f691-7e7f-42e5-9a26-c822d180e862">argumente für Benthams Utilitarismus</a></li>
+
+<li><a href="20260428-philosophy_of_swine.html#ID-86e84c78-e277-4be1-a8b0-feebc818fae3">"philosophy of swine"</a></li>
+
+<li><a href="20260428-mill_s_utilitarismus.html#ID-b88dfa80-507d-4a5f-aad9-3c7e215fcfaa">Mill's utilitarismus</a> </li>
+</ul>
+<ul>
+<li><a href="20260427-subjektives_sollen.html#ID-e0500275-9575-4831-8beb-f6fb730a6abb">subjektives sollen</a> / <a href="20260427-objektives_sollen.html#ID-585a37ec-1951-4015-a4ce-d32a76f9b869">objektives sollen</a> </li>
+
+<li><a href="20260428-demandingness_objection_anspruche_an_das_handeln.html#ID-3dc52546-544a-416b-b292-3f638bea4a3a">demandingness objection: ansprüche an das Handeln</a> / <a href="20260428-demandingness_objection_entscheidbarkeit.html#ID-464faee8-ad60-4dbf-85bd-a056e668438a">demandingness objection: entscheidbarkeit</a></li>
+
+<li><a href="20260428-no_harm_principle_und_common_sense_moral.html#ID-60f16902-8388-450d-8998-d740b8ab23fa">"no harm principle" und "common-sense-moral"</a></li>
+
+<li><a href="20260428-axiologischer_einwand_am_klassischen_utilitarismus.html#ID-996bdd5f-e0f2-4162-aa81-6e968b53e407">Axiologischer Einwand am klassischen Utilitarismus</a></li>
+
+<li><a href="20260618-deontischer_einwand_am_utilitarismus.html#ID-37b5fe34-522b-4138-a7c6-736fe0a92afb">Deontischer Einwand am Utilitarismus</a></li>
+
+<li><a href="20260428-moral_saints_kritik.html#ID-33ee6c66-cee1-4c9b-a250-78963ede1f1e">"moral saints" kritik</a> / <a href="20260428-paradox_of_hedonism.html#ID-5d80ebb4-b73b-476a-b79a-de81ae80f8cb">paradox of hedonism</a></li>
+</ul>
+<h2 id="vl-4-todo">VL 4 - todo</h2>
+<ul>
+<li><a href="20260624-vernunft_bei_kant.html#ID-9d478bdd-a0a0-49fa-9cfb-c7030f76a8c9">Vernunft bei Kant</a> - <a href="20260624-moralische_gesetz_nach_kant.html#ID-6a74d001-5725-490f-bbf0-3856087f42cd">moralische Gesetz nach Kant</a> - <a href="20260610-pflicht_nach_kant.html#ID-61c9af62-7467-4c71-a599-c456ca64227e">Pflicht nach Kant</a> - <a href="20260624-maxime_nach_kant.html#ID-1437d9b6-07a3-4c92-a25a-2310fc8f2a28">Maxime nach Kant</a></li>
+
+<li><a href="20260610-pflichtgemaßes_handeln_handeln_aus_pflicht.html#ID-fb2f25af-a4bb-46b3-b325-269bf217b870">pflichtgemäßes handeln / handeln aus pflicht</a></li>
+
+<li><a href="20260610-guter_wille_nach_kant.html#ID-a0cb8244-20b7-478a-a0bf-ce080547a35f">guter wille nach Kant</a></li>
+
+<li><a href="20260624-unterschiedung_von_deontologischen_theorien_oberstes_prinzip.html#ID-14e3cc52-9ed9-4926-a4bd-e9e7b2357f6c">unterschiedung von deontologischen Theorien: oberstes Prinzip</a> </li>
+
+<li><a href="20260624-hypothetische_imperative.html#ID-27061d16-9d55-489f-8b50-a7d5914b9611">hypothetische Imperative</a> / <a href="20260610-kategorischer_imperativ_nach_kant.html#ID-fd2498cc-4dcb-47db-8880-7f1c7d657437">kategorischer Imperativ nach Kant</a> </li>
+
+<li><a href="20260618-vollkommene_unvollkommene_pflicht.html#ID-14d89873-e531-4c87-bc60-2ac83281d291">vollkommene / unvollkommene Pflicht</a> </li>
+
+<li><a href="20260618-negativer_positiver_zweck.html#ID-0fd5f731-9e0e-4977-9ceb-fdc1c7b6a36c">negativer / positiver Zweck</a> </li>
+
+<li><a href="20260624-willensfreiheit_nach_kant.html#ID-b30202df-9b87-4c6b-8563-e176447736ea">Willensfreiheit nach Kant</a>  </li>
+
+<li><a href="20260624-preis_wurde_nach_kant.html#ID-136e606a-2166-465a-8540-a1fe7f074952">Preis / Würde nach Kant</a> </li>
+
+<li><a href="20260624-gegenargumente_gegen_kant.html#ID-92b86eb5-7394-416b-98dd-b8d199143a94">Gegenargumente gegen Kants Ethik</a> </li>
+</ul>
+<h2 id="vl-5-done">VL 5 - done</h2>
+<ul>
+<li><a href="20260619-tugend_nach_kant.html#ID-78ff9227-7d4f-484d-aa92-6a7974b4f1fd">Tugend nach Kant</a> </li>
+
+<li><a href="20260619-tugend_nach_hume.html#ID-5dfba1fd-3f50-4b69-b6de-f47cfb9a4217">Tugend nach Hume</a> </li>
+
+<li><a href="20260424-tugendethik.html#ID-81976ab0-3712-4f54-a1cf-046cbf0ad66f">Tugendethik</a></li>
+
+<li><a href="20260624-zentrale_fragestellung_in_der_tugendethik.html#ID-65e77591-e9f1-4bdc-a46a-50693dc3c8a2">zentrale Fragestellung in der Tugendethik</a>   </li>
+
+<li><a href="20260624-aristoteles_methode.html#ID-243fb48a-3df9-4da0-a041-3e3c31172770">Aristoteles Methode</a>   </li>
+
+<li><a href="20260706-funktion_den_menschen_nach_aristoteles.html#ID-52d07679-3faf-4877-bc57-285b712dbb53">Funktion des Menschen nach Aristoteles</a></li>
+
+<li><a href="20260624-hellenistische_denkschulen.html#ID-6c8fd834-fd49-4113-90af-e082762306fe">hellenistische Denkschulen</a></li>
+
+<li><a href="20260521-4_kardinaltugenden.html#ID-c4f884b0-584b-41e6-a4be-a2e2c3b54ab8">4 Kardinaltugenden</a></li>
+
+<li><a href="20260618-teleologie.html#ID-b6dc2d98-ef71-426f-98ac-d8e116157654">Teleologie</a></li>
+
+<li><a href="20260618-mesotes_lehre.html#ID-63043ce0-8c87-43cb-a42d-e6af12544e25">Mesotes Lehre</a></li>
+
+<li><a href="20260618-eudamonia.html#ID-1068ae24-a9f2-4391-bec8-5d68f705e7a3">Eudaimonia</a></li>
+
+<li><a href="20260708-außere_umstande_in_der_tugendethik.html#ID-7baafc7a-9a16-44a1-9d20-4a7b811d7270">äußere umstände in der aristotelischen tugendethik</a></li>
+
+<li><a href="20260623-tugend_nach_aristoteles.html#ID-db5c705d-b61e-42fb-8da2-e3a2b52c5c78">Tugend nach Aristoteles</a></li>
+
+<li><a href="20260624-kritikpunkte_der_tugendethik.html#ID-3dfbb050-2492-4873-94bc-01334495c1a9">Kritikpunkte an der Tugendethik</a></li>
+
+<li><a href="20260619-freundschaft_nach_aristoteles.html#ID-0baf3e7e-91c0-4bfb-9711-c1d53c9fb58a">Freundschaft nach Aristoteles</a></li>
+</ul>
+<h2 id="vl-6-done">VL 6 - done</h2>
+<ul>
+<li><a href="20260520-reflective_equilibrium.html#ID-a00e2312-e3ef-43b1-83c5-d3c4088c7d09">reflective equilibrium</a> </li>
+
+<li><a href="20260708-considered_judgments.html#ID-e43ed86c-59fd-460e-a00f-16ae02e9a930">considered judgments</a></li>
+
+<li><a href="20260520-kontraktualistische_ethik.html#ID-c6f03895-2855-4217-98c1-1ef06e52a1d1">kontraktualistische Ethik</a> </li>
+
+<li><a href="20260624-vor_und_nachteile_von_ethikkommissionen.html#ID-de01f75c-58ed-40c1-90f0-1c0ea5af84e8">Vor und Nachteile von Ethikkommissionen</a>   </li>
+
+<li><a href="20260520-mid_level_prinzipien_der_ethik.html#ID-f88d176e-c0f7-4fa4-b0ed-03d34cf9349f">mid-level prinzipien der Ethik</a> </li>
+
+<li><a href="20260624-sidgewicks_verstandnis_von_ethik.html#ID-572188a3-2807-4b65-8ae5-187039fe6f55">sidgewicks verständnis von ethik</a> </li>
+</ul>
+<h3 id="text">Text</h3>
+<ul>
+<li><a href="20260520-deskriptive_ethik.html#ID-127a93fb-7475-4fad-aa58-f01acfb8f0c5">deskriptive Ethik</a> </li>
+
+<li><a href="20260520-formen_der_metaethik.html#ID-3eca3338-6f78-4a3a-83dc-6d493d8276fa">Formen der Metaethik</a> </li>
+</ul>
+<h2 id="vl-7-done">VL 7 -done</h2>
+<ul>
+<li><a href="20260618-negative_positive_freiheit.html#ID-bb3677c1-4eaf-4122-9ae6-b9fcbb08d4aa">negative/ positive freiheit</a> </li>
+
+<li><a href="20260618-freiheit_uber_selbsteinschrankung.html#ID-c85c8d09-5040-47c2-8a79-8073a6d9bd8a">willensfreiheit über selbsteinschränkung</a> / <a href="20260624-willensfreiheit_nach_kant.html#ID-b30202df-9b87-4c6b-8563-e176447736ea">positive Willensfreiheit nach Kant</a></li>
+
+<li><a href="20260604-negative_positive_responsibility.html#ID-1aa35acd-b7e0-42a6-a78c-ef7c3803113b">negative / positive responsibility</a> </li>
+
+<li><a href="20260604-participant_objective_stance.html#ID-03884b87-1d46-448a-8adc-bd3a7190cce1">participant / objective stance</a> </li>
+
+<li><a href="20260604-kompatibilismus_inkompatibilismus.html#ID-5c9fb54e-c122-4a29-b41c-03c99df75526">kompatibilismus/inkompatibilismus</a>   </li>
+
+<li><a href="20260604-kriterien_fur_accountability.html#ID-cefdca1c-cae4-4c56-956e-74de8ab53729">Kriterien für accountability</a> </li>
+
+<li><a href="20260604-aspekte_von_accountability.html#ID-dd12aa43-f849-4e60-83df-d7c64d3d95ca">Aspekte von responsibility</a> - shoemaker</li>
+
+<li><a href="20260604-verantwortungslucken.html#ID-11fa5ef8-1a76-44af-a8dd-de7a4f3b2992">Verantwortungslücken</a></li>
+
+<li><a href="20260604-willensfreiheit_nach_frankfurt.html#ID-21bf30a1-d595-48e0-84b5-b06686b2b8f0">Willensfreiheit nach Frankfurt</a>   </li>
+
+<li><a href="20260604-non_identity_problem.html#ID-ba7791f8-b80c-4c8f-b25f-3827a227c386">non-identity problem</a>   </li>
+
+<li><a href="20260604-asymmetrie_negative_positive_verantwortung.html#ID-91a2518c-b35a-476a-bc69-c35458214e85">asymmetrie: negative / positive Verantwortung</a> </li>
+
+<li><a href="20260604-prinzip_alternativer_moglichkeiten.html#ID-df41afbf-50ee-4edc-876d-5082fd0fcedb">prinzip alternativer möglichkeiten</a>   </li>
+
+<li><a href="20260604-subjektivierung_von_freiheit.html#ID-9d1c25b7-0ad4-4007-b74e-f1b87ff4f8f9">subjektivierung von freiheit</a> </li>
+
+<li><a href="20260604-konsequentialistische_definition_von_freiheit.html#ID-248f5f8f-e569-43ed-b7c5-52147bb7fdf9">konsequentialistische Definition von Verantwortung</a>   </li>
+
+<li><a href="20260618-reactive_attitudes.html#ID-28971ef4-2d26-410a-b6f8-59cb7f5390af">Moral als Reactive Attitudes (Strawson)</a> </li>
+</ul>
+<h2 id="vl-8-done">VL 8 - done</h2>
+<ul>
+<li><a href="20260608-wort.html#ID-90cc6544-1256-4e21-8076-f9afcda720d0">"Wort"</a> </li>
+
+<li><a href="20260608-begriff.html#ID-5a2c1508-37b9-4f61-9d59-5e3b081f2410">"Begriff"</a>   </li>
+
+<li><a href="20260608-eigenschaft.html#ID-449da936-4394-4768-a0e8-2cf3202ee517">"Eigenschaft"</a>   </li>
+
+<li><a href="20260624-eigenschaften_mussen_nicht_existieren.html#ID-d2a95eb1-bdf7-4d71-b415-2d1015dcba8a">eigenschaften müssen nicht in der Welt existieren</a> </li>
+
+<li><a href="20260608-use_mention_von_wortern.html#ID-b4177307-8278-4124-9ac5-a1dbcfd23745">use / mention von wörtern</a> </li>
+</ul>
+<ul>
+<li><a href="20260610-naturliche_nicht_naturliche_eigenschaft.html#ID-2927b0af-1588-4b06-9859-62a82355a914">natürliche / nicht natürliche Eigenschaft</a>   </li>
+
+<li><a href="20260610-offene_fragen_argument.html#ID-740485c0-1c41-42ec-b946-5fb72ab0cdd6">offene fragen argument</a>   </li>
+
+<li>argument of queerness, moralische uneinigkeit   </li>
+
+<li><a href="20260610-worum_geht_es_eigentlich_argument.html#ID-5324d7f2-cc9e-4853-bca4-7631dbbf8617">worum geht es eigentlich argument</a>   </li>
+</ul>
+<h2 id="vl-9-done">VL 9 - done</h2>
+<ul>
+<li><a href="20260610-naturliche_nicht_naturliche_eigenschaft.html#ID-2927b0af-1588-4b06-9859-62a82355a914">natürliche / nicht natürliche Eigenschaft</a> </li>
+
+<li><a href="20260615-cognitivism_non_cognitivism.html#ID-d1820e07-ae17-4d59-ac05-4c72c789c94d">cognitivism / non-cognitivism</a>     </li>
+
+<li><a href="20260520-moralischer_realismus_antirealismus.html#ID-d7feed23-c823-4aaf-a6e3-8ccf1d4a51d3">moralischer realismus / antirealismus</a>   </li>
+
+<li><a href="20260615-externalismus_internalismus.html#ID-8f388f36-9415-46be-9d4d-eadf7f62e721">externalismus / internalismus</a>   </li>
+
+<li><a href="20260615-error_theory_moral.html#ID-f7b08179-7939-473d-9ef1-9527c8412097">error theory (moral)</a>  </li>
+
+<li><a href="20260624-quietismus.html#ID-5054eb01-4c08-4e03-ad36-6c972409ba2f">quietismus</a>   </li>
+
+<li><a href="20260615-analytic_synthetic.html#ID-32dc8835-9f7f-4194-9f40-7de97d461045">analytic - synthetic</a> (claim: begriffe eher analytisch, eigenschaften eher synthetisch)</li>
+
+<li><a href="20260615-moralischer_relativismus.html#ID-6c3c00fd-2dec-46cd-95ce-7b50343ebe40">moralischer relativismus</a></li>
+
+<li><a href="20260615-moralischer_subjektivismus_objektivismus.html#ID-4deb823d-a244-4fa6-a4d9-3b78ab12d17b">moralischer subjektivismus / objektivismus</a></li>
+
+<li>moralische uneinigkeit: </li>
+
+<li><a href="20260615-directions_of_fit.html#ID-a642158d-46da-4cca-a212-2b03ba20b168">directions of fit (moral)</a> - <a href="20260615-externalismus_internalismus.html#ID-8f388f36-9415-46be-9d4d-eadf7f62e721">externalismus / internalismus</a>   </li>
+
+<li><a href="20260618-debunking_argumente_ethik.html#ID-28e58f0f-e255-4b45-9151-e27b764d6700">debunking Argumente (ethik)</a> / <a href="20260618-vindicating_argumente_ethik.html#ID-f7c96de4-55e3-46a1-893b-84b35e1d136f">vindicating Argumente (ethik)</a></li>
+
+<li><a href="20260618-normativitatsargument.html#ID-fe4cf99f-4199-473a-a8f0-efd0d0c200b5">Normativitätsargument</a></li>
+
+<li>weitere fragen:</li>
+<ul>
+<li>hängt moral von unseren urteilen ab ? ~&gt; judgement</li>
+
+<li>reduzierbar auf natürliche fakten:</li>
+<ul>
+<li>nicht reduzierbar: non-natural</li>
+
+<li>reduzierbar:</li>
+<ul>
+<li>reduzierbar auf natürliche, aber nicht moralische Fakten ?</li>
+
+<li>auch analytisch oder nur synthetisch ?</li>
+</ul></ul></ul>
+<li><a href="20260624-konstruktivismus_in_der_ethik.html#ID-6a5f1c86-ee49-49a0-b170-b05450d3e932">konstruktivismus in der Ethik</a> 	</li>
+</ul>
+<h2 id="vl-10-done">VL 10 - done</h2>
+<ul>
+<li><a href="20260623-equality_of_what.html#ID-8c26bcdc-9c0a-447c-b9af-e7e533c32ca8">"equality of what"</a> </li>
+
+<li><a href="20260623-nachhaltigkeit_ist_erstmals_unbestimmt.html#ID-5ffdd05d-30e5-4e5c-b559-eb6d16014ee8">Nachhaltigkeit ist erstmals unbestimmt</a> </li>
+
+<li><a href="20260623-leopolds_landethik.html#ID-fd6b1578-67f9-47b4-b737-abfe98520ffc">Leopolds Landethik</a> </li>
+
+<li><a href="20260708-schonheit_erhabenheit.html#ID-7e7ede1f-3dbb-4116-8a16-235cdfc9f596">schönheit / erhabenheit</a>   </li>
+
+<li>Erhabene: lässt Ehrfucht spüren - schöne: wohlgeformt  </li>
+
+<li><a href="20260623-singers_tierethische_position.html#ID-382f66ea-0ca4-4e19-a9f7-b2c35cf99fe1">Singers Tierethische Position</a>   </li>
+
+<li><a href="20260708-zukunfts_umweltethik.html#ID-43c52a45-d3ec-4cd4-9da6-6b22cc92bdfe">zukunfts / umweltethik</a></li>
+
+<li>die natur besitzt womöglich einen Wert, auch wenn sie nicht schön / nützlich ist, sondern weil sie durch ihre eigenständigkeit und größe ehrfurcht einflößt</li>
+
+<li><a href="20260623-rolstons_verstandnis_von_umweltethik.html#ID-9ceed2d8-078d-4e39-a0b8-a4c47856d023">Rolstons Verständnis von Umweltethik</a></li>
+
+<li><a href="20260623-rolstons_rechtfertigung_von_speziesismus.html#ID-f0ac75ce-373d-483b-bbd7-135355f67ccb">Rolstons Rechtfertigung von Speziesismus</a></li>
+
+<li><a href="20260623-williams_rechtfertigung_von_speziesisums.html#ID-aab130c6-a58e-4c75-b767-6e8c7152986b">Williams Rechtfertigung von Speziesisums</a></li>
+
+<li><a href="20260623-klassischer_und_moderne_version_des_humanismus.html#ID-b5f46cef-b946-4b89-a70a-6ebfa12bd379">klassischer und moderne version des humanismus</a> </li>
+</ul>
+<ul>
+<li><a href="20260604-asymmetrie_negative_positive_verantwortung.html#ID-91a2518c-b35a-476a-bc69-c35458214e85">asymmetrie: negative / positive Verantwortung</a>, Gerechtigkeitspflichten &amp; Wohltätikeitspflichten &amp; wunsch gelobt zu werden, wunsch nicht getadelt zu werden</li>
+</ul>
+<ul>
+<li><a href="20260623-average_utility_total_utility_principle.html#ID-d7072375-59ca-400b-89bb-75f415b63c8a">average utility / total utility principle</a>   </li>
+
+<li><a href="20260623-grunde_wieso_emissionen_ungerecht_sind.html#ID-76865ff0-041b-48f3-b84c-a8496f89bb0a">Gründe, wieso Emissionen ungerecht sind</a> </li>
+
+<li><a href="20260623-pain_model_von_ethsichem_handeln.html#ID-7ed702c7-eee6-4b92-af4e-28e0da91b3cb">pain modell von moralischem Handeln</a>   </li>
+
+<li><a href="20260623-same_different_people_number_choices.html#ID-cb41a434-fc48-4127-92e7-a2e48fb7a49a">same/different people/number choices</a> </li>
+
+<li><a href="20260623-egoistische_grunde_fur_nachhaltigkeit.html#ID-3fc0d59c-187d-44ca-a5fb-fc30916f1bc2">egoistische Gründe für Nachhaltigkeit</a> </li>
+</ul>
+<h2 id="auswendig-lernen">Auswendig-Lernen</h2>
+<ul>
+<li><a href="20260610-kategorischer_imperativ_nach_kant.html#ID-fd2498cc-4dcb-47db-8880-7f1c7d657437">kategorischer Imperativ nach Kant</a></li>
+
+<li><a href="20260424-4_prinzipien_des_utilitarismus_nach_bentham.html#ID-ea0a764f-38f8-4bee-b298-0c623eab3573">4 Prinzipien des Utilitarismus nach Bentham</a> - todo</li>
+
+<li><a href="20260618-benthams_nutzlichkeitskalkul.html#ID-724a31ed-dbcd-448a-aa2a-a3f3bdd568d1">Benthams Nützlichkeitskalkül</a> - todo</li>
+
+<li><a href="20260521-4_kardinaltugenden.html#ID-c4f884b0-584b-41e6-a4be-a2e2c3b54ab8">4 Kardinaltugenden</a></li>
+
+<li><a href="20260520-mid_level_prinzipien_der_ethik.html#ID-f88d176e-c0f7-4fa4-b0ed-03d34cf9349f">mid-level prinzipien der Ethik</a></li>
+
+<li><a href="20260604-kriterien_fur_accountability.html#ID-cefdca1c-cae4-4c56-956e-74de8ab53729">Kriterien für accountability</a></li>
+
+<li><a href="20260604-aspekte_von_accountability.html#ID-dd12aa43-f849-4e60-83df-d7c64d3d95ca">Aspekte von responsibility</a></li>
+
+<li><a href="20260623-grunde_wieso_emissionen_ungerecht_sind.html#ID-76865ff0-041b-48f3-b84c-a8496f89bb0a">Gründe, wieso Emissionen ungerecht sind</a></li>
+
+<li><a href="20260623-nachhaltigkeit_ist_erstmals_unbestimmt.html#ID-5ffdd05d-30e5-4e5c-b559-eb6d16014ee8">Nachhaltigkeit ist erstmals unbestimmt</a></li>
+
+<li><a href="20260623-pain_model_von_ethsichem_handeln.html#ID-7ed702c7-eee6-4b92-af4e-28e0da91b3cb">pain modell von moralischem Handeln</a></li>
+
+<li><a href="20260623-egoistische_grunde_fur_nachhaltigkeit.html#ID-3fc0d59c-187d-44ca-a5fb-fc30916f1bc2">egoistische Gründe für Nachhaltigkeit</a></li>
+</ul>
+<ul>
+<li><a href="20260610-worum_geht_es_eigentlich_argument.html#ID-5324d7f2-cc9e-4853-bca4-7631dbbf8617">worum geht es eigentlich argument</a>   </li>
+</ul>
+<h3 id="neu">neu</h3>
+<ul>
+<li><a href="20260610-kategorischer_imperativ_nach_kant.html#ID-fd2498cc-4dcb-47db-8880-7f1c7d657437">kategorischer Imperativ nach Kant</a></li>
+
+<li><a href="20260604-asymmetrie_negative_positive_verantwortung.html#ID-91a2518c-b35a-476a-bc69-c35458214e85">asymmetrie: negative / positive Verantwortung</a></li>
+
+<li><a href="20260623-rolstons_verstandnis_von_umweltethik.html#ID-9ceed2d8-078d-4e39-a0b8-a4c47856d023">Rolstons Verständnis von Umweltethik</a></li>
+
+<li><a href="20260623-klassischer_und_moderne_version_des_humanismus.html#ID-b5f46cef-b946-4b89-a70a-6ebfa12bd379">klassischer und moderne version des humanismus</a></li>
+
+<li><a href="20260615-directions_of_fit.html#ID-a642158d-46da-4cca-a212-2b03ba20b168">directions of fit (moral)</a></li>
+</ul>
+<h2 id="vl">VL</h2>
+<ul>
+<li>Problem:</li>
+<ul>
+<li>unsere ethischen theorien waren bisher nicht mit KI konfrontiert ~&gt; brauchen ggbf. eine Anpassung</li>
+
+<li><a href="20260708-relevanz_von_ki.html#ID-e042a242-8076-4570-8e57-fca622197181">relevanz von KI in der Ethik</a> </li>
+</ul>
+<li><a href="20260630-beriche_in_der_ki_ethik.html#ID-59e037f6-e105-4527-899b-811c0af8a14e">Beriche in der KI Ethik</a> - todo</li>
+
+<li><a href="20260708-chinese_room.html#ID-22a176ac-270a-4449-9fa2-51de38c3ddae">chinese room</a> - todo</li>
+
+<li>Aristoteles: "wenn es KI gibt, braucht es keine Sklaven"</li>
+
+<li><a href="20260630-ki_definition.html#ID-fe4493d6-f89d-41de-a463-8d1f183590c1">KI definition</a>  </li>
+
+<li>frage: wie hilfreich es ist, menschliche konzepte überzustölpen</li>
+
+<li>KI auch unpopulär </li>
+
+<li>KI macht Fehler, die für uns ganz banal sind    </li>
+
+<li><a href="20260630-turing_test.html#ID-73525573-52ce-4708-9141-3bd6e3fef60b">Turing Test</a> </li>
+
+<li><a href="20260630-kriterien_fur_eine_bessere_welt.html#ID-41fb3d6d-cfbd-43d8-8867-d9dc1360725a">Kriterien für eine bessere Welt (Wolf)</a></li>
+
+<li><a href="20260708-implizite_explizite_moralische_agenten.html#ID-ee96429f-adad-4be0-9d6c-b0acd309f306">implizite / explizite moralische Agenten</a></li>
+
+<li><a href="20260703-kriterien_fur_moralisches_handeln.html#ID-de4d9ff9-8a47-4237-8e9a-39f1767b3561">kriterien für moralisches Handeln</a></li>
+
+<li>KI lässt uns weniger denken, mehr offloaden</li>
+
+<li>eng / breit:  </li>
+
+<li>was wäre positive / was negative form</li>
+</ul>
+<h2 id="todo">TODO</h2>
+<ul>
+<li>rolle von externen umständen in der aristotelischen Tugendethik -  </li>
+
+<li>mackies argument gegen realismus - <a href="20260615-error_theory_moral.html#ID-f7b08179-7939-473d-9ef1-9527c8412097">error theory (moral)</a>, argument from queerness</li>
+
+<li>moores argument gegen analytischen naturalismus - <a href="20260610-offene_fragen_argument.html#ID-740485c0-1c41-42ec-b946-5fb72ab0cdd6">offene fragen argument</a>; normativitätsargument</li>
+
+<li><a href="20260708-schonheit_erhabenheit.html#ID-7e7ede1f-3dbb-4116-8a16-235cdfc9f596">schönheit / erhabenheit</a> </li>
+
+<li>landethisches prinzip</li>
+
+<li><a href="20260708-longtermism.html#ID-c4fe4eda-fced-4f95-944e-5b55df2ea767">longtermism</a> </li>
+
+<li><a href="20260708-relevanz_von_ki.html#ID-e042a242-8076-4570-8e57-fca622197181">Relevanz von KI in der Ethik</a> </li>
+
+<li><a href="20260708-implizite_explizite_moralische_agenten.html#ID-ee96429f-adad-4be0-9d6c-b0acd309f306">implizite / explizite moralische Agenten</a>   </li>
+
+<li>künstliche menschliche intelligenz ?</li>
+</ul>
+<h2 id="todo">todo</h2>
+<ul>
+<li>bok </li>
+
 <li></li>
+</ul>
 
-<li><a href="20260428-demandingness_objection.html#ID-5c72ba32-2a92-47a9-9024-899ec6a8ff0a">demandingness objection</a> - <a href="20260428-demandingness_objection_anspruche_an_das_handeln.html#ID-3dc52546-544a-416b-b292-3f638bea4a3a">demandingness objection: ansprüche an das Handeln</a> / <a href="20260428-demandingness_objection_entscheidbarkeit.html#ID-464faee8-ad60-4dbf-85bd-a056e668438a">demandingness objection: entscheidbarkeit</a> <br /></li>
-<li><a href="20260428-no_harm_principle_und_common_sense_moral.html#ID-60f16902-8388-450d-8998-d740b8ab23fa">"no harm principle" und "common-sense-moral"</a>   <br /></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org0afef4c" class="outline-2">
-<h2 id="org0afef4c">VL 4</h2>
-</div>
-<div id="outline-container-org3735ba5" class="outline-2">
-<h2 id="org3735ba5">VL 5</h2>
-</div>
-<div id="outline-container-org9fcf921" class="outline-2">
-<h2 id="org9fcf921">VL 6</h2>
-<div class="outline-text-2" id="text-org9fcf921">
-<ul class="org-ul">
-<li><a href="20260520-reflective_equilibrium.html#ID-a00e2312-e3ef-43b1-83c5-d3c4088c7d09">reflective equilibrium</a> <br /></li>
-<li><a href="20260520-kontraktualistische_ethik.html#ID-c6f03895-2855-4217-98c1-1ef06e52a1d1">kontraktualistische Ethik</a> - todo<br /></li>
-<li><a href="20260520-mid_level_prinzipien_der_ethik.html#ID-f88d176e-c0f7-4fa4-b0ed-03d34cf9349f">mid-level prinzipien der Ethik</a> <br /></li>
-<li></li>
-</ul>
-</div>
-<div id="outline-container-org618ea46" class="outline-3">
-<h3 id="org618ea46">Text</h3>
-<div class="outline-text-3" id="text-org618ea46">
-<ul class="org-ul">
-<li><a href="20260520-deskriptive_ethik.html#ID-127a93fb-7475-4fad-aa58-f01acfb8f0c5">deskriptive Ethik</a> <br /></li>
-<li><a href="20260520-formen_der_metaethik.html#ID-3eca3338-6f78-4a3a-83dc-6d493d8276fa">Formen der Metaethik</a> <br /></li>
-<li></li>
+<h2 id="remark">remark</h2>
+<ul>
+<li>bedingt/ unbedingt &amp; instrumentell / intrinsisch bei kant</li>
 
-<li>sidgewikc - ethik<br /></li>
+<li>kant: pfilcht - handeln nach dem moralischen gesetz - moralische gesetz folgt aus der praktischen vernunft</li>
+<ul>
+<li><a href="20260713-wille_nach_kant.html#ID-ad88429c-5549-4126-9374-46ec213eef96">Wille nach kant</a></li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgc3fc90b" class="outline-3">
-<h3 id="orgc3fc90b">VL 7</h3>
-<div class="outline-text-3" id="text-orgc3fc90b">
-<ul class="org-ul">
-<li><a href="20260604-negative_positive_responsibility.html#ID-1aa35acd-b7e0-42a6-a78c-ef7c3803113b">negative / positive responsibility</a> <br /></li>
-<li><a href="20260604-participant_objective_stance.html#ID-03884b87-1d46-448a-8adc-bd3a7190cce1">participant / objective stance</a>   <br /></li>
-<li><a href="20260604-kompatibilismus_inkompatibilismus.html#ID-5c9fb54e-c122-4a29-b41c-03c99df75526">kompatibilismus/inkompatibilismus</a>   <br /></li>
-<li><a href="20260604-kriterien_fur_accountability.html#ID-cefdca1c-cae4-4c56-956e-74de8ab53729">Kriterien für accountability</a> <br /></li>
-<li><a href="20260604-aspekte_von_accountability.html#ID-dd12aa43-f849-4e60-83df-d7c64d3d95ca">Aspekte von accountability</a>   <br /></li>
-<li><a href="20260604-verantwortungslucken.html#ID-11fa5ef8-1a76-44af-a8dd-de7a4f3b2992">Verantwortungslücken</a><br /></li>
-<li><a href="20260604-willensfreiheit_nach_frankfurt.html#ID-21bf30a1-d595-48e0-84b5-b06686b2b8f0">willensfreiheit nach Frankfurt</a>   <br /></li>
-<li><a href="20260604-non_identity_problem.html#ID-ba7791f8-b80c-4c8f-b25f-3827a227c386">non-identity problem</a>   <br /></li>
-<li><a href="20260604-asymmetrie_negative_positive_verantwortung.html#ID-91a2518c-b35a-476a-bc69-c35458214e85">asymmetrie: negative / positive Verantwortung</a> <br /></li>
-<li><a href="20260604-prinzip_alternativer_moglichkeiten.html#ID-df41afbf-50ee-4edc-876d-5082fd0fcedb">prinzip alternativer möglichkeiten</a>   <br /></li>
-<li><a href="20260604-subjektivierung_von_freiheit.html#ID-9d1c25b7-0ad4-4007-b74e-f1b87ff4f8f9">subjektivierung von freiheit</a> / <a href="20260604-konsequentialistische_definition_von_freiheit.html#ID-248f5f8f-e569-43ed-b7c5-52147bb7fdf9">konsequentialistische definition von verantwortung</a>   <br /></li>
-<li>strawson: d<br /></li>
+<li>vernünftige mensch ist zweck bei kant</li>
+
+<li>Handle nur nach derjenigen Maxime, durch die du zugleich wollen kannst, dass sie ein allgemeines Gesetz werde</li>
+
+<li>Handle so, dass du die Menschheit [...] jederzeit zugleich als Zweck, niemals bloß als Mittel brauchst</li>
+
+<li>reich der zwecke: systematische verbindung verschiedener vernünftiger wesen durch gemeinschaftliche gesetze"</li>
+
+<li>preis / würde im reich der zwecke</li>
+
+<li>moralität ist die bedingung unter der allein ein vernüntfiges wesen zweck an sich selbst sein kann</li>
+
+<li>poistiv freier wille: selbstgesetzgebung, auch an moralische gesteze gebunden = guter wille</li>
+
+<li>entdecken willensrfeiheit durch pfilchtbewusstsein</li>
+
+<li>leerer formalismus, emotionsfrei, dogmatismus</li>
+
+<li>epikur: tugend als mittel, seelenruhe &amp; lust</li>
+
+<li>skeptiker: unerschütterlichkeit, tugend als mittel</li>
+
+<li>stoiker: tugend als zweck (und höchstes gut)</li>
+
+<li>kyniker: unabhängigkeit; tugend als bestandteil des höchsten guts</li>
+
+<li>euidaimonia: wählen wir als selbstzweck</li>
+
+<li>tugend als gewohnheit einer wohlfunktionierenden person:</li>
+<ul>
+<li>muss erworben werden, aktives handeln</li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2026-06-04 Do 19:27</p>
+<li>für tugend: muss gerne tugendhaft handeln; freude zeigt, dass man wahrhaft tugendhaft ist</li>
+<ul>
+<li>durch übung: lustvoll</li>
+</ul>
+<li>negativ / positiv freier wille bei kant:</li>
+<ul>
+<li>negativ freier = unabhängig</li>
+
+<li>positiv freier = selbstgesetzgebung nach dem moralischen gesetz</li>
+</ul>
+<li>nonkognitivismus relativistisch ?</li>
+<ul>
+<li>kann sein, muss nicht (gefühle gegenüber einer sache können ; insbsenodere quasi-realism)</li>
+</ul>
+<li>leopold landethik:</li>
+<ul>
+<li>ethische beziehung zum land existiert und ist begründet durch hochachtung/hochschätzung für das land</li>
+
+<li>trennung: eigentum / moralisches objekt; umwelt ist moralisches objekt</li>
+</ul>
+<li>ethische sequenz:</li>
+<ul>
+<li>erweiterung von ~&gt; z.B. von individuum - individuum ~&gt; zu abstraktaren ethischem fragen: individuum - staat/gesellschaft</li>
+<ul>
+<li>bis hin zur erweiturng: mensch land</li>
+</ul></ul></ul>
+<ul>
+<li>land-ethik: schließt umwelt ein; mensch statt erborer sondenrn mitglied</li>
+</ul>
+<ul>
+<li>rolston:</li>
+<ul>
+<li>natur hat einen objektiven (nicht vom menschen) abhängigen intrinsischen wert + sein-sollen</li>
+</ul></ul>
 </div>
 </body>
 </html>

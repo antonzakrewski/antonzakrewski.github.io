@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>locoal homology at a compact subset of a manifold of smaller dimension</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-bb08e62e-f817-4ef0-910c-d0322fd409c7"></span><h1 class="title">locoal homology at a compact subset of a manifold of smaller dimension</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let \(M\) be an \(n\)-dimensional <a href="20221113224914-mannigfaltigkeit.html#ID-635e5ff5-f006-46bf-891a-869ae972d6e6">manifold</a> and $K \subseteq X$ <a href="20230412003456-compact_set.html#ID-d09ae6d2-2b5c-41c1-a54d-3259d3e2f0f0">compact</a>.
+Then for an <a href="20211008174655-abelsche_gruppe.html#ID-7281c9cf-564f-4c4c-8c3f-fc1424ac85f8">abelian</a> <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a> $A$ the <a href="20230901-homologie.html#ID-1b7b88ca-b993-46dc-8ebe-8531d90dc8f4">singular homology</a> is given
+</p>
+
+<div class="math-block">\begin{align*}
+H_k(X; X \setminus K,M) = 0
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+using <a href="20240614-compact_subset_of_a_locally_euclidean_space_coverable_by_finitely_many_locally_euclidean_compact_subspaces.html#ID-9d630771-7549-4aa5-9009-6374a7740c23">compact subset of a locally euclidean space coverable by finitely many locally euclidean compact subspaces</a>
+<a href="20221024165350-beweis_durch_vollstandige_induktion_mit_starkerer_induktionsvoraussetzung.html#ID-1534f6c1-e094-4672-8e87-f36eb0e54b8b">Proof by induction</a>
+</p>
+
+<h3 id="induction-basis">induction basis</h3>
+<p>
+If $K = K_1$ is contained in a single chart $U_{\alpha}$ <a href="20240119-excision_of_homology.html#ID-2bf7ff5b-d489-4326-8a2d-ed936e8b6a5e">excision of homology</a> for
+</p>
+
+<div class="math-block">\begin{align*}
+(U_{\alpha}, K \setminus (X \setminus U_{\alpha})) \hookrightarrow (X,K) 
+\end{align*}</div>
+<p>
+implies
+</p>
+
+<div class="math-block">\begin{align*}
+H_k(X, X \setminus K;R) \cong&amp; H_k(U_{\alpha}, X \setminus K;R) \\
+\cong&amp; H_k( \mathbb{R}^n, \mathbb{R}^n \setminus \varphi_{\alpha}(K);R)
+\end{align*}</div>
+<p>
+therefore using <a href="20240614-reltaive_homology_for_a_euclidean_space_with_higher_dimension.html#ID-0410afa1-c40d-4b72-ad51-37955798fbb6">relative homology for a euclidean space with higher dimension</a> this evaluates as <a href="20230402213821-zero_object.html#ID-9ea95c71-2120-411e-8447-87c82ba32c98">zero object</a>
+</p>
+
+<h3 id="induction-step">induction step</h3>
+<p>
+Let $A = \bigcup_{i=1}^r K_i$, then it remains to show this for $A \cup K_{r+1}$.
+</p>
+
+<p>
+Note that $A \cap K_{r+1}$ is contained in a single chart.
+Then <a href="20240308-mayer_vietoris_for_singular_homology.html#ID-ec4ba1b0-1aab-4a28-a390-3b11193e2ef2">mayer vietoris for singular homology</a> results in the long exact sequence
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+0 \arrow[]{d}{\cong} &amp; &amp; 0 \arrow[]{d}{\cong} \\
+H_{k+1}(X, X \setminus (A \cap K_{r+1};R) \arrow[]{r}{\partial} &amp; H_k(X, X \setminus (A \cup K_{r+1});R) \arrow[]{r}{} &amp; H_k(X, X \setminus A;R) \oplus H_k(X, X \setminus K_{r+1};R) \arrow[]{r}{\nabla} 
+\end{tikzcd}
+\end{displaymath}</pre></div>
+<p>
+here the vertical isomorphisms are given by assumpition
+</p>
+
+<p>
+thus we are done by <a href="20240312-sandwhich_by_isomorphisms_and_exact.html#ID-342db6fe-286c-49d3-b7f7-d39f65e78788">exactly sandwhiched by isomorphisms and zero object</a>
+</p>
+
+</div>
+</body>
+</html>

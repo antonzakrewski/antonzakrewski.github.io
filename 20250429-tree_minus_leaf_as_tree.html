@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>tree minus leaf as tree</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-c4cb2fb2-5d52-4534-9601-037242d0bc4a"></span><h1 class="title">tree minus leaf as tree</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $G = (V,E)$ be a <a href="20221024152607-baum.html#ID-b2969a00-e313-42e8-afe1-62a33cb45013">tree</a> and $v \in V$ a <a href="20230327231133-blatt_graph.html#ID-71b73961-4304-4a0a-a379-14f1cb91fac3">leaf</a>.
+Then $G \setminus \{v\}$ is also a tree
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="connected">connected</h3>
+<p>
+Let $v_1,v_2 \in G \setminus \{v\}$ be edges.
+We have to show that there exists a <a href="20230327231733-pfad_graph.html#ID-c96c7b83-8e70-4f6c-bcbc-fb3e126bd9fe">path</a> in $G \setminus \{v\}$.
+For this consider a path $\gamma$ form $v_1$ to $v_2$ in $G$ (note that this exists, since $G$ is connected).
+Then we claim that $v \not\in \gamma$, hence $\gamma$ restricts to $G \setminus \{v\}$.
+</p>
+
+<p>
+Assume $v \in \gamma$, then we would get $v_i \rightarrow v \rightarrow v_{i+1}$ with distinct edges.
+Contradiction to $d_{G}(v) = 1$ where $v$ is a leaf.
+</p>
+
+<h3 id="acyclic">acyclic</h3>
+<p>
+note that a subgraph of an acyclic graph has to be also acyclic, as any cycle in the subgraph would provide a cycle in the bigger graph
+</p>
+
+</div>
+</body>
+</html>

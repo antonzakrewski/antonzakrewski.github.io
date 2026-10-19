@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Approximationseigenschaft Lebesgue messbarer Mengen</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-edf2b7de-9d3e-4b0f-9ec8-7ab97d5d0e1b"></span><h1 class="title">Approximationseigenschaft Lebesgue messbarer Mengen</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sie $A \subseteq \mathbb{R}^d$ eine <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">Teilmenge</a>
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol>
+<li>$A \in \overline{\mathcal{B}^d}$ ist <a href="20241028-lebesgue_messbare_mengen.html#ID-5f5b96d9-5f03-4cc8-be94-71bda2cee727">lebesgue messbar</a> </li>
+
+<li>für alle $\varepsilon &gt; 0$ existiert ein $U \subseteq \mathbb{R}^d$ offen und ein $C \subseteq \mathbb{R}^d$ <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossen</a> so dass gilt</li>
+</ol>
+<div class="math-block">\begin{align*}
+C \subseteq A \subseteq U
+\end{align*}</div>
+
+<div class="math-block">\begin{align*}
+\lambda(U \setminus C)  &lt; \varepsilon
+\end{align*}</div>
+<p>
+für das <a href="20241028-lebesgue_maß.html#ID-5823a0cb-ada2-475c-b5f4-13d1e32b4f73">Lebesgue Maß</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+
+<h4 id="a-konstruktion-einer-offenen-menge">a) Konstruktion einer Offenen Menge</h4>
+<p>
+Sei $\varepsilon &gt; 0$ und $A \in \overline{\mathcal{B}^d}$
+Angenommen $\overline{\lambda}^d(A) &lt; \infty$.
+Dann gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{\lambda^d}(A) =&amp; (\lambda^d)^*(A) \\
+\mathrm{inf}_{(F_n)_n \in \mathcal{F}^d, A \subseteq \bigcup F_n} \sum_{n \in \mathbb{N}} \lambda^d(F_n)
+\end{align*}</div>
+<p>
+nach ???
+</p>
+
+<p>
+Damit existiert eine Folge $I_n \in \mathcal{I}^d$ mit $A \subseteq \bigcup_{n \in \mathbb{N}} I_n$ und
+</p>
+
+<div class="math-block">\begin{align*}
+\sum_{n \in \mathbb{N}} \lambda^d(I_n) &lt; \overline{\lambda}(A) + \frac{\varepsilon}{2}
+\end{align*}</div>
+
+
+<p>
+Setze $U \coloneqq \bigcup_{n \in \mathbb{N}} \mathrm{int}(J)_n$, dann ist $U$ offen mit $U \subseteq A$.
+Zudem gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{\lambda^d}(U \setminus A) =&amp; \lambda^d(U) - \overline{\lambda^d}(A) \\
+\leq&amp; \sum_{n \in \mathbb{N}} \lambda^d(\mathrm{int}(J)) - \overline{\lambda^d}(A) &lt; \varepsilon
+\end{align*}</div>
+
+<p>
+wobei <a href="20241015-subtraktivitat_eines_inhalts.html#ID-e768ef1b-bfd6-49c6-bb98-6cf549671de6">Subtraktivität eines Inhalts</a>
+</p>
+
+<h4 id="b-allgemeiner-fall">b) allgemeiner Fall</h4>
+<p>
+Sei $A \in \overline{\mathcal{B}^d}$ beliebig, $n \in \mathbb{N}$.
+Dann ist
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{\lambda^d}(A \cap [-n,n]^d) \leq \overline{\lambda^d}([-n,n]^d) &lt; \infty
+\end{align*}</div>
+
+<p>
+Nach a) existiert ein $U_n \subseteq \mathbb{R}^d$ offen mit
+</p>
+
+<div class="math-block">\begin{align*}
+U_n \supseteq A \cap [-n,n]^d
+\end{align*}</div>
+<p>
+und
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{\lambda^d}(U_n \setminus (A \cap [-n,n]^d)) &lt; \frac{\varepsilon}{2^n}
+\end{align*}</div>
+
+<p>
+Es folgt dann, dass
+</p>
+
+<div class="math-block">\begin{align*}
+U \coloneqq \bigcup_{n \in \mathbb{N}} U_n
+\end{align*}</div>
+<p>
+offen ist mit $U \supseteq A$ und
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{\lambda^d}(U \setminus A) \leq&amp; \sum_{n \in \mathbb{N}} \overline{\lambda^d}(U_n \setminus A) \\
+\leq&amp; \overline{\lambda^d}(U_n \setminus (A \cap [-n,n]^d)) \\
+&lt;&amp; \sum \frac{\varepsilon}{2^n} \\
+\leq&amp; \varepsilon
+\end{align*}</div>
+
+<h4 id="c-abgeschlossene-menge">c) abgeschlossene Menge</h4>
+<p>
+Sei $\varepsilon &gt; 0$, dann existiert nach Annahme für $A^c$ ein $V \subseteq A^c$ mit
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{\lambda^d}(V \setminus A^c) &lt; \varepsilon
+\end{align*}</div>
+<p>
+Dabei gilt aus $A \in \overline{\mathcal{B}^d}$ auch $A^c \in \overline{\mathcal{B}^d}$, schließlich ist $\overline{\mathcal{B}^d}$ eine sigma-algebra$
+Setze $C \coloneqq V^c$, dann ist $C$ abgeschlossen mit $C \subseteq A$ und
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{\lambda^d}(A \setminus C) = \overline{\lambda^d}(A \cap V) = \overline{\lambda^d}(V \setminus A^c) &lt; \varepsilon
+\end{align*}</div>
+
+<p>
+Damit existieren $U \subseteq A$ offen und $C \subseteq A$ abgeschlossen mit
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{\lambda^d}(A \setminus C)}, \overline{\lambda^d}(U \setminus A) &lt; \varepsilon
+\end{align*}</div>
+<p>
+bzw. wegen
+</p>
+
+<div class="math-block">\begin{align*}
+U \setminus C = A \setminus C \sqcup U \setminus A
+\end{align*}</div>
+<p>
+auch
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{\lambda^d}(U \setminus C) = \overline{\lambda^d}(A \setminus C)} +  \overline{\lambda^d}(U \setminus A) \\
+&lt;&amp; 2\varepsilon
+\end{align*}</div>
+
+
+<h3 id="2-implies-1">2) $\implies$ 1)</h3>
+<p>
+Sei $\varepsilon = \frac{1}{n} &gt; 0$
+Dann existieren $C_n \subseteq A \subseteq U$ mit $C_n$ abgeschlossen und $U_n$ offen.
+Dann folgt
+</p>
+
+<div class="math-block">\begin{align*}
+A = C_n \cup (A \setminus C_n)
+\end{align*}</div>
+<p>
+mit $A_n \setminus C_n \subseteq U_n \setminus C_n$
+</p>
+
+<p>
+Es folgt
+</p>
+
+<div class="math-block">\begin{align*}
+A = \bigcup C_n \cup \bigcap (A \setminus C_n)?
+\end{align*}</div>
+<p>
+mit $\bigcup C_n \in \mathcal{B}$ messbar.
+</p>
+
+<p>
+Es bleibt zu zeigen, dass $(A \setminus C_n)$ eine teilmenge einer Nullmenge ist.
+sei $\varepsilon &gt; \frac{1}{n} &gt; 0$ beliebig, dann gilt
+</p>
+
+<div class="math-block">\begin{align*}
+(\bigcap A \setminus C_n) \subseteq A \setminus C_n \subseteq U_n \setminus C_n
+\end{align*}</div>
+<p>
+bzw.
+</p>
+
+<div class="math-block">\begin{align*}
+\lambda(\bigcap A \setminus C_n) \leq \lambda(U_n \setminus C_n) &lt; \frac{1}{n}  &lt; \varepsilon
+\end{align*}</div>
+
+<p>
+Da $U_n \setminus C_n$ messbar ist, ist auch $\bigcap U_n \setminus C_n$ messbar mit $\lambda(\bigcap U_n \setminus C_n) &lt; \varepsilon$ für beliebiges $\varepsilon$.
+Damit ist $\lambda(\bigcap U_n \setminus C_n) = 0$ und $\bigcap A \setminus C_n$ ist eine teilmenge einer Nullmenge
+</p>
+
+</div>
+</body>
+</html>

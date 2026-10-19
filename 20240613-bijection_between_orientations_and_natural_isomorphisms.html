@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>bijection between orientations and natural isomorphisms</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-a6e4ef8e-60d6-448a-a98a-f85affdd1981"></span><h1 class="title">bijection between orientations and natural isomorphisms</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let \(M\) be an \(n\)-dimensional <a href="20230118223336-zusammenhangender_raum.html#ID-bcc53507-bc5a-46d4-bd83-53e504f62b9d">connected</a> <a href="20221113224914-mannigfaltigkeit.html#ID-635e5ff5-f006-46bf-891a-869ae972d6e6">manifold</a>, $R$ a <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a>.
+Then there exists a <a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">Bijection</a> between
+</p>
+<ol>
+<li><a href="20230404122456-natural_isomorphism.html#ID-0977f626-bc15-4197-93bd-092d014c8270">natural isomorphisms</a> $\nu_{X} \cong \overline{R}$ for the <a href="20240614-groupoid_to_homology_functor.html#ID-a0290450-f5ef-41a0-b51a-d525269fbb80">fundamental groupoid to homology functor</a> and the <a href="20220830195220-constant_functor.html#ID-4ff6affe-14a3-4ed7-a0e3-1837838e8409">constant functor</a></li>
+
+<li><a href="20240613-r_orientation_of_a_manifold.html#ID-a0336fa3-412e-4f8f-9e97-2cffccc1c87c">R-Orientations</a></li>
+</ol>
+<h2 id="proof">Proof</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+<p>
+Suppose $\tau: \overline{R} \rightarrow \nu_{X}$ is a natural isomorphism.
+Then for each $x \in X$ pick a chart $\varphi: U_x \cong \mathbb{R}^n$ and consider the <a href="20221125072633-offene_uberdeckung.html#ID-f64293ce-3838-4f49-b45d-07666123c2c9">open cover</a>
+</p>
+
+<div class="math-block">\begin{align*}
+V_x = \varphi_{x}^{-1}(B_1(\varphi_x(x))) \subseteq U_x
+\end{align*}</div>
+<p>
+with $\overline{V}_x \subseteq U_x$
+</p>
+
+<p>
+For each $x \in X$ there exist <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphisms</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/20bebfd8a0eb8f0bc097.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Let
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{s}_x \coloneqq \isomega_{x}^{-1}(1) \in H_n(X, X \\vert \overline{V}_x;R)
+\end{align*}</div>
+<p>
+and $s_x$ the image of $\overline{s}_x$ in $H_n(X, X \setminus V_x;R)$
+</p>
+
+<p>
+Then $(s_x)_x$ is a compatible family of \(R\)-orientations:
+Let $x,y \in X$ and $z \in \overline{V}_x \cap \overline{V}_y$ be arbitrary.
+</p>
+
+<p>
+Then choose <a href="20230308142118-weg.html#ID-7c6527d3-2217-4c14-85ab-d1545b889ba8">paths</a> $\lambda: x \leadsto z, \mu: y \leadsto z$ (cf. <a href="20240615-connected_manifold_as_path_connected_manifold.html#ID-1497450a-201f-4117-a08b-352dacb2f6ca">connected manifold as path connected manifold</a>)
+</p>
+
+<p>
+Then consider the diagram
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+H_n(X, X \setminus \overline{V}_x;R) \arrow[]{rr}{\cong} \arrow[]{rd}{}&amp; &amp;  H_n(X, X \setminus \{x\};R) \arrow[]{r}{\tau_x} \arro[]{d}{\alpha_{\lambda}}&amp; R \arrow[]{d}{=}\\
+&amp; H_n(X, X \setminus \overline{V}_x \cap \overline{V}_y;R) \arrow[]{r}{\cdot r} &amp;  H_n(X, X \setminus \{z\};R) \arrow[]{r}{\tau_z} &amp; R \\
+H_n(X, X \setminus \overline{V}_y;R) \arrow[]{rr}{\cong} \arrow[]{ru}{}&amp; &amp;  H_n(X, X \setminus \{y\};R) \arrow[]{r}{\tau_y} \arrow[]{u}{\alpha_{\mu}}&amp; R \arrow[]{u}{=}\\
+\end{tikzcd}
+\end{displaymath}</pre></div>
+
+<p>
+Then the right part commutes as $\tau$ is a natural transformation.
+The left part commutes by &lt;&gt; (welldefinedness of the fundamental groupoid to homology functor)
+</p>
+
+<p>
+This implies that $\overline{s}_x, \overline{s}_y$ map to the same element in $H_n(X, X \setminus \{z\};R)$
+Since $\overline{V}_x \cap \overline{V}_y$ is contained in a single chart $U$, the map
+</p>
+
+<div class="math-block">\begin{align*}
+H_n(U, U \setminus \overline{V}_x \cap \overline{V}_y;R) &amp; H_n(U, U \setminus \{z\};R)
+\end{align*}</div>
+
+<p>
+TODO
+</p>
+
+
+
+<h3 id="2-implies-1">2) $\implies$ 1)</h3>
+<p>
+Let $\sigma_{X} = (\sigma_{X,K})_K$ be an R-orientation of $X$.
+Then define
+</p>
+
+<div class="math-block">\begin{align*}
+\tau_x: R \rightarrow \nu_{X}(x) = H_n(X, X \setminus x;R) \cong R
+1 \mapsto&amp; \sigma_{X,x}
+\end{align*}</div>
+<p>
+(cf. <a href="20240509-universal_property_of_a_ring_as_modul.html#ID-d2116c82-bbdc-4a85-aa60-efeeceb0c6eb">universal property of a ring as module</a>)
+</p>
+
+<p>
+Since $\sigma_{X,x}$ is by assumption a generator, this is an <a href="20230303170548-modulisomorphismus.html#ID-808e406f-ac3b-433c-a704-4f83909ef60d">module-isomorphism</a> (cf. <a href="20240614-generator_of_a_ring_as_module_as_units.html#ID-3ad89428-94b5-486a-99c9-8fe16d668cb5">generator of a ring as module as units</a>)
+</p>
+
+<p>
+Therefore it remains to show naturality
+</p>
+
+<p>
+Let $\lambda: [0,1] \rightarrow X$ be a <a href="20230308142118-weg.html#ID-7c6527d3-2217-4c14-85ab-d1545b889ba8">path</a> from $x$ to $y$ and $0 = t_0 &lt; ... &lt; t_r = 1$ a subdivision with respect to <a href="20230723-karte_mannigfaltigkeit.html#ID-ba69f262-31e8-4d80-b2b1-d9e270e32a08">charts</a> $U_i$
+Then it remains to show that
+</p>
+
+<div class="math-block">\begin{align*}
+\alpha_i(\sigma_{X,\lambda(t_i)}) = \sigma_{X,\lambda(t_{i+1})}
+\end{align*}</div>
+
+<p>
+Then choose an open set $B \subseteq U_{i}$ such that
+</p>
+<ol>
+<li>$\overline{B} \subseteq U_i$</li>
+
+<li>$\lambda(t_i), \lambda(t_{i+1}) \in \overline{B}$</li>
+</ol>
+<p>
+Then $\overline{B}$ is <a href="20230412003456-compact_set.html#ID-d09ae6d2-2b5c-41c1-a54d-3259d3e2f0f0">compact</a> and hence
+</p>
+
+<div class="math-block">\begin{align*}
+\sigma_{X, \overline{B}} \in H_n(X, X \setminus \overline{B};R)
+\end{align*}</div>
+<p>
+restricts by assumption both to $\sigma_{X,\lambda(t_i)}, \sigma_{X, \lambda(t_{i+1})}$
+</p>
+
+
+</div>
+</body>
+</html>

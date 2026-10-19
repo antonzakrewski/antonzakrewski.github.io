@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>fiber functor to hTop</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-ddb591c8-f994-418c-a6c2-f99a58c7690c"></span><h1 class="title">fiber functor to hTop</h1>
+
+<h2 id="definition-proposition">Definition / Proposition</h2>
+<p>
+Let $p: E \rightarrow B$ be a <a href="20241023-hurewicz_fibration.html#ID-8660051b-9f49-4cf9-849f-41ed68a6050e">hurewicz fibration</a>.
+Then the fiber functor to <a href="20230302132848-kategorie_htop.html#ID-c1b80c0a-55e4-4dc9-9f32-cf2ef86e98f6">Category hTop</a> is defined as
+</p>
+
+<div class="math-block">\begin{align*}
+\Phi_{p}: \tau_{\leq 1}(B) \rightarrow&amp; \mathrm{hTop}
+b \mapsto&amp; E_b \\
+(\gamma: b \leadsto b') \mapsto&amp; (\Phi_{p}(\gamma): E_b \rightarrow E_{b'})
+\end{align*}</div>
+<p>
+where $\tau_{\leq 1}(B)$ is the <a href="20231128-fundamental_groupoid_of_space.html#ID-e436d255-fa9c-4743-ac40-6d62f88116a3">fundamental groupoid</a> and $\Phi_{p}(\gamma)$ is the homotopoy class of
+</p>
+
+<div class="math-block">\begin{align*}
+h(-,1): E_b \rightarrow E_{b'}
+\end{align*}</div>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/a6d2c5ddd5b8ad1ff6b8.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="welldefined">welldefined</h3>
+<p>
+note that $p(h(-,1)) = \gamma$ hence this map restricts to the fiber
+</p>
+
+<h3 id="independence-of-choice">independence of choice</h3>
+
+<h4 id="choice-of-path-and-choice-of-lifts">choice of path and choice of lifts</h4>
+<p>
+Assume $\gamma,\gamma'$ are paths, $h,h'$ are lifts constructed above and $\Gamma$ is a homotopy $\gamma \leadsto \gamma'$ relative endpoints.
+</p>
+
+<p>
+Then we can lift <a href="20240702-serre_fibration_and_lifting_problem_of_a_relative_cw_complex.html#ID-ca30e3b2-326e-459d-9d46-c96bdc1a37c2">serre fibration and lifting problem of a relative cw complex</a> for the trivial cw complex $(E_b,E_b)$ (?)
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/0192fe0ada13dac3f1fd.svg" class="org-svg" alt="diagram" /></span></div>
+<ul>
+<li>todo: this diagram commutes</li>
+</ul>
+<p>
+Then it follows that
+</p>
+
+<div class="math-block">\begin{align*}
+p(H(e,1,t) =&amp; \Gamma(1,t) = b' \\
+H(e,1,0) =&amp; h(e,1)  \\
+H(e,1,1) =&amp; h'(e,1)  \\
+\end{align*}</div>
+
+<p>
+Hence $H(-,1,-): E_b \tiems [0,1] \rightarrow E_{b'}$ is a homotopy from $\Phi_{p}(\gamma)$ to $\Phi_{p}(\gamma')$
+</p>
+
+<h3 id="functorality">functorality</h3>
+
+<h4 id="identity">identity</h4>
+<p>
+Given
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/e8486147d9a175f904c5.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+we may take the map
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/7f4226823e39dceb64c6.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+which gives the identity on $E_b$
+</p>
+
+<h4 id="composition">composition</h4>
+<p>
+follows as for $\gamma, \gamma'$ we may find $h,h'$ which lift
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+E_b \times \{0\} \dar \arrow[]{rr}{} &amp; &amp; E \dar \\
+E_{b} \times [0,1] \arrow[]{rd}{} \arrow[dashde]{rru}{h \cup h'} &amp; &amp; B \\
+&amp; [0,0.5] \cup [0.5,1] \arrow[dashed]{ru}{\gamma \cup \gamma'}&amp; \\
+\end{tikzcd}
+\end{displaymath}</pre></div>
+
+
+</div>
+</body>
+</html>

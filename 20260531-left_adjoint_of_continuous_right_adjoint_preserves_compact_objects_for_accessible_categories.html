@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>left adjoint of continuous right adjoint preserves compact objects for accessible categories</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-c0843a5a-80ab-406a-a0d5-9b560af8b25e"></span><h1 class="title">left adjoint of continuous right adjoint preserves compact objects for accessible categories</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\kappa$ be a <a href="20241016-regular_cardinal.html#ID-971d460d-ad43-48cd-b619-b83936191fce">regular cardinal</a>, $\mathcal{C}, \mathcal{D}$ be <a href="20240221-accessible_category.html#ID-3fe9bd5f-e8be-4479-9db9-d7dfc0816c26">kappa accessible categories</a> and $\mathcal{F}: \mathcal{C} \rightarrow \mathcal{D}, \mathcal{G}: \mathcal{D} \rightarrow \mathcal{C}$ be an <a href="20220825195614-adjunktion_kategorientheorie.html#ID-1f2a58d8-4093-4646-a6e0-d0ef764ca84b">adjoints</a> $\mathcal{F} \dashv \mathcal{G}$.
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol>
+<li>$\mathcal{F}$ preserves <a href="20241016-kappa_compact_object.html#ID-4a8967b2-7c84-4c8b-b590-aadea095f9fd">kappa compact objects</a></li>
+
+<li>$\mathcal{G}$ is <a href="20241021-kappa_continuous_infinity_functor.html#ID-7737a786-1520-4472-a42c-071945644b98">kappa continuous</a> in the sense that it <a href="20241017-infinity_functor_preserving_colimits_of_a_shape.html#ID-896858bc-5a83-4c8f-94bf-8c2250524596">preserves</a> <a href="kappa-filtered-infinity-colimit.html#ID-b8bba4f3-4065-46e4-9f89-f79a3b3fbb97">kappa filtered colimits</a> </li>
+</ol>
+<h2 id="proof">Proof</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+<p>
+Let $I \rightarrow \mathcal{D}$ be a diagram.
+We want to show that the canonical map $\mathrm{colim}_{I} \mathcal{G}(D_i) \rightarrow \mathcal{G}(\mathrm{colim}_{I} D_i)$ is an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a>.
+Now <a href="20241204-presentable_category_and_ind.html#ID-28fd8876-a611-408f-b1fc-5676e6da5c96">a kappa presentable category admits a set of kappa compact generators</a> $\{C_j\} \subseteq \mathcal{C}$, so it suffices to show that
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Hom}_{\mathcal{C}}(C_j, \mathrm{colim}_{I} \mathcal{G}(D_i)) \rightarrow \mathrm{Hom}_{\mathcal{C}}(C_j, \mathcal{G}(\mathrm{colim}_{I} D_i))
+\end{align*}</div>
+<p>
+is an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a>
+</p>
+
+<p>
+But we may use that $C_i$ is $\kappa$ compact so we get natural equivalences
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Hom}_{\mathcal{C}}(C_j, \mathrm{colim}_{I} \mathcal{G}(D_i)) \simeq&amp; \mathrm{colim}_{I} \mathrm{Hom}_{\mathcal{C}}(C_j,  \mathcal{G}(D_i)) \\
+\simeq&amp; \mathrm{colim}_{I} \mathrm{Hom}_{\mathcal{D}}(\mathcal{F}(C_j), D_i) \\
+\simeq&amp;  \mathrm{Hom}_{\mathcal{D}}(\mathcal{F}(C_j), \mathrm{colim}_{I} D_i) \\
+\simeq&amp; \mathrm{Hom}_{\mathcal{C}}(C_j,\mathcal{G}(\mathrm{colim}_{I} D_i))
+\end{align*}</div>
+<p>
+where we have used that $\mathcal{F}(C_j)$ is compact.
+</p>
+
+<p>
+todo: some identification why this is the canonical map
+</p>
+
+
+<h3 id="2-implies-1">2) $\implies$ 1)</h3>
+<p>
+follows from: <a href="20241021-left_adjoint_of_a_continuous_right_adjoint_preserves_compact_objects.html#ID-2d4f39de-1630-48b4-9adb-7a1a111090d8">left adjoint of a continuous right adjoint preserves compact objects</a>
+</p>
+
+</div>
+</body>
+</html>

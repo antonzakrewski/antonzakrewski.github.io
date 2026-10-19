@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Riesz-Fischer über die Vollständigkeit von LP</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-93a23610-a034-4f56-878b-738f2955b635"></span><h1 class="title">Riesz-Fischer über die Vollständigkeit von LP</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $(X, \mathcal{A}, \mu)$ ein <a href="20241019-maßraum.html#ID-2135bec8-c3bb-4fca-a24a-21334f66d7ae">Maßraum</a>,
+Sei $p \in [1,\infty]$.
+</p>
+
+<p>
+Dann ist $L^p(\mathcal{A})$ ein <a href="20221124132702-banachraum.html#ID-43ef125e-d9bb-454f-9427-4d3d8426893a">Banachraum</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Sei $f_n$ eine <a href="20220105223523-fundamental_folge.html#ID-45b890ea-39cc-4f8c-bf97-4de5c09d772a">Cauchy</a> folge.
+</p>
+
+<h3 id="p-in-1infty">$p \in [1,\infty)$</h3>
+<p>
+<a href="20241117-konvergenz_bezuglich_lp_und_existenz_einer_fast_uberall_konvergenten_teilfolge.html#ID-11848961-4e85-49bb-ba64-0f21ef9c2b54">konvergenz bezüglich Lp und Existenz einer fast überall konvergenten Teilfolge</a>
+</p>
+
+
+
+
+
+<h3 id="p-infty">$p = \infty$</h3>
+<p>
+Sei $(f_n)_n$ eine Cauchy Folge in $\mathcal{L}^{\infty}$, d.h.
+</p>
+
+<div class="math-block">\begin{align*}
+\| f_n - f_m \|_{\infty} &lt; \frac{1}{k}
+\end{align*}</div>
+<p>
+für <a href="20221013222501-fast_alle.html#ID-a3da14cb-05c1-4f9e-a68a-a693980f5ede">fast alle</a> $n &lt; m$ und beliebiges $k \in \mathbb{N}^+$
+</p>
+
+<p>
+Damit existiert für alle $k$ ein $N \in \mathbb{N}$, so dass für $n,m &gt; N$ eine <a href="20220902125205-nullmenge.html#ID-4edd0c4c-7828-4cbc-a25d-1031fecd0d5f">Nullmenge</a> $N_{n,k,m} \in \mathcal{A}$ existiert mit
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{sup}_{x \in X \setminus N_{n,k,m}} \vert f_n(x) - f_m(x) \vert &lt; \frac{1}{k}
+\end{align*}</div>
+
+<p>
+Setze
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{N} \coloneqq \bigcup_{n,m,k \in \mathbb{N}} N_{n,m,k}
+\end{align*}</div>
+<p>
+dann ist $\mathcal{N}$ eine Nullmenge (cf. <a href="20241103-abzahlbare_vereinigung_von_nullmengen_als_nullmenge.html#ID-f7d3c053-7697-4977-a56f-34f4e6695b5b">abzählbare vereinigung von Nullmengen als Nullmenge</a>)
+</p>
+
+<p>
+Dann gilt für alle $k \in \mathbb{N}$ und <a href="20221013222501-fast_alle.html#ID-a3da14cb-05c1-4f9e-a68a-a693980f5ede">fast alle</a> $n &lt; m$ auch
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{sup}_{x \in X \setminus \mathcal{N}} \vert f_n(x) - f_m(x) \vert &lt; \frac{1}{k}
+\end{align*}</div>
+<p>
+bzw.
+</p>
+
+<div class="math-block">\begin{align*}
+\vert f_n(x) - f_m(x) \vert &lt; \frac{1}{k}
+\end{align*}</div>
+
+<p>
+Damit ist $f_n(x) \in \mathbb{K}$ Cauchy für $x \in X \setminus \mathcal{N}$.
+</p>
+
+<p>
+Da $\mathbb{K}$ vollständig ist, setze
+</p>
+
+<div class="math-block">\begin{align*}
+f(x) \coloneqq 
+    \begin{cases}
+    \mathrm{lim}_{n \rightarrow \infty} f_n(x) &amp; \mbox{if } x \in X \setminus \mathcal{N} \\
+     0  &amp; \mbox{else } \\ 
+    \end{cases}
+\end{align*}</div>
+<p>
+diese abbildung ist messbar (cf.   ????)
+</p>
+
+<p>
+Es folgt, dass für alle $k \in \mathbb{N}$ ein $N$ existiert so dass für $n \geq N$ gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{sup}_{x \in X \setminus \mathcal{N}}( \vert f_n(x) - f(x) \vert \leq \frac{1}{k}
+\end{align*}</div>
+<p>
+wegen
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{sup}_{x \in X \setminus \mathcal{N}} \vert f_n(x) - f_m(x) \vert &lt; \frac{1}{k}
+\end{align*}</div>
+
+<p>
+Damit folgt auch
+</p>
+
+<div class="math-block">\begin{align*}
+f_n \rightarrow f
+\end{align*}</div>
+<p>
+unter der Norm $\| \cdot \|_{\infty}$
+</p>
+
+<p>
+Zudem gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{sup}_{x \in X \setminus \mathcal{N}} \vert f(x) \vert \leq 1 + \| f_{N} \|_{\infty} &lt; \infty
+\end{align*}</div>
+<p>
+für hinreichend großes $N$
+</p>
+
+<p>
+Damit ist $f \in \mathcal{L}^\infty$
+</p>
+
+</div>
+</body>
+</html>

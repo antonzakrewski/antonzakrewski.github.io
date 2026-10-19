@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:27 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Beweis: Existenz Inverses Element - Multiplikation komplexer Zahlen</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,88 +52,71 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Beweis: Existenz Inverses Element - Multiplikation komplexer Zahlen</h1>
-<div id="outline-container-org82bcd90" class="outline-2">
-<h2 id="org82bcd90"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
-\begin{align*}
+<span id="ID-366b21ab-f556-46b1-8223-b1e61c3c7ff7"></span><h1 class="title">Beweis: Existenz Inverses Element - Multiplikation komplexer Zahlen</h1>
+
+<h2 id="satz">Satz</h2>
+
+<div class="math-block">\begin{align*}
 \forall z \in \mathbb{C} \exists z^{-1} : z \cdot z^{-1} = 1 
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgd58a0be" class="outline-2">
-<h2 id="orgd58a0be"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orgb730384" class="outline-3">
-<h3 id="orgb730384"><span class="section-number-3">2.1.</span> <a href="20220225202306-polarform_komplexe_zahlen.html#ID-0c5c3a6e-af1e-4305-881e-4a6ee0e68f8d">Polarform einer komplexen Zahl</a></h3>
-<div class="outline-text-3" id="text-2-1">
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="id0c5c3a6e-af1e-4305-881e-4a6ee0e68f8dpolarform-einer-komplexen-zahl"><a href="20220225202306-polarform_komplexe_zahlen.html#ID-0c5c3a6e-af1e-4305-881e-4a6ee0e68f8d">Polarform einer komplexen Zahl</a></h3>
 <p>
-Sei \(z = a + b \mathrm{i} = \vert z \vert \cdot e^{\mathrm{i} \phi}\)
-Dann ist \(z' = \frac{1}{\vert z \vert} \cdot e^{\mathrm{i} (2\pi - \phi)}\), sodass gilt
+Sei $z = a + b \mathrm{i} = \vert z \vert \cdot e^{\mathrm{i} \phi}$
+Dann ist $z' = \frac{1}{\vert z \vert} \cdot e^{\mathrm{i} (2\pi - \phi)}$, sodass gilt
 </p>
-\begin{align*}
-z \cdot z' =& \vert z \vert \cdot e^{\mathrm{i} \phi} \cdot \frac{1}{\vert z\vert} \cdot e^{\mathrm{i}(2\pi - \phi)} \\
-=& \frac{\vert z \vert}{\vert z \vert} \cdot e^{\mathrm{i} (2\pi - \phi + \phi)} \\
-=& 1 \cdot e^{\mathrm{i} 2\pi} \\
-=& 1
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org9a7b280" class="outline-3">
-<h3 id="org9a7b280"><span class="section-number-3">2.2.</span> <a href="20220929123559-kartesische_darstellung_einer_komplexen_zahl.html#ID-35c6d30b-ec9e-49d8-8148-527cb93a8939">Kartesische Darstellung einer komplexen Zahl</a></h3>
-<div class="outline-text-3" id="text-2-2">
-\begin{align*}
-(a + b \mathrm{i}) \cdot (a' + b' \mathrm{i}) =& 1 + 0 \mathrm{i} \\
-aa' - bb' + \mathrm{i} (ab' + a'b) =& 1 + 0 \mathrm{i} \\
-\Rightarrow ab' + a'b =& 0 \\
-\Rightarrow aa' - bb' =& 1
-\end{align*}
-</div>
-<div id="outline-container-org5d87aff" class="outline-4">
-<h4 id="org5d87aff"><span class="section-number-4">2.2.1.</span> a)</h4>
-<div class="outline-text-4" id="text-2-2-1">
-\begin{align*}
-aa' - bb' =& 1 && \vert -1 + bb' \\
-aa' - 1 =& bb' && \vert \cdot a\\
-a^2a' - a =& abb'
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org75d8977" class="outline-4">
-<h4 id="org75d8977"><span class="section-number-4">2.2.2.</span> b)</h4>
-<div class="outline-text-4" id="text-2-2-2">
-\begin{align*}
-ab' + a'b =& 0 && \vert - a'b\\
-ab' =& - a'b && \vert \cdot b \\
-abb' =& - a'b^2
-\end{align*}
-</div>
-</div>
-</div>
-<div id="outline-container-org773cee7" class="outline-3">
-<h3 id="org773cee7"><span class="section-number-3">2.3.</span> Folgerung</h3>
-<div class="outline-text-3" id="text-2-3">
-\begin{align*}
-a^2a' - a =& - a'b^2 && \vert + a + a'b^2\\
-a^2a' + a'b^2 =& a \\
-a' \cdot (a^2 + b^2) =& a && \vert \cdot \frac{1}{a^2 + b^2} \\
-\Rightarrow a' =& \frac{a}{a^2 + b^2}
-\end{align*}
-\begin{align*}
-abb' =& - a'b^2 && \vert \cdot \frac{1}{ab} \\
-b' =& \frac{-a'b^2}{ab} \\
-b' =& \frac{a}{a^2 + b^2} \cdot \frac{-b}{a} \\
-b' =& \frac{-b}{a^2 + b^2}
-\end{align*}
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:27</p>
+
+<div class="math-block">\begin{align*}
+z \cdot z' =&amp; \vert z \vert \cdot e^{\mathrm{i} \phi} \cdot \frac{1}{\vert z\vert} \cdot e^{\mathrm{i}(2\pi - \phi)} \\
+=&amp; \frac{\vert z \vert}{\vert z \vert} \cdot e^{\mathrm{i} (2\pi - \phi + \phi)} \\
+=&amp; 1 \cdot e^{\mathrm{i} 2\pi} \\
+=&amp; 1
+\end{align*}</div>
+
+<h3 id="id35c6d30b-ec9e-49d8-8148-527cb93a8939kartesische-darstellung-einer-komplexen-zahl"><a href="20220929123559-kartesische_darstellung_einer_komplexen_zahl.html#ID-35c6d30b-ec9e-49d8-8148-527cb93a8939">Kartesische Darstellung einer komplexen Zahl</a></h3>
+
+
+<div class="math-block">\begin{align*}
+(a + b \mathrm{i}) \cdot (a' + b' \mathrm{i}) =&amp; 1 + 0 \mathrm{i} \\
+aa' - bb' + \mathrm{i} (ab' + a'b) =&amp; 1 + 0 \mathrm{i} \\
+\Rightarrow ab' + a'b =&amp; 0 \\
+\Rightarrow aa' - bb' =&amp; 1
+\end{align*}</div>
+
+<h4 id="a">a)</h4>
+
+<div class="math-block">\begin{align*}
+aa' - bb' =&amp; 1 &amp;&amp; \vert -1 + bb' \\
+aa' - 1 =&amp; bb' &amp;&amp; \vert \cdot a\\
+a^2a' - a =&amp; abb'
+\end{align*}</div>
+
+<h4 id="b">b)</h4>
+
+<div class="math-block">\begin{align*}
+ab' + a'b =&amp; 0 &amp;&amp; \vert - a'b\\
+ab' =&amp; - a'b &amp;&amp; \vert \cdot b \\
+abb' =&amp; - a'b^2
+\end{align*}</div>
+
+<h3 id="folgerung">Folgerung</h3>
+
+<div class="math-block">\begin{align*}
+a^2a' - a =&amp; - a'b^2 &amp;&amp; \vert + a + a'b^2\\
+a^2a' + a'b^2 =&amp; a \\
+a' \cdot (a^2 + b^2) =&amp; a &amp;&amp; \vert \cdot \frac{1}{a^2 + b^2} \\
+\Rightarrow a' =&amp; \frac{a}{a^2 + b^2}
+\end{align*}</div>
+
+<div class="math-block">\begin{align*}
+abb' =&amp; - a'b^2 &amp;&amp; \vert \cdot \frac{1}{ab} \\
+b' =&amp; \frac{-a'b^2}{ab} \\
+b' =&amp; \frac{a}{a^2 + b^2} \cdot \frac{-b}{a} \\
+b' =&amp; \frac{-b}{a^2 + b^2}
+\end{align*}</div>
+
 </div>
 </body>
 </html>

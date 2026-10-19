@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Z-complex induces spectral sequence</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-043eaeb9-2883-4e9b-aa00-b838b0688320"></span><h1 class="title">Z-complex induces spectral sequence</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathcal{C}$ be a <a href="20241017-stable_infinity_category.html#ID-baac6abf-7cfd-4eb9-9764-dfc1933edba4">stable</a> <a href="20240404-simplicial_set_as_infinity_category.html#ID-4635a6ee-1ad5-44cb-8e36-4a934f5ae4bf">category</a> equipped with a <a href="20241023-t_structure_on_a_stable_infinity_category.html#ID-6e276613-1d75-469a-a934-a7f6211cdadd">t-structure</a> and $\pi_n(-)$ the <a href="20250826-n_th_homotopy_object_functor_of_a_t_structure.html#ID-b6f34f39-d8f2-4992-a632-4c26849282af">n-th homotopy object functor of a t-structure</a>.
+Then there exists a $\mathcal{C}^{\heartsuit}$ valued <a href="20250826-spectral_sequence.html#ID-37b89bcc-af64-4182-9e25-2a7ac65f9ec4">spectral sequence</a> given by
+</p>
+<ol>
+<li>$E_{r}^p,q} = \mathrm{im}(\pi_{p+q}(X(p-r,p)) \rightarrow \pi_{p+q}(X(p-1,p+r-1)))$</li>
+
+<li>differentials $d_r: E_r^{p,q} \rightarrow E_r^{p-r,q+r-1}$ uniquely determined by</li>
+</ol>
+<div class="equation-container"><span class="equation"><img src="ltximg/d837212d827b626e821f.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+where $\partial$ is the boundray map of the <a href="20250827-long_exact_sequence_in_a_z_complex.html#ID-9fc051c1-63ca-43b3-b469-0803383e20e4">long exact sequence for a Z-complex</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="informal-construction-of-the-differential-for-mathrmrmod">informal construction of the differential, for $\mathrm{RMod}$</h3>
+<p>
+map an element in $E_r^{p,q}$ to $\pi_{p+q-1}(X(p-r-1,p-1))$ and observe that it restricts to $E_r^{p-r,q+r-1}$
+</p>
+
+<h3 id="differential-is-zero">differential is zero</h3>
+<p>
+Note that $E_r^{p,q} \hookrightarrow \pi_{p+q}(X(p-1,p+r-1))$ is a <a href="20220819135911-monomorphismus.html#ID-60b63797-32fa-4d4e-a577-7616faa010ba">monomorphism</a>.
+follows as
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/d837212d827b626e821f.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Then we have the cofiber sequences
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/801a6241245cb9e3b638.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+and
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/b6d5550ff17b554fb91e.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Note that there exists a diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/0798a0ef481b6fe3b5db.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+which consists of bifiber sequences as rows/column.
+</p>
+
+<p>
+Now we may apply the suspension and get
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/a99898e32af3e00d0381.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+where the dashed maps are the desired differentials.
+</p>
+
+<p>
+But the right vertical maps are still cofibers, so in particular they compose to the zero morphism.
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/c1875e53bc5360f02470.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+<h3 id="isomorphism-of-homology">isomorphism of homology</h3>
+
+<h4 id="some-zero">some zero</h4>
+<p>
+We want to show that the maps
+</p>
+
+<div class="math-block">\begin{align*}
+\pi_{p+q} X_(p-r-1,p) \rightarrow E_r^{p,q} \rightarrow E_r^{p-r,q+r-1} 
+E_r^{p+r,q+r-1} \rightarrow E_r^{p,q} \rightarrow \pi_{p+q}(X(p-1,p+r))
+\end{align*}</div>
+<p>
+are the zero maps
+We show this for the first map, the other claim follows from a dual argument.
+</p>
+
+<p>
+For that consider
+</p>
+
+
+</div>
+</body>
+</html>

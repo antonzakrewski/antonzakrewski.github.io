@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>groupoid core functor preserves and detects fully faithful exact functors between stable categories</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-0241316a-7e42-46cf-9dd7-19e225914367"></span><h1 class="title">groupoid core functor preserves and detects fully faithful exact functors between stable categories</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathcal{F}: \mathcal{C} \rightarrow \mathcal{D}$ be an <a href="20230726-exact_functor.html#ID-9541d8fb-ddba-43d6-941a-32b3b3bd7086">exact</a> <a href="20240404-functor_between_infinity_categories.html#ID-7428dc84-9acd-49bc-8e93-b1541326a6b9">functor</a> between <a href="20241017-stable_infinity_category.html#ID-baac6abf-7cfd-4eb9-9764-dfc1933edba4">stable categories</a>
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol>
+<li>$\mathcal{F}$ is <a href="20240701-fully_faithful_functor_between_infinity_categories.html#ID-bb0d3e0e-92a5-4687-999c-a99d4043ea38">fully faithful</a></li>
+
+<li>$\mathcal{F}^{\simeq}$ is fully faithful</li>
+</ol>
+<h2 id="proof">Proof</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+<p>
+follows from
+<a href="20260906-groupoid_core_functor_preserves_fully_faithful_functors.html#ID-00314786-0ffe-4810-8787-df77e3e773d6">groupoid core functor preserves fully faithful functors</a>
+</p>
+
+<h3 id="2-implies-1">2) $\implies$ 1)</h3>
+<p>
+We need to show that for every pair $x,y \in \mathcal{C}$, the map
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{F}_{x,y}: \mathrm{Hom}_{\mathcal{C}}(x,y) \rightarrow \mathrm{Hom}_{\mathcal{D}}(\mathcal{F}(x),\mathcal{F}(y))
+\end{align*}</div>
+<p>
+is an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a>
+</p>
+
+<p>
+Here we have maps
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Hom}_{\mathcal{C}}(x,y) \rightarrow&amp; \mathrm{Hom}_{\mathcal{C}}(x,y) \times \{\mathrm{id}_{x \oplus y\} \\
+\rightarrow&amp; \mathrm{Hom}_{\mathcal{C}}(x \oplus x \oplus y, y \oplus x \oplus y )
+\xrightarrow&amp; \mathrm{Hom}_{\mathcal{C}}(x \oplus y, x \oplus y)
+\end{align*}</div>
+<p>
+where the last step is given by pre/post composition with the codiagonal/diagonal.
+</p>
+
+<p>
+Furthermore this map is a <a href="20231210-section_category_theory.html#ID-8405819a-ec18-4a66-a354-b19f98b61fbf">section</a> with retract given by precopmosition with $x \rightarrow x \oplus y$ and postcomposition with $x \oplus y \rightarrow y$
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Hom}_{\mathcal{C}}(x \oplus y, x \oplus y) \rightarrow \mathrm{Hom}_{\mathcal{C}}(x,y)
+\end{align*}</div>
+
+<p>
+Now this map lands in $\mathrm{Aut}_{\mathcal{C}}(x \oplus y)$ since any morphism of the form $\begin{pNiceMatrix} 1 &amp; 0 \\ f &amp; 1  \end{pNiceMatrix}$ is invertible.
+Any step in this map is invariant under additive functors, so we have a diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/d27050fb25eb83c545d2.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+which shows that the map $\mathrm{Hom}_{\mathcal{C}}(x,y) \rightarrow \mathrm{Hom}_{\mathcal{D}}(\mathcal{F}(x), \mathcal{F}(y))$ is a <a href="20241206-infinity_retract.html#ID-e6eb12e4-5533-41cf-827b-0985688a5bb8">retract</a> of the map $\mathrm{Aut}(x \oplus y) \rightarrow \mathrm{Aut}(\mathcal{F}(x) \oplus \mathcal{F}(y) )$.
+</p>
+
+<p>
+<a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">Equivalences</a> are closed under retracts and therefore $\mathrm{Hom}_{\mathcal{C}}(x,y) \rightarrow \mathrm{Hom}_{\mathcal{D}}(\mathcal{F}(x), \mathcal{F}(y))$ is an equivalence since $\mathrm{Aut}(x \oplus y) \rightarrow \mathrm{Aut}(\mathcal{F}(x) \oplus \mathcal{F}(y))$ is.
+</p>
+
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>

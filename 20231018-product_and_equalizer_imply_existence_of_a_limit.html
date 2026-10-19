@@ -1,367 +1,179 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2025-01-15 Mi 17:24 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>product and equalizer imply existence of a limit</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">product and equalizer imply existence of a limit</h1>
-<div id="outline-container-orge21e7ab" class="outline-2">
-<h2 id="orge21e7ab">Proposition</h2>
-<div class="outline-text-2" id="text-orge21e7ab">
+<span id="ID-70a0f54d-7c66-4eca-9bbe-a8ce6ebbd9c0"></span><h1 class="title">product and equalizer imply existence of a limit</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_985b96adbc801fbbbe00ac354f4e5f9fa2a8c5dd.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_985b96adbc801fbbbe00ac354f4e5f9fa2a8c5dd.svg" class="org-svg" /> be a <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a>, <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_8431a55b2701558e47cc1f99f9ef659cf89e9eef.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_8431a55b2701558e47cc1f99f9ef659cf89e9eef.svg" class="org-svg" /> a <a href="20220821183856-diagramm_kategorientheorie.html#ID-ad9d3642-913a-4374-8605-52121d00b349">diagram</a> and<br />
+Let $\mathcal{C}$ be a <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a>, $J: \mathcal{J} \rightarrow \mathcal{C}$ a <a href="20220821183856-diagramm_kategorientheorie.html#ID-ad9d3642-913a-4374-8605-52121d00b349">diagram</a> and
 </p>
-<ol class="org-ol">
-<li><img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_7fe584be40343441579d69632ece3892f3541f29.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_7fe584be40343441579d69632ece3892f3541f29.svg" class="org-svg" /> the <a href="20220817230235-diskrete_kategorie.html#ID-77d5dcbb-96b0-4e9d-b130-0c021d8b3398">discrete</a> <a href="20220824221623-unterkategorie.html#ID-2165c92b-8025-4134-b3b1-4d523a8795a4">subcategory</a> of <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_f0a608dbff9190c788c8c4d0c41d6b6d5b23a016.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_f0a608dbff9190c788c8c4d0c41d6b6d5b23a016.svg" class="org-svg" /> with the induced <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a> <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_deec8aed3bf0fae973df2dce7844d4856d9b168b.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_deec8aed3bf0fae973df2dce7844d4856d9b168b.svg" class="org-svg" /><br /></li>
-<li><img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_e67c6d66c3c66de819f233b3c1023064d96d13d4.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_e67c6d66c3c66de819f233b3c1023064d96d13d4.svg" class="org-svg" /> the <a href="20220817230235-diskrete_kategorie.html#ID-77d5dcbb-96b0-4e9d-b130-0c021d8b3398">discrete</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a> containing <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphisms</a> <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_4ac6858c3a3ca2f5fb5d0c74c109b43588176fb3.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_4ac6858c3a3ca2f5fb5d0c74c109b43588176fb3.svg" class="org-svg" /> as <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">objects</a> for arbitrary <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_23f69219966ea5468c5df841c78a912f3ea42f5b.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_23f69219966ea5468c5df841c78a912f3ea42f5b.svg" class="org-svg" /><br /></li>
-<li>the <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a> <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_468c1122f4fa3d0a7d0a6e6a9c2e97d20dc6d5c1.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_468c1122f4fa3d0a7d0a6e6a9c2e97d20dc6d5c1.svg" class="org-svg" /> with <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_ed75353b955520ce253d9938d70cb189b6f3f777.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_ed75353b955520ce253d9938d70cb189b6f3f777.svg" class="org-svg" /> <br /></li>
+<ol>
+<li>$\mathcal{J}_{\mathrm{disc}}$ the <a href="20220817230235-diskrete_kategorie.html#ID-77d5dcbb-96b0-4e9d-b130-0c021d8b3398">discrete</a> <a href="20220824221623-unterkategorie.html#ID-2165c92b-8025-4134-b3b1-4d523a8795a4">subcategory</a> of $\mathcal{J}$ with the induced <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a> $J_{\mathrm{disc}}: \mathcal{J}' \rightarrow \mathcal{C}$</li>
+
+<li>$\mathcal{J}_{ \mathrm{morp}}$ the <a href="20220817230235-diskrete_kategorie.html#ID-77d5dcbb-96b0-4e9d-b130-0c021d8b3398">discrete</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a> containing <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphisms</a> $f \in \mathrm{Hom}_{\mathcal{J}}(A,B)$ as <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">objects</a> for arbitrary $A,B \in \mathrm{Ob}(\mathcal{J})$</li>
+
+<li>the <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a> $J_{\mathrm{morp}: \mathcal{J}_{\mathrm{morp}}} \rightarrow \mathcal{C}$ with $J_{\mathrm{morp}}: (f: A \rightarrow B) \rightarrow \mathcal{J}(B)$ </li>
 </ol>
-
 <p>
-Suppose that the <a href="20230404141718-categorical_product.html#ID-c6b25f4e-7486-4399-bea3-ace8da2a18c9">categorical products</a> for <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_72c4080c7305ed81d026ee3d4cef31b34e658e8f.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_72c4080c7305ed81d026ee3d4cef31b34e658e8f.svg" class="org-svg" /> and <a href="20230804-equalizer.html#ID-b6f325ea-2d24-43be-977b-2981baad9524">equalizers</a> exist<br />
-Then the <a href="20230725-limit_category_theory.html#ID-b1acaf40-c197-4df4-aec7-af30557ea689">limit</a> for <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_b1ce2f3d244b085c7309f3af2cd7b7609ff531ca.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_b1ce2f3d244b085c7309f3af2cd7b7609ff531ca.svg" class="org-svg" /> exists.<br />
+Suppose that the <a href="20230404141718-categorical_product.html#ID-c6b25f4e-7486-4399-bea3-ace8da2a18c9">categorical products</a> for $J_{\mathrm{disc}}, J_{\mathrm{morp}}$ and <a href="20230804-equalizer.html#ID-b6f325ea-2d24-43be-977b-2981baad9524">equalizers</a> exist
+Then the <a href="20230725-limit_category_theory.html#ID-b1acaf40-c197-4df4-aec7-af30557ea689">limit</a> for $J$ exists.
 </p>
 
 <p>
-cumbersome notation :(<br />
-</p>
-</div>
-</div>
-<div id="outline-container-org7863874" class="outline-2">
-<h2 id="org7863874">Proof</h2>
-<div class="outline-text-2" id="text-org7863874">
-<p>
-Let<br />
+cumbersome notation :(
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_87319707cdb3d38936de700bc4a1bd45914d7d69.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_87319707cdb3d38936de700bc4a1bd45914d7d69.svg" class="org-svg" />
-</span>
-</div>
+<h2 id="proof">Proof</h2>
+<p>
+Let
+</p>
+
+<div class="math-block">\begin{align*}
+P \coloneqq&amp; \prod_{j \in J_{\mathrm{disc}}} C_{\mathcal{J}(j)} \\
+P_{\mathrm{morp}} \coloneqq&amp; \prod_{\alpha \in J_{\mathrm{morp}}} C_{\mathcal{J}(\alpha)}
+\end{align*}</div>
 
 
 <p>
-then for <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_3073f4e92b049b5385b9fbc249e27befc20f116a.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_3073f4e92b049b5385b9fbc249e27befc20f116a.svg" class="org-svg" /> with <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_e417206e9be9fb589d8ea94a84d96159d4c722f3.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_e417206e9be9fb589d8ea94a84d96159d4c722f3.svg" class="org-svg" />, we define <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_2824d2c76d2b80446c1cb83a077141830e479618.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_2824d2c76d2b80446c1cb83a077141830e479618.svg" class="org-svg" /> by following universal property<br />
+then for $\alpha$ with $\mathrm{codom}(\mathcal{J}(\alpha)) = \mathcal{J}(j)$, we define $\varphi: P \rightarrow P_{\mathrm{morp}}$ by following universal property
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_508d25f45010a77272519e6a97d9a9f6abeda388.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_508d25f45010a77272519e6a97d9a9f6abeda388.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/b353dc3a20337a7addd9.svg" class="org-svg" alt="diagram" /></span></div>
 
 
 <p>
-Furthermore, for <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_dc5fea8d1ce85dfc21dd9f541443fe7858e10b34.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_dc5fea8d1ce85dfc21dd9f541443fe7858e10b34.svg" class="org-svg" /> we define <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_4053e1b1f460197c1df1be14e79ec0c5f84a6a7b.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_4053e1b1f460197c1df1be14e79ec0c5f84a6a7b.svg" class="org-svg" /> by following universal property<br />
+Furthermore, for $\mathcal{J}(\alpha): C_j \rightarrow C_{\mathcal{J}(\alpha)}$ we define $\psi: P \rightarrow P_{\mathrm{morp}}$ by following universal property
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_4fa5ad97db4db5ac91d70a0b034c29ea0669fcc6.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_4fa5ad97db4db5ac91d70a0b034c29ea0669fcc6.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/0210d38b8c9d313d2be0.svg" class="org-svg" alt="diagram" /></span></div>
 
 
 <p>
-Then the equalizer <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_8cd8355a93f61f08ad1b3b0fbbbea9b7cb160b65.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_8cd8355a93f61f08ad1b3b0fbbbea9b7cb160b65.svg" class="org-svg" /><br />
+Then the equalizer $E$
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_8d9889684bd8e270e81446fab4ca094e90b5f64f.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_8d9889684bd8e270e81446fab4ca094e90b5f64f.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/f864ab0afb17ece8958b.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-is the desired limit with<br />
+is the desired limit with
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_7a7b67a9df9ce193b23b98d0edd70831470d416c.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_7a7b67a9df9ce193b23b98d0edd70831470d416c.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+\pi_{E,A}: E \rightarrow&amp; C_{A} \\
+\pi_{E,A} =&amp; \pi_{A} \circ \mathrm{eq}
+\end{align*}</div>
 <p>
-i.e.<br />
+i.e.
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_ab144746c7be829594573efb8044f20394ffac4d.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_ab144746c7be829594573efb8044f20394ffac4d.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+&amp; &amp; &amp; A \arrow[]{d}{\mathcal{J}(\alpha)} \\
+E \arrow[]{r}{\mathrm{eq}} &amp; P \arrow[bend left]{rru}{\pi_{A}} \arrow[]{r}{\varphi} &amp; P_{\mathrm{morp}}  \arrow[swap]{r}{\pi_{\alpha}}} &amp; B \\
+\end{tikzcd}
+\end{displaymath}</pre></div>
 <p>
-(cf. <a href="20231018-morphism_to_product_and_each_component.html#ID-dc5102a2-2ab4-4721-adb0-de14a8add546">morphism to product and each component</a>)<br />
+(cf. <a href="20231018-morphism_to_product_and_each_component.html#ID-dc5102a2-2ab4-4721-adb0-de14a8add546">morphism to product and each component</a>)
 </p>
-<ul class="org-ul">
-<li>sloppy<br /></li>
+<ul>
+<li>sloppy</li>
 </ul>
-</div>
-<div id="outline-container-org319f8fd" class="outline-3">
-<h3 id="org319f8fd">commutes</h3>
-<div class="outline-text-3" id="text-org319f8fd">
+<h3 id="commutes">commutes</h3>
 <p>
-For <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_4e22ab3baa8c7fa5d4c91f218d61a4e51be5b44a.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_4e22ab3baa8c7fa5d4c91f218d61a4e51be5b44a.svg" class="org-svg" /> and <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_cd147f62589d9d799f8bb45806ebe0fe0b72fbdf.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_cd147f62589d9d799f8bb45806ebe0fe0b72fbdf.svg" class="org-svg" /> we conclude<br />
+For $\mathcal{J}(A), \mathcal{J}(B)$ and $\mathcal{J}(\alpha)$ we conclude
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_2c5af565045a2791e926b3ce51b1dc4a12415f30.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_2c5af565045a2791e926b3ce51b1dc4a12415f30.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/4a4cd1a78bbca36f1373.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-commutes because of<br />
+commutes because of
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_422d5f387f6a68eda738dead07680111a7802918.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_422d5f387f6a68eda738dead07680111a7802918.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+\alpha \circ \pi_{E,\mathcal{J}(A)} =&amp; \mathcal{J}(\alpha) \circ \pi_{A} \circ \mathrm{eq} \\
+=&amp; \pi_{\alpha} \circ \varphi \circ \mathrm{eq} \\
+=&amp; 
+\end{align*}</div>
 <p>
-sloppy<br />
-</p>
-</div>
-</div>
-<div id="outline-container-org6a7f40e" class="outline-3">
-<h3 id="org6a7f40e">universal property</h3>
-<div class="outline-text-3" id="text-org6a7f40e">
-<p>
-Suppose there exists an <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_dc8fc442dddded85f3f5ead0ba0954d560bc5651.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_dc8fc442dddded85f3f5ead0ba0954d560bc5651.svg" class="org-svg" /> and <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphisms</a> <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_9966a2a5910d53916ca8a016a905e3ef25b7b2e5.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_9966a2a5910d53916ca8a016a905e3ef25b7b2e5.svg" class="org-svg" /> such that<br />
+sloppy
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_b1b95312221126fb41461ac42cb31397f3f22c44.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_b1b95312221126fb41461ac42cb31397f3f22c44.svg" class="org-svg" />
-</span>
-</div>
+<h3 id="universal-property">universal property</h3>
 <p>
-Then<br />
+Suppose there exists an $S$ and <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphisms</a> $f_i$ such that
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_85b7a19619d53173cffa778fa2da87a4937123f1.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_85b7a19619d53173cffa778fa2da87a4937123f1.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/0da840605ee83ef24c51.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-since <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_360728c2f511d6e3b6c7f1c0d303b8c658d12c54.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_360728c2f511d6e3b6c7f1c0d303b8c658d12c54.svg" class="org-svg" /> is a product, there exists a unique morphism <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_1f178a3978a4856dc8cf780cbd51562e1e932f21.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_1f178a3978a4856dc8cf780cbd51562e1e932f21.svg" class="org-svg" /> for <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_cdb95322fabe87a3801a589ea82ee3239378df30.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_cdb95322fabe87a3801a589ea82ee3239378df30.svg" class="org-svg" />.<br />
+Then
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_e3d2dbfdbe38c5bc620469d29076b32afd308b17.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_e3d2dbfdbe38c5bc620469d29076b32afd308b17.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/c57cb8f777b7326175c1.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+since $P$ is a product, there exists a unique morphism $\mathrm{eq}'$ for $C_j,C_k$.
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/564f2bd335a20756713b.svg" class="org-svg" alt="diagram" /></span></div>
 
 <p>
-By definition of <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_61335dc041e32e1b2893c129e5499b3851f976b6.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_61335dc041e32e1b2893c129e5499b3851f976b6.svg" class="org-svg" /> and by assumption of <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_9966a2a5910d53916ca8a016a905e3ef25b7b2e5.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_9966a2a5910d53916ca8a016a905e3ef25b7b2e5.svg" class="org-svg" />, we get <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_523365aadd0ce4184d0b0f073212e0a334ffb44a.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_523365aadd0ce4184d0b0f073212e0a334ffb44a.svg" class="org-svg" /> as <a href="20230804-fork.html#ID-ecc9c4d9-2d1d-44b1-a9c1-3c05ffc884d2">fork</a><br />
+By definition of $\psi, \varphi$ and by assumption of $f_i$, we get $S, \mathrm{eq}'$ as <a href="20230804-fork.html#ID-ecc9c4d9-2d1d-44b1-a9c1-3c05ffc884d2">fork</a>
 </p>
 
 <p>
-and by universal property of <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_8cd8355a93f61f08ad1b3b0fbbbea9b7cb160b65.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_8cd8355a93f61f08ad1b3b0fbbbea9b7cb160b65.svg" class="org-svg" /> as equalizer a unique map <img src="ltximg/20231018-product_and_equalizer_imply_existence_of_a_limit_6b8bfca4a8f2945d464ceea22835374f0a5ac8b5.svg" alt="20231018-product_and_equalizer_imply_existence_of_a_limit_6b8bfca4a8f2945d464ceea22835374f0a5ac8b5.svg" class="org-svg" /><br />
+and by universal property of $E$ as equalizer a unique map $f: S \rightarrow E$
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2025-01-15 Mi 17:24</p>
+
+
+
 </div>
 </body>
 </html>

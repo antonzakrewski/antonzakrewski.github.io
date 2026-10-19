@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>spectrum is filtered colimit of finite spectra</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-0875ea2d-e8ab-4e38-a677-254e981c03f9"></span><h1 class="title">spectrum is filtered colimit of finite spectra</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X$ be a <a href="20230914-spectrum_of_a_ring.html#ID-80de2982-9ef9-4a53-8c68-1e9612ff2447">spectrum</a>
+Then $X$ is the <a href="kappa-filtered-infinity-category.html#ID-b0e18bee-b030-4a19-9891-4053dd98931d">filtered</a> <a href="20241016-colimit_in_an_infinity_category.html#ID-de45d65c-0326-401d-93b3-f10a929be459">colimit</a> of <a href="20250614-finite_spectrum.html#ID-a2a400a0-1f79-4abc-b8a1-6fde43764a91">finite spectra</a>.
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $\mathrm{Sp}^{\mathrm{fin}}_{/X}$ be the pullback
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/4b2ab1b1a5d668a39949.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+Then $\mathrm{Sp}_{/X}^{\mathrm{fin}}$ admits <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">finite</a> <a href="20241016-colimit_in_an_infinity_category.html#ID-de45d65c-0326-401d-93b3-f10a929be459">colimits</a>, as colimits in $\mathrm{Sp}_{/X}$ are computed underlying and $\mathrm{Sp}^{\mathrm{fin}}$ is by definition closed under finite colimits.
+Hence it is in particular <a href="kappa-filtered-infinity-category.html#ID-b0e18bee-b030-4a19-9891-4053dd98931d">filtered</a> (cf. <a href="20260307-category_with_kappa_small_colimits_is_kappa_filtered.html#ID-cffc7445-875c-4553-84c5-dc9dd24fd207">category with kappa small colimits is kappa filtered</a>).
+</p>
+
+<p>
+Then we claim that $\mathrm{colim}_{V \in \mathrm{Sp}_{/X}} V \rightarrow X$ is an equivalence:
+We need to show that the map is an equivalence upon applying $\pi_*$ (cf. <a href="20250128-whitehead_theorem_for_spectra.html#ID-fb8df74a-91cf-4c74-b1ad-9aa9cffabd28">whitehead theorem for spectra</a>).
+we show that it is surjective and injective:
+</p>
+
+<p>
+Recall that $\pi_n(-)$ <a href="20241017-infinity_functor_preserving_colimits_of_a_shape.html#ID-896858bc-5a83-4c8f-94bf-8c2250524596">preserves</a> filtered colimits (cf. <a href="20250820-homotopy_group_functor_of_spectra_preserves_filtered_colimits.html#ID-bd1458d4-ad2b-41e4-81ef-7e1fc8487da8">homotopy group functor of spectra preserves filtered colimits</a>).
+</p>
+
+
+<h3 id="surjective">surjective</h3>
+<p>
+Let $x \in \pi_n(X)$, then it is in particular represented by a map $\mathbb{S}[n] \xrightarrow{x} X$.
+In particular, the generator $\pi_n(\mathbb{S}[n]) \rightarrow \mathrm{colim}_{V \in \mathrm{Sp}_{/X}} \pi_n(V) \rightarrow X$
+</p>
+
+<h3 id="injective">injective</h3>
+<p>
+Let $y$ be an element in $\mathrm{colim}_{V \in \mathrm{Sp}_{/X}} \pi_n(V)$ which maps to $0$.
+Then in particular it is represented by a map $\mathbb{S}[n] \rightarrow V \rightarrow \mathrm{colim}_{V \in \mathrm{Sp}_{/X}} V \rightarrow X$ such that the composite is nullhomotopic.
+Let $C = \mathrm{cofib}(\mathbb{S}[n] \rightarrow V)$ be the cofiber, then the map $\mathbb{S}[n] \rightarrow V \rightarrow X$ factors through $C$.
+In particular, $y$ is also represented by the composite above, which is nullhomotopic.
+</p>
+
+</div>
+</body>
+</html>

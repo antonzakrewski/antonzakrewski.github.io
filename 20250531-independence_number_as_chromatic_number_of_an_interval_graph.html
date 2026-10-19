@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>clique number as chromatic number of an interval graph</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-f14e3e2a-6128-42c6-b9a7-118b143e405d"></span><h1 class="title">clique number as chromatic number of an interval graph</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $G = (V,E)$ be an <a href="20250531-interval_graph.html#ID-0000d913-7dfe-4f1b-a600-5b5c5071a7b0">interval graph</a>.
+Then the <a href="20250527-clique_number_in_a_graph.html#ID-f8d3479d-2750-42f2-827e-450544ae21c5">clique number</a> is the <a href="20250527-independence_number_of_a_graph.html#ID-1f76fdfe-a9c8-4ba4-b142-de2eb0f80e49">independence number</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $V = \{[a_i,b_i]\}$.
+Then consider the <a href="20250531-lexicographic_order.html#ID-d88c379a-19a0-4a94-8f3a-6961046a9dae">lexicographic order</a> on $V$ with $(a_i,b_i)$.
+</p>
+
+<p>
+Then use the <a href="20250527-greedy_coloring_of_a_permutation.html#ID-84b7a6ea-dcb7-42da-930a-2777c966e900">greedy coloring</a>:
+Suppose the color $k$ appears at some step $[a_{i_k},b_{i_k}].
+</p>
+
+<p>
+it suffices to construct a <a href="20250527-clique_in_a_graph.html#ID-3b02ced6-bbd7-45eb-b554-67cc1c7e0890">clique</a> in the greedy coloring after adding $[a_{i_k},b_{i_k}]$.
+</p>
+
+<p>
+Then it is connected to some amount of vertices with color $k-1,...,1$.
+choose the vertices $[a_{i_{l}},b_{i_l}]$ where $b_l$ is maximal - in particular it is the vertex with maximal $b_{i_l}$ amount color $l$ (since $a_{i_k} &gt; a_{i_{l}}$ by the deglex order so that the vertex with maximal $b_{i_l}$ has to intersect $a_{i_k}$ since $a_{i_k} &lt; b_{i_l}$ )
+We claim that $[a_{i_1},b_{i_1}],...,[a_{i_k},b_{i_k}]$ forms a clique.
+</p>
+
+<p>
+Suppose they dont form a clique, so assume
+</p>
+
+<div class="math-block">\begin{align*}
+a_{i_j} &gt; b_{i_l}
+\end{align*}</div>
+<p>
+for some distinct colors $j,l$
+</p>
+
+<h3 id="j-l">$j &gt; l$</h3>
+<p>
+then we would have assigned color $l$ to $j$ since it does not intersect the maximal interval with color $j$ since it lies to the right.
+</p>
+
+<h3 id="l-j">$l &gt; j$</h3>
+<p>
+but by deglex order we have
+</p>
+
+<div class="math-block">\begin{align*}
+b_{i_l} &lt; a_{i_j} &lt; a_{i_k}
+\end{align*}</div>
+<p>
+so $[a_{i_k},b_{i_k}]$ does not intersect $[a_{i_l},b_{i_l}]$, contradiction the the construction
+</p>
+
+
+
+</div>
+</body>
+</html>

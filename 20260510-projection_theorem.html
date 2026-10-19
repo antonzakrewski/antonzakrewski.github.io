@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>projection theorem</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-ded9d366-d539-4948-9f7b-de540bfe185d"></span><h1 class="title">projection theorem</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X$ be a <a href="20230521021534-hilbert_space.html#ID-6c70b215-2588-4ecc-9240-f21ab3ec7d81">Hilbert space</a> and $A$ a <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">closed</a> <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">subset</a>
+Then for all $x \in X$ there exists a unique $a \in A$ and a unique $w \in A^{\bot}$ such that $x = a + w$
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $x \in X$ let $a \in A$ be such that $d(x,a) = \mathrm{dist}(x,A)$ (cf. <a href="20260510-distance_in_a_hilbert_space_takes_minimum.html#ID-28f00b4e-a1b4-49e7-9eae-69f46098b062">distance in a hilbert space takes minimum</a>).
+We claim that $w \coloneqq x - a$ lies in $A^{\bot}$.
+</p>
+
+<p>
+Let $\lambda \in \mathbb{K}$ and $y \in A$.
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+\| w \|^2 \leq \| x - (a + \lambda y) \|^2 = \| w h|^2 + \|\lambda y\|^2 - 2 \mathrm{Re}( \langle w, \lambda y\rangle)
+\end{align*}</div>
+<p>
+where $(a + \lambda y)$ lies in $A$ (and $w = x - a$ is chosen such that it is minimal) and $x - (a + \lambda y) = w - \lambda y$.
+So for $0 \neq y \in A$ we have (after subtracting $\| w \|^2$ and dividing by $\| y \|$)
+</p>
+
+<div class="math-block">\begin{align*}
+\vert \lambda \vert^2 - \frac{2 \mathrm{Re}( \langle w, \lambda y\rangle)}{\| y \|^2} \geq 0
+\end{align*}</div>
+
+<p>
+For $\lambda = t \in \mathbb{R}$ we obtain
+</p>
+
+<div class="math-block">\begin{align*}
+t^2 - \frac{2 \mathrm{Re}( \langle w, y\rangle)}{\| y \|^2} t \geq 0
+\end{align*}</div>
+<p>
+for all $t \in \mathbb{R}$ which implies $\mathrm{Re}( \langle w,y\rangle = 0$ for sufficiently small $t &gt; 0$.
+</p>
+
+<p>
+So this shows (if $\mathbb{K} = \mathbb{R}$) that $\langle w,y\rangle = 0$ for all $y \in A$ or $w \in A^{\bot}$.
+So now it remains to prove the case $\mathbb{K} = \mathbb{C}$.
+Then let $\mathbb{K} = \mathrm{i} t$ and we get
+</p>
+
+<div class="math-block">\begin{align*}
+t^2 + \frac{2 \mathrm{Im}( \langle w, y\rangle)}{\| y \|^2} t \geq 0
+\end{align*}</div>
+<p>
+which shows $\mathrm{Im}( \langle,y \rangle) = 0$ for all $y \in A$.
+This also shows -- together with the previous argument -- that $\langle w,y\rangle = 0$ for all $y \in A$ or $w \in A^{\bot}$.
+</p>
+
+
+<h3 id="uniqueness">uniqueness</h3>
+<p>
+Assume that $x = w + a = w' + a'$ with $w,w' \in A^{\bot}$ and $a,a' \in A$.
+Then $w - w' = a' - a$ where the LHS lies in $A^{\bot}$ and the RHS lies in $A$.
+But $A \cap A^{\bot} = \{0\}$ and thus $w = w', a = a'$.
+</p>
+
+</div>
+</body>
+</html>

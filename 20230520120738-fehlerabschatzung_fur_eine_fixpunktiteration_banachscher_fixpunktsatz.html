@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 22:38 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Fehlerabschätzung für eine Fixpunktiteration (Banachscher Fixpunktsatz)</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,57 +52,53 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Fehlerabschätzung für eine Fixpunktiteration (Banachscher Fixpunktsatz)</h1>
-<div id="outline-container-orgd14ec26" class="outline-2">
-<h2 id="orgd14ec26"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-c6d68b9f-4348-42d9-8970-ecd0317af93a"></span><h1 class="title">Fehlerabschätzung für eine Fixpunktiteration (Banachscher Fixpunktsatz)</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(f: M \rightarrow M\) eine <a href="20230224182235-kontraktion.html#ID-51a3c508-415d-48a3-aab7-199035efc584">strikte Kontraktion</a> mit <a href="20221222102430-lipschitzkonstante.html#ID-fefaf440-f71c-45e7-b68a-1f6c6ccdce52">Lipschitzkonstante</a> \(L < 1\) auf einem <a href="20221124122659-vollstandiger_metrischer_raum.html#ID-d68e391c-415a-49a8-93ce-0b1de559796d">vollständigen</a> <a href="20221002145259-metrischer_raum.html#ID-6b95a0b5-83e0-43cc-830f-05b416769fe1">metrischen Raum</a> \(M\).
-Sei ferner \(m_0 \in M\) und 
+Sei $f: M \rightarrow M$ eine <a href="20230224182235-kontraktion.html#ID-51a3c508-415d-48a3-aab7-199035efc584">strikte Kontraktion</a> mit <a href="20221222102430-lipschitzkonstante.html#ID-fefaf440-f71c-45e7-b68a-1f6c6ccdce52">Lipschitzkonstante</a> $L &lt; 1$ auf einem <a href="20221124122659-vollstandiger_metrischer_raum.html#ID-d68e391c-415a-49a8-93ce-0b1de559796d">vollständigen</a> <a href="20221002145259-metrischer_raum.html#ID-6b95a0b5-83e0-43cc-830f-05b416769fe1">metrischen Raum</a> $M$.
+Sei ferner $m_0 \in M$ und
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 m_i  \coloneqq f^{(i)}(m_0)
-\end{align*}
+\end{align*}</div>
 <p>
 die <a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">Folge</a>, welche durch Iteration entsteht.
-Diese <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergiert</a> nach dem <a href="20230224182359-banachscher_fixpunktsatz.html#ID-f0027131-e7cc-4765-9bf8-b52935d25be1">Banachschen Fixpunktsatz</a> mit <a href="20211120130127-grenzwert.html#ID-c9d16981-08f6-40ca-af81-22b5db6f06df">Grenzwert</a> \(m\) und es gilt dann für die Fehlerabschätzung:
+Diese <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergiert</a> nach dem <a href="20230224182359-banachscher_fixpunktsatz.html#ID-f0027131-e7cc-4765-9bf8-b52935d25be1">Banachschen Fixpunktsatz</a> mit <a href="20211120130127-grenzwert.html#ID-c9d16981-08f6-40ca-af81-22b5db6f06df">Grenzwert</a> $m$ und es gilt dann für die Fehlerabschätzung:
 </p>
-\begin{align*}
-d(m_n,m) \leq& \frac{1 - L^n}{1 - L} \cdot d(m_0,m_1)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org2023954" class="outline-2">
-<h2 id="org2023954"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<div class="math-block">\begin{align*}
+d(m_n,m) \leq&amp; \frac{1 - L^n}{1 - L} \cdot d(m_0,m_1)
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
 <p>
 Es gilt
 </p>
-\begin{align*}
-d(m, m_n) =& \lim_{k \to \infty}\left(d(m_k, m_n)\right)
-\end{align*}
+
+<div class="math-block">\begin{align*}
+d(m, m_n) =&amp; \lim_{k \to \infty}\left(d(m_k, m_n)\right)
+\end{align*}</div>
 <p>
 Und ferner durch Anwendung der <a href="20220716173747-dreiecksungleichung_metrik.html#ID-e5ef5ef6-266f-4486-aa97-9ba2093531fe">Dreiecksungleichung</a> und oberer Abschätzung der Folge
 </p>
 
-\begin{align*}
-\lim_{k \to \infty}\left(d(m_n, m_k)\right) \leq& \sum_{k=0}^{\infty} d(m_n+k,m_{n+1+k}) \\
-\leq& \sum_{k=0}^{\infty} L^k d(m_n,m_{n+1}) \\
-=& \frac{1}{1 - L} d(m_n, m_{n+1}) 
-\end{align*}
+<div class="math-block">\begin{align*}
+\lim_{k \to \infty}\left(d(m_n, m_k)\right) \leq&amp; \sum_{k=0}^{\infty} d(m_n+k,m_{n+1+k}) \\
+\leq&amp; \sum_{k=0}^{\infty} L^k d(m_n,m_{n+1}) \\
+=&amp; \frac{1}{1 - L} d(m_n, m_{n+1}) 
+\end{align*}</div>
 <p>
 Durch wiederholte Anwendung der Lipschitzabschätzung folgt dann
 </p>
-\begin{align*}
-\frac{1}{1 - L} d(m_n, m_{n+1}) \leq& \frac{L^n}{1 - L} d(m_0,m_1)
-\end{align*}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 22:38</p>
+
+<div class="math-block">\begin{align*}
+\frac{1}{1 - L} d(m_n, m_{n+1}) \leq&amp; \frac{L^n}{1 - L} d(m_0,m_1)
+\end{align*}</div>
+
+
+
 </div>
 </body>
 </html>

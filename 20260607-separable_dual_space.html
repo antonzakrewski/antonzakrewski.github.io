@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>separable dual space implies original space is separable</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-d7cd2856-03fe-4acd-9bd8-dfd4d23a3bf8"></span><h1 class="title">separable dual space implies original space is separable</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X$ be a <a href="20221005101046-normierter_vektorraum.html#ID-2ba5953b-83c1-4e4f-8a82-198c6bbbd76a">normed vector space</a>, such that the <a href="20260510-dual_space_of_a_normed_space.html#ID-35adc2c5-7bb0-4d73-b505-a0efcd8f0b4d">dual space</a> $X^*$ is a <a href="20230307213929-seperabler_raum.html#ID-6e659d10-83a5-4a03-88b7-119feee141fa">separable</a>.
+Then so is $X$.
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $A = \{f_n \in X^* : n \in \mathbb{N}\}$ be dense and countable (which exists by hypothesis).
+For $n \in \mathbb{N}$ chooes an $x_n \in X$ such that $\| x_n \| = 1$ and $\vert f_n(x_n) \vert \geq \frac{\| f_n \|_*}{2}$ (e.g. choose any element $k$ in the kernel and add it if required).
+</p>
+
+<p>
+Let $D \coloneqq \mathrm{span}(x_n) \subseteq X$ and we claim that $D$ is dense and contains the dense subset $\mathbb{Q} + i \mathbb{Q} \{x_n\}$.
+</p>
+
+<p>
+Suppose that $D$ is not dense, then there exists an $z \in X$ such that $\mathrm{dist}(z,D) &gt; 0$.
+Then there exists an $z \in X$ such that $\mathrm{dist}(z,D) &gt; 0$.
+By <a href="20260626-separating_a_point_from_a_subspace_by_a_linear_functional.html#ID-cb629a03-9b89-4d01-9a7b-ab4c1826938e">separating a point from a subspace by a linear functional</a> there exists a linear functional $f \in X^*$ with $D \subseteq \mathrm{ker}(f)$ and $f(z) &gt; 0$.
+</p>
+
+<p>
+Now $A$ is dense in $X^*$, hence there exists a sequence $(f_{n_k})_k \subseteq A$ such that $\| f_{n_k} - f \|_* \xrightarrow{k \rightarrow \infty} 0$
+</p>
+
+<p>
+But meanwhile
+</p>
+
+<div class="math-block">\begin{align*}
+\| f_{n_k} - f \|_* \geq \vert f_{n_k}(x_{n_k}) - f(x_{n_k}) \vert =  \vert f_{n_k}(x_{n_k}) - 0 \vert \geq \frac{1}{2} \| f_{n_k} \|_*
+\end{align*}</div>
+
+<p>
+This shows $\| f_{n_k} \|_* \xrightarrow{k \rightarrow \infty} 0$ as the LHS goes to $0$, which implies $f_{n_k} \xrightarrow{k \rightarrow \infty} 0$ in $X^*$ so $f = 0$.
+</p>
+
+<p>
+This is a contradiction.
+</p>
+
+</div>
+</body>
+</html>

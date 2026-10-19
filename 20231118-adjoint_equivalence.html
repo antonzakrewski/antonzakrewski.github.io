@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 19:17 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>adjoint equivalence</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,36 +52,30 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">adjoint equivalence</h1>
-<div id="outline-container-org43b6479" class="outline-2">
-<h2 id="org43b6479"><span class="section-number-2">1.</span> Definition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-f07a5d5f-fce3-4482-8019-0afae1c3f197"></span><h1 class="title">adjoint equivalence</h1>
+
+<h2 id="definition">Definition</h2>
 <p>
-Let \(\mathcal{C}, \mathcal{D}\) be <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">categories</a> and \(\mathcal{F}: \mathcal{C} \rightarrow \mathcal{D}, \mathcal{G}: \mathcal{D} \rightarrow \mathcal{C}\) be <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functors</a>.
+Let $\mathcal{C}, \mathcal{D}$ be <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">categories</a> and $\mathcal{F}: \mathcal{C} \rightarrow \mathcal{D}, \mathcal{G}: \mathcal{D} \rightarrow \mathcal{C}$ be <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functors</a>.
 </p>
 
 <p>
-Then \(\mathcal{F}, \mathcal{G}\) are an adjoint equivalence, if \(\mathcal{F} \dashv \mathcal{G}\) are <a href="20220825195614-adjunktion_kategorientheorie.html#ID-1f2a58d8-4093-4646-a6e0-d0ef764ca84b">adjoints</a> and both the <a href="20231017-unit_of_an_adjunction.html#ID-d779afd9-de53-4565-bdcd-433fc666f2f9">unit</a> and <a href="20231017-counit_of_an_adjunction.html#ID-88bf5c30-874a-4fb3-90b6-e44d002b59fe">counit</a> are <a href="20230404122456-natural_isomorphism.html#ID-0977f626-bc15-4197-93bd-092d014c8270">natural isomorphisms</a>.
+Then $\mathcal{F}, \mathcal{G}$ are an adjoint equivalence, if $\mathcal{F} \dashv \mathcal{G}$ are <a href="20220825195614-adjunktion_kategorientheorie.html#ID-1f2a58d8-4093-4646-a6e0-d0ef764ca84b">adjoints</a> and both the <a href="20231017-unit_of_an_adjunction.html#ID-d779afd9-de53-4565-bdcd-433fc666f2f9">unit</a> and <a href="20231017-counit_of_an_adjunction.html#ID-88bf5c30-874a-4fb3-90b6-e44d002b59fe">counit</a> are <a href="20230404122456-natural_isomorphism.html#ID-0977f626-bc15-4197-93bd-092d014c8270">natural isomorphisms</a>.
 </p>
-\begin{align*}
-\eta: \mathrm{id}_{\mathcal{C}} \rightarrow& \mathcal{G} \circ \mathcal{F} \\
-\epsilon: \mathcal{F} \circ \mathcal{G} \rightarrow& \mathrm{id}_{\mathcal{D}} 
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\eta: \mathrm{id}_{\mathcal{C}} \rightarrow&amp; \mathcal{G} \circ \mathcal{F} \\
+\epsilon: \mathcal{F} \circ \mathcal{G} \rightarrow&amp; \mathrm{id}_{\mathcal{D}} 
+\end{align*}</div>
 <p>
-where \(\mathcal{F}\) is the <a href="20220831221344-linksadjungierte.html#ID-1e87e6b9-24df-41fb-bc1b-d35cfd2eaa7f">left adjoint</a> and \(\mathcal{G}\) the <a href="20220831221352-rechtsadjungierte.html#ID-9d92e651-1d26-4e9b-a0b9-32a09ca84328">right adjoint</a> 
+where $\mathcal{F}$ is the <a href="20220831221344-linksadjungierte.html#ID-1e87e6b9-24df-41fb-bc1b-d35cfd2eaa7f">left adjoint</a> and $\mathcal{G}$ the <a href="20220831221352-rechtsadjungierte.html#ID-9d92e651-1d26-4e9b-a0b9-32a09ca84328">right adjoint</a>
 </p>
 
 
 <p>
-i.e. the (co-)units especially satisfy the <a href="20231017-adjunction_and_triangle_equality.html#ID-a3665370-8923-427d-8347-dcf151fa36ad">triangle identities</a>.
+i.e. the (co-)units especially satisfy the <span class="broken-link" title="unresolved id:a3665370-8923-427d-8347-dcf151fa36ad">triangle identities</span>.
 </p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 19:17</p>
+
 </div>
 </body>
 </html>

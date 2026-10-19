@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:44 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Quotientenkriterium für Konvergenz in Abhängigkeit vom Limes Superior</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,41 +52,30 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Quotientenkriterium für Konvergenz in Abhängigkeit vom Limes Superior</h1>
-<div id="outline-container-org59975af" class="outline-2">
-<h2 id="org59975af"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-0d4e7ad0-7da7-40cf-831f-e8106bdc5ed0"></span><h1 class="title">Quotientenkriterium für Konvergenz in Abhängigkeit vom Limes Superior</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(\sum_{n=1}^{\infty} a_n\) eine komplexe <a href="20211222222904-reihe_mathe.html#ID-ae236532-f177-4c70-806b-a1be965ef5e4">Reihe</a>, s.d. für <a href="20221013222501-fast_alle.html#ID-a3da14cb-05c1-4f9e-a68a-a693980f5ede">fast alle</a> \(a_n \neq 0\) gilt
-Existiert \(0 < q < 1\), s.d. gilt
-\begin{align*}
-lim &sup; \left &vert; \frac{a<sub>n+1</sub>}{a<sub>n</sub>} \right &vert;&le; q
+Sei $\sum_{n=1}^{\infty} a_n$ eine komplexe <a href="20211222222904-reihe_mathe.html#ID-ae236532-f177-4c70-806b-a1be965ef5e4">Reihe</a>, s.d. für <a href="20221013222501-fast_alle.html#ID-a3da14cb-05c1-4f9e-a68a-a693980f5ede">fast alle</a> $a_n \neq 0$ gilt
+Existiert $0 &lt; q &lt; 1$, s.d. gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\lim \sup \left \vert \frac{a_{n+1}}{a_n} \right \vert\leq q
 \end{align*},
-so <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergiert</a> \(\sum_{n=1}^{\infty} a_n\) <a href="20220718130957-absolute_reihe.html#ID-96128527-4a42-424c-b629-68bce48ddccb">absolute</a> 
-</p>
-</div>
-</div>
-<div id="outline-container-orgeb15c4e" class="outline-2">
-<h2 id="orgeb15c4e"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-Sei <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> \(a_n \neq 0\) und \(\vert \frac{a_{n+1}}{a_{n}} \vert \leq q\) für alle \(n\).
-Sonst lässt man endlich viele \(a_n\) weg (siehe: <a href="20221208104941-rechenregeln_fur_konvergente_reihen.html#ID-721102c8-3767-4808-9bc4-a789aa86654c">Rechenregeln für konvergente Reihen</a>)
+so [[id:63fa4879-51cf-4ad6-8be5-0e9e10d29726][konvergiert]] $\sum_{n=1}^{\infty} a_n$ [[id:96128527-4a42-424c-b629-68bce48ddccb][absolute]] 
+* Beweis
+Sei [[id:e58125c9-5f34-4043-bf52-23ecb4c20f2e][o.B.d.A.]] $a_n \neq 0$ und $\vert \frac{a_{n+1}}{a_{n}} \vert \leq q$ für alle $n$.
+Sonst lässt man endlich viele $a_n$ weg (siehe: [[id:721102c8-3767-4808-9bc4-a789aa86654c][Rechenregeln für konvergente Reihen]])
 Dann folgt
-</p>
 \begin{align*}
 \vert a_n \vert = \vert \frac{a_{n}}{a_{n+1}} \vert \cdot ... \cdot \vert \frac{a_2}{a_1} \cdot \vert a_1\vert \leq \vert a_1 \vert \cdot q^{n-1}
-\end{align*}
+\end{align*}</div>
 <p>
-Also ist \(\sum_{n=1}^{\infty} \vert a_1 \vert q^{n-1}\) eine <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergente</a>  <a href="20221204223400-majorantenkriterium.html#ID-c64592ed-8404-4be3-a898-fca8ba96b5a3">Majorante</a> für \(\sum_{n=1}^{\infty} a_n\), d.h. \(\sum_{n=1}^{\infty} a_n\) <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergiert</a> 
+Also ist $\sum_{n=1}^{\infty} \vert a_1 \vert q^{n-1}$ eine <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergente</a>  <a href="20221204223400-majorantenkriterium.html#ID-c64592ed-8404-4be3-a898-fca8ba96b5a3">Majorante</a> für $\sum_{n=1}^{\infty} a_n$, d.h. $\sum_{n=1}^{\infty} a_n$ <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergiert</a>
 </p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:44</p>
+
+
 </div>
 </body>
 </html>

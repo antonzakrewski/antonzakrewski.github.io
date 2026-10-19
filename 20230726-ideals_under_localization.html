@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 15:28 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ideals under localization</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,65 +52,54 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Ideals under localization</h1>
-<div id="outline-container-orgeb8c02f" class="outline-2">
-<h2 id="orgeb8c02f"><span class="section-number-2">1.</span> Proposition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-f74f00cd-ad7e-41f3-9019-10ae86d12e10"></span><h1 class="title">Ideals under localization</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let \(A\) be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a>, \(\mathfrak{a} \subseteq A\) an <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a> and \(S \subseteq A\) <a href="20230724-multiplicatively_closed_set.html#ID-d3df0441-9f2f-476f-b18e-d513ae149906">multiplicatively closed set</a>.
+Let $A$ be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a>, $\mathfrak{a} \subseteq A$ an <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a> and $S \subseteq A$ <a href="20230724-multiplicatively_closed_set.html#ID-d3df0441-9f2f-476f-b18e-d513ae149906">multiplicatively closed set</a>.
 Then
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 S^{-1}\mathfrak{a} \coloneqq \{\frac{a}{s} \vert a \in \mathfrak{a}, s \in S \} \subseteq S^{-1}A
-\end{align*}
+\end{align*}</div>
 <p>
 is an ideal
 </p>
-</div>
-</div>
-<div id="outline-container-org267c822" class="outline-2">
-<h2 id="org267c822"><span class="section-number-2">2.</span> Proof</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orgd64e917" class="outline-3">
-<h3 id="orgd64e917"><span class="section-number-3">2.1.</span> additive group</h3>
-<div class="outline-text-3" id="text-2-1">
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="additive-group">additive group</h3>
 <p>
 &lt;<a href="20221023183201-kriterium_fur_eine_untergruppe.html#ID-b15853e8-4de4-4318-9060-5fc9b4225f25">Kriterium für eine Untergruppe</a>&gt;
-Let \(\frac{a_1}{s_1}, -\frac{a_2}{s_2} \in S^{-1}\mathfrak{a}\), then
+Let $\frac{a_1}{s_1}, -\frac{a_2}{s_2} \in S^{-1}\mathfrak{a}$, then
 </p>
-\begin{align*}
-\frac{a_1}{s_1} - \frac{a_2}{s_2} =& \frac{a_1 \cdot s_2}{s_1 \cdot s_2} - \frac{a_2 \cdot s_1}{s_2 \cdot s_1} \\
-=& \frac{a_1 \cdot s_2 - a_2 \cdot s_1}{s_1 \cdot s_2}
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\frac{a_1}{s_1} - \frac{a_2}{s_2} =&amp; \frac{a_1 \cdot s_2}{s_1 \cdot s_2} - \frac{a_2 \cdot s_1}{s_2 \cdot s_1} \\
+=&amp; \frac{a_1 \cdot s_2 - a_2 \cdot s_1}{s_1 \cdot s_2}
+\end{align*}</div>
 <p>
-where \(s_1 \cdot s_2 \in S\) and \(a_1 \cdot s_2 - a_2 \cdot s_1 \in \mathfrak{a}\), hence
+where $s_1 \cdot s_2 \in S$ and $a_1 \cdot s_2 - a_2 \cdot s_1 \in \mathfrak{a}$, hence
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \frac{a_1}{s_1} -\frac{a_2}{s_2} \in S^{-1}\mathfrak{a}
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgd896e18" class="outline-3">
-<h3 id="orgd896e18"><span class="section-number-3">2.2.</span> multiplicatively closed</h3>
-<div class="outline-text-3" id="text-2-2">
+\end{align*}</div>
+
+<h3 id="multiplicatively-closed">multiplicatively closed</h3>
 <p>
-Let \(\frac{r}{s'} \in S^{-1}R\), then 
+Let $\frac{r}{s'} \in S^{-1}R$, then
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \frac{r}{s'} \cdot \frac{a}{s} = \frac{r \cdot a}{s' \cdot s}
-\end{align*}
+\end{align*}</div>
 <p>
-and since \(\mathfrak{a}, S\) are multiplicatively closed, we get \(r \cdot a \in \mathfrak{a}, s \cdot s' \in S\).
+and since $\mathfrak{a}, S$ are multiplicatively closed, we get $r \cdot a \in \mathfrak{a}, s \cdot s' \in S$.
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 15:28</p>
+
+
 </div>
 </body>
 </html>

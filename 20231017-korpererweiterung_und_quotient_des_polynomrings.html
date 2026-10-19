@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 18:40 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Körpererweiterung und Quotient des Polynomrings</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,61 +52,44 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Körpererweiterung und Quotient des Polynomrings</h1>
-<div id="outline-container-org946bf58" class="outline-2">
-<h2 id="org946bf58"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-ce1a108d-9717-4ee3-83d7-b3b8a8000271"></span><h1 class="title">Körpererweiterung und Quotient des Polynomrings</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(K\) ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a> und \(L/K\) eine <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körpererweiterung</a> mit \(\alpha_i \in L\) für \(i \in I\).
+Sei $K$ ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a> und $L/K$ eine <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körpererweiterung</a> mit $\alpha_i \in L$ für $i \in I$.
 Dann gilt für den <a href="20221226010643-einsetzungshomomorphismus.html#ID-714a456e-dcd8-4e03-906b-2b497bf77766">Einsetzungshomomorphismus</a>
 </p>
-\begin{align*}
-\varphi_{\alpha_i}: K[X_i \vert i \in I] \rightarrow& L
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\varphi_{\alpha_i}: K[X_i \vert i \in I] \rightarrow&amp; L
+\end{align*}</div>
 <p>
 auch
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 K[X_i]/\mathrm{ker}(\varphi_{\alpha_i}) \cong K(\alpha_i)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org01d8546" class="outline-2">
-<h2 id="org01d8546"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
 <p>
-folgt aus dem <a href="20221226125039-homomorphiesatz_fur_ringe.html#ID-755e30b6-bd5c-4c03-9e0f-29bb432fa474">Homomorphiesatz für Ringe</a>, zu zeigen bleibt \(\mathrm{im}(\varphi_{\alpha_i}) = K(\alpha_i)\)
+folgt aus dem <a href="20221226125039-homomorphiesatz_fur_ringe.html#ID-755e30b6-bd5c-4c03-9e0f-29bb432fa474">Homomorphiesatz für Ringe</a>, zu zeigen bleibt $\mathrm{im}(\varphi_{\alpha_i}) = K(\alpha_i)$
 </p>
-</div>
-<div id="outline-container-org716caa4" class="outline-3">
-<h3 id="org716caa4"><span class="section-number-3">2.1.</span> Bild</h3>
-<div class="outline-text-3" id="text-2-1">
-</div>
-<div id="outline-container-org70faf33" class="outline-4">
-<h4 id="org70faf33"><span class="section-number-4">2.1.1.</span> \(\mathrm{im}(\varphi_{\alpha_i})\subseteq K(\alpha_i)\)</h4>
-<div class="outline-text-4" id="text-2-1-1">
+
+<h3 id="bild">Bild</h3>
+
+<h4 id="mathrmimvarphi-alpha-isubseteq-kalpha-i">$\mathrm{im}(\varphi_{\alpha_i})\subseteq K(\alpha_i)$</h4>
 <p>
-sei \(\beta \in \mathrm{im}(\varphi_{\alpha_i})\), so existiert ein Polynom \(f \in K[X_i]\) mit \(\varphi_{\alpha_i}(f) = \beta\).
-Da \(K(\alpha_i)\) die \(\alpha_i\) und \(k \in K\) enthält und ferner abgeschlossen gegenüber addition und multiplikation ist, folgt auch, dass \(\beta \in K(\alpha_i)\) enthalten ist
+sei $\beta \in \mathrm{im}(\varphi_{\alpha_i})$, so existiert ein Polynom $f \in K[X_i]$ mit $\varphi_{\alpha_i}(f) = \beta$.
+Da $K(\alpha_i)$ die $\alpha_i$ und $k \in K$ enthält und ferner abgeschlossen gegenüber addition und multiplikation ist, folgt auch, dass $\beta \in K(\alpha_i)$ enthalten ist
 </p>
-</div>
-</div>
-<div id="outline-container-orge7b3de7" class="outline-4">
-<h4 id="orge7b3de7"><span class="section-number-4">2.1.2.</span> \(\mathrm{im}(\varphi_{\alpha_i})\supseteq K(\alpha_i)\)</h4>
-<div class="outline-text-4" id="text-2-1-2">
+
+<h4 id="mathrmimvarphi-alpha-isupseteq-kalpha-i">$\mathrm{im}(\varphi_{\alpha_i})\supseteq K(\alpha_i)$</h4>
 <p>
-folgt aus der charakterisierung von \(K(\alpha_i)\) als kleinster <a href="20230722-zwischenkorper.html#ID-6b92317a-d03b-4ff7-93a5-224c11ae1a1e">Zwischenkörper</a>, der \(\alpha_i\) enthält.
-Ferner enthält \(\mathrm{im}(\varphi_{\alpha_i})\) auch jedes \(\alpha_i\) wegen \(f = X_i\)
+folgt aus der charakterisierung von $K(\alpha_i)$ als kleinster <a href="20230722-zwischenkorper.html#ID-6b92317a-d03b-4ff7-93a5-224c11ae1a1e">Zwischenkörper</a>, der $\alpha_i$ enthält.
+Ferner enthält $\mathrm{im}(\varphi_{\alpha_i})$ auch jedes $\alpha_i$ wegen $f = X_i$
 </p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 18:40</p>
+
 </div>
 </body>
 </html>

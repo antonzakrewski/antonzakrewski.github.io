@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 15:11 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Reellwertige Funktion und Skalarprodukt</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,49 +52,42 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Reellwertige Funktion und Skalarprodukt</h1>
-<div id="outline-container-org3390e20" class="outline-2">
-<h2 id="org3390e20"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-c3c9c911-edf4-4ab3-b5d9-9314bf3b0eb4"></span><h1 class="title">Reellwertige Funktion und Skalarprodukt</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Seien \(U \subseteq \mathbb{R}^n\), \(V \subseteq \mathbb{R}^m\) <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a> und \(f: U \rightarrow V\) sowie \(g: V \rightarrow \mathbb{R}\) <a href="20230601102558-totale_differenzierbarkeit.html#ID-2bdfcfac-76de-4f04-b2c7-6eca0297c586">total differenzierbare</a> <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktionen</a>.
-Dann gilt für den <a href="20220315144400-gradient.html#ID-41119c12-88e0-4361-94eb-25f27cf52ba8">Gradienten</a> 
+Seien $U \subseteq \mathbb{R}^n$, $V \subseteq \mathbb{R}^m$ <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a> und $f: U \rightarrow V$ sowie $g: V \rightarrow \mathbb{R}$ <a href="20230601102558-totale_differenzierbarkeit.html#ID-2bdfcfac-76de-4f04-b2c7-6eca0297c586">total differenzierbare</a> <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktionen</a>.
+Dann gilt für den <a href="20220315144400-gradient.html#ID-41119c12-88e0-4361-94eb-25f27cf52ba8">Gradienten</a>
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \grad (g \circ f)(p) = (\mathrm{d} F_p)^{*} ( \grad (g \circ f)(p))
-\end{align*}
+\end{align*}</div>
 <p>
-mit \((\mathrm{d} F_p)^*\) als <a href="20230623-adjungierte_abbildung.html#ID-056e5a29-654d-4425-9266-70839a36a082">Adjungierte Abbildung</a> bezüglich des <a href="20221113224442-totales_differential.html#ID-9361fe82-74cf-489a-8551-9da7453a92b7">totalen Differentials</a> und des <a href="20230228170206-euklidisches_skalarprodukt.html#ID-aa212354-4b27-4632-a1f6-ee0ccc12729c">Standardskalarprodukt</a> 
+mit $(\mathrm{d} F_p)^*$ als <a href="20230623-adjungierte_abbildung.html#ID-056e5a29-654d-4425-9266-70839a36a082">Adjungierte Abbildung</a> bezüglich des <a href="20221113224442-totales_differential.html#ID-9361fe82-74cf-489a-8551-9da7453a92b7">totalen Differentials</a> und des <a href="20230228170206-euklidisches_skalarprodukt.html#ID-aa212354-4b27-4632-a1f6-ee0ccc12729c">Standardskalarprodukt</a>
 </p>
-</div>
-</div>
-<div id="outline-container-orgfe17dce" class="outline-2">
-<h2 id="orgfe17dce"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<h2 id="beweis">Beweis</h2>
 <p>
 Nach der <a href="20230606-kettenregel_fur_das_totale_differential.html#ID-8b45d9e9-87fb-42ce-a53c-b1aca5fac3e5">Kettenregel für das totale Differential</a> gilt
 </p>
-\begin{align*}
-\grad (g \circ f)(p) =& \mathrm{d}_p (g \circ f) \\
-=& \mathrm{d}_{f(p)} g \circ \mathrm{d}_p f \\
-=& \grad (g) (f(p)) \circ \mathrm{d}_p f \\
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\grad (g \circ f)(p) =&amp; \mathrm{d}_p (g \circ f) \\
+=&amp; \mathrm{d}_{f(p)} g \circ \mathrm{d}_p f \\
+=&amp; \grad (g) (f(p)) \circ \mathrm{d}_p f \\
+\end{align*}</div>
 <p>
-Ferner gilt für eine reelle <a href="20230623-adjungierte_abbildung.html#ID-056e5a29-654d-4425-9266-70839a36a082">Adjungierte Abbildung</a> \(A^{*} = A^t\), d.h. es folgt
+Ferner gilt für eine reelle <a href="20230623-adjungierte_abbildung.html#ID-056e5a29-654d-4425-9266-70839a36a082">Adjungierte Abbildung</a> $A^{*} = A^t$, d.h. es folgt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 (\mathrm{d} F_p)^* = (\mathrm{d} F_p)^t \in \mathrm{Hom}_{\mathbb{R}}(\mathbb{R}^m, \mathbb{R}^n)
-\end{align*}
+\end{align*}</div>
 <p>
-Sei \(v \in U \subseteq \mathbb{R}^n\), so folgt \(\mathrm{d}_p f (v) \in \mathbb{R}^m\) und für \(\mathrm{d}_{f(p)} g \in \mathrm{Hom}_{\mathbb{R}}(\mathbb{R}^m, \mathbb{R})\) 
+Sei $v \in U \subseteq \mathbb{R}^n$, so folgt $\mathrm{d}_p f (v) \in \mathbb{R}^m$ und für $\mathrm{d}_{f(p)} g \in \mathrm{Hom}_{\mathbb{R}}(\mathbb{R}^m, \mathbb{R})$
 </p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 15:11</p>
+
 </div>
 </body>
 </html>

@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 22:27 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>geometrische Konstruktion einer Norm</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,107 +52,97 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">geometrische Konstruktion einer Norm</h1>
-<div id="outline-container-org4449669" class="outline-2">
-<h2 id="org4449669"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-5be68033-df98-418e-bd35-8c973f955aec"></span><h1 class="title">geometrische Konstruktion einer Norm</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(V\) ein <a href="20230204210438-reeller_vektorraum.html#ID-47c426f6-4f34-402a-8c78-5ef0c3b88ce9">reeller Vektorraum</a> mit einem <a href="20230426085945-einheitsball.html#ID-cbaf30c1-7bec-4cb0-9179-72441c542c40">Einheitsball</a> \(B_1[0]\), welcher folgende Eigenschäften erfüllt:
+Sei $V$ ein <a href="20230204210438-reeller_vektorraum.html#ID-47c426f6-4f34-402a-8c78-5ef0c3b88ce9">reeller Vektorraum</a> mit einem <a href="20230426085945-einheitsball.html#ID-cbaf30c1-7bec-4cb0-9179-72441c542c40">Einheitsball</a> $B_1[0]$, welcher folgende Eigenschäften erfüllt:
 </p>
-<ul class="org-ul">
+<ul>
 <li><a href="20230426085327-konvexitat_eines_abgeschlossener_balls_einer_norm.html#ID-b21cb027-38f6-4550-80af-197f9e9f7e96">Konvexität eines Balls in einem Normierten Raum</a></li>
+
 <li><a href="20230426091031-punktsymmetrie_des_einheitsballes.html#ID-72d52e17-dc1b-4108-8cc0-bbc5bcbfb3cf">Punktsymmetrie des Einheitsballes</a></li>
-<li><a href="20230426091256-beschrankung_des_einheitsballs.html#ID-6332c6f6-f2d3-4fc7-b843-7a45422d8471">Beschränktheit des Einheitsballs</a></li>
+
+<li><a href="20230426091256-beschrankung_des_einheitsballs.html#ID-6332c6f6-f2d3-4fc7-b843-7a45422d8471">Beschränktheit des Einheitsballs</a> </li>
 </ul>
 <p>
-Dann existiert eine <a href="20220920053006-norm_eines_vektors.html#ID-445db843-5369-48de-a31f-f1f245833425">Norm</a> \(\| \cdot \|\), welche den Einheitsball \(B_1[0]\) erzeugt
+Dann existiert eine <a href="20220920053006-norm_eines_vektors.html#ID-445db843-5369-48de-a31f-f1f245833425">Norm</a> $\| \cdot \|$, welche den Einheitsball $B_1[0]$ erzeugt
 </p>
-</div>
-</div>
-<div id="outline-container-orgf8d525e" class="outline-2">
-<h2 id="orgf8d525e"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<h2 id="beweis">Beweis</h2>
 <p>
 Wir definieren die Norm durch:
 </p>
-\begin{align*}
-\| v \| = \inf \{ \frac{1}{\lambda} > 0 \vert \lambda v \in B_{1}[0]\}
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\| v \| = \inf \{ \frac{1}{\lambda} &gt; 0 \vert \lambda v \in B_{1}[0]\}
+\end{align*}</div>
 <p>
-Wir zeigen, dass \(\| \cdot \|\) die Bedingungen einer <a href="20220920053006-norm_eines_vektors.html#ID-445db843-5369-48de-a31f-f1f245833425">Norm</a> erfüllt:
+Wir zeigen, dass $\| \cdot \|$ die Bedingungen einer <a href="20220920053006-norm_eines_vektors.html#ID-445db843-5369-48de-a31f-f1f245833425">Norm</a> erfüllt:
 </p>
-</div>
-<div id="outline-container-org678dcec" class="outline-3">
-<h3 id="org678dcec"><span class="section-number-3">2.1.</span> <a href="20221003133838-absolute_homogenitat_norm.html#ID-a67174d6-2370-4505-99a9-90fc848e2c5b">absolute Homogenität einer Norm</a></h3>
-<div class="outline-text-3" id="text-2-1">
+
+<h3 id="ida67174d6-2370-4505-99a9-90fc848e2c5babsolute-homogenitat-einer-norm"><a href="20221003133838-absolute_homogenitat_norm.html#ID-a67174d6-2370-4505-99a9-90fc848e2c5b">absolute Homogenität einer Norm</a></h3>
 <p>
-Sei \(v \in V\) und \(\mu > 0\), so gilt:
+Sei $v \in V$ und $\mu &gt; 0$, so gilt:
 </p>
-\begin{align*}
-\| \mu v \| =& \inf\{ \frac{1}{\lambda} > 0 \vert \lambda \cdot \mu v \in B_1[0] \} \\
-=& 
-=& \mu \cdot \inf \{\frac{1}{\lambda} > 0 \vert \lambda \cdot v \in B_1[0]\} \\
-=& \mu \cdot \| v \|
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\| \mu v \| =&amp; \inf\{ \frac{1}{\lambda} &gt; 0 \vert \lambda \cdot \mu v \in B_1[0] \} \\
+=&amp; 
+=&amp; \mu \cdot \inf \{\frac{1}{\lambda} &gt; 0 \vert \lambda \cdot v \in B_1[0]\} \\
+=&amp; \mu \cdot \| v \|
+\end{align*}</div>
 <p>
 Desweitern gilt wegen der Punktysmmetrie zum Ursprung:
 </p>
-\begin{align*}
-\| - \mu v \| =& \inf \{\frac{1}{\lambda} > 0 \vert \lambda (-\mu) v \in B_1[0] \}  \\
-=& \inf \{\frac{1}{\lambda} > 0 \vert \lambda \mu v \in B_1[0] \}  \\
-=& \| \mu v \| \\
-=& \mu \| v \| \\
-=& \vert \mu \vert \| v \| \\
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org3f9723b" class="outline-3">
-<h3 id="org3f9723b"><span class="section-number-3">2.2.</span> <a href="20221003143637-definitheit_einer_norm.html#ID-4d9c9a0a-1c0e-4a9b-83cc-2d08342c47d0">Positive Definitheit einer Norm</a></h3>
-<div class="outline-text-3" id="text-2-2">
+
+<div class="math-block">\begin{align*}
+\| - \mu v \| =&amp; \inf \{\frac{1}{\lambda} &gt; 0 \vert \lambda (-\mu) v \in B_1[0] \}  \\
+=&amp; \inf \{\frac{1}{\lambda} &gt; 0 \vert \lambda \mu v \in B_1[0] \}  \\
+=&amp; \| \mu v \| \\
+=&amp; \mu \| v \| \\
+=&amp; \vert \mu \vert \| v \| \\
+\end{align*}</div>
+
+<h3 id="id4d9c9a0a-1c0e-4a9b-83cc-2d08342c47d0positive-definitheit-einer-norm"><a href="20221003143637-definitheit_einer_norm.html#ID-4d9c9a0a-1c0e-4a9b-83cc-2d08342c47d0">Positive Definitheit einer Norm</a></h3>
 <p>
-Für \(v \in V\) folgt \(\| v \| \geq 0\) aus der Definition.
+Für $v \in V$ folgt $\| v \| \geq 0$ aus der Definition.
 Ferner gilt:
 </p>
-\begin{align*}
-\| 0 \| =& \| 0 \cdot 0 \| \\
-=& \vert 0 \vert \cdot \| 0 \| \\
-=& 0
-\end{align*}
-<p>
-Nach Annahme der Beschränktheit gilt für \(v \neq 0\), dass ein maximales $&tau; &isin; \mathbb{R}^+ existiert mit \(\tau \cdot v \in B_1[0]\)
-Daraus folgt, dass $ \|v  \|  \coloneqq inf \{\frac{1}{\lambda} &gt; 0 &vert; &lambda; &sdot; v &isin; B<sub>1</sub>[0]\} = \frac{1}{\tau}$ und damit gilt \(\| v \| > 0\)
-</p>
-</div>
-</div>
 
-<div id="outline-container-org1305495" class="outline-3">
-<h3 id="org1305495"><span class="section-number-3">2.3.</span> <a href="20221003143707-dreiecksungleichung_einer_norm.html#ID-ab6dc42a-e937-4409-8dce-39b5925205dd">Dreiecksungleichung einer Norm</a></h3>
-<div class="outline-text-3" id="text-2-3">
+<div class="math-block">\begin{align*}
+\| 0 \| =&amp; \| 0 \cdot 0 \| \\
+=&amp; \vert 0 \vert \cdot \| 0 \| \\
+=&amp; 0
+\end{align*}</div>
+<p>
+Nach Annahme der Beschränktheit gilt für $v \neq 0$, dass ein maximales $\tau \in \mathbb{R}^+ existiert mit $\tau \cdot v \in B_1[0]$
+Daraus folgt, dass $ \|v  \|  \coloneqq \inf \{\frac{1}{\lambda} &gt; 0 \vert \lambda \cdot v \in B_1[0]\} = \frac{1}{\tau}$ und damit gilt $\| v \| &gt; 0$
+</p>
+
+
+<h3 id="idab6dc42a-e937-4409-8dce-39b5925205dddreiecksungleichung-einer-norm"><a href="20221003143707-dreiecksungleichung_einer_norm.html#ID-ab6dc42a-e937-4409-8dce-39b5925205dd">Dreiecksungleichung einer Norm</a></h3>
 <p>
 folgt aus der <a href="20230426085327-konvexitat_eines_abgeschlossener_balls_einer_norm.html#ID-b21cb027-38f6-4550-80af-197f9e9f7e96">Konvexität eines Balls in einem Normierten Raum</a>:
-Sei \(x \neq 0\) und \(y \in V\), so gilt für die <a href="20230204211609-konvexkombination.html#ID-3495c0b0-8eff-479c-bac4-33d0701ce56c">Konvexkombination</a>:
+Sei $x \neq 0$ und $y \in V$, so gilt für die <a href="20230204211609-konvexkombination.html#ID-3495c0b0-8eff-479c-bac4-33d0701ce56c">Konvexkombination</a>:
 </p>
-\begin{align*}
-\frac{x + y }{\| x \| + \| y \|} =& \frac{\| x \|}{\| x \| + \| y \|} \cdot \frac{x}{\| x \|} + \frac{\| y \|}{\| x \| + \| y \|} \frac{y}{\| y \|}
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\frac{x + y }{\| x \| + \| y \|} =&amp; \frac{\| x \|}{\| x \| + \| y \|} \cdot \frac{x}{\| x \|} + \frac{\| y \|}{\| x \| + \| y \|} \frac{y}{\| y \|}
+\end{align*}</div>
 <p>
-mit \(\frac{x}{\| x \|} = \frac{y}{\| y \|} = 1\)
-Damit gilt \(\|\frac{x + y}{\| x \| + \|y\|} \leq 1\), da $\| \(\frac{x + y}{\| x \| + \| y \|} \in B_1[0]\) gilt.
+mit $\frac{x}{\| x \|} = \frac{y}{\| y \|} = 1$
+Damit gilt $\|\frac{x + y}{\| x \| + \|y\|} \leq 1$, da $\| $\frac{x + y}{\| x \| + \| y \|} \in B_1[0]$ gilt.
 Daraus folgt:
 </p>
-\begin{align*}
-\|  \frac{x + y }{\| x \| + \| y \|} \| \leq& 1 \\
-\frac{1}{\| x \| + \| y \|} \cdot \| x + y \| \leq& 1 \\
-\| x + y \| \leq& \| x \| + \| y\|
-\end{align*}
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 22:27</p>
+
+<div class="math-block">\begin{align*}
+\|  \frac{x + y }{\| x \| + \| y \|} \| \leq&amp; 1 \\
+\frac{1}{\| x \| + \| y \|} \cdot \| x + y \| \leq&amp; 1 \\
+\| x + y \| \leq&amp; \| x \| + \| y\|
+\end{align*}</div>
+
+
 </div>
 </body>
 </html>

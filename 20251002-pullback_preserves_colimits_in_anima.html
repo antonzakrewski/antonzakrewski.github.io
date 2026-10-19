@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>pullback preserves colimits in Anima over a common bas</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-352f5eaa-6c9a-47bc-bb76-c09efbd14215"></span><h1 class="title">pullback preserves colimits in Anima over a common bas</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $p: E \rightarrow B$ be a <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">map</a>, then for any $f: B \rightarrow \mathrm{An}$ we get
+</p>
+
+<div class="math-block">\begin{align*}
+(\mathrm{colim} f(-)) \times_B E \simeq \mathrm{colim} (f(-) \times_B E)
+\end{align*}</div>
+<p>
+where for $b \in B$ we define $(f(b) \times_{B} E)$ as <a href="20241017-infinity_pullback.html#ID-7aaac468-a0bb-4e73-bfd3-d4c591c10e4f">pullback</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/f7786b62595acc5acb0a.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+where the map $f(b) \rightarrow B$ is given as <a href="20240923-composition_in_an_infinity_category.html#ID-0d5a65d1-0f26-4e23-aad9-c6181dca3670">composition</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/4078dca7c445db45364e.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+using the <a href="20251002-functor_from_colimit_to_base_space_in_anima.html#ID-7832cba2-7dc4-46ae-952e-902b42c18c9b">functor from colimit to base space in anima</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+note that colimits in the <a href="20240924-infinity_slice_category.html#ID-62e46e6b-dcf7-4ba7-8e8a-92bc1476d165">slice category</a> $\mathrm{An}_{/-}$ are computed underlying in <a href="20240404-infinity_groupoid.html#ID-b516d6fd-fec1-4d8a-8efa-b2ad1f1bb283">anima</a> (cf. <a href="20250514-infinity_colimit_in_the_slice_category.html#ID-855473b6-0e4d-45f4-be12-cddb43d0ac72">colimit in the slice category</a>).
+So in particular it suffices to compute the colimit $\mathrm{An}_{/B}$ resp. $\mathrm{An}_{/E}$.
+using <a href="20241226-anima_over_a_kan_complex_as_functor_category.html#ID-4f412fdf-22f1-4adc-986d-710229e0f7e5">Anima slice as Functors into Anima</a> &amp; <a href="20250907-precomposition_and_straightening.html#ID-df0ffc44-5da1-4c2e-879e-2daa3be050b0">precomposition and unstraightening</a> we obtain that any $(f \times E)(b)$ is given by
+</p>
+
+<div class="math-block">\begin{align*}
+(f(b) \times_B E) = \mathrm{Un}(\mathrm{Str}(f(b) \rightarrow B) \circ p)
+\end{align*}</div>
+
+<p>
+and the colimit of the LHS is given by $\mathrm{Un}(\mathrm{colim} (\mathrm{Str}(f(b) \rightarrow B) \circ p))$.
+But <a href="20250701-precomposition_with_a_functor_preserves_colimits.html#ID-09405d5b-7ed8-4732-a211-2a7231f6145e">precomposition with a functor preserves colimits</a>, so in particular $(\mathrm{colim} \mathrm{Str}(f(b) \rightarrow B) \circ p) \simeq (\mathrm{colim} \mathrm{Str}(f(b) \rightarrow B)) \circ p$.
+Then we go back using that the unstraightenig with the precomposition is the pullback and hence
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Un}((\mathrm{colim} \mathrm{Str}(f(b) \rightarrow B)) \circ p) \simeq&amp; \mathrm{Un}(\mathrm{colim} \mathrm{Str}(f(b) \rightarrow B)) \times_B} E \\
+\simeq&amp; \mathrm{colim} \mathrm{Un}(\mathrm{Str}(f(b) \rightarrow B) ) \times_{B} E \\
+\end{align*}</div>
+
+<p>
+now we again use implicitly that we may compute pullbacks (do we need that ? but it is certainly true) and colimits in $\mathrm{An}_{/E}$ underlying (and abuse notation) to get
+</p>
+
+<div class="math-block">\begin{align*}
+(\mathrm{colim} \mathrm{Un}(\mathrm{Str}(f(b) \rightarrow B) )) \times_{B} E \simeq (\mathrm{colim} f(b)) \times_{B} E
+\end{align*}</div>
+
+
+<p>
+so we have shown that
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{colim} (f(-) \times_B E) \simeq (\mathrm{colim} f(-)) \times_B E
+\end{align*}</div>
+<p>
+as desired
+</p>
+
+</div>
+</body>
+</html>

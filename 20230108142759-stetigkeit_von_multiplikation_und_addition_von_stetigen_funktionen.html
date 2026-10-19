@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:51 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Stetigkeit von Multiplikation und Addition von stetigen reellwertigen Funktionen</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,70 +52,58 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Stetigkeit von Multiplikation und Addition von stetigen reellwertigen Funktionen</h1>
-<div id="outline-container-orgb788e19" class="outline-2">
-<h2 id="orgb788e19"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-948270e0-f9a9-4ca2-8b59-589d47b30c46"></span><h1 class="title">Stetigkeit von Multiplikation und Addition von stetigen reellwertigen Funktionen</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Seien \(f: M \rightarrow N\), \(g: M \rightarrow N\) <a href="20220819232419-stetigkeit.html#ID-b2d86612-ee0d-43a3-b49c-6953d712ecc5">stetige</a> <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktionen</a> im Punkt \(m \in M\).
-Dann gilt, dass \(f \pm g\) und \(f \cdot g\) <a href="20220819232419-stetigkeit.html#ID-b2d86612-ee0d-43a3-b49c-6953d712ecc5">stetig</a> sind.
+Seien $f: M \rightarrow N$, $g: M \rightarrow N$ <a href="20220819232419-stetigkeit.html#ID-b2d86612-ee0d-43a3-b49c-6953d712ecc5">stetige</a> <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktionen</a> im Punkt $m \in M$.
+Dann gilt, dass $f \pm g$ und $f \cdot g$ <a href="20220819232419-stetigkeit.html#ID-b2d86612-ee0d-43a3-b49c-6953d712ecc5">stetig</a> sind.
 </p>
-</div>
-</div>
-<div id="outline-container-org34acd55" class="outline-2">
-<h2 id="org34acd55"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org02a3d67" class="outline-3">
-<h3 id="org02a3d67"><span class="section-number-3">2.1.</span> Addition</h3>
-<div class="outline-text-3" id="text-2-1">
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="addition">Addition</h3>
 <p>
-Sei \(\frac{\varepsilon}{2} > 0\), dann existieren \(\delta_f, \delta_g > 0\), so dass für \(m, m' \in M\) mit \(\vert m - m' \vert < \delta_f, \delta_g\) gilt:
+Sei $\frac{\varepsilon}{2} &gt; 0$, dann existieren $\delta_f, \delta_g &gt; 0$, so dass für $m, m' \in M$ mit $\vert m - m' \vert &lt; \delta_f, \delta_g$ gilt:
 </p>
-\begin{align*}
-\vert f(m) - f(m')\vert < \varepsilon \\
-\vert g(m) - g(m')\vert < \varepsilon
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\vert f(m) - f(m')\vert &lt; \varepsilon \\
+\vert g(m) - g(m')\vert &lt; \varepsilon
+\end{align*}</div>
 <p>
 Daraus folgt aus der <a href="20220716173747-dreiecksungleichung_metrik.html#ID-e5ef5ef6-266f-4486-aa97-9ba2093531fe">Dreiecksungleichung</a> für:
 </p>
-\begin{align*}
-\vert f(m) \pm g(m) - f(m') \mp g(m) \vert =& \vert (f(m) - f(m')) \pm (g(m) - g(m')) \vert \\
-\leq& \vert f(m) - f(m') \vert + \vert \pm (g(m) - g(m')) \vert \\
-=& \vert f(m) - f(m') \vert + \vert g(m) - g(m') \vert \\
-<& \frac{\varepsilon}{2} + \frac{\varepsilon}{2} \\
-=& \varepsilon
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\vert f(m) \pm g(m) - f(m') \mp g(m) \vert =&amp; \vert (f(m) - f(m')) \pm (g(m) - g(m')) \vert \\
+\leq&amp; \vert f(m) - f(m') \vert + \vert \pm (g(m) - g(m')) \vert \\
+=&amp; \vert f(m) - f(m') \vert + \vert g(m) - g(m') \vert \\
+&lt;&amp; \frac{\varepsilon}{2} + \frac{\varepsilon}{2} \\
+=&amp; \varepsilon
+\end{align*}</div>
 <p>
-Daraus folgt, dass für \(\varepsilon > 0\) das Minimum von \(\delta_{f, \frac{\varepsilon}{2}}, \delta_{g, \frac{\varepsilon}{2}}\) die geforderte Eigenschaft erfüllt
-</p>
-</div>
-</div>
-<div id="outline-container-org1638735" class="outline-3">
-<h3 id="org1638735"><span class="section-number-3">2.2.</span> Mutliplikation</h3>
-<div class="outline-text-3" id="text-2-2">
-<p>
-Sei \(\varepsilon > 0\), dann existieren \(\delta_{f, \varepsilon}, \delta_{g, \varepsilon} > 0\), so dass <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> für \(f\)  \(s_f  \coloneqq \sup \{\vert f(x) \vert \mid \vert x - x_0 \vert < \delta_{f, \varepsilon}\} \leq \vert f(x) \vert + \varepsilon\) existiert.
-Sei \(s  \coloneqq \mathrm{max}(1, s_f, s_g)\), dann existiert für \(0 < \frac{\varepsilon}{2 \cdot s} < \varepsilon\) wieder \(\delta_{f, \frac{\varepsilon}{2 \cdot s}}, \delta_{g, \frac{\varepsilon}{2 \cdot s}} > 0\) und sei \(\delta  \coloneqq \mathrm{min}( \delta_{f, \frac{\varepsilon}{2 \cdot s}}, \delta_{g, \frac{\varepsilon}{2 \cdot s}})\).
-Daraus folgt für \(m'\) mit \(\vert m - m' \vert < \delta\)
+Daraus folgt, dass für $\varepsilon &gt; 0$ das Minimum von $\delta_{f, \frac{\varepsilon}{2}}, \delta_{g, \frac{\varepsilon}{2}}$ die geforderte Eigenschaft erfüllt
 </p>
 
-\begin{align*}
-\vert f(m)\cdot g(m) - f(m') \cdot g(m') \vert =& \vert f(m) \cdot g(m) - f(m') \cdot (g(m') - g(m) + g(m)) \vert \\
-=& \vert g(m) \cdot \left(f(m) - f(m')\right) - f(m') \cdot \left( g(m') - g(m) \right) \vert \\
-\leq& \vert g(m) \cdot \left(f(m) - f(m')\right) \vert  + \vert f(m') \cdot \left( g(m') - g(m) \right) \vert  \\
-=& \vert g(m) \vert \cdot \left(f(m) - f(m')\right) \vert + \vert f(m') \vert \cdot \vert \left( g(m') - g(m) \right) \vert \\
-\leq& s \cdot \frac{\varepsilon}{2 \cdot s} + s \cdot \frac{\varepsilon}{2 \cdot s} \\
-=& \varepsilon
-\end{align*}
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:51</p>
+<h3 id="mutliplikation">Mutliplikation</h3>
+<p>
+Sei $\varepsilon &gt; 0$, dann existieren $\delta_{f, \varepsilon}, \delta_{g, \varepsilon} &gt; 0$, so dass <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> für $f$  $s_f  \coloneqq \sup \{\vert f(x) \vert \mid \vert x - x_0 \vert &lt; \delta_{f, \varepsilon}\} \leq \vert f(x) \vert + \varepsilon$ existiert.
+Sei $s  \coloneqq \mathrm{max}(1, s_f, s_g)$, dann existiert für $0 &lt; \frac{\varepsilon}{2 \cdot s} &lt; \varepsilon$ wieder $\delta_{f, \frac{\varepsilon}{2 \cdot s}}, \delta_{g, \frac{\varepsilon}{2 \cdot s}} &gt; 0$ und sei $\delta  \coloneqq \mathrm{min}( \delta_{f, \frac{\varepsilon}{2 \cdot s}}, \delta_{g, \frac{\varepsilon}{2 \cdot s}})$.
+Daraus folgt für $m'$ mit $\vert m - m' \vert &lt; \delta$
+</p>
+
+
+<div class="math-block">\begin{align*}
+\vert f(m)\cdot g(m) - f(m') \cdot g(m') \vert =&amp; \vert f(m) \cdot g(m) - f(m') \cdot (g(m') - g(m) + g(m)) \vert \\
+=&amp; \vert g(m) \cdot \left(f(m) - f(m')\right) - f(m') \cdot \left( g(m') - g(m) \right) \vert \\
+\leq&amp; \vert g(m) \cdot \left(f(m) - f(m')\right) \vert  + \vert f(m') \cdot \left( g(m') - g(m) \right) \vert  \\
+=&amp; \vert g(m) \vert \cdot \left(f(m) - f(m')\right) \vert + \vert f(m') \vert \cdot \vert \left( g(m') - g(m) \right) \vert \\
+\leq&amp; s \cdot \frac{\varepsilon}{2 \cdot s} + s \cdot \frac{\varepsilon}{2 \cdot s} \\
+=&amp; \varepsilon
+\end{align*}</div>
+
+
 </div>
 </body>
 </html>

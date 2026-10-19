@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>reduction of schemes is a right adjoint</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-2583108b-b0bb-4702-8446-729372dbda3b"></span><h1 class="title">reduction of schemes is a right adjoint</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathrm{Sch}^{\mathrm{red}}$ be the <a href="20240920-full_sub_infinity_category.html#ID-9e204c6a-f799-4623-ae56-89de8ef5a212">full subcategory</a> of <a href="20260720-reduced_scheme.html#ID-ab9bd57a-4953-49bd-ac64-684f8430c4ff">reduced schemes</a>
+Then the inclusion $\mathrm{Sch}^\mathrm{red} \rightarrow \mathrm{Sch}$ admits a <a href="20241017-infinity_right_adjoint.html#ID-1ed94fd7-42a4-4328-a280-17e516d76e3d">right adjoint</a> given by the <a href="20260808-reduction_of_a_scheme.html#ID-e5967e99-478e-403b-b895-cbfe17c365eb">reduction of a scheme</a>.
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $f: Y \rightarrow X$ be map where $Y$ is already a <a href="20260720-reduced_scheme.html#ID-ab9bd57a-4953-49bd-ac64-684f8430c4ff">reduced scheme</a>.
+Then it suffices to show that $f$ factors through $X^{\mathrm{red}}$, since $X^{\mathrm{red}} \rightarrow Y$ is a <a href="20220819135911-monomorphismus.html#ID-60b63797-32fa-4d4e-a577-7616faa010ba">monomorphism</a> or in other words, that the dashed map
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/4edd6411ea0445fb3f56.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a>
+</p>
+
+<p>
+Here $Y \times_{X} X^{\mathrm{red}} \subseteq Y$ is a <a href="20260713-closed_subfunctor.html#ID-d952d35b-1a92-4447-97b0-37c5363be496">closed subfunctor</a>, so classified by a <a href="20260715-poset_of_quasi_coherent_ideals_over_an_algebraic_functor.html#ID-59ad07e0-9fa7-4bec-9caf-0dc5fcee3a8b">quasi-coherent ideal</a> - so we want to show that it is the zero ideal.
+</p>
+
+<p>
+Then for an affine open $\mathrm{Spec}(S) \subseteq X$ and then we have a diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/c7d476c8f3b245b3c3e7.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+where $\mathrm{Spec}(R)$ is an open cover of $D$ and hence open in $Y$, since $D$ is the pullback of the open $\mathrm{Spec}(S) \subseteq X$.
+</p>
+
+<p>
+Now using zariski descent of <a href="20260715-poset_of_quasi_coherent_ideals_over_an_algebraic_functor.html#ID-59ad07e0-9fa7-4bec-9caf-0dc5fcee3a8b">quasi-coherent ideals</a> it suffices to show that the image of the quasi-coherent ideal $\sqrt{0}$ in $\mathrm{Spec}(R_i)$ is the zero ideal.
+As <a href="20260720-reduced_is_a_local_property_of_schemes.html#ID-eb00838a-11e0-4278-b3e5-9d9860c9e833">reduced is a local property of schemes</a>, we get that $\mathrm{Spec}(R_i)$ is a reduced scheme, i.e. $R_i$ is a <a href="20230725-reduced_ring.html#ID-1480b16c-0de6-4614-9ae9-a70abea088a9">reduced ring</a> and thus the image of the <a href="20230531075602-menge_der_nilpotenten_element_als_ideal.html#ID-603c79c1-6511-45a3-898a-83df20df86ea">nilradical</a> must be zero.
+</p>
+
+<p>
+This - together with zariski descent for the pullback of the open cover (cf. <a href="20260904-pullback_of_an_open_cover_of_algebraic_functors.html#ID-47cce881-e43b-4bb7-9e2d-ca854b9b2bdd">pullback of an open cover</a>)  - shows that the ideal classifying $Y \times_{X} X^{\mathrm{red}} \subseteq Y$ must be the zero ideal, hence the map is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a>
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+D \arrow[]{ddrr}{} \dar \arrow[]{rr}{} &amp; &amp; P \dar \arrow[]{rdd}{}&amp; \\
+\mathrm{Spec}(S/\sqrt{0}) \arrow[]{rr}{} \arrow[]{rdd}{}  &amp; &amp; X^{\mathrm{red}} \arrow[]{rdd}{} &amp; \\
+&amp; D \arrow[]{rr}{} \dar &amp; &amp; P  \dar\\
+&amp; \mathrm{Spec}(S) \arrow[]{rr}{} &amp; &amp; X \\
+\end{tikzcd}
+\end{displaymath}</pre></div>
+
+</div>
+</body>
+</html>

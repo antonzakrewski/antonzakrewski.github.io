@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 22:29 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Supremumsnorm auf dem Funktionenraum einem beschränkten Intervall</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,93 +52,80 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Supremumsnorm auf dem Funktionenraum einem beschränkten Intervall</h1>
-<div id="outline-container-org5fb4d58" class="outline-2">
-<h2 id="org5fb4d58"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-45fca025-2e09-4a26-8ebe-51ca2d08470d"></span><h1 class="title">Supremumsnorm auf dem Funktionenraum einem beschränkten Intervall</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei der <a href="20230204210438-reeller_vektorraum.html#ID-47c426f6-4f34-402a-8c78-5ef0c3b88ce9">reelle Vektorraum</a> \(\mathcal{C}^0([a,b])\) gegeben (siehe: <a href="20230123233223-differentiationsklasse.html#ID-7ef674b2-958d-4fa2-af99-dc7188f4acce">Differentiationsklasse</a>), dann ist
+Sei der <a href="20230204210438-reeller_vektorraum.html#ID-47c426f6-4f34-402a-8c78-5ef0c3b88ce9">reelle Vektorraum</a> $\mathcal{C}^0([a,b])$ gegeben (siehe: <a href="20230123233223-differentiationsklasse.html#ID-7ef674b2-958d-4fa2-af99-dc7188f4acce">Differentiationsklasse</a>), dann ist
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \| f \|_{\infty}  \coloneqq \sup_{x \in [a,b]} \vert f(x) \vert
-\end{align*}
+\end{align*}</div>
 <p>
-eine <a href="20220920053006-norm_eines_vektors.html#ID-445db843-5369-48de-a31f-f1f245833425">Norm</a> 
+eine <a href="20220920053006-norm_eines_vektors.html#ID-445db843-5369-48de-a31f-f1f245833425">Norm</a>
 </p>
-</div>
-</div>
-<div id="outline-container-org0a8e8c5" class="outline-2">
-<h2 id="org0a8e8c5"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<h2 id="beweis">Beweis</h2>
 <p>
-Nach dem <a href="20230114140701-satz_vom_minimum_und_maximun.html#ID-e6271294-4695-4486-92db-f72c4008eed2">Satz vom Minimum und Maximum</a> nimmt \(f(x)\) sowohl ein <a href="20221103092136-minimum.html#ID-41ccfaba-7b48-4dac-bfda-de7f127aabe6">Minimum</a> als auch <a href="20221103092141-maximum.html#ID-abf0481b-fe94-4bef-a0d3-fbb5c498364b">Maximum</a> an.
-Damit folgt, dass \(f(x)\) beschränkt ist (mit dem Minimum / Maximum) und es existiert der evidente <a href="20230303151658-vektorraummonomorphismus.html#ID-f0288756-d404-4cf9-8f45-508ac443d32c">Vektorraummonomorphism</a>:
+Nach dem <a href="20230114140701-satz_vom_minimum_und_maximun.html#ID-e6271294-4695-4486-92db-f72c4008eed2">Satz vom Minimum und Maximum</a> nimmt $f(x)$ sowohl ein <a href="20221103092136-minimum.html#ID-41ccfaba-7b48-4dac-bfda-de7f127aabe6">Minimum</a> als auch <a href="20221103092141-maximum.html#ID-abf0481b-fe94-4bef-a0d3-fbb5c498364b">Maximum</a> an.
+Damit folgt, dass $f(x)$ beschränkt ist (mit dem Minimum / Maximum) und es existiert der evidente <a href="20230303151658-vektorraummonomorphismus.html#ID-f0288756-d404-4cf9-8f45-508ac443d32c">Vektorraummonomorphism</a>:
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \phi: C^0([a,b]) \rightarrow l^P \\
-f_{[a,b]} \mapsto& f \\
-f(x)  \coloneqq& 
+f_{[a,b]} \mapsto&amp; f \\
+f(x)  \coloneqq&amp; 
     \begin{cases}
-     f_{[a,b]} & \mbox{if } x \in [a,b] \\
-     0 & \mbox{else } \\ 
+     f_{[a,b]} &amp; \mbox{if } x \in [a,b] \\
+     0 &amp; \mbox{else } \\ 
     \end{cases}
-\end{align*}
+\end{align*}</div>
 <p>
 Somit lässt sich die Supremumsnorm für das beschränkte Intervall natürlich definieren durch:
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \| f_{[a,b]} \|_{\infty}  \coloneqq \| \phi(f_{[a,b]}) \|_{\infty}
-\end{align*}
+\end{align*}</div>
 <p>
-Da \(\| \cdot \|_{\infty}\) auf \(B(\mathbb{R},\mathbb{R})\) eine <a href="20230428182820-supremumsnorm_auf_der_menge_der_beschrankten_funktionen.html#ID-8d9a2901-44e3-417d-91e1-95718087326b">Norm</a> ist, werden die Eigenschaften einer Norm weiterverbert, d.h.
+Da $\| \cdot \|_{\infty}$ auf $B(\mathbb{R},\mathbb{R})$ eine <a href="20230428182820-supremumsnorm_auf_der_menge_der_beschrankten_funktionen.html#ID-8d9a2901-44e3-417d-91e1-95718087326b">Norm</a> ist, werden die Eigenschaften einer Norm weiterverbert, d.h.
 (siehe: <a href="20230428182820-supremumsnorm_auf_der_menge_der_beschrankten_funktionen.html#ID-8d9a2901-44e3-417d-91e1-95718087326b">Supremumsnorm auf der Menge der beschränkten Funktionen</a>)
 </p>
-</div>
 
-<div id="outline-container-org09ffe5d" class="outline-3">
-<h3 id="org09ffe5d"><span class="section-number-3">2.1.</span> <a href="20221003143637-definitheit_einer_norm.html#ID-4d9c9a0a-1c0e-4a9b-83cc-2d08342c47d0">Positive Definitheit</a></h3>
-<div class="outline-text-3" id="text-2-1">
+
+<h3 id="id4d9c9a0a-1c0e-4a9b-83cc-2d08342c47d0positive-definitheit"><a href="20221003143637-definitheit_einer_norm.html#ID-4d9c9a0a-1c0e-4a9b-83cc-2d08342c47d0">Positive Definitheit</a></h3>
 <p>
-Sei \(f = 0\), dann folgt für alle \(x \in [a,b] : f(x) = 0\) und damit folgt \(\sup_{x \in [a,b]} \vert f(x) \vert = 0\)
-Ansonsten existiert ein \(x \in [a,b]\) mit \(f(x) \neq 0\) und es folgt:
+Sei $f = 0$, dann folgt für alle $x \in [a,b] : f(x) = 0$ und damit folgt $\sup_{x \in [a,b]} \vert f(x) \vert = 0$
+Ansonsten existiert ein $x \in [a,b]$ mit $f(x) \neq 0$ und es folgt:
 </p>
-\begin{align*}
-0 < \vert f(x) \vert \leq \sup_{x \in [a,b]} \vert f(x) \vert
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org3d10807" class="outline-3">
-<h3 id="org3d10807"><span class="section-number-3">2.2.</span> <a href="20221003143707-dreiecksungleichung_einer_norm.html#ID-ab6dc42a-e937-4409-8dce-39b5925205dd">Dreiecksungleichung einer Norm</a></h3>
-<div class="outline-text-3" id="text-2-2">
+
+<div class="math-block">\begin{align*}
+0 &lt; \vert f(x) \vert \leq \sup_{x \in [a,b]} \vert f(x) \vert
+\end{align*}</div>
+
+<h3 id="idab6dc42a-e937-4409-8dce-39b5925205dddreiecksungleichung-einer-norm"><a href="20221003143707-dreiecksungleichung_einer_norm.html#ID-ab6dc42a-e937-4409-8dce-39b5925205dd">Dreiecksungleichung einer Norm</a></h3>
 <p>
 Es gilt:
 </p>
-\begin{align*}
-\| f + f' \|_{\infty} =& \sup_{x \in \mathbb{R}}\{\vert f(x) + f'(x) \vert \} \\
-\leq& \sup_{x,x' \in \mathbb{R}}\{\vert f(x) \vert + \vert f'(x')\vert\} \\
-=& \sup_{x \in \mathbb{R}}\{f(x)\} + \sup_{x' \in \mathbb{R}}\{f'(x)\} \\
-=& \| f \|_{\infty} + \| f' \|_{\infty}
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org4d5605d" class="outline-3">
-<h3 id="org4d5605d"><span class="section-number-3">2.3.</span> <a href="20221003133838-absolute_homogenitat_norm.html#ID-a67174d6-2370-4505-99a9-90fc848e2c5b">absolute Homogenität einer Norm</a></h3>
-<div class="outline-text-3" id="text-2-3">
+
+<div class="math-block">\begin{align*}
+\| f + f' \|_{\infty} =&amp; \sup_{x \in \mathbb{R}}\{\vert f(x) + f'(x) \vert \} \\
+\leq&amp; \sup_{x,x' \in \mathbb{R}}\{\vert f(x) \vert + \vert f'(x')\vert\} \\
+=&amp; \sup_{x \in \mathbb{R}}\{f(x)\} + \sup_{x' \in \mathbb{R}}\{f'(x)\} \\
+=&amp; \| f \|_{\infty} + \| f' \|_{\infty}
+\end{align*}</div>
+
+<h3 id="ida67174d6-2370-4505-99a9-90fc848e2c5babsolute-homogenitat-einer-norm"><a href="20221003133838-absolute_homogenitat_norm.html#ID-a67174d6-2370-4505-99a9-90fc848e2c5b">absolute Homogenität einer Norm</a></h3>
 <p>
-Sei \(\lambda \in \mathbb{R}\), so gilt wegen der Multiplikativität des Betrags:
+Sei $\lambda \in \mathbb{R}$, so gilt wegen der Multiplikativität des Betrags:
 </p>
-\begin{align*}
-\| \lambda \cdot f \|_{\infty}  \coloneqq& \sup_{x} \{\vert\lambda \cdot f(x)\vert\} \\
-=& \vert \lambda \vert \cdot \sup_{x}\{ \vert f(x) \vert \}
-\end{align*}
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 22:29</p>
+
+<div class="math-block">\begin{align*}
+\| \lambda \cdot f \|_{\infty}  \coloneqq&amp; \sup_{x} \{\vert\lambda \cdot f(x)\vert\} \\
+=&amp; \vert \lambda \vert \cdot \sup_{x}\{ \vert f(x) \vert \}
+\end{align*}</div>
+
 </div>
 </body>
 </html>

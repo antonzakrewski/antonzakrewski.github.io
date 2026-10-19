@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:50 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Modale Semantik für Intuitionismus</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,69 +52,71 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Modale Semantik für Intuitionismus</h1>
-<div id="outline-container-org3d2ae1d" class="outline-2">
-<h2 id="org3d2ae1d"><span class="section-number-2">1.</span> Definition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-730d86ae-4ca6-42d2-a9f5-20ec4055140b"></span><h1 class="title">Modale Semantik für Intuitionismus</h1>
+
+<h2 id="definition">Definition</h2>
 <p>
-Eine <a href="20221222214431-intuitionistische_logik.html#ID-2a808dca-9c16-4531-b637-39896ad8228a">intuitionistische</a> Interpretation ist ein Tupel \((D,W,R,\nu)\) mit:
+Eine <a href="20221222214431-intuitionistische_logik.html#ID-2a808dca-9c16-4531-b637-39896ad8228a">intuitionistische</a> Interpretation ist ein Tupel $(D,W,R,\nu)$ mit:
 </p>
-<ul class="org-ul">
-<li>\(D\) als <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> von "objekten"</li>
-<li>\(W\) eine <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> von <a href="20230103161242-welt_modallogik.html#ID-0e817fc8-503e-457a-9f4c-766c37da2076">Welten</a></li>
-<li>\(R \subset W \times W\) eine <a href="20220929192418-reflexive_relation.html#ID-a6016d54-aefb-460f-9da3-37388a9a4941">reflexive</a>, <a href="20220929192405-transitive_relation.html#ID-b1ee8b48-b51c-4099-b1c8-27dd3e757e0b">transitive</a> <a href="20211227225631-relation_mathe.html#ID-20e17f2d-e102-4093-8c48-e5b41db0ffbf">Relation</a> ist</li>
-<li>\(\nu(w) \subseteq D\) für alle \(w \in W\), und \(D_w\) als Domäne der welt \(w\)</li>
-<li>Ist \(p\) ein \(n\)-stelliges Prädikatenzeichen und \(w\) eine <a href="20230103161242-welt_modallogik.html#ID-0e817fc8-503e-457a-9f4c-766c37da2076">Welt</a>, so ist \(\nu_w(P) \subseteq [\nu(w)]^n = D_w^n\)</li>
-<li>Ist \(k\) ein Konstantenzeichen, so ist \(\nu(k) \in D\)</li>
-<li>Ist \(wRw'\) , so ist \(\nu_w(P) \subseteq \nu_{w'}(P)\)</li>
-<li>Ist \(wRw'\), so ist \(D_w \subseteq D_w'\)</li>
+<ul>
+<li>$D$ als <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> von "objekten"</li>
+
+<li>$W$ eine <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> von <a href="20230103161242-welt_modallogik.html#ID-0e817fc8-503e-457a-9f4c-766c37da2076">Welten</a></li>
+
+<li>$R \subset W \times W$ eine <a href="20220929192418-reflexive_relation.html#ID-a6016d54-aefb-460f-9da3-37388a9a4941">reflexive</a>, <a href="20220929192405-transitive_relation.html#ID-b1ee8b48-b51c-4099-b1c8-27dd3e757e0b">transitive</a> <a href="20211227225631-relation_mathe.html#ID-20e17f2d-e102-4093-8c48-e5b41db0ffbf">Relation</a> ist</li>
+
+<li>$\nu(w) \subseteq D$ für alle $w \in W$, und $D_w$ als Domäne der welt $w$</li>
+
+<li>Ist $p$ ein \(n\)-stelliges Prädikatenzeichen und $w$ eine <a href="20230103161242-welt_modallogik.html#ID-0e817fc8-503e-457a-9f4c-766c37da2076">Welt</a>, so ist $\nu_w(P) \subseteq [\nu(w)]^n = D_w^n$  </li>
+
+<li>Ist $k$ ein Konstantenzeichen, so ist $\nu(k) \in D$</li>
+
+<li>Ist $wRw'$ , so ist $\nu_w(P) \subseteq \nu_{w'}(P)$</li>
+
+<li>Ist $wRw'$, so ist $D_w \subseteq D_w'$</li>
 </ul>
-\begin{align*}
+<div class="math-block">\begin{align*}
 \nu_w(P(a_1,...,.a_n)) = 
 \begin{cases}
-1 & \mbox{if } (\nu(a_1),...,\nu(a_n)) \in \nu_w(P) \\
-0 & \mbox{else } \\ 
+1 &amp; \mbox{if } (\nu(a_1),...,\nu(a_n)) \in \nu_w(P) \\
+0 &amp; \mbox{else } \\ 
 \end{cases}
-\end{align*}
-\begin{align*}
-\nu_w(A \land B) =& 
+\end{align*}</div>
+
+<div class="math-block">\begin{align*}
+\nu_w(A \land B) =&amp; 
 \begin{cases}
-1 & \mbox{if } \nu_w \\
-0  & \mbox{else } \\ 
+1 &amp; \mbox{if } \nu_w \\
+0  &amp; \mbox{else } \\ 
 \end{cases} \\
-\nu_w(A \lor B) =&
+\nu_w(A \lor B) =&amp;
 \begin{cases}
-1 & \mbox{if } \nu_w(A) = 1 \text{ oder } \nu_w(B) = 1 \\
-0  & \mbox{else } \\ 
+1 &amp; \mbox{if } \nu_w(A) = 1 \text{ oder } \nu_w(B) = 1 \\
+0  &amp; \mbox{else } \\ 
 \end{cases} \\
-\nu_{w}( \rightharpoondown A) =& 
+\nu_{w}( \rightharpoondown A) =&amp; 
 \begin{cases}
-1 & \mbox{if } \nu_{w'}(A) = 0 \text{ für alle $w_'$ mit $wRw'$} \\
-0 & \mbox{else } \\ 
+1 &amp; \mbox{if } \nu_{w'}(A) = 0 \text{ für alle $w_'$ mit $wRw'$} \\
+0 &amp; \mbox{else } \\ 
 \end{cases} \\
-\nu_{w}(A \sqsubset B) =& 
+\nu_{w}(A \sqsubset B) =&amp; 
 \begin{cases}
-1 & \mbox{if } \text{ für alle $w'$ mit $wRw'$ gilt: }\nu_{w'}(A) = 0 \text{ oder } \nu_{w'}(B) = 1 \\
-0  & \mbox{else } \\ 
+1 &amp; \mbox{if } \text{ für alle $w'$ mit $wRw'$ gilt: }\nu_{w'}(A) = 0 \text{ oder } \nu_{w'}(B) = 1 \\
+0  &amp; \mbox{else } \\ 
 \end{cases} \\
-\nu_w( \exists x A) =&
+\nu_w( \exists x A) =&amp;
 \begin{cases}
-1 & \mbox{if } falls ein $d \in D_w$ existiert mit $\nu_w(A_x k_d) = 1$ \\
-0  & \mbox{else } \\ 
+1 &amp; \mbox{if } falls ein $d \in D_w$ existiert mit $\nu_w(A_x k_d) = 1$ \\
+0  &amp; \mbox{else } \\ 
 \end{cases} \\
-\nu_w( \forall x A) =& 
+\nu_w( \forall x A) =&amp; 
 \begin{cases}
-1 & \mbox{if } \text{für alle $w'$ mit $wRw'$ und alle } d \in D_{w'}: \nu_{w'}(A_x(k_d)) = 1 \\
-0 & \mbox{else } \\ 
+1 &amp; \mbox{if } \text{für alle $w'$ mit $wRw'$ und alle } d \in D_{w'}: \nu_{w'}(A_x(k_d)) = 1 \\
+0 &amp; \mbox{else } \\ 
 \end{cases}
-\end{align*}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:50</p>
+\end{align*}</div>
+
+
 </div>
 </body>
 </html>

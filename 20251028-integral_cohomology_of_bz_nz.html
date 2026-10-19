@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>integral cohomology of BZ/nZ</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-ac37a913-4d6e-4715-b4ca-142159e38e11"></span><h1 class="title">integral cohomology of BZ/nZ</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $n \in \mathbb{N}$, then
+</p>
+
+<div class="math-block">\begin{align*}
+H^*(B \mathbb{Z}/n \mathbb{Z}, \mathbb{Z}) \simeq 
+    \begin{cases}
+    \mathbb{Z} &amp; \mbox{if } * = 0 \\
+    \mathbb{Z}/n \mathbb{Z}  &amp; \mbox{if } * =  \textrm{ even} \\  
+0  &amp; \mbox{else } \\ 
+    \end{cases}
+\end{align*}</div>
+<p>
+and with the ring structure $\mathbb{Z}/n \mathbb{Z}[x]$
+</p>
+
+<h2 id="proof">Proof</h2>
+
+
+
+
+
+
+<h3 id="b">b)</h3>
+<p>
+consider the fiber sequence
+</p>
+
+<div class="math-block">\begin{align*}
+BC_p \rightarrow \mathbb{C}\mathbb{P}^{\infty} \rightarrow \mathbb{C}\mathbb{P}^{\infty} 
+\end{align*}</div>
+<p>
+resp.
+</p>
+
+<div class="math-block">\begin{align*}
+S^1 \rightarrow BC_p \rightarrow \mathbb{C}\mathbb{P}^{\infty} 
+\end{align*}</div>
+<p>
+given by <a href="20251028-fiber_sequence_of_a_cyclic_group_cp_infinity_and_s1.html#ID-bf8fe71c-c95e-4d7c-9122-ae52c4a93b7f">fiber sequence of a cyclic group, CP infinity and S^1</a>
+</p>
+
+<p>
+Then we write down the <a href="20251022-multiplicative_cohomological_serre_spectral_sequence.html#ID-210757b1-73c5-47bb-b360-bf27ec81abba">multiplicative cohomological serre spectral sequence</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/3d7f1e18a1de82b31411.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Note that the spectral sequence collapses at the $E^2$ page for degreereasons.
+</p>
+
+<p>
+Therefore we want to understand the differentials of the $E^2$ page:
+Here we use <a href="20251106-multiplicative_spectral_sequence_and_y_axis.html#ID-e692b46a-de53-41ae-924a-d013b721579a">multiplicative spectral sequence and y-axis</a> (as well as <a href="20251106-multiplication_of_the_e2_page_under_the_kunneth_iso.html#ID-6890e0cd-33f6-490a-923d-51f0342e4363">multiplication of the E2 page of the cohomological serre spectral sequence under the kunneth iso</a>) so it suffices to understand the dashed differential above.
+So choose generators $x \in E_{2,0}, y \in E_{0,1}$
+</p>
+
+<p>
+Here using the leibniz rule gives that
+</p>
+
+<div class="math-block">\begin{align*}
+d_2: E_{2n,1} \rightarrow E_{2(n+1),0} \\
+x^n \cdot y \mapsto&amp; d(x^n) \cdot y + x \cdot d(y) = x^n \cdot d(y)
+\end{align*}</div>
+<p>
+(possibly up to sign - which does not really matter when determining the image / kernel)
+</p>
+
+<p>
+Now the <a href="20230902-universal_coefficient_theorem.html#ID-11130c15-b23a-4605-b1c5-6446ab0b5ae3">universal coefficient Theorem for cohomology</a> &amp; <a href="20241021-absolute_hurewicz_theorem.html#ID-bea99a77-baab-48ac-9998-3f7defd490c6">absolute Hurewicz theorem</a> gives us
+</p>
+
+<div class="math-block">\begin{align*}
+H_1(\mathrm{B}C_p) = C_p \\
+H_2(\mathrm{B}C_p) = 0  \\
+\end{align*}</div>
+<p>
+which shows that $H^2(\mathrm{B}C_p)$ contains  $\mathrm{Ext}(C_p, \mathbb{Z}) = C_p$ as direct summand.
+</p>
+
+<p>
+But the only thing that can contribute to $H^2(\mathrm{B}C_p)$ is a quotient of $\mathbb{Z}$, so the map must be
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/42dcc5fc11575ca990e1.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+which in particular shows that the other maps
+</p>
+
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{sseqpage}[cohomological Serre grading,
+clip = false,
+xscale = 1.0,
+yscale = 1.0,
+% x axis gap=1.0cm,
+% y axis gap=1.0cm,
+classes = {draw = none}
+]
+\class["\mathbb{Z}"](0,0)
+\class["y\mathbb{Z}"](0,1)
+\class["x\mathbb{Z}"](2,0)
+\class["xy\mathbb{Z}"](2,1)
+\class["x^2\mathbb{Z}"](4,0)
+\class["x^2y\mathbb{Z}"](4,1)
+\d[\cdot \pm n]2(0,1)
+\d[\cdot \pm n]2(0,1)
+\end{sseqpage}
+\end{displaymath}</pre></div>
+<p>
+are given by multiplication with $\pm n$
+</p>
+
+<p>
+Therefore the $E^{\infty}$ page looks like
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/cb0aa965f6aa7e6ef844.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+and therefore additively
+</p>
+
+<div class="math-block">\begin{align*}
+H^*(B C_p,\mathbb{Z}) \cong&amp; \mathbb{Z}/p \mathbb{Z}[x]
+\end{align*}</div>
+<p>
+with $\vert x \vert = 2$.
+</p>
+
+<p>
+Furthermore the ring structure is given by $\mathbb{Z}/ \mathbb{Z}[x]$ since $(px)$ forms an ideal of $\mathbb{Z}[x]$
+</p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>fully faithful adjoint and bousfield localization</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-7c68bc37-d87a-4f24-90e4-47fc7b542374"></span><h1 class="title">fully faithful adjoint and bousfield localization</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathcal{F} \dashv \mathcal{G}$ an <a href="20241017-infinity_adjunction.html#ID-cb1237b5-7275-4001-a47a-3d146d4664e4">adjunction</a> for $\mathcal{F}: \mathcal{C} \rightarrow \mathcal{D}, \mathcal{G}: \mathcal{D} \rightarrow \mathcal{C}$
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol>
+<li>$\mathcal{F}$ is a <a href="20241018-dwyer_kan_localization.html#ID-faf65497-de31-42e1-8d9b-33eb33d1f737">dwyer-kan localization</a> for the collection of <a href="20241109-infinity_unit_transformation.html#ID-2938f9f8-5823-47ef-b80a-c23e2dd61aea">unit</a> morphism</li>
+
+<li>$\mathcal{G}$ is <a href="20240701-fully_faithful_functor_between_infinity_categories.html#ID-bb0d3e0e-92a5-4687-999c-a99d4043ea38">fully faithful</a></li>
+</ol>
+<p>
+analogously
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol>
+<li>$\mathcal{G}$ is a <a href="20241018-dwyer_kan_localization.html#ID-faf65497-de31-42e1-8d9b-33eb33d1f737">dwyer-kan localization</a> </li>
+
+<li>$\mathcal{F}$ is <a href="20240701-fully_faithful_functor_between_infinity_categories.html#ID-bb0d3e0e-92a5-4687-999c-a99d4043ea38">fully faithful</a></li>
+</ol>
+<h2 id="proof">Proof</h2>
+
+<h3 id="a">a)</h3>
+<p>
+Recall that a <a href="20241109-infinity_unit_transformation.html#ID-2938f9f8-5823-47ef-b80a-c23e2dd61aea">unit</a> transformation is an equivalence <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> the left adjoint is <a href="20240701-fully_faithful_functor_between_infinity_categories.html#ID-bb0d3e0e-92a5-4687-999c-a99d4043ea38">fully faithful</a>, analagously for the counit and left adjoint. (cf. <a href="20240404-fully_faithful_left_adjoint_and_unit_as_isomorphism.html#ID-624d7d6a-e458-43f3-a82f-4f09d16595b4">fully faithful left adjoint and unit as isomorphism</a>)
+</p>
+
+<h4 id="1-implies-2">1) $\implies$ 2)</h4>
+<p>
+It suffices to show that the counit transformation of $\mathcal{F} \dashv \mathcal{G}$ is an equivalence.
+We know that the <a href="20241109-infinity_unit_transformation.html#ID-2938f9f8-5823-47ef-b80a-c23e2dd61aea">unit</a> transformation of $\mathcal{G}^* \dashv \mathcal{F}^*$ is an equivalence, since $\mathcal{F}^*$ is <a href="20240701-fully_faithful_functor_between_infinity_categories.html#ID-bb0d3e0e-92a5-4687-999c-a99d4043ea38">fully faithful</a>, as $\mathcal{G}$ is a dwyer-kan localization.
+</p>
+
+<p>
+Here the unit transformation in $\mathrm{Fun}(\mathcal{D}, \mathcal{E})$ is given on an object $\mathcal{H}: \mathcal{D} \rightarrow \mathcal{E}$ by precomposition with the <a href="20241203-infinity_counit_transformation.html#ID-93de1a23-d556-45a8-bf28-514f6b142bcb">counit</a>, so in particular we may let $\mathcal{E} = \mathcal{D}$ and test against the identity functor to observe that the the counit transformation of $\mathcal{F} \dashv \mathcal{G}$ is an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a>.
+</p>
+
+<h4 id="2-implies-1">2) $\implies$ 1)</h4>
+
+<p>
+Observe that <a href="20250323-precomposition_with_an_infinity_adjoint_as_adjoint_on_functor_categories.html#ID-a5be1a65-a77d-48e7-94d1-47691678b41d">precomposition with an adjoint is an adjoint</a>, so we have $\mathcal{G}^* \dashv \mathcal{F}^*$ on $\mathrm{Fun}(-, \mathcal{E})$ for arbitrary $\mathcal{E}$.
+Now in particular, the <a href="20241109-infinity_unit_transformation.html#ID-2938f9f8-5823-47ef-b80a-c23e2dd61aea">unit</a> of this adjunction is given by whiskering with the <a href="20241203-infinity_counit_transformation.html#ID-93de1a23-d556-45a8-bf28-514f6b142bcb">counit</a> of $\mathcal{F} \dashv \mathcal{G}$, which implies that the unit of $\mathcal{G}^* \dash \mathcal{F}^*$ is an equivalence hence $\mathcal{G}^*$ is fully faithful.
+</p>
+
+<p>
+We claim that it identifies with the <a href="20240920-full_sub_infinity_category.html#ID-9e204c6a-f799-4623-ae56-89de8ef5a212">full subcategory</a> containing functors $\mathcal{H}: \mathcal{C} \rightarrow \mathcal{E}$ which invert the objectwise counit morphisms $\epsilon(c)$:
+So suppose we have a functor $\mathcal{H}: \mathcal{C} \rightarrow \mathcal{E}$ which preserves inverts the individual unit morphism, then precomposition with the unit transformation $(\mathcal{F} \mathcal{G})^*\mathcal{H} \Rightarrow \mathcal{H}$ is an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a> where $(\mathcal{F} \mathcal{G})^*\mathcal{H} \simeq \mathcal{F}^*( \mathcal{H} \mathcal{G})$ lies in the essential image.
+</p>
+
+<p>
+Suppose that we have a functor in the essential image, i.e. $\mathcal{H} \simeq \mathcal{F}^*\mathcal{H}'$, then it suffices to show that $\mathcal{F}$ inverts the <a href="20241109-infinity_unit_transformation.html#ID-2938f9f8-5823-47ef-b80a-c23e2dd61aea">unit</a> morphism, i.e. $\mathcal{F}(\mathrm{id}) \Rightarrow \mathcal{F} \mathcal{G} \mathcal{F}$ is an equivalence.
+It suffices to show that it is an equivalence after applying $\mathcal{G}$, since $\mathcal{G}$ is <a href="20240701-fully_faithful_functor_between_infinity_categories.html#ID-bb0d3e0e-92a5-4687-999c-a99d4043ea38">fully faithful</a> and hence <a href="20240331-conservative_functor_between_infinity_categories.html#ID-37cd5c52-6d86-4178-9721-6908bb0a3087">conservative functor.</a>
+but $\mathcal{G}\mathcal{F} \Rightarrow \mathcal{GFGF}$ identifies with a section of an equivalence in the triangle identities.
+</p>
+
+<h3 id="b">b)</h3>
+
+
+
+
+
+<h2 id="remark">Remark</h2>
+<p>
+If one wants to use the $\mathrm{Hom}()$ characterization, then one can apply the <a href="20240404-maximal_infinity_subgroupoid.html#ID-4286671c-233d-4d74-b2bb-78db759b6b41">groupoid core</a>, which preserves <a href="20240701-fully_faithful_functor_between_infinity_categories.html#ID-bb0d3e0e-92a5-4687-999c-a99d4043ea38">fully faithful</a> functors.
+</p>
+
+</div>
+</body>
+</html>

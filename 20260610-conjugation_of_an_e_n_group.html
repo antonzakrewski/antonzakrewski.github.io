@@ -1,283 +1,130 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2026-06-10 Mi 21:19 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>conjugation of an E_n group</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">conjugation of an E<sub>n</sub> group</h1>
-<div id="outline-container-org73230a0" class="outline-2">
-<h2 id="org73230a0">Definition</h2>
-<div class="outline-text-2" id="text-org73230a0">
+<span id="ID-66fe51f6-d738-4e31-a2a9-1516e94105a9"></span><h1 class="title">conjugation of an E_n group</h1>
+
+<h2 id="definition">Definition</h2>
 <p>
-Let <img src="ltximg/20260610-conjugation_of_an_e_n_group_0a70edcc94752d412a21e03492c74e2e81498d91.svg" alt="20260610-conjugation_of_an_e_n_group_0a70edcc94752d412a21e03492c74e2e81498d91.svg" class="org-svg" />, then conjugation is defined as <img src="ltximg/20260610-conjugation_of_an_e_n_group_4e60e19b173e185a5aea1317332570694849e891.svg" alt="20260610-conjugation_of_an_e_n_group_4e60e19b173e185a5aea1317332570694849e891.svg" class="org-svg" />-group homomorphism<br />
+Let $G \in \mathrm{Grp}_{\mathbb{E}_n}(\mathrm{An})$, then conjugation is defined as \(\mathbb{E}_n\)-group homomorphism
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20260610-conjugation_of_an_e_n_group_aa7dbf1673b3197d8d02a1fa51d1160a7e795e7c.svg" alt="20260610-conjugation_of_an_e_n_group_aa7dbf1673b3197d8d02a1fa51d1160a7e795e7c.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+G \rightarrow \Omega^{n-1}\mathrm{Aut}_{\mathrm{Grp}_{\mathbb{E}_n}}(G)
+\end{align*}</div>
 <p>
-In particular, for <img src="ltximg/20260610-conjugation_of_an_e_n_group_f69d97cdf467a9aa2d0e468909da67f008fdd6d8.svg" alt="20260610-conjugation_of_an_e_n_group_f69d97cdf467a9aa2d0e468909da67f008fdd6d8.svg" class="org-svg" /> this defines an <img src="ltximg/20260610-conjugation_of_an_e_n_group_8a9aca2a92d277161b2e2f8988384bfcc9cae056.svg" alt="20260610-conjugation_of_an_e_n_group_8a9aca2a92d277161b2e2f8988384bfcc9cae056.svg" class="org-svg" /> group homomorphism<br />
+In particular, for $n = 1$ this defines an \(\mathbb{E}_1\) group homomorphism
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20260610-conjugation_of_an_e_n_group_15b949ebc099fe4ae26225a86e1b89d18c0030b2.svg" alt="20260610-conjugation_of_an_e_n_group_15b949ebc099fe4ae26225a86e1b89d18c0030b2.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+G \rightarrow \mathrm{Aut}_{\mathrm{Grp}_{\mathbb{E}_1}}(G)
+\end{align*}</div>
 
 <p>
-We define it by the following steps:<br />
+We define it by the following steps:
 </p>
-<ol class="org-ol">
-<li>recall the <a href="20260601-recognition_principle_for_anima_valued_en_groups.html#ID-26fd93c3-27bb-4a4b-a88b-37d66ddffc38">recognition principle for anima valued E<sub>n</sub> groups</a> <img src="ltximg/20260610-conjugation_of_an_e_n_group_5b2dd0ec6a52c342cd786025bccdada0e206a187.svg" alt="20260610-conjugation_of_an_e_n_group_5b2dd0ec6a52c342cd786025bccdada0e206a187.svg" class="org-svg" /><br /></li>
-<li>recall the <a href="20250505-universal_pointed_fibration.html#ID-be421ead-1b7b-4a7a-8435-d46e60916e14">universal pointed fibration</a> <img src="ltximg/20260610-conjugation_of_an_e_n_group_0d18f2681640be550cc37fa5fb432d15e4dcdc7d.svg" alt="20260610-conjugation_of_an_e_n_group_0d18f2681640be550cc37fa5fb432d15e4dcdc7d.svg" class="org-svg" /><br /></li>
-<li>observe that <img src="ltximg/20260610-conjugation_of_an_e_n_group_87751566df909b184a5d8121ef84c9fbe85f44d1.svg" alt="20260610-conjugation_of_an_e_n_group_87751566df909b184a5d8121ef84c9fbe85f44d1.svg" class="org-svg" /> is a <a href="20241022-fiber_of_an_infinity_morphism.html#ID-315c0bce-7cf8-468b-9149-1e254debcf95">fiber</a> sequence, hence it is classified by a (<a href="20241017-infinity_pullback.html#ID-7aaac468-a0bb-4e73-bfd3-d4c591c10e4f">pullback</a>) diagram<br /></li>
+<ol>
+<li>recall the <a href="20260601-recognition_principle_for_anima_valued_en_groups.html#ID-26fd93c3-27bb-4a4b-a88b-37d66ddffc38">recognition principle for anima valued E_n groups</a> $\mathrm{Grp}_{\mathbb{E}_n}(\mathrm{An}) \simeq \mathrm{An}_{*}^{\geq n}$</li>
+
+<li>recall the <a href="20250505-universal_pointed_fibration.html#ID-be421ead-1b7b-4a7a-8435-d46e60916e14">universal pointed fibration</a> $\mathrm{An}_* \rightarrow \mathrm{An}_*$</li>
+
+<li>observe that $\mathrm{B}^nG \rightarrow \mathrm{B}^nG \rightarrow *$ is a <a href="20241022-fiber_of_an_infinity_morphism.html#ID-315c0bce-7cf8-468b-9149-1e254debcf95">fiber</a> sequence, hence it is classified by a (<a href="20241017-infinity_pullback.html#ID-7aaac468-a0bb-4e73-bfd3-d4c591c10e4f">pullback</a>) diagram</li>
 </ol>
-
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20260610-conjugation_of_an_e_n_group_efbb0bd07ec88ed13452396c0fccb9df14eb8c05.svg" alt="20260610-conjugation_of_an_e_n_group_efbb0bd07ec88ed13452396c0fccb9df14eb8c05.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/f2b7c9a6b5af4e7ec619.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-or a functor <img src="ltximg/20260610-conjugation_of_an_e_n_group_842668ecec20153b67da0132ca8ea487297ab08c.svg" alt="20260610-conjugation_of_an_e_n_group_842668ecec20153b67da0132ca8ea487297ab08c.svg" class="org-svg" /> which takes values in <img src="ltximg/20260610-conjugation_of_an_e_n_group_e53f7c5ffb36b05aab31d4b257531a534c2f7b28.svg" alt="20260610-conjugation_of_an_e_n_group_e53f7c5ffb36b05aab31d4b257531a534c2f7b28.svg" class="org-svg" />, so <img src="ltximg/20260610-conjugation_of_an_e_n_group_7759a519632915696fe5cb56f847ba72b82ceb4e.svg" alt="20260610-conjugation_of_an_e_n_group_7759a519632915696fe5cb56f847ba72b82ceb4e.svg" class="org-svg" /> (alternatively: use that <img src="ltximg/20260610-conjugation_of_an_e_n_group_30b7b940ebeeb9299b3945e9551e1f6a8e03563e.svg" alt="20260610-conjugation_of_an_e_n_group_30b7b940ebeeb9299b3945e9551e1f6a8e03563e.svg" class="org-svg" /> also classifies fibrations taking values in <img src="ltximg/20260610-conjugation_of_an_e_n_group_a58004b10929e45a07e8c23580c33443762c2e77.svg" alt="20260610-conjugation_of_an_e_n_group_a58004b10929e45a07e8c23580c33443762c2e77.svg" class="org-svg" />.<br />
+or a functor $\mathrm{B}^nG \rightarrow \mathrm{An}_*$ which takes values in $\mathrm{B}^nG$, so $\mathrm{An}_{*,\geq n}$ (alternatively: use that $\mathrm{An}_*^{\geq n} \rightarrow \mathrm{An}^{\geq n}$ also classifies fibrations taking values in $\mathrm{An}_{\geq n}$.
 </p>
-<ol class="org-ol">
-<li>This gives a functor<br /></li>
+<ol>
+<li>This gives a functor   </li>
 </ol>
-
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20260610-conjugation_of_an_e_n_group_691ee47b103fbbbfaeb100efbcedf95d810ce84f.svg" alt="20260610-conjugation_of_an_e_n_group_691ee47b103fbbbfaeb100efbcedf95d810ce84f.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+\mathrm{B}^n G \rightarrow&amp; \mathrm{B} \mathrm{End}_{\mathrm{An}_{*,\geq n}}(\mathrm{B}^nG)
+\end{align*}</div>
 <p>
-where <img src="ltximg/20260610-conjugation_of_an_e_n_group_032bf7d5f4b22ba6e552e7d72f813e7c36afbc07.svg" alt="20260610-conjugation_of_an_e_n_group_032bf7d5f4b22ba6e552e7d72f813e7c36afbc07.svg" class="org-svg" /> is a groupoid, so this functor restricts by adjunction to <img src="ltximg/20260610-conjugation_of_an_e_n_group_6a265a59583d6a99abac65afaaca567e9c03e9b9.svg" alt="20260610-conjugation_of_an_e_n_group_6a265a59583d6a99abac65afaaca567e9c03e9b9.svg" class="org-svg" /><br />
+where $\mathrm{B}^n G$ is a groupoid, so this functor restricts by adjunction to $\mathrm{B}G \rightarrow \mathrm{B}\mathrm{Aut}_{\mathrm{An}_{*,\geq n}}(\mathrm{B}^nG)$
 </p>
-<ol class="org-ol">
-<li>we use the recognition principle <img src="ltximg/20260610-conjugation_of_an_e_n_group_e442585b31ee2391f0d3a9465b2ab38dd9114dc4.svg" alt="20260610-conjugation_of_an_e_n_group_e442585b31ee2391f0d3a9465b2ab38dd9114dc4.svg" class="org-svg" /> to get a functor <img src="ltximg/20260610-conjugation_of_an_e_n_group_390c795a26a45057499494b9fd4026f0e0f37cbc.svg" alt="20260610-conjugation_of_an_e_n_group_390c795a26a45057499494b9fd4026f0e0f37cbc.svg" class="org-svg" /><br /></li>
-<li>we loop the functor <img src="ltximg/20260610-conjugation_of_an_e_n_group_ab1efe2e6b14760a933ac3195ddb68b806517ed6.svg" alt="20260610-conjugation_of_an_e_n_group_ab1efe2e6b14760a933ac3195ddb68b806517ed6.svg" class="org-svg" /> times (again applying the recognition principle) to get the map<br /></li>
+<ol>
+<li>we use the recognition principle $\mathrm{B}\mathrm{Aut}_{\mathrm{An}_{*,\geq n}}(\mathrm{B}^nG) \simeq \mathrm{B} \mathrm{Aut}_{\mathrm{Grp}_{\mathbb{E}_n}}(G)$ to get a functor $\mathrm{B}G \rightarrow \mathrm{B} \mathrm{Aut}_{\mathrm{Grp}_{\mathbb{E}_n}}(G)$</li>
+
+<li>we loop the functor $n$ times (again applying the recognition principle) to get the map</li>
 </ol>
+<div class="math-block">\begin{align*}
+G \rightarrow \Omega^{n-1}\mathrm{Aut}_{\mathrm{Grp}_{\mathbb{E}_n}}(G)
+\end{align*}</div>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20260610-conjugation_of_an_e_n_group_aa7dbf1673b3197d8d02a1fa51d1160a7e795e7c.svg" alt="20260610-conjugation_of_an_e_n_group_aa7dbf1673b3197d8d02a1fa51d1160a7e795e7c.svg" class="org-svg" />
-</span>
-</div>
-</div>
-</div>
-<div id="outline-container-orge69b4e8" class="outline-2">
-<h2 id="orge69b4e8">Remark</h2>
-<div class="outline-text-2" id="text-orge69b4e8">
+
+<h2 id="remark">Remark</h2>
 <p>
-see:<br />
+see:
 </p>
-<ul class="org-ul">
-<li><a href="20241023-fundamental_group_action_on_first_homotopy_group_as_conjugation.html#ID-787eca32-3f2b-456c-a737-4d64df2ea233">pi<sub>1</sub> action on pi<sub>1</sub> as conjugation</a> <br /></li>
-<li><a href="20260610-pi_1_action_on_higher_homotopy_groups_of_an_anima.html#ID-5e2cc57b-3d04-42f0-a9f7-e61b675b0f12">pi<sub>1</sub> action on higher homotopy groups of an anima</a> <br /></li>
+<ul>
+<li><a href="20241023-fundamental_group_action_on_first_homotopy_group_as_conjugation.html#ID-787eca32-3f2b-456c-a737-4d64df2ea233">pi_1 action on pi_1 as conjugation</a> </li>
+
+<li><a href="20260610-pi_1_action_on_higher_homotopy_groups_of_an_anima.html#ID-5e2cc57b-3d04-42f0-a9f7-e61b675b0f12">pi_1 action on higher homotopy groups of an anima</a> </li>
 </ul>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2026-06-10 Mi 21:19</p>
+<p>
+Let $* \xrightarrow{g} G$ be arbitrary, then under the equivalence $\Omega BG \simeq G$, the \(\mathbb{E}_1\) conjugation action corresponds to the map
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{conj}_{\mathbb{E}_1}(g): \Omega B G \rightarrow&amp; \Omega B G \\
+\gamma \mapsto \gamma_g \cdot \gamma \cdot \gamma_g^{-1}
+\end{align*}</div>
+<p>
+where $\gamma_g$ is the composition $* \xrightarrow{g} G \rightarrow \Omega B G$.
+This can be seen by geometric handwaving.
+</p>
+
 </div>
 </body>
 </html>

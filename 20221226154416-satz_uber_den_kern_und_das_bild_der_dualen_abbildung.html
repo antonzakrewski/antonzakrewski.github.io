@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:47 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Kern und Bild der dualen Abbildung</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,60 +52,48 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Kern und Bild der dualen Abbildung</h1>
-<div id="outline-container-org14f4767" class="outline-2">
-<h2 id="org14f4767"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-6efa21b1-4f01-4a8c-86f1-ab313f4c0876"></span><h1 class="title">Kern und Bild der dualen Abbildung</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Seien \(V,W\) <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">K-Vektorräume</a> und sei \(A \in \mathrm{Hom}_{K}(V,W)\)
+Seien $V,W$ <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">K-Vektorräume</a> und sei $A \in \mathrm{Hom}_{K}(V,W)$
 Dann gilt:
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \mathrm{ker}(A^*) = \mathrm{im}(A)^{\bot} \\
 \mathrm{ker}(A) = \mathrm{im}(A^*)^{\bot} \\
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgcf5283c" class="outline-2">
-<h2 id="orgcf5283c"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orga15aea3" class="outline-3">
-<h3 id="orga15aea3"><span class="section-number-3">2.1.</span> a)</h3>
-<div class="outline-text-3" id="text-2-1">
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="a">a)</h3>
 <p>
 Es gilt
 </p>
-\begin{align*}
-\mathrm{ker}(A^*) =& \{g \in W^* \vert (A^*g)(v) = g(Av) = 0 \forall v \in V\} \\
-=& \{g \in W^* \vert g(w) = 0 \forall w \in \mathrm{im}(A)\} \\
-=& \mathrm{im}(A)^\bot
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org05c3ee0" class="outline-3">
-<h3 id="org05c3ee0"><span class="section-number-3">2.2.</span> b)</h3>
-<div class="outline-text-3" id="text-2-2">
-\begin{align*}
-\mathrm{im}(A^*)^{\top} =& \{v \in V \vert g(v) = 0 \forall  g \in \mathrm{im}(A^*)\} \\
-=& \{v \in V \vert (A^*f)(v) = f(Av) = 0 \forall f \in W^*\} \\
-\subseteq& \mathrm{ker}(A)
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\mathrm{ker}(A^*) =&amp; \{g \in W^* \vert (A^*g)(v) = g(Av) = 0 \forall v \in V\} \\
+=&amp; \{g \in W^* \vert g(w) = 0 \forall w \in \mathrm{im}(A)\} \\
+=&amp; \mathrm{im}(A)^\bot
+\end{align*}</div>
+
+<h3 id="b">b)</h3>
+
+<div class="math-block">\begin{align*}
+\mathrm{im}(A^*)^{\top} =&amp; \{v \in V \vert g(v) = 0 \forall  g \in \mathrm{im}(A^*)\} \\
+=&amp; \{v \in V \vert (A^*f)(v) = f(Av) = 0 \forall f \in W^*\} \\
+\subseteq&amp; \mathrm{ker}(A)
+\end{align*}</div>
 
 <p>
-Sei \(v \in \mathrm{im}(A^*)^{\top}\).
-Dann gilt \((A^*f)(v) = f(Av) = 0\) für alle \(f \in W^*\)
-Angenommen \(Av \neq 0\), so folgt nach <a href="20221226004025-trennungslemma.html#ID-b7d8bb99-f5d0-4fe4-a9e9-016fa9cdd693">Trennungslemma</a> für \(U = \{0\}\) ein \(f \in W^*\) mit \(f(Av) = 1\).
-Daraus folgt \(Av = 0\) und \(v \in \mathrm{ker}(A)\)
+Sei $v \in \mathrm{im}(A^*)^{\top}$.
+Dann gilt $(A^*f)(v) = f(Av) = 0$ für alle $f \in W^*$
+Angenommen $Av \neq 0$, so folgt nach <a href="20221226004025-trennungslemma.html#ID-b7d8bb99-f5d0-4fe4-a9e9-016fa9cdd693">Trennungslemma</a> für $U = \{0\}$ ein $f \in W^*$ mit $f(Av) = 1$.
+Daraus folgt $Av = 0$ und $v \in \mathrm{ker}(A)$
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:47</p>
+
+
 </div>
 </body>
 </html>

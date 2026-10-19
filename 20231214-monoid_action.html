@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 23:49 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>monoid action</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,31 +52,42 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">monoid action</h1>
-<div id="outline-container-orgb129ab5" class="outline-2">
-<h2 id="orgb129ab5"><span class="section-number-2">1.</span> Definition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-a50ae226-82d4-4308-940a-08d3e34e86bb"></span><h1 class="title">monoid action</h1>
+
+<h2 id="definition">Definition</h2>
 <p>
-Let \(M\) be a <a href="20210702075710-monoid.html#ID-ebccfd45-6c4b-4a93-818a-8f6848600874">monoid</a>, \(X\) a <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">set</a>.
-Then a monoid action is a map
+Let $(\mathcal{V}, \otimes_{\mathcal{V}}, \mathds{1}_{\mathcal{V}})$ be a <a href="20221223192944-monoidal_category.html#ID-e7314567-2c1d-4ebd-8aa0-323b3145b541">monoidal category</a>, $M$ a <a href="20231110-monoid_object.html#ID-7038973c-0f82-4e3b-91c9-668311e01475">monoid object</a>.
+Then a monoid action on $X$ is given by a morphism
 </p>
-\begin{align*}
-\varphi: M \times X \rightarrow X
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\mu_X: M \times X \rightarrow X
+\end{align*}</div>
+
 <p>
-such that
+such that for the unit of the monoid object $\mathds{1} \rightarrow M$
 </p>
-<ol class="org-ol">
-<li>\(\varphi(1,-) = \mathrm{id}_{X}\)</li>
-<li>$&varphi;(m<sub>1,&varphi;</sub>(m<sub>2,x</sub>)) = &varphi;(m<sub>1</sub> &sdot; m<sub>2</sub>, x)</li>
+<ol>
+<li>unit:</li>
 </ol>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 23:49</p>
+<div class="equation-container"><span class="equation"><img src="ltximg/e72f0c17407a33271ed0.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+commute
+</p>
+<ol>
+<li>associativity:</li>
+</ol>
+<p>
+and that the action is associative, i.e. for the <a href="20231104-associator_of_a_monoidal_category.html#ID-5b2b4f1c-5bd9-481b-8da3-a228a23d9b8b">associator</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/d09bef0726d51c2d7f4b.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+commutes
+</p>
+
+
+
 </div>
 </body>
 </html>

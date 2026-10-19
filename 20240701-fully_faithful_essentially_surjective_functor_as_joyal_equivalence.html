@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>fully faithful essentially surjective functor is a joyal equivalence</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-c1d92228-2e4e-48e9-8020-52e5120cae8f"></span><h1 class="title">fully faithful essentially surjective functor is a joyal equivalence</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathcal{C}, \mathcal{D}$ be <a href="20240404-simplicial_set_as_infinity_category.html#ID-4635a6ee-1ad5-44cb-8e36-4a934f5ae4bf">infinity categories</a> and $f: \mathcal{C} \rightarrow \mathcal{D}$ an <a href="20240701-essentially_surjective_functor_between_infinity_categories.html#ID-5ac08772-563a-4b4c-8dbf-e734628e4351">essentially surjective</a> and <a href="20240701-fully_faithful_functor_between_infinity_categories.html#ID-bb0d3e0e-92a5-4687-999c-a99d4043ea38">fully faithful</a> <a href="20240404-functor_between_infinity_categories.html#ID-7428dc84-9acd-49bc-8e93-b1541326a6b9">infinity functor</a>.
+Then $f$ is a <a href="20240331-joyal_equivalence.html#ID-becd28b9-3c0f-4ba5-bdca-5ffd97ef50f0">joyal equivalence</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+For all $X \in \mathrm{sSet}$ the induced map
+</p>
+
+<div class="math-block">\begin{align*}
+f_*: (C^X)^{\simeq} \rightarrow (\mathcal{D}^X)^{\simeq}
+\end{align*}</div>
+<p>
+is a joyal equivalence
+</p>
+
+
+
+<p>
+Consider $X = \mathcal{D}$.
+Then $\mathrm{id}_{\mathcal{D}} \in \mathrm{Ob}((\mathcal{D}^\mathcal{D})^{\simeq})$.
+Thus there exists an $g \in (\mathcal{C}^{\mathcal{D}})_0^{\simeq}$ such that $f g \simeq \mathrm{id}$.
+</p>
+
+<p>
+It suffices to show that $gf \simeq \mathrm{id}$.
+</p>
+
+<p>
+Consider the map
+</p>
+
+<div class="math-block">\begin{align*}
+f_x: (\mathcal{C}^{\mathcal{C})^{\simeq} \rightarrow (\mathcal{D}^{\mathcal{C}})^{\simeq}
+\end{align*}</div>
+
+<p>
+under this map $gf$ gets mapped to $fgf$.
+Now as $fg \simeq \mathrm{id}$ we conclude that $fgf \simeq f$
+Then observe that the identity maps to $f$.
+</p>
+
+<p>
+As it is a joyal equivalence, we get a path $gf \rightarrow \mathrm{id}$ which by bijection of path compennets is doned
+</p>
+
+<h3 id="claim">claim</h3>
+
+<h4 id="1">1)</h4>
+<p>
+Let $X = \Delta^0$
+Thne $f_x: (\mathcal{C}^{\Delta^0})^{\simeq} \rightarrow (\mathcal{D}^{\Delta^0})^{\simeq}$ is isomorphic to
+</p>
+
+<div class="math-block">\begin{align*}
+f^{\simeq}: \mathcal{C}^{\simeq} \rightarrow \mathcal{D}^{\simeq}
+\end{align*}</div>
+<p>
+this is a joyal equivalence by &lt;&gt;
+</p>
+
+<h4 id="2">2)</h4>
+<p>
+Let $X = \Delta^1$
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{C}^{\Delta^1} \rightarrow \mathcal{C} \times \mathcal{C}
+\end{align*}</div>
+<p>
+is an <a href="20240405-isofibration_between_infinity_categories.html#ID-1b53e4b6-37d1-4052-9cd9-d832a02aa3a8">isofibration</a> (cf. )
+</p>
+
+<p>
+By <a href="20240624-infinity_subgroupoid_functor_sends_isofibration_to_kan_fibration.html#ID-202880ec-31cb-44fb-ab55-92a019bd199c">infinity subgroupoid functor sends isofibration to kan-fibration</a> we get the kan fibration
+</p>
+
+<div class="math-block">\begin{align*}
+(\mathcal{C}^{\Delta^1})^{\simeq} \rightarrow \mathcal{C}^{\simeq} \times \mathcal{C}^{\simeq}
+\end{align*}</div>
+<p>
+(cf. <a href="20240701-groupoid_core_commutes_with_products.html#ID-f220e6db-dd8c-419b-a075-43159c9f0290">groupoid core commutes with products</a>)
+</p>
+
+<p>
+and we have a commutative diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/f0c89377f704ab00eb15.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+where the bottom map is an equivalence.
+</p>
+
+<p>
+By the lemma &lt;&gt; it suffices to show that we have an equivalence on fibres
+</p>
+
+
+<p>
+The fibres over $(x,y)$ are given by
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{map}_{\mathcal{C}}(x,y)
+\end{align*}</div>
+<p>
+which is an equivalence by fully faithfulness
+</p>
+
+<h3 id="3">3)</h3>
+<p>
+Let $X = I^n$
+Induct on $n$
+Then we have a pushout digaram
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+|[label={[label distance=-2mm]-45:\ulcorner}]| \Delta^0 \arrow[]{r}{} \arrow[]{d}{}&amp; \Delta^1 \arrow[]{d}{}\
+I^{n-1} \arrow[]{r}{}&amp; I^n \
+\end{tikzcd}
+\end{displaymath}</pre></div>
+
+<p>
+and get
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+|[label={[label distance=-2mm]-45:\lrcorner}]| \mathcal{C}^{I^n} \arrow[]{r}{} \arrow[]{d}{}&amp; \mathcal{C}^{I^{n-1}} \arrow[]{d}{}\
+\mathcal{C}^{\Delta^n}} \arrow[]{r}{}&amp; \mathcal{C} \
+\end{tikzcd}
+\end{displaymath}</pre></div>
+
+<p>
+Because $\delta^0 \rightarrow \Delta^1, \Delta^0 \rightarrow I^{n-1}$ are <a href="20240506-cofibration_of_simplicial_sets.html#ID-be722915-1d8d-4d4a-92e3-2c631561f0c0">cofibrations</a> (groupoid core functor preserves for cofibration)
+</p>
+
+<p>
+Now we get a pullback diagram
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+|[label={[label distance=-2mm]-45:\lrcorner}]| (\mathcal{C}^{I^n})^{\simeq} \arrow[]{r}{} \arrow[]{d}{}&amp; (\mathcal{C}^{I^{n-1}})^{\simeq} \arrow[]{d}{}\
+(\mathcal{C}^{\Delta^n}})^{\simeq} \arrow[]{r}{}&amp; \mathcal{C}^{\simeq} \
+\end{tikzcd}
+\end{displaymath}</pre></div>
+
+<p>
+Now we get a commutative diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/f49ea0e51dc6a702597d.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+are fibrations
+</p>
+
+
+<div class="math-block">\begin{align*}
+(\mathcal{C}^{I^n})^{\simeq} \rightarrow (\mathcal{D}^{I^n})^{\simeq}
+\end{align*}</div>
+
+<p>
+is a weak equivalence by &lt;lemma&gt;
+</p>
+
+
+<h3 id="4">4)</h3>
+<p>
+Let $X  = \Delta^n$.
+</p>
+
+<p>
+Follows as $I^n \rightarrow \Delta^n$ is anodyne
+</p>
+
+<h3 id="5">5)</h3>
+<p>
+$X$ as finite dimensional simplicial set
+</p>
+
+<h3 id="6">6)</h3>
+<p>
+Note that
+</p>
+
+<div class="math-block">\begin{align*}
+X = \mathrm{colim} \mathrm{sk}_n(X)
+\end{align*}</div>
+
+<p>
+Then $\mathcal{C}^{X} \simeq \mathrm{lim} \mathcal{C}^{\mathrm{Sk}_n(X)}
+</p>
+
+<p>
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+(\mathcal{C}^{X})^{\simeq} \simeq \mathrm{lim}( \mathcal{C}^{\mathrm{sk}_n(X)})
+\end{align*}</div>
+
+<p>
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+(\mathcal{C}^{X})^{\simeq} \simeq \mathrm{lim}(\mathcal{C}^{\mathrm{Sk}_n(X)}) \rightarrow \mathrm{lim} (\mathcal{D}^{\mathrm{Sk}_n(X)})^{\simeq} \simeq (\mathcal{D}^{X})^{\simeq}
+\end{align*}</div>
+<p>
+is a joyal equivalence by lemma &lt;&gt;
+</p>
+
+<p>
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{C}^{\mathrm{Sk}_1(X)} \rightarrow (\mathcal{C}^{\mathrm{Sk}_0(X)})^{\Delta}
+\end{align*}</div>
+<p>
+are fibrations, since
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{C}^{\mathrm{Sk}_n(X))} \rightarrow \mathcal{C}^{\mathrm{Sk}_{n-1}(X)}$ are isofibrations, as they are robtained by restriction along cofibrations
+\end{align*}</div>
+
+
+
+
+</div>
+</body>
+</html>

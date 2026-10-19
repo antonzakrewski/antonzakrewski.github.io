@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>limits in a bousfield localization</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-89fa4f69-67d3-45cd-8265-8fc1a7829fc5"></span><h1 class="title">limits in a bousfield localization</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\iota: \mathcal{C} \hookrightarrow \mathcal{D}$ be a <a href="20250102-bousfield_localization.html#ID-0289401d-a871-4e2d-bd40-b33d54e0d4f5">bousfield localization</a>
+Then the inclusion <a href="20250416-infinity_functor_reflecting_a_limit.html#ID-694d60da-dfc0-44f7-bb19-91845ed4cff3">reflects</a> and <a href="20241017-infinity_functor_preserving_limits_of_a_shape.html#ID-e13812db-b82b-43ed-8ab6-2913dcaf81a6">preserves limits</a> and $\mathcal{C}$ contains all limits which exist in $\mathcal{D}$
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="preserves">preserves</h3>
+<p>
+follows as <a href="20231014-right_adjoint_preserves_colimits.html#ID-c1a3b9fc-420c-456c-8cce-8325c903c6d7">right adjoint preserves limits</a>
+</p>
+
+<h3 id="reflects">reflects</h3>
+<p>
+Let
+</p>
+
+<div class="math-block">\begin{align*}
+I: \mathcal{I} \rightarrow \mathcal{C}
+\end{align*}</div>
+<p>
+be an <a href="20241109-infinity_commutative_diagram.html#ID-2786f5c6-8d4d-4a25-87fb-1202aaa103a7">diagram</a> and $\iota(I): \mathcal{I} \rightarrow \mathcal{D}$ the composition with the inclusion.
+Suppose furthermore that the <a href="infinity-limit.html#ID-a8bcf958-5282-4984-8415-7a64cca74613">limit</a> $\mathrm{lim} \iota(I(-))$ in $\mathcal{D}$ exists.
+</p>
+
+<p>
+By assumption there exists a collection of morphisms $S$ such that $\mathcal{C}$ is the subcategory of <a href="20250114-w_local_object.html#ID-beacf4d2-d0e7-4c94-9dc0-147fd110b57d">S-local objects</a>  (cf.<a href="20250307-w_local_object_and_localization.html#ID-f574a7f5-4b24-49e6-bd58-e3dc69967485">S-local object and localization</a>), i.e.
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{map}(f,c)
+\end{align*}</div>
+<p>
+is an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a> for $f \in S$ and $c \in \mathcal{C}$.
+</p>
+
+<p>
+it suffices to show that
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{map}(-,\mathrm{lim} \iota(I(-))): \mathrm{An} \rightarrow \mathrm{An}
+\end{align*}</div>
+<p>
+maps $f \in S$ to an equivalence.
+</p>
+
+<p>
+But <a href="20241208-mapping_space_functor_preserves_limits.html#ID-d69d37da-168f-4f4f-b5bf-595cd1e81b15">mapping anima functor preserves limits</a>, so
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{map}(f,\mathrm{lim} I(-) ) \simeq \mathrm{lim} \mathrm{map}(f,I(-))
+\end{align*}</div>
+<p>
+where by assumption $I(-)$ restricts to $S$ local objects, hence the $\mathrm{map}(f,I(-))$ is a diagram consisting only of <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalences</a>.
+in particular using  <a href="20241029-natural_isomorphism_between_infinity_functors_and_objectwise_isomorphism.html#ID-ab56d28a-a361-436c-91c0-ab97bba85e89">natural equivalence between infinity functors and objectwise equivalence</a>  this is a <a href="20241029-natural_equivalence_between_infinity_functors.html#ID-fc2b01b5-234c-4f17-b396-9a9a605e57ed">natural equivalence between infinity functors</a>, so using <a href="20241126-infinity_limit_functor.html#ID-20748b8d-5ed7-4846-be62-75ab9afcdbdd">functorality of the limit functor</a> this maps to an equivalence.
+</p>
+
+<p>
+Since $f$ was arbitrary, this holds for each element in $S$.
+Hence $\mathrm{lim} I(-)$ is S-local and thus lies in $\mathcal{C}$.
+In particular <a href="20240110-fully_faithful_functor_reflects_limits.html#ID-53eaae38-3a00-4e34-b97c-219c73695065">fully faithful functor reflects limits</a>
+</p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Minkowskische Ungleichung für eine p-Norm</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-f53c0cc9-303e-4cc8-8cd5-3ba017423174"></span><h1 class="title">Minkowskische Ungleichung für eine p-Norm</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $(X, \mathcal{A}, \mu)$ ein <a href="20241019-maßraum.html#ID-2135bec8-c3bb-4fca-a24a-21334f66d7ae">Maßraum</a>, $p \in [1,\infty]$ und $f,g \in \mathcal{L}^p(X)$.
+Dann folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\| f + g \|_{p} \leq \| f \|_p + \| g \|_p
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="p-infty">$p = \infty$</h3>
+<p>
+folgt durch nachrechnen
+</p>
+
+<h3 id="p-infty">$p &lt; \infty$</h3>
+<p>
+es gilt nach <a href="20241102-dreiecksungleichung_des_integrals.html#ID-898b4d21-560e-4650-a0a1-758f88383f9e">Dreiecksungleichung des Integrals</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\| f + g \|_{p}^p =&amp; \int \vert f + g \vert \mathrm{d} \mu \\
+\leq&amp; \int \vert f \vert \cdot \vert f + g \vert^{p-1} \mathrm{d} \mu + \int \vert g \vert \cdot \vert f + g \vert^{p-1} \mathrm{d} \mu \\ 
+\end{align*}</div>
+<p>
+und nach der <a href="20241116-verallgemeinerte_holder_ungleichung.html#ID-5d650c79-9bcf-4dcd-b992-ced9d65f1888">verallgemeinerten Hölder-Ungleichung</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\int \vert f \vert \cdot \vert f + g \vert^{p-1} \mathrm{d} \mu + \int \vert g \vert \cdot \vert f + g \vert^{p-1} \mathrm{d} \mu \\ 
+\leq&amp; ( \| f \|_p + \| g  \|_p) \cdot \| \vert f + g \vert^{p-1} \|_q
+\leq&amp; (\|f \|_p + \|g \|_p ) \| f + g \|_{p}^{p-1}
+\end{align*}</div>
+<p>
+für $q = \frac{p}{p-1}$.
+also
+</p>
+
+<div class="math-block">\begin{align*}
+\| f + g \|_p \leq \| f \|_p + \| g \|_p
+\end{align*}</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cut functor on Delta and Fin partial</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-eaa87ee8-65f9-4c09-8fa0-82b402b57707"></span><h1 class="title">Cut functor on Delta and Fin partial</h1>
+
+<h2 id="definition">Definition</h2>
+<p>
+Let $\Gamma$ the <a href="20241027-category_fin.html#ID-9caf9fe4-3996-4e94-86be-5e88db2df7db">category Fin partial</a> and $\Delta$ the <a href="20230923-simplex_category.html#ID-2952609d-1bab-4ac4-bbd7-1c0814af1314">simplex category</a>
+Then for the <a href="20220830192239-duale_kategorie.html#ID-711d7a6e-e765-4a59-90a2-baeee955dea1">opposite categories</a> the cut functor is defined as
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Cut}: \Delta^{\mathrm{op}} \rightarrow&amp; \Gamma^{\mathrm{op}} \\
+[n] \mapsto&amp; \{1,...,n\} \\
+\end{align*}</div>
+<p>
+where a <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphism</a> $\alpha: [n] \rightarrow [m]$ resp. the opposite morphism $\alpha^{\mathrm{op}}$ gets send to
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Cut}(\alpha^{\mathrm{op}}): \{1,...,m\} \rightarrow \{1,...,n\} \\
+i \mapsto&amp; 
+    \begin{cases}
+    j &amp; \mbox{if } \alpha(j - 1) &lt; i \leq \alpha(j) \\
+    \mathrm{undef}  &amp; \mbox{if } i \leq \alpha(0) \\ 
+    \mathrm{undef}  &amp; \mbox{if } \alpha(n) &lt; i \\ 
+    \end{cases}
+\end{align*}</div>
+
+<p>
+here
+</p>
+<ul>
+<li>$\{1,...,n\}$ are the elements representing the <a href="20220912112332-dedekindscher_schnitt.html#ID-83b7b818-bd3a-4b0e-8fa1-939d7031e5a6">dedekind cuts</a> of $[n] = \{0,...,n\}$ via.</li>
+</ul>
+<div class="math-block">\begin{align*}
+i \sim \{1,...,i-1\} \coprod \{i,...,n\}
+\end{align*}</div>
+
+<p>
+and a morphism $\alpha: [n] \rightarrow [m]$ in $\Delta$ and a dedekind cut $\{1,...,i-1\} \coprod \{i,...,m\}$ gets send to $\alpha^{-1}[ \{i,...,i-1\}] \coprod \alpha^{-1}[\{i,...,m\}]$ if it is a welldefined dedekind cut
+</p>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Summe von Poisson-Verteilungen</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-482475f6-693e-4f65-a6bc-0c5fbf623961"></span><h1 class="title">Summe von Poisson-Verteilungen</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $\lambda_1,\lambda_2 &gt; 0$, $X_i = \mathrm{Poi}(\lambda_i)$ die <a href="20220907160249-poissonverteilung.html#ID-2e801e8d-7fa7-46bd-b406-1babefcad0c6">Poissonverteilung</a>.
+Dann ist die Summe $X := X_1 + X_2$ gegeben durhc
+</p>
+
+<div class="math-block">\begin{align*}
+X = \mathrm{Poi}(\lambda_1 + \lambda_2)
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+Seien $p_1,p_2$ die Zähldichten für $X_1,X_2$ und $p$ die Zähldichte der Summe.
+</p>
+
+<p>
+Dann gilt für $k \in \mathbb{N}$
+</p>
+
+<div class="math-block">\begin{align*}
+p(k) =&amp; \sum_{i=0}^k p_1(k-i) \cdot p_2(i) \\
+=&amp; \sum_{i=0}^k \frac{\lambda_1^k \cdot \lambda_2^{k-i}}{i! \cdot (k-i)! } \mathrm{e}^{- (\lambda_1 + \lambda_2)} \\
+=&amp; \frac{1}{k!}\sum_{i=0}^k \binom{k}{i} \lambda_1^k \cdot \lambda_2^{k-i} \mathrm{e}^{- (\lambda_1 + \lambda_2)} \\
+=&amp; \frac{1}{k!} (\lambda_1 + \lambda_2)^k \cdot \mathrm{e}^{- (\lambda_1 + \lambda_2)} 
+\end{align*}</div>
+<p>
+wobei die letzte Identität der <a href="20220104220747-binomischer_lehrsatz.html#ID-93572b6e-6e51-486b-bf69-476329e57614">Binomische Lehrsatz</a> ist.
+</p>
+
+
+
+</div>
+</body>
+</html>

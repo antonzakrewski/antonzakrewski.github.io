@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>upper bound of vertices for a non-hamiltonian graph</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-a1ae34f9-ddf8-4ec9-b2e8-2671ab1bb7dc"></span><h1 class="title">upper bound of vertices for a non-hamiltonian graph</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $G = ([n],E)$ be a non <a href="20250612-hamiltonian_graph.html#ID-5cca655a-0f22-4096-ae9e-083d42db4c48">hamiltonian graph</a>.
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+E(G) \leq&amp; \binom{n-1}{2} + 1 = \binom{n}{2} - (n-2)
+\end{align*}</div>
+
+<p>
+Furthermore this bound is optimal
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="optimal">optimal</h3>
+<p>
+consider
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/b4fa4481d0c5b892f453.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+where the $1$ is only connected to one knot of $K_{n-1}$.
+</p>
+
+<p>
+This is not hamiltonian, as $\delta(1) = 1$.
+Here we are missing precisely $n-2$ edges from $1$.
+</p>
+
+<h3 id="bound">bound</h3>
+<p>
+suppose $E(G) \geq \binom{n}{2} - (n-3)$.
+Then using <a href="20250612-ore_theorem_about_hamiltonian_cycles.html#ID-6a26ad84-f161-4e4f-8e24-390d0dc877ef">ore theorem about hamiltonian cycles</a> let $x,y$ be vertices which are not connected.
+It follows that
+</p>
+
+<div class="math-block">\begin{align*}
+d_G(x) + d_G(y) \geq&amp; (2(n-1)) - 1 - (n-3) \\
+=&amp; n \\
+\end{align*}</div>
+<p>
+where we are missing at most $n-3$ vertices and have to count precisely one vertex twice (since $x$ and $y$ are not connected)
+</p>
+
+
+</div>
+</body>
+</html>

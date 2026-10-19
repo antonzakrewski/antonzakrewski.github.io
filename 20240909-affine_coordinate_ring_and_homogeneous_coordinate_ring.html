@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>affine coordinate ring and homogeneous coordinate ring</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-0320bcb2-05bd-4de6-8608-62c17c31458c"></span><h1 class="title">affine coordinate ring and homogeneous coordinate ring</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $Y \subseteq \mathbb{P}_k^n$ be a <a href="20230901-projective_variety.html#ID-15ff0e97-1d25-461a-aef8-dac9ace2de9c">projective variety</a> over an <a href="20221017154133-algebraischer_abschluss.html#ID-ec785259-c20d-4d7a-af35-a0904d20d7b6">algebraically closed</a> <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">field</a> $k$ with <a href="20240901-homogeneous_coordinate_ring.html#ID-16b14e3a-a666-456f-86a0-9cdce31138d9">homogeneous coordinate ring</a> $S(Y)$ and $U_i \cong \mathbb{A}_K^n$ with $U_i \subseteq \mathbb{P}_k^n$ be part of the <a href="20231130-affine_covering_of_a_projective_space.html#ID-64c52d90-bb63-426b-97b8-de22b5f703bb">affine covering</a>
+Let $Y_i \cong \varphi_i(Y \cap U_i) \subseteq \mathbb{A}_k^n$ be the <a href="20230313162316-affine_varietat.html#ID-d401938b-d6e1-4d50-a84a-73eb4e945380">affine variety</a> with <a href="20230725-coordinate_ring_of_an_affine_variety.html#ID-a8a51cad-5066-4ea6-b16e-eb4381a5dcae">affine coordinate ring</a> $A(Y_i)$.
+</p>
+
+<p>
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+A(Y_i) \cong S(Y)_{(X_i)}
+\end{align*}</div>
+<p>
+is the <a href="20230726-localization_along_an_element.html#ID-922baf31-c324-4ca2-adf9-0d96c6436e33">localization</a> along $X_i$
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="y-i-emptyset">$Y_i = \emptyset$</h3>
+<p>
+Then it follows that $Y \subseteq Z(X_i)$.
+Applying the <a href="20240901-homogeneous_coordinate_ring.html#ID-16b14e3a-a666-456f-86a0-9cdce31138d9">homogeneous coordinate ring</a> functor for $Y \hookrightarrow Z(X_i)$ as identity gives an <a href="20230116150103-algebrahomomorphismus.html#ID-cdf91cfa-1893-4da1-a8bb-ab86c709b515">algebra-homomorphism</a>
+</p>
+
+<div class="math-block">\begin{align*}
+k[X_1,...,X_n]/X_i \rightarrow S(Y)
+\end{align*}</div>
+
+<p>
+Then <a href="20230724-localization_of_a_ring.html#ID-0b26fdfb-9d28-4981-acde-2ea1ea96837d">localization</a>  at $X_i$ gives
+</p>
+
+<div class="math-block">\begin{align*}
+(k[X_1,...,X_n]/X_i)[X_i^{-1}] = 0
+\end{align*}</div>
+<p>
+and thus especially also, since $X_i = 0$ in $S(Y)$ that $S(Y)[X_i^{-1}] = 0$
+</p>
+
+<p>
+Furthermore $A(Y_i) = 0$ holds, hence $A(Y_i) = S(Y)_{X_i}$
+</p>
+
+<h3 id="y-i-neq-emptyset">$Y_i \neq \emptyset$</h3>
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> assume that $i = 0$
+Let $A = k[T_1,...,T_n]$ and $S = k[X_0,...,X_n]$.
+Then each element in $S_{(X_0)}$ is given by $G/X_{0}^e$ for some $e \geq 0$ and $G \in S$ the <a href="20241117-homogeneous_localization_along_a_homogeneous_element.html#ID-74c1235c-97a6-47fc-ac44-3ca1457630f5">homogeneous localization along a homogeneous element</a>
+</p>
+
+
+
+</div>
+</body>
+</html>

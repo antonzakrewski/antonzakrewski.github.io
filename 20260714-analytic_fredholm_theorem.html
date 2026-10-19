@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>analytic fredholm theorem</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-6aa9077c-5e3f-400b-9020-3ca3b4623388"></span><h1 class="title">analytic fredholm theorem</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $D \subseteq \mathbb{C}$ be <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> and <a href="20230118223336-zusammenhangender_raum.html#ID-bcc53507-bc5a-46d4-bd83-53e504f62b9d">connected space</a>, $\mathcal{H}$ a <a href="20230307213929-seperabler_raum.html#ID-6e659d10-83a5-4a03-88b7-119feee141fa">separabler</a> <a href="20230521021534-hilbert_space.html#ID-6c70b215-2588-4ecc-9240-f21ab3ec7d81">Hilbert space</a>.
+Let $f: D \rightarrow \mathrm{BL}(\mathcal{H})$ be a <a href="20260714-norm_analytic_map.html#ID-24d75e6c-c6c0-48fb-9e97-0fdb88498b45">norm-analytic map</a> such that $f(z)$ is a <a href="20260509-compact_operator.html#ID-eff9525d-2e92-42ce-acaa-8674b0f4f80a">compact operator</a>.
+Then either
+</p>
+<ol>
+<li>$(f(z) - \mathbbm{1})^{-1}$ does not exist for any $z \in D$.</li>
+
+<li>there exists a <a href="20231017-functor_from_set_to_the_discrete_topology.html#ID-dfbb848f-5430-498b-b8ed-b2766e69d9a0">discrete</a> (and hence <a href="20220903164044-abzahlbar.html#ID-96f3063e-a99a-4c33-93c2-5c9f99f15717">countable</a>) subset $S \subseteq D$ without <a href="20230111162157-haufungspunkt_einer_teilmenge.html#ID-71265239-598e-4a29-aa31-b48311a292fe">Accumulation point</a> in $D$ such that the mapping </li>
+</ol>
+<div class="math-block">\begin{align*}
+D \setminus S \rightarrow&amp; \mathrm{BL}(\mathcal{H}) \\
+z \mapsto&amp; ( f(xz) - \mathbbm{1})^{-1}
+\end{align*}</div>
+<p>
+is well-defined and <a href="20260714-norm_analytic_map.html#ID-24d75e6c-c6c0-48fb-9e97-0fdb88498b45">norm-analytic map</a>
+Moreover, $z \in S$ <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> $f(z) \psi = \psi$ has a solution $0 \neq \psi \in \mathcal{H}$.
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> assume that $D = B_{\delta}(z_0)$ for some $\delta &gt; 0$ and $z_0 \in \mathbb{C}$, since $D$ is connected: (otherwise: there would exist a chain of ) let $B_{\delta}(z_0)$ be the
+</p>
+
+<p>
+Now $f$ is norm-analytic, so in particular also continuous for the uniform norm.
+Now there exists an $r &gt; 0$ such that $\| f(z) - f(z_0) \| &lt; \frac{1}{2}$ for all $z \in B_{r}(z_0)$ (epsilon-delta criterion)
+</p>
+
+<p>
+By <a href="20260714-compact_endomorphisms_for_a_separable_hilbert_space_is_the_closure_of_finite_rank_operators.html#ID-fd10e1a4-daa6-4df6-a8c2-66ef9f730c11">compact endomorphisms for a separable hilbert space is the closure of finite rank, bounded operators</a> (where we use that $\mathcal{H}$ is <a href="20230307213929-seperabler_raum.html#ID-6e659d10-83a5-4a03-88b7-119feee141fa">separable</a>) thereexists an $F \in \mathrm{BL}(\mathcal{H})$ of finite rank with $\| f(z_0) - F \| &lt; \frac{1}{2}$
+</p>
+
+<p>
+by the <a href="20260708-neumann_series_of_a_bounded_linear_operator.html#ID-9b1b65cc-346c-4c7e-ab40-6da03d300981">neumann series of a bounded linear operator</a>, there exists a map
+</p>
+
+<div class="math-block">\begin{align*}
+B_r(z_0) \rightarrow&amp; \mathrm{BL}(\mathcal{H}) \\
+z \mapsto&amp; (\mathbbm{1} - f(z) + F)^{-1}
+\end{align*}</div>
+<p>
+which is well-defined and analytic (todo: use some sum, power and limit of analytic functions is analytic)
+</p>
+
+<p>
+Let $g(z) \coloneqq F(\mathbbm{1} - f(z) + F)^{-1}$ for all $z \in B_r(z_0)$, which is of finite rank.
+Now
+</p>
+
+<div class="math-block">\begin{align*}
+f(z) - \mathbbm{1} = (g(z) - \mathbbm{1}) (\mathbbm{1} - f(z) + F)
+\end{align*}</div>
+
+
+
+
+</div>
+</body>
+</html>

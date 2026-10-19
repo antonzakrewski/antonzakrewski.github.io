@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>cw structure of a bounded below spectrum</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-f1d5a0c8-9e07-4d32-94d7-5b9253033668"></span><h1 class="title">cw structure of a bounded below spectrum</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X$ be a bounded below <a href="20230914-spectrum_of_a_ring.html#ID-80de2982-9ef9-4a53-8c68-1e9612ff2447">spectrum</a>.
+Then there a sequence of spectra
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/2f28a32f1b809576a1b3.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+such that
+</p>
+<ol>
+<li>$\mathrm{colim} X_n \simeq X$</li>
+
+<li>each $X_{n}$ sits in a <a href="20250204-bifiber_sequence.html#ID-4759a304-878a-4f79-9a13-46afcb981e12">bifiber</a> sequence</li>
+</ol>
+<div class="equation-container"><span class="equation"><img src="ltximg/6574976fd2d82eb41295.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+<h2 id="proof">Proof</h2>
+<p>
+We assume that $\pi_n(X) = 0$ for $n &lt; l$ for some fixed $l \in \mathbb{Z}$.
+</p>
+
+<p>
+we will mimic the classic argument
+</p>
+
+<p>
+We will construct a spectrum such that:
+</p>
+<ol>
+<li>it is an isomorphism on homotopy in degree $&lt; l$</li>
+
+<li>it is an epimorphism on homotopy in degree $l$</li>
+</ol>
+<p>
+and induct on $n$ and at last use <a href="20250128-whitehead_theorem_for_spectra.html#ID-fb8df74a-91cf-4c74-b1ad-9aa9cffabd28">whitehead theorem for spectra</a> &amp; <a href="20250820-homotopy_group_functor_of_spectra_preserves_filtered_colimits.html#ID-bd1458d4-ad2b-41e4-81ef-7e1fc8487da8">homotopy group functor of spectra preserves filtered colimits</a>
+</p>
+
+<h3 id="induction-basis">induction basis,</h3>
+<p>
+Note that $\pi_i(X) = \pi_i(\mathrm{map}(\Sigma^i \mathbb{S}, X)$
+Thus choose generators of $\pi_l(X)$, i.e. maps $\Sigma^l \mathbb{S} \rightarrow X$.
+Then define $X_l = \Sigma^l \mathbb{S} \rightarrow X$.
+It follows that both sides are concentrated in degree $l$ and above, so the map is trivially an isomorphism in degrees below.
+Furthermore by construction this map is an epimorphism (argue more)
+</p>
+
+<h3 id="induction-step">induction step</h3>
+<p>
+Assume that we have $X_{n-1} \rightarrow X$ as map which is an isomorphism in degrees below and an epimorphism in degree $n$
+</p>
+
+<h4 id="epimorphism">epimorphism</h4>
+<p>
+Choose generators of $a_i: \pi_{n+1}(X)$ which correspond to $\Sigma^{n+1} \mathbb{S} \rightarrow X$.
+</p>
+
+<h4 id="iso-on-degree-below">iso on degree below</h4>
+<p>
+Let $F$ be the <a href="20241022-fiber_of_an_infinity_morphism.html#ID-315c0bce-7cf8-468b-9149-1e254debcf95">fiber</a>, which has homotopy groups concentrated in degree $n$ and above (cf.  <a href="20250820-long_exact_sequence_homotopy_groups_for_a_spectrum.html#ID-21fb44e4-1fc4-4b39-97d9-2a6cd0a3e22b">long exact sequence homotopy groups for a spectrum</a>).
+Then choose generators of $k_j: \pi_n(F)$ and therefore maps $\Sigma^n \mathbb{S} \rightarrow F$.
+</p>
+
+<h4 id="putting-together">putting together</h4>
+<p>
+Now define $X_{n+1}$ as <a href="20241022-cofiber_of_an_infinity_morphis3.html#ID-c9321dad-6e04-418b-a0a5-ad8546205938">cofiber</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/80819c479a06a1abf60f.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+where the left half of $\coprod_{i \in I} \Sigma^n \mathbb{S} \sqcup \coprod_{j \in J}$ higher cells and the right half kills the kernel.
+</p>
+
+<p>
+Then define a map $X_{n+1}' \rightarrow X$ via the universal property of a cofiber sequence via
+</p>
+<ol>
+<li>on the left half via $\coprod_{i \in I} \Sigma^n \mathbb{S} \xrightarrowx{\Omega a_i} \Omega X \rightarrow * \rightarrow X$ and extending it via the cofiber sequence, in other words using <a href="20250510-cofiber_of_a_nullhomotopic_map.html#ID-c19d2259-9329-4736-98a4-f687460e32a8">cofiber of a nullhomotopic map</a> and splitting the cells of</li>
+
+<li>on the right half via $\coprod_{j \in J} \Sigam^n \mathbb{S} \rightarrow F \rightarrow X_n \rightarrow X$ which is nullhomotopic.</li>
+</ol>
+<p>
+(idk: bad writing)
+Thus we get a map $X_{n+1} \rightarrow X$.
+</p>
+
+<p>
+Now we want to show that the map $X_{n+1} \rightarrow X$ satisfies the induction assumption for $n+1$, i.e. is an iso on degree lower than $n$ and an epimorphism on degree $n+1$
+</p>
+
+<h5 id="degree-leq-n">degree $\leq n$</h5>
+<p>
+Let $B \coloneqq \coprod_{i \in I} \Sigma^n \mathbb{S} \sqcup \coprod_{j \in J}$ be shorter notation where $B$ has homotopy groups in degrees lower than
+For that consider
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/1f79c98368178877747c.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+which gives the map of bifiber sequences
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/1dbb2fbfc62b9fe3c87f.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+the long exact sequence then gives
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/b666cf0c8a272b282f41.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+or more concretely
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/8400f89931a1192042c6.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+which shows that
+</p>
+<ol>
+<li>the maps $\pi_{n-1}(X_n) \rightarrow \pi_{n-1}(X_n), \pi_{n-2}(X_n) \rightarrow \pi_{n-2}(X_n), ...$ stay isomorphisms</li>
+
+<li>$\pi_n(X_{n+1}) \rightarrow \pi_{n}(X)$ is an isomorphism by <a href="20221224172932-homomorphiesatz_fur_gruppen.html#ID-b6c0c2a4-18ea-42b9-a13c-cc9e4a1c08a7">Homomorphiesatz für Gruppen</a> since we kill the kernel of $\pi_n(X_n) \rightarrow \pi_n(X)$</li>
+</ol>
+<h5 id="degree-n1">degree $n+1$</h5>
+<p>
+follows as we may split of $\coprod_{i \in I} \Sigma^{n+1} \mathbb{S}$ of $X_{n+1}$ and this part maps surjective onto $\pi_{n+1}(X)$.
+</p>
+
+</div>
+</body>
+</html>

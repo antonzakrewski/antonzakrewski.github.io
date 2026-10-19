@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>metrik auf der menge der reellen Zufallsvariablen</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-40128be6-0fa0-4e24-bcff-def92998fe87"></span><h1 class="title">metrik auf der menge der reellen Zufallsvariablen</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $Z(\Omega, \mathcal{F})$ die menge der <a href="20241118-reellwertige_zufallsvariable.html#ID-668aa591-4bf3-4097-a05c-09d068e726fd">reellwertigen Zufallsvariable</a> und $\sim$ die <a href="20211227225754-aquivalenzrelation_mengenlehre.html#ID-bf83e0aa-4df1-48a5-b910-2837942bdd19">Äquivalenzrelation</a> gegeben durch
+</p>
+
+<div class="math-block">\begin{align*}
+X \sim Y :\Leftrightarrow \mathbb{P}(X = Y ) =1
+\end{align*}</div>
+<p>
+dann ist
+</p>
+
+<div class="math-block">\begin{align*}
+d(X,Y) = \mathrm{min} \{\varepsilon \geq 0 \vert \mathbb{P}(\vert X - Y) \vert &gt;  \varepsilon) \leq \varepsilon \}
+\end{align*}</div>
+<p>
+eine <a href="20220716173517-metrik.html#ID-0aa21afc-5f24-4618-a61e-e5ebf2e9640c">Metrik</a> auf $Z(\Omega, \mathcal{F})/\sim$
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="wohldefiniert-nimmt-minimum-an">wohldefiniert - nimmt minimum an</h3>
+
+<h4 id="dxy-geq-0">$d(X,Y) \geq 0$</h4>
+<p>
+folgt aus $\mathbb{P}(-) \geq 0$
+</p>
+
+<h4 id="abgeschlossen">abgeschlossen</h4>
+<p>
+wir zeigen, dass eine konvergente, monoton fallende folge in $\{\varepsilon \geq 0 \vert \mathbb{P}(\vert X - Y) \vert &gt;  \varepsilon) \leq \varepsilon \}$ einen Grenzwert annimmt
+Man bemerke das die Menge nach unten beschränkt ist.
+</p>
+
+<p>
+Dann folgt aus <a href="20241022-wahrscheinlichkeitsmaß_als_von_oben_stetiges_maß.html#ID-d13db8b5-a067-4287-8025-a5ebd9ecbd9a">Wahrscheinlichkeitsmaß als von oben stetiges Maß</a>  für $\varepsilon_n \searrow \varepsilon$ auch
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{lim}_{n \rightarrow \infty} \mathbb{P}( \vert X - Y \vert \geq \varepsilon_n) =&amp; \mathbb{P}( \bigcap (\vert X - Y \vert \geq \varepsilon_n)) \\
+=&amp; \mathbb{P}( \vert X - Y \vert \geq \varepsilon)
+\end{align*}</div>
+
+<p>
+Ferner gilt nach Annahme auch wegen $\varepsilon_n \in \{\varepsilon \geq 0 \vert \mathbb{P}(\vert X - Y) \vert &gt;  \varepsilon) \leq \varepsilon \}$ sowie $\varepsilon_n \geq \varepsilon$ auch
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{P}( \vert X - Y \vert \geq \varepsilon_n) \geq&amp; \varepsilon_n \\
+\mathbb{P}( \vert X - Y \vert \geq \varepsilon) \geq&amp; \varepsilon
+\end{align*}</div>
+
+
+<h3 id="metrik">metrik</h3>
+<p>
+<a href="20220716173517-metrik.html#ID-0aa21afc-5f24-4618-a61e-e5ebf2e9640c">Metrik</a>
+</p>
+
+<h4 id="positive-definitheit">positive definitheit</h4>
+
+<h5 id="dxx-0">$d(X,X) = 0$</h5>
+<p>
+folgt aus der definition
+</p>
+
+<h5 id="dxy-0-rightarrow-x-y">$d(X,Y) = 0 \Rightarrow X = Y$</h5>
+<p>
+<a href="20210305204929-beweis_durch_gegenbeispiel.html#ID-82f7f698-c489-4630-b2a1-ec7a6228b374">Proof by contraposition</a>
+</p>
+
+<p>
+folgt aus der Äquivalenzrelation:
+Es gilt
+\end{align*}
+\mathbb{P}(X = Y) = 1 \Leftrightarrow \mathbb{P}(X \neq Y) = 0
+</p>
+
+<div class="math-block">\begin{align*}
+und
+\begin{align*}
+\mathbb{P}(\vert X - Y \vert &gt; \varepsilon) \leq \mathbb{P}(X \neq Y) = 0
+\end{align*}</div>
+
+
+<h4 id="symmtetrie">symmtetrie</h4>
+<p>
+folgt aus
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{P}(\vert X - Y \vert &gt; \varepsilon) = \mathbb{P}( \vert Y - X \vert &gt; \varepsilon)
+\end{align*}</div>
+
+<h4 id="identitat">identität</h4>
+<p>
+folgt für $a &gt; 0$
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{P}(\vert X - X \vert &gt; a) = \mathbb{P}(\emptyset) = 0
+\end{align*}</div>
+<p>
+mit
+</p>
+
+<div class="math-block">\begin{align*}
+0 = \mathbb{P}(\vert X - X \vert &gt; a) \leq \varepsilon
+\end{align*}</div>
+<p>
+<a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">g.d.w.</a>  $\varepsilon = 0$
+</p>
+
+
+<h4 id="dreiecksungleichung">Dreiecksungleichung</h4>
+<p>
+todo
+</p>
+
+</div>
+</body>
+</html>

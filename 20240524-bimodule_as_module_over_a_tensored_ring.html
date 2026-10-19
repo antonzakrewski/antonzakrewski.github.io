@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>isomorphism between R-S-Mod and A-Mod</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-6bcf710c-6e65-4b53-90f4-ae6da6cf031d"></span><h1 class="title">isomorphism between R-S-Mod and A-Mod</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let \(R,S\) be <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">rings</a> and $\mathrm{R-S-Mod}$ the <a href="20240524-category_of_bimodules.html#ID-cb0728a0-5204-42b3-ba8a-8fe34c8bb709">category of bimodules</a>.
+Then for the <a href="20240220-tensor_product_of_noncommutative_rings.html#ID-31c30459-0dff-48f6-9437-4e4f8f74c28c">tensor product</a> $A \coloneqq R \otimes_{\mathbb{Z}} S^{\mathrm{op}}$ with the <a href="20230511212443-opposite_ring.html#ID-db812653-5b1c-4861-a116-804b89072416">opposite ring</a> there exists a canonical <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{A-Mod} \cong&amp; \mathrm{R-S-Mod}
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="object">object</h3>
+
+<h4 id="a-mod-rightarrow-r-s-mod">A-Mod $\rightarrow$ R-S-Mod</h4>
+<p>
+Define
+</p>
+
+<div class="math-block">\begin{align*}
+r \cdot_R m \coloneqq (r \otimes 1) \cdot_A m \\
+ m \cdot_S s \coloneqq (1 \otimes s) \cdot_A m \\
+\end{align*}</div>
+<p>
+Then
+</p>
+
+<h5 id="unit">unit</h5>
+<p>
+follows as
+</p>
+
+<div class="math-block">\begin{align*}
+1 \cdot_R m =&amp; (1 \otimes 1) m \\
+=&amp; m
+=&amp; (1 \otimes 1) \cdot m
+=&amp; \cdot m =&amp; m \cdot_S 1 
+\end{align*}</div>
+
+<h5 id="distributive">distributive</h5>
+<p>
+follows from distributivity of elementary tensors
+</p>
+
+<div class="math-block">\begin{align*}
+(r_1 + r_2) \cdot_R (m_1 + m_2) =&amp; (r_1 + r_2 \otimes 1) \cdot_A (m_1 + m_2) \\
+=&amp; ((r_1 \otimes 1) + (r_2 \otimes 1)) \cdot_A (m_1 + m_2) \\
+=&amp; (r_1 \otimes 1) m_1 + (r_1 \otimes 1) m_2 + (r_2 \otimes 1) m_1 + (r_2 \otimes 1) m_2 \\
+=&amp; r_1 \cdot_R m_1 + r_1 \cdot_R m_2 + r_2 \cdot_R m_1 + r_2 \cdot_R m_2
+\end{align*}</div>
+
+<p>
+The case for $S$ follows analagously
+</p>
+
+
+<h5 id="multiplicative">multiplicative</h5>
+<p>
+Follows as
+</p>
+
+<div class="math-block">\begin{align*}
+r_1 \cdot_R (r_2 \cdot m) =&amp; r_1 \cdot_R ((r_2 \otimes 1) \cdot_A m) \\
+=&amp; ((r_1 \otimes 1) \cdot_A (r_2 \otimes 1) \cdot m) \\
+=&amp; (r_1 \otimes 1) \cdot_R (r_2 \otimes 1) \cdot m \\
+=&amp; (r_1 \cdot r_2 \otimes 1) \cdot m
+\end{align*}</div>
+<p>
+and
+</p>
+
+<div class="math-block">\begin{align*}
+(m \cdot_S s_1) \cdot_S s_2 =&amp; ((1 \otimes s_1) \cdot m) \cdot_S s_2 \\
+=&amp; (1 \otimes s_2) \cdot_A ((1 \otimes s_1) \cdot m) \\
+=&amp; ((1 \otimes s_2) \cdot_A (1 \otimes s_1)) \cdot m \\
+=&amp; (1 \otimes s_2 \cdot_{S^{\mathrm{op}}} s_1) \cdot m \\
+=&amp; (1 \otimes s_1 \cdot_{S} s_2) \cdot m \\
+=&amp; m \cdot (s_1 \cdot s_2)
+\end{align*}</div>
+
+<h5 id="associative">associative</h5>
+
+<div class="math-block">\begin{align*}
+(r \cdot_R m) \cdot_S s =&amp; ((r \otimes 1) \cdot_A m) \cdot s \\
+=&amp; (1 \otimes s) \cdot_A ((r \otimes 1) \cdot_A m) \\
+=&amp; ((1 \otimes s) \cdot_A (r \otimes 1)) \cdot_A m \\
+=&amp; (r \otimes s) \cdot_A m \\
+=&amp; ((r \otimes 1) \cdot_A (1 \otimes s)) \cdot_A m \\
+=&amp; (r \otimes 1) \cdot_A (1 \otimes s) \cdot_A m) \\
+=&amp; r \cdot_R ((1 \otimes s) \cdot_A m) \\
+=&amp; r \cdot_R (m \cdot_S s)
+\end{align*}</div>
+
+<h4 id="r-s-mod-rightarrow-a-mod">R-S-Mod $\rightarrow$ A-Mod</h4>
+<p>
+Consider
+</p>
+
+<div class="math-block">\begin{align*}
+(\sum (r \otimes_{\mathbb{Z}} s)) \cdot m \coloneqq \sum (r \cdot_R m \cdot_S s)
+\end{align*}</div>
+
+<h5 id="unit">unit</h5>
+<p>
+follows from
+</p>
+
+<div class="math-block">\begin{align*}
+(1 \otimes 1) \cdot m =&amp; 1 \cdot_R m \cdot_S 1 \\
+=&amp; m
+\end{align*}</div>
+
+<h5 id="distributivity">distributivity</h5>
+<p>
+for
+</p>
+
+<div class="math-block">\begin{align*}
+((r_1 \otimes s_1) + (r_2 \otimes s_2) ) \cdot m
+\end{align*}</div>
+<p>
+this follows by definition
+</p>
+
+<p>
+the other direction
+</p>
+
+<div class="math-block">\begin{align*}
+(r \otimes s) \cdot (m_1 + m_2) =&amp; r \cdot (m_1 + m_2) \cdot s \\
+=&amp; (r m_1 + r m_2 ) \cdot s \\
+=&amp; r m_1 s + r m_2 s \\
+=&amp; (r \otimes s) \cdot m_1 + (r \otimes s) \cdot m_2
+\end{align*}</div>
+
+<h5 id="multiplicative">multiplicative</h5>
+
+<h6 id="iddfa3ac83-6b3c-4da9-a45e-4241edcaf0ddelementary-tensor"><a href="20230802-elementary_tensor.html#ID-dfa3ac83-6b3c-4da9-a45e-4241edcaf0dd">elementary tensor</a></h6>
+
+<div class="math-block">\begin{align*}
+(r_1 \otimes s_1) \cdot_{R \otimes S^{\mathrm{op}}} ((r_2 \cdot s_2) \cdot_{R \otimes S^{\mathrm{op}}} m ) =&amp; (r_1 \otimes s_1) \cdot_{R \otimes S^{\mathrm{op}}} \cdot (r_2 \cdot_R m \cdot_S s_2) \\
+=&amp; (r_1 \cdot_R r_2 \cdot_R m \cdot_S s_2 \cdot_S s_1) \\
+=&amp; (r_1 \cdot_R r_2 \cdot_R m \cdot_S (s_1 \cdot_{S^{\mathrm{op}}} s_2)) \\
+=&amp; (r_1 \cdot_R r_2 \otimes s_1 \cdot_{S^{\mathrm{op}}} s_2) \cdot m
+=&amp; ((r_1 \otimes s_1) \cdot_{R \otimes S^{\mathrm{op}}} (r_2 \otimes s_2)) \cdot_{R \otimes S^{\mathrm{op}}} m
+\end{align*}</div>
+
+<h6 id="general-case">general case</h6>
+<p>
+follows from distributivity, as
+</p>
+
+<div class="math-block">\begin{align*}
+(\sum \alpha_i  \cdot ((\sum \beta_j)  \cdot m)) =&amp; (\sum \alpha_i \cdot ((\sum \beta_i m))) \\
+=&amp; (\sum \alpha_i \cdot (\sum (\beta_i m))) \\
+=&amp; (\sum \alpha_i (\sum (\beta_i m))) \\
+=&amp; (\sum \sum (\alpha_i \cdot (\beta_i m))) \\
+=&amp; (\sum \sum (\alpha_i \cdot \beta_j) \cdot m) \\
+=&amp; (\sum \sum (\alpha_i \cdot \beta_j)) \cdot m \\
+=&amp; (\sum \alpha_i \cdot \sum \beta_j) \cdot m
+\end{align*}</div>
+
+<h3 id="morphism">morphism</h3>
+
+<h5 id="r-s-mod-rightarrow-s-mod">R-S-Mod $\rightarrow$ S-Mod</h5>
+<p>
+Let $\varphi: M \rightarrow N$ be a <a href="20230826-bimodule_homomorphism.html#ID-661d3e00-d0ab-4c20-a6e4-2a2c47975d9c">bimodule homomorphism</a>.
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+\varphi((r \otimes s) \cdot -) =&amp; \varphi(r \cdot - \cdot s) \\
+=&amp; r \cdot \varphi(- \cdot s) \\
+=&amp; r \cdot \varphi(-) \cdot s \\
+=&amp; (r \otimes s) \cdot \varphi(-)
+\end{align*}</div>
+
+<h5 id="a-mod-rightarrow-r-s-mod">A-Mod $\rightarrow$ R-S-Mod</h5>
+<p>
+Let $\varphi: M \rightarrow N$ be an A-mod homomorphism.
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+\varphi(r \cdot_R - \cdot_S s) =&amp; \varphi( (r \otimes 1) \cdot (1 \otimes s) \cdot_A -) \\
+=&amp; (r \otimes 1) \cdot_A (1 \otimes s) \cdot_A \varphi(-) \\
+=&amp; r \cdot_R \varphi(-) \cdot_S s
+\end{align*}</div>
+
+
+</div>
+</body>
+</html>

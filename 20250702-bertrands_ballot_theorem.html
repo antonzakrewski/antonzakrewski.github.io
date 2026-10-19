@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>bertrands ballot theorem</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-0d5710f1-556f-41c3-9217-5647d6e65e0e"></span><h1 class="title">bertrands ballot theorem</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $m &gt; n$ and $\mathcal{B}_{m,n}$ the set of <a href="20250702-lower_lattice_path.html#ID-ce662bc8-ea12-4fa1-a080-fec79bc69448">lower lattice paths</a>.
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+\vert \mathcal{B}_{m,n} \vert = \frac{m-n}{m+n} \vert \mathcal{L}_{m,n} \vert
+\end{align*}</div>
+<p>
+where $\mathcal{L}_{m,n}$ is the set of <a href="20250702-lower_lattice_path.html#ID-ce662bc8-ea12-4fa1-a080-fec79bc69448">lower lattice paths</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let
+</p>
+<ol>
+<li>$\overline{A_{m,n}}$ be the set of <a href="20250702-lattice_path.html#ID-8bf4a3d6-2763-447a-9e46-1748ead3ae98">lattice paths</a> where $y_2 &gt; x_2$, i.e. start in the wrong direction</li>
+
+<li>$A_{m,n}$ be the set of lattice paths where $x_2 &gt; y_2$, i.e. start in the direction such that they still can be lower lattice paths after the first step.</li>
+</ol>
+<p>
+Then $\vert \overline{A_{m,n}} \vert = \vert \mathcal{B}_{m,n-1} \vert = \binom{m+n-1}{m}$ as $\overline{A}_{m,n} \simeq \mathcal{B}_{m,n-1}$.
+</p>
+
+
+<p>
+Then there exists a bijection
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{A}_{m,n} \simeq A_{m,n} \setminus \mathcal{B}_{m,n}
+\end{align*}</div>
+<p>
+given by sending a lattice path to the mirrored path up until the first intersection with the diagonal:
+</p>
+
+<p>
+Any path in $\mathcal{A}_{m,n}$ must intersect the diagonal since $m &gt; n$ and any path in $A_{m,n} \setminus \mathcal{B}_{m,n}$ must also intersect the diagonal, since otherwise it would be a lower lattice path.
+</p>
+
+<p>
+Note that
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{B}_{m,n} = \mathcal{L}_{m,n} \setminus \left(\overline{A}_{m,n} \coprod (A_{m,n} \setminus \mathcal{B}_{m,n})\right)
+\end{align*}</div>
+<p>
+where $\mathcal{L}_{m,n}$ denotes all <a href="20250702-lattice_path.html#ID-8bf4a3d6-2763-447a-9e46-1748ead3ae98">lattice paths</a> since $\overline{A}_{m,n} \cap A_{m,n} = \emptyset$.
+</p>
+
+<p>
+Hence
+</p>
+
+<div class="math-block">\begin{align*}
+\vert \mathcal{B}_{m,n} \vert =&amp; \vert \mathcal{L}_{m,n} \vert - \vert \overline{A}_{m,n} \vert - \vert A_{m,n} \setminus \mathcal{B}_{m,n} \vert \\
+=&amp; \binom{m+n}{m} - 2 \cdot \binom{m+n-1}{m}  \\
+=&amp; \binom{m+n}{m} - 2 \cdot \binom{n+m-n}{n+m} \binom{m+n}{n} \\
+=&amp; 1 - \frac{2n}{m+n} \binom{m+n}{m} \\
+=&amp; \frac{m - n}{m + n} \binom{m+n}{m}
+\end{align*}</div>
+<p>
+see also:
+<a href="20250702-amount_of_lattice_paths.html#ID-d0ec5f81-0a0b-47a9-be3f-6516ba83ecd2">amount of lattice paths</a>
+</p>
+
+
+
+</div>
+</body>
+</html>

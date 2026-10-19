@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Poissonscher Grenzwertsatz</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-e3a7f241-6276-43fd-9cc7-0944d4b88acd"></span><h1 class="title">Poissonscher Grenzwertsatz</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $\lambda &gt; 0$ und $(p_n)_{n \in \mathbb{N}}$ eine Folge in $[0,1]$ mit $\mathrm{lim}_{n \rightarrow \infty} n \cdot p_n = \lambda$.
+Dann gilt für alle $k \in \mathbb{N}_0$
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{lim}_{n \rightarrow \infty} \binom{n}{k} p_n^k (1 - p_n)^{n-k} = \frac{\lambda^k}{k!} e^{- \lambda}
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+Es gilt für $n &gt; k$
+</p>
+
+<div class="math-block">\begin{align*}
+\binom{n}{k} p_n^k (1 - p_n)^{n-k} =&amp; \frac{n \cdot (n-1) \cdot ... \cdot (n-k+1)}{k!} p_n^k (1 - p_n)^{n-k} \\
+=&amp; \frac{1}{k!} \cdot (1 \cdot (1 - \frac{1}{n}) ... \cdot (1 - \frac{k-1}{n})) \cdot (n p_n)^k \cdot (\frac{1}{(1 - p_n)})^k \cdot (1 - \frac{n p_n}{n}))^n
+\end{align*}</div>
+<p>
+wobei aufgrund der Stetigkeit von $\cdot$ der Grenzwert von den Faktoren einzeln berechnet werden kann:
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{lim}_{n \rightarrow \infty}(1 \cdot (1 - \frac{1}{n}) ... \cdot (1 - \frac{k-1}{n})) \rightarrow&amp; 1 \\
+\mathrm{lim}_{n \rightarrow \infty}((n p_n)^k ) \rightarrow&amp; \lambda^k \\
+\mathrm{lim}_{n \rightarrow \infty} (\frac{1}{(1 - p_n)})^k \rightarrow&amp; 1 \\
+\mathrm{lim}_{n \rightarrow \infty} (1 - \frac{n p_n}{n}))^n \rightarrow&amp; e^{- \lambda}
+\end{align*}</div>
+<p>
+gilt
+</p>
+
+
+</div>
+</body>
+</html>

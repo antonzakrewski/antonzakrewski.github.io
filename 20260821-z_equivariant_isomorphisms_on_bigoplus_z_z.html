@@ -1,208 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2026-08-21 Fr 18:25 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Z equivariant isomorphisms on \bigoplus_Z Z</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -229,61 +52,54 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Z equivariant isomorphisms on \bigoplus<sub>Z</sub> Z</h1>
-<div id="outline-container-org91381bb" class="outline-2">
-<h2 id="org91381bb">Proposition</h2>
-<div class="outline-text-2" id="text-org91381bb">
+<span id="ID-d52dd1ee-01ad-4ff6-a35b-f16b69282779"></span><h1 class="title">Z equivariant isomorphisms on \bigoplus_Z Z</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let \(\bigoplus_{\mathbb{Z}} \mathbb{Z}\) be the <a href="20250708-sum_in_an_additive_infinity_category.html#ID-b8713cf0-ee6d-4ad2-8206-b843246bc715">sum</a> with the \(\mathbb{Z}\) action given by shifting the factors<br />
-Then the \(\mathbb{Z}\) equivariant <a href="20220818172827-automorphismus_eines_objekts.html#ID-d6ed25e6-8ebf-4836-b92b-57cc2f1f28c4">automorphisms</a> are precisely the maps<br />
+Let $\bigoplus_{\mathbb{Z}} \mathbb{Z}$ be the <a href="20250708-sum_in_an_additive_infinity_category.html#ID-b8713cf0-ee6d-4ad2-8206-b843246bc715">sum</a> with the $\mathbb{Z}$ action given by shifting the factors
+Then the $\mathbb{Z}$ equivariant <a href="20220818172827-automorphismus_eines_objekts.html#ID-d6ed25e6-8ebf-4836-b92b-57cc2f1f28c4">automorphisms</a> are precisely the maps
 </p>
-\begin{align*}
-f: \bigoplus_{\mathbb{Z}} \mathbb{Z} \rightarrow& \bigoplus_{\mathbb{Z}} \mathbb{Z} \\
+
+<div class="math-block">\begin{align*}
+f: \bigoplus_{\mathbb{Z}} \mathbb{Z} \rightarrow&amp; \bigoplus_{\mathbb{Z}} \mathbb{Z} \\
 e_i \mapsto \mathrm{sgn}(f) e_{i + k}
-\end{align*}
+\end{align*}</div>
 <p>
-for \(\mathrm{sgn}(f) \in \{\pm 1\}\).<br />
+for $\mathrm{sgn}(f) \in \{\pm 1\}$.
 </p>
-</div>
-</div>
-<div id="outline-container-org4900b14" class="outline-2">
-<h2 id="org4900b14">Proof</h2>
-<div class="outline-text-2" id="text-org4900b14">
+
+
+<h2 id="proof">Proof</h2>
 <p>
-Observe that these maps are \(\mathbb{Z}\) equivariant <a href="20220818172827-automorphismus_eines_objekts.html#ID-d6ed25e6-8ebf-4836-b92b-57cc2f1f28c4">automorphisms</a>.<br />
-Now let \(f: \bigoplus_{\mathbb{Z}} \rightarrow \bigoplus_{\mathbb{Z}}\) be \(\mathbb{Z}\) equivariant, then \(f(e_{n+k}) = f(e_n)_{+k}\).<br />
-Now assume that \(f: \bigoplus_{\mathbb{Z}} \rightarrow \bigoplus_{\mathbb{Z}}\) is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a>.<br />
-Hence let \(v = (v_{i},...,v_{j}) \in \bigoplus_{\mathbb{Z}} \mathbb{Z}\) be the vector such that \(f(e_0) = v\) and <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> \(v_{i}, v_j \neq 0\) (we may assume this as  \(f\) is injective).<br />
-We proceed to show that \(i = j\):<br />
-As \(f\) is surjective, there exists an equation \(\sum_{l=0}^k \lambda_l f(e_{m + l}) = e_0\) for \(\lambda_l \in \mathbb{Z}\) and <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> \(\lambda_0 \neq 0, \lambda_k \neq 0\).<br />
-Then the \(i+m\) th component is precisely \(\lambda_l \cdot v_i \neq 0\) and hence \(i + m = 0\).<br />
+Observe that these maps are $\mathbb{Z}$ equivariant <a href="20220818172827-automorphismus_eines_objekts.html#ID-d6ed25e6-8ebf-4836-b92b-57cc2f1f28c4">automorphisms</a>.
+Now let $f: \bigoplus_{\mathbb{Z}} \rightarrow \bigoplus_{\mathbb{Z}}$ be $\mathbb{Z}$ equivariant, then $f(e_{n+k}) = f(e_n)_{+k}$.
+Now assume that $f: \bigoplus_{\mathbb{Z}} \rightarrow \bigoplus_{\mathbb{Z}}$ is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a>.
+Hence let $v = (v_{i},...,v_{j}) \in \bigoplus_{\mathbb{Z}} \mathbb{Z}$ be the vector such that $f(e_0) = v$ and <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> $v_{i}, v_j \neq 0$ (we may assume this as  $f$ is injective).
+We proceed to show that $i = j$:
+As $f$ is surjective, there exists an equation $\sum_{l=0}^k \lambda_l f(e_{m + l}) = e_0$ for $\lambda_l \in \mathbb{Z}$ and <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> $\lambda_0 \neq 0, \lambda_k \neq 0$.
+Then the $i+m$ th component is precisely $\lambda_l \cdot v_i \neq 0$ and hence $i + m = 0$.
 </p>
 
 <p>
-Now suppose that \(j > i\) or \(k > 0\).<br />
-Then<br />
-The \(m + k + j\)-th component is precisely \(\lambda_l \cdot v_j = (e_0)_{m+k + j} = 0\) for \(m + j + l > i + m\), contradiction to \(\lambda_k, v_j \neq 0\).<br />
-Hence we have \(\lambda_l f(e_{m+l}) = e_0\).<br />
+Now suppose that $j &gt; i$ or $k &gt; 0$.
+Then
+The \(m + k + j\)-th component is precisely $\lambda_l \cdot v_j = (e_0)_{m+k + j} = 0$ for $m + j + l &gt; i + m$, contradiction to $\lambda_k, v_j \neq 0$.
+Hence we have $\lambda_l f(e_{m+l}) = e_0$.
 </p>
 
 <p>
-Todo: better indices, etc.<br />
+Todo: better indices, etc.
 </p>
-</div>
-</div>
-<div id="outline-container-orgc3c7bd0" class="outline-2">
-<h2 id="orgc3c7bd0">Remark</h2>
-<div class="outline-text-2" id="text-orgc3c7bd0">
+
+
+
+
+
+<h2 id="remark">Remark</h2>
 <p>
-bad notation :(<br />
+bad notation :(
 </p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2026-08-21 Fr 18:25</p>
+
 </div>
 </body>
 </html>

@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 22:41 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>größter gemeinsamer Teiler von einfachen Produkten irreduzibler Elemente</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,49 +52,34 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">größter gemeinsamer Teiler von einfachen Produkten irreduzibler Elemente</h1>
-<div id="outline-container-orgba45c7d" class="outline-2">
-<h2 id="orgba45c7d"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-317d4885-1124-4bed-a295-1bfd4ad937da"></span><h1 class="title">größter gemeinsamer Teiler von einfachen Produkten irreduzibler Elemente</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(R\) ein <a href="20221227223925-hauptidealring.html#ID-41717608-2c65-435a-aca7-549eff5b4ca2">Hauptidealring</a> und \(p_i \in R\) für \(i \in \{1,..,n\}\) paarweise verschiedene, nicht <a href="20230419125055-assoziierte_elemente.html#ID-1ce4d3b5-90e8-4f84-9764-500c2232b4e6">assoziierte</a>, <a href="20221226125836-irreduzibles_element.html#ID-0cc3140d-cb4c-48a2-8cb6-2d9801e34db0">irreduzibles Element</a> sowie \(h_i  \coloneqq \prod_{j\neq i} p_i\).
+Sei $R$ ein <a href="20221227223925-hauptidealring.html#ID-41717608-2c65-435a-aca7-549eff5b4ca2">Hauptidealring</a> und $p_i \in R$ für $i \in \{1,..,n\}$ paarweise verschiedene, nicht <a href="20230419125055-assoziierte_elemente.html#ID-1ce4d3b5-90e8-4f84-9764-500c2232b4e6">assoziierte</a>, <a href="20221226125836-irreduzibles_element.html#ID-0cc3140d-cb4c-48a2-8cb6-2d9801e34db0">irreduzibles Element</a> sowie $h_i  \coloneqq \prod_{j\neq i} p_i$.
 Dann gilt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 g  \coloneqq \mathrm{gcd}(h_1,...,h_n) = 1
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org80e3d53" class="outline-2">
-<h2 id="org80e3d53"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org6bb973d" class="outline-3">
-<h3 id="org6bb973d"><span class="section-number-3">2.1.</span> <a href="20221226125415-teiler.html#ID-aa16749d-beb2-4276-9c41-c128635ccd4c">Teiler</a></h3>
-<div class="outline-text-3" id="text-2-1">
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="idaa16749d-beb2-4276-9c41-c128635ccd4cteiler"><a href="20221226125415-teiler.html#ID-aa16749d-beb2-4276-9c41-c128635ccd4c">Teiler</a></h3>
 <p>
 trivial
 </p>
-</div>
-</div>
-<div id="outline-container-orgd44fb9b" class="outline-3">
-<h3 id="orgd44fb9b"><span class="section-number-3">2.2.</span> größter Teiler</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<h3 id="groter-teiler">größter Teiler</h3>
 <p>
-Sei <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> \(r \in R \{0\}\), dann existiert für \(r\) eine <a href="20221229200313-eindeutige_primzerlegung.html#ID-43ca21ca-b4d6-4937-820b-a99daa5e510a">Eindeutige Primzerlegung</a>.
-Falls kein <a href="20230426123442-primelement.html#ID-ffa743e1-94ee-49fe-9647-396eeb233982">Primelement</a> \(p \mid r\) existiert, so ist \(r \in R^{\times}\) und es folgt \(r \mid g\).
-Ansonsten folgt \(p \mid r, r \mid g = g \cdot 1\) und wegen \(p \nmid 1\) folgt \(p \mid g\)
-Ferner folgt daraus \(p \mid h_i\), was aber ein Widerspruch ist, da nach Konstruktion \(p \nmid h_i\) für mind. ein \(i \in I\) gilt.
+Sei <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> $r \in R \{0\}$, dann existiert für $r$ eine <a href="20221229200313-eindeutige_primzerlegung.html#ID-43ca21ca-b4d6-4937-820b-a99daa5e510a">Eindeutige Primzerlegung</a>.
+Falls kein <a href="20230426123442-primelement.html#ID-ffa743e1-94ee-49fe-9647-396eeb233982">Primelement</a> $p \mid r$ existiert, so ist $r \in R^{\times}$ und es folgt $r \mid g$.
+Ansonsten folgt $p \mid r, r \mid g = g \cdot 1$ und wegen $p \nmid 1$ folgt $p \mid g$
+Ferner folgt daraus $p \mid h_i$, was aber ein Widerspruch ist, da nach Konstruktion $p \nmid h_i$ für mind. ein $i \in I$ gilt.
 (vgl. auch  <a href="20230525170851-großter_gemeinsamer_teiler_und_primzerlegung_in_einem_hauptidealring.html#ID-976562af-3605-44c7-9d06-948ca2cd3356">größter gemeinsamer Teiler und Primzerlegung in einem Hauptidealring</a>)
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 22:41</p>
+
 </div>
 </body>
 </html>

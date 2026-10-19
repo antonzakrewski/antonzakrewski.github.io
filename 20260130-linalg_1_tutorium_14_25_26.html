@@ -1,208 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2026-02-03 Di 10:43 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>LinAlg 1 - Tutorium 14 (25/26)</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -229,178 +52,125 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">LinAlg 1 - Tutorium 14 (25/26)</h1>
-<div id="outline-container-org07a27ce" class="outline-2">
-<h2 id="org07a27ce">Extra Aufgaben zum Homomorphiesatz / Gruppen</h2>
-<div class="outline-text-2" id="text-org07a27ce">
-</div>
-<div id="outline-container-orgc5a17ed" class="outline-3">
-<h3 id="orgc5a17ed">a)</h3>
-<div class="outline-text-3" id="text-orgc5a17ed">
+<span id="ID-3c192cef-d5e9-479a-99b1-28664b5b856c"></span><h1 class="title">LinAlg 1 - Tutorium 14 (25/26)</h1>
+
+<h2 id="extra-aufgaben-zum-homomorphiesatz-gruppen">Extra Aufgaben zum Homomorphiesatz / Gruppen</h2>
+
+<h3 id="a">a)</h3>
 <p>
-Wir wollen Gruppen der Ordnung \(p\) für \(p\) prim klassifizieren:<br />
+Wir wollen Gruppen der Ordnung $p$ für $p$ prim klassifizieren:
 </p>
-</div>
-<div id="outline-container-org4e23f21" class="outline-4">
-<h4 id="org4e23f21">a)</h4>
-<div class="outline-text-4" id="text-org4e23f21">
+
+<h4 id="a">a)</h4>
 <p>
-Sei \(G\) eine Gruppe.<br />
-Zeige, dass folgende Abbildung<br />
+Sei $G$ eine Gruppe.
+Zeige, dass folgende Abbildung
 </p>
-\begin{align*}
-\mathrm{Hom}_{\mathrm{Grp}}(\mathbb{Z},G) \cong& G \\
-f \mapsto& f(1)\\
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\mathrm{Hom}_{\mathrm{Grp}}(\mathbb{Z},G) \cong&amp; G \\
+f \mapsto&amp; f(1)\\
+\end{align*}</div>
 <p>
-eine Bijektion ist.<br />
+eine Bijektion ist.
 </p>
-</div>
-</div>
-<div id="outline-container-orgfc18903" class="outline-4">
-<h4 id="orgfc18903">b)</h4>
-<div class="outline-text-4" id="text-orgfc18903">
+
+<h4 id="b">b)</h4>
 <p>
-Zeige:<br />
+Zeige:
 </p>
 
 <p>
-Sei \(G\) eine Gruppe mit \(\vert G \vert = p\).<br />
-Dann folgt \(G \simeq \mathbb{Z}/p \mathbb{Z}\).<br />
+Sei $G$ eine Gruppe mit $\vert G \vert = p$.
+Dann folgt $G \simeq \mathbb{Z}/p \mathbb{Z}$.
 </p>
 
 <p>
-Hint: Konstruiere einen surjektiven Gruppenhomomorphismus \(\varphi: \mathbb{Z} \rightarrow G\) mit \(\mathrm{ker}(\varphi) = \mathbb{Z}/p \mathbb{Z}\)<br />
+Hint: Konstruiere einen surjektiven Gruppenhomomorphismus $\varphi: \mathbb{Z} \rightarrow G$ mit $\mathrm{ker}(\varphi) = \mathbb{Z}/p \mathbb{Z}$
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-org2b739c0" class="outline-3">
-<h3 id="org2b739c0">b)</h3>
-<div class="outline-text-3" id="text-org2b739c0">
+
+<h3 id="b">b)</h3>
 <p>
-Sei \(C = \{z \in \mathbb{C}^{\times} \vert \vert z \vert = 1  \}\) mit der multiplikativen Gruppenstruktur gegeben.<br />
-Finde einen Gruppenisomorphismus \(\mathbb{R} / \mathbb{Z} \cong C\)<br />
+Sei $C = \{z \in \mathbb{C}^{\times} \vert \vert z \vert = 1  \}$ mit der multiplikativen Gruppenstruktur gegeben.
+Finde einen Gruppenisomorphismus $\mathbb{R} / \mathbb{Z} \cong C$
 </p>
-</div>
-</div>
-<div id="outline-container-org4f39f07" class="outline-3">
-<h3 id="org4f39f07">c)</h3>
-<div class="outline-text-3" id="text-org4f39f07">
+
+<h3 id="c">c)</h3>
 <p>
-Seien \(G,G'\) Gruppen so dass \(\vert G \vert, \vert G' \vert\) teilerfremd sind.<br />
-zeige, dass \(\vert \mathrm{Hom}_{\mathrm{Grp}}(G,G') \vert = 1\)<br />
+Seien $G,G'$ Gruppen so dass $\vert G \vert, \vert G' \vert$ teilerfremd sind.
+zeige, dass $\vert \mathrm{Hom}_{\mathrm{Grp}}(G,G') \vert = 1$
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-org5c9ba95" class="outline-2">
-<h2 id="org5c9ba95">Extra Wahr Falsch Aufgabne</h2>
-<div class="outline-text-2" id="text-org5c9ba95">
-</div>
-<div id="outline-container-org86ac129" class="outline-3">
-<h3 id="org86ac129">Warnung</h3>
-<div class="outline-text-3" id="text-org86ac129">
+
+<h2 id="extra-wahr-falsch-aufgabne">Extra Wahr Falsch Aufgabne</h2>
+
+<h3 id="warnung">Warnung</h3>
 <p>
-Bei den Beweisen in den Links<br />
+Bei den Beweisen in den Links
 </p>
-</div>
-</div>
-<div id="outline-container-orgaa80fd9" class="outline-3">
-<h3 id="orgaa80fd9">1) - wahr</h3>
-<div class="outline-text-3" id="text-orgaa80fd9">
+
+<h3 id="1-wahr">1) - wahr</h3>
 <p>
-Es existiert ein Gruppenhomomorphismus \(\varphi: \mathbb{Z}/2 \mathbb{Z} \rightarrow \mathbb{Z}/3 \mathbb{Z}\).<br />
+Es existiert ein Gruppenhomomorphismus $\varphi: \mathbb{Z}/2 \mathbb{Z} \rightarrow \mathbb{Z}/3 \mathbb{Z}$.
 </p>
-</div>
-<div id="outline-container-orgf2b8b6b" class="outline-4">
-<h4 id="orgf2b8b6b">Beweis</h4>
-<div class="outline-text-4" id="text-orgf2b8b6b">
+
+<h4 id="beweis">Beweis</h4>
 <p>
-Es gibt tatsächlich genau einen Gruppenhomomorphismus \(\varphi: \mathbb{Z}/2 \mathbb{Z} \rightarrow \mathbb{Z}/3 \mathbb{Z}\), nämlich die konstante Abbildung auf die \(0\).<br />
-Wir zeigen, dass es keine andere geben kann:<br />
-Also sei \(\varphi\) ein beliebiger Gruppenhomomorphismus.<br />
-Zuersteinmal gilt \(\varphi(0) = 0\).<br />
-Angenommen \(\varphi(1) = 1\), dann gilt \(0 = \varphi(0) = \varphi(1 + 1) = 1 + 1 = 2 \neq 0\), also ein Widerspruch.<br />
-Analog zeigt man, dass \(\varphi(2) = 2\) auch zu einem Widerspruch führt.<br />
+Es gibt tatsächlich genau einen Gruppenhomomorphismus $\varphi: \mathbb{Z}/2 \mathbb{Z} \rightarrow \mathbb{Z}/3 \mathbb{Z}$, nämlich die konstante Abbildung auf die $0$.
+Wir zeigen, dass es keine andere geben kann:
+Also sei $\varphi$ ein beliebiger Gruppenhomomorphismus.
+Zuersteinmal gilt $\varphi(0) = 0$.
+Angenommen $\varphi(1) = 1$, dann gilt $0 = \varphi(0) = \varphi(1 + 1) = 1 + 1 = 2 \neq 0$, also ein Widerspruch.
+Analog zeigt man, dass $\varphi(2) = 2$ auch zu einem Widerspruch führt.
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-org4c88e74" class="outline-3">
-<h3 id="org4c88e74">2)</h3>
-<div class="outline-text-3" id="text-org4c88e74">
+
+<h3 id="2">2)</h3>
 <p>
-die folgenden Links enthalten z.T. Ideen aus Kommutativer Algebra und sind vermutlich nicht Klausurrelevant.<br />
-Wenn euch das interessiert, könnt ihr mich gerne darauf ansprechen und ich erkläre es sehr gerne (Interesse für Kommutative Algebra gehört gefördert).<br />
+die folgenden Links enthalten z.T. Ideen aus Kommutativer Algebra und sind vermutlich nicht Klausurrelevant.
+Wenn euch das interessiert, könnt ihr mich gerne darauf ansprechen und ich erkläre es sehr gerne (Interesse für Kommutative Algebra gehört gefördert).
 </p>
-</div>
-<div id="outline-container-org0e0f2af" class="outline-4">
-<h4 id="org0e0f2af">i)</h4>
-<div class="outline-text-4" id="text-org0e0f2af">
-<ul class="org-ul">
-<li><a href="20260202-f_p_vector_space_is_p_torsion_abelian_group.html#ID-581ecb76-cbf4-44c0-b9b9-5f8d88e9adcd">F<sub>p</sub> vector space is p-torsion abelian group</a> <br /></li>
+
+<h4 id="i">i)</h4>
+<ul>
+<li><a href="20260202-f_p_vector_space_is_p_torsion_abelian_group.html#ID-581ecb76-cbf4-44c0-b9b9-5f8d88e9adcd">F_p vector space is p-torsion abelian group</a> </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgef92d41" class="outline-4">
-<h4 id="orgef92d41">ii)</h4>
-<div class="outline-text-4" id="text-orgef92d41">
-<ul class="org-ul">
-<li><a href="20260202-q_vector_space_is_uniquely_divisible_abelian_group.html#ID-e84a1f74-04c8-4153-993e-7bc8c1d73026">Q-Vector space is uniquely divisible abelian group</a> <br /></li>
-<li><a href="20260202-divisible_group_is_in_general_not_a_q_vector_space.html#ID-d1fb700c-43b2-4dbf-9ebb-bc5bc67f041e">divisible group is in general not a Q-Vector space</a>   <br /></li>
+<h4 id="ii">ii)</h4>
+<ul>
+<li><a href="20260202-q_vector_space_is_uniquely_divisible_abelian_group.html#ID-e84a1f74-04c8-4153-993e-7bc8c1d73026">Q-Vector space is uniquely divisible abelian group</a> </li>
+
+<li><a href="20260202-divisible_group_is_in_general_not_a_q_vector_space.html#ID-d1fb700c-43b2-4dbf-9ebb-bc5bc67f041e">divisible group is in general not a Q-Vector space</a>   </li>
 </ul>
-</div>
-</div>
-</div>
-<div id="outline-container-orge0100a9" class="outline-3">
-<h3 id="orge0100a9">3)</h3>
-<div class="outline-text-3" id="text-orge0100a9">
+<h3 id="3">3)</h3>
 <p>
-Sei \(G\) eine Gruppe mit \(p\) vielen Elementen.<br />
-Dann gilt \(G \cong \mathbb{Z}/p \mathbb{Z}\)<br />
+Sei $G$ eine Gruppe mit $p$ vielen Elementen.
+Dann gilt $G \cong \mathbb{Z}/p \mathbb{Z}$
 </p>
 
 <p>
-see:<br />
+see:
 </p>
-<ul class="org-ul">
-<li><a href="20240129-group_of_order_p_as_cyclic_gorup.html#ID-5ecab0b0-f64a-4bf6-b733-3f0c493c12ca">classification of groups of order p</a> <br /></li>
+<ul>
+<li><a href="20240129-group_of_order_p_as_cyclic_gorup.html#ID-5ecab0b0-f64a-4bf6-b733-3f0c493c12ca">classification of groups of order p</a> </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgbe363ed" class="outline-3">
-<h3 id="orgbe363ed">4)</h3>
-<div class="outline-text-3" id="text-orgbe363ed">
+<h3 id="4">4)</h3>
 <p>
-Seien \(G,G'\) Gruppen, \(U \subseteq G\) eine Untergruppe, \(\varphi: U \rightarrow G\) ein Gruppenhomomorphismus.<br />
-Dann existiert ein Gruppenhomomorphismus \(\overline{\varphi}: G \rightarrow G'\).<br />
+Seien $G,G'$ Gruppen, $U \subseteq G$ eine Untergruppe, $\varphi: U \rightarrow G$ ein Gruppenhomomorphismus.
+Dann existiert ein Gruppenhomomorphismus $\overline{\varphi}: G \rightarrow G'$.
 </p>
 
-<ul class="org-ul">
-<li>siehe beweis für: <a href="20260202-abelian_group_in_general_not_an_injective_object.html#ID-4e125c54-578d-488b-bc55-6e63d0011960">abelian group in general not an injective object</a> <br /></li>
+<ul>
+<li>siehe beweis für: <a href="20260202-abelian_group_in_general_not_an_injective_object.html#ID-4e125c54-578d-488b-bc55-6e63d0011960">abelian group in general not an injective object</a> </li>
 </ul>
-</div>
-</div>
-</div>
-<div id="outline-container-org0754301" class="outline-2">
-<h2 id="org0754301">Meta</h2>
-<div class="outline-text-2" id="text-org0754301">
+<h2 id="meta">Meta</h2>
 <p>
-Ich bin nicht ganz zufrieden, wie mein letztes Tutorium am Montag war.<br />
+Ich bin nicht ganz zufrieden, wie mein letztes Tutorium am Montag war.
 </p>
-<ol class="org-ol">
-<li>ich bin nicht so ganz zufrieden mit den W/F Fragen: auch wenn ich finde, dass das sehr natürliche Fragen im Kontext Linearer Algebra sind (insbesondere 2)<br /></li>
-<li>danach war das Tutorium nicht so strukturiert wie ich es mir gewünscht hätte.<br /></li>
-<li>ich hätte paar mal striktere Grenzen im Tutorium ziehen müssen (auch in vergangenen Tutorien)<br /></li>
+<ol>
+<li>ich bin nicht so ganz zufrieden mit den W/F Fragen: auch wenn ich finde, dass das sehr natürliche Fragen im Kontext Linearer Algebra sind (insbesondere 2)</li>
+
+<li>danach war das Tutorium nicht so strukturiert wie ich es mir gewünscht hätte.</li>
+
+<li>ich hätte paar mal striktere Grenzen im Tutorium ziehen müssen (auch in vergangenen Tutorien) </li>
 </ol>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2026-02-03 Di 10:43</p>
 </div>
 </body>
 </html>

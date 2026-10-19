@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>graded ring homomorphism as additive functor</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-5c87f3b9-a38b-4ffb-8215-89f671d50dd6"></span><h1 class="title">graded ring homomorphism as additive functor</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $M$ be a <a href="20210702075710-monoid.html#ID-ebccfd45-6c4b-4a93-818a-8f6848600874">monoid</a> and $R = \bigoplus_{m \in m} R_m, S = \bigoplus_{m \in M} S_m$ <a href="20230920-graded_ring.html#ID-934737de-8f00-4050-b210-c984897d335d">graded rings</a>.
+</p>
+
+<p>
+Then a <a href="20240528-graded_ring_homomorphism.html#ID-8dcdf583-319d-4ccf-8815-616579ac5a59">graded ring homomorphism</a> is equivalently described by an <a href="20230827-additive_functor.html#ID-194ea42e-600c-4119-8889-5b46998201e6">additive</a> <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{F}: BR \rightarrow BS
+\end{align*}</div>
+<p>
+between the <a href="20240901-categorification_of_a_graded_ring.html#ID-c2ada5de-6f39-4851-a087-f801f1f91283">categorifications of graded ring</a> such that for $l \in M$
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+\mathrm{Fun}([0,1], BR) \arrow[]{r}{\mathcal{F}}&amp; \mathrm{Fun}([0,1], BS)
+\mathrm{Fun}([0,1], BR) \arrow[]{r}{\mathcal{F}} \arrow[]{u}{\mathcal{L}_l^{BR}}&amp; \mathrm{Fun}([0,1], BS) \arrow[]{u}{\mathcal{L}_l^{BS}}
+\end{tikzcd}
+\end{displaymath}</pre></div>
+<p>
+commutes for the <a href="20230403183725-arrow_category.html#ID-0554b693-0143-4f63-be7a-4a7af587c98b">arrow categories</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="ring-homomorphism">ring homomorphism</h3>
+
+<h4 id="unit">unit</h4>
+<p>
+Note that $1_R = \mathrm{id}_{BR} \in \mathrm{Hom}_{BR}(1,1)$ hence $\mathcal{F}(\mathrm{id}_{BR}) = \mathrm{id}_{BS} = 1_S$
+</p>
+
+<h4 id="additive">additive</h4>
+<p>
+follows from the assumption, that $\mathcal{F}$ is additive on each component
+</p>
+
+<h4 id="multiplicative">multiplicative</h4>
+<p>
+Using distributivity bla bla it suffices to show this for homogeneous elements.
+</p>
+
+<p>
+Given $r_i, r_j$ this follows from
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{F}(r_i \cdot r_j) =&amp; \mathcal{F}(\mathcal{L}_j^{BR}(r_i) \circ r_j) \\
+=&amp; \mathcal{F}(\mathcal{L}^{BR}_j(r_i)) \circ \mathcal{F}(r_j) \\
+=&amp; \mathcal{L}_j^{BS}\mathcal{F}(r_i) \circ \mathcal{F}(r_j) \\
+=&amp; \mathcal{F}(r_i) \cdot \mathcal{F}(r_j)
+\end{align*}</div>
+
+<h3 id="graded-compatibility">graded compatibility</h3>
+<p>
+follows from
+</p>
+
+<div class="math-block">\begin{align*}
+R_m = \mathrm{Hom}_{BR}(1,m) \rightarrow \mathrm{Hom}_{BS}(1,m) \subseteq BS
+\end{align*}</div>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>uniqueness of a completion of a metric space</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-1c6b79d6-45e5-435d-943d-761d4ce0b159"></span><h1 class="title">uniqueness of a completion of a metric space</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X$ be a <a href="20221002145259-metrischer_raum.html#ID-6b95a0b5-83e0-43cc-830f-05b416769fe1">metric space</a>, then a <a href="20230223230502-vervollstandigung.html#ID-4bf0e2fb-ca68-4321-875f-99903b9e26fe">completion</a> is unique up to unique <a href="20221209134652-isometrie_metrischer_raum.html#ID-897a11a6-874c-4734-9d2b-7bf717ba7867">isometry</a>.
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $X \hookrightarrow M, X \hookrightarrow M'$ be completions.
+Then we need to show that there exists a unique isometry $M \rightarrow M'$ over $X$.
+In particular:
+</p>
+<ol>
+<li>$X$ is dense in $M,M'$</li>
+
+<li>$M,M'$ are complete</li>
+
+<li>the inclusions $X \xhookrightarrow{\iota} M, X \xhookrightarrow{\iota'} M'$ are 1-lipschitz</li>
+</ol>
+<p>
+By <a href="20260415-extension_of_a_lipschitz_map_from_a_dense_subspace.html#ID-0bd61e74-d9c7-4150-b981-472bd4412ce0">extension of a lipschitz map from a dense subspace to a complete space</a> &amp; <a href="20230331172342-dense_map_in_a_hausdorff_space.html#ID-cf93c6db-3299-4e7b-b6d8-af224c40b3ca">restriction of a map to dense subspace in a Hausdorff space</a> there exist unique 1-lipschitz maps
+</p>
+
+
+<div class="equation-container"><span class="equation"><img src="ltximg/67462918573e0916b516.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+But the unique extension to $X \xhookrightarrow{\iota} M$ is given by the identity
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/503417c5ef71d6a52eae.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+and analogously for $X \xhookrightarrow{\iota'} M$.
+</p>
+
+<p>
+Hence by uniqueness, the compositions $\overline{\iota} \circ \overline{\iota'}, \overline{\iota'} \circ \overline{\iota}$ are the respective identities.
+</p>
+
+<p>
+In particular, $\overline{\iota}, \overline{\iota'}$ are 1-lipschitz bijections, so it remains to show that both are isometries:
+This follows, as for $m_1,m_2 \in M$
+</p>
+
+<div class="math-block">\begin{align*}
+d_M(m_1,m_2) \leq&amp; 1 d_{M'}(\overline{\iota'}(m_1), \overline{\iota}(m_2)) \\
+\leq&amp; 1^2 d_{M}(\overline{\iota \circ \iota'}(m_1),\overline{\iota \circ \iota'}(m_2)) \\
+=&amp; d_M(m_1,m_2)
+\end{align*}</div>
+<p>
+hence $d_M(m_1,m_2) = 1 d_{M'}(\overline{\iota'}(m_1), \overline{\iota}(m_2))$.
+Thus $\overline{\iota}$ and analogously $\overline{\iota'}$ are isometries.
+</p>
+
+</div>
+</body>
+</html>

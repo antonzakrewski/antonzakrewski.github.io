@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>n-th power functor on Z-modules detects zero objects</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-634eb947-a0cc-4dc7-9995-9e0d5fceb7ac"></span><h1 class="title">n-th power functor on Z-modules detects zero objects</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+The \(n\)-th power functor
+</p>
+
+<div class="math-block">\begin{align*}
+(-)^{\otimes n}: \mathcal{D}(\mathbb{Z}) \rightarrow&amp; \mathcal{D}(\mathbb{Z})
+A \mapsto&amp; A \otimes_{\mathbb{Z}} A \otimes_{\mathbb{Z}} ... \otimes_{\mathbb{Z}} A
+\end{align*}</div>
+<p>
+is <a href="20240331-conservative_functor_between_infinity_categories.html#ID-37cd5c52-6d86-4178-9721-6908bb0a3087">conservative</a>.
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $A \in \mathcal{D}(\mathbb{Z})$ be an object, then it splits as $A \simeq \bigoplus_{n \in \mathbb{Z}} H_n(A)$ (cf. <a href="20260311-derived_category_of_a_hereditary_ring.html#ID-4d1a0fcd-dbb9-4572-baec-7fac4424af4d">object in the derived category of a hereditary ring splits</a>).
+Hence it suffices to show this for an <a href="20211008174655-abelsche_gruppe.html#ID-7281c9cf-564f-4c4c-8c3f-fc1424ac85f8">abelian</a> <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a> $A = \pi_0(A)$.
+Now assume that $A \otimes_{\mathbb{Z}} A = 0$.
+</p>
+
+<p>
+Here we may use that <a href="20250824-infinite_extension_of_scalars_is_symmetric_monoidal.html#ID-a21ab50f-8fb7-4673-abb1-1e6f70f695de">infinite extension of scalars is symmetric monoidal</a>, hence
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/aea071df96a8bfb3a398.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+commutes.
+</p>
+
+<p>
+In particular, the functor $(-)^{\otimes n}: \mathcal{D}(\mathbb{F}_p) \rightarrow \mathcal{D}(\mathbb{F}_p)$ detects the zero object (cf. <a href="20260125-derived_category_for_a_field.html#ID-4019bc85-02db-4922-875a-4b8e9383adff">derived category for a field</a>, <a href="20260803-derived_tensor_product_over_a_field.html#ID-41fa2162-0cff-47a0-addf-7452aea8d8e3">derived tensor product over a field</a>), which shows that $A \otimes_{\mathbb{Z}} \mathbb{F}_p$ is the zero object.
+Hence $A$ is <a href="20260215-uniquely_p_divisible_object.html#ID-416c8a22-d7c5-44ad-82f0-4638685c2c35">uniquely p-divisible</a>, which shows that $A$ is uniquely-p divisible for all primes or in other words, $A$ lies in $\mathcal{D}(\mathbb{Q})$ (cf. <a href="20260412-category_of_rational_spectra.html#ID-ac4f4ed0-ec27-4c9a-949a-502631302be7">category of rational spectra</a> <a href="20260803-category_of_rational_spectra_is_the_derived_category_of_q.html#ID-d3a62a70-ab66-4563-aa49-530bcff15c2c">category of rational spectra is the derived category of Q</a>)
+</p>
+
+<p>
+But here the same argument shows that $A$ must be zero (cf. <a href="20260803-n_th_power_functor_in_the_derived_category_over_a_field_detects_zero_objects.html#ID-e65301f8-81d8-460a-8611-08e79a652cf8">n-th power functor in the derived category over a field detects zero objects</a>)
+</p>
+
+</div>
+</body>
+</html>

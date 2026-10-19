@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 19:11 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>group action on the power set</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,61 +52,48 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">group action on the power set</h1>
-<div id="outline-container-org4177f80" class="outline-2">
-<h2 id="org4177f80"><span class="section-number-2">1.</span> Proposition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-00f958b4-d37a-4a6e-9cd5-486d87679ed2"></span><h1 class="title">group action on the power set</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let \(G\) be a <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a>, \(\mathcal{P}(G)\) the powerset of the <a href="20230402143832-underlying_set_functor.html#ID-71f19a78-b839-4247-b1c5-3488dbd8d69c">underlying-set</a>.
-Then 
+Let $G$ be a <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a>, $\mathcal{P}(G)$ the powerset of the <a href="20230402143832-underlying_set_functor.html#ID-71f19a78-b839-4247-b1c5-3488dbd8d69c">underlying-set</a>.
+Then
 </p>
-\begin{align*}
-\varphi: G \times \mathcal{P}(G) \rightarrow&  \mathcal{P}(G) \\
+
+<div class="math-block">\begin{align*}
+\varphi: G \times \mathcal{P}(G) \rightarrow&amp;  \mathcal{P}(G) \\
 (g, A) \mapsto gA
-\end{align*}
+\end{align*}</div>
 <p>
-is a <a href="20230501095041-gruppenwirkung.html#ID-e8246fd3-cb62-4245-9ef1-59bc0326501a">group action</a> 
+is a <a href="20230501095041-gruppenwirkung.html#ID-e8246fd3-cb62-4245-9ef1-59bc0326501a">group action</a>
 </p>
-</div>
-</div>
-<div id="outline-container-orgadfb493" class="outline-2">
-<h2 id="orgadfb493"><span class="section-number-2">2.</span> Proof</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orgaff9289" class="outline-3">
-<h3 id="orgaff9289"><span class="section-number-3">2.1.</span> identity</h3>
-<div class="outline-text-3" id="text-2-1">
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="identity">identity</h3>
 <p>
 follows from
 </p>
-\begin{align*}
-\varphi(e, A) =& eA \\
-=& \{e a \vert a \in A\} \\
-=& \{a \vert a \in A\} \\
-=& A
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org3b12738" class="outline-3">
-<h3 id="org3b12738"><span class="section-number-3">2.2.</span> associativity</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<div class="math-block">\begin{align*}
+\varphi(e, A) =&amp; eA \\
+=&amp; \{e a \vert a \in A\} \\
+=&amp; \{a \vert a \in A\} \\
+=&amp; A
+\end{align*}</div>
+
+<h3 id="associativity">associativity</h3>
 <p>
 follows from
 </p>
-\begin{align*}
-\varphi(h,\varphi(g,A)) =& h(gA) \\
-=& h \{g a \vert a \in A\} \\
-=& \{h \cdot g \cdot a \vert a \in A\} \\
-=& (hg)A
-\end{align*}
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 19:11</p>
+
+<div class="math-block">\begin{align*}
+\varphi(h,\varphi(g,A)) =&amp; h(gA) \\
+=&amp; h \{g a \vert a \in A\} \\
+=&amp; \{h \cdot g \cdot a \vert a \in A\} \\
+=&amp; (hg)A
+\end{align*}</div>
+
 </div>
 </body>
 </html>

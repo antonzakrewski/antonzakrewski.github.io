@@ -1,59 +1,83 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 23:55 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>sheafification functor for set</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">sheafification functor for set</h1>
-<div id="outline-container-org4ffa093" class="outline-2">
-<h2 id="org4ffa093"><span class="section-number-2">1.</span> Definition / Proposition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-94d46464-b3b5-411f-80a7-386e7f5bc4a3"></span><h1 class="title">sheafification functor for set</h1>
+
+<h2 id="definition-proposition">Definition / Proposition</h2>
 <p>
-Let <img src="ltximg/20231219-sheafification_functor_ce3bc4665eb9c7af2bd44c7a6e1873ae2ccada40.svg" alt="20231219-sheafification_functor_ce3bc4665eb9c7af2bd44c7a6e1873ae2ccada40.svg" class="org-svg" /> be a <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological space</a>
-Then the sheafification functor is defined as <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a> from <a href="20230603-cat_psh_c.html#ID-df54941f-1571-4856-a214-711cd39db373">category of presheaves</a> to the <a href="20230909-category_of_sheaves.html#ID-36e47c87-4b6d-40de-a6ff-636cd270248d">category of sheaves</a> 
+Let $(X, \mathcal{T})$ be a <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological space</a>
+Then the sheafification functor is defined as <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a> from <a href="20231027-category_of_presheafs.html#ID-bc0b8b4f-77da-40d3-a6c6-85d37bb68623">category of presheaves</a> to the <a href="20230909-category_of_sheaves.html#ID-36e47c87-4b6d-40de-a6ff-636cd270248d">category of sheaves</a>
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231219-sheafification_functor_66b58d8575c5fa8ac0d4e83619cddaa0a41c1c1e.svg" alt="20231219-sheafification_functor_66b58d8575c5fa8ac0d4e83619cddaa0a41c1c1e.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+\mathrm{sheafify}: \mathrm{Psh}(\mathrm{Op}(X)) \rightarrow&amp; \mathrm{Sh}(\mathrm{Op}(X)) \\
+\mathcal{F} \mapsto&amp; \mathcal{F}^{\#} \\
+(\eta: \mathcal{F} \rightarrow \mathcal{G}) \mapsto&amp; (\eta^{\#}: \mathcal{F}^{\#} \rightarrow \mathcal{G}^{\#})
+\end{align*}</div>
 <p>
-where <img src="ltximg/20231219-sheafification_functor_ff33ed2023f5b3cd25ccd2df63c01f0c6db53ed8.svg" alt="20231219-sheafification_functor_ff33ed2023f5b3cd25ccd2df63c01f0c6db53ed8.svg" class="org-svg" /> is the <a href="20230827-sheafification.html#ID-5a0c005b-5122-4faf-ac75-e636e4ac4a76">sheafification</a> and <img src="ltximg/20231219-sheafification_functor_525e051ca940ac928015690ac7e4daa10a82ae2a.svg" alt="20231219-sheafification_functor_525e051ca940ac928015690ac7e4daa10a82ae2a.svg" class="org-svg" /> is the unique morphism determined the universal property for
+where $\mathcal{F}^{\#}$ is the <a href="20230827-sheafification.html#ID-5a0c005b-5122-4faf-ac75-e636e4ac4a76">sheafification</a> and $\eta^\#$ is the unique morphism determined the universal property for
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231219-sheafification_functor_9bb9115bed3c9481400b3b0e5b97b18a8b3d93fe.svg" alt="20231219-sheafification_functor_9bb9115bed3c9481400b3b0e5b97b18a8b3d93fe.svg" class="org-svg" />
-</span>
-</div>
-</div>
-</div>
-<div id="outline-container-orgcca947d" class="outline-2">
-<h2 id="orgcca947d"><span class="section-number-2">2.</span> Proof</h2>
-<div class="outline-text-2" id="text-2">
+<div class="equation-container"><span class="equation"><img src="ltximg/69396cde2cb819d8e013.svg" class="org-svg" alt="diagram" /></span></div>
+
+<h2 id="proof">Proof</h2>
 <p>
 see:
 </p>
-<ul class="org-ul">
+<ul>
 <li><a href="20231219-functorality_of_a_universal_construction.html#ID-57c2c7ea-a888-4cd4-b0ff-7d52ba4848d8">functorality of a universal construction</a></li>
 </ul>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 23:55</p>
 </div>
 </body>
 </html>

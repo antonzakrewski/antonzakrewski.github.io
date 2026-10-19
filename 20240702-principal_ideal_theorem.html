@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>principal ideal theorem</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-e5ab6a0e-472a-4628-9a41-cbd55c4356e5"></span><h1 class="title">principal ideal theorem</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $A$ be a <a href="20230725-noetherian_ring.html#ID-3bc5f76d-9774-4046-b432-697db6e9f77b">noetherian ring</a> and $\mathfrak{a} = (a) \subsetneq A$ a <a href="20230427200359-echtes_ideal.html#ID-fa54a328-b081-4a6c-9106-4348783138df">strict</a> <a href="20221130163614-hauptideal.html#ID-753ccf8e-7022-43b7-af18-0d3e1db9bcdb">principal ideal</a>.
+Suppose $\mathfrak{p} \supseteq \mathfrak{a}$ is a <a href="20230725-minimal_prime_ideal.html#ID-9946ee7b-3aab-4f22-be35-f48f255ff9ae">minimal prime ideal</a>, then
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{ht}(\mathfrak{p}) \leq 1
+\end{align*}</div>
+
+
+<h2 id="proof">Proof</h2>
+<p>
+by <a href="20240702-height_of_a_prime_ideal_and_local_ring.html#ID-1057e80a-17b2-4251-a565-1d3069e9aa57">height of a prime ideal and local ring</a> we may <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> assume that $A$ is a <a href="20230531093017-lokaler_ring.html#ID-55f224fa-39d9-4b7b-a771-9466ec684881">local ring</a> with <a href="20230314223428-maximales_ideal.html#ID-9d76bba3-11a8-42c9-9bdb-f774da2bb06a">maximal ideal</a> $\mathfrak{p}$ by passing to $A_{\mathfrak{p}}$
+</p>
+
+<p>
+Thus using the <a href="20240416-correspondence_theorem_for_prime_ideals.html#ID-f0f32433-e6e2-4f76-883a-0b2dc27ee623">correspondence theorem for prime ideals and quotient ring</a> we get
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Spec}(A/(a)) \simeq \{\mathfrak{p} \in \mathrm{Spec}(A) \vert a \in \mathfrak{p}\}
+\end{align*}</div>
+
+<p>
+As $\mathfrak{p}$ is minimal, we conclude that
+</p>
+
+<div class="math-block">\begin{align*}
+\mathfrak{p}/(a) \subseteq A/(a) \neq 0
+\end{align*}</div>
+<p>
+is the only prime ideal, since $\mathfrak{p}$ is both maximal as $A_{\mathfrak{p}}$ is local and minimal by assumption.
+</p>
+
+<p>
+Therefore $A/(a)$ has <a href="20230727-dimension_ring.html#ID-408db5e1-620d-44b5-9b16-e4483521ff4a">dimension</a> $0$ and is noetherian, thus by <a href="20230726-artinian_ring_and_finite_dimensional_noetherian_ring.html#ID-3f7a320e-8c18-4f2f-8aa6-74707d56d1c8">artinian ring and zero dimensional noetherian ring</a> we conclude that $A/(a)$ is an <a href="20230724-artinian_ring.html#ID-a0bcecf0-0701-4159-ad21-9fff7aa6057c">artinian ring</a>
+</p>
+
+<p>
+Then consider the maps
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/b2392b3643a90bc07f63.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+for the <a href="20230726-localization_along_an_element.html#ID-922baf31-c324-4ca2-adf9-0d96c6436e33">localization along an element</a>
+</p>
+
+<p>
+We want to show that $A_{a}$ is an artinian ring.
+Using <a href="20240629-localization_of_a_noetherian_ring_as_noetherian_ring.html#ID-3e009036-909b-4c75-83a6-95be9777b4f2">localization of a noetherian ring as noetherian ring</a> and <a href="20230726-artinian_ring_and_finite_dimensional_noetherian_ring.html#ID-3f7a320e-8c18-4f2f-8aa6-74707d56d1c8">artinian ring and zero dimensional noetherian ring</a> it suffices to show that $A_{a}$ is zero dimensional.
+</p>
+
+<p>
+Let $\mathfrak{q} \in \mathrm{Spec}(A)$ with $\mathfrak{q} \subsetneq \mathfrak{p}$, then it remains to show that $\mathrm{ht}(\mathfrak{q}) = 0$
+By minimality of $\mathfrak{p}$ containing $(a)$ we conclude that $a \not\in \mathfrak{q}$
+</p>
+
+<p>
+Hence there exists a <a href="20230225172453-faktorisierung_eines_morphismus.html#ID-03fc6d28-e9bd-4fa3-8093-a113eaf06a6e">factorization</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/bc39c6b4658bfbb6086f.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+As $A_{\mathfrak{q}}$ is a local ring (cf. <a href="20240702-local_ring_as_non_zero_ring.html#ID-5c64cc53-ee3d-4f73-9e2f-8ac0e9513f5b">local ring as non zero ring</a>)  with $A_{\mathfrak{q}} \neq 0$ we get $A_{a} \neq 0$
+</p>
+
+<p>
+Then if $A_{a}$ is artinian, we conculde that $\mathrm{dim}(A_{a}) = 0$ showing $\mathrm{ht}(\mathfrak{q}) = 0$ (cf. <a href="20240702-height_of_a_prime_ideal_and_local_ring.html#ID-1057e80a-17b2-4251-a565-1d3069e9aa57">height of a prime ideal and local ring</a>)
+</p>
+
+
+<h3 id="a-a-artinian">$A_{a}$ artinian</h3>
+
+<p>
+Consider the <a href="20230531104455-endlich_erzeugter_modul.html#ID-b8bbecb1-a067-40a2-a8c8-3c4119252b18">finitely generated module</a> $M \coloneqq \frac{f^{-1}(\mathfrak{a}_i)}{f^{-1}(\mathfrak{a}_{i+1})}$
+</p>
+
+
+<p>
+As $A$ is a local ring with maximal ideal $\mathfrak{p}$ we get using <a href="20230904-nakayama_lemma_for_local_rings.html#ID-695613e9-c2df-4250-a3fd-65df81d1ea1b">Nakayama's Lemma for local rings</a>
+</p>
+
+<div class="math-block">\begin{align*}
+M = 0
+\end{align*}</div>
+
+</div>
+</body>
+</html>

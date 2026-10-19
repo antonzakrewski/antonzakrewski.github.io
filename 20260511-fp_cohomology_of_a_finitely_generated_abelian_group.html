@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fp-cohomology of the Eilenberg-MacLane spectrum of a finitely generated abelian group</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-0ae46e13-e171-4030-b850-2b92a294a4b1"></span><h1 class="title">Fp-cohomology of the Eilenberg-MacLane spectrum of a finitely generated abelian group</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $M \oplus \mathbb{Z}^n \oplus \bigoplus_{i=1}^n \mathbb{Z}/p_{i}^{n_i}$ be a <a href="20230608-endlich_erzeugte_gruppe.html#ID-9d1d22d5-501a-45b6-a05d-abbe73155a04">finitely generated group</a>, regarded as <a href="20250523-h_functor_from_derived_category_to_spectra.html#ID-9c3ed557-5f11-4e9f-a8ce-b6c1157ace94">Eilenberg-MacLane spectrum</a>.
+Then the $\mathbb{F}_p$ cohomology of $M$ is given by
+</p>
+
+<div class="math-block">\begin{align*}
+H^*(M, \mathbb{F}_p) \cong H^*(\mathbb{Z}, \mathbb{F}_p)^n \oplus \bigoplus_{p_i = p, n_i \geq 2} (H^*(\mathbb{F}_p,\mathbb{F}_p) \oplus H^{*\pm 1}(\mathbb{F}_p, \mathbb{F}_p)) \oplus \bigoplus_{p_i = p, n_i = 1} H^*(\mathbb{F}_p, \mathbb{F}_p)
+\end{align*}</div>
+<p>
+but the splitting on the right hand site is/might not be compatible with the <a href="20260509-fp_steenrod_algebra.html#ID-91e361fc-4074-4589-92ce-42a811f9f9a6">Fp steenrod algebra</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="p-and-q-coprime">$p$ and $q$ coprime</h3>
+<p>
+We claim that $H^*(\mathbb{Z}/q^n \mathbb{Z}, \mathbb{F}_p) \cong 0$.
+For this consider the <a href="20241022-cofiber_of_an_infinity_morphis3.html#ID-c9321dad-6e04-418b-a0a5-ad8546205938">cofiber</a> sequence $\mathbb{Z} \xrightarrow{\cdot p} \mathbb{Z} \rightarrow \mathbb{F}_p$ which induces a cofiber sequence $\mathbb{Z} \otimes_{\mathbb{S}} \mathbb{Z}/q^n \xrightarrow{\cdot p \otimes_{\mathbb{S}} \mathrm{id}} \mathbb{Z} \otimes_{\mathbb{S}} \mathbb{Z}/q^n \mathbb{Z} \rightarrow \mathbb{F}_p \otimes_{\mathbb{S}} \mathbb{Z}/q^n \mathbb{Z}$.
+But $- \otimes_{\mathbb{S}} -$ is additive in both variables, so $(\cdot p) \otimes_{\mathbb{S}} \mathrm{id}_{\mathbb{Z}/q^n \mathbb{Z}}$ is the same map as  $\mathrm{id}_{\mathbb{Z}} \otimes_{\mathbb{S}} (\cdot p)$.
+But multiplication with $p$ is an isomorphis on $\mathbb{Z}/q^n \mathbb{Z}$, so the <a href="20241022-cofiber_of_an_infinity_morphis3.html#ID-c9321dad-6e04-418b-a0a5-ad8546205938">cofiber</a> of $(\cdot p) \otimes_{\mathbb{S}} \mathrm{id}_{\mathbb{Z}/q^n \mathbb{Z}}$ or equivalently of $\mathrm{id}_{\mathbb{Z}} \otimes_{\mathbb{S}} (\cdot p)$ is given by $0$.
+</p>
+
+<h3 id="pn">$p^n$</h3>
+<p>
+Observe that there exists a cofiber sequence $\mathbb{Z} \xrightarrow{\cdot p^n} \mathbb{Z} \rightarrow \mathbb{Z}/p^n \mathbb{Z}$.
+Then tensoring with $- \otimes_{\mathbb{S}} \mathbb{F}_p$ gives the cofiber sequence
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{Z} \otimes_{\mathbb{S}} \mathbb{F}_p \xrightarrow{\mathrm{id}  \otimes_{\mathbb{S}} \cdot p}  \mathbb{Z} \otimes_{\mathbb{S}} \mathbb{F}_p \rightarrow \mathbb{Z}/p^n \mathbb{Z} \otimes_{\mathbb{S}} \mathbb{F}_p
+\end{align*}</div>
+<p>
+where the first map is equivalent to the zero map (cf. <a href="20260511-bi_additive_functor_and_multiplication_with_p.html#ID-ab6fb82b-3318-46db-ad5b-5094ebe29987">bi-additive functor and multiplication with p</a>, multiplication by $p$ is the zero map on $\mathbb{F}_p$).
+</p>
+
+<p>
+This shows that $\mathbb{Z}/p^n \mathbb{Z} \otimes_{\mathbb{S}} \mathbb{F}_p$ is equivalent to
+</p>
+
+</div>
+</body>
+</html>

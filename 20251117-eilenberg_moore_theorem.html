@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>eilenberg-moore theorem for a field</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-675a7963-3c43-4f8d-819f-7c6ff66f11f9"></span><h1 class="title">eilenberg-moore theorem for a field</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $k = R$ be a <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">field</a> and $f: Y \rightarrow W$ a map between <a href="20240404-infinity_groupoid.html#ID-b516d6fd-fec1-4d8a-8efa-b2ad1f1bb283">anima</a>
+Assume that
+</p>
+<ol>
+<li>for all $n$ the <a href="20241022-fiber_of_an_infinity_morphism.html#ID-315c0bce-7cf8-468b-9149-1e254debcf95">fiber</a> $\mathrm{fib}(f)$ is a <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">finite</a> <a href="20220102135318-dimension.html#ID-3e484fb0-c9a8-485a-999b-4f0052bd13e4">dimensional</a> <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">vector space</a>  </li>
+
+<li>$\pi_1(W)$ <a href="nilpotent-action.html#ID-84de1caf-ad6b-424d-af61-1eaa712c4954">acts nilpotently</a> on $H^n(\mathrm{fib}(f),k)$</li>
+</ol>
+<p>
+Then a <a href="20241017-infinity_pullback.html#ID-7aaac468-a0bb-4e73-bfd3-d4c591c10e4f">pullback</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/859d6e450c65d9f36e71.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+gets mapped to a <a href="20241017-infinity_pushout.html#ID-91244ae5-b853-45df-bbe0-af6ae9a8da47">pushout</a>, i.e.
+</p>
+
+<div class="math-block">\begin{align*}
+\varphi: C^{*}(Z,k) \otimes_{C^*(W,k)} C^*(Y,k) \rightarrow C^*(X,k)
+\end{align*}</div>
+<p>
+is an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a>
+cf. <a href="20251117-pushout_in_commutative_algebras_in_module_spectra.html#ID-bf255f97-1699-4442-8b5f-4b1d22e9917b">pushout formula in commutative algebras in module spectra</a>
+</p>
+
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $\mathcal{L} \in \mathrm{Fun}(W, \mathcal{D}(k))$ and by abuse of notation denote $k = r^*(k) = \mathrm{const}_W(k)$, then consider
+</p>
+
+<div class="math-block">\begin{align*}
+g_* g^*(k) \otimes_{k} \mathcal{L}
+\end{align*}</div>
+
+<p>
+Then $r_* = \mathrm{lim}_W: \mathrm{Fun}(W, \mathcal{D}(k)) \rightarrow \mathcal{D}(k)$ is a cannoical lax symmetric monoidal functor, since the <a href="20241017-infinity_left_adjoint.html#ID-2ba0e3a5-7a57-4093-837c-b1f0feabd7c2">left adjoint</a> is <a href="20250317-symmetric_monoidal_infinity_functor.html#ID-58e3cc78-f94d-460d-b655-29030f21a65b">symmetric monoidal functor</a>
+</p>
+
+<p>
+so
+</p>
+
+<div class="math-block">\begin{align*}
+r_*(g_*g^*(k) \otimes_{r_*(k)} r_*(\mathcal{L})) \rightarrow r_*(g^*g_*(k) \otimes_{k} \mathcal{L})
+\end{align*}</div>
+<p>
+but this is given by
+</p>
+
+<div class="math-block">\begin{align*}
+C^*(Z,k) \otimes_{C^*(W,k)} r_*(\mathcal{L}) \simeq ((rg)_*(rg)^*(k) \otimes_{C^*(W,k)} r_*(\mathcal{L})
+\end{align*}</div>
+
+<p>
+where we use <a href="20250620-repeated_infinity_kan_extension.html#ID-efdab204-85f1-46a6-a012-e1b4c4da48e4">associativity of infinity kan extensions</a>
+</p>
+
+<p>
+Now restrict to the special case $\mathcal{L} = f_* f^*(k)$.
+Then the LHS gives $C^*(Z) \otimes_{C^*(W)} C^*(Y)$ and the RHS admits a canonical map $g_* g^*(k) \otimes_{k} f_*f^*(k) \rightarrow h_*h^*(k)$
+</p>
+
+<p>
+This map is adjoint to some other map
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/90d861f5ac13ba3a908e.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+
+<div class="math-block">\begin{align*}
+h^*(g_*g^* \otimes_{k} f_*f^*(k)) \simeq h^*(g_*g^*(k) \otimes_{h^*(k)} h^*f_*f^*(k))
+\end{align*}</div>
+<p>
+since precomposition is <a href="20250317-symmetric_monoidal_infinity_functor.html#ID-58e3cc78-f94d-460d-b655-29030f21a65b">symmetric monoidal functor</a> for the pointwise construction
+</p>
+
+
+
+
+
+<p>
+we claim that under these assumption
+</p>
+
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> assume that $W$ is <a href="20230118223336-zusammenhangender_raum.html#ID-bcc53507-bc5a-46d4-bd83-53e504f62b9d">connected</a>:
+</p>
+
+<p>
+then $\psi$ is an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a>
+</p>
+
+<p>
+But using <a href="20241029-natural_isomorphism_between_infinity_functors_and_objectwise_isomorphism.html#ID-ab56d28a-a361-436c-91c0-ab97bba85e89">natural equivalence between infinity functors and objectwise equivalence</a> it suffices to show that $\psi$ is pointwise an equivalence.
+i.e. it is an equivalence after applying $\iota^*: \{w\} \hookrightarrow W$.
+</p>
+
+<p>
+Exercise:
+</p>
+
+</div>
+</body>
+</html>

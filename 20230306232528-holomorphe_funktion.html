@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 22:09 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>holomorphe Funktion</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,39 +52,24 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">holomorphe Funktion</h1>
-<div id="outline-container-orgf5d81e6" class="outline-2">
-<h2 id="orgf5d81e6"><span class="section-number-2">1.</span> Definition</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-Eine <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktion</a> \(f: U \rightarrow \mathbb{C}\) mit \(U \subseteq \mathbb{C}\), <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a> ist holomorph, falls für \(z_0 \in U\) eine <a href="20230116165325-lineare_approximation.html#ID-0f49911a-2de3-4f8d-81fb-c56c79742c72">Lineare Approximation</a> \(f'(z_0) \in \mathrm{Hom}_{\mathbb{C}}(\mathbb{C},\mathbb{C})\), d.h. <a href="20221119162741-vektorraumhomomorphismus.html#ID-863f0f55-054c-413e-9cf4-2c2704ea5b14">Homomorphismus</a> mit <a href="20230913-asymptotisch_sublineare_abbildung.html#ID-262e1741-a50e-490b-bc4c-079d7ad2f512">asymptotisch sublinearem</a>  Restglied]] existiert, d.h.
-</p>
-\begin{align*}
-f(z) = f(z_0) + f'(z_0) (z - z_0) + o(z - z_0)
-\end{align*}
+<span id="ID-47dd90d3-19b3-4336-bf37-554413d69c02"></span><h1 class="title">holomorphe Funktion</h1>
 
-<p>
-Alternativ:
-</p>
-<ul class="org-ul">
-<li></li>
-</ul>
-</div>
-</div>
 
-<div id="outline-container-orge76e336" class="outline-2">
-<h2 id="orge76e336"><span class="section-number-2">2.</span> Alternativ</h2>
-<div class="outline-text-2" id="text-2">
-\begin{align*}
-f'(z_0) \coloneqq \lim_{z \to z_0}\left(\frac{f(z) - f(z_0)}{z - z_0}\right) 
-\end{align*}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 22:09</p>
+
+
+<h2 id="definition">Definition</h2>
+<p>
+Let $\Sigma \subseteq \mathbb{C}$ be <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> and $f: \Sigma \rightarrow \mathbb{C}$ a <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">map</a>
+Then $f$ is said to be holomorphic at $z_0 \in \Sigma$ if
+</p>
+
+<div class="math-block">\begin{align*}
+f'(z_0) \coloneqq \mathrm{lim}_{h \rightarrow 0} \frac{f(z_0 + h) - f(z_0)}{h}
+\end{align*}</div>
+<p>
+exists
+</p>
+
 </div>
 </body>
 </html>

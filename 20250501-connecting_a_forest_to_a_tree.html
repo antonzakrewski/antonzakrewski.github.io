@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>connecting a forest to a tree</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-0989c2e3-8e64-4c42-a4e0-ee88e40d9796"></span><h1 class="title">connecting a forest to a tree</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $F = (V,E)$ be a <a href="20230327231315-wald.html#ID-2e7a3140-00f8-441d-b3c1-2e290b7e51e4">forest</a>.
+Then there exists a <a href="20221024152607-baum.html#ID-b2969a00-e313-42e8-afe1-62a33cb45013">tree</a> $T$ with $F \subseteq T$, $V_F = V_G$ and $E_F = E_G$ <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> $F$ is already a tree
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="f-a-tree">$F$ a tree</h3>
+<p>
+Then choose $F = T$
+</p>
+
+<h3 id="f-not-a-tree">$F$ not a tree</h3>
+<p>
+Then there exist at least 2 connected components $T_1,T_2$.
+Choose two vertices $v_1 \in T_1,v_2 \in T_2$ and connect them via an edge.
+Note that the new graph is still acyclic:
+Assume otherwise, then there exists a path $v_1 \rightarrow ... \rightarrow v_n \rightarrow v_i$.
+It can't lie fully in one original connected component $T_i$ since $F$ is acyclic.
+hence it must switch the connected components at least twice.
+But by construction there exists only one edge between $T_1$ and $T_2$, which can be choosen only once.
+</p>
+
+<p>
+Repeat this procedure until the new graph $G'$ is connected.
+Then $G'$ is still acyclic (by the reasons above) so $T = G$ satisfies the assumptions.
+</p>
+
+</div>
+</body>
+</html>

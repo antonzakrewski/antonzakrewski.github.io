@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 22:32 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Menge der stetigen Funktionen nicht folgenkompakt</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,32 +52,22 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Menge der stetigen Funktionen nicht folgenkompakt</h1>
-<div id="outline-container-org36c908c" class="outline-2">
-<h2 id="org36c908c"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-d0839d31-6809-4684-b3bf-0a372fd65ff0"></span><h1 class="title">Menge der stetigen Funktionen nicht folgenkompakt</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Der <a href="20221003143917-normierter_raum.html#ID-250c7843-ade4-44e9-9d45-05423ddaa1d8">normierter Raum</a> \((\mathcal{C}^0([0,1]), \| \cdot \|_{\infty})\) ist nicht <a href="20230111165807-folgenkompaktheit.html#ID-dcf938c9-3686-445e-a189-28af997f174a">folgenkompak</a> 
+Der <a href="20221003143917-normierter_raum.html#ID-250c7843-ade4-44e9-9d45-05423ddaa1d8">normierter Raum</a> $(\mathcal{C}^0([0,1]), \| \cdot \|_{\infty})$ ist nicht <a href="20230111165807-folgenkompaktheit.html#ID-dcf938c9-3686-445e-a189-28af997f174a">folgenkompak</a>
 </p>
-</div>
-</div>
-<div id="outline-container-org8980e2b" class="outline-2">
-<h2 id="org8980e2b"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<h2 id="beweis">Beweis</h2>
 <p>
-Betrachten wir die <a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">Folge</a> \((f_n)_{n \in \mathbb{N}}\) mit $f<sub>n</sub>(x)  \coloneqq x<sup>n</sup>$$
-Es gilt \(\| f_n \|_{\infty} = 1\), d.h. die <a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">Folge</a> ist <a href="20220123200843-beschranktheit_einer_folge.html#ID-77f6a16a-9a94-40d9-aca9-919bb4f8998f">beschränkt</a>.
-Anegnommen sei \(f \in \mathcal{C}^0([0,1])\) ein <a href="20211120130127-grenzwert.html#ID-c9d16981-08f6-40ca-af81-22b5db6f06df">Grenzwert</a>, dann gilt wegen \(1^n = 1, 0^n = 0\) auch \(f(1) = 1\) bzw. \(f(0) = 0\)
-Da \(f\) <a href="20220819232419-stetigkeit.html#ID-b2d86612-ee0d-43a3-b49c-6953d712ecc5">stetig</a> ist, existiert nach dem <a href="20220719233717-zwischenwertsatz.html#ID-f17f7890-df11-47cf-81d3-ab463e3219ff">Zwischenwertsatz</a> auch ein \(x_0 \in (0,1)\) mit \(f(x_0) = 0.5\).
-Gleichzeitig aber gilt \(\| f - f_n \| \geq \vert f(x_0) - f_n(x_0) \vert = \vert 0.5 - (x_0)^n \vert \rightarrow 0.5 > 0\), d.h. für \(\varepsilon = \frac{1}{2}\) <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergiert</a> das nicht, Widerspruch.
+Betrachten wir die <a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">Folge</a> $(f_n)_{n \in \mathbb{N}}$ mit $f_n(x)  \coloneqq x^n$$
+Es gilt $\| f_n \|_{\infty} = 1$, d.h. die <a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">Folge</a> ist <a href="20220123200843-beschranktheit_einer_folge.html#ID-77f6a16a-9a94-40d9-aca9-919bb4f8998f">beschränkt</a>.
+Anegnommen sei $f \in \mathcal{C}^0([0,1])$ ein <a href="20211120130127-grenzwert.html#ID-c9d16981-08f6-40ca-af81-22b5db6f06df">Grenzwert</a>, dann gilt wegen $1^n = 1, 0^n = 0$ auch $f(1) = 1$ bzw. $f(0) = 0$
+Da $f$ <a href="20220819232419-stetigkeit.html#ID-b2d86612-ee0d-43a3-b49c-6953d712ecc5">stetig</a> ist, existiert nach dem <a href="20220719233717-zwischenwertsatz.html#ID-f17f7890-df11-47cf-81d3-ab463e3219ff">Zwischenwertsatz</a> auch ein $x_0 \in (0,1)$ mit $f(x_0) = 0.5$.
+Gleichzeitig aber gilt $\| f - f_n \| \geq \vert f(x_0) - f_n(x_0) \vert = \vert 0.5 - (x_0)^n \vert \rightarrow 0.5 &gt; 0$, d.h. für $\varepsilon = \frac{1}{2}$ <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergiert</a> das nicht, Widerspruch.
 </p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 22:32</p>
+
 </div>
 </body>
 </html>

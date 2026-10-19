@@ -1,208 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2025-11-11 Di 10:19 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>LinAlg 1 - Tut 2 (25/26)</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -229,152 +52,110 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">LinAlg 1 - Tut 2 (25/26)</h1>
-<div id="outline-container-orgd358600" class="outline-2">
-<h2 id="orgd358600">Erinnerung</h2>
-<div class="outline-text-2" id="text-orgd358600">
-</div>
-<div id="outline-container-org125d02f" class="outline-3">
-<h3 id="org125d02f">Disclaimer</h3>
-<div class="outline-text-3" id="text-org125d02f">
+<span id="ID-f4fd27ed-050b-467c-b8e9-002384d06508"></span><h1 class="title">LinAlg 1 - Tut 2 (25/26)</h1>
+
+<h2 id="erinnerung">Erinnerung</h2>
+
+<h3 id="disclaimer">Disclaimer</h3>
 <p>
-Diese Erinnerung dient primär als Hilfe für die Tutoriumsaufgaben.<br />
+Diese Erinnerung dient primär als Hilfe für die Tutoriumsaufgaben.
 </p>
 
 <p>
-Insbesondere ist diese weder vollständig (~15 min. Wiederholung können 3h Vorlesung nicht ersetzen) noch i.A. korrekt (ich habe viele Zettel selber während des ersten Semesters geschrieben und selten gegengelesen, d.h. Prof. Rosenschons Skript und auch jedes Buch wird um Größenordnungen weniger Fehler beinhalten)<br />
+Insbesondere ist diese weder vollständig (~15 min. Wiederholung können 3h Vorlesung nicht ersetzen) noch i.A. korrekt (ich habe viele Zettel selber während des ersten Semesters geschrieben und selten gegengelesen, d.h. Prof. Rosenschons Skript und auch jedes Buch wird um Größenordnungen weniger Fehler beinhalten)
 </p>
-</div>
-</div>
-<div id="outline-container-org31846e0" class="outline-3">
-<h3 id="org31846e0">Liste</h3>
-<div class="outline-text-3" id="text-org31846e0">
-<ul class="org-ul">
-<li><a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">Gruppe</a>  <br /></li>
-<li><a href="20210702074906-neutrales_element_mathe.html#ID-2a95aac8-42e6-4724-9f37-15f6143a35ca">neutral element</a>   <br /></li>
-<li><a href="20211218210712-inverses_element.html#ID-f9edb7bd-9975-4606-9f12-698118b3d992">inverse element</a><br /></li>
-<li><a href="20211008171532-assoziativgesetz.html#ID-124778f2-ef98-469b-8664-7777bb4bff01">Associativity</a>   <br /></li>
-<li><a href="20230110140932-beweisstruktur_nachweis_von_wohldefiniertheit.html#ID-ec00f895-f5b1-4fb7-b5f1-2668c85a8224">Beweisstruktur: Nachweis von Wohldefiniertheit bei Äquivalenzrelationen</a> <br /></li>
+
+<h3 id="liste">Liste</h3>
+<ul>
+<li><a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">Gruppe</a>  </li>
+
+<li><a href="20210702074906-neutrales_element_mathe.html#ID-2a95aac8-42e6-4724-9f37-15f6143a35ca">neutral element</a>   </li>
+
+<li><a href="20211218210712-inverses_element.html#ID-f9edb7bd-9975-4606-9f12-698118b3d992">inverse element</a></li>
+
+<li><a href="20211008171532-assoziativgesetz.html#ID-124778f2-ef98-469b-8664-7777bb4bff01">Associativity</a>   </li>
+
+<li><a href="20230110140932-beweisstruktur_nachweis_von_wohldefiniertheit.html#ID-ec00f895-f5b1-4fb7-b5f1-2668c85a8224">Beweisstruktur: Nachweis von Wohldefiniertheit bei Äquivalenzrelationen</a> </li>
 </ul>
-</div>
-</div>
-</div>
-<div id="outline-container-orgdd26e0c" class="outline-2">
-<h2 id="orgdd26e0c">Aufgaben</h2>
-<div class="outline-text-2" id="text-orgdd26e0c">
+<h2 id="aufgaben">Aufgaben</h2>
 <p>
-ich würde empfehlen, die Aufgaben in der Reihenfolge 3,2,1 anzugehen.<br />
+ich würde empfehlen, die Aufgaben in der Reihenfolge 3,2,1 anzugehen.
 </p>
-</div>
-</div>
-<div id="outline-container-org9b12f93" class="outline-2">
-<h2 id="org9b12f93">Kommentare</h2>
-<div class="outline-text-2" id="text-org9b12f93">
-</div>
-<div id="outline-container-orgbea51e1" class="outline-3">
-<h3 id="orgbea51e1">Montag</h3>
-<div class="outline-text-3" id="text-orgbea51e1">
-</div>
-<div id="outline-container-orge74c417" class="outline-4">
-<h4 id="orge74c417">Präsenzaufgabe</h4>
-<div class="outline-text-4" id="text-orge74c417">
+
+<h2 id="kommentare">Kommentare</h2>
+
+<h3 id="montag">Montag</h3>
+
+<h4 id="prasenzaufgabe">Präsenzaufgabe</h4>
 <p>
-Ich hätte in Hindsight nur die Hälfte (z.B. 1a) für die erste Person, 1b) für die zweite) geben sollen.<br />
-Wir können nicht von euch erwarten, dass ihr a) saubere, ausführliche und strukturie Lösungen schreibt und b) dann erwarten, dass die Präsenzaufgabe dann nur 5-10 Minuten dauert.<br />
+Ich hätte in Hindsight nur die Hälfte (z.B. 1a) für die erste Person, 1b) für die zweite) geben sollen.
+Wir können nicht von euch erwarten, dass ihr a) saubere, ausführliche und strukturie Lösungen schreibt und b) dann erwarten, dass die Präsenzaufgabe dann nur 5-10 Minuten dauert.
 </p>
-</div>
-</div>
-<div id="outline-container-orgf7974f1" class="outline-4">
-<h4 id="orgf7974f1">Reihenfolge</h4>
-<div class="outline-text-4" id="text-orgf7974f1">
+
+<h4 id="reihenfolge">Reihenfolge</h4>
 <p>
-ich glaube ich hätte eine andere Reihenfolge vorgeben sollen.<br />
-Die Aufgabe 1a) finde ich v.a. für den Anfang eines Tutoriums doch zu schwer.<br />
+ich glaube ich hätte eine andere Reihenfolge vorgeben sollen.
+Die Aufgabe 1a) finde ich v.a. für den Anfang eines Tutoriums doch zu schwer.
 </p>
-</div>
-</div>
-<div id="outline-container-orgf293afc" class="outline-4">
-<h4 id="orgf293afc">Aufgabe 1a) - Spoiler</h4>
-<div class="outline-text-4" id="text-orgf293afc">
+
+<h4 id="aufgabe-1a-spoiler">Aufgabe 1a) - Spoiler</h4>
 <p>
-Ich hätte eher mit Aufgabe 3) oder Aufgabe 2) anfangen sollen.<br />
-Die Aufgabe 1a) finde ich für den Anfang zu wenig angeleitet/zu schwer<br />
+Ich hätte eher mit Aufgabe 3) oder Aufgabe 2) anfangen sollen.
+Die Aufgabe 1a) finde ich für den Anfang zu wenig angeleitet/zu schwer
 </p>
-<ol class="org-ol">
-<li>man muss verstehen, wofür \(g^n = g \cdot ... \cdot g\) steht<br /></li>
-<li>man muss darauf kommen, dass so etwas wie Potenzgesetze dafür gelten.<br /></li>
-<li>man muss darauf kommen, dass es so etwas wie eine Abbildung<br /></li>
+<ol>
+<li>man muss verstehen, wofür $g^n = g \cdot ... \cdot g$ steht</li>
+
+<li>man muss darauf kommen, dass so etwas wie Potenzgesetze dafür gelten.</li>
+
+<li>man muss darauf kommen, dass es so etwas wie eine Abbildung</li>
 </ol>
-\begin{align*}
-\cdot g: G \rightarrow& \mathbb{N}\\
-g_1 \mapsto& g_1 \cdot g
-\end{align*}
+<div class="math-block">\begin{align*}
+\cdot g: G \rightarrow&amp; \mathbb{N}\\
+g_1 \mapsto&amp; g_1 \cdot g
+\end{align*}</div>
 <p>
-welche bijektiv ist oder eine Abbildung<br />
+welche bijektiv ist oder eine Abbildung
 </p>
-\begin{align*}
-g^{*}: \mathbb{N} \rightarrow& G \\
-n \mapsto& g^n \\
-\end{align*}
+
+<div class="math-block">\begin{align*}
+g^{*}: \mathbb{N} \rightarrow&amp; G \\
+n \mapsto&amp; g^n \\
+\end{align*}</div>
 <p>
-welche aus Mächtigkeitsgründen nicht injektiv sein kann<br />
+welche aus Mächtigkeitsgründen nicht injektiv sein kann
 </p>
-</div>
-</div>
-<div id="outline-container-orga992e3e" class="outline-4">
-<h4 id="orga992e3e">Lösung</h4>
-<div class="outline-text-4" id="text-orga992e3e">
+
+<h4 id="losung">Lösung</h4>
 <p>
-Ich habe die Lösung für die 1a) improvisiert und viel zu schnell und hektisch aufgeschrieben.<br />
-Das hat dann eher verwirrt :(<br />
+Ich habe die Lösung für die 1a) improvisiert und viel zu schnell und hektisch aufgeschrieben.
+Das hat dann eher verwirrt :(
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgb372576" class="outline-3">
-<h3 id="orgb372576">Freitag</h3>
-<div class="outline-text-3" id="text-orgb372576">
+
+<h3 id="freitag">Freitag</h3>
 <p>
-da am Freitag weniger Leute sind, habe ich das Gefühl, dass ich besser<br />
-Leute die<br />
+da am Freitag weniger Leute sind, habe ich das Gefühl, dass ich besser
+Leute die
 </p>
-</div>
-</div>
-<div id="outline-container-orgacd18b2" class="outline-3">
-<h3 id="orgacd18b2">Was ich anders machen will</h3>
-<div class="outline-text-3" id="text-orgacd18b2">
-</div>
-<div id="outline-container-org0ac157c" class="outline-4">
-<h4 id="org0ac157c">Montag</h4>
-<div class="outline-text-4" id="text-org0ac157c">
-<ul class="org-ul">
-<li>kürzere Präsenzaufgaben gebe<br /></li>
-<li>von der Reihenfolge aus dem Blatt abweichen<br />
-<ul class="org-ul">
-<li>mit Aufgaben anfangen, die weniger Tricks benötigen und stattdessen mehr die Definition einüben<br /></li>
-</ul></li>
-<li>öfter Lösungen präsentieren:<br />
-<ul class="org-ul">
-<li>damit man nicht ewig an einer Aufgabe hängenbleibt<br /></li>
-</ul></li>
+
+<h3 id="was-ich-anders-machen-will">Was ich anders machen will</h3>
+
+<h4 id="montag">Montag</h4>
+<ul>
+<li>kürzere Präsenzaufgaben gebe</li>
+
+<li>von der Reihenfolge aus dem Blatt abweichen  </li>
+<ul>
+<li>mit Aufgaben anfangen, die weniger Tricks benötigen und stattdessen mehr die Definition einüben</li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org73ff21b" class="outline-4">
-<h4 id="org73ff21b">Freitag</h4>
-<div class="outline-text-4" id="text-org73ff21b">
-<ul class="org-ul">
-<li>war recht zufrieden (siehe oben)<br /></li>
+<li>öfter Lösungen präsentieren:</li>
+<ul>
+<li>damit man nicht ewig an einer Aufgabe hängenbleibt</li>
+</ul></ul>
+<h4 id="freitag">Freitag</h4>
+<ul>
+<li>war recht zufrieden (siehe oben)</li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2025-11-11 Di 10:19</p>
 </div>
 </body>
 </html>

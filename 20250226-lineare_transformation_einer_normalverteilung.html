@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>lineare Transformation einer Normalverteilung</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-5ef8ffab-182a-4ec9-8986-201edbb23b50"></span><h1 class="title">lineare Transformation einer Normalverteilung</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $\mathcal{N}_{\mu, \sigma^2}$ eine <a href="20241214-normalverteilung_zu_einem_erwartungswert_und_einer_varianz.html#ID-dbd16204-1943-4a89-98bf-4a7baf3b9575">Normalverteilung</a> und $a,b \in \mathbb{R}$ mit $a &gt; 0$.
+Dann hat die <a href="20241028-zufallsvariable.html#ID-6798db97-4391-4eed-acb0-86d90bc1ec7f">Zufallsvariable</a>
+</p>
+
+<div class="math-block">\begin{align*}
+aX + b
+\end{align*}</div>
+<p>
+die Verteilung $\mathcal{N}_{a \mu + b, (\a \sigma)^2}$
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Wir zeigen, dass die <a href="20211129115550-kumulative_wahrscheinlichkeitsfunktion.html#ID-5305fb73-5838-4172-baf7-23b93a370c80">Kumulative Wahrscheinlichkeitsfunktion</a> übereinstimmt:
+Es gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{P}(\mathcal{N}_{a \mu + b, a^2 \sigma^2} \leq -) = \int_{-\infty}^{-} \frac{1}{\sqrt{2 \pi a^2 \sigma^2}} \mathrm{e}^{- \frac{(x - \mu - b)^2}{2 a^2 \sigma^2}}
+\end{align*}</div>
+
+
+<div class="math-block">\begin{align*}
+\mathbb{P}(a X + b \leq t) =&amp; \mathbb{P}(a X  \leq t - b) \\
+=&amp; \mathbb{P}(X  \leq \frac{t - b}{a}) \\
+=&amp; \int_{- \infty}^{\frac{t-b}{a}} \frac{1}{\sqrt{2\pi \sigma^2}} \mathrm{e}^{- \frac{ \left(x - \mu\right)^2}{2 \sigma^2}} \mathrm{d}x
+\end{align*}</div>
+<p>
+Substitution mit $y = a x, dy = a dx$, sowie $x = y - b$ ergibt
+</p>
+
+<div class="math-block">\begin{align*}
+\int_{- \infty}^{\frac{t-b}{a}} \frac{1}{\sqrt{2\pi \sigma^2}} \mathrm{e}^{- \frac{ \left(x - \mu\right)^2}{2 \sigma^2}} \mathrm{d}x =&amp; \int_{- \infty}^{t-b} \frac{1}{a} \cdot \frac{1}{\sqrt{2\pi \sigma^2}} \mathrm{e}^{- \frac{ \left( \frac{1}{a}y - \mu\right)^2}{2 \sigma^2}} \mathrm{d}x \\
+=&amp; \int_{- \infty}^{t-b}  \frac{1}{\sqrt{2\pi a^2 \cdot \sigma^2}} \mathrm{e}^{- \frac{ \left( y - a\mu\right)^2}{2 a^2 \sigma^2}} \mathrm{d}y \\
+=&amp; \int_{- \infty}^{t}  \frac{1}{\sqrt{2\pi a^2 \cdot \sigma^2}} \mathrm{e}^{- \frac{ \left( x - b - a\mu\right)^2}{2 a^2 \sigma^2}} \mathrm{d}x \\
+\end{align*}</div>
+
+
+
+
+</div>
+</body>
+</html>

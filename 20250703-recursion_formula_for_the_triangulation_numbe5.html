@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>triangulation number as catalan number</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-369d9ec7-46d6-4f41-9d7b-6668d7295e14"></span><h1 class="title">triangulation number as catalan number</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+The <a href="20250703-triangulation_number.html#ID-2d7f6869-2224-49c0-b90b-0f1b23d660ad">triangulation number</a> is given by the <a href="20250703-catalan_number.html#ID-3330c890-e1fb-4212-8e19-fe9392b3066d">catalan number</a> up to index shift, i.e.
+</p>
+
+<div class="math-block">\begin{align*}
+T_n = B_{n-2}
+\end{align*}</div>
+
+
+<h2 id="proof">Proof</h2>
+<p>
+we show that it satisfies the <a href="20250703-recursion_formula_for_amount_of_binary_trees.html#ID-ed08d031-27d5-4b34-81cb-2eb0e5aaea63">recursion formula for amount of binary trees</a>:
+</p>
+
+<p>
+For $T_2,T_3 = 1$ we can show this by hand resp. convention.
+</p>
+
+<p>
+Let $n \geq 3$.
+Then choose a numbering of the knots.
+</p>
+
+<p>
+Let $A_k$ be the number of triangulations with $1-2-k$ as triangle.
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+T_n = \sum_{k=3}^n A_k
+\end{align*}</div>
+
+<p>
+But each triangulation of $A_k$ is given by a triangulation of $2,...,k$ and $1,k,k+1,...n$.
+Thus
+</p>
+
+<div class="math-block">\begin{align*}
+A_k = T_{k-1} \cdot T_{n-k-2}
+\end{align*}</div>
+
+<p>
+which shows
+</p>
+
+<div class="math-block">\begin{align*}
+T_n = \sum_{k=3}^n T_{k-1} \cdot T_{n-k+2}
+\end{align*}</div>
+
+
+
+</div>
+</body>
+</html>

@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 22:41 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Isomorphie von zwei Faktormoduln</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,75 +52,64 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Isomorphie von zwei Faktormoduln</h1>
-<div id="outline-container-org2f12e51" class="outline-2">
-<h2 id="org2f12e51"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-ad63da0d-7745-4936-920b-ccccadff1ac8"></span><h1 class="title">Isomorphie von zwei Faktormoduln</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(R\) ein <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">kommutativer Ring</a> und \(M\) ein $R$-<a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">Modul</a> sowie \(N,N'\) <a href="20230222204739-untermodul.html#ID-72f8c93c-c8cd-4dd0-b1c4-81e2efb54d75">Untermoduln</a> von \(M\).
+Sei $R$ ein <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">kommutativer Ring</a> und $M$ ein $R$-<a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">Modul</a> sowie $N,N'$ <a href="20230222204739-untermodul.html#ID-72f8c93c-c8cd-4dd0-b1c4-81e2efb54d75">Untermoduln</a> von $M$.
 </p>
 
 <p>
 Dann gilt:
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 (M/N)/(N'/N) \cong M/N'
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org3b34b86" class="outline-2">
-<h2 id="org3b34b86"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
 <p>
 Nach dem <a href="20230519124417-homomorphiesatz_fur_moduln.html#ID-ef7ea8ca-b1bc-49ee-911c-541a54efb432">Homomorphiesatz für Moduln</a> betrachten wir die Abbildung:
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \varphi: M/N \rightarrow M/N' \\
 m + N \mapsto m + N'
-\end{align*}
+\end{align*}</div>
 
 <p>
-Für das <a href="20221224140013-bildmenge.html#ID-def6ffac-1c21-427b-bacf-7b8580f5d7dd">Bild</a> gilt \(\mathrm{im}(\varphi) = M/N'\), da für \(m + N' \in M/N'\) gilt \(\varphi(m + N) = m + N'\)
+Für das <a href="20221224140013-bildmenge.html#ID-def6ffac-1c21-427b-bacf-7b8580f5d7dd">Bild</a> gilt $\mathrm{im}(\varphi) = M/N'$, da für $m + N' \in M/N'$ gilt $\varphi(m + N) = m + N'$
 </p>
 
 <p>
-Für den <a href="20221111200152-kern_algebra.html#ID-438e68de-0603-419c-8b21-5cb3b4add3a1">Kern</a> gilt dann auch \(\mathrm{ker}(\varphi) = N'/N\), da für \(\varphi(m + N) = 0 + N' = m + N'\) auch folgt \(m' \in N'\) und damit die <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> \(\{n' + N \vert n' \in N'\} = N'/N\)
+Für den <a href="20221111200152-kern_algebra.html#ID-438e68de-0603-419c-8b21-5cb3b4add3a1">Kern</a> gilt dann auch $\mathrm{ker}(\varphi) = N'/N$, da für $\varphi(m + N) = 0 + N' = m + N'$ auch folgt $m' \in N'$ und damit die <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> $\{n' + N \vert n' \in N'\} = N'/N$
 </p>
-</div>
-<div id="outline-container-orgdb13e94" class="outline-3">
-<h3 id="orgdb13e94"><span class="section-number-3">2.1.</span> <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">welldefined</a></h3>
-<div class="outline-text-3" id="text-2-1">
+
+<h3 id="id81e35048-a75d-47ae-ada1-99f600ac072fwelldefined"><a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">welldefined</a></h3>
 <p>
-Seien \(m,m' \in M\) mit \(m + N = m' + N\), so gilt \(m - m' \in N\) und damit auch \(m - m' \in N'\)
+Seien $m,m' \in M$ mit $m + N = m' + N$, so gilt $m - m' \in N$ und damit auch $m - m' \in N'$
 Somit folgt
 </p>
-\begin{align*}
-\varphi(m + N) - \varphi(m' + N) =& m + N' - m' + N' \\
-=& m - m' + N' \\
-=& 0 + N'
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org086f032" class="outline-3">
-<h3 id="org086f032"><span class="section-number-3">2.2.</span> homomorphismus</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<div class="math-block">\begin{align*}
+\varphi(m + N) - \varphi(m' + N) =&amp; m + N' - m' + N' \\
+=&amp; m - m' + N' \\
+=&amp; 0 + N'
+\end{align*}</div>
+
+<h3 id="homomorphismus">homomorphismus</h3>
 <p>
-Sei \(m,m' \in M\) und \(r \in R\), so gilt:
+Sei $m,m' \in M$ und $r \in R$, so gilt:
 </p>
-\begin{align*}
-\varphi(r \cdot m + m') =& r \cdot m + m' + N' \\
-=& r \cdot m + N' + m' + N' \\
-=& r \cdot (m + N') + m' + N' \\
-=& r \cdot \varphi(m + N) + \varphi(m' + N)
-\end{align*}
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 22:41</p>
+
+<div class="math-block">\begin{align*}
+\varphi(r \cdot m + m') =&amp; r \cdot m + m' + N' \\
+=&amp; r \cdot m + N' + m' + N' \\
+=&amp; r \cdot (m + N') + m' + N' \\
+=&amp; r \cdot \varphi(m + N) + \varphi(m' + N)
+\end{align*}</div>
+
+
 </div>
 </body>
 </html>

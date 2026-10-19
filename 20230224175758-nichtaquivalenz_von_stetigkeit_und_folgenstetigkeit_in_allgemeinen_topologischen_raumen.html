@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 22:01 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Nichtäquivalenz von Stetigkeit und Folgenstetigkeit in allgemeinen Topologischen Räumen</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,31 +52,44 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Nichtäquivalenz von Stetigkeit und Folgenstetigkeit in allgemeinen Topologischen Räumen</h1>
-<div id="outline-container-orgf4157ea" class="outline-2">
-<h2 id="orgf4157ea"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-140302cc-7a48-4758-890c-4884f388261e"></span><h1 class="title">Nichtäquivalenz von Stetigkeit und Folgenstetigkeit in allgemeinen Topologischen Räumen</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
 In allgemeinen <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topologische Räumen</a> sind <a href="20220819232419-stetigkeit.html#ID-b2d86612-ee0d-43a3-b49c-6953d712ecc5">Stetigkeit</a> und <a href="20230224175911-folgenstetigkeit_in_topologischen_raumen.html#ID-cd35cb72-6a6c-4944-b774-a795150c9214">Folgenstetigkeit</a> nicht äquivalent zu einander
 </p>
-</div>
-</div>
-<div id="outline-container-orgf3d00c0" class="outline-2">
-<h2 id="orgf3d00c0"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-<ul class="org-ul">
-<li>Gegenbeispiel</li>
-</ul>
+
+<h2 id="beweis">Beweis</h2>
 <p>
-Sei \(M\) eine <a href="20211227215849-uberabzahlbar_unendlich.html#ID-9a4cb7c5-90c2-48e3-ad83-d9bcf341b6e9">Überabzählbare</a> <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> und &lt;&gt;
+Let $M$ be an <a href="20211227215849-uberabzahlbar_unendlich.html#ID-9a4cb7c5-90c2-48e3-ad83-d9bcf341b6e9">uncountable</a> <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">set</a> and consider the <a href="20230225221437-koabzahlbare_topologie.html#ID-6d3bd64b-222f-451c-8788-f7cddf3f44f9">cocountable topology</a>.
+Then consider the map
 </p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 22:01</p>
+
+<div class="math-block">\begin{align*}
+\iota: (M, \mathcal{T}_{\mathrm{cocount}}) \rightarrow (M, \mathcal{T}_{\mathrm{disc}}) 
+\end{align*}</div>
+<p>
+which is the set theoretic identity.
+</p>
+
+<p>
+It is clearly not <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a>, as for example $[0, \infty)$ is <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> in $\mathcal{T}_{\mathrm{disc}}$ but not  in $\mathcal{T}_{\mathrm{cocount}}$.
+</p>
+
+<p>
+But it is sequentially continuous: Let $x_n \rightarrow x$ be a convergent sequence in $\mathcal{T}_{\mathrm{disc}}$.
+Then we claim that $x_n$ is eventually constant:
+</p>
+
+<p>
+Assume otherwise, then consider $M \setminus \{x_n \vert x_n \neq x\}$ which by definition of the cocountable topology is an open neighbourhood of $x$.
+Moreover, if $x_n$ is not eventually constant, then it follows that $x_n$ can't converge to $x$, contradiction.
+</p>
+
+<p>
+In particular, it follows that $x_n$ convergens against $x$ in the discrete topology.
+</p>
+
 </div>
 </body>
 </html>

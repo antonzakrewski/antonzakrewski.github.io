@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stetigkeit von Parameterintegralen</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-084c7b17-17be-4537-ab2a-61e6359bac51"></span><h1 class="title">Stetigkeit von Parameterintegralen</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $(M,d)$ ein <a href="20221002145259-metrischer_raum.html#ID-6b95a0b5-83e0-43cc-830f-05b416769fe1">metrischer Raum</a>, $(X, \mathcal{A}, \mu)$ ein <a href="20241019-maßraum.html#ID-2135bec8-c3bb-4fca-a24a-21334f66d7ae">Maßraum</a> und
+</p>
+
+<div class="math-block">\begin{align*}
+f: M \times X \rightarrow \mathbb{R}
+\end{align*}</div>
+<p>
+eine abbildung so dass
+</p>
+<ol>
+<li>für $m \in M$ die Abbildung $f(m,-)$ ist <a href="20241102-integrierbare_funktion.html#ID-8c8fabb6-55df-47dc-a47a-fa4e3f1b25c4">integrierbar</a>.</li>
+
+<li>für $x \in X$ die Abbildung $f(-,x)$ ist <a href="20220819232419-stetigkeit.html#ID-b2d86612-ee0d-43a3-b49c-6953d712ecc5">stetig</a>.</li>
+
+<li>es existiert ein integrierbares $g: X \rightarrow [0,\infty]$ mit $\vert f(m,x) \vert \leq g(x)$ für alle $m \in M, x \in X$</li>
+</ol>
+<p>
+Dann ist die Abbildung
+</p>
+
+<div class="math-block">\begin{align*}
+F: M \rightarrow&amp; \mathbb{R} \\
+m \mapsto \int_X f(m,x) \mathrm{d} \mu(x)
+\end{align*}</div>
+<p>
+eine <a href="20220819232419-stetigkeit.html#ID-b2d86612-ee0d-43a3-b49c-6953d712ecc5">stetige</a> Abbildung
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Sei $m \in M$ beliebig.
+Nach <a href="20221208094811-folgenstetigkeit.html#ID-934a1a9a-3464-4876-babd-3ece8651719e">Folgenstetigkeit in metrischen Räumen</a> reicht es aus zu zeigen, dass $F$ folgenstetig in $m$ ist.
+Sei $m_k \rightarrow m$ eine konvergente Folge.
+Dann folgt nach $2$, dass $f_k(x) \coloneqq f(m_k,x) \rightarrow f(t,x)$ konvergiert.
+</p>
+
+<p>
+Ferner ist für beliebiges $k \in \mathbb{N}$ auch $f_k \in \mathcal{L}^1(\mu)$ wegen (1) und $\vert f_k \vert \leq g$ (???)
+</p>
+
+<p>
+Nach <a href="20241102-majorisierte_konvergenz_nach_lebesgue.html#ID-80c9d163-33a1-4331-b029-fffacd341fb6">majorisierter Konvergenz nach Lebesgue</a> folgt
+</p>
+
+<div class="math-block">\begin{align*}
+F(m_k) = \int f_k(x) \mathrm{d} \mu(x) \rightarrow \int f(m,x) \mathrm{d} \mu(x) = F(m)
+\end{align*}</div>
+
+
+
+</div>
+</body>
+</html>

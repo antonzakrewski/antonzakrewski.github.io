@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 22:37 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Existenz einer normierten Basis</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,43 +52,35 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Existenz einer normierten Basis</h1>
-<div id="outline-container-orgedb27b9" class="outline-2">
-<h2 id="orgedb27b9"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-02488965-93c9-4a37-b92e-7fa55618cf93"></span><h1 class="title">Existenz einer normierten Basis</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-sei \((V,\| \cdot \|_V)\) ein <a href="20221003143917-normierter_raum.html#ID-250c7843-ade4-44e9-9d45-05423ddaa1d8">normierter</a>, <a href="20230204210438-reeller_vektorraum.html#ID-47c426f6-4f34-402a-8c78-5ef0c3b88ce9">reeller Vektorraum</a> mit einer Basis \(v_i \in V\).
-Dann existiert eine normierte Basis \(e_i \in V\) mit \(\| e_i \|_V = 1\).
+sei $(V,\| \cdot \|_V)$ ein <a href="20221003143917-normierter_raum.html#ID-250c7843-ade4-44e9-9d45-05423ddaa1d8">normierter</a>, <a href="20230204210438-reeller_vektorraum.html#ID-47c426f6-4f34-402a-8c78-5ef0c3b88ce9">reeller Vektorraum</a> mit einer Basis $v_i \in V$.
+Dann existiert eine normierte Basis $e_i \in V$ mit $\| e_i \|_V = 1$.
 </p>
-</div>
-</div>
-<div id="outline-container-orgad072a9" class="outline-2">
-<h2 id="orgad072a9"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<h2 id="beweis">Beweis</h2>
 <p>
 Folgt durch:
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 e_i  \coloneqq \frac{1}{\| v_i \|_V} \cdot v_i
-\end{align*}
+\end{align*}</div>
 <p>
-Es gilt dann wegen der <a href="20221003133838-absolute_homogenitat_norm.html#ID-a67174d6-2370-4505-99a9-90fc848e2c5b">absoluten Homogenität einer Norm</a> 
+Es gilt dann wegen der <a href="20221003133838-absolute_homogenitat_norm.html#ID-a67174d6-2370-4505-99a9-90fc848e2c5b">absoluten Homogenität einer Norm</a>
 </p>
-\begin{align*}
-\| e_i \|_V =& \| \frac{1}{\| v_i \|_V} v_i \| \\
-=& \frac{1}{\| v_i \|} \cdot \| v_i \| \\
-=& 1
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\| e_i \|_V =&amp; \| \frac{1}{\| v_i \|_V} v_i \| \\
+=&amp; \frac{1}{\| v_i \|} \cdot \| v_i \| \\
+=&amp; 1
+\end{align*}</div>
 <p>
-Ferner ist \(e_i\) eine <a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">Basis</a>, da \(e_i\) die <a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">Basis</a> \(v_i\) erzeugt und analog gilt \(\sum_{i \in I} \alpha_i e_i = \sum_{i \in I} (\alpha_i \cdot \frac{1}{\| v_i \|_V}) v_i = 0 \implies \alpha_i = 0\) 
+Ferner ist $e_i$ eine <a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">Basis</a>, da $e_i$ die <a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">Basis</a> $v_i$ erzeugt und analog gilt $\sum_{i \in I} \alpha_i e_i = \sum_{i \in I} (\alpha_i \cdot \frac{1}{\| v_i \|_V}) v_i = 0 \implies \alpha_i = 0$
 </p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 22:37</p>
+
 </div>
 </body>
 </html>

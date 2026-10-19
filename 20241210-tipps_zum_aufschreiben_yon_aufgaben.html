@@ -1,208 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-12-14 Sa 16:54 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Tipps zum Aufschreiben von Aufgaben</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -229,110 +52,87 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Tipps zum Aufschreiben von Aufgaben</h1>
-<div id="outline-container-orgb534c48" class="outline-2">
-<h2 id="orgb534c48">Disclaimer</h2>
-<div class="outline-text-2" id="text-orgb534c48">
-<ul class="org-ul">
-<li>Ich habe selber noch nie korrigiert<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>.<br /></li>
-<li>Unterschiedliche Personen legen auf verschiedene Aspekte unterschiedlich viel Wert.<br /></li>
+<span id="ID-0e124234-f57a-413c-b8ab-855b3fb6381f"></span><h1 class="title">Tipps zum Aufschreiben von Aufgaben</h1>
+
+<h2 id="disclaimer">Disclaimer</h2>
+<ul>
+<li>Ich habe selber noch nie korrigiert<sup id="fnref:1"><a href="#fn:1">1</a></sup>.</li>
+
+<li>Unterschiedliche Personen legen auf verschiedene Aspekte unterschiedlich viel Wert.</li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgebb8140" class="outline-2">
-<h2 id="orgebb8140">Tipps</h2>
-<div class="outline-text-2" id="text-orgebb8140">
-</div>
-<div id="outline-container-orgfe9fa60" class="outline-3">
-<h3 id="orgfe9fa60">klausurspezifisch</h3>
-<div class="outline-text-3" id="text-orgfe9fa60">
-<ul class="org-ul">
-<li>Wenn man keinen Spickzettel mitnehmen darf, dann ist es sinnvoll, bei einer Aufgabe die 1/2 wichtigsten Definitionen hinzuschreiben:<br /></li>
-<li>z.B. „… zeige dass \(f: V \rightarrow W\) ein VR-Epimorphismus ist“ - \(f\) VR-Epi \(\Leftrightarrow\) \(f\) surjektiv \(\Leftrightarrow\) \(\forall w \in W \exists v \in V : f(v) = w\)<br /></li>
+<h2 id="tipps">Tipps</h2>
 
-<li>Es ist als Korrektor*in durchaus vertretbar, darauf schon einen Punkt zu geben.<br /></li>
-<li>Es kann auch helfen, dass einem selbst klarer wird, was man machen soll.<br /></li>
+<h3 id="klausurspezifisch">klausurspezifisch</h3>
+<ul>
+<li>Wenn man keinen Spickzettel mitnehmen darf, dann ist es sinnvoll, bei einer Aufgabe die 1/2 wichtigsten Definitionen hinzuschreiben:</li>
+
+<li>z.B. „… zeige dass $f: V \rightarrow W$ ein VR-Epimorphismus ist“ - $f$ VR-Epi $\Leftrightarrow$ $f$ surjektiv $\Leftrightarrow$ $\forall w \in W \exists v \in V : f(v) = w$</li>
+</ul>
+<ul>
+<li>Es ist als Korrektor*in durchaus vertretbar, darauf schon einen Punkt zu geben. </li>
+
+<li>Es kann auch helfen, dass einem selbst klarer wird, was man machen soll.</li>
+
+<li>Es bringt etwas Struktur (z.B. welche Definition man verwendet bzw. braucht)</li>
+</ul>
+<h3 id="struktur">Struktur</h3>
+<ul>
+<li>Je mehr Struktur man in die eigene Beweise bringt, desto angenehmer wird es zu Lesen (als Korrektor*in).</li>
+
+<li>Das minimiert die Wahrscheinlichkeit, dass ein Argument, das eigentlich richtig gemeint ist, nicht verständlich ist.</li>
+</ul>
+<ul>
+<li>Dazu kann gehören:</li>
+<ul>
+<li>Schreiben, was man zeigen möchte</li>
+
+<li>Markieren, wann ein Beweis / Argument endet</li>
+
+<li>einzelne Beweis-/Gedankenschritte markieren, d.h. 1), 2) etc.</li>
+
+<li>Beweisstrukturen kenntlich machen: z.B. Kontraposition, Induktion etc.</li>
+</ul>
+<li>Es ist allgemein gut, Worte (und damit z.B. Struktur zu indizieren) und nicht nur Formeln aufzuschreiben.</li>
+<ul>
+<li>Dafür bietet sich eine Kombination von beidem am besten an. </li>
+</ul>
+<li>Falls Aufgaben nicht nacheinander geschrieben werden, so soll man <strong>deutlich</strong> kennzeichnen, wo etwas beginnt/aufhört</li>
+</ul>
+<h3 id="referenzen">Referenzen</h3>
+<ul>
+<li>Es wird (allein schon zeitlich) nicht realistisch sein, alle Schritte bis auf die zugrundeliegende Definition runterzubrechen.</li>
+
+<li>Wenn man Aussagen verwendet, die in einer Vorlesung/Übung/Tutorium bewiesen wurden, dann bietet es sich an, "nach VL/Üb/Tut" zu schreiben.</li>
+</ul>
+<ul>
+<li>Es kann aber auch gut vorkommen, dass eine Aufgabe aus der Übung kopiert wird.</li>
+
+<li>Dann soll man natürlich auch die Aufgabe beweisen und darf nicht darauf verweisen, dass diese in der Übung schon gemacht wurde.</li>
+</ul>
+<h3 id="fehlende-schritte">(fehlende) Schritte</h3>
+<ul>
+<li>Wenn man eine Aufgabe über 3 Schritte beweisen würde, man aber nur Schritt 1) und Schritt 3) zeigen kann, so ist es dennoch sinnvoll, dennoch die beiden Schritte aufzuschreiben.</li>
+
+<li>Dann würde man zudem noch angeben, welchen Schritt 2) man machen möchte.</li>
+
+<li>Man würde dann (sofern korrekt) weiterhin die Punkte für die Schritte 1) und 3) erhalten</li>
+</ul>
+<ul>
+<li>Oft werden die Schritte über Teilaufgaben als Unterstützung gegeben:</li>
+<ul>
+<li>So kann man dann bei der Aufgabe c) (für gewöhnlich) auch die Aufgabe a) und b) als gegeben annehmen auch wenn man die beiden nicht geschafft hat</li>
+
+<li>Man würde dann zwar keine Punkte für die a) und b) bekommen, dafür aber (falls korrekt) die Punkte für c)</li>
+</ul></ul>
+<h3 id="schrift">Schrift</h3>
+<ul>
+<li>Auf die eigene Schrift achten</li>
 </ul>
 
-<ul class="org-ul">
-<li>Es bringt etwas Struktur (z.B. welche Definition man verwendet bzw. braucht)<br /></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org30bbc65" class="outline-3">
-<h3 id="org30bbc65">Struktur</h3>
-<div class="outline-text-3" id="text-org30bbc65">
-<ul class="org-ul">
-<li>Je mehr Struktur man in die eigene Beweise bringt, desto angenehmer wird es zu Lesen (als Korrektor*in).<br /></li>
-<li>Das minimiert die Wahrscheinlichkeit, dass ein Argument, das eigentlich richtig gemeint ist, nicht verständlich ist.<br /></li>
-
-<li>Dazu kann gehören:<br />
-<ul class="org-ul">
-<li>Schreiben, was man zeigen möchte<br /></li>
-<li>Markieren, wann ein Beweis / Argument endet<br /></li>
-<li>einzelne Beweis-/Gedankenschritte markieren, d.h. 1), 2) etc.<br /></li>
-<li>Beweisstrukturen kenntlich machen: z.B. Kontraposition, Induktion etc.<br /></li>
-</ul></li>
-<li>Es ist allgemein gut, Worte (und damit z.B. Struktur zu indizieren) und nicht nur Formeln aufzuschreiben.<br />
-<ul class="org-ul">
-<li>Dafür bietet sich eine Kombination von beidem am besten an.<br /></li>
-</ul></li>
-<li>Falls Aufgaben nicht nacheinander geschrieben werden, so soll man <b>deutlich</b> kennzeichnen, wo etwas beginnt/aufhört<br /></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org023389c" class="outline-3">
-<h3 id="org023389c">Referenzen</h3>
-<div class="outline-text-3" id="text-org023389c">
-<ul class="org-ul">
-<li>Es wird (allein schon zeitlich) nicht realistisch sein, alle Schritte bis auf die zugrundeliegende Definition runterzubrechen.<br /></li>
-<li>Wenn man Aussagen verwendet, die in einer Vorlesung/Übung/Tutorium bewiesen wurden, dann bietet es sich an, "nach VL/Üb/Tut" zu schreiben.<br /></li>
-
-<li>Es kann aber auch gut vorkommen, dass eine Aufgabe aus der Übung kopiert wird.<br /></li>
-<li>Dann soll man natürlich auch die Aufgabe beweisen und darf nicht darauf verweisen, dass diese in der Übung schon gemacht wurde.<br /></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org0a462e7" class="outline-3">
-<h3 id="org0a462e7">(fehlende) Schritte</h3>
-<div class="outline-text-3" id="text-org0a462e7">
-<ul class="org-ul">
-<li>Wenn man eine Aufgabe über 3 Schritte beweisen würde, man aber nur Schritt 1) und Schritt 3) zeigen kann, so ist es dennoch sinnvoll, dennoch die beiden Schritte aufzuschreiben.<br /></li>
-<li>Dann würde man zudem noch angeben, welchen Schritt 2) man machen möchte.<br /></li>
-<li>Man würde dann (sofern korrekt) weiterhin die Punkte für die Schritte 1) und 3) erhalten<br /></li>
-
-<li>Oft werden die Schritte über Teilaufgaben als Unterstützung gegeben:<br />
-<ul class="org-ul">
-<li>So kann man dann bei der Aufgabe c) (für gewöhnlich) auch die Aufgabe a) und b) als gegeben annehmen auch wenn man die beiden nicht geschafft hat<br /></li>
-<li>Man würde dann zwar keine Punkte für die a) und b) bekommen, dafür aber (falls korrekt) die Punkte für c)<br /></li>
-</ul></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org98d86d6" class="outline-3">
-<h3 id="org98d86d6">Schrift</h3>
-<div class="outline-text-3" id="text-org98d86d6">
-<ul class="org-ul">
-<li>Auf die eigene Schrift achten<br /></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="footnotes">
-<h2 class="footnotes">Footnotes: </h2>
-<div id="text-footnotes">
-
-<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
-Danke an Moritz und Kajetan für deren Input<br />
-</p></div></div>
 
 
-</div>
-</div></div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-12-14 Sa 16:54</p>
+
+<div class="footnotes"><h2>Footnotes</h2><ol><li id="fn:1">Danke an Moritz und Kajetan für deren Input <a href="#fnref:1">&#8617;</a></li></ol></div>
 </div>
 </body>
 </html>

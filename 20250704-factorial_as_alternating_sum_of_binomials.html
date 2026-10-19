@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>factorial as alternating sum of binomials</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-476a8b3a-7228-418a-920c-c3f96de4c101"></span><h1 class="title">factorial as alternating sum of binomials</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $n \in \mathbb{N}$.
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+n! =&amp; \sum_{k=1}^n (-1)^{n-k} \binom{n}{k} k^n
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+using the <a href="20250708-inverse_inclusion_exclusion_principle.html#ID-c6ed56c4-3b6b-45ec-b1ce-c178a13c6549">inverse inclusion-exclusion principle</a>:
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+\vert \bigcap_{i=1}^n A_i \vert =&amp; \sum_{k=1}^n (-1)^{n-k} \binom{n}{k} \vert \bigcap_{j =1}^k A_{i_j} \vert
+\end{align*}</div>
+
+<p>
+where we define
+</p>
+
+<div class="math-block">\begin{align*}
+A_i = \{(x_1,...,x_n) \in [n]^n \vert \exists j : x_j = i\}
+\end{align*}</div>
+
+<p>
+Then we get
+</p>
+<ol>
+<li>$\bigcap_{i =1}^n A_i \simeq \mathrm{Aut}([n])$</li>
+
+<li>$\vert \bigcap_{i=1}^n A_i \vert = n!$</li>
+
+<li>$\vert A_i \vert = \vert [n]^n \setminus [n-1]^n \vert = n^n - (n-1)^n$</li>
+
+<li>$\vert \bigcap_{i=1}^k A_i \vert = \vert [n]^n \setminus [n-k]^n \vert = n^n - (n-k)^n$</li>
+
+<li>$\vert \bigcup_{i=1}^n A_i \vert = n^n$</li>
+</ol>
+<p>
+so we may apply inclusion / exclusion
+</p>
+
+
+</div>
+</body>
+</html>

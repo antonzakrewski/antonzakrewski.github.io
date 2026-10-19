@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 18:13 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>dimension of a subspace</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,27 +52,40 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">dimension of a subspace</h1>
-<div id="outline-container-orgae2951e" class="outline-2">
-<h2 id="orgae2951e"><span class="section-number-2">1.</span> Proposition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-e1abcf33-4bd0-4fbc-a4f4-25d2b2096154"></span><h1 class="title">dimension of a subspace</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let \((X, \mathcal{T})\) be a <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological space</a> and \(U \subseteq X\).
+Let $(X, \mathcal{T})$ be a <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological space</a> and $Y \subseteq X$.
 Then for the <a href="20230906-dimension_of_a_topological_space.html#ID-4c51d918-4f7a-4309-a3ec-96319157b3ad">dimension</a>, it holds, that
 </p>
-\begin{align*}
-\mathrm{dim}(U) \leq \mathrm{dim}(U)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgbf08012" class="outline-2">
-<h2 id="orgbf08012"><span class="section-number-2">2.</span> Proof</h2>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 18:13</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{dim}(Y) \leq \mathrm{dim}(X)
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $Z_1 \subestneq ... \subsetneq Z_n$ be a chain of <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">closed</a>, <a href="20230226044934-irreduzibler_topologischer_raum.html#ID-2c6c8d23-0c2a-4989-afcc-34a0c34d4f36">irreducible</a> subspaces in $Y$
+Then consider the <a href="20230222175426-abschluss_in_einer_topologie.html#ID-9134c61c-5ec6-4cd6-8928-9ef53b6bfd37">closure</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{Z_1} \subset ... \subset \overline{Z_n}
+\end{align*}</div>
+
+<p>
+by <a href="20230725-irreducible_subspace_and_closure.html#ID-849828f4-28a7-4d9b-be04-d609f06563ff">irreducible subspace and closure</a> each $\overline{Z_i}$ is closed.
+</p>
+
+<p>
+Furthermore $\overline{Z_i} \subsetneq \overline{Z_{i+1}}$ is a proper subset:
+By assumption $Z_i \setminus Z_{i+1} \neq \emptyset$, hence there exists an $z \in Z_i \setminus Z_{i+1}$.
+Thus there also exists in $Y$ a closed subset $A$ such that $Y \cap A = Z_i$, hence containing $Z_i$ but not $z$,
+Therefore $z \not\in \overline{Z_i}, z \in \overline{Z_{i+1}}$
+</p>
+
+
 </div>
 </body>
 </html>

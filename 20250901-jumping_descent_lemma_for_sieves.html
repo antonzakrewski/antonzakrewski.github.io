@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>jumping descent lemma for sieves</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-02be24f6-8e3d-4498-bd76-758a894dff7e"></span><h1 class="title">jumping descent lemma for sieves</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathcal{C}$ be a <a href="20220819181004-kleine_kategorie.html#ID-3c3f1c0d-53ad-476e-810a-756acd885263">small</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a>, $X$ an ojbect and $\mathcal{F}: \mathcal{C}^{\mathrm{op}} \rightarrow \mathrm{Set}$ a <a href="20220821183047-pragarbe.html#ID-6aa2a293-0ff3-4cba-b6c3-61d8eabf0871">presheaf</a> on $\mathcal{C}$.
+Suppose $S_i \subseteq R$ are <a href="20230923-sieve.html#ID-4682cea8-3c62-49f6-ae4c-3deb9dd4dec6">sieves</a> on $X$ such that $S$ is <a href="20250831-f_descendable_sieve.html#ID-d6224a0a-12f1-4fec-9ec4-cfd0c84444e1">F-descendable sieve</a> and that for all objects $Y$ and all $f \in R(Y) \subseteq \mathrm{Hom}_{\mathcal{C}}(Y,X)$ there exists an F-descendable <a href="20250901-subsieve.html#ID-eff438a4-38c1-45ff-8a03-7ac7f92177fb">subsieve</a> $S' \subseteq f^*(S)$.
+</p>
+
+<p>
+Then $R$ is F-descendable.
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/90b93a290c77fcc268d3.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+be the inclusions.
+</p>
+
+<p>
+and consider the maps
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/670f74556fde723e4057.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+were we want to show that the map $j^*$ is <a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">bijective</a> .
+</p>
+
+<p>
+Note that by assumption the composition is bijective, so in particular $j^*$ must be <a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injective</a>.
+</p>
+
+<p>
+Hence it remains to show surjectivity of the first map.
+So let $x\in \mathcal{F}(R)$ be any element.
+</p>
+
+<p>
+By the <a href="20250901-sheaf_co_yoneda.html#ID-0bd10375-dc76-40c7-aa88-a9f995a00960">sheaf co-yoneda</a> we have
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{F}(R) = \mathrm{lim}_{Y \rightarrow R} \mathcal{F}(Y)
+\end{align*}</div>
+
+<p>
+That is, $x \in \mathcal{F}(R)$ is precisely a compatible collection of elements $x_f \in \mathcal{F}(Y)$ indexed over the maps $f: Y \rightarrow R$ (which are precisely maps $Y \rightarrow X$ contained in $R(Y)$).
+So let $x = (x_f)_{f}$ and consider $y \coloneqq \iota^*(x) = \iota^*( \{x_f\})$.
+This element $y$ then comes from an element $x' \in \mathcal{F}(X)$, i.e. $h^*(x') = \iota^*( \{x_f\}_{f} )$.
+</p>
+
+<p>
+We now wish to shaw that $j^*(x') = x \in \mathcal{F}(R)$.
+</p>
+
+<p>
+To do so, it suffices to show that for eahc fixed $f: Y \rightarrow R$ we have
+</p>
+
+<div class="math-block">\begin{align*}
+x_f = f^*(x) \in \mathcal{F}(Y)
+\end{align*}</div>
+
+<p>
+To show this we then consider the the diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/349c13d77047a57243a1.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+where by construction the
+</p>
+
+<p>
+By assumption $\mathcal{F}$ satisfies descent with respect to $S'$, so the lower horizontal map is also an isomrophism.
+</p>
+
+<p>
+It sherefore suffices to show that $x_f = f^*(x);q after mapping to \mathrm{Hom}(S',F) = F(S')$ where it becomes true because the square commutes and $x$ and $\{x_f\}$ have the same image in $\mathrm{Hom}(S,F) = F(S)$ by construction.
+</p>
+
+
+<p>
+TODO
+</p>
+
+
+
+</div>
+</body>
+</html>

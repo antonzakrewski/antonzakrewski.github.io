@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:32 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>einfaches Lemma von Bezout</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,59 +52,52 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">einfaches Lemma von Bezout</h1>
-<div id="outline-container-orgd5e8abd" class="outline-2">
-<h2 id="orgd5e8abd"><span class="section-number-2">1.</span> Lemma</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-36a007b5-785e-4bb3-8664-334fd0369219"></span><h1 class="title">einfaches Lemma von Bezout</h1>
+
+<h2 id="lemma">Lemma</h2>
 <p>
-Es seien \(a,b \in \mathbb{Z}\).
-Dann existieren \(s,t \in \mathbb{Z}\), so dass für den <a href="20220906095223-großter_gemeinsamer_teiler.html#ID-d299c206-515e-44af-8ff5-e332312a896a">größten gemeinsamer Teiler</a> gilt
+Es seien $a,b \in \mathbb{Z}$.
+Dann existieren $s,t \in \mathbb{Z}$, so dass für den <a href="20220906095223-großter_gemeinsamer_teiler.html#ID-d299c206-515e-44af-8ff5-e332312a896a">größten gemeinsamer Teiler</a> gilt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \mathrm{gcd}(a,b) = a \cdot s + b \cdot t
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org487b6fd" class="outline-2">
-<h2 id="org487b6fd"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
 <p>
-folgt aus dem <a href="20230427134534-erweiterter_euklidischer_algorithmus.html#ID-29d60e8e-68dd-48c4-8fd6-def9d853294a">erweiterter euklidischer Algorithmus</a> 
+folgt aus dem <a href="20230427134534-erweiterter_euklidischer_algorithmus.html#ID-29d60e8e-68dd-48c4-8fd6-def9d853294a">erweiterter euklidischer Algorithmus</a>
 </p>
 
 <p>
 schöner:
-Sei \(M  \coloneqq \{a \cdot s + b \cdot t) \cap \mathbb{N}\}\) und \(x  \coloneqq \mathrm{min}(M)\)
-Diese <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> ist <a href="20220902125304-nichtleere_menge.html#ID-119fa0d9-a2b3-4b46-bb61-a6e590282321">nichtleer</a> wegen \(a,b \in M\), d.h. auch <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">welldefined</a>.
+Sei $M  \coloneqq \{a \cdot s + b \cdot t) \cap \mathbb{N}\}$ und $x  \coloneqq \mathrm{min}(M)$
+Diese <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> ist <a href="20220902125304-nichtleere_menge.html#ID-119fa0d9-a2b3-4b46-bb61-a6e590282321">nichtleer</a> wegen $a,b \in M$, d.h. auch <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">welldefined</a>.
 </p>
 
 <p>
-Sei \(d  \coloneqq \mathrm{gcd}(a,b)\) und angenommen \(x < d\), so können wir annehmen:
+Sei $d  \coloneqq \mathrm{gcd}(a,b)$ und angenommen $x &lt; d$, so können wir annehmen:
 </p>
-\begin{align*}
-x \leq& a \\
-x \leq& b
-\end{align*}
+
+<div class="math-block">\begin{align*}
+x \leq&amp; a \\
+x \leq&amp; b
+\end{align*}</div>
 <p>
-Ferner gilt \(d \mid x\) (aussschreiben) und <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> \(x \not\mid a\), da sonst \(x\) der <a href="20220906095223-großter_gemeinsamer_teiler.html#ID-d299c206-515e-44af-8ff5-e332312a896a">ggT</a> wäre.
-Damit folgt \(a = q \cdot x + r\) mit \(1 \leq r < x\).
+Ferner gilt $d \mid x$ (aussschreiben) und <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> $x \not\mid a$, da sonst $x$ der <a href="20220906095223-großter_gemeinsamer_teiler.html#ID-d299c206-515e-44af-8ff5-e332312a896a">ggT</a> wäre.
+Damit folgt $a = q \cdot x + r$ mit $1 \leq r &lt; x$.
 Zudem gilt:
 </p>
-\begin{align*}
-r =& a - qx \\
-=& a - q(as + bt) \\
-=& a(1 - qs) + n(-qb)
-\end{align*}
+
+<div class="math-block">\begin{align*}
+r =&amp; a - qx \\
+=&amp; a - q(as + bt) \\
+=&amp; a(1 - qs) + n(-qb)
+\end{align*}</div>
 <p>
-mit \((1-qs), (-qb) \in \mathbb{Z}\) und \(r\) 
+mit $(1-qs), (-qb) \in \mathbb{Z}$ und $r$
 </p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:32</p>
+
 </div>
 </body>
 </html>

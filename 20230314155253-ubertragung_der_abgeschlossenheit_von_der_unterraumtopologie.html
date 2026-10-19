@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 22:14 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>closed subspace and closed sets</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,53 +52,37 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">closed subspace and closed sets</h1>
-<div id="outline-container-orgce6af96" class="outline-2">
-<h2 id="orgce6af96"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-2287eeee-f246-4ebb-8c18-793ac03adc02"></span><h1 class="title">closed subspace and closed sets</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \((X, \mathcal{T})\) ein <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topologischer Raum</a> und \(U \subseteq X\)
+Sei $(X, \mathcal{T})$ ein <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topologischer Raum</a> und $U \subseteq X$
 Dann sind folgende Aussagen <a href="20211223095559-aquivalenz_logik.html#ID-0971f793-e700-48dd-8722-d13a018f4b87">äquivalent</a>:
 </p>
-<ul class="org-ul">
-<li>jede <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossene</a> <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> \(A\) in der <a href="20230211132940-unterraumtopologie.html#ID-e38ab938-b4e6-4094-98a1-4a8dec808b54">Unterraumtopologie</a> \(\mathcal{T}_U\) ist <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossen</a> in \(\mathcal{T}\)</li>
-<li>\(U\) ist <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossen</a> in \(\mathcal{T}\)</li>
+<ul>
+<li>jede <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossene</a> <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> $A$ in der <a href="20230211132940-unterraumtopologie.html#ID-e38ab938-b4e6-4094-98a1-4a8dec808b54">Unterraumtopologie</a> $\mathcal{T}_U$ ist <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossen</a> in $\mathcal{T}$</li>
+
+<li>$U$ ist <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossen</a> in $\mathcal{T}$</li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org84d27f6" class="outline-2">
-<h2 id="org84d27f6"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org580a901" class="outline-3">
-<h3 id="org580a901"><span class="section-number-3">2.1.</span> a)</h3>
-<div class="outline-text-3" id="text-2-1">
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="a">a)</h3>
 <p>
-insbesondere ist der ganze Raum \(U\) in einer <a href="20220930230520-topologie_auf_einer_menge.html#ID-1ced2edb-806d-4fb8-ada3-ca97b7ea1d10">Topologie</a> <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossen</a>, d.h. nach Annahme folgt, auch \(X \setminus U \in \mathcal{T}\)
+insbesondere ist der ganze Raum $U$ in einer <a href="20220930230520-topologie_auf_einer_menge.html#ID-1ced2edb-806d-4fb8-ada3-ca97b7ea1d10">Topologie</a> <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossen</a>, d.h. nach Annahme folgt, auch $X \setminus U \in \mathcal{T}$
 </p>
-</div>
-</div>
-<div id="outline-container-org4ca56e2" class="outline-3">
-<h3 id="org4ca56e2"><span class="section-number-3">2.2.</span> b)</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<h3 id="b">b)</h3>
 <p>
-Sei \(U\) <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossen</a> in \(\mathcal{T}\) und sei \(A\) <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossen</a> in \(\mathcal{T}_U\) so ist \(B_U  \coloneqq U \setminus A\) <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a>.
-Nach defintion existiert eine <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offene</a> <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> \(B \in \mathcal{T}\), so dass gilt \(B_U = B \cap U\)
-daraus folgt, dass \(X \setminus B\) <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossen</a> ist und wegen der <a href="20221224153324-abgeschlossenheit_vom_durchschnitt.html#ID-1bb320cf-5118-4a33-8390-982ef2fbc2e2">Abgeschlossenheit vom Durchschnitt abgeschlossener Mengen</a> ist \(U \cap  (X \setminus B) = U \setminus B = U \setminus B_U = A\) <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossen</a>
+Sei $U$ <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossen</a> in $\mathcal{T}$ und sei $A$ <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossen</a> in $\mathcal{T}_U$ so ist $B_U  \coloneqq U \setminus A$ <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a>.
+Nach defintion existiert eine <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offene</a> <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> $B \in \mathcal{T}$, so dass gilt $B_U = B \cap U$
+daraus folgt, dass $X \setminus B$ <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossen</a> ist und wegen der <a href="20221224153324-abgeschlossenheit_vom_durchschnitt.html#ID-1bb320cf-5118-4a33-8390-982ef2fbc2e2">Abgeschlossenheit vom Durchschnitt abgeschlossener Mengen</a> ist $U \cap  (X \setminus B) = U \setminus B = U \setminus B_U = A$ <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossen</a>
 </p>
 
 <p>
 schöner mit den axiomen für den abschluss möglich ?
-da aber äquivalente definition für 
+da aber äquivalente definition für
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 22:14</p>
+
 </div>
 </body>
 </html>

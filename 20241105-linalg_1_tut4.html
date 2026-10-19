@@ -1,208 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-11-25 Mo 13:02 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>LinAlg 1 - Tut4</title>
+<title>LinAlg 1 - Tut 4 (24/25)</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -229,400 +52,291 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">LinAlg 1 - Tut4</h1>
-<div id="outline-container-org1109543" class="outline-2">
-<h2 id="org1109543">Erinnerung</h2>
-<div class="outline-text-2" id="text-org1109543">
-</div>
-<div id="outline-container-org246f145" class="outline-3">
-<h3 id="org246f145">disclaimer</h3>
-<div class="outline-text-3" id="text-org246f145">
+<span id="ID-8fcd8d9e-45d5-4266-80d9-c8814b9c0617"></span><h1 class="title">LinAlg 1 - Tut 4 (24/25)</h1>
+
+<h2 id="erinnerung">Erinnerung</h2>
+
+<h3 id="disclaimer">disclaimer</h3>
 <p>
-Diese Erinnerung dient primär als Hilfe für die Tutoriumsaufgaben.<br />
+Diese Erinnerung dient primär als Hilfe für die Tutoriumsaufgaben.
 </p>
 
 <p>
-Insbesondere ist diese weder vollständig (ich habe leider als Tutor auch keine genauen Informationen zu den Vorlesungsinhalten) noch i.A. korrekt (ich habe viele Zettel selber während des ersten Semesters geschrieben und selten gegengelesen, d.h. jedes Buch wird um Größenordnungen weniger Fehler beinhalten)<br />
+Insbesondere ist diese weder vollständig (ich habe leider als Tutor auch keine genauen Informationen zu den Vorlesungsinhalten) noch i.A. korrekt (ich habe viele Zettel selber während des ersten Semesters geschrieben und selten gegengelesen, d.h. jedes Buch wird um Größenordnungen weniger Fehler beinhalten)
 </p>
-</div>
-</div>
-<div id="outline-container-orgf92b38d" class="outline-3">
-<h3 id="orgf92b38d">Liste</h3>
-<div class="outline-text-3" id="text-orgf92b38d">
-<ul class="org-ul">
-<li><a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a> <br /></li>
-<li><a href="20221210192900-normalteiler.html#ID-f971f946-d0ca-444a-a450-efbef237a278">normal subgroup</a>   <br /></li>
-<li><a href="20211008174655-abelsche_gruppe.html#ID-7281c9cf-564f-4c4c-8c3f-fc1424ac85f8">abelian</a>   <br /></li>
-<li><a href="20220928134932-gruppenhomomorphismus.html#ID-7d86b4b2-8f83-4da4-b1ef-08c3d37aa417">group-homomorphism</a>  <br /></li>
-<li><a href="20230227150008-gruppenepimorphismus.html#ID-9ec8e70b-1e87-4e63-8903-0573d1fa57a5">group-epimorphism</a>  <br /></li>
-<li><a href="20230318172340-gruppenmonomorphismus.html#ID-60ad1bff-6346-4f3b-b9b3-6e7aff5f4870">group-monomorphism</a><br /></li>
-<li><a href="20220928135729-gruppenisomorphsimus.html#ID-a0a02292-8a0b-4dc8-a2a8-1d592e5cb95b">group-isomorphism</a>  <br /></li>
-<li><a href="20221111200152-kern_algebra.html#ID-438e68de-0603-419c-8b21-5cb3b4add3a1">Kern</a>   <br /></li>
+
+<h3 id="liste">Liste</h3>
+<ul>
+<li><a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a> </li>
+
+<li><a href="20221210192900-normalteiler.html#ID-f971f946-d0ca-444a-a450-efbef237a278">normal subgroup</a>   </li>
+
+<li><a href="20211008174655-abelsche_gruppe.html#ID-7281c9cf-564f-4c4c-8c3f-fc1424ac85f8">abelian</a>   </li>
+
+<li><a href="20220928134932-gruppenhomomorphismus.html#ID-7d86b4b2-8f83-4da4-b1ef-08c3d37aa417">group-homomorphism</a>  </li>
+
+<li><a href="20230227150008-gruppenepimorphismus.html#ID-9ec8e70b-1e87-4e63-8903-0573d1fa57a5">group-epimorphism</a>  </li>
+
+<li><a href="20230318172340-gruppenmonomorphismus.html#ID-60ad1bff-6346-4f3b-b9b3-6e7aff5f4870">group-monomorphism</a></li>
+
+<li><a href="20220928135729-gruppenisomorphsimus.html#ID-a0a02292-8a0b-4dc8-a2a8-1d592e5cb95b">group-isomorphism</a>  </li>
+
+<li><a href="20221111200152-kern_algebra.html#ID-438e68de-0603-419c-8b21-5cb3b4add3a1">Kern</a>   </li>
 </ul>
-</div>
-</div>
-</div>
-<div id="outline-container-orgef76883" class="outline-2">
-<h2 id="orgef76883">Aufgabe</h2>
-<div class="outline-text-2" id="text-orgef76883">
-</div>
-<div id="outline-container-org1c61071" class="outline-3">
-<h3 id="org1c61071">1) diverse Finegrübungen</h3>
-<div class="outline-text-3" id="text-org1c61071">
+<h2 id="aufgabe">Aufgabe</h2>
+
+<h3 id="1-diverse-finegrubungen">1) diverse Finegrübungen</h3>
 <p>
-Seien \((G,\cdot), (H, \cdot)\) <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">Gruppen</a> und \(\varphi: G \rightarrow H\) ein Gruppenhomomorphismus.<br />
+Seien $(G,\cdot), (H, \cdot)$ <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">Gruppen</a> und $\varphi: G \rightarrow H$ ein Gruppenhomomorphismus.
 </p>
-</div>
-<div id="outline-container-orga922b40" class="outline-4">
-<h4 id="orga922b40">a) Inverse unter Gruppenhomomorphismen</h4>
-<div class="outline-text-4" id="text-orga922b40">
+
+<h4 id="a-inverse-unter-gruppenhomomorphismen">a) Inverse unter Gruppenhomomorphismen</h4>
 <p>
-Sei \(g \in G\).<br />
-Zeige<br />
+Sei $g \in G$.
+Zeige
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \varphi(g^{-1}) = \varphi(g)^{-1}
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org7a75a7c" class="outline-4">
-<h4 id="org7a75a7c">b) Gruppenhom. in eine größere Symetrische Gruppe</h4>
-<div class="outline-text-4" id="text-org7a75a7c">
+\end{align*}</div>
+
+<h4 id="b-gruppenhom-in-eine-groere-symetrische-gruppe">b) Gruppenhom. in eine größere Symetrische Gruppe</h4>
 <p>
-Sei \(\sigma_{3}, \sigma_{4}\) die Symmetrische Gruppe (d.h. Bijektionen \(\{1,2,3\} \rightarrow \{1,2,3\}\) mit Komposition als Verknüpfung resp. \(\{1,2,3,4\}\)).<br />
-Finde zwei Gruppenhomomorphismen<br />
+Sei $\sigma_{3}, \sigma_{4}$ die Symmetrische Gruppe (d.h. Bijektionen $\{1,2,3\} \rightarrow \{1,2,3\}$ mit Komposition als Verknüpfung resp. $\{1,2,3,4\}$).
+Finde zwei Gruppenhomomorphismen
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \psi, \psi' \sigma_3 \rightarrow \sigma_4
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgf323906" class="outline-4">
-<h4 id="orgf323906">c) untergruppe einer abelschen Gruppe als Normalteiler</h4>
-<div class="outline-text-4" id="text-orgf323906">
+\end{align*}</div>
+
+<h4 id="c-untergruppe-einer-abelschen-gruppe-als-normalteiler">c) untergruppe einer abelschen Gruppe als Normalteiler</h4>
 <p>
-Sei \((G,+)\) eine abelsche Gruppe und \(H \subseteq G\) eine Untergruppe.<br />
-Zeige, dass \(H\) ein normalteiler ist<br />
+Sei $(G,+)$ eine abelsche Gruppe und $H \subseteq G$ eine Untergruppe.
+Zeige, dass $H$ ein normalteiler ist
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-org169b0a3" class="outline-3">
-<h3 id="org169b0a3">2) Kriterium für eine Untergruppe</h3>
-<div class="outline-text-3" id="text-org169b0a3">
+
+<h3 id="2-kriterium-fur-eine-untergruppe">2) Kriterium für eine Untergruppe</h3>
 <p>
-Sei \((G,\circ)\) eine Gruppe und \((U, \circ)\) mit \(U \subseteq G\) und \(U \neq \emptyset\)<br />
-\((U, \circ)\) ist genau dann eine Untergruppe, wenn gilt<br />
+Sei $(G,\circ)$ eine Gruppe und $(U, \circ)$ mit $U \subseteq G$ und $U \neq \emptyset$
+$(U, \circ)$ ist genau dann eine Untergruppe, wenn gilt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \forall a,b \in U \Rightarrow a \circ b^{-1} \in U
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org4a2fa15" class="outline-3">
-<h3 id="org4a2fa15">3) minimaler kern und injektiv</h3>
-<div class="outline-text-3" id="text-org4a2fa15">
+\end{align*}</div>
+
+<h3 id="3-minimaler-kern-und-injektiv">3) minimaler kern und injektiv</h3>
 <p>
-Seien \((G, \cdot), (H, \cdot)\) Gruppen \(\varphi: G \rightarrow H\) ein Gruppenhomomorphismus.<br />
-Zeige dass äquivalent sind<br />
+Seien $(G, \cdot), (H, \cdot)$ Gruppen $\varphi: G \rightarrow H$ ein Gruppenhomomorphismus.
+Zeige dass äquivalent sind
 </p>
-<ol class="org-ol">
-<li>\(\varphi\) ist injektiv, d.h. ein Gruppenmonomorphismus<br /></li>
-<li>\(\mathrm{ker} = \{0\}\) ist die Nullgruppe<br /></li>
+<ol>
+<li>$\varphi$ ist injektiv, d.h. ein Gruppenmonomorphismus</li>
+
+<li>$\mathrm{ker} = \{0\}$ ist die Nullgruppe</li>
 </ol>
-</div>
-</div>
-<div id="outline-container-org5a0c8ce" class="outline-3">
-<h3 id="org5a0c8ce">4) Opposite Group</h3>
-<div class="outline-text-3" id="text-org5a0c8ce">
+<h3 id="4-opposite-group">4) Opposite Group</h3>
 <p>
-Sei \((G,\cdot)\) eine Gruppe. Definiere \((G, \cdot^{\mathrm{op}})\) mit<br />
+Sei $(G,\cdot)$ eine Gruppe. Definiere $(G, \cdot^{\mathrm{op}})$ mit
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 g_1 \cdot^{\mathrm{op}} g_2 \coloneqq g_2 \cdot g_1
-\end{align*}
-</div>
-<div id="outline-container-orgde4f453" class="outline-4">
-<h4 id="orgde4f453">a) opposite group als gruppe</h4>
-<div class="outline-text-4" id="text-orgde4f453">
+\end{align*}</div>
+
+<h4 id="a-opposite-group-als-gruppe">a) opposite group als gruppe</h4>
 <p>
-Zeige dass \((G, \cdot^{\mathrm{op}})\) eine Gruppe ist.<br />
-Wir nennen diese Konstruktion im Folgenden die Opposite Group.<br />
+Zeige dass $(G, \cdot^{\mathrm{op}})$ eine Gruppe ist.
+Wir nennen diese Konstruktion im Folgenden die Opposite Group.
 </p>
 
 <p>
-Man bemerke, dass zwar die zugrunde liegende Menge \(G\) gleich ist, es aber i.A. dennoch zwei verschiedene Gruppen sind.<br />
+Man bemerke, dass zwar die zugrunde liegende Menge $G$ gleich ist, es aber i.A. dennoch zwei verschiedene Gruppen sind.
 </p>
-</div>
-</div>
-<div id="outline-container-orgbdc6d61" class="outline-4">
-<h4 id="orgbdc6d61">b) opposite group einer abelschen gruppe</h4>
-<div class="outline-text-4" id="text-orgbdc6d61">
+
+<h4 id="b-opposite-group-einer-abelschen-gruppe">b) opposite group einer abelschen gruppe</h4>
 <p>
-Angenommen \((H,+)\) ist abelsch und \((H, +^{\mathrm{op}})\) die Opposite group.<br />
-Wie sieht \((H,+^{\mathrm{op}})\) aus ?<br />
+Angenommen $(H,+)$ ist abelsch und $(H, +^{\mathrm{op}})$ die Opposite group.
+Wie sieht $(H,+^{\mathrm{op}})$ aus ?
 </p>
-</div>
-</div>
-<div id="outline-container-org1e82777" class="outline-4">
-<h4 id="org1e82777">c) inveres als gruppenhom.</h4>
-<div class="outline-text-4" id="text-org1e82777">
+
+<h4 id="c-inveres-als-gruppenhom">c) inveres als gruppenhom.</h4>
 <p>
-Sei<br />
+Sei
 </p>
-\begin{align*}
-(-)^{-1}: G \rightarrow& G \\
-g \mapsto& g^{-1}
-\end{align*}
+
+<div class="math-block">\begin{align*}
+(-)^{-1}: G \rightarrow&amp; G \\
+g \mapsto&amp; g^{-1}
+\end{align*}</div>
 <p>
-Zeige dass \((-)^{-1}\) ein Gruppenhomomorphismus von \((G, \cdot)\) nach \((G, \cdot^{\mathrm{op}})\) ist.<br />
+Zeige dass $(-)^{-1}$ ein Gruppenhomomorphismus von $(G, \cdot)$ nach $(G, \cdot^{\mathrm{op}})$ ist.
 </p>
-</div>
-</div>
-<div id="outline-container-org8f39ff8" class="outline-4">
-<h4 id="org8f39ff8">d) inverse bilden als isomorphismus</h4>
-<div class="outline-text-4" id="text-org8f39ff8">
+
+<h4 id="d-inverse-bilden-als-isomorphismus">d) inverse bilden als isomorphismus</h4>
 <p>
-Zeige dass \((-)^{-1}\) ein Gruppenisomorphismus ist.<br />
+Zeige dass $(-)^{-1}$ ein Gruppenisomorphismus ist.
 </p>
-</div>
-</div>
-<div id="outline-container-org41085aa" class="outline-4">
-<h4 id="org41085aa">e) abelsche gruppe und Inverse</h4>
-<div class="outline-text-4" id="text-org41085aa">
+
+<h4 id="e-abelsche-gruppe-und-inverse">e) abelsche gruppe und Inverse</h4>
 <p>
-Sei<br />
+Sei
 </p>
-\begin{align*}
-(-)^{-1}: G \rightarrow& G \\
-g \mapsto& g^{-1}
-\end{align*}
+
+<div class="math-block">\begin{align*}
+(-)^{-1}: G \rightarrow&amp; G \\
+g \mapsto&amp; g^{-1}
+\end{align*}</div>
 <p>
-die Abbildung.<br />
-Zeige dass äquivalent sind.<br />
+die Abbildung.
+Zeige dass äquivalent sind.
 </p>
-<ol class="org-ol">
-<li>\((-)^{-1}\) ist ein Gruppenhomomorphismus von \((G,\cdot)\) nach \((G,\cdot)\)<br /></li>
-<li>\((G,\cdot)\) ist eine abelsche gruppe<br /></li>
+<ol>
+<li>$(-)^{-1}$ ist ein Gruppenhomomorphismus von $(G,\cdot)$ nach $(G,\cdot)$</li>
+
+<li>$(G,\cdot)$ ist eine abelsche gruppe</li>
 </ol>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-orgc96ed64" class="outline-2">
-<h2 id="orgc96ed64">Lösungsskizzen</h2>
-<div class="outline-text-2" id="text-orgc96ed64">
-</div>
-<div id="outline-container-org42a152a" class="outline-3">
-<h3 id="org42a152a">1) diverse Finegrübungen</h3>
-<div class="outline-text-3" id="text-org42a152a">
-</div>
-<div id="outline-container-orgc7ac16b" class="outline-4">
-<h4 id="orgc7ac16b">a) Inverse unter Gruppenhomomorphismen</h4>
-<div class="outline-text-4" id="text-orgc7ac16b">
-<ul class="org-ul">
-<li><a href="20221210200317-homomorphismus_abbildung_des_inversen_elements.html#ID-04a8e669-3f19-4547-8aed-1fc0780c038f">inverse unter monoidhomomorphismen</a><br /></li>
+<h2 id="losungsskizzen">Lösungsskizzen</h2>
+
+<h3 id="1-diverse-finegrubungen">1) diverse Finegrübungen</h3>
+
+<h4 id="a-inverse-unter-gruppenhomomorphismen">a) Inverse unter Gruppenhomomorphismen</h4>
+<ul>
+<li><a href="20221210200317-homomorphismus_abbildung_des_inversen_elements.html#ID-04a8e669-3f19-4547-8aed-1fc0780c038f">inverse unter monoidhomomorphismen</a></li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org8372872" class="outline-4">
-<h4 id="org8372872">b) Gruppenhom. in eine größere Symetrische Gruppe</h4>
-<div class="outline-text-4" id="text-org8372872">
+<h4 id="b-gruppenhom-in-eine-groere-symetrische-gruppe">b) Gruppenhom. in eine größere Symetrische Gruppe</h4>
 <p>
-Die wohl "einfachsten" Gruppenhomomorphismen sind<br />
+Die wohl "einfachsten" Gruppenhomomorphismen sind
 </p>
-<ol class="org-ol">
-<li>die <a href="20230522105103-nullabbildung_als_gruppenhomomorphismus.html#ID-dcb5f4a8-b4ac-4057-adb0-7a738e28bc1f">Nullabbildung als Gruppenhomomorphismus</a> <br /></li>
+<ol>
+<li>die <a href="20230522105103-nullabbildung_als_gruppenhomomorphismus.html#ID-dcb5f4a8-b4ac-4057-adb0-7a738e28bc1f">Nullabbildung als Gruppenhomomorphismus</a> </li>
+
 <li></li>
 </ol>
-\begin{align*}
-\iota_4: \sigma_3 \rightarrow& \sigma_4 \\
-(f: \{1,2,3\} \rightarrow \{1,2,3\}) \mapsto& \left(f \coprod \mathrm{id}_{\{4\}}: x \mapsto
+<div class="math-block">\begin{align*}
+\iota_4: \sigma_3 \rightarrow&amp; \sigma_4 \\
+(f: \{1,2,3\} \rightarrow \{1,2,3\}) \mapsto&amp; \left(f \coprod \mathrm{id}_{\{4\}}: x \mapsto
     \begin{cases}
-     f(x) & \mbox{if } x \in \{1,2,3\} \\
-     4  & \mbox{else } \\  
+     f(x) &amp; \mbox{if } x \in \{1,2,3\} \\
+     4  &amp; \mbox{else } \\  
     \end{cases}
 \right)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org58c7e4b" class="outline-4">
-<h4 id="org58c7e4b">c) untergruppe einer abelschen Gruppe als Normalteiler</h4>
-<div class="outline-text-4" id="text-org58c7e4b">
+\end{align*}</div>
+
+<h4 id="c-untergruppe-einer-abelschen-gruppe-als-normalteiler">c) untergruppe einer abelschen Gruppe als Normalteiler</h4>
 <p>
-Seien \(g \in G\) und \(h \in H\).<br />
-Dann gilt<br />
+Seien $g \in G$ und $h \in H$.
+Dann gilt
 </p>
-\begin{align*}
-- g + h + g =& h + (-g) + g \\
-=& h + (- g + g) \\
-=& h + 0 \\
-=& h
-\end{align*}
+
+<div class="math-block">\begin{align*}
+- g + h + g =&amp; h + (-g) + g \\
+=&amp; h + (- g + g) \\
+=&amp; h + 0 \\
+=&amp; h
+\end{align*}</div>
 
 <p>
-alternativ: <a href="20221210194045-normalteiler_in_abelschen_gruppen.html#ID-2560bb17-1bb6-42e7-91d6-5187eaf040c3">Normalteiler in Abelschen Gruppen</a><br />
+alternativ: <a href="20221210194045-normalteiler_in_abelschen_gruppen.html#ID-2560bb17-1bb6-42e7-91d6-5187eaf040c3">Normalteiler in Abelschen Gruppen</a>
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-org78d72f5" class="outline-3">
-<h3 id="org78d72f5">2) Kriterium für eine Untergruppe</h3>
-<div class="outline-text-3" id="text-org78d72f5">
+
+<h3 id="2-kriterium-fur-eine-untergruppe">2) Kriterium für eine Untergruppe</h3>
 <p>
-criteria for a subgroup]]<br />
+criteria for a subgroup]]
 </p>
-</div>
-</div>
-<div id="outline-container-orgfd7e9ed" class="outline-3">
-<h3 id="orgfd7e9ed">3)</h3>
-<div class="outline-text-3" id="text-orgfd7e9ed">
+
+<h3 id="3">3)</h3>
 <p>
-minimal kernel and monomorphism]]<br />
+minimal kernel and monomorphism]]
 </p>
-</div>
-</div>
-<div id="outline-container-org71579b3" class="outline-3">
-<h3 id="org71579b3">4) Opposite Group</h3>
-<div class="outline-text-3" id="text-org71579b3">
-</div>
-<div id="outline-container-orgde4525c" class="outline-4">
-<h4 id="orgde4525c">a) opposite group als gruppe</h4>
-<div class="outline-text-4" id="text-orgde4525c">
-<ul class="org-ul">
-<li><a href="20231025-opposite_group.html#ID-da2a1a5f-2444-4a78-8ca5-418eb40e44cb">opposite group</a><br /></li>
+
+<h3 id="4-opposite-group">4) Opposite Group</h3>
+
+<h4 id="a-opposite-group-als-gruppe">a) opposite group als gruppe</h4>
+<ul>
+<li><a href="20231025-opposite_group.html#ID-da2a1a5f-2444-4a78-8ca5-418eb40e44cb">opposite group</a></li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgf723902" class="outline-4">
-<h4 id="orgf723902">b) opposite group einer abelschen gruppe</h4>
-<div class="outline-text-4" id="text-orgf723902">
-<ul class="org-ul">
-<li><a href="20241111-opposite_group_of_an_abelian_group.html#ID-0b67cbc4-081d-4d95-bbb3-4cdd406f8ea0">opposite group of an abelian group</a> <br /></li>
+<h4 id="b-opposite-group-einer-abelschen-gruppe">b) opposite group einer abelschen gruppe</h4>
+<ul>
+<li><a href="20241111-opposite_group_of_an_abelian_group.html#ID-0b67cbc4-081d-4d95-bbb3-4cdd406f8ea0">opposite group of an abelian group</a> </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgdfadce4" class="outline-4">
-<h4 id="orgdfadce4">c) inveres als gruppenhom.</h4>
-<div class="outline-text-4" id="text-orgdfadce4">
-<ul class="org-ul">
-<li><a href="20230228154026-inersenabbildung_gruppe.html#ID-d241bb0c-992f-4e72-b04a-236149822222">Inversenabbildung (Gruppe)</a> <br /></li>
+<h4 id="c-inveres-als-gruppenhom">c) inveres als gruppenhom.</h4>
+<ul>
+<li><a href="20230228154026-inersenabbildung_gruppe.html#ID-d241bb0c-992f-4e72-b04a-236149822222">Inversenabbildung (Gruppe)</a> </li>
+
+<li><a href="20241111-inversenabbildung_als_gruppenhomomorphism_fur_die_opposite_group.html#ID-0ba2a85d-8a6f-4bc3-b353-98ab5f0f8f8f">inversenabbildung als gruppenhomomorphism für die opposite group</a>   </li>
 </ul>
-
-<ul class="org-ul">
-<li><a href="20241111-inversenabbildung_als_gruppenhomomorphism_fur_die_opposite_group.html#ID-0ba2a85d-8a6f-4bc3-b353-98ab5f0f8f8f">inversenabbildung als gruppenhomomorphism für die opposite group</a>   <br /></li>
+<h4 id="d-inverse-bilden-als-isomorphismus">d) inverse bilden als isomorphismus</h4>
+<ul>
+<li><a href="20241111-inversenabbildung_als_gruppenisomorphismus.html#ID-37c189eb-ef15-48aa-8953-b42d4d04c483">inversenabbildung als gruppenisomorphismus</a> </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgbe906e0" class="outline-4">
-<h4 id="orgbe906e0">d) inverse bilden als isomorphismus</h4>
-<div class="outline-text-4" id="text-orgbe906e0">
-<ul class="org-ul">
-<li><a href="20241111-inversenabbildung_als_gruppenisomorphismus.html#ID-37c189eb-ef15-48aa-8953-b42d4d04c483">inversenabbildung als gruppenisomorphismus</a> <br /></li>
+<h4 id="e-abelsche-gruppe-und-inverse">e) abelsche gruppe und Inverse</h4>
+<ul>
+<li><a href="20241111-inversenabbildung_als_gruppenautomorphismus_und_abelsche_gruppe.html#ID-43c516f7-9122-4876-a0b1-4ab00d617551">inversenabbildung als gruppenautomorphismus und abelsche gruppe</a> </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org9c3f8da" class="outline-4">
-<h4 id="org9c3f8da">e) abelsche gruppe und Inverse</h4>
-<div class="outline-text-4" id="text-org9c3f8da">
-<ul class="org-ul">
-<li><a href="20241111-inversenabbildung_als_gruppenautomorphismus_und_abelsche_gruppe.html#ID-43c516f7-9122-4876-a0b1-4ab00d617551">inversenabbildung als gruppenautomorphismus und abelsche gruppe</a> <br /></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-orgf58b083" class="outline-2">
-<h2 id="orgf58b083">Kommentare</h2>
-<div class="outline-text-2" id="text-orgf58b083">
-</div>
-<div id="outline-container-orga61feb5" class="outline-3">
-<h3 id="orga61feb5">Mittwoch</h3>
-<div class="outline-text-3" id="text-orga61feb5">
+<h2 id="kommentare">Kommentare</h2>
+
+<h3 id="mittwoch">Mittwoch</h3>
 <p>
-Ich finde, dass ich dieses mal - dadurch dass ich etwas durchgegangen bin - einen besseren Eindruck hatte, wo Schwierigkeiten liegen.<br />
-Die Aufgabe 1b) war schwieriger als gedacht, vermutlich auch weil es ziemlich abstrakt ist, eine Abbildung zwischen Mengen von Abbildungen anzugeben.<br />
-Mir ist später aufgefallen, dass die Aufgabe 3)<br />
+Ich finde, dass ich dieses mal - dadurch dass ich etwas durchgegangen bin - einen besseren Eindruck hatte, wo Schwierigkeiten liegen.
+Die Aufgabe 1b) war schwieriger als gedacht, vermutlich auch weil es ziemlich abstrakt ist, eine Abbildung zwischen Mengen von Abbildungen anzugeben.
+Mir ist später aufgefallen, dass die Aufgabe 3)
 </p>
 
 <p>
-Ich hätte noch gerne die Aufgabe 2) besprochen, aber dafür hat leider die Zeit gefehlt.<br />
+Ich hätte noch gerne die Aufgabe 2) besprochen, aber dafür hat leider die Zeit gefehlt.
 </p>
-</div>
-</div>
-<div id="outline-container-org9625a53" class="outline-3">
-<h3 id="org9625a53">Donnerstag</h3>
-<div class="outline-text-3" id="text-org9625a53">
+
+<h3 id="donnerstag">Donnerstag</h3>
 <p>
-Im Tutorium habe ich etwas mehr Zeit gegeben.<br />
-Dabei habe ich die Aufgabe 1b) (Homomorphismen \(S_3 \rightarrow S_4\)) ausgelassen<br />
+Im Tutorium habe ich etwas mehr Zeit gegeben.
+Dabei habe ich die Aufgabe 1b) (Homomorphismen $S_3 \rightarrow S_4$) ausgelassen
 </p>
 
 <p>
-Ich finde aber, ich hätte an einigen Punkten etwas konzentrierter und fokussierter im Tutorium sein können.<br />
-Ich habe auch erst relativ spät angefangen, die Zusammenfassung auf die Tafel zu schreiben, da hätte ich etwas früher da sein können.<br />
+Ich finde aber, ich hätte an einigen Punkten etwas konzentrierter und fokussierter im Tutorium sein können.
+Ich habe auch erst relativ spät angefangen, die Zusammenfassung auf die Tafel zu schreiben, da hätte ich etwas früher da sein können.
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-org4c54bd9" class="outline-2">
-<h2 id="org4c54bd9">Meinung zu Andreis Aufgaben</h2>
-<div class="outline-text-2" id="text-org4c54bd9">
-</div>
-<div id="outline-container-org6185327" class="outline-3">
-<h3 id="org6185327">1)</h3>
-<div class="outline-text-3" id="text-org6185327">
+
+<h2 id="meinung-zu-andreis-aufgaben">Meinung zu Andreis Aufgaben</h2>
+
+<h3 id="1">1)</h3>
 <p>
-Halte ich jeweils für nette Aufgaben, um Gruppen zu üben.<br />
-Ich habe die als Aufgabe 4) aufgenommen, weil meiner Meinung nach die Aufgaben 1a) und c) wichtiger sind (auch wenn ich später erfahren habe, dass die 1a) schon in der VL besprochen wurde :/)<br />
+Halte ich jeweils für nette Aufgaben, um Gruppen zu üben.
+Ich habe die als Aufgabe 4) aufgenommen, weil meiner Meinung nach die Aufgaben 1a) und c) wichtiger sind (auch wenn ich später erfahren habe, dass die 1a) schon in der VL besprochen wurde :/)
 </p>
-</div>
-</div>
-<div id="outline-container-orgb8acb9b" class="outline-3">
-<h3 id="orgb8acb9b">2)</h3>
-<div class="outline-text-3" id="text-orgb8acb9b">
+
+<h3 id="2">2)</h3>
 <p>
-Wenn man möchte, kann man mit dieser Aufgabe v.a. mengentheoretische Operationen (und etwas Gruppen) einüben.<br />
-Aber die Symmetrische Differenz ist, wenn man sie formal behandelt, relativ technisch.<br />
+Wenn man möchte, kann man mit dieser Aufgabe v.a. mengentheoretische Operationen (und etwas Gruppen) einüben.
+Aber die Symmetrische Differenz ist, wenn man sie formal behandelt, relativ technisch.
 </p>
-</div>
-</div>
-<div id="outline-container-org8bd81f3" class="outline-3">
-<h3 id="org8bd81f3">3)</h3>
-<div class="outline-text-3" id="text-org8bd81f3">
+
+<h3 id="3">3)</h3>
 <p>
-Die Aufgabe 3.1 habe ich im 3. Tutorium vorgestellt.<br />
-Die Aufgabe 3.2 und 3.3 werden schön eingeführt und sind gute Übungen für Gruppen, aber (vermutlich) nicht besonders wichtig für die weitere Vorlesung.<br />
+Die Aufgabe 3.1 habe ich im 3. Tutorium vorgestellt.
+Die Aufgabe 3.2 und 3.3 werden schön eingeführt und sind gute Übungen für Gruppen, aber (vermutlich) nicht besonders wichtig für die weitere Vorlesung.
 </p>
 
 <p>
-Ich habe die 3.2 in schwierigerer Form als 1 b), vermutlich ist das hier so didaktisch besser gestellt.<br />
+Ich habe die 3.2 in schwierigerer Form als 1 b), vermutlich ist das hier so didaktisch besser gestellt.
 </p>
-</div>
-</div>
-<div id="outline-container-org8c4fc28" class="outline-3">
-<h3 id="org8c4fc28">4)</h3>
-<div class="outline-text-3" id="text-org8c4fc28">
+
+<h3 id="4">4)</h3>
 <p>
-Aufgabe 4.1 habe ich im 3. Tutorium aufgegeben.<br />
+Aufgabe 4.1 habe ich im 3. Tutorium aufgegeben.
 </p>
 
 <p>
-Die Aufgabe 4.2 ist wohl etwas schwieriger, aber eine schöne Übung.<br />
+Die Aufgabe 4.2 ist wohl etwas schwieriger, aber eine schöne Übung.
 </p>
 
 
 <p>
-Allgemein darf man sich bei der symmetrischen Gruppe nicht verwirren lassen.<br />
+Allgemein darf man sich bei der symmetrischen Gruppe nicht verwirren lassen.
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-11-25 Mo 13:02</p>
+
 </div>
 </body>
 </html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>relative cw complex and serre fibration and injection surjection criteria</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-1cda70d0-dd54-4bfd-9480-9c216fc637c7"></span><h1 class="title">relative cw complex and serre fibration and injection surjection criteria</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $D \subseteq \mathbb{N}$ be a set on natural numbers, $A \hookrightarrow B$ a <a href="20231125-cw_pair.html#ID-27124d57-ceda-4141-a56c-2169e252018f">CW Pair</a>, where $B$ only contains \(d\)-cells for $d \in D$.
+Suppose $p: X \rightarrow Y$ is a <a href="20240702-serre_fibration.html#ID-b429be95-8451-46cb-8c4f-7e1be057a766">serre fibration</a>, such that
+</p>
+<ol>
+<li>$\pi_{d-1}(X,x) \rightarrow \pi_{d-1}(Y,p(x))$ is an <a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injection</a> for $d \in D$ and $x \in X$.</li>
+
+<li>$\pi_{d}(X,x) \rightarrow \pi_d(Y,p(x))$ is a <a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjection</a> for $d \in D$ and $x \in X$.</li>
+</ol>
+<p>
+Then every lifting problem
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/6d9f29c79a9ec4edaf30.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+has a solution
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+using induction along the skeletal filtratino it suffec s to consider tha caes that $B$ arrises from $A$ by attaching \(d\)-cells for $d \in D$.
+</p>
+
+<p>
+Hence it sufices to lift.
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+|[label={[label distance=-2mm]-45:\ulcorner}]| \coprod S^{d-1} \arrow[]{r}{} \arrow[]{d}{}&amp; A \arrow[]{d}{}\\
+\corpod D^d \arrow[]{r}{}&amp; B \\
+\end{tikzcd}
+\end{displaymath}</pre></div>
+
+<p>
+Using the universal property of the pushout, we only need to consider the case
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/e67c09cfdbb346d5f9d5.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Pick a basepoint $s \in S^{d-1}$.
+</p>
+
+<p>
+Then consider $[\alpha] \in \pi_{d-1}(X, \alpha(s))$
+Then \begin{align*}
+p_{*}[\alpha] = [p \alpha]
+\end{align*}
+is trivial in $\pi_{d-1}(Y, pa(s))$ by <a href="20240709-trivial_element_in_a_homotopy_group_and_extension.html#ID-5c7e8b84-87a4-41de-8856-fca6a1329c4f">trivial element in a homotopy group and extension</a>.
+</p>
+
+<p>
+Thus there exists some $\overline{\alpha}$
+</p>
+
+<p>
+By assumption 1) we conclude that $[\alpha] = 0 \in \pi_{d-1}(X, $\alpha(s))$, since the map is injective.
+</p>
+
+<p>
+Hence there exists a lift
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/2ea9808673f255fb9c67.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+<p>
+Since $p \overline{\alpha}_{\vert S^{d-1} = p \alpha = \beta_{\vert S^{d-1}}$ we get a map
+</p>
+
+<div class="math-block">\begin{align*}
+p \overline{\alpha} \coprod \beta: S^d \simeq D^d_{+} \coprod_{S^{d-1}} D^d \rightarrow Y
+\end{align*}</div>
+
+<p>
+represienting an element $[p \overline{\alpha} \coprob \beta] \in \pi_d(Y, p \alpha(s))$
+</p>
+
+<p>
+By assumption 2) there exists a premiage
+</p>
+
+<div class="math-block">\begin{align*}
+\pi_d(X, \alpha(s))
+\end{align*}</div>
+<p>
+such that $p_{*}[\gamma] = [p \overline{\alpha} \coprod \beta]$
+</p>
+
+<h4 id="claim">claim:</h4>
+<p>
+we can choose $\gamma: S^d \rightarrow X$ such that
+</p>
+
+<div class="math-block">\begin{align*}
+\gamma_{\vert D^d_{+}} = \overline{\alpha}
+\end{align*}</div>
+
+
+<p>
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+\gamma_{\vert D_+^d} \simeq \overline{\alpha}
+\end{align*}</div>
+<p>
+are <a href="20231110-homotopy_relative_to_a_subset.html#ID-1bb0bedb-5fa3-4186-adab-5d5bc845b62a">homotopic relative to</a> $s$ since $D_b^d$ <a href="20231110-deformation_retract.html#ID-e7f8f4a1-9a2c-4dcc-bd01-738119d56c0f">deformation retract</a>s onto $s$
+</p>
+
+<p>
+Since $D^d_+ \rightarrow S^{d}$ is a <a href="20231124-cofibration.html#ID-05c7be72-ecee-40a2-a48e-8df8cada2404">cofibration</a> (it is a cw-pair) we get the <a href="20231124-homotopy_extension_property.html#ID-706d40ab-d3b8-4568-a4ea-2f296a6a6755">Homotopy Extension Property</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/2e508a5e237ed0568498.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+each ponit of the solution is pointed homotopic to $\gamma$ and restrictsto $\overline{\alpha}$ on $D_+^d$.
+</p>
+
+<p>
+Set $\overline{\beta} \coloneqq \gamma_{\vert D^d_n}$.
+</p>
+
+<p>
+We want to show that
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{\beta} \sim \beta
+\end{align*}</div>
+<p>
+relative to $S^{d-1}$
+</p>
+
+<p>
+Regard now $\overline{\beta}$ as a map by $D_{-}^d \simeq D^d$
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{\beta}: (I^d, I^{d-1} \times \{0\} \coprod_{\partial I^{d-1} \times \{0\}} \partial I^{d-1} \times [0,1]) \rightarrow (X, \alpha(s))
+\end{align*}</div>
+
+<p>
+In particular
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{\beta}_{I^{d-1} \times \{1\}} = \alpha
+\end{align*}</div>
+
+<p>
+Similarly with $\beta$ and $\overline{\alpha}$
+</p>
+
+
+<p>
+Now we obtaina a chain of homotopies
+</p>
+
+<div class="math-block">\begin{align*}
+p \overline{\beta}
+\end{align*}</div>
+
+<p>
+This implies
+</p>
+
+<div class="math-block">\begin{align*}
+p \overline{\beta} \simeq \beta
+\end{align*}</div>
+<p>
+relative to $S^{d-1}$.
+</p>
+
+<p>
+Therefore we get
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/26d35cf0cf3f4d7199e2.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+where the top diagram commutes strictly and the bottom one commutes up to homotopy relative to $S^{d-1}$.
+</p>
+
+<p>
+now solve the lifting problem
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/af3c31eb439c4c5beee1.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+
+</div>
+</body>
+</html>

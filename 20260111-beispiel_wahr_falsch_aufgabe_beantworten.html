@@ -1,263 +1,100 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2026-01-11 So 13:35 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Beispiel: wahr / falsch Aufgabe beantworten</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Beispiel: wahr / falsch Aufgabe beantworten</h1>
-<div id="outline-container-org1cf3b56" class="outline-2">
-<h2 id="org1cf3b56">Liste</h2>
-<div class="outline-text-2" id="text-org1cf3b56">
+<span id="ID-18d1f2f1-c3b6-4a20-ba94-8feda5095fd5"></span><h1 class="title">Beispiel: wahr / falsch Aufgabe beantworten</h1>
+
+<h2 id="liste">Liste</h2>
 <p>
-Sei die Aussage<br />
+Sei die Aussage
 </p>
-<ul class="org-ul">
-<li>jedes Gleichungssystem mit <img src="ltximg/20260111-beispiel_wahr_falsch_aufgabe_beantworten_d9ed79ee6c2476ecc269ad6bc18ac6581c36b34a.svg" alt="20260111-beispiel_wahr_falsch_aufgabe_beantworten_d9ed79ee6c2476ecc269ad6bc18ac6581c36b34a.svg" class="org-svg" /> Gleichung und <img src="ltximg/20260111-beispiel_wahr_falsch_aufgabe_beantworten_517d2cf54fa2d8ac20f2a7d9472efd79c600eafe.svg" alt="20260111-beispiel_wahr_falsch_aufgabe_beantworten_517d2cf54fa2d8ac20f2a7d9472efd79c600eafe.svg" class="org-svg" /> Variablen (<img src="ltximg/20260111-beispiel_wahr_falsch_aufgabe_beantworten_9715e286807b732f55fcdd2b6c3eb6d102002290.svg" alt="20260111-beispiel_wahr_falsch_aufgabe_beantworten_9715e286807b732f55fcdd2b6c3eb6d102002290.svg" class="org-svg" />) hat eine Lösung<br /></li>
+<ul>
+<li>jedes Gleichungssystem mit $1$ Gleichung und $n$ Variablen ($n \geq 1$) hat eine Lösung </li>
 </ul>
 <p>
-gegeben.<br />
-Man könnte folgendermaßen beginnen.<br />
-</p>
-</div>
-<div id="outline-container-orgf3969c5" class="outline-3">
-<h3 id="orgf3969c5">möglichst "dummes" Gegenbeispiel</h3>
-<div class="outline-text-3" id="text-orgf3969c5">
-<p>
-Mit einfach/"dumm" meine ich so etwas wie Grenzfälle:<br />
-Hier bietet es sich an (nach Übersetzung des Problems in Matrizen), an die Nullmatrix<br />
+gegeben.
+Man könnte folgendermaßen beginnen.
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20260111-beispiel_wahr_falsch_aufgabe_beantworten_ee3dbf327be830ada0b6a27f7756af98298f1f0c.svg" alt="20260111-beispiel_wahr_falsch_aufgabe_beantworten_ee3dbf327be830ada0b6a27f7756af98298f1f0c.svg" class="org-svg" />
-</span>
-</div>
+<h3 id="moglichst-dummes-gegenbeispiel">möglichst "dummes" Gegenbeispiel</h3>
 <p>
-zu denken und zu bemerken, dass dann das Gleichungssystem<br />
+Mit einfach/"dumm" meine ich so etwas wie Grenzfälle:
+Hier bietet es sich an (nach Übersetzung des Problems in Matrizen), an die Nullmatrix
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20260111-beispiel_wahr_falsch_aufgabe_beantworten_f5369c3c306604062c3f5d018379f4c3115a74a7.svg" alt="20260111-beispiel_wahr_falsch_aufgabe_beantworten_f5369c3c306604062c3f5d018379f4c3115a74a7.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/ae02e38a0ed40d2552cd.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-keine Lösung besitzt.<br />
+zu denken und zu bemerken, dass dann das Gleichungssystem
 </p>
-</div>
-</div>
-<div id="outline-container-org6daf078" class="outline-3">
-<h3 id="org6daf078">systematischere Überlegung</h3>
-<div class="outline-text-3" id="text-org6daf078">
+
+<div class="math-block">\begin{align*}
+0 \cdot x_1 + ... + 0 \cdot x_n = 1
+\end{align*}</div>
 <p>
-Alternativ kann man folgendes Überlegen:<br />
-Ein solches lineares Gleichungssystem ist äquivalent zu einer Matrix <img src="ltximg/20260111-beispiel_wahr_falsch_aufgabe_beantworten_1de6b871e17d685d33b17d5126d2c6a79950e1f9.svg" alt="20260111-beispiel_wahr_falsch_aufgabe_beantworten_1de6b871e17d685d33b17d5126d2c6a79950e1f9.svg" class="org-svg" /> oder einem VR-Homomorphismus <img src="ltximg/20260111-beispiel_wahr_falsch_aufgabe_beantworten_df949f107f873c2e8ec8c80f21442781995005c4.svg" alt="20260111-beispiel_wahr_falsch_aufgabe_beantworten_df949f107f873c2e8ec8c80f21442781995005c4.svg" class="org-svg" />.<br />
-Das Gleichungssystem hat immer eine Lösung, wenn <img src="ltximg/20260111-beispiel_wahr_falsch_aufgabe_beantworten_94fca49c5ae97678e07a79c290f47022a7c2da30.svg" alt="20260111-beispiel_wahr_falsch_aufgabe_beantworten_94fca49c5ae97678e07a79c290f47022a7c2da30.svg" class="org-svg" /> surjektiv ist bzw. äquivalent <img src="ltximg/20260111-beispiel_wahr_falsch_aufgabe_beantworten_3ef7e4046e07fad35a73c4678cdc459b3c7683a8.svg" alt="20260111-beispiel_wahr_falsch_aufgabe_beantworten_3ef7e4046e07fad35a73c4678cdc459b3c7683a8.svg" class="org-svg" />.<br />
-Der Rangsatz zeigt, <img src="ltximg/20260111-beispiel_wahr_falsch_aufgabe_beantworten_9e143d02ee8b7d2cd9f67680d4882dac1f105110.svg" alt="20260111-beispiel_wahr_falsch_aufgabe_beantworten_9e143d02ee8b7d2cd9f67680d4882dac1f105110.svg" class="org-svg" />, d.h. <img src="ltximg/20260111-beispiel_wahr_falsch_aufgabe_beantworten_db855f417decc4d45eb317e61dc2918b169ee7ce.svg" alt="20260111-beispiel_wahr_falsch_aufgabe_beantworten_db855f417decc4d45eb317e61dc2918b169ee7ce.svg" class="org-svg" /> gdw. <img src="ltximg/20260111-beispiel_wahr_falsch_aufgabe_beantworten_90f71fb4affba8408be29987a85360f1eee3329f.svg" alt="20260111-beispiel_wahr_falsch_aufgabe_beantworten_90f71fb4affba8408be29987a85360f1eee3329f.svg" class="org-svg" />.<br />
-Also um ein Gegenbeispiel zu finden, muss zwingend <img src="ltximg/20260111-beispiel_wahr_falsch_aufgabe_beantworten_4ad03dbf39ce0342361672da437d7cdfb8dffed2.svg" alt="20260111-beispiel_wahr_falsch_aufgabe_beantworten_4ad03dbf39ce0342361672da437d7cdfb8dffed2.svg" class="org-svg" /> gelten.<br />
-Dann erfüllt die Nullmatrix das.<br />
+keine Lösung besitzt.
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2026-01-11 So 13:35</p>
+
+
+<h3 id="systematischere-uberlegung">systematischere Überlegung</h3>
+<p>
+Alternativ kann man folgendes Überlegen:
+Ein solches lineares Gleichungssystem ist äquivalent zu einer Matrix $A \in K^{1 \times n}$ oder einem VR-Homomorphismus $\varphi: K^n \rightarrow K$.
+Das Gleichungssystem hat immer eine Lösung, wenn $\varphi$ surjektiv ist bzw. äquivalent $\mathrm{dim}(\mathrm{im}(\varphi)) = \mathrm{dim}(K) = 1$.
+Der Rangsatz zeigt, $n = \mathrm{dim}(K^n) = \mathrm{dim}(\mathrm{im}(\varphi)) + \mathrm{dim}(\mathrm{ker}(\varphi))$, d.h. $\mathrm{dim}(\mathrm{im}(\varphi)) = 1$ gdw. $\mathrm{dim}(\mathrm{ker}(\varphi)) &lt; n$.
+Also um ein Gegenbeispiel zu finden, muss zwingend $\mathrm{dim}(\mathrm{ker}(\varphi)) = n$ gelten.
+Dann erfüllt die Nullmatrix das.
+</p>
+
 </div>
 </body>
 </html>

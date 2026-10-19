@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>right exact functor determined by projective objects</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-cabf29d8-a205-4d6f-9980-2fb1dcfb13b0"></span><h1 class="title">right exact functor determined by projective objects</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathcal{A}, \mathcal{B}$ be <a href="20230827-abelian_category.html#ID-9003af72-f684-4897-b096-c1d8a681c624">abelian</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">categories</a>, where $\mathcal{A}$ admits <a href="20231212-enough_projectives.html#ID-8699327b-1cf6-41fc-9eda-522460057625">enough projectives</a>.
+Then an <a href="20230903-right_exact_functor.html#ID-9af3df51-d300-4ca2-b340-8ac92cdd3fca">right exact functor</a> $\mathcal{F}: \mathcal{A} \rightarrow \mathcal{B}$ is uniquely determined up to <a href="20230404122456-natural_isomorphism.html#ID-0977f626-bc15-4197-93bd-092d014c8270">natural isomorphism</a> by the <a href="20230225184516-volle_unterkategorie.html#ID-02c96fc8-ac4f-42b6-804d-bc08d25bfb2a">full subcategory</a> of <a href="20230727-projective_object.html#ID-605bb0c6-3cb5-44d6-bb3e-660f0fef14d1">projective objects</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="object">object</h3>
+<p>
+Let $M \in \mathrm{Ob}(\mathcal{A})$ an object.
+Then by <a href="20240319-projective_resolution_and_enough_projcetives.html#ID-bbe0761b-5f20-4262-b2e1-23bca04be256">projective resolution and enough projectives</a> we get
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/7a442e735b21462c4a92.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+and hence we get
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{F}(M) \cong&amp; \mathcal{F}(\mathrm{coker}(P_0 \rightarrow P_1)) \\
+\cong&amp; \mathrm{coker}(\mathcal{F}(P_0) \rightarrow \mathcal{F}(P_1))
+\end{align*}</div>
+<p>
+where the first isomorphism follows from the remark above and the second isomorphism as $\mathcal{F}$ is right exact
+</p>
+
+<h3 id="morphism">morphism</h3>
+<p>
+Let $f: M \rightarrow N$.
+Then by <a href="20240808-enoug_projectives_in_an_abelian_category_and_morphism_as_cokernel_of_projectives.html#ID-7f8a6267-9cb2-4581-bb3e-2da4304328f2">enoug projectives in an abelian category and morphism as zeroth homology of a projective resolution</a> we get
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/763ae427250347ae00c4.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+with
+</p>
+
+<div class="math-block">\begin{align*}
+f = \mathrm{coker}((P_1 \rightarrow P_0) \rightarrow (Q_1 \rightarrow Q_0))
+\end{align*}</div>
+<p>
+as induced morphism.
+</p>
+
+<p>
+Thus
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{F}(f) =&amp; \mathcal{F}(\mathrm{coker}((P_1 \rightarrow P_0) \rightarrow (Q_1 \rightarrow Q_0)) \\
+\cong \mathrm{coker}((\mathcal{F}(P_1) \rightarrow \mathrm{coker}(P_0)) \rightarrow \mathcal{F}(Q_1) \rightarrow \mathcal{F}(Q_0))
+\end{align*}</div>
+<p>
+as
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/01e2861ab1587352edde.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+where $\mathcal{F}(f)$ satisfies the universal property, hence $h = \mathcal{F}(f)$ by uniqueness of the induced morphism.
+</p>
+
+<h3 id="naturality">naturality</h3>
+<ul>
+<li>todo</li>
+<ul>
+<li>argue with naturality of $\mathcal{F}(M) \cong \mathrm{coker}(P_1 \rightarrow P_0)$</li>
+</ul></ul>
+</div>
+</body>
+</html>

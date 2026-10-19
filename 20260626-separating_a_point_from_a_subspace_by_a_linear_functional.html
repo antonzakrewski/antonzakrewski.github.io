@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>separating a point from a subspace by a linear functional</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-cb629a03-9b89-4d01-9a7b-ab4c1826938e"></span><h1 class="title">separating a point from a subspace by a linear functional</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X$ be a <a href="20221005101046-normierter_vektorraum.html#ID-2ba5953b-83c1-4e4f-8a82-198c6bbbd76a">normed vector space</a> and $Z \subseteq X$ a subspace.
+Let $x_0 \in X \setminus Z$ with $\mathrm{dist}(x,Z) &gt; 0$, then there exists some $f \in X^*$ such that
+</p>
+<ol>
+<li>$f_{\vert Z} = 0$</li>
+
+<li>$f(x_0) = d$</li>
+
+<li>$\| f \| = 1$    </li>
+</ol>
+<h2 id="proof">Proof</h2>
+<p>
+Let $\overline{Z}$ be the <a href="20230222175426-abschluss_in_einer_topologie.html#ID-9134c61c-5ec6-4cd6-8928-9ef53b6bfd37">closure</a> of $X$, which is a closed subspace.
+Then $x_0 \not\in \overline{Z}$, as $\mathrm{dist}(x_0,Z)$ and hence $\overline{Z} \neq X$.
+</p>
+
+<p>
+Now by <a href="20260627-linear_functional_taking_norm_and_operatornorm_1.html#ID-af26dda1-16a7-4445-a7e3-ac304e02dc6b">linear functional taking norm and operatornorm 1</a> there exists a linear functional $X/\overline{Z} \rightarrow \mathbb{K}$ which maps $x_0 + \overline{Z} \mapsto \| x + \overline{Z}\| = d$.
+then precompose with the <a href="20260628-quotient_of_a_normed_vector_space_is_a_normed_vector_space.html#ID-3f6eda04-b26d-4037-9aeb-affdc3b6dc1b">quotient map</a> $X \rightarrow X/Z$ and obtain a map $f: X \rightarrow \mathbb{K}$ which satsfies $f(x_0) = d$ and $f(Z) = 0$.
+</p>
+
+<p>
+So it remains to show $\| f \| = 1$.
+</p>
+
+<h3 id="f-leq-1">$\|f \| \leq 1$</h3>
+<p>
+this follows from <a href="20230228231954-submultiplikativitat_der_operatornorm.html#ID-dea4b307-6220-4898-96be-5abc26683982">Submultiplikativität der Operatornorm</a>
+</p>
+
+<h3 id="f-geq-1">$\|f \| \geq 1$</h3>
+<p>
+choose a sequence $z_n$ such that $\|x - z_n \| \rightarrow d$ (with $\| x - z_n \| &gt; 0$).
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+\lim_{n \rightarrow \infty} \frac{\| f(x - z_n) \|}{\| x - z_n \|} = \frac{d}{\lim_{n \rightarrow \infty} \| x - z_n \|} = \frac{d}{d} = 1
+\end{align*}</div>
+
+<p>
+This shows $\| f \| = \mathrm{sup}_{x \in X} \frac{\| f(x) \|}{\| x \|} \geq 1$.
+</p>
+
+
+
+
+</div>
+</body>
+</html>

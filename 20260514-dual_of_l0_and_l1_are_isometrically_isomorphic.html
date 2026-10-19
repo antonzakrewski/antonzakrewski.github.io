@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>dual of l0 and l1 are isometrically isomorphic</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-559b2209-10b0-4a02-b769-2cb38e2f8603"></span><h1 class="title">dual of l0 and l1 are isometrically isomorphic</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+There exists an <a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">bijective</a>, linear <a href="20221209134652-isometrie_metrischer_raum.html#ID-897a11a6-874c-4734-9d2b-7bf717ba7867">isometry</a> $l_0^* \rightarrow (l^{\infty})^{*}$.
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+We define
+</p>
+
+<div class="math-block">\begin{align*}
+l_0^{*} \rightarrow&amp; l^1 \\
+f \mapsto&amp; (f(e_n))_{n \in \mathbb{N}}
+\end{align*}</div>
+
+<p>
+observe that this map is linear as it is linear in each component.
+So it remains to show that this map is an isometric embedding and surjective (and hence a bijection, as isometries are injective).
+</p>
+
+<h3 id="isometry">isometry</h3>
+<p>
+we define $y_n = \sum_{i=1}^n e_n$
+observe that $\| f \| \geq \frac{f(y_n)}{\| y_n \|_{\infty}} = \frac{\sum_{l=1}^n f(e_l)}{1}$.
+Hence passing to limits $n \rightarrow \infty$ shows
+</p>
+
+<div class="math-block">\begin{align*}
+\| f \| \geq \frac{f(e_n)}{\| y_n \|_{\infty}} = \frac{\sum_{l=1}^\infty f(e_l)}{1} = \| (f(e_n))_{n \in \mathbb{N}} \|_1
+\end{align*}</div>
+<p>
+which in paritcular shows that $\| (f(e_n))_{n \in \mathbb{N}} \|_1 &lt; \infty$ or $(f(e_n)) \in l^1$.
+Now it remains to show $\|(f(e_n))_{n \in \mathbb{N}} \|_{1} \geq \| f\|$.
+Let $(x_n) = \sum_{i=1}^{\infty} x_i e_i \in l_0 \setminus \{0\}$, then we need to show that $\frac{\| f(x_n) \|}{\| x_n \|} \leq \|(f(e_n))_{n \in \mathbb{N}} \|_{1}$ and then passing to $\mathrm{sup}$ shows the claim above.
+Here we use
+</p>
+
+<div class="math-block">\begin{align*}
+\|f(x_n) \|_1 =&amp; \| f(\sum_{i=1}^{\infty} x_i e_i) \|_1 \\
+=&amp; \sum_{i=1}^{\infty} \vert x_i f(e_i) \vert \\
+\leq&amp; \sum_{i=1}^{\infty} \mathrm{sup}_{n \in \mathbb{N}} \vert x_i \vert \cdot \vert f(e_i) \vert \\
+=&amp; \| (x_n) \|_{\infty} \cdot \| (f(e_n))_{n \in \mathbb{N}} \|_{1}
+\end{align*}</div>
+<p>
+where we have used that $f$ is continuous (as it is bounded).
+In particular, the last line shows $\frac{\| f(x_n) \|}{\| x_n \|} \leq \|(f(e_n))_{n \in \mathbb{N}} \|_{1}$ as we wanted.
+</p>
+
+<h3 id="surjective">surjective</h3>
+<p>
+Let $(x_n) \in l^1$, then we define $f \in l_0^*$ by
+</p>
+
+<div class="math-block">\begin{align*}
+f: \mathrm{span}(e_n) \rightarrow&amp; \mathbb{K} \\
+e_n \mapsto&amp; x_n
+\end{align*}</div>
+
+<p>
+Observe that this $f$ is is bounded for $\|f \| \leq \mathrm{sup}(x_n) &lt; \| x_n \|$
+</p>
+
+<p>
+Then the <a href="20260510-bounded_linear_extension_theorem.html#ID-e95e9978-e25f-444f-968f-a92212b4a4da">bounded linear extension theorem</a> shows that this function extends to a bounded linear function $\tilde{f}: l_0 \rightarrow \mathbb{K}$, since $e_n$ is a schauder basis, so in particular $\mathrm{span}(e_n)$ is dense in $l_0$.
+Moreover, by construction, this $\tilde{f}$ maps to $x_n$.
+</p>
+
+
+
+</div>
+</body>
+</html>

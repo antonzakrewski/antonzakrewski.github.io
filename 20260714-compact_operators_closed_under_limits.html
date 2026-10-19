@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>compact operators closed under uniform convergence</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-ccfe6e5b-ba80-4384-982f-c2ad5d744e84"></span><h1 class="title">compact operators closed under uniform convergence</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $T_n \in \mathrm{BL}(X,Y)$ be a sequence of <a href="20260509-compact_operator.html#ID-eff9525d-2e92-42ce-acaa-8674b0f4f80a">compact operators</a> such that $\| T_n - T \| \xrightarrow{n \rightarrow \infty} 0$ for some operator $T$.
+Then $T$ is compact.
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $(x_k)$ be a bounded sequence, <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> after possibly scaling with $\frac{1}{\mathrm{sup} \| x_k \|}$ we may assume that $\| x_k \| \leq 1$.
+Then for all $n \in \mathbb{N}$, $T_n$ is a compact operator, hence there exists a <a href="20220105223523-fundamental_folge.html#ID-45b890ea-39cc-4f8c-bf97-4de5c09d772a">Cauchy</a> subsequence $T_n(x_{m_k}^(n))$ of $T_{n}(x_k)$.
+</p>
+
+<p>
+Let $\varepsilon &gt; 0$, then there exists an index $n \in \mathbb{N}$ such that $\| T - T_n \| &lt; \frac{\varepsilon}{3}$.
+Now fix such an $n$, then there exists a $K \in \mathbb{N}$ scuh that $\| T_n(x_{m_k}^n) - T_{n}(x_{m_{k'}^{(n)}) \| &lt; \frac{\varepsilon}{3}$.
+</p>
+
+<p>
+Now use the triangle inequality
+</p>
+
+<div class="math-block">\begin{align*}
+\| T(x_{m_k}^{(n)}) - T(x_{m_{k'}}^{(n)})\| \leq&amp; \| T(x_{m_k}^{(n)}) - T_n(x_{m_{k}}^{(n)})\| + \| T_n(x_{m_k}^{(n)}) - T_n(x_{m_{k'}}^{(n)})\| + \| T_n(x_{m_k}^{(n)}) - T_n(x_{m_{k'}}^{(n)})\| \\
+\leq&amp; \| T - T_n \| \cdot \| x_{m_{k}^{(n)} \| + \frac{\varepsilon}{3} + \| T - T_n \| \| x_{m_{k'}^{(n)} \|  \\
+&lt;&amp; \frac{\varepsilon}{3} + \frac{\varepsilon}{3} + \frac{\varepsilon}{3} \\
+&lt;&amp; \varepsilon
+\end{align*}</div>
+<p>
+where we have used $\| x_{m_{k}^{(n)} \|, \| x_{m_{k'}^{(n)} \| \leq 1$
+</p>
+
+
+</div>
+</body>
+</html>

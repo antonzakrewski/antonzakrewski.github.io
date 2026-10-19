@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>gustavs genius computation of RP infinity</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-8fabc10b-983e-430b-8759-2b59a35be687"></span><h1 class="title">gustavs genius computation of RP infinity</h1>
+
+<h2 id="steps">Steps</h2>
+
+<h3 id="a">a)</h3>
+<ol>
+<li>we have a fiber sequence in $\mathcal{D}(\mathbb{F}_2[C_2])$</li>
+</ol>
+<div class="equation-container"><span class="equation"><img src="ltximg/4b1c34b18f788e43561b.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+where $\mathbb{F}_2$ has the trivial action, i.e. $C_2$ acting trivially (by the identity).
+</p>
+
+<ol>
+<li>we have $\mathbb{F}_2$ with the trivial action and a <a href="20241022-fiber_of_an_infinity_morphism.html#ID-315c0bce-7cf8-468b-9149-1e254debcf95">fiber</a> sequence</li>
+</ol>
+<div class="equation-container"><span class="equation"><img src="ltximg/0f4bb59737822ed6b9e6.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+for group homology, group cohomology and tate construction.
+Todo: link identification of group homology/cohomology and classifiyng space
+</p>
+
+<ol>
+<li>by connectivity reasons of homology / cohomology (lives in nonnegative/nonpositive degrees) we can cut out <a href="20230722-short_exact_sequence.html#ID-7b01038e-f4c1-4e1e-ad52-a0c6a18008f3">short exact sequences</a> (after rotating)</li>
+</ol>
+<div class="equation-container"><span class="equation"><img src="ltximg/d771f4e055ed6cf44c65.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+where we have consistently used homological indexing.
+</p>
+
+<ol>
+<li>low computations show</li>
+</ol>
+<div class="math-block">\begin{align*}
+H_0(\mathbb{R}\mathbb{P}^\infty, \mathbb{F}_2) \cong&amp; H^0(\mathbb{R}\mathbb{P}^\infty, \mathbb{F}_2) \cong \mathbb{F}_2 \\
+H_1(\mathbb{R}\mathbb{P}^\infty, \mathbb{F}_2) \cong&amp; \mathbb{F}_2 \\
+H^1(\mathbb{R}\mathbb{P}^{\infty}, \mathbb{F}_2) \cong&amp; 0 
+\end{align*}</div>
+<p>
+using <a href="20230902-universal_coefficient_theorem.html#ID-11130c15-b23a-4605-b1c5-6446ab0b5ae3">universal coefficient Theorem for cohomology</a> / <a href="20241021-absolute_hurewicz_theorem.html#ID-bea99a77-baab-48ac-9998-3f7defd490c6">Hurewicz theorem</a>
+</p>
+
+<p>
+in particular, $\mathrm{Ext}^1_{\mathbb{F}_2[C_2]}(\mathbb{F}_2,\mathbb{F}_2) \cong H^1(\mathbb{R}\mathbb{P}^{\infty}, \mathbb{F}_2) \cong \mathbb{F}_2$ shows that there exists a nontrivial extension
+We can write down
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{F}_2 \rightarrow \mathbb{F}_2[C_2] \rightarrow \mathbb{F}_2
+\end{align*}</div>
+<p>
+as nontrivial extension.
+</p>
+
+<ol>
+<li>Let $t \in \pi_{-1}(\mathbb{F}_2^{t C_2})$ be the nontrivial element. We want to show that multiplication with $t$ is an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a> on the tate construction (i.e. the tate constrution is a laurent ring).</li>
+</ol>
+<p>
+here we may use &lt;todo&gt; naturality + symmetric monoidalness (etc.) that is multiplication with $t$ is given by applying the tate construction to the <a href="20241022-fiber_of_an_infinity_morphism.html#ID-315c0bce-7cf8-468b-9149-1e254debcf95">fiber</a> sequence (classified by the extenison)
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+\mathbb{F}_2[C_2] \rar &amp; \mathbb{F}_2 \rar{\cdot t} &amp; \mathbb{F}_2[1] \\
+\mathbb{F}_2[C_2]^{tC_2} \rar &amp; \mathbb{F}_2^{tC_2} \rar{\cdot t} &amp; \mathbb{F}_2[1]^{tC_2} \\
+0 \dar{\cong} &amp; &amp; \\
+\end{tikzcd}
+\end{displaymath}</pre></div>
+<p>
+tate construction is an exact functor and $\mathbb{F}_2[C_2]^{tC_2}$ vanishes.
+</p>
+
+<ol>
+<li>this shows that multiplication with $t$ is an equivalence, going through degrees calculates $H_*(\mathbb{R}\mathbb{P}^{\infty},\mathbb{F}_2), H^*(\mathbb{R}\mathbb{P}^{\infty},\mathbb{F}_2)$</li>
+</ol>
+<h3 id="b">b)</h3>
+<p>
+use topology exercise sheet 14, to show that $H_*(\mathbb{R}\mathbb{P}^{\infty}, \mathbb{F}_p), H_*(\mathbb{R}\mathbb{P}^{\infty}, \mathbb{F}_p)$ vanishes
+</p>
+
+<p>
+in other words: $\mathbb{F}_p$ is projective over $\mathbb{F}_p[C_2]$
+</p>
+
+<h3 id="c">c)</h3>
+<p>
+compute:
+</p>
+
+<div class="math-block">\begin{align*}
+H_*(\mathbb{R}\mathbb{P}^{\infty}, \mathbb{Z}/2^n)
+\end{align*}</div>
+
+<p>
+need to show that $H_*(\mathbb{R}\mathbb{P}^{\infty}, \mathbb{Z}/2^n) \rightarrow H_*(\mathbb{R}\mathbb{P}^{\infty}, \mathbb{Z}/2)$ is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a> ?
+</p>
+
+
+
+<h2 id="second-attempt">second attempt</h2>
+<p>
+Use the long exact sequence
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/ad2424ff665b2596ef91.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+which classifies an extension - i.e. an element in $\mathrm{Ext}^2_{\mathbb{Z}[C_2]}(\mathbb{Z}^{\mathrm{sign}}, \mathbb{Z}^{\mathrm{sign}})$.
+It is nontrivial, as it is given by $t^2$ in $H^*(\mathbb{R}\mathbb{P}^{\infty}, \mathbb{F}_2)$ after tensoring with $\mathbb{F}_2$.
+</p>
+
+<p>
+Then apply the tate construction and use vanishing of $(\mathbb{Z}^{\mathrm{sign}})^{tC_2}$.
+</p>
+
+<p>
+This shows $(\mathbb{Z}^{\mathrm{sign}})^{tC_2} \cong \mathbb{F}_2[t]$
+</p>
+
+
+<p>
+have some sequence $\mathbb{Z}^{\mathrm{sign}} \rightarrow \mathbb{Z}[C_2] \rightarrow \mathbb{Z}$ and then
+</p>
+
+<div class="math-block">\begin{align*}
+(\mathbb{Z}^{\mathrm{sgn}})_{hC_2} \rightarrow \mathbb{Z} \rightarrow \mathbb{Z}_{hC_2}
+\end{align*}</div>
+
+
+
+
+<h2 id="useful-case">useful case</h2>
+<ul>
+<li>resolve group homology / group cohomology</li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>bounded hom of normed spaces is a normed space</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-8f4a1efa-6661-463e-a7db-67f3fd180fc3"></span><h1 class="title">bounded hom of normed spaces is a normed space</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X, Y$ be <a href="20221005101046-normierter_vektorraum.html#ID-2ba5953b-83c1-4e4f-8a82-198c6bbbd76a">normed vector spaces</a>, then
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{BL}(X,Y) \coloneqq \{T: X \rightarrow Y \vert \text{linear and bounded}\}
+\end{align*}</div>
+<p>
+is also a <a href="20221005101046-normierter_vektorraum.html#ID-2ba5953b-83c1-4e4f-8a82-198c6bbbd76a">normed vector space</a> with respect to the <a href="20230228183044-operatornorm_als_echte_norm.html#ID-ee5d7893-af98-4807-8118-00bde790b509">Operator norm</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="well-defined">well-defined</h3>
+<p>
+follows from boundedness of $T$
+</p>
+
+<h3 id="t-geq-0">$\| T \| \geq 0$</h3>
+<p>
+Follows as the operator norm is the supremum of nonnegative numbers
+</p>
+
+<h3 id="t-0-ida1245369-4879-458c-aec3-e2905bfa6306if-and-only-if-t-0">$\| T \| = 0$ <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a>  $T = 0$</h3>
+<p>
+observe that $\mathrm{sup}_{\| x \| = 1} \frac{\| T(x) \|}{\| x \|}$ is zero <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a>  $\| T(x) \| = 0$ for all $x$ and as $\| - \|$ is a norm on $Y$ we may conclude that $\| T(x) \| = 0$ if and only if $T(x) = 0$.
+</p>
+
+<h3 id="triangle-inequality">triangle inequality</h3>
+<p>
+Let $T_1,T_2 \in \mathrm{BL}(X,Y)$ and (for now) assume that $T_1 + T_2 \in \mathrm{BL}(X,Y)$.
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+\| T_1 + T_2 \| \coloneqq&amp; \mathrm{sup}_{\| x \| = 1} \frac{\| T_1(x) + T_2(x) \|}{\| x \|}  \\
+\leq&amp; \mathrm{sup}_{\| x_1 \| = 1} \frac{\| T_1(x_1) \|}{\| x_1 \|} + \mathrm{sup}_{\| x_2 \| = 1} \frac{\| T_2(x_2) \|}{\| x_2 \|}  \\
+=&amp;\| T_1 \| + \| T_2\|
+\end{align*}</div>
+
+<h3 id="scalar">scalar</h3>
+<p>
+Let $T_1 \in \mathrm{BL}(X,Y), \lambda \in \mathbb{K}$ and (for now) assume that $\lambda T_1 \in \mathrm{BL}(X,Y)$.
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+\| \lambda T \| \coloneqq&amp; \mathrm{sup}_{\| x \| = 1} \frac{\| \lambda T(x) \|}{\| x \|} \\
+=&amp; \lambda \cdot \mathrm{sup}_{\| x \| = 1} \frac{\| T(x) \|}{\| x \|} \\
+=&amp; \lambda \cdot \| T \|
+\end{align*}</div>
+
+<h3 id="well-defined-vector-space">well-defined vector space</h3>
+<p>
+Observe that it is a subset of $\mathrm{Hom}<span class="underline">{\mathrm{Vect}</span>{\mathbb{K}}}()
+now this follows immediately from the triangle inequality and the scalar multiplication:
+the (pointwies) addition / scalar multiplication of bounded linear operators is closed
+</p>
+
+<p>
+Alternatively we use <a href="20260510-equivalent_characterization_of_a_bounded_continuous_operator.html#ID-9212207d-51e9-4ec1-9985-82a3e7791243">equivalent characterization of a bounded/continuous operators</a> and get $T_1 + \lambda T_2$ as composition
+</p>
+
+
+<div class="equation-container"><span class="equation"><img src="ltximg/f5a195cbbbcce8c78a08.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+where we use that scalar multiplication &amp; addition is continuous on $Y$.
+</p>
+
+
+</div>
+</body>
+</html>

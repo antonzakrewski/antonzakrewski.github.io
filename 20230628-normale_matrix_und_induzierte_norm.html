@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 15:10 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>normaler Endomorphismus und Norm</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,44 +52,37 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">normaler Endomorphismus und Norm</h1>
-<div id="outline-container-org57afc1d" class="outline-2">
-<h2 id="org57afc1d"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-2bbd9b5a-a941-44fa-9a59-7bdeb4b601ee"></span><h1 class="title">normaler Endomorphismus und Norm</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \((V, \langle \cdot\rangle)\) ein <a href="20230105092710-prahilbertraum.html#ID-c83705a9-fdd0-441f-b0a3-116c78ef7c7b">Prähilbertraum</a> und \(A\) eine <a href="20230628-normale_lineare_abbildung.html#ID-65c583bb-3ab5-4fc0-bfdf-786dfad782df">normale lineare Abbildung</a>.
-Dann gilt für die <a href="20230223222320-von_einem_skalarprodukt_induzierte_norm.html#ID-be00afe0-7e89-4842-838a-8943b323920c">vom Skalarprodukt induzierte Norm</a> \(\| v \| = \sqrt{ \langle v, v\rangle}\):
+Sei $(V, \langle \cdot\rangle)$ ein <a href="20230105092710-prahilbertraum.html#ID-c83705a9-fdd0-441f-b0a3-116c78ef7c7b">Prähilbertraum</a> und $A$ eine <a href="20230628-normale_lineare_abbildung.html#ID-65c583bb-3ab5-4fc0-bfdf-786dfad782df">normale lineare Abbildung</a>.
+Dann gilt für die <a href="20230223222320-von_einem_skalarprodukt_induzierte_norm.html#ID-be00afe0-7e89-4842-838a-8943b323920c">vom Skalarprodukt induzierte Norm</a> $\| v \| = \sqrt{ \langle v, v\rangle}$:
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \| A v \| = \| A^* v \|
-\end{align*}
+\end{align*}</div>
 <p>
-siehe: <a href="20230623-adjungierte_abbildung.html#ID-056e5a29-654d-4425-9266-70839a36a082">Adjungierte Abbildung</a> 
+siehe: <a href="20230623-adjungierte_abbildung.html#ID-056e5a29-654d-4425-9266-70839a36a082">Adjungierte Abbildung</a>
 </p>
-</div>
-</div>
-<div id="outline-container-org7be9609" class="outline-2">
-<h2 id="org7be9609"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<h2 id="beweis">Beweis</h2>
 <p>
-Es gilt nach Definition und der <a href="20221030153017-positiv_definit_des_skalarprodukt.html#ID-3d15453c-97da-4a6a-b4c4-d39b7f76d913">Positiven Definitheit eines Skalarprodukts</a>, d.h. \(\langle A^*v, A^* \rangle \in \mathbb{R}^+\) bzw. \(\overline{ \langle A^*v, A^* \rangle} =  \langle A^*v, A^* \rangle\)
+Es gilt nach Definition und der <a href="20221030153017-positiv_definit_des_skalarprodukt.html#ID-3d15453c-97da-4a6a-b4c4-d39b7f76d913">Positiven Definitheit eines Skalarprodukts</a>, d.h. $\langle A^*v, A^* \rangle \in \mathbb{R}^+$ bzw. $\overline{ \langle A^*v, A^* \rangle} =  \langle A^*v, A^* \rangle$
 </p>
-\begin{align*}
-\| A v \|^2 =& \langle Av, Av\rangle \\
-=& \langle v, A^* A v\rangle \\
-=& \langle v, A A^{*} v \rangle \\
-=& \overline{\langle A A^* v, v \rangle} \\
-=& \overline{\langle A^* v, A^* v \rangle} \\
-=& \langle A^* v, A^* v\rangle \\
-=& \| A^* v \|
-\end{align*}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 15:10</p>
+
+<div class="math-block">\begin{align*}
+\| A v \|^2 =&amp; \langle Av, Av\rangle \\
+=&amp; \langle v, A^* A v\rangle \\
+=&amp; \langle v, A A^{*} v \rangle \\
+=&amp; \overline{\langle A A^* v, v \rangle} \\
+=&amp; \overline{\langle A^* v, A^* v \rangle} \\
+=&amp; \langle A^* v, A^* v\rangle \\
+=&amp; \| A^* v \|
+\end{align*}</div>
+
+
 </div>
 </body>
 </html>

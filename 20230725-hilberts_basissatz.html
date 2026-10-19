@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 15:24 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Hilbert's basis theorem</title>
+<title>Hilbert&#x27;s basis theorem</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,89 +52,78 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Hilbert's basis theorem</h1>
-<div id="outline-container-org29d2af2" class="outline-2">
-<h2 id="org29d2af2"><span class="section-number-2">1.</span> Proposition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-bafb9d38-4685-49aa-ae07-dd401c3ab8ba"></span><h1 class="title">Hilbert&#x27;s basis theorem</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let \(A\) be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a>.
+Let $A$ be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a>.
 <a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
 </p>
-<ol class="org-ol">
-<li>\(A\) is a <a href="20230725-noetherian_ring.html#ID-3bc5f76d-9774-4046-b432-697db6e9f77b">noetherian ring</a></li>
-<li>\(A[X_1,...,X_n]\) is <a href="20230725-noetherian_ring.html#ID-3bc5f76d-9774-4046-b432-697db6e9f77b">noetherian</a>.</li>
+<ol>
+<li>$A$ is a <a href="20230725-noetherian_ring.html#ID-3bc5f76d-9774-4046-b432-697db6e9f77b">noetherian ring</a></li>
+
+<li>$A[X_1,...,X_n]$ is <a href="20230725-noetherian_ring.html#ID-3bc5f76d-9774-4046-b432-697db6e9f77b">noetherian</a>.</li>
 </ol>
-</div>
-</div>
-<div id="outline-container-orgbd62cca" class="outline-2">
-<h2 id="orgbd62cca"><span class="section-number-2">2.</span> Proof</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org9df9d91" class="outline-3">
-<h3 id="org9df9d91"><span class="section-number-3">2.1.</span> 1) \(\implies\) 2)</h3>
-<div class="outline-text-3" id="text-2-1">
+<h2 id="proof">Proof</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
 <p>
-<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> for \(A[X]\), the general case follows from induction and <a href="20230731-polynomialring_in_multiple_variables_and_inductive_construction.html#ID-91984701-b039-47a2-acb1-e2400c89a819">polynomialring in multiple variables and inductive construction</a> 
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> for $A[X]$, the general case follows from induction and <a href="20230731-polynomialring_in_multiple_variables_and_inductive_construction.html#ID-91984701-b039-47a2-acb1-e2400c89a819">polynomialring in multiple variables and inductive construction</a>
 </p>
 
 <p>
-Let \(I \subseteq A[X]\) be an <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a>, then \(J_n \coloneqq \{\alpha \in A \vert \exists f \in I \vert f = \alpha X^n + \sum_{i=0}^{n-1} \beta_i X^i \}\) is an <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a> of \(A\) (see: <a href="20230731-leading_coefficients_as_ideal.html#ID-8126d0c4-add9-47e5-8efb-9546698cb21a">leading coefficients of an ideal as ideal</a>)
-Because of the <a href="20230731-inclusion_of_ideals_of_leading_coefficients.html#ID-303efc9c-c1ed-4917-b6e2-78854f2e8cde">inclusion of ideals of leading coefficients</a> $J<sub>0</sub> \subseteq J<sub>1</sub> \subseteq &#x2026;$ and since \(A\) is noetherian (see: <a href="20230725-equivalent_characterization_of_a_noetherian_ring.html#ID-c8eccefe-824f-4ca7-9541-69301b273409">equivalent characterization of a noetherian ring</a>) , there exists a \(J_m\) such that $J = J<sub>m+1</sub> = J<sub>m+2</sub> &#x2026;$.
-Furthermore each \(J_i\) is <a href="20230725-finitely_generated_ideal.html#ID-5991201d-b2b8-4c56-ab67-bd80dac44625">finitely generated</a> by \(\alpha_{i,1},...,\alpha_{i,n}\) (as \(A\) is a noetherian ring).
+Let $I \subseteq A[X]$ be an <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a>, then $J_n \coloneqq \{\alpha \in A \vert \exists f \in I \vert f = \alpha X^n + \sum_{i=0}^{n-1} \beta_i X^i \}$ is an <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a> of $A$ (see: <a href="20230731-leading_coefficients_as_ideal.html#ID-8126d0c4-add9-47e5-8efb-9546698cb21a">leading coefficients of an ideal as ideal</a>)
+Because of the <a href="20230731-inclusion_of_ideals_of_leading_coefficients.html#ID-303efc9c-c1ed-4917-b6e2-78854f2e8cde">inclusion of ideals of leading coefficients</a> $J_0 \subseteq J_1 \subseteq ...$ and since $A$ is noetherian (see: <a href="20230725-equivalent_characterization_of_a_noetherian_ring.html#ID-c8eccefe-824f-4ca7-9541-69301b273409">equivalent characterization of a noetherian ring</a>) , there exists a $J_m$ such that $J = J_{m+1} = J_{m+2} ...$.
+Furthermore each $J_i$ is <a href="20230725-finitely_generated_ideal.html#ID-5991201d-b2b8-4c56-ab67-bd80dac44625">finitely generated</a> by $\alpha_{i,1},...,\alpha_{i,n}$ (as $A$ is a noetherian ring).
 </p>
 
 <p>
-For each $&alpha;<sub>i,j</sub>$$ choose an element \(\beta_{i,j} = \alpha_{i,j} + \sum_{k=0,...,i-1} \lambda_{k} X^k\).
-Let \(G \coloneqq \{\beta_{i,j} \vert i \leq m, j \leq n\}\).
+For each $\alpha_{i,j}$ choose an element $\beta_{i,j} = \alpha_{i,j} + \sum_{k=0,...,i-1} \lambda_{k} X^k$.
+Let $G \coloneqq \{\beta_{i,j} \vert i \leq m, j \leq n\}$.
 </p>
 
 <p>
-Then it follows that \(\langle G\rangle = I\):
-Let \(\alpha X^n + \sum_{k=0}^{n-1} \lambda'_{k} \in I\).
-Then since \(\alpha \in J_n\) there exists an element of \(\sum \gamma_{i,j} \beta_{i,j} \in \langle G\rangle\) such that the leading coefficients agree.
+Then it follows that $\langle G\rangle = I$:
+Let $\alpha X^n + \sum_{k=0}^{n-1} \lambda'_{k} \in I$.
+Then since $\alpha \in J_n$ there exists an element of $\sum \gamma_{i,j} \beta_{i,j} \in \langle G\rangle$ such that the leading coefficients agree.
 </p>
 
 <p>
-Since \(G \subseteq I\) it follows that
+Since $G \subseteq I$ it follows that
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \alpha X^n + \sum_{k=0}^{n-1} \lambda'_k - \sum \gamma_{i,j} \beta_{i,j} \in I
-\end{align*}
+\end{align*}</div>
 
 <p>
-Furthermore 
+Furthermore
 </p>
-\begin{align*}
-\mathrm{deg}(\alpha X^n + \sum_{k=0}^{n-1} \lambda'_k - \sum \gamma_{i,j} \beta_{i,j}) < n
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\mathrm{deg}(\alpha X^n + \sum_{k=0}^{n-1} \lambda'_k - \sum \gamma_{i,j} \beta_{i,j}) &lt; n
+\end{align*}</div>
 
 <p>
-Therefore after iterating it remains to show that each \(\alpha \in I\) with \(\mathrm{deg}(\alpha) \leq 0\) is in \(\langle G\rangle\).
-Here the leading coefficient is precisely an element \(J_0\) and therefore generated by some \(\beta_{i,j}\)
+Therefore after iterating it remains to show that each $\alpha \in I$ with $\mathrm{deg}(\alpha) \leq 0$ is in $\langle G\rangle$.
+Here the leading coefficient is precisely an element $J_0$ and therefore generated by some $\beta_{i,j}$
 </p>
-</div>
-</div>
-<div id="outline-container-orge448e91" class="outline-3">
-<h3 id="orge448e91"><span class="section-number-3">2.2.</span> 2) \(\implies\) 1)</h3>
-<div class="outline-text-3" id="text-2-2">
+
+
+<h3 id="2-implies-1">2) $\implies$ 1)</h3>
 <p>
 follows from the <a href="20230301170300-ringepimorphismus.html#ID-0354f59c-3b74-4c1d-994a-74dffbfc0897">algebrabic ring-epimorphism</a>
 </p>
-\begin{align*}
-\varphi: A[X_1,...,X_n] \rightarrow& A \\
-X_i \mapsto& 0
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\varphi: A[X_1,...,X_n] \rightarrow&amp; A \\
+X_i \mapsto&amp; 0
+\end{align*}</div>
 <p>
-and <a href="20230810-image_of_a_noetherian_ring_as_noetherian_ring.html#ID-8a858c93-bb43-4659-a412-7a2185b5e8d0">image of a noetherian ring as noetherian ring</a> 
+and <a href="20230810-image_of_a_noetherian_ring_as_noetherian_ring.html#ID-8a858c93-bb43-4659-a412-7a2185b5e8d0">image of a noetherian ring as noetherian ring</a>
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 15:24</p>
+
+
 </div>
 </body>
 </html>

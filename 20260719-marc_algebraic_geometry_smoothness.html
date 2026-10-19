@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Marc - Algebraic Geometry - Smoothness</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-f018c139-45c0-4999-a6ad-9fa3a23da9b3"></span><h1 class="title">Marc - Algebraic Geometry - Smoothness</h1>
+
+<h2 id="section"></h2>
+<ul>
+<li><a href="20260908-projection_of_affine_spaces_is_smooth.html#ID-3020d050-0132-4d74-96cc-98652ad606f2">projection of affine spaces is smooth</a>  </li>
+</ul>
+<h2 id="91">9.1</h2>
+
+<h2 id="92">9.2</h2>
+
+<h2 id="93">9.3</h2>
+<ul>
+<li><a href="20260807-smooth_morphism_between_schemes.html#ID-ff5714e8-e1de-4ca2-8124-411e2989d136">smooth morphism between schemes</a> </li>
+
+<li><a href="20260807-unramified_morphism_between_schemes.html#ID-bc2dd506-1e4d-4520-9a65-eb0622913ed2">unramified morphism between schemes</a>   </li>
+
+<li><a href="20260807-etale_morphism_between_schemes.html#ID-26a23ea2-2c99-4026-abaa-3ae95f285c8d">etale morphism between schemes</a>   </li>
+</ul>
+<h2 id="94">9.4</h2>
+<ul>
+<li><a href="20260807-characterization_of_smoothness.html#ID-e2bf5851-cb4d-4c54-81a1-8cd4dec63614">characterization of smoothness</a> </li>
+</ul>
+<h2 id="95">9.5</h2>
+<ul>
+<li><a href="20260807-characterization_of_etaleness.html#ID-494fceaa-9b51-4214-83cf-753bc080df18">characterization of etaleness</a> </li>
+</ul>
+<h2 id="96">9.6</h2>
+<ul>
+<li><a href="20260807-characterization_of_unramifiedness.html#ID-3011e15f-1a45-445e-8491-60c816f98f26">characterization of unramifiedness</a> </li>
+</ul>
+<h2 id="97">9.7</h2>
+<ul>
+<li><a href="20260908-smooth_morphisms_are_closed_under_compositions.html#ID-752a63b7-b782-471d-9cf3-c2ce06a0c58a">smooth morphisms are closed under compositions</a> &amp; <a href="20260908-etale_morphisms_are_closed_under_composition.html#ID-dc678481-45b2-446e-b79c-e572c0e79ed8">etale morphisms are closed under composition</a> &amp; <a href="20260908-unramified_morphisms_are_closed_under_compositions.html#ID-fb668d77-d078-474d-9a79-5d859867815f">unramified morphisms are closed under compositions</a> </li>
+
+<li><a href="20260908-smooth_morphisms_are_closed_under_pullbacks.html#ID-c9dab202-a358-4bf7-8abc-ea14727a2f7c">smooth morphisms are closed under pullbacks</a> &amp; <a href="20260908-etale_morphisms_are_closed_under_pullbacks.html#ID-690f8f4f-4913-409c-8e86-a527eafcf70a">etale morphisms are closed under pullbacks</a>  &amp; <a href="20260908-unramified_morphisms_are_closed_under_pullbacks.html#ID-6d79e7ce-bdcc-4f54-8725-820b0d631f03">unramified morphisms are closed under pullbacks</a> </li>
+</ul>
+<ul>
+<li><a href="20260719-local_property_of_morphisms.html#ID-04463860-40bb-4fa7-b90f-9d71dcb838ec">local property of morphisms</a>   </li>
+
+<li><a href="20260908-smooth_morphism_is_a_local_property.html#ID-a5a5c102-d57c-4bfe-adc4-bf0175c289ed">smooth morphism is a local property</a> &amp; <a href="20260908-etale_morphism_is_a_local_property.html#ID-d2c137a3-d59f-441d-87ad-5246541d69cc">etale morphism is a local property</a> &amp; <a href="20260908-unramified_morphism_is_a_local_property.html#ID-2f127264-5b21-44ff-b840-c3afba8efa14">unramified morphism is a local property</a>   </li>
+</ul>
+<h2 id="98">9.8</h2>
+<ul>
+<li><a href="20260807-etale_morphisms_are_precisely_smooth_and_unramifield.html#ID-a0bac575-194e-46d7-a729-7f1df40cc0fc">etale morphisms are precisely smooth and unramified</a> </li>
+</ul>
+<h2 id="99">9.9</h2>
+<ul>
+<li><a href="20260807-immersions_are_etale.html#ID-da69d4f5-1dde-4194-b110-8212516bc6f3">immersions are unramified</a> </li>
+
+<li><a href="20260807-open_immersions_are_etale.html#ID-ad8e9a83-3fb3-4b48-84f4-1bd9f4470663">open immersions are etale</a> </li>
+</ul>
+<h2 id="910">9.10</h2>
+<ul>
+<li></li>
+</ul>
+<h2 id="911">9.11</h2>
+<ul>
+<li><a href="20260908-finite_separable_field_extension_is_eteale.html#ID-e742bbea-c224-408d-9b51-fc22aab0fb05">finite separable field extension is etale</a> </li>
+</ul>
+<h2 id="912">9.12</h2>
+<ul>
+<li><a href="20260907-smooth_morphism_and_etale_factorization.html#ID-8e715bb8-1c23-451c-86a8-b5e7bbdb6805">smooth morphism and etale factorization</a> </li>
+
+<li><a href="20260908-local_structure_of_unramified_maps.html#ID-1a769ca1-b24d-4272-834b-885d9eba9d1c">local structure of unramified maps</a>  </li>
+</ul>
+<h2 id="913">9.13</h2>
+<ul>
+<li><a href="20260807-r_derivation.html#ID-98fca24f-8393-4118-a18d-62a3728b0404">R-derivation</a> </li>
+</ul>
+<h2 id="914">9.14</h2>
+<ul>
+<li><a href="20260807-r_derivation_is_z_derivation_with_kernel.html#ID-889580d1-2dee-4d3a-beb2-9f06da886085">R-derivation is Z-derivation with kernel</a> </li>
+</ul>
+<h2 id="915">9.15</h2>
+<ul>
+<li><a href="20260807-square_zero_extension.html#ID-3f767211-5bc7-4eef-a488-f9cd095e56c0">square-zero extension</a> </li>
+
+<li><a href="20260807-derivations_are_sections_of_square_zero_extensions.html#ID-96950b25-7972-47c4-bd5e-77e1c2cd9ebb">derivations are sections of square-zero extensions</a></li>
+</ul>
+<h2 id="916">9.16</h2>
+<ul>
+<li><a href="20260807-cotangent_module.html#ID-ddb9f41c-9c58-4373-aa03-b42b3a5483fe">cotangent module</a> </li>
+
+<li><a href="20260831-differential_form_of_s_over_r.html#ID-bb1f7251-89f2-4eeb-ba52-6e0cc43007a8">differential form of S over R</a>   </li>
+</ul>
+<h2 id="917">9.17</h2>
+<ul>
+<li></li>
+</ul>
+<h2 id="918">9.18</h2>
+<ul>
+<li><a href="20260904-cotangent_module_of_an_epimorphism_is_trivial.html#ID-d6357d96-eace-4172-aa3c-1e19e0a5b94c">cotangent module of an epimorphism is trivial</a> </li>
+</ul>
+<h2 id="919">9.19</h2>
+<ul>
+<li><a href="20260807-presentation_of_the_cotangent_module.html#ID-9aa2ccd0-570f-45b0-87bd-b34ccd989939">presentation of the cotangent module</a> </li>
+</ul>
+<h2 id="920">9.20</h2>
+<ul>
+<li><a href="20260831-cotangent_module_of_a_polynomial_r_algebra.html#ID-1bc07048-5299-4e88-8126-438bfc12e163">cotangent module of a polynomial R-algebra</a> </li>
+
+<li><a href="20260831-surjection_induces_trivial_cotangent_module.html#ID-8a607a60-5597-4642-bb11-994a3f033418">surjection induces trivial cotangent module</a>   </li>
+</ul>
+<h2 id="921">9.21</h2>
+<ul>
+<li><a href="20260831-ring_map_of_finite_presentation_induces_finitely_presented_cotangent_modlue.html#ID-ec552ebe-4f09-493a-9dc5-36479107488c">ring map of finite presentation induces finitely presented cotangent module</a>    </li>
+
+<li><a href="20260831-ring_map_of_finite_type.html#ID-34844aa9-ab59-41dc-adb5-4accc7cc273b">ring map of finite type</a>   </li>
+
+<li><a href="20260831-ring_map_of_finite_type_induces_finite_type_cotangent_module.html#ID-eaf12012-199c-4b61-a94e-2d1bb41ae519">ring map of finite type induces finite type cotangent module</a>   </li>
+</ul>
+<h2 id="922">9.22</h2>
+<ul>
+<li><a href="20260831-cotangent_module_functor_from_the_arrow_category.html#ID-e4d09377-3745-459f-b9a6-08f8e6c70163">cotangent module functor from the arrow category</a> </li>
+
+<li></li>
+</ul>
+<h2 id="923">9.23</h2>
+<ul>
+<li><a href="20260831-base_change_of_a_cotangent_module.html#ID-54248866-2c35-4f1d-809c-f8dae89433d6">base change of a cotangent module</a> </li>
+
+<li><a href="20260831-localization_of_a_cotangent_module.html#ID-93b7757d-6e5c-432b-be29-a3d0b72f7f50">localization of a cotangent module</a>   </li>
+
+<li><a href="20260831-quotient_sequence_of_cotangent_module.html#ID-8978a381-8374-47b3-89bb-1114eb16654d">quotient sequence of cotangent module</a>   </li>
+</ul>
+<h2 id="924">9.24</h2>
+<ul>
+<li></li>
+</ul>
+<h2 id="925">9.25</h2>
+<ul>
+<li><a href="20260831-fundamental_exact_sequence_of_cotangent_modules.html#ID-60825649-95b2-4b61-91d6-fb500a8a3317">fundamental exact sequence of cotangent modules</a> </li>
+</ul>
+<h2 id="926">9.26</h2>
+
+<h2 id="927">9.27</h2>
+<ul>
+<li></li>
+</ul>
+<h2 id="928">9.28</h2>
+
+<h2 id="929">9.29</h2>
+
+<h2 id="930">9.30</h2>
+
+<h2 id="931">9.31</h2>
+<ul>
+<li><a href="20260903-conormal_module_of_a_ring_map_is_independent_of_the_polynomial_algebra.html#ID-4fc33e95-f65d-4eda-b89d-42c563b11a6c">conormal module of a ring map is independent of the polynomial algebra</a>   </li>
+
+<li><a href="20260903-conormal_module_of_a_ring_map.html#ID-f14fbe89-8409-4a77-929b-364aaed304b5">conormal module of a ring map</a>   </li>
+
+<li><a href="20260904-conormal_module_functor_from_ring_maps.html#ID-35f3c877-652b-4e9f-bff8-b8a3c83a861d">conormal module functor from ring maps</a>   </li>
+</ul>
+<h2 id="932">9.32</h2>
+<ul>
+<li><a href="20260903-flat_ring_epimorphism_induces_trivial_conormal_module.html#ID-45046f3d-2fec-48ba-a54a-85ef9be8be7f">flat ring epimorphism induces trivial conormal module</a> </li>
+</ul>
+<h2 id="933">9.33</h2>
+<ul>
+<li><a href="20260904-fundamental_exact_sequence_of_cotangent_and_conormal_modules.html#ID-0c02710b-da41-4e02-9dbb-a43e457346f8">fundamental exact sequence of cotangent and conormal modules</a> </li>
+
+<li><a href="20260904-fiber_sequence_of_the_cotangent_complex_in_the_connective_part_of_the_derived_category.html#ID-a9836ec3-a2bd-41d7-8156-c07b463a8c61">fiber sequence of the cotangent complex in the connective part of the derived category</a>   </li>
+</ul>
+<h2 id="934">9.34</h2>
+
+<h2 id="935">9.35</h2>
+<ul>
+<li><a href="20260901-cotangent_module_of_a_map_of_algebraic_functors.html#ID-4dce3d88-5271-4d77-8647-882b34a12e9a">cotangent module</a> </li>
+</ul>
+<h2 id="936">9.36</h2>
+<ul>
+<li><a href="20260903-monomorphism_of_algebraic_functors_induces_trivial_cotangent_module.html#ID-c53eed81-ef8b-4794-a1a2-ac220734a24f">monomorphism of algebraic functors induces trivial cotangent module</a> </li>
+</ul>
+<h2 id="937">9.37</h2>
+<ul>
+<li><a href="20260915-morphism_between_affine_schemes_admits_cotangent_module.html#ID-3a61dec3-7a79-4aa7-b344-ce25d0037d14">morphism between affine schemes admits cotangent module</a> </li>
+</ul>
+<h2 id="938">9.38</h2>
+<ul>
+<li><a href="20260915-cotangent_module_of_the_symmetric_algebra_over_an_algebraic_functor.html#ID-b5f2a4c4-03b0-4ef0-ab19-5c89d5f3a704">cotangent module of the symmetric algebra over an algebraic functor</a> </li>
+</ul>
+<h2 id="939">9.39</h2>
+<ul>
+<li><a href="20260903-cotangent_module_and_pullbacks.html#ID-bf3f10a4-b6f4-41fb-9a03-c5f2ace83e37">cotangent module and pullbacks</a> </li>
+
+<li><a href="20260903-cotangent_module_and_open_immersions.html#ID-0dd5f92f-6b8a-4a17-8efe-d47ba90574b3">cotangent module and open immersions</a>   </li>
+
+<li><a href="20260903-cotangent_module_and_closed_immersion.html#ID-426f5c28-5aac-43c4-ae06-706d6593ee1f">cotangent module and closed immersion</a>   </li>
+</ul>
+<h2 id="940">9.40</h2>
+<ul>
+<li><a href="20260902-fundamental_exact_sequence_of_cotangent_modules_of_algebaric_functors.html#ID-bb688c59-f0b6-4593-8118-77c43e5be136">fundamental exact sequence of cotangent modules of algebaric functors</a> </li>
+</ul>
+<h2 id="941">9.41</h2>
+<ul>
+<li><a href="20260902-schematic_morphism_admits_a_cotangent_odule.html#ID-af2cfd12-d854-4c21-95a1-4312f2b598ec">schematic morphism admits a cotangent module</a> </li>
+</ul>
+<h2 id="942">9.42</h2>
+<ul>
+<li><a href="20240624-dual_numbers.html#ID-28bea535-bb70-4133-861c-cc2e452caed5">dual numbers</a> </li>
+</ul>
+<h2 id="943">9.43</h2>
+<ul>
+<li><a href="20260902-tangent_functor_of_an_algebraic_functor.html#ID-569a1f79-f298-4e10-8953-e702aa45920d">tangent functor of an algebraic functor</a>   </li>
+</ul>
+<h2 id="944">9.44</h2>
+<ul>
+<li><a href="20260902-affine_space_of_the_cotangent_module_is_the_tangent_functor.html#ID-eddbb708-926e-4428-8372-7da3c690a9ba">affine space of the cotangent module is the tangent functor</a> </li>
+</ul>
+<h2 id="945">9.45</h2>
+<ul>
+<li></li>
+</ul>
+<h2 id="946">9.46</h2>
+<ul>
+<li></li>
+</ul>
+<h2 id="947">9.47</h2>
+<ul>
+<li><a href="20260901-conormal_module_of_an_algebraic_functor.html#ID-b0af2d50-cfb2-4444-a5b7-7543b3cefa4c">conormal module of a map of an algebraic functor</a> </li>
+</ul>
+<h2 id="948">9.48</h2>
+<ul>
+<li><a href="20260903-pullback_of_flat_morphisms_and_conormal_modules.html#ID-be79289e-e46e-452b-af55-74e6a4d03868">pullback of flat morphisms and conormal modules</a> </li>
+
+<li><a href="20260903-open_immersion_induces_isomorphisms_of_conormal_modulse.html#ID-ee9fc659-c618-4379-bb29-b5382de04e11">open immersion induces isomorphisms of conormal modules</a>   </li>
+</ul>
+<h2 id="949">9.49</h2>
+
+<h2 id="950">9.50</h2>
+
+<h2 id="951">9.51</h2>
+
+<h2 id="952">9.52</h2>
+<ul>
+<li><a href="20260902-smoothness_criterion_of_the_cotangent_complex.html#ID-1c29573b-ca84-4a1c-9cbf-2cbc338d9dac">smoothness criterion of the cotangent complex</a> </li>
+
+<li><a href="20260902-unramified_criterion_for_the_cotangent_complex.html#ID-881de762-1c7e-442d-a718-3c7f3e83cb72">unramified criterion for the cotangent complex</a></li>
+
+<li><a href="20260902-etale_criterion_via_the_cotangent_complex.html#ID-7a578b81-2762-42a9-91ec-d8df04ddbeb3">etale criterion via the cotangent complex</a>   </li>
+</ul>
+<h2 id="953">9.53</h2>
+
+<h2 id="954">9.54</h2>
+
+<h2 id="955">9.55</h2>
+
+<h2 id="956">9.56</h2>
+
+<h2 id="957">9.57</h2>
+<ul>
+<li><a href="20230725-separable_korpererweiterung.html#ID-82d230aa-aac1-4a4f-8040-f2506ad8cb26">separable field extension</a> </li>
+
+<li><a href="20260902-separable_field_extension.html#ID-70770e18-5efd-4157-9313-4101cf8c3e7f">separable field extension</a> </li>
+</ul>
+<h2 id="958">9.58</h2>
+<ul>
+<li></li>
+</ul>
+<h2 id="969">9.69</h2>
+
+<h2 id="960">9.60</h2>
+
+<h2 id="961">9.61</h2>
+
+<h2 id="962">9.62</h2>
+<ul>
+<li></li>
+</ul>
+<h2 id="963">9.63</h2>
+<ul>
+<li></li>
+</ul>
+<h2 id="964">9.64</h2>
+<ul>
+<li></li>
+</ul>
+<h2 id="965">9.65</h2>
+<ul>
+<li></li>
+</ul>
+<h2 id="966">9.66</h2>
+<ul>
+<li><a href="20260904-etaleness_over_a_field.html#ID-cb078fe0-5ac4-409e-9683-27af0b8607f8">etaleness over a field</a> </li>
+</ul>
+<h2 id="967">9.67</h2>
+<ul>
+<li><a href="20260904-fiberwise_smoothness.html#ID-3b2f98ee-bb8f-4cf8-a013-fa784940b1eb">fiberwise smoothness</a> </li>
+</ul>
+<h2 id="968">9.68</h2>
+<ul>
+<li><a href="20260901-nilideal.html#ID-68d71a67-7ade-47da-8c65-e7eff4789d30">nilideal</a> </li>
+
+<li><a href="20260901-thickening_of_a_ring.html#ID-28210c89-7d15-4b35-aac3-68dd27f0f3fa">thickening of a ring</a>   </li>
+
+<li><a href="20260901-n_th_order_thickening.html#ID-af3f6ef8-97cc-44d0-b168-fe797c3ac2a7">n-th order thickening</a>   </li>
+
+<li><a href="20260901-standard_n_th_order_thickening.html#ID-b933366a-eb0d-47ed-ab23-da90d9652cce">standard n-th order thickening</a>   </li>
+</ul>
+<h2 id="969">9.69</h2>
+<ul>
+<li>split zero extension is a first oredr thickening</li>
+
+<li>$R[x]/(x^{n+1}) \rightarrow R$</li>
+
+<li>something using p-typical witt vectors   </li>
+</ul>
+<h2 id="970">9.70</h2>
+<ul>
+<li><a href="20260901-thickening_of_algebraic_functors.html#ID-2342d179-a7e3-4c55-9acb-ffcd5b20a8af">thickening of algebraic functors</a> </li>
+</ul>
+<h2 id="971">9.71</h2>
+<ul>
+<li><a href="20260901-n_th_infinitesimal_neighbourhood.html#ID-20c7eb33-cce4-4e7c-a31b-6c3cf11feca5">n-th infinitesimal neighbourhood of a closed subfunctor</a> </li>
+
+<li><a href="20260901-inclusion_of_the_n_th_infinitesimal_neighborhood_is_an_n_th_order_thickening.html#ID-aac9368e-2421-410b-aa0a-0c6313a3f879">inclusion of the n-th infinitesimal neighborhood is an n-th order thickening</a></li>
+</ul>
+<h2 id="972">9.72</h2>
+<ul>
+<li><a href="20260901-completion_of_an_algebraic_functor.html#ID-73938e7d-bb5f-49a7-ad62-2cb7029ad3a3">completion of an algebraic functor along a closed subset</a> </li>
+
+<li><a href="20260903-completion_of_an_algebraic_functor_along_a_closed_subset_is_largest_subfunctor.html#ID-34d7a0aa-dd2b-43f0-bfca-755a9654cccc">completion of an algebraic functor along a closed subset is largest subfunctor</a>   </li>
+</ul>
+<h2 id="973">9.73</h2>
+<ul>
+<li><a href="20260901-completion_is_the_union_of_infinitesimal_neighbourhoods.html#ID-9759ec79-c383-49d6-8291-249e40a83b3f">completion is the union of infinitesimal neighborhoods</a> </li>
+
+<li></li>
+</ul>
+<h2 id="974">9.74</h2>
+<ul>
+<li><a href="20260901-standard_n_th_order_thickening.html#ID-b933366a-eb0d-47ed-ab23-da90d9652cce">standard n-th order thickening</a> </li>
+
+<li><a href="20260612-nilpotent_element_functor_is_not_algebraic.html#ID-e1aa8567-5f1e-4a4d-a686-6a694037b5e2">nilpotent element functor is not an affine scheme</a>   </li>
+
+<li><a href="20260903-completion_of_a1_at_the_origin_gives_nilpotent_element_functor.html#ID-e4dc71c4-c16a-432b-b588-816804cefa2f">completion of A1 at the origin gives nilpotent element functor</a> </li>
+</ul>
+<h2 id="975">9.75</h2>
+<ul>
+<li><a href="20260901-completion_of_an_algebraic_functor.html#ID-73938e7d-bb5f-49a7-ad62-2cb7029ad3a3">completion of an algebraic functor along a closed subset</a> </li>
+
+<li><a href="20260901-completion_is_the_union_of_infinitesimal_neighbourhoods.html#ID-9759ec79-c383-49d6-8291-249e40a83b3f">completion is the union of infinitesimal neighborhoods</a>   </li>
+
+<li><a href="20260901-completion_of_a_scheme_is_in_general_not_a_scheme.html#ID-9db21f8c-9c1a-4a25-bd22-bc83aa311584">completion of a scheme is in general not a scheme</a> </li>
+
+<li><a href="20260901-formal_scheme.html#ID-9843bda8-bf06-4187-86ff-c328100713f6">formal scheme</a> </li>
+</ul>
+<h2 id="976">9.76</h2>
+<ul>
+<li><a href="20260901-tangential_datum_along_a_thickening.html#ID-64d3b8c1-cfe8-40a7-b42d-18b00b8ad26a">tangential datum along a thickening</a> </li>
+</ul>
+<h2 id="977">9.77</h2>
+<ul>
+<li><a href="20260901-n_jet.html#ID-3cc33893-215c-4678-a5dd-8e60f00fea8e">n-jet</a> </li>
+
+<li><a href="20260901-n_jet_functor.html#ID-929f39d6-8392-4a4e-9a55-e3de5293e075">n-jet functor</a>   </li>
+
+<li><a href="20260901-tangent_space_of_a_map_of_algebraic_functors.html#ID-a2773096-a7d1-43db-b093-0893290ff924">tangent space of a map of algebraic functors</a>  </li>
+
+<li><a href="20260901-natural_transformation_of_the_jet_spaces.html#ID-0980fc66-b653-4b66-bc62-5e4854bd04b2">natural transformation of the jet spaces</a>   </li>
+
+<li><a href="20260901-arc_space_of_a_map_of_algebraic_functors.html#ID-fe511ba2-51b0-4123-84eb-56e3868b1fec">arc space of a map of algebraic functors</a>   </li>
+
+<li><a href="20260901-n_jet_functor_of_an_affine_scheme_is_again_affine.html#ID-f8547c3a-a7ce-4a35-b5b5-2405d4906057">n-jet functor of an affine scheme is again affine</a> - todo  </li>
+</ul>
+<h2 id="978">9.78</h2>
+<ul>
+<li><a href="20260807-formally_smooth_map.html#ID-7e9c5ae1-4d20-4fc3-8be3-50bda268f627">formally smooth map</a> </li>
+
+<li><a href="20260807-formally_etale_map.html#ID-0c06dafb-2c3d-4109-b252-62e3532624fe">formally etale map</a>   </li>
+
+<li><a href="20260807-formally_unramified.html#ID-730d8886-fa97-4d31-a4e9-3d07d18c2bb5">formally unramified</a>   </li>
+</ul>
+<h2 id="979">9.79</h2>
+<ul>
+<li></li>
+</ul>
+<h2 id="980">9.80</h2>
+<ul>
+<li><a href="20260901-nilinvariant_functor.html#ID-35b196d8-9839-4502-9d7a-21f1dd4d9234">nilinvariant functor</a> </li>
+</ul>
+<h2 id="981">9.81</h2>
+<ul>
+<li><a href="20260901-t_epimorphis3.html#ID-aeb54008-feaf-449e-ae87-f95c8f077c37">T-epimorphism</a> </li>
+
+<li><a href="20260901-t_monomorphism.html#ID-6fb6cf00-7fde-4b50-9cf4-b44d4ab1a82a">T-monomorphism</a>   </li>
+
+<li><a href="20260901-t_isomorphism.html#ID-ab1a7885-a04d-4a70-852b-354dbe8f4831">T-isomorphism</a>   </li>
+</ul>
+<h2 id="982">9.82</h2>
+
+
+<ul>
+<li></li>
+</ul>
+<h2 id="983">9.83</h2>
+
+<h2 id="984">9.84</h2>
+<ul>
+<li></li>
+</ul>
+<h2 id="985">9.85</h2>
+<ul>
+<li><a href="20260901-t_epimorphisms_are_closed_under_composition.html#ID-43b213c4-3c76-4a67-980d-0891a8a71b5c">T-epimorphisms are closed under composition</a> </li>
+
+<li><a href="20260901-t_monomorphisms_are_closed_under_composition.html#ID-4c0b363c-1e10-488f-81fb-0d4366aecd1e">T-monomorphisms are closed under composition</a> </li>
+
+<li><a href="20260901-t_isomorphisms_are_closed_under_composition.html#ID-c61b7190-e133-416d-8d04-e751afd9ffeb">T-isomorphisms are closed under composition</a>   </li>
+</ul>
+<ul>
+<li><a href="20260901-t_isomorphisms_are_closed_under_base_change.html#ID-cf7a016a-7801-4fd2-a9be-b2328b7f55dc">T-isomorphisms are closed under pullbacks</a>   </li>
+
+<li><a href="20260901-t_monomorphisms_are_closed_under_pullbacks.html#ID-c8985623-3cae-4cd2-8f5a-4517ed2bbca8">T-monomorphisms are closed under pullbacks</a>   </li>
+
+<li><a href="20260901-t_epimorphisms_are_closed_under_pullbacks.html#ID-cbe143ed-f6a8-46e6-ba41-9a524876c751">T-epimorphisms are closed under pullbacks</a>   </li>
+</ul>
+<ul>
+<li><a href="20260902-t_monomorphism_is_closed_under_limits_in_the_arrow_category.html#ID-d9b76c47-a3c6-42c4-aadb-f99a79460e05">T-monomorphisms are closed under limits in the arrow category</a>   </li>
+
+<li><a href="20260902-t_isomorphisms_are_closed_under_limits_in_the_arrow_category.html#ID-ac6c56e7-5da9-4ec4-8f70-dec377d3079c">T-isomorphisms are closed under limits in the arrow category</a>   </li>
+</ul>
+<ul>
+<li></li>
+
+<li></li>
+</ul>
+<h2 id="986">9.86</h2>
+
+<h2 id="987">9.87</h2>
+<ul>
+<li><a href="20260901-cohesive_morphism_of_algebraic_functors.html#ID-e9251ffa-70fe-4d4b-a269-a503041b7107">cohesive morphism of algebraic functors</a> </li>
+
+<li><a href="20260901-infinitesimally_cohesive_morphism_of_algebraic_functors.html#ID-cd98db08-a889-40cd-b065-2a6e1bf34346">infinitesimally cohesive morphism of algebraic functors</a> </li>
+</ul>
+<h2 id="988">9.88</h2>
+<ul>
+<li><a href="20260901-schematic_morphism_is_cohesive.html#ID-56b17da1-c1cd-4134-b916-905809051934">schematic morphism is cohesive</a> </li>
+</ul>
+<h2 id="989">9.89</h2>
+<ul>
+<li><a href="20260901-scalar_multiplication_of_tangent_vectors.html#ID-bf589559-7021-4dae-bdf8-bb13bbeea72f">scalar multiplication of tangent vectors</a> </li>
+
+<li><a href="20260901-addition_of_tangent_vectors_for_an_infinitesimally_cohesive_map.html#ID-4a6182db-2af9-43be-a4eb-4c637748a6d3">addition of tangent vectors for an infinitesimally cohesive map</a>   </li>
+</ul>
+<h2 id="990">9.90</h2>
+<ul>
+<li><a href="20260902-formally_unramified_has_trivial_cotangent_module.html#ID-123b65d6-d8de-4ad0-9c21-09964431d042">formally unramified has trivial cotangent module</a> </li>
+</ul>
+<h2 id="991">9.91</h2>
+<ul>
+<li><a href="20260901-deformation_ring_of_an_ideal.html#ID-c854c1d1-6db4-4fc2-960a-9507d78fbcd4">deformation ring of an ideal</a> </li>
+
+<li></li>
+</ul>
+<h2 id="992">9.92</h2>
+
+<h2 id="993">9.93</h2>
+
+<h2 id="994">9.94</h2>
+<ul>
+<li><a href="20260901-formally_smooth_map_and_cotangent_conormal_module.html#ID-fd30e8c5-202b-411e-942a-098d1162f4e6">formally smooth map and cotangent / conormal module</a> </li>
+
+<li><a href="20260901-formally_unramified_and_vanishing_cotan7ent_omdule.html#ID-74b7b278-4f52-4dff-9773-b15cd186b7d8">formally unramified and vanishing cotan7ent omdule</a> </li>
+
+<li><a href="20260901-formally_etale_and_vanishing_cotangent_conormal_module.html#ID-849a1c5d-ab60-42ad-9c04-d0837ac894a3">formally etale and vanishing cotangent + conormal module</a>  </li>
+</ul>
+<h2 id="995">9.95</h2>
+<ul>
+<li></li>
+</ul>
+<h2 id="996">9.96</h2>
+
+<h2 id="997">9.97</h2>
+
+<h2 id="998">9.98</h2>
+
+<h2 id="999">9.99</h2>
+<ul>
+<li><a href="20260902-locally_quasi_finite_morphism.html#ID-db5fd75c-c952-4cf0-9b70-7a88526d5309">locally quasi-finite morphism of schemes</a> </li>
+
+<li><a href="20260902-quasi_finite_morphism_of_schemes.html#ID-c941138e-8e17-4221-9bdb-ac1d0edff0c4">quasi-finite morphism of schemes</a>   </li>
+</ul>
+<h2 id="9100">9.100</h2>
+<ul>
+<li><a href="20260905-locally_quasi_finite_is_a_local_property.html#ID-1136a2d8-fa52-4b83-8fd9-52e4339dfd03">locally quasi-finite is a local property</a> </li>
+</ul>
+<h2 id="9101">9.101</h2>
+<ul>
+<li></li>
+</ul>
+<h2 id="9102">9.102</h2>
+
+<h2 id="9103">9.103</h2>
+<ul>
+<li><a href="20260902-zariskis_local_main_theorem.html#ID-9a4f7552-ce8a-4196-97e9-d88fcf87f0fc">zariskis local main theorem</a> </li>
+</ul>
+<h2 id="9104">9.104</h2>
+<ul>
+<li><a href="20260902-zariskis_global_main_theorem.html#ID-799855dc-470b-4ad5-9a55-de6fbccbe464">zariskis global main theorem</a>  </li>
+</ul>
+<h2 id="9105">9.105</h2>
+<ul>
+<li><a href="20260902-standard_etale_algebra.html#ID-7ece597c-bd99-4a02-9682-db019ae4eb48">standard etale algebra</a> </li>
+
+<li><a href="20260902-standard_etale_algebra_induces_an_etale_morphism.html#ID-6b9561c4-16a5-4441-a68a-6364876efa38">standard etale algebra induces an etale morphism of rings</a>   </li>
+</ul>
+<h2 id="9106">9.106</h2>
+<ul>
+<li></li>
+</ul>
+<h2 id="9107">9.107</h2>
+<ul>
+<li><a href="20260901-smooth_map_is_flat.html#ID-fa5c3873-2c65-4ebc-ac99-5e057e9ac88c">smooth map is flat</a> </li>
+</ul>
+<h2 id="9108">9.108</h2>
+<ul>
+<li><a href="20260830-etale_site.html#ID-e3b668c2-b986-4474-9fa8-8435f0cae605">etale topology</a> </li>
+
+<li><a href="20260901-etale_sheaf.html#ID-f60cc09b-195d-4e9b-93ee-1bfd195fbe9d">etale sheaf</a>   </li>
+
+<li></li>
+</ul>
+<h2 id="9109">9.109</h2>
+
+</div>
+</body>
+</html>

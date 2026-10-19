@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 22:37 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Isomorphie des Faktorrings über einem Polynom ersten Grades</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,68 +52,60 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Isomorphie des Faktorrings über einem Polynom ersten Grades</h1>
-<div id="outline-container-org42cfebf" class="outline-2">
-<h2 id="org42cfebf"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-0af2479c-1a4e-4942-9d32-abc4a2af56f4"></span><h1 class="title">Isomorphie des Faktorrings über einem Polynom ersten Grades</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(R\) ein <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">Ring</a>, \(R[X]\) der <a href="20220303185921-polynomring.html#ID-1a010da5-5e8a-407f-87ba-85383825403f">Polynom Ring</a> und \(p(x) = r \cdot x - \alpha\) für \(r,\alpha \in R\).
+Sei $R$ ein <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">Ring</a>, $R[X]$ der <a href="20220303185921-polynomring.html#ID-1a010da5-5e8a-407f-87ba-85383825403f">Polynom Ring</a> und $p(x) = r \cdot x - \alpha$ für $r,\alpha \in R$.
 Dann gilt.
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 (R[X]/rx - \alpha) \cong R
-\end{align*}
+\end{align*}</div>
 <p>
-Wenn (<a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">g.d.w.</a> ?) \(r \in R^{\times}\) (vgl. <a href="20221226125808-einheit_ring.html#ID-a3b1e1af-c3e3-433c-a4dd-2ee2c6e1d69a">Einheit</a>)
+Wenn (<a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">g.d.w.</a> ?) $r \in R^{\times}$ (vgl. <a href="20221226125808-einheit_ring.html#ID-a3b1e1af-c3e3-433c-a4dd-2ee2c6e1d69a">Einheit</a>)
 </p>
-</div>
-</div>
-<div id="outline-container-org1ab7ce1" class="outline-2">
-<h2 id="org1ab7ce1"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org96da783" class="outline-3">
-<h3 id="org96da783"><span class="section-number-3">2.1.</span> a)</h3>
-<div class="outline-text-3" id="text-2-1">
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="a">a)</h3>
 <p>
-Sei \(r \in R^{\times}\), so existiert insbesondere ein \(r^{-1}\)
-Betrachten wir den <a href="20221226010643-einsetzungshomomorphismus.html#ID-714a456e-dcd8-4e03-906b-2b497bf77766">Einsetzungshomomorphismus</a> mit \(\frac{\alpha}{r}\) als <a href="20221226010233-ringhomomorphismus.html#ID-136298f7-3132-4bd7-934f-0eefaa48fcf9">Ringhomomorphism</a>:
+Sei $r \in R^{\times}$, so existiert insbesondere ein $r^{-1}$
+Betrachten wir den <a href="20221226010643-einsetzungshomomorphismus.html#ID-714a456e-dcd8-4e03-906b-2b497bf77766">Einsetzungshomomorphismus</a> mit $\frac{\alpha}{r}$ als <a href="20221226010233-ringhomomorphismus.html#ID-136298f7-3132-4bd7-934f-0eefaa48fcf9">Ringhomomorphism</a>:
 </p>
-\begin{align*}
-\phi_{\frac{\alpha}{r}}: R[X] \rightarrow& R \\
-p(x) \mapsto& p(\frac{\alpha}{r})
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\phi_{\frac{\alpha}{r}}: R[X] \rightarrow&amp; R \\
+p(x) \mapsto&amp; p(\frac{\alpha}{r})
+\end{align*}</div>
 <p>
 Nach dem <a href="20221226125039-homomorphiesatz_fur_ringe.html#ID-755e30b6-bd5c-4c03-9e0f-29bb432fa474">Homomorphiesatz für Ringe</a> folgt dann:
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 R[X]/\mathrm{ker}(\phi_{\frac{\alpha}{r}}) \cong \mathrm{im}(\phi_{\frac{\alpha}{r}})
-\end{align*}
+\end{align*}</div>
 <p>
-Dabei gilt \(\mathrm{im}(\phi_{\frac{\alpha}{r}}) \cong R\) und es folgt durch <a href="20230110193456-ausklammern_von_nullstellen_von_polynomen.html#ID-3ce4a9e7-42fc-4fef-830e-2aeef8ca355b">Ausklammern der Nullstellen</a> für \(p \in \mathrm{ker}(\phi_{\frac{\alpha}{r}}\), dass ein \(f \in R[X]\) existiert mit
+Dabei gilt $\mathrm{im}(\phi_{\frac{\alpha}{r}}) \cong R$ und es folgt durch <a href="20230110193456-ausklammern_von_nullstellen_von_polynomen.html#ID-3ce4a9e7-42fc-4fef-830e-2aeef8ca355b">Ausklammern der Nullstellen</a> für $p \in \mathrm{ker}(\phi_{\frac{\alpha}{r}}$, dass ein $f \in R[X]$ existiert mit
 </p>
-\begin{align*}
-p =& f(x) \cdot (x - \frac{\alpha}{r}) \\
-=& \frac{f(x)}{r} \cdot (rx - \alpha) 
-\end{align*}
+
+<div class="math-block">\begin{align*}
+p =&amp; f(x) \cdot (x - \frac{\alpha}{r}) \\
+=&amp; \frac{f(x)}{r} \cdot (rx - \alpha) 
+\end{align*}</div>
 <p>
 Damit folgt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \mathrm{ker}(\phi_{\frac{\alpha}{r}} = (rx - \alpha)R
-\end{align*}
+\end{align*}</div>
 
 <p>
 etwas spam fehlt
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 22:37</p>
+
 </div>
 </body>
 </html>

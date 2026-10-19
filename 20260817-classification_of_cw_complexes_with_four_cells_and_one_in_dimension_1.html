@@ -1,327 +1,139 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2026-08-21 Fr 19:10 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>classification of cw complexes with four cells and one in dimension 1 and stability assumption</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">classification of cw complexes with four cells and one in dimension 1 and stability assumption</h1>
-<div id="outline-container-orgc56a4b0" class="outline-2">
-<h2 id="orgc56a4b0">Proposition</h2>
-<div class="outline-text-2" id="text-orgc56a4b0">
+<span id="ID-bcfd21ff-1335-41ad-a47f-482898d35e5d"></span><h1 class="title">classification of cw complexes with four cells and one in dimension 1 and stability assumption</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_ebfbdccfafcca2bd1060d39059ba0b501348d373.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_ebfbdccfafcca2bd1060d39059ba0b501348d373.svg" class="org-svg" /> be a <a href="20230504195105-cw_komplex.html#ID-ee726694-2276-434b-8043-b02bf828177b">CW Complex</a> with cells in dimension <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_014214e59b51af70f923123a03e9943d8704719b.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_014214e59b51af70f923123a03e9943d8704719b.svg" class="org-svg" /> with <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_ef303d3ae29a475b0b7d1aca436e3ba71184fa17.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_ef303d3ae29a475b0b7d1aca436e3ba71184fa17.svg" class="org-svg" />.<br />
-Then<br />
+Let $X$ be a <a href="20230504195105-cw_komplex.html#ID-ee726694-2276-434b-8043-b02bf828177b">CW Complex</a> with cells in dimension $0,1,n,m$ with $n \leq m$.
+Then
 </p>
-<ol class="org-ol">
-<li>if <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_f69d97cdf467a9aa2d0e468909da67f008fdd6d8.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_f69d97cdf467a9aa2d0e468909da67f008fdd6d8.svg" class="org-svg" />, this implies <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_56b7ccd85751a6a6a270921d5e35b8773f3beb6e.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_56b7ccd85751a6a6a270921d5e35b8773f3beb6e.svg" class="org-svg" /><br /></li>
-<li>if <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_c013dfa12c454c1bcaed91e800a641334aa96f3f.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_c013dfa12c454c1bcaed91e800a641334aa96f3f.svg" class="org-svg" /> and <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_804453795951c95892fb72969e845175f7dd42bc.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_804453795951c95892fb72969e845175f7dd42bc.svg" class="org-svg" /> (todo: find right index for stable range), then CW complexes are classified finite tuples <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_511fcf3911a06439cdd8d2e7b43bbf9c52cf740c.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_511fcf3911a06439cdd8d2e7b43bbf9c52cf740c.svg" class="org-svg" /> for <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_6eca56fe031c230750d6a8251615d9c79358e8a6.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_6eca56fe031c230750d6a8251615d9c79358e8a6.svg" class="org-svg" />, <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_1f65ce5baf14f3449492cd52a903798581a07ba8.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_1f65ce5baf14f3449492cd52a903798581a07ba8.svg" class="org-svg" /> modulo the actions given by<br />
-a) flipping the order, i.e. <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_ee188f39e59f103401392a56c10abb1ff0cb8f0f.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_ee188f39e59f103401392a56c10abb1ff0cb8f0f.svg" class="org-svg" /><br />
-b) acting by the sign on <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_e96f8302544968b2d55386a7b7d790c245e58f65.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_e96f8302544968b2d55386a7b7d790c245e58f65.svg" class="org-svg" />, i.e. <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_ab8ef102acd6d10f80c11e29120c8e7e23421051.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_ab8ef102acd6d10f80c11e29120c8e7e23421051.svg" class="org-svg" /><br /></li>
+<ol>
+<li>if $n = 1$, this implies $X \simeq S^1 \vee S^1 \vee S^m$</li>
+
+<li>if $n &gt; 1$ and $n &lt; m \leq 2n$ (todo: find right index for stable range), then CW complexes are classified finite tuples $(g_1,...,g_n)$ for $n \in \mathbb{N}_0$, $g_i \in \pi_{m-1}(S^n)$ modulo the actions given by  a) flipping the order, i.e. $(g_1,...,g_n) \sim (g_n,...,g_1)$ b) acting by the sign on $\pi_{m-1}(S^n)$, i.e. $(g_1,...,g_n) \sim (-g_1,...,-g_n)$</li>
 </ol>
-</div>
-</div>
-<div id="outline-container-org00dc817" class="outline-2">
-<h2 id="org00dc817">Proof</h2>
-<div class="outline-text-2" id="text-org00dc817">
-</div>
-<div id="outline-container-org6e27c73" class="outline-3">
-<h3 id="org6e27c73">1)</h3>
-<div class="outline-text-3" id="text-org6e27c73">
+<h2 id="proof">Proof</h2>
+
+<h3 id="1">1)</h3>
 <p>
-follows from <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_71748baa305426e02bb6cbf3253f1d033d064bcf.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_71748baa305426e02bb6cbf3253f1d033d064bcf.svg" class="org-svg" />.<br />
+follows from $\pi_{m-1}(S^1 \vee S^1) \cong 0$.
 </p>
-</div>
-</div>
-<div id="outline-container-org1576061" class="outline-3">
-<h3 id="org1576061">2)</h3>
-<div class="outline-text-3" id="text-org1576061">
+
+<h3 id="2">2)</h3>
 <p>
-Recall that there exist at most <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_f848c4205ccd49f73b2a8cc4e4e6083bb0c4d857.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_f848c4205ccd49f73b2a8cc4e4e6083bb0c4d857.svg" class="org-svg" /> many cw complexes (cf. <a href="20260516-classification_technique_for_low_cell_cw_complexes.html#ID-b6c92617-c4cb-404a-af8c-0898392574c6">classification techniques for low cell cw complexes</a>, here we have used <a href="20260818-low_homotopy_group_of_s_n_wedge_s_1.html#ID-560934e2-d6d2-4a66-ad82-d9dcbf98a7e2">low homotopy group of S<sup>n</sup> wedge S<sup>1</sup></a>).<br />
-Now the <a href="20260821-pointed_automorphisms_of_s_1_wedge_s_n.html#ID-31e26f9e-b49b-4bfc-a8fd-b180850f9408">pointed automorphisms of S<sup>1</sup> wedge S<sup>n</sup></a> act on <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_e96f8302544968b2d55386a7b7d790c245e58f65.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_e96f8302544968b2d55386a7b7d790c245e58f65.svg" class="org-svg" /> by postcomposition and there exist at most as many cw complexes as there exist orbits under this action.<br />
-Here the action on <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_5ed59ddb10fc9ec601dd2871ffb1a204f4523613.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_5ed59ddb10fc9ec601dd2871ffb1a204f4523613.svg" class="org-svg" /> is given by shifting the elements, flipping the order and acting by the sign.<br />
+Recall that there exist at most $\pi_{m-1}(S^1 \vee S^n) \cong \bigoplus_{\mathbb{Z}} \pi_{m-1}(\bigvee S^n) \cong \bigoplus_{\mathbb{Z}} \pi_{m-1}(S^n)$ many cw complexes (cf. <a href="20260516-classification_technique_for_low_cell_cw_complexes.html#ID-b6c92617-c4cb-404a-af8c-0898392574c6">classification techniques for low cell cw complexes</a>, here we have used <a href="20260818-low_homotopy_group_of_s_n_wedge_s_1.html#ID-560934e2-d6d2-4a66-ad82-d9dcbf98a7e2">low homotopy group of S^n wedge S^1</a>).
+Now the <a href="20260821-pointed_automorphisms_of_s_1_wedge_s_n.html#ID-31e26f9e-b49b-4bfc-a8fd-b180850f9408">pointed automorphisms of S^1 wedge S^n</a> act on $\pi_{m-1}(S^n)$ by postcomposition and there exist at most as many cw complexes as there exist orbits under this action.
+Here the action on $\bigoplus_{\mathbb{Z}} \pi_m$ is given by shifting the elements, flipping the order and acting by the sign.
 </p>
 
 <p>
-So now assume that we have <a href="20241206-equivalent_objects_in_an_infinity_category.html#ID-cbb1ac2c-2755-4d4a-9a75-56978060b40f">equivalent</a> <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_bcae1ad5bcf36aacdfbe354e5b9f8d0082fc0f2f.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_bcae1ad5bcf36aacdfbe354e5b9f8d0082fc0f2f.svg" class="org-svg" />, given by <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_4d364190375a86808ce8683e4276cf8ebc4c1d4d.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_4d364190375a86808ce8683e4276cf8ebc4c1d4d.svg" class="org-svg" />.<br />
-Then choose an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a> <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_788f72b0b5f2840f8b639b80b095ba49ab317f67.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_788f72b0b5f2840f8b639b80b095ba49ab317f67.svg" class="org-svg" />.<br />
-<a href="20231121-cellular_approximation.html#ID-9316a819-5c68-4445-adfe-8be652126955">cellular approximation</a> implies that there exists a map<br />
+So now assume that we have <a href="20241206-equivalent_objects_in_an_infinity_category.html#ID-cbb1ac2c-2755-4d4a-9a75-56978060b40f">equivalent</a> $X,X'$, given by $(g_{i},...,g_{i_k}), (g_{j},...,g_{j_l}) \in \bigoplus_{\mathbb{Z}} \mathbb{Z}$.
+Then choose an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a> $f: X \rightarrow X'$.
+<a href="20231121-cellular_approximation.html#ID-9316a819-5c68-4445-adfe-8be652126955">cellular approximation</a> implies that there exists a map
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_795ea9db6d9072f0e618243dd1f0974cf400cd05.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_795ea9db6d9072f0e618243dd1f0974cf400cd05.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/f3d7981e378236494bd3.svg" class="org-svg" alt="diagram" /></span></div>
 
 <p>
-We claim that this map is an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a> <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_a9299cfee96fe14e95d00a7eb24d0a1b52959076.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_a9299cfee96fe14e95d00a7eb24d0a1b52959076.svg" class="org-svg" />:<br />
-By the connectivity of <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_27b6de514f6a772b7ce119551716c026e832e54e.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_27b6de514f6a772b7ce119551716c026e832e54e.svg" class="org-svg" /> (todo indices), we get that the map is an isomorphism on <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_a38d07818b4c343b9edea8f2664ccb4a029d2151.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_a38d07818b4c343b9edea8f2664ccb4a029d2151.svg" class="org-svg" />.<br />
-Moreover, the classification of <a href="20260821-pointed_automorphisms_of_s_1_wedge_s_n.html#ID-31e26f9e-b49b-4bfc-a8fd-b180850f9408">pointed automorphisms of S<sup>1</sup> wedge S<sup>n</sup></a> shows that being an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a> <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_a9299cfee96fe14e95d00a7eb24d0a1b52959076.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_a9299cfee96fe14e95d00a7eb24d0a1b52959076.svg" class="org-svg" /> is equivalent to being an equivalence on <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_3eea99d0f521235cd5dae92c8d6a5394be177206.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_3eea99d0f521235cd5dae92c8d6a5394be177206.svg" class="org-svg" /> and <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_d9a3e95a72a1e842f0ea5c468d97902d01104a6b.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_d9a3e95a72a1e842f0ea5c468d97902d01104a6b.svg" class="org-svg" />.<br />
+We claim that this map is an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a> $S^1 \vee S^n \rightarrow S^1 \vee S^n$:
+By the connectivity of $S^1 \vee S^n \rightarrow X, S^1 \vee S^n \rightarrow X'$ (todo indices), we get that the map is an isomorphism on $\pi_0,...,\pi_n$.
+Moreover, the classification of <a href="20260821-pointed_automorphisms_of_s_1_wedge_s_n.html#ID-31e26f9e-b49b-4bfc-a8fd-b180850f9408">pointed automorphisms of S^1 wedge S^n</a> shows that being an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a> $S^1 \vee S^n \rightarrow S^1 \vee S^n$ is equivalent to being an equivalence on $\pi_1$ and $\pi_n$.
 </p>
 
 <p>
-This shows that the dashed map is an equivalence<br />
+This shows that the dashed map is an equivalence
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_58cfcb7cffa555bf0ca052e820528108d4d9f6e8.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_58cfcb7cffa555bf0ca052e820528108d4d9f6e8.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/f66760cc1d70faff9efd.svg" class="org-svg" alt="diagram" /></span></div>
 
 <p>
-Alternatively (to sketch the argument), we may use the <a href="20260821-universal_cover_and_pi_1_condition_for_equivalences.html#ID-a5ea0697-76a6-4da7-bd4f-e10e855cdbcb">universal cover and pi<sub>1</sub>/pi<sub>0</sub> condition for equivalences</a> and pass to the universal covers.<br />
+Alternatively (to sketch the argument), we may use the <a href="20260821-universal_cover_and_pi_1_condition_for_equivalences.html#ID-a5ea0697-76a6-4da7-bd4f-e10e855cdbcb">universal cover and pi_1/pi_0 condition for equivalences</a> and pass to the universal covers.
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_2772434f4539ab905a758e60ccb31fff48004f4e.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_2772434f4539ab905a758e60ccb31fff48004f4e.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/252bba64833ddfb47bbe.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-Here the map <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_0629040d73b898d7b257b69d5f27682eef7082b5.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_0629040d73b898d7b257b69d5f27682eef7082b5.svg" class="org-svg" /> is an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a> <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> it is one on <a href="20251009-homology_is_left_adjoint.html#ID-5b3f02bc-8681-4fa5-a4eb-ce9365892cd6">homology</a> (cf. <a href="20250608-homology_isomorphism_between_simply_connected_spaces_as_weak_equivalence.html#ID-47614675-31b8-44fa-9ca8-c2d09c7f27c8">homology isomorphism between simply connected spaces as weak equivalence</a>) and by <a href="20241021-absolute_hurewicz_theorem.html#ID-bea99a77-baab-48ac-9998-3f7defd490c6">Hurewicz</a> <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> it is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a> on <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_d9a3e95a72a1e842f0ea5c468d97902d01104a6b.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_d9a3e95a72a1e842f0ea5c468d97902d01104a6b.svg" class="org-svg" />.<br />
+Here the map $\bigvee_{\mathbb{Z}} S^n \rightarrow \bigvee_{\mathbb{Z}} S^n$ is an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a> <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> it is one on <a href="20251009-homology_is_left_adjoint.html#ID-5b3f02bc-8681-4fa5-a4eb-ce9365892cd6">homology</a> (cf. <a href="20250608-homology_isomorphism_between_simply_connected_spaces_as_weak_equivalence.html#ID-47614675-31b8-44fa-9ca8-c2d09c7f27c8">homology isomorphism between simply connected spaces as weak equivalence</a>) and by <a href="20241021-absolute_hurewicz_theorem.html#ID-bea99a77-baab-48ac-9998-3f7defd490c6">Hurewicz</a> <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> it is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a> on $\pi_n$.
 </p>
 
 <p>
-Thankfully we have<br />
+Thankfully we have
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_46f85233ea238b73f0821c5b4cf67b07d71fa438.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_46f85233ea238b73f0821c5b4cf67b07d71fa438.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/6869d22b512abac10e93.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-which shows that the map is a <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_d9a3e95a72a1e842f0ea5c468d97902d01104a6b.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_d9a3e95a72a1e842f0ea5c468d97902d01104a6b.svg" class="org-svg" /> equivalence.<br />
+which shows that the map is a $\pi_n$ equivalence.
 </p>
 
 <p>
-Now we may pass to the <a href="20241022-fiber_of_an_infinity_morphism.html#ID-315c0bce-7cf8-468b-9149-1e254debcf95">fibers</a><br />
+Now we may pass to the <a href="20241022-fiber_of_an_infinity_morphism.html#ID-315c0bce-7cf8-468b-9149-1e254debcf95">fibers</a>
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_2cf0d753933ea6b13605104ac8aba5333c634ecf.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_2cf0d753933ea6b13605104ac8aba5333c634ecf.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/cf4445e2fb3afd547f90.svg" class="org-svg" alt="diagram" /></span></div>
 
 <p>
-Now <a href="20240716-homotopy_excision_theorem.html#ID-648d4b45-d724-43db-9cd4-7d32aedf8476">homotopy excision theorem</a> / <a href="20251113-homotopy_excision_for_a_cofiber.html#ID-ee399375-8a99-48c5-ba0d-f8b955d4c39e">blakers massey for a cofiber</a> shows that the maps <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_9686f416bde643832abda8f9e94ef5dabd7f9bf5.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_9686f416bde643832abda8f9e94ef5dabd7f9bf5.svg" class="org-svg" /> are &lt;enough todo&gt; conencted and hence passing to <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_15db79fd64a24f308ca246b393efcb26a92436fd.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_15db79fd64a24f308ca246b393efcb26a92436fd.svg" class="org-svg" /> shows<br />
+Now <a href="20240716-homotopy_excision_theorem.html#ID-648d4b45-d724-43db-9cd4-7d32aedf8476">homotopy excision theorem</a> / <a href="20251113-homotopy_excision_for_a_cofiber.html#ID-ee399375-8a99-48c5-ba0d-f8b955d4c39e">blakers massey for a cofiber</a> shows that the maps $S^m \rightarrow \mathrm{fib}$ are &lt;enough todo&gt; conencted and hence passing to $\pi_m$ shows
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_6a0fa856491a2e483af316c8219ab3f95d8798c4.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_6a0fa856491a2e483af316c8219ab3f95d8798c4.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/7eccae8c6b319146db23.svg" class="org-svg" alt="diagram" /></span></div>
 
 <p>
-and this commutative diagram shows that <img src="ltximg/20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_c6e77e70c0c90125dd1125e8e4e313318170b76a.svg" alt="20260817-classification_of_cw_complexes_with_four_cells_and_one_in_dimension_1_c6e77e70c0c90125dd1125e8e4e313318170b76a.svg" class="org-svg" /> are equivalent under the action<br />
+and this commutative diagram shows that $(g_{i},...,g_{i_k}) \sim (g_{j},...,g_{j_l})$ are equivalent under the action
 </p>
-<ul class="org-ul">
-<li>todo: add to the last sentence<br /></li>
+<ul>
+<li>todo: add to the last sentence</li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2026-08-21 Fr 19:10</p>
 </div>
 </body>
 </html>

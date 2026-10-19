@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>some thoughts: derived functors</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-b7ce61c0-4efd-4342-a4b8-1336f575e434"></span><h1 class="title">some thoughts: derived functors</h1>
+
+<h2 id="list">list</h2>
+<ul>
+<li>erstmal:</li>
+<ul>
+<li>lokalisierung von kategorien</li>
+<ul>
+<li>universelle eigenschaft: funktoren die $W$ zu isos abbilden können eindeutig fortgesetzt werden</li>
+<ul>
+<li>auf freie art: mache morphismen zu isos</li>
+</ul>
+<li>relevant:</li>
+<ul>
+<li>lokalisierungen existieren; aber i.A. schwer ausrechenbar</li>
+</ul></ul></ul><ul>
+<li>cooler fakt:</li>
+<ul>
+<li>anima lokalisierung $\mathrm{Top}[w.equiv]$ </li>
+
+<li>aber auch: $\mathrm{Ab}$<em>$\mathrm{Shv}(\mathcal{C})$ ist eine Lokalisierung von $\mathrm{Grp}$</em>$\mathrm{PSh}(\mathcal{C})$</li>
+
+<li>(adjunktion: ein adjungierter volltreu ~&gt; gibt lokalisierung entlang unit/counit morphisms)</li>
+<ul>
+<li>nicht nur hinzufügen von neuen isomorphismen / neuen units</li>
+
+<li>sondern auch: objekte können isomorph werden</li>
+</ul></ul>
+<li>z.B. $\mathrm{Grp} \xrightarrow{(-)^{\mathrm{ab}}} \mathrm{Grp}[(G \rightarrow G^{\mathrm{ab}})^{-1}] \simeq \mathrm{Ab}$  # lokalisierung: nicht in der derivierten ! - z.b. limits / colimits non exakt sequence: z.B. x -&gt; 0 colimit # i.A. nicht so einfach: anima &amp; derivierte keine adjunktion :</li>
+<ul>
+<li>introduce: $\mathrm{Ch_*}(\mathcal{A})$, quasi-isomorphismus</li>
+
+<li>derivierte kategorie: lokalisierung entlang quasi-isomorphismen $\mathrm{Ch_*}(\mathcal{A}) \rightarrow \mathcal{D}(\mathcal{A})$</li>
+
+<li>in der derivierten kategorie: wohldefinierter homologie funktor</li>
+</ul></ul></ul>
+<div class="equation-container"><span class="equation"><img src="ltximg/554f93e3f8e43e7b24c2.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+<ul>
+<li>$\mathcal{A}, \mathcal{B}$ <a href="20230827-abelian_category.html#ID-9003af72-f684-4897-b096-c1d8a681c624">abelian categories</a> (angenommen: $\mathrm{RMod}, \mathrm{SMod}$)</li>
+
+<li>$\mathcal{F}: \mathcal{A} \rightarrow \mathcal{B}$ an <a href="20230827-additive_functor.html#ID-194ea42e-600c-4119-8889-5b46998201e6">additive functor</a> </li>
+<ul>
+<li>Problem: in general not left/right exact.</li>
+
+<li>möglich:</li>
+<ul>
+<li>a) "so etwas wie exakt machen" (genauer: exakter Funktor zwischen Derivierten kategorien)~&gt; ggbf. tools aus homologischer algebra verwenden</li>
+
+<li>b) möglichkeit: "zusätzliche Information" (z.B. Ext hat dank Yoneda eine zusätzliche interpretation)</li>
+</ul>
+<li>"Solution":</li>
+<ul>
+<li>$\mathcal{A} \hookrightarrow \mathrm{Ch}(\mathcal{A}) \xrightarrow{\mathcal{F}(-)} \mathrm{Ch}(\mathcal{B})$ additiver funktor induziert einen funktor</li>
+
+<li>der induzierte funktor $\mathrm{Ch}(\mathcal{F}(-))$ erhält chain homotopies ("ungefähr lösung zu einer lineare gleichungen")</li>
+
+<li>quasi-isomorphismen werden nicht erhalten! (nur wenn exakt) (naiv: <a href="20260323-additive_functor_in_general_does_not_preserve_quasi_isomorphisms.html#ID-8cd65c7b-c21f-4813-a58d-c7ff12370f80">induced functor on chain complexes of additive functor in general does not preserve quasi-isomorphisms</a>) </li>
+</ul></ul></ul>
+
+<ul>
+<li>erhalten nicht direkt einen funktor $\mathcal{D}(\mathcal{F})$</li>
+</ul><ul>
+<li>besonderheit: quasi-isomorphismen zwischen chain complexes consisting of projectives sind automatisch chain homotopy equivalences</li>
+<ul>
+<li>guter/richtiger kandidat: wenn wir einen kettenkomplex von projektiven haben: dann $\mathcal{D}(\mathcal{F})(P_*) \coloneqq \mathcal{D}(\mathcal{F}(P_*))$</li>
+</ul>
+<li>projektive resolution von $A$:</li>
+<ul>
+<li>ist genau ein quasi-isomorphismus $P_* -&gt; A$</li>
+
+<li>in der derivierten kategories $P_* \simeq A$</li>
+</ul></ul>
+<p>
+-
+</p>
+<ul>
+<li>ext hat eine schöne interpretation:</li>
+<ul>
+<li><a href="20230902-extension_in_an_abelian_category.html#ID-7dafd915-0dde-4748-9097-21c0ab8f71fe">Extension in an abelian category</a> </li>
+
+<li><a href="20260323-ext_and_extension.html#ID-a1a60bf7-f171-4d45-853c-ccc5af9308e3">Ext and extension</a> </li>
+</ul></ul>
+</div>
+</body>
+</html>

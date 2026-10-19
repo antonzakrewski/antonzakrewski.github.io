@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>algebraic topology 5 - spectral sequences</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-fdf902ca-97a5-486a-b940-b8dae1044d3a"></span><h1 class="title">algebraic topology 5 - spectral sequences</h1>
+
+<h2 id="aspects">Aspects</h2>
+<ul>
+<li>empfehlung: weibel, homological algebra; hatcher: spectral sequences; Mcleary: a users guide</li>
+
+<li><a href="20250826-spectral_sequence.html#ID-37b89bcc-af64-4182-9e25-2a7ac65f9ec4">spectral sequence</a> </li>
+
+<li><a href="20251013-strongly_convergent_spectral_sequence.html#ID-47cc65a8-c281-4ea0-b6f0-8447ecfa54e9">strongly convergent spectral sequence</a> </li>
+
+<li><a href="20251013-commutative_multiplicative_spectral_sequence.html#ID-557efad2-9e18-453f-a43f-8833d83784b1">commutative multiplicative spectral sequence</a> / <a href="20251013-multiplicative_spectral_sequence.html#ID-818470d4-163b-493e-acc3-bb9c708b951b">multiplicative spectral sequence</a>   </li>
+
+<li><a href="20250826-filtered_object.html#ID-9d95ab2d-1409-4ed0-9389-26c91fb4a79f">filtered object</a> &amp; <a href="20251013-category_of_filtered_spectra.html#ID-a84b9fef-1319-432b-933e-8709e9ad8407">category of filtered spectra</a> </li>
+
+<li><a href="20240522-category_of_graded_objects.html#ID-830e5baf-43e2-4bcf-88de-e6926ec6b494">category of graded objects</a> &amp;  </li>
+</ul>
+<ul>
+<li>symmetric monoidal sturcture $\mathbb{Z}$     </li>
+
+<li><a href="20250509-day_convolution_on_infinity.html#ID-3531cd65-d626-4472-ab63-ccbb71232df6">day convolution</a>  </li>
+
+<li><a href="20250911-day_convolution_formula.html#ID-cd75f3f5-1aa4-4378-a5a5-fe9e20d9ceb6">day convolution formula</a> - todo</li>
+
+<li><a href="20251013-monoidal_unit_of_day_convolution.html#ID-f94c38f2-a4c4-4554-ac2f-11c2c64586a6">monoidal unit of day convolution</a> </li>
+</ul>
+<ul>
+<li><a href="20250912-day_convolution_of_graded_objects.html#ID-412ddbbd-bbc4-448f-86ab-e42ba5f01446">day convolution of graded objects</a> / <a href="20250912-day_convolution_of_filtered_objects.html#ID-27ccae7d-85a7-4505-96af-762f2bd4302c">day convolution of filtered objects</a> - todo</li>
+
+<li><a href="20251013-filtered_ring_spectra.html#ID-7ed32e58-0828-4ea5-badc-91a3584da7f9">filtered ring spectra</a> / <a href="20251013-commutative_filtered_ring_spectrum.html#ID-08782a18-edfa-4aed-8c63-1f02c6952c40">commutative filtered ring spectrum</a> </li>
+
+<li>&lt;graded object&gt;</li>
+</ul>
+<ul>
+<li><a href="20240522-category_of_graded_objects.html#ID-830e5baf-43e2-4bcf-88de-e6926ec6b494">category of graded objects</a> </li>
+</ul>
+<ul>
+<li><a href="20251013-commutative_graded_ring_spectra.html#ID-a7e38937-8f30-42a3-b2d6-44c0bbcb67aa">commutative graded ring spectra</a> </li>
+
+<li><a href="20251013-graded_ring_spectra.html#ID-9245b3a4-9617-4635-9a6e-eb4e8c099a3d">graded ring spectra</a>    </li>
+</ul>
+
+<ul>
+<li><a href="20250911-underlying_graded_object_of_a_filtered_object.html#ID-8c6edeec-1c74-4a3b-9f28-f6be684d1265">underlying graded object functor of a filtered object</a>   </li>
+
+<li><a href="20250912-underlying_graded_object_functor_is_symmetric_monoidal.html#ID-91c9aeb2-1e64-49f0-a7bb-08ba1f87fb76">underlying graded object functor is symmetric monoidal</a>   </li>
+
+<li><a href="20251020-underlying_graded_object_functor_preserves_limits_and_colimits_for_a_stable_category.html#ID-51cbe3da-22e7-4669-a434-b485b77e4ef1">underlying graded object functor preserves limits and colimits for a stable category</a>   </li>
+</ul>
+<ul>
+<li><a href="20251013-underlying_functor_of_a_filtered_object.html#ID-00a18475-e662-43fd-af3f-761f2aa9b12d">underlying object functor of a filtered object</a>   </li>
+</ul>
+<ul>
+<li><a href="20251019-category_of_filtered_objects.html#ID-ccdf359f-efcb-4bd9-b17a-bc10669b465a">category of filtered objects</a>  </li>
+
+<li><a href="20240522-category_of_graded_objects.html#ID-830e5baf-43e2-4bcf-88de-e6926ec6b494">category of graded objects</a> </li>
+</ul>
+<ul>
+<li><a href="20251019-symmetric_monoidal_structure_of_the_category_of_filtered_objects.html#ID-03079945-d637-4420-913f-7e679d4ee560">symmetric monoidal structure of the category of filtered objects</a>   </li>
+
+<li><a href="20251019-symmetric_monoidal_structure_of_the_category_of_graded_object.html#ID-b302106c-f0f5-4181-9d83-5fb49d2535a5">symmetric monoidal structure of the category of graded objects</a>   </li>
+</ul>
+<ul>
+<li><a href="20251013-whitehead_filtration_functor.html#ID-6e687189-9eea-4509-95e1-3e4398c2e0c9">whitehead filtration functor</a>   </li>
+
+<li><a href="20251013-whitehead_filtration_functor_is_lax_symmetric_monoidal.html#ID-8e6a456f-3357-43f3-bfe9-3ec1019a7d2e">whitehead filtration functor is lax symmetric monoidal</a>   </li>
+
+<li></li>
+
+<li><a href="20251013-homotopy_groups_of_mso_are_oriented_bordism_classes.html#ID-d24bb019-242c-4b6a-9f71-e8f3e0553f78">homotopy groups of MSO are oriented bordism classes</a> </li>
+
+<li><a href="20251013-homotopy_groups_of_mo_are_bordism_classes.html#ID-62bacc8c-897d-4e0c-a601-35f48265586a">homotopy groups of MO are bordism classes</a>   </li>
+</ul>
+<ul>
+<li><a href="20251020-fiber_sequence_of_a_filtered_spectrum.html#ID-1be2edfc-2f27-4765-9b92-adc23458c13a">fiber sequence of a filtered spectrum</a> </li>
+</ul>
+<p>
+Let $X_*$ be a <a href="20251020-filtered_spectrum.html#ID-09790f8b-966e-43cd-b6b3-2f9d37a66bb1">filtered spectrum</a>  with $X \coloneqq \mathrm{colim}_{n \rightarrow - \infty} X_n$.
+then there exists a
+</p>
+
+
+<h3 id="25">2.5</h3>
+<ul>
+<li><a href="20251020-spectral_sequence_of_a_filtered_spectrum.html#ID-58521844-7871-4be6-8895-690f25f7da4b">spectral sequence of a filtered spectrum</a> </li>
+
+<li><a href="20251020-decalage_of_filtered_spectra.html#ID-74420d39-cda8-4e55-95d9-f9fb4758297b">decalage of filtered spectra</a> : bellinson t-structure ~&gt; take whithehead tower for the that t-structure</li>
+
+<li><a href="20251020-explicite_description_of_the_spectral_sequence_of_a_filtered_spectrum.html#ID-72ff71a4-0a72-4347-936c-5078b049f307">explicit description of the spectral sequence of a filtered spectrum</a> </li>
+</ul>
+<ul>
+<li><a href="20251020-category_of_spectral_sequences.html#ID-3ffa7248-87c6-4d50-91e0-053d8ea6e313">category of spectral sequences</a> </li>
+
+<li><a href="20251020-morphism_of_a_spectral_sequence.html#ID-a948056d-20b3-473c-95fe-cbf08619aa3e">morphism of a spectral sequence</a>   </li>
+
+<li><a href="20251020-spectral_sequence_functor_from_filtered_spectra.html#ID-d9548180-7659-4e0a-b02f-0a6c339cbf5c">spectral sequence functor from filtered spectra</a>   </li>
+</ul>
+<ul>
+<li><a href="20251020-algebra_in_filtered_spectra_induces_multiplicative_spectral_sequence.html#ID-f7895a85-3f24-4797-9350-bf460068ab42">algebra in filtered spectra induces multiplicative spectral sequence</a> </li>
+
+<li><a href="20251020-commutative_algebra_in_filtered_spectra_induces_multiplicative_spectral_sequence.html#ID-964eaabf-0a09-431c-a1b6-e157b18325cc">commutative algebra in filtered spectra induces multiplicative spectral sequence</a>   </li>
+</ul>
+
+<h3 id="2-examples">2. Examples</h3>
+<ul>
+<li><a href="20250826-homology_serre_spectral_sequence.html#ID-d8f619c6-c31a-4152-9894-753ef7f2cfed">homology serre spectral sequence</a> </li>
+
+<li><a href="20250514-serre_spectral_sequence.html#ID-16001db6-bfb8-4a57-80f4-4582c8a7d02e">cohomology serre spectral sequence</a> </li>
+</ul>
+<ul>
+<li><a href="20250912-atiyah_hirzebruch_spectral_sequence_for_homology.html#ID-a6cc1891-1856-4ef0-94c6-54878f94a1fd">atiyah-hirzebruch spectral sequence for homology_</a> &amp; <a href="20250912-atiyah_hirzebruch_spectral_sequence.html#ID-9e72b507-b822-4424-94bd-75dab935a24c">atiyah-hirzebruch spectral sequence for cohomology</a> </li>
+</ul>
+<ul>
+<li></li>
+</ul>
+<h3 id="231">2.31</h3>
+<ul>
+<li>0</li>
+</ul>
+<h3 id="213">2.13</h3>
+<ul>
+<li><a href="20251202-image_of_the_base_for_the_homological_serre_spectral_sequence.html#ID-7cdfce98-610f-41af-a979-ae82c7618749">image of the base for the homological serre spectral sequence</a> </li>
+
+<li><a href="20251202-image_of_the_fiber_for_the_homological_serre_spectral_sequence.html#ID-1fe57c73-0887-4a2a-b5f3-9c0a1616d319">image of the fiber for the homological serre spectral sequence</a>   </li>
+
+<li><a href="20251202-image_of_the_base_for_the_cohomological_serre_spectral_sequence.html#ID-2d141416-6134-41b5-bc9e-339d29978371">image of the base for the cohomological serre spectral sequence</a>   </li>
+
+<li><a href="20251202-image_of_the_fiber_for_the_cohomological_serre_spectral_sequence.html#ID-b2f30b7d-3232-47c6-a1ab-5597b9b22cf3">image of the fiber for the cohomological serre spectral sequence</a> </li>
+</ul>
+<h3 id="2-serre-class-theory">2. Serre class theory</h3>
+<ul>
+<li><a href="20251027-serre_class.html#ID-affd7ccd-e9a4-46e3-85a3-d19b79e852e1">serre class</a> </li>
+
+<li><a href="20251027-derived_serre_class.html#ID-afa5ca4c-59ee-4a9c-a9ed-712864539ce4">derived serre class</a>   </li>
+
+<li><a href="20251027-torsion_abelian_groups_is_a_derived_serre_ring.html#ID-f8743ba1-021d-4366-9a64-6420d962ce98">torsion abelian groups is a derived serre ring</a>  </li>
+
+<li><a href="20251104-r_kernel_is_a_derived_serre_ring.html#ID-5040d79b-0fe3-4e4f-9692-82d3e6102965">R-kernel is a derived serre ring</a> </li>
+
+<li><a href="20251027-p_torsion_abelian_groups_is_a_derived_serre_ring.html#ID-2080660a-ef1c-412d-a8c3-32fa255bb253">p-torsion abelian groups is a derived serre ring</a>    </li>
+
+<li><a href="20251027-finitely_generated_abelian_groups_is_a_derived_serre_ring.html#ID-a906d60a-68fb-45cd-b453-79c551e2693a">finitely generated abelian groups is a derived serre ring</a>   </li>
+
+<li><a href="20251027-finite_abelian_groups_is_a_derived_serre_ringg.html#ID-2c31ae02-1190-4869-a230-1deda4f6cfcb">finite abelian groups is a derived serre ring</a> </li>
+
+<li><a href="20251027-zero_group_is_a_derived_serre_ring.html#ID-60271431-1237-4c77-a64c-cbeb937e7b4b">zero group is a derived serre ring</a>   </li>
+</ul>
+<ul>
+<li><a href="20251027-class_of_vector_spaces_is_never_a_serre_calss.html#ID-a2bc224c-28de-46c5-8884-7f3514e3b75d">class of vector spaces is never a serre class</a>   </li>
+
+<li><a href="20251027-torsion_free_modules_is_not_a_serre_class.html#ID-db34ec6a-0c49-42c8-95de-43c96119725d">torsion free modules is not a serre class</a> </li>
+</ul>
+<h3 id="216">2.16</h3>
+<ul>
+<li><a href="20251027-homology_of_a_simple_fiber_sequence_and_serre_class.html#ID-2e304cf6-7310-4b68-8501-377337187d54">homology of a simple fiber sequence and serre class</a> </li>
+</ul>
+<h3 id="217">2.17</h3>
+<ul>
+<li><a href="20251027-homology_of_an_eilenberg_mac_lane_space_for_a_derived_serre_class.html#ID-f639d30e-c656-4993-b59a-caed067251a0">homology of an eilenberg-mac lane space for a derived serre class</a> </li>
+
+<li><a href="20250208-eilenberg_mac_lane_space_functor_sends_short_exact_sequences_to_cofiber_sequences.html#ID-08aa0ae1-bda2-4467-9cc3-b5c3f4113fea">eilenberg mac lane space functor sends short exact sequences to fiber sequences</a>   </li>
+
+<li><a href="20251028-fiber_sequence_of_a_cyclic_group_cp_infinity_and_s1.html#ID-bf8fe71c-c95e-4d7c-9122-ae52c4a93b7f">fiber sequence of a cyclic group, CP infinity and S^1</a>   </li>
+
+<li><a href="20251028-integral_cohomology_of_bz_nz.html#ID-ac37a913-4d6e-4715-b4ca-142159e38e11">integral cohomology of BZ/nZ</a>   </li>
+</ul>
+
+
+
+<h3 id="218">2.18)</h3>
+<ul>
+<li><a href="20251027-fundamental_theorem_of_serre_class_theory.html#ID-ae5b4768-1e16-425b-bcc5-fd1a167b4de0">fundamental theorem of serre class theory</a> </li>
+
+<li><a href="20251028-serre_finiteness_theorem_of_homotopy_groups_of_spheres.html#ID-44be0d00-61c4-4e92-979a-b9fc7d7e98fc">weak serre finiteness theorem of homotopy groups of spheres</a>   </li>
+</ul>
+
+
+<div class="equation-container"><pre class="render-failed">\begin{sseqpage}[homological Serre grading, classes = { draw = none } ]
+\class["H_0(B,H_0(F,R))"](0,0)
+\class["H_1(B,H_0(F,R))"](1,0)
+\end{sseqpage}</pre></div>
+
+</div>
+</body>
+</html>

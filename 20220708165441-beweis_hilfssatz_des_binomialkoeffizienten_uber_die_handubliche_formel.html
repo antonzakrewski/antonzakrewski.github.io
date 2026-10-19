@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:28 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Beweis: Hilfssatz des Binomialkoeffizienten über die handübliche Formel</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,68 +52,54 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Beweis: Hilfssatz des Binomialkoeffizienten über die handübliche Formel</h1>
-<div id="outline-container-org52b3d1d" class="outline-2">
-<h2 id="org52b3d1d"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
-\begin{align*}
+<span id="ID-38da0077-2c2a-4a54-9658-c2aad1925c1d"></span><h1 class="title">Beweis: Hilfssatz des Binomialkoeffizienten über die handübliche Formel</h1>
+
+<h2 id="satz">Satz</h2>
+
+<div class="math-block">\begin{align*}
 \binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k} 
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org7e16d10" class="outline-2">
-<h2 id="org7e16d10"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orge1b6c30" class="outline-3">
-<h3 id="orge1b6c30"><span class="section-number-3">2.1.</span> \(k \leq 0\)</h3>
-<div class="outline-text-3" id="text-2-1">
-\begin{align*}
-k \leq& 0 \Rightarrow k - 1 < 0 \\
-\binom{n}{0} =& 1 \\
-\binom{n}{-h} =& 0 \quad \text{für } h \in \mathbb{N} \\
-\binom{n}{k} =& \binom{n-1}{k-1} + \binom{n-1}{k} \\
-=& 0 + \binom{n-1}{k} \\
-=& \begin{cases}
-1 & \mbox{if } k = 0  \\
-0 & \mbox{if } k < 0 \\ 
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="k-leq-0">$k \leq 0$</h3>
+
+<div class="math-block">\begin{align*}
+k \leq&amp; 0 \Rightarrow k - 1 &lt; 0 \\
+\binom{n}{0} =&amp; 1 \\
+\binom{n}{-h} =&amp; 0 \quad \text{für } h \in \mathbb{N} \\
+\binom{n}{k} =&amp; \binom{n-1}{k-1} + \binom{n-1}{k} \\
+=&amp; 0 + \binom{n-1}{k} \\
+=&amp; \begin{cases}
+1 &amp; \mbox{if } k = 0  \\
+0 &amp; \mbox{if } k &lt; 0 \\ 
 \end{cases}
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org91b72b3" class="outline-3">
-<h3 id="org91b72b3"><span class="section-number-3">2.2.</span> \(k \geq n\)</h3>
-<div class="outline-text-3" id="text-2-2">
-\begin{align*}
-k > n \Rightarrow \binom{k}{n} = 0 \\
+\end{align*}</div>
+
+<h3 id="k-geq-n">$k \geq n$</h3>
+
+<div class="math-block">\begin{align*}
+k &gt; n \Rightarrow \binom{k}{n} = 0 \\
 k = n \Rightarrow \binom{k}{n} = 1 \\
 k \geq n \Rightarrow k - 1 \geq n - 1  \\
 k = n \Rightarrow k - 1 = n - 1 \\
 \binom{n}{n} = 1 \\
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org4edece2" class="outline-3">
-<h3 id="org4edece2"><span class="section-number-3">2.3.</span> \(n < k\)</h3>
-<div class="outline-text-3" id="text-2-3">
-\begin{align*}
-\binom{n-1}{k-1} + \binom{n-1}{k} =& \frac{(n-1)!}{(k-1)!((n-1)-(k-1))!} + \frac{(n-1)!}{k!(n-k-1)!} \\
-=& \frac{(n-1)!}{(k-1)!(n-k)!} + \frac{(n-1)!}{k!(n-k-1)!} \\
-=& \frac{k(n-1)!}{k!(n-k)!} + \frac{(n-k)(n-1)!}{k!(n-k)!} \\
-=& \frac{k(n-1)! + (n-k)(n-1)!}{k!(n-k)!} \\
-=& \frac{((k)+(n-k))(n-1)!}{k!(n-k)!} \\
-=& \frac{n(n-1)!}{k!(n-k)!} \\
-=& \frac{n!}{k!(n-k)!} \\ 
-=& \binom{n}{k}
-\end{align*}
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:28</p>
+\end{align*}</div>
+
+<h3 id="n-k">$n &lt; k$</h3>
+
+<div class="math-block">\begin{align*}
+\binom{n-1}{k-1} + \binom{n-1}{k} =&amp; \frac{(n-1)!}{(k-1)!((n-1)-(k-1))!} + \frac{(n-1)!}{k!(n-k-1)!} \\
+=&amp; \frac{(n-1)!}{(k-1)!(n-k)!} + \frac{(n-1)!}{k!(n-k-1)!} \\
+=&amp; \frac{k(n-1)!}{k!(n-k)!} + \frac{(n-k)(n-1)!}{k!(n-k)!} \\
+=&amp; \frac{k(n-1)! + (n-k)(n-1)!}{k!(n-k)!} \\
+=&amp; \frac{((k)+(n-k))(n-1)!}{k!(n-k)!} \\
+=&amp; \frac{n(n-1)!}{k!(n-k)!} \\
+=&amp; \frac{n!}{k!(n-k)!} \\ 
+=&amp; \binom{n}{k}
+\end{align*}</div>
+
+
 </div>
 </body>
 </html>

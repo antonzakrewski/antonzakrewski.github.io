@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>algebraic topology 5 - some rational and p-local homotopy theory</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-3adce94e-d736-4cba-994c-cc887c67afae"></span><h1 class="title">algebraic topology 5 - some rational and p-local homotopy theory</h1>
+
+<h2 id="aspects">Aspects</h2>
+<p>
+Let $R = \mathbb{Q}, \mathbb{Z}_{(p)}, \mathbb{Z}[\frac{1}{p}]$
+</p>
+
+<h3 id="31">3.1</h3>
+<ul>
+<li><a href="20251103-category_of_r_local_anima.html#ID-62f84b4d-1ffe-45be-af57-b7d87e67db73">category of R-local anima</a></li>
+
+<li><a href="20251103-category_of_r_local_anima_via_presheaf_localization.html#ID-947bf010-498a-49c1-9c18-7ace757e41b6">category of R-local anima via presheaf localization</a>   </li>
+
+<li><a href="20251104-category_of_r_local_anima_is_localization_along_r_local_equivalences.html#ID-d73671de-5567-417f-8a9c-d6b7ef27e701">category of R-local anima is localization along R-local equivalences</a> - todo</li>
+</ul>
+<ul>
+<li><a href="20251103-r_local_anima_closed_under_limits.html#ID-eaea2f31-34f5-4a55-90aa-3e833b41f2ad">R-local anima closed under limits</a>   </li>
+
+<li><a href="20251103-r_local_anima_is_closed_under_filtered_colimits.html#ID-09ae0e31-0f55-464f-a0d3-5b97cfcec56a">R-local anima is closed under aleph1-filtered colimits</a>   </li>
+
+<li><a href="20251103-r_local_anima_is_a_presentable_category.html#ID-a8cd982a-a576-49d5-9aa5-481a9df0ee89">R-local anima is a presentable category</a>   </li>
+</ul>
+<ul>
+<li><a href="20251103-r_localization_of_anima.html#ID-2d09c640-688e-4d76-9622-59f59cafcee5">R-localization of Anima</a> </li>
+
+<li><a href="20251103-r_local_spectrum.html#ID-46465fd7-0d9f-4d07-a6e9-4714c872e8a4">R-local Anima</a>   </li>
+
+<li><a href="20251103-unit_of_r_localization_of_anima_induces_isomorphism_on_r.html#ID-e9361027-4ad7-449a-b757-19245051eccc">unit of R-localization of anima induces isomorphism on R</a>   </li>
+
+<li><a href="20251103-r_local_equivalence_for_a_spectrum.html#ID-fd31d400-7b29-40ec-a165-79fb4638be9c">R-local equivalence for a spectrum</a>   </li>
+</ul>
+<ul>
+<li>$H_*(X;R) \rightarrow H_*(X_R, R)$  </li>
+
+<li><a href="20251103-r_local_equivalence_between_r_local_anima_is_an_equivalence.html#ID-c1859a16-7305-4f00-ae08-f1e0c795cfd9">R-local equivalence between R-local anima is an equivalence</a>   </li>
+
+<li><a href="20251103-common_spectrum_for_localizing.html#ID-8a2ec268-cd5c-4feb-8032-337bd85f0749">common spectrum for localizing</a>  </li>
+
+<li></li>
+
+<li><a href="20251103-serre_spectral_sequence_is_pseudo_conservative.html#ID-ed1441d8-bfd5-4ac4-9d40-dddd3bcb02f0">serre spectral sequence is pseudo-conservative</a> </li>
+
+<li><a href="20251103-associated_graded_functor_of_an_exhaustive_filtered_object_is_conservative.html#ID-3a7e1b70-5a7d-4766-885a-1cd9e3358e6c">associated graded functor of a finite exhaustive filtered object is conservative</a>   </li>
+
+<li><a href="20251103-isomorphism_on_r_localized_homotopy_groups_is_r_local_equivalence.html#ID-2abe4d61-2997-4d39-9f6a-83841e10135b">isomorphism on R localized homotopy groups is R-local equivalence</a> </li>
+</ul>
+
+<ul>
+<li><a href="20251103-recognition_principle_for_r_local_anima.html#ID-ccaec090-37a3-44a3-86d8-07ba3618c145">recognition principle for R-local anima</a> </li>
+
+<li><a href="20251103-simple_anima_as_z_local_anima.html#ID-41f7406b-407e-469f-bdba-cd6d64399088">simple anima as Z-local anima</a> </li>
+
+<li><a href="20251103-r_local_hurewicz.html#ID-0268cfae-cc6e-4913-840b-8cb983d49a0f">R-local hurewicz</a> </li>
+</ul>
+<h3 id="other">other</h3>
+<ul>
+<li>[[id:d7f14282-8ad1-48a0-a9ae-0f1cbbe8a420][vanishing redueced F_p homology and reduced homology is an R-module] </li>
+
+<li></li>
+</ul>
+<h3 id="31">3.1</h3>
+<ul>
+<li><a href="20251103-category_of_rational_anima.html#ID-42851d65-6bc0-4953-a2ec-7cbc59a78dc3">category of rational anima</a>  / <a href="20251104-category_of_p_local_anima.html#ID-8506fd7d-0c5f-49aa-a7fd-c332716836b0">category of p-local anima</a> </li>
+
+<li><a href="20251103-r_local_equivalence_for_a_spectrum.html#ID-fd31d400-7b29-40ec-a165-79fb4638be9c">R-local equivalence for a spectrum</a> / <a href="20251104-rational_equivalence_between_anima.html#ID-9b232074-dc64-466a-a8e8-0a4171bdf376">rational equivalence between anima</a> / <a href="20251104-p_local_equivalence_between_anima.html#ID-6a5e14bf-f709-4d3a-82dd-1acff97ea98b">p-local equivalence between anima</a>   </li>
+
+<li><a href="20251103-category_of_rational_anima_is_not_compactly_generated.html#ID-3cb3787d-27b7-4e3f-8c7b-e99f23e8e1eb">category of rational anima is not compactly generated</a>   </li>
+
+<li><a href="20251103-unit_of_r_localization_of_anima_induces_isomorphism_on_r.html#ID-e9361027-4ad7-449a-b757-19245051eccc">unit of R-localization of anima is an R-local equivalence</a> </li>
+
+<li><a href="20251103-r_localization_of_anima.html#ID-2d09c640-688e-4d76-9622-59f59cafcee5">R-localization of Anima</a> </li>
+
+<li><a href="20251103-r_local_equivalence_for_a_spectrum.html#ID-fd31d400-7b29-40ec-a165-79fb4638be9c">R-local equivalence</a> </li>
+
+<li><a href="20251104-category_of_r_local_anima_is_localization_along_r_local_equivalences.html#ID-d73671de-5567-417f-8a9c-d6b7ef27e701">category of R-local anima is localization along R-local equivalences</a>   </li>
+</ul>
+<h3 id="32">3.2</h3>
+<ul>
+<li><a href="20251103-r_local_spectrum.html#ID-46465fd7-0d9f-4d07-a6e9-4714c872e8a4">R-local Anima</a> </li>
+
+<li><a href="20251105-r_local_anima_and_pi_0_condition.html#ID-fa81577d-8289-4932-ae34-5091f8a92f52">R-local anima and pi_0 condition</a>   </li>
+</ul>
+<h3 id="33">3.3</h3>
+<ul>
+<li><a href="20251103-eilenberg_maclane_space_for_an_r_module_is_r_local.html#ID-e12d8ce9-396e-4b6b-95b7-6c4b6b517b72">eilenberg maclane space for an R-module is R-local</a> </li>
+</ul>
+<h3 id="34">3.4</h3>
+<ul>
+<li><a href="20251103-recognition_principle_for_r_local_anima.html#ID-ccaec090-37a3-44a3-86d8-07ba3618c145">recognition principle for R-local anima</a> </li>
+</ul>
+<h3 id="35">3.5</h3>
+<ul>
+<li><a href="20251103-eilenberg_maclane_space_for_an_r_module_is_r_local.html#ID-e12d8ce9-396e-4b6b-95b7-6c4b6b517b72">eilenberg maclane space for an R-module is R-local</a> </li>
+
+<li><a href="20251104-lifting_module_to_localized_ring_is_property.html#ID-682858fb-49cb-41d2-bb3f-3a5a3f206ac9">lifting module to localized ring is property, not structure</a> </li>
+
+<li><a href="20251103-r_localization_of_an_eilenberg_maclane_space.html#ID-ddc1f49e-d365-4b09-80b8-27bd2c9db296">R-localization of an eilenberg maclane space</a> </li>
+</ul>
+<h3 id="36">3.6</h3>
+<ul>
+<li><a href="20251103-isomorphism_on_r_localized_homotopy_groups_is_r_local_equivalence.html#ID-2abe4d61-2997-4d39-9f6a-83841e10135b">isomorphism on R-localized homotopy groups is R-local equivalence</a> </li>
+</ul>
+<h3 id="37">3.7</h3>
+<ul>
+<li><a href="20251103-explicite_description_of_the_r_localization_of_a_simple_and_connected_anima.html#ID-1ab4f200-eeb6-4a18-b148-0a604478baa1">explicit description of the R-localization of a simple and connected anima</a>   </li>
+</ul>
+<h3 id="38">3.8</h3>
+<ul>
+<li><a href="20251105-r_local_equivalence_for_a_subring_of_q_is_equivalence_on_r_homotopy.html#ID-f271a2b3-82ee-4583-8e4d-5306811bf5d6">R-local equivalence for a subring of Q is equivalence on R-homotopy</a> </li>
+
+<li></li>
+</ul>
+<h3 id="39">3.9</h3>
+<ul>
+<li><a href="20251106-homotopy_groups_of_a_connected_anima_as_r_modules_and_homology.html#ID-0e6d537d-d4bf-45b4-ad17-9d5efc0e2a8e">homotopy groups of a connected anima as R-modules and homology</a> </li>
+
+<li><a href="20251103-r_local_anima_for_common_r_and_homotopy_groups.html#ID-baf8b8de-b011-447d-a986-69d987068801">R-local anima for common R and homotopy groups as R-module</a> </li>
+
+<li><a href="20251103-recognition_principle_for_r_local_anima.html#ID-ccaec090-37a3-44a3-86d8-07ba3618c145">recognition principle for R-local anima</a> </li>
+</ul>
+<h3 id="310">3.10</h3>
+<ul>
+<li><a href="20251103-recognition_principle_for_r_local_anima.html#ID-ccaec090-37a3-44a3-86d8-07ba3618c145">recognition principle for R-local, simple anima</a> </li>
+</ul>
+<h3 id="311">3.11</h3>
+<ul>
+<li><a href="20251103-r_local_hurewicz.html#ID-0268cfae-cc6e-4913-840b-8cb983d49a0f">R-local hurewicz</a> </li>
+
+<li></li>
+</ul>
+<h3 id="312">3.12</h3>
+<ul>
+<li><a href="20251110-2_local_ehp_sequence_for_a_sphere.html#ID-1cf49585-71bf-46cb-af7d-7b7d0fc3e83c">2-local ehp sequence for a sphere</a> </li>
+
+<li><a href="20251110-split_ehp_sequence_for_an_even_sphere.html#ID-444e4075-2d3d-4d48-bcc4-7b14aef256f5">split EHP sequence for an even sphere</a>   </li>
+
+<li></li>
+</ul>
+<h3 id="313">3.13</h3>
+<ul>
+<li><a href="20251110-free_monoid_of_a_connected_anima_is_the_free_group.html#ID-48947fd4-1558-4d49-a8a9-f65a1290e717">free monoid of a connected anima is the free group</a> </li>
+
+<li><a href="20250909-explicite_formula_for_the_free_anima_valued_group.html#ID-abaf1299-ba43-4f05-9e7b-41b49d97f94f">explicit formula for the free anima valued group</a>   </li>
+
+<li><a href="20251111-explicite_description_of_the_free_algebra_of_a_suspension_spectrum.html#ID-dcecd110-2a85-4282-bdab-dbe81ddd0b88">explicit description of the free Algebra of a suspension spectrum</a>   </li>
+
+<li><a href="20251111-explicite_description_of_the_free_e1_monoid.html#ID-ef013315-68af-4f1e-9b2b-11d8dab3dc8a">explicit description of the free E1 Monoid</a> </li>
+
+<li><a href="20251111-explicite_description_of_the_free_ek_monoid.html#ID-19997f39-34c4-4eca-8ba1-ff3cd44fe86b">explicit description of the free Ek Monoid</a>   </li>
+
+<li><a href="20251111-homology_ring_of_the_loop_space_of_the_sphere.html#ID-b365b259-4c05-4eba-bcfc-c8e219e1204a">homology ring of the loop space of the sphere</a>   </li>
+
+<li><a href="20251111-homology_of_a_loop_space_admits_a_ring_structure.html#ID-096ec6d0-b25d-477f-8304-31690332444f">homology of a loop space admits a ring structure</a> </li>
+
+<li><a href="20251111-suspension_spectrum_of_a_monoid_admits_algebra_structure.html#ID-378b48fc-3e8b-409c-8a35-a38fe5a477d5">suspension spectrum of a monoid admits algebra structure</a>   </li>
+
+<li><a href="20250820-homotopy_group_functor_from_spectra_is_lax_monoidal.html#ID-d2fbb576-e9bf-435d-9cb0-a4117e6fa266">homotopy group functor from spectra to graded abelian groups is lax monoidal</a>  </li>
+
+<li></li>
+</ul>
+<h3 id="314">3.14</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="315">3.15</h3>
+<ul>
+<li><a href="20251110-integral_cohomology_of_the_z_eilenberg_maclane_space.html#ID-a85b0206-7826-496a-858f-1288a864dc1c">rational cohomology of the integral eilenberg MacLane space</a> </li>
+
+<li><a href="20251110-rational_cohomology_of_the_rational_eilenberg_maclane_space.html#ID-cf44f303-d7d6-46dd-b722-8c87c602d2bf">rational cohomology of the rational eilenberg maclane space</a> </li>
+
+<li><a href="20251111-rational_cohomology_operations.html#ID-8f7e2974-7891-44a2-827e-96614e4177f5">classification of rational cohomology operations</a> </li>
+
+<li><a href="20251111-classification_of_stable_rational_cohomology_operations.html#ID-1903df1a-bcd2-4f67-b4e6-b5e4dd78b858">classification of stable rational cohomology operations</a>   </li>
+</ul>
+
+<h3 id="a">a)</h3>
+<ul>
+<li><a href="20251117-rational_module_spectra_is_a_full_subcategory_of_spectra.html#ID-8a02c57a-b5f2-4ad8-a221-b90f7240b2d8">rational module spectra is a full subcategory of Spectra</a> </li>
+
+<li><a href="20251117-category_of_simple_rational_anima.html#ID-831ad464-29a8-4ec9-acff-49678fd57dc1">category of simple rational anima</a>   </li>
+
+<li><a href="20251117-rational_simple_anima_are_commutative_algebras_in_q_module_spectra.html#ID-7f2a437c-baa2-410d-a9c4-f2dd7d717a00">inclusion of rational simple anima into commutative algebras in Q-module spectra</a>   </li>
+
+<li><a href="20251117-cohomology_lifts_to_commutative_algebras_in_module_spectra.html#ID-0658fb6a-572a-448e-9054-0810aecfd095">cohomology lifts to commutative algebras in module spectra</a> </li>
+</ul>
+<p>
+notation: $r: W \rightarrow *$ is the <a href="20230404183731-terminal_morphism.html#ID-ad3ab3aa-eac9-4e11-8a03-6a8e703aefdf">terminal morphism</a>
+</p>
+<ul>
+<li>$h$ is the diagonal map of a square</li>
+</ul>
+
+<div class="math-block">\begin{align*}
+\mathrm{Fun}(T, \mathrm{Mod}(R))
+\end{align*}</div>
+<ul>
+<li>is a <a href="20250307-symmetric_monoidal_infinity_category.html#ID-40c08a37-68ce-4dc1-8647-31caa12e9598">symmetric monoidal category</a> under pointwise tensor product</li>
+</ul>
+<h3 id="318">3.18</h3>
+
+<h3 id="318">3.18</h3>
+
+<h3 id="318">3.18</h3>
+
+<h3 id="318">3.18</h3>
+<p>
+cf. <a href="20251117-pushout_in_commutative_algebras_in_module_spectra.html#ID-bf255f97-1699-4442-8b5f-4b1d22e9917b">pushout formula in commutative algebras in module spectra</a>
+</p>
+<ul>
+<li><a href="20251117-eilenberg_moore_theorem.html#ID-675a7963-3c43-4f8d-819f-7c6ff66f11f9">eilenberg-moore theorem</a></li>
+
+<li><a href="20250620-modules_over_tensor_unit.html#ID-45923e71-3ead-4fea-ad67-04759aa5b64a">modules over tensor unit</a> </li>
+
+<li><a href="20251124-r_cohomological_finite_type.html#ID-9618843f-fd77-4249-a33a-f8584d6ecdce">R-cohomological finite type</a> </li>
+</ul>
+<h3 id="320">3.20</h3>
+<ul>
+<li><a href="20251117-rational_simple_anima_are_commutative_algebras_in_q_module_spectra.html#ID-7f2a437c-baa2-410d-a9c4-f2dd7d717a00">inclusion of rational simple anima into commutative algebras in Q-module spectra</a> </li>
+
+<li></li>
+</ul>
+<h3 id="-">-</h3>
+<ul>
+<li><a href="20251124-rational_homotopy_equivalence_between_the_sphere_and_the_eilenberg_maclane_space.html#ID-a39dc4ac-1ee5-4ba1-9552-00900c61dc8b">rational homotopy equivalence between the sphere and the eilenberg-maclane space</a> </li>
+
+<li><a href="20251124-rational_homotopy_of_spheres.html#ID-cb22247e-6025-4253-a58d-d99eaddccb5d">rational homotopy of spheres</a> </li>
+
+<li><a href="20251125-rational_equivalence_between_spectra.html#ID-f83db059-7c04-4b6b-9043-4c5f0713331d">rational equivalence between spectra</a>   </li>
+
+<li><a href="20251125-raitonal_equivalence_between_localized_sphere_spectrum_and_q.html#ID-58014ada-34c3-4c13-8564-72b938adf51a">rational equivalence between localized sphere spectrum and Q</a>   </li>
+
+<li><a href="20251124-stable_rational_homotopy_groups_of_spheres.html#ID-388fa1c1-d091-4d88-a84c-a1754051f0ea">stable rational homotopy groups of spheres</a> </li>
+
+<li></li>
+</ul>
+<h2 id="p-local">p-local</h2>
+<p>
+Replace $\mathbb{Q}$ with $\mathbb{Z}_{(p)}$
+</p>
+<ul>
+<li><a href="20251105-homotopy_category_yoneda_trick.html#ID-7aa9405b-66dc-4fa2-8a2f-6018a9fd6113">homotopy category yoneda trick for anima</a> </li>
+
+<li><a href="20251124-sullivans_fully_faithfulness_theorem.html#ID-6622ee15-e8e4-41b1-97f3-54c8d37b45f0">sullivans fully faithfulness theorem about Q</a> </li>
+
+<li></li>
+</ul>
+<h3 id="324">3.24</h3>
+<ul>
+<li><a href="20251124-torsion_free_integral_homology_of_an_odd_integral_eilenberg_maclane_space.html#ID-f01d3589-8491-4d8e-ae94-929dd21f838a">torsion free integral homology of an odd integral eilenberg-maclane space</a> </li>
+
+<li></li>
+</ul>
+<ul>
+<li><a href="20251124-torsion_free_integral_homology_of_an_odd_integral_eilenberg_maclane_space.html#ID-f01d3589-8491-4d8e-ae94-929dd21f838a">torsion free integral homology of an odd integral eilenberg-maclane space</a> </li>
+
+<li><a href="20251124-low_p_local_homology_of_an_even_integral_eilenberg_maclane_space.html#ID-71f8f897-fb3d-4bbc-a312-c837bdfa6714">low p-local homology of an even integral eilenberg-maclane space</a> </li>
+</ul>
+
+<p>
+Note that
+</p>
+
+<div class="math-block">\begin{align*}
+H^*(K(\mathbb{Z},n), \mathbb{Z}_{(p)}) = H^*(K(\mathbb{Z},n), \mathbb{Z})_{(p)}
+\end{align*}</div>
+<p>
+after using &lt;uct&gt; &amp; finite typeness of $K(\mathbb{Z},n)$ (cf. <a href="20251027-fundamental_theorem_of_serre_class_theory.html#ID-ae5b4768-1e16-425b-bcc5-fd1a167b4de0">fundamental theorem of serre class theory</a>)
+</p>
+<ul>
+<li></li>
+
+<li><a href="20251201-some_p_local_homotopy_group_of_s_3_s_2.html#ID-ffdd31f1-9929-4d6c-8bca-6de586f43b3c">some p-local homotopy group of S^3/S^2</a> </li>
+
+<li><a href="20251201-3_sphere_and_2_sphere_have_unbounded_homotopy_grousp.html#ID-2fafc185-eaaf-470c-b683-10db81ebc2e0">3-sphere and 2-sphere have unbounded homotopy groups</a> </li>
+</ul>
+<ul>
+<li><a href="20251201-freudenthal_map_is_some_p_local_isomorphism.html#ID-8c028f49-c765-4314-99c8-af67436b106d">freudenthal map is some p-local isomorphism</a>   </li>
+
+<li><a href="20251201-somep_local_stable_homotopy_group.html#ID-86ff8c39-fd80-4b60-8882-237dbfef6926">some p-local stable homotopy group</a>   </li>
+</ul>
+<p>
+let $p$ be oddd
+</p>
+
+<div class="math-block">\begin{align*}
+\pi_{k}(\mathbb{S})_{(p)} = 
+    \begin{cases}
+    0 &amp; \mbox{if } 2p - 3 &lt; k &lt; 4p - 5 \\
+    \mathbb{F}_p   &amp; \mbox{if } k = 4p -5 \\ 
+    \end{cases}
+    
+\end{align*}</div>
+
+
+<h3 id="section"></h3>
+
+</div>
+</body>
+</html>

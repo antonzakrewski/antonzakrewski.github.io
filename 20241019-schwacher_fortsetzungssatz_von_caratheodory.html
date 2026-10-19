@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>schwacher Fortsetzungssatz von Caratheodory</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-54040905-ba38-4a95-85f2-f4c791819b28"></span><h1 class="title">schwacher Fortsetzungssatz von Caratheodory</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $\mu^*$ ein <a href="20241019-außeres_maß.html#ID-2e8fdbd4-fa6b-4db9-97f9-a495ac15e44a">äußeres Maß</a> auf $X$
+Dann ist $\mu^*_{\mathcal{A}^*}$ ein <a href="20241014-measure.html#ID-fad27267-4c6a-4159-831f-36ae94e4012e">Maß</a> auf dem <a href="20241019-system_der_messbaren_mengen.html#ID-e6e507c3-beb5-48a5-b13e-be4b4743ae28">system der messbaren Mengen</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="sigma-algebra">sigma algebra</h3>
+<p>
+<a href="system-der-messbaren-mengen-als-sigma-algebra.html#ID-d99d36de-1fdb-4dbe-b87a-4e403c461ff4">system der messbaren Mengen als sigma-Algebra</a>
+</p>
+
+
+<h3 id="id0391a3c3-2685-4503-a0a1-a00f90bfd119stetiger-inhalt"><a href="20241014-premeasure.html#ID-0391a3c3-2685-4503-a0a1-a00f90bfd119">stetiger inhalt</a></h3>
+<p>
+Es gilt nach Definition $\mu^*(\emptyset) = 0$ und $\mu^*(-) \geq 0$.
+</p>
+
+<h4 id="sigma-additiv">sigma additiv</h4>
+
+
+
+<p>
+Seien $A_n \in \mathcal{A}^*$ paarweise disjunkt und $A \coloneqq \coprod A_n$.
+Dann gilt da $A_1,A_2$ disjunkt sind.
+</p>
+
+<div class="math-block">\begin{align*}
+\mu^*(Q \cap (A_1 \cup A_2)) =&amp; \mu^*(Q \cap (A_1 \cup A_2) \cap A_1)) + \mu^*(Q \cap (A_1 \cup A_2) \cap Q \setminus A_2) \\
+=&amp; \mu^*(Q \cap A_1) + \mu^*(Q \cap A_2)
+\end{align*}</div>
+
+<p>
+Sei $B_n \coloneqq \coprod A_n$, dann folgt durch Induktion auch
+</p>
+
+<div class="math-block">\begin{align*}
+\mu^*(Q \cap B_n) = \sum_{j=1}^n \mu^*(Q \cap A_j)
+\end{align*}</div>
+<p>
+da $B_{n}, A_{n+1}$ disjunkt sind.
+</p>
+
+<p>
+Dann folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\mu^*(Q) = \mu^*(Q \cap B_n) + \mu^*(Q \setminus B_n)
+\end{align*}</div>
+<p>
+mit $Q \setminus B_n \supseteq Q \setminus A$, d.h. $\mu^*(Q \setminus B_n) \geq \mu^*(Q \setminus A)$
+</p>
+
+<p>
+Damit lässt sich aufgrund der Monotonie Abschätzen
+</p>
+
+<div class="math-block">\begin{align*}
+\mu^*(Q) \geq \sum_{j=1}^n \mu^*(Q \cap A_j) + \mu^*(Q \setminus A)
+\end{align*}</div>
+<p>
+für alle $n \in \mathbb{N}$ und $Q \in \mathcal{P}(X)$.
+</p>
+
+<p>
+Damit folgt auch durch Limesbildung
+</p>
+
+<div class="math-block">\begin{align*}
+\mu^*(Q) \geq \sum_{n \in \mathbb{N}} \mu^*(Q \cap A_n) + \mu^*(Q \setminus A) \\
+\end{align*}</div>
+<p>
+wobei aus der Sub Additivität (cf. <a href="20241019-induzierte_außere_maß.html#ID-f8fd5538-1f36-4076-9a5b-3973c863976e">induzierte äußere Maß</a>)
+</p>
+
+<div class="math-block">\begin{align*}
+\sum_{n \in \mathbb{N}} \mu^*(Q \cap A_n) \geq \mu^*(\coprod (Q \cap A_n)) = \mu^*(Q \cap A)
+\end{align*}</div>
+
+<p>
+Damit folgt auch
+</p>
+
+<div class="math-block">\begin{align*}
+\mu^*(Q) \geq \mu^*(Q \cap A) + \mu^*(Q \setminus A)
+\end{align*}</div>
+<p>
+und aus der sub sigma additivität ($\mu^*(Q) \leq \mu^*(Q \cap A) + \mu^*(Q \setminus A))$ auch Gleihheit
+</p>
+
+
+</div>
+</body>
+</html>

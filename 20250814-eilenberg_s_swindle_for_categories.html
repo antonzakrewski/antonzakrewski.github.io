@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>eilenberg&#x27;s swindle for K-Theory of categories</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-9afdf9f2-53d9-4709-80f0-308c29a4e0c7"></span><h1 class="title">eilenberg&#x27;s swindle for K-Theory of categories</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathcal{A}$ be an <a href="20250616-exact_infinity_category.html#ID-2cc5bf32-1e16-4a73-b2ef-b19fcea66366">exact infinity category</a> with <a href="20220903164044-abzahlbar.html#ID-96f3063e-a99a-4c33-93c2-5c9f99f15717">countable</a> - in particular countably infinite - <a href="20241017-infinity_coproduct.html#ID-3bd3e3f5-d753-4e88-859a-c71a1beda551">coproducts</a>.
+Then any <a href="20250810-localizing_invariant.html#ID-92397dfa-d350-44bb-bfeb-f120640b516e">localizing invariant</a> $\mathcal{F}: \mathrm{Cat}^{\mathrm{perf}} \rightarrow \mathcal{C}$ is trivial, i.e.
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{F}(\mathcal{A}) = 0
+\end{align*}</div>
+
+<p>
+see:
+</p>
+<ul>
+<li><a href="20241017-infinity_zero_object.html#ID-ec40b632-b794-428c-b987-81a9b53bd650">zero object</a></li>
+</ul>
+<h2 id="proof">Proof</h2>
+<p>
+consider the map
+</p>
+
+<div class="math-block">\begin{align*}
+\infty: \mathcal{A} \rightarrow&amp; \mathcal{A}  \\
+A \mapsto&amp; \coprod_{n \in \mathbb{N}} A
+\end{align*}</div>
+<p>
+given by <a href="20250905-infinity_precomposition.html#ID-3752bb68-900e-4626-9a93-99fcae4254d1">precomposition</a> $\mathcal{A} \rightarrow \mathrm{Fun}(\mathbb{N}, \mathcal{A}) \rightarrow \mathcal{A}$ and <a href="20241203-infinity_left_kan_extension.html#ID-61e0ecf3-2202-48fc-8af5-3ea0ae73581e">left kan extension</a> (cf. <a href="20250620-left_kan_extension_formula.html#ID-beff797b-a218-49f2-806d-93a286599113">left kan extension formula</a>)
+Then we get a <a href="20230403223458-naturally_equivalence.html#ID-bdae894c-5a91-4942-9322-61756858ec78">natural equivalence</a> $\infty + \mathrm{id} \simeq \infty$ given by
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/338c4d23d6236cdaa9e0.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Then by additivity we get
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{F}(\infty) + \mathcal{F}(\mathrm{id}) = \mathcal{F}(\infty) \in \mathrm{map}_{\mathcal{C}}(\mathcal{F}(\mathcal{A}), \mathcal{F}(A))
+\end{align*}</div>
+<p>
+which shows that $\mathcal{F}(\mathrm{id}) = \mathcal{F}(0) \in \pi_0(\mathrm{map}_{\mathcal{C}}(\mathcal{F}(\mathcal{A}), \mathcal{F}(A)))$ since the RHS is an ordinary group (cf. <a href="20250328-stable_infinity_category_as_additive_infinity_category.html#ID-dad4c229-0a6e-4153-92da-e917a5e83672">stable infinity category is additive</a>, <a href="20250306-additive_infinity_category_and_homotopy_category.html#ID-31edf083-e996-4fe4-9073-2a3e5149d3b5">additive infinity category and homotopy category</a>, <a href="hom-of-the-homotopy-category-as-path-component-of-the-mapping-space.html#ID-d05e0178-58ef-412d-964a-505f1f0fd197">hom of the homotopy category as path component of the mapping space</a>).
+</p>
+
+<p>
+Therefore $0 \sim \mathrm{id}$ are equivalent, so we get using <a href="20240220-zero_object_and_zero_morphism_as_identity.html#ID-c994af59-f1d2-4e37-b0f7-71aef1dc32b8">zero object and zero morphism as identity</a> in a <a href="20241017-pointed_infinity_category.html#ID-488f7c01-a376-4367-b36f-5d023ba572bf">pointed category</a> (e.g. after passing to the homotopy category or having proven that coherently).
+</p>
+
+
+</div>
+</body>
+</html>

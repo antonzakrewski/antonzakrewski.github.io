@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 18:58 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>euklidischer Algorithmus für eine Gröbner Basis</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,59 +52,53 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">euklidischer Algorithmus für eine Gröbner Basis</h1>
-<div id="outline-container-org4794691" class="outline-2">
-<h2 id="org4794691"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-c1850d22-f6b2-40e1-8974-fa5eeeb8be3d"></span><h1 class="title">euklidischer Algorithmus für eine Gröbner Basis</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(K\) ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a>, \(f \in K[X_1,...,X_n]\) ein <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c-70182b7714f9">Polynom</a> und \(g_1,...,g_n\) eine <a href="20231030-grobner_basis.html#ID-1743b7a4-d1c8-4e3e-96c0-6c2b208fdb47">gröbner basis</a> von einem <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a> \(I\)
-Dann hängt für den <a href="20231030-euklidischer_algorithmus_in_mehreren_variablen.html#ID-7732d500-1a32-4796-933e-da2fa5e2d906">Euklidischer Algorithmus in mehreren Variablen</a> der Divisionsrest nicht von der Reihenfolge von \(g_1,...,g_n\) ab
+Sei $K$ ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a>, $f \in K[X_1,...,X_n]$ ein <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c-70182b7714f9">Polynom</a> und $g_1,...,g_n$ eine <a href="20231030-grobner_basis.html#ID-1743b7a4-d1c8-4e3e-96c0-6c2b208fdb47">gröbner basis</a> von einem <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a> $I$
+Dann hängt für den <a href="20231030-euklidischer_algorithmus_in_mehreren_variablen.html#ID-7732d500-1a32-4796-933e-da2fa5e2d906">Euklidischer Algorithmus in mehreren Variablen</a> der Divisionsrest nicht von der Reihenfolge von $g_1,...,g_n$ ab
 </p>
-</div>
-</div>
-<div id="outline-container-orgb2a733e" class="outline-2">
-<h2 id="orgb2a733e"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<h2 id="beweis">Beweis</h2>
 <p>
 Sei
 </p>
-\begin{align*}
-f =& g + r \\
-=& g' + r
-\end{align*}
+
+<div class="math-block">\begin{align*}
+f =&amp; g + r \\
+=&amp; g' + r
+\end{align*}</div>
 <p>
-für \(g,g' \in I\)
+für $g,g' \in I$
 Dann folgt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 r - r' = g' - g \in I
-\end{align*}
+\end{align*}</div>
 
 <p>
 und es gilt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \mathrm{LT}(r - r') \in \langle \mathrm{LT}(g_1),...,\mathrm{LT}(g_n)\rangle
-\end{align*}
+\end{align*}</div>
 
 <p>
 Es folgt damit auch
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \mathrm{LT}(g_i) \mid \mathrm{Lt}(r - r')
-\end{align*}
+\end{align*}</div>
 <p>
-für ein \(i\)
-Dies ist aber für \(r' - r \neq 0\) ein Widerspruch zum euklidischen Algorithmus, da kein <a href="20230905-monomial.html#ID-0c3d60db-952a-4c22-a40e-9b951ec409e7">Monom</a> von \(r\) durch ein \(\mathrm{LT}(g_i)\) teilbar ist
+für ein $i$
+Dies ist aber für $r' - r \neq 0$ ein Widerspruch zum euklidischen Algorithmus, da kein <a href="20230905-monomial.html#ID-0c3d60db-952a-4c22-a40e-9b951ec409e7">Monom</a> von $r$ durch ein $\mathrm{LT}(g_i)$ teilbar ist
 (+ da wir über einem Körper sind, macht ein veränderter Skalar keinen unterscheid)
 </p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 18:58</p>
+
 </div>
 </body>
 </html>

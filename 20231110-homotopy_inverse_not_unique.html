@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 19:07 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>homotopy inverse in general not unique</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,48 +52,39 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">homotopy inverse in general not unique</h1>
-<div id="outline-container-orgebac113" class="outline-2">
-<h2 id="orgebac113"><span class="section-number-2">1.</span> Proposition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-56d7586f-b010-4f70-be66-95c09c4f2e54"></span><h1 class="title">homotopy inverse in general not unique</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let \((X,\mathcal{T}_X)\) and \((Y,\mathcal{T}_Y)\) be <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological spaces</a> and \(f: X \rightarrow Y\) a <a href="20230330150414-homotopieaquivalenz.html#ID-0e303b14-738c-496f-ab77-bd62472d54f6">Homotopy equivalence</a>.
+Let $(X,\mathcal{T}_X)$ and $(Y,\mathcal{T}_Y)$ be <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological spaces</a> and $f: X \rightarrow Y$ a <a href="20230330150414-homotopieaquivalenz.html#ID-0e303b14-738c-496f-ab77-bd62472d54f6">Homotopy equivalence</a>.
 Then the <a href="20231107-homotopy_inverse.html#ID-aa31bc0b-183a-49eb-b97d-a24db860b199">homotopy inverse</a> is in general not unique.
 </p>
-</div>
-</div>
-<div id="outline-container-org049735f" class="outline-2">
-<h2 id="org049735f"><span class="section-number-2">2.</span> Proof</h2>
-<div class="outline-text-2" id="text-2">
+
+<h2 id="proof">Proof</h2>
 <p>
-Let \(X = \mathbb{R}\) and \(Y = *\) with the usual topology.
-E.g. choose <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphisms</a> \(f: * \mapsto 1, g: * \mapsto 0\) and a <a href="20230308142118-weg.html#ID-7c6527d3-2217-4c14-85ab-d1545b889ba8">path</a> \(\gamma: 0 \leadsto 1\).
-Note that \(t: \mathbb{R} \rightarrow *\) is uniquely determined, since \(*\) is a <a href="20231229-terminal_object_in_top.html#ID-41f02cd3-2031-4f3f-a54e-e44012d66f33">terminal object in Top</a> 
+Let $X = \mathbb{R}$ and $Y = *$ with the usual topology.
+E.g. choose <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphisms</a> $f: * \mapsto 1, g: * \mapsto 0$ and a <a href="20230308142118-weg.html#ID-7c6527d3-2217-4c14-85ab-d1545b889ba8">path</a> $\gamma: 0 \leadsto 1$.
+Note that $t: \mathbb{R} \rightarrow *$ is uniquely determined, since $*$ is a <a href="20231229-terminal_object_in_top.html#ID-41f02cd3-2031-4f3f-a54e-e44012d66f33">terminal object in Top</a>
 </p>
 
 <p>
 Then we get
 </p>
-<ol class="org-ol">
-<li>the constant <a href="20230330150019-relative_homotopie_bezuglich_der_leeren_menge.html#ID-e90f630d-d589-4e9d-8bf5-7cde7a0b37e8">homotopy</a> as homotopy from \(\mathrm{id}_{*}\) to \(t \circ f = \mathrm{id}_{*} = t \circ g\)</li>
+<ol>
+<li>the constant <a href="20230330150019-relative_homotopie_bezuglich_der_leeren_menge.html#ID-e90f630d-d589-4e9d-8bf5-7cde7a0b37e8">homotopy</a> as homotopy from $\mathrm{id}_{*}$ to $t \circ f = \mathrm{id}_{*} = t \circ g$ </li>
+
 <li>the homotopies</li>
 </ol>
-\begin{align*}
-H: [0,1] \times \mathbb{R} \rightarrow& \mathbb{R} \\
-(t,x) \mapsto& t \cdot x \\
-H': [0,1] \times \mathbb{R} \rightarrow& \mathbb{R} \\
-(t,x) \mapsto& t \cdot (x-1) + 1
-\end{align*}
+<div class="math-block">\begin{align*}
+H: [0,1] \times \mathbb{R} \rightarrow&amp; \mathbb{R} \\
+(t,x) \mapsto&amp; t \cdot x \\
+H': [0,1] \times \mathbb{R} \rightarrow&amp; \mathbb{R} \\
+(t,x) \mapsto&amp; t \cdot (x-1) + 1
+\end{align*}</div>
 <p>
-as homotopies from \(g\) resp. \(f\) to \(\mathrm{id}_{\mathbb{R}}\)
+as homotopies from $g$ resp. $f$ to $\mathrm{id}_{\mathbb{R}}$
 </p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 19:07</p>
+
 </div>
 </body>
 </html>

@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 19:19 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ordnung und Topologie der Formeln</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,30 +52,26 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Ordnung und Topologie der Formeln</h1>
-<div id="outline-container-org64f37d5" class="outline-2">
-<h2 id="org64f37d5"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-66288ba8-d5d4-4f39-a460-0bdd91bcc853"></span><h1 class="title">Ordnung und Topologie der Formeln</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Es gilt für <a href="20230102152602-formel_logik.html#ID-c64a841a-b6f1-49fa-baa7-6b628b4e189d">Formeln</a> \(A,B \in \mathcal{F}\) für die <a href="20231115-topologie_auf_den_formeln.html#ID-98796e9b-6a96-464c-95cd-a75532056bc8">topologie auf den Formeln</a>
+Es gilt für <a href="20230102152602-formel_logik.html#ID-c64a841a-b6f1-49fa-baa7-6b628b4e189d">Formeln</a> $A,B \in \mathcal{F}$ für die <a href="20231115-topologie_auf_den_formeln.html#ID-98796e9b-6a96-464c-95cd-a75532056bc8">topologie auf den Formeln</a>
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 B \in \mathcal{O}_A \Leftrightarrow \mathcal{O}_B \subseteq \mathcal{O}_A
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgbb378a8" class="outline-2">
-<h2 id="orgbb378a8"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org9f40d63" class="outline-3">
-<h3 id="org9f40d63"><span class="section-number-3">2.1.</span> a)</h3>
-<div class="outline-text-3" id="text-2-1">
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="a">a)</h3>
 <p>
-Aus \(B \in \mathcal{O}_A\) folgt \(\vdash: A \rightarrow B\).
-Damit gilt für \(C \in \mathcal{O}_B\), d.h. \(\vdash B \rightarrow C\)
+Aus $B \in \mathcal{O}_A$ folgt $\vdash: A \rightarrow B$.
+Damit gilt für $C \in \mathcal{O}_B$, d.h. $\vdash B \rightarrow C$
 </p>
-\begin{prooftree}
+
+<div class="equation-container"><pre class="render-failed">\begin{prooftree}
 \hypo{}
 \ellipsis{M}{$A \rightarrow B$}
 \hypo{[u: A]}
@@ -77,34 +80,25 @@ Damit gilt für \(C \in \mathcal{O}_B\), d.h. \(\vdash B \rightarrow C\)
 \ellipsis{N}{$B \rightarrow C$}
 \infer2[ $\rightarrow^-$]{C}
 \infer1[ $\rightarrow^+$ u]{$A \rightarrow C$}
-\end{prooftree}
+\end{prooftree}</pre></div>
 <p>
-bzw. \(C \in \mathcal{O}_A\).
-Damit folgt \(\mathcal{O}_B \subseteq \mathcal{O}_A\)
+bzw. $C \in \mathcal{O}_A$.
+Damit folgt $\mathcal{O}_B \subseteq \mathcal{O}_A$
 </p>
-</div>
-</div>
-<div id="outline-container-org1c3a150" class="outline-3">
-<h3 id="org1c3a150"><span class="section-number-3">2.2.</span> b)</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<h3 id="b">b)</h3>
 <p>
 Es gilt die Tautologie
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \vdash B \rightarrow B
-\end{align*}
+\end{align*}</div>
 <p>
-und damit \(B \in \mathcal{O}_B\).
-Somit folgt aus \(\mathcal{O}_B \subseteq \mathcal{O}_A\) auch \(B \in \mathcal{O}_A\) bzw. nach Definition
+und damit $B \in \mathcal{O}_B$.
+Somit folgt aus $\mathcal{O}_B \subseteq \mathcal{O}_A$ auch $B \in \mathcal{O}_A$ bzw. nach Definition
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 19:19</p>
+
 </div>
 </body>
 </html>

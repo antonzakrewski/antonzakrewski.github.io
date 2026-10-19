@@ -1,302 +1,129 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-12-10 Di 11:11 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>infinity category of infinity categories as presentable category</title>
+<title>Cat is presentable</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">infinity category of infinity categories as presentable category</h1>
-<div id="outline-container-org20a5629" class="outline-2">
-<h2 id="org20a5629">Proposition</h2>
-<div class="outline-text-2" id="text-org20a5629">
+<span id="ID-825cd167-ab18-47f8-a348-cac826073d20"></span><h1 class="title">Cat is presentable</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-The <a href="20240331-category_of_infinity_categories.html#ID-32071eab-bd49-4ebf-a9d6-8748f98c28e1">infinity category of infinity categories</a> is an <a href="20241016-presentable_infinity_category.html#ID-346bd670-f443-4290-83e6-015d1801ed20">presentable</a> infinity category<br />
+The <a href="20240331-category_of_infinity_categories.html#ID-32071eab-bd49-4ebf-a9d6-8748f98c28e1">category of categories</a> is <a href="20241016-presentable_infinity_category.html#ID-346bd670-f443-4290-83e6-015d1801ed20">presentable</a>.
 </p>
-</div>
-</div>
-<div id="outline-container-orge8bb5d0" class="outline-2">
-<h2 id="orge8bb5d0">Proof</h2>
-<div class="outline-text-2" id="text-orge8bb5d0">
+
+<h2 id="proof">Proof</h2>
 <p>
-using <a href="20241204-presentable_category_and_ind.html#ID-28fd8876-a611-408f-b1fc-5676e6da5c96">presentable category and ind</a><br />
+using <a href="20241204-presentable_category_and_ind.html#ID-28fd8876-a611-408f-b1fc-5676e6da5c96">presentable category and ind</a>
 </p>
-</div>
-<div id="outline-container-orge1f99b7" class="outline-3">
-<h3 id="orge1f99b7">bicomplete</h3>
-<div class="outline-text-3" id="text-orge1f99b7">
-<ul class="org-ul">
-<li><a href="20241017-infinity_category_of_infinity_categories_as_bicomplete_category.html#ID-4cd2aa5e-55ea-405f-bd0f-8c613e9ee347">infinity category of infinity categories as bicomplete category</a> <br /></li>
+
+<h3 id="bicomplete">bicomplete</h3>
+<ul>
+<li><a href="20241017-infinity_category_of_infinity_categories_as_bicomplete_category.html#ID-4cd2aa5e-55ea-405f-bd0f-8c613e9ee347">infinity category of infinity categories as bicomplete category</a> </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org0ce9b4d" class="outline-3">
-<h3 id="org0ce9b4d">compact generator</h3>
-<div class="outline-text-3" id="text-org0ce9b4d">
+<h3 id="compact-generator">compact generator</h3>
 <p>
-Choose<br />
+Choose
 </p>
-<ol class="org-ol">
-<li><img src="ltximg/20241202-infinity_category_of_presentable_categories_as_presentable_category_ba9ebd70e9ee8075884550fff86641a7cd0b51c7.svg" alt="20241202-infinity_category_of_presentable_categories_as_presentable_category_ba9ebd70e9ee8075884550fff86641a7cd0b51c7.svg" class="org-svg" /><br /></li>
-<li><img src="ltximg/20241202-infinity_category_of_presentable_categories_as_presentable_category_4d38997c0a87243ab2a8d136de762658a70386a5.svg" alt="20241202-infinity_category_of_presentable_categories_as_presentable_category_4d38997c0a87243ab2a8d136de762658a70386a5.svg" class="org-svg" /><br /></li>
+<ol>
+<li>$\Delta^0$</li>
+
+<li>$\Delta^1$</li>
 </ol>
 <p>
-which are <a href="nerve-of-a-category-as-infinity-category.html#ID-22a1624e-8605-4cc8-871d-faba80f3ed0a">nerves hence infinity categories</a>  <br />
-</p>
-</div>
-<div id="outline-container-org08e1d4d" class="outline-4">
-<h4 id="org08e1d4d">generator</h4>
-<div class="outline-text-4" id="text-org08e1d4d">
-<p>
-note that by <a href="mapping-space-in-cat-ininity.html#ID-39f21bbc-e254-4459-bb41-193ba1d41aaa">mapping space in Cat infinity</a><br />
+which are <a href="nerve-of-a-category-as-infinity-category.html#ID-22a1624e-8605-4cc8-871d-faba80f3ed0a">nerves hence infinity categories</a>
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20241202-infinity_category_of_presentable_categories_as_presentable_category_76a6f0d64e27e2965b387146472a64b363c17793.svg" alt="20241202-infinity_category_of_presentable_categories_as_presentable_category_76a6f0d64e27e2965b387146472a64b363c17793.svg" class="org-svg" />
-</span>
-</div>
+<h4 id="generator">generator</h4>
 <p>
-<img src="ltximg/20241202-infinity_category_of_presentable_categories_as_presentable_category_1d0d368a4b0950a596659d37030c315fc59862dc.svg" alt="20241202-infinity_category_of_presentable_categories_as_presentable_category_1d0d368a4b0950a596659d37030c315fc59862dc.svg" class="org-svg" /> checks wether any <a href="20240404-functor_between_infinity_categories.html#ID-7428dc84-9acd-49bc-8e93-b1541326a6b9">infinity functor</a> is <a href="20240701-essentially_surjective_functor_between_infinity_categories.html#ID-5ac08772-563a-4b4c-8dbf-e734628e4351">essentially surjective</a><br />
+note that by <a href="mapping-space-in-cat-ininity.html#ID-39f21bbc-e254-4459-bb41-193ba1d41aaa">mapping space in Cat infinity</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{map}_{\mathrm{Cat}_{\infty}}(\Delta^0,X) \cong&amp; \mathrm{core} \mathrm{Fun}(\Delta^0, X) \\
+\cong&amp; X_0
+\end{align*}</div>
+<p>
+$\mathrm{map}_{\mathrm{Cat}_{\infty}}(\Delta^0,-)$ checks wether any <a href="20240404-functor_between_infinity_categories.html#ID-7428dc84-9acd-49bc-8e93-b1541326a6b9">infinity functor</a> is <a href="20240701-essentially_surjective_functor_between_infinity_categories.html#ID-5ac08772-563a-4b4c-8dbf-e734628e4351">essentially surjective</a>
 </p>
 
 <p>
-Furthermore<br />
+Furthermore
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20241202-infinity_category_of_presentable_categories_as_presentable_category_d06df9077aedf1854700143b3240cd9f07cfb448.svg" alt="20241202-infinity_category_of_presentable_categories_as_presentable_category_d06df9077aedf1854700143b3240cd9f07cfb448.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+\mathrm{map}_{\mathrm{Cat}_{\infty}}(\Delta^1,X) \cong&amp; \mathrm{core} \mathrm{Fun}(\Delta^0, X) \\
+\cong&amp; \mathrm{core}( \mathrm{Arr}(X))
+\end{align*}</div>
 
 <p>
-Thus <img src="ltximg/20241202-infinity_category_of_presentable_categories_as_presentable_category_8cfe668c1c0739ed5966c928cb77ab2505faad3c.svg" alt="20241202-infinity_category_of_presentable_categories_as_presentable_category_8cfe668c1c0739ed5966c928cb77ab2505faad3c.svg" class="org-svg" /> checks wether the functor is <a href="20240701-fully_faithful_functor_between_infinity_categories.html#ID-bb0d3e0e-92a5-4687-999c-a99d4043ea38">fully faithful functor between infinity categories</a> (cf. <a href="20241014-mapping_space_as_simplicial_subset_of_the_groupoid_core_of_the_functor_category.html#ID-c92d2876-3bf6-49cf-b31d-6d9ec0fbfd8c">mapping space as simplicial subset of the groupoid core of the functor category</a>):<br />
+Thus $\mathrm{map}_{\mathrm{Cat}_{\infty}}(\Delta^1, -)$ checks wether the functor is <a href="20240701-fully_faithful_functor_between_infinity_categories.html#ID-bb0d3e0e-92a5-4687-999c-a99d4043ea38">fully faithful functor between infinity categories</a> (cf. <a href="20241014-mapping_space_as_simplicial_subset_of_the_groupoid_core_of_the_functor_category.html#ID-c92d2876-3bf6-49cf-b31d-6d9ec0fbfd8c">mapping space as simplicial subset of the groupoid core of the functor category</a>):
 </p>
 
 <p>
-This therefore induces an equivalence<br />
+This therefore induces an equivalence
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20241202-infinity_category_of_presentable_categories_as_presentable_category_9f6a4440f8c3cab49e5338f41e1f858ea8879e3b.svg" alt="20241202-infinity_category_of_presentable_categories_as_presentable_category_9f6a4440f8c3cab49e5338f41e1f858ea8879e3b.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/8d2a5254d234824a815c.svg" class="org-svg" alt="diagram" /></span></div>
 
 
 <p>
-hence by <a href="20240701-fully_faithful_essentially_surjective_functor_as_joyal_equivalence.html#ID-c1d92228-2e4e-48e9-8020-52e5120cae8f">fully faithful essentially surjective functor as joyal equivalence</a> this checks, wether <img src="ltximg/20241202-infinity_category_of_presentable_categories_as_presentable_category_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" alt="20241202-infinity_category_of_presentable_categories_as_presentable_category_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" class="org-svg" /> is an equivalence<br />
+hence by <a href="20240701-fully_faithful_essentially_surjective_functor_as_joyal_equivalence.html#ID-c1d92228-2e4e-48e9-8020-52e5120cae8f">fully faithful essentially surjective functor as joyal equivalence</a> this checks, wether $f$ is an equivalence
 </p>
-</div>
-</div>
-<div id="outline-container-org026cb3d" class="outline-4">
-<h4 id="org026cb3d">compact</h4>
-<div class="outline-text-4" id="text-org026cb3d">
+
+<h4 id="compact">compact</h4>
 <p>
-By reasons of <a href="20241101-combinatorial_model_category.html#ID-02c24af2-ad42-4cbc-ae80-cb8cf37dfb60">combinatorial model</a> category (that I have to blackbox, sorry), we may compute the colimit in <a href="20240404-category_of_infinity_categories_of_simplicial_sets.html#ID-21b89225-6641-4472-8a05-f936e8571fe0">Quasicat</a> and even in <a href="20240128-simplicial_set.html#ID-43a75466-c729-429a-a459-56f226b81262">simplicial set</a> (cf. <a href="20241204-filtered_colimit_of_quasicategories_as_quasicategory.html#ID-49bf1600-4197-470d-bcf0-b95a4d7c449b">filtered colimit of quasicategories as quasicategory</a>).<br />
-Here this follows immediately from <a href="20241019-representable_functor_as_kappa_compact_object.html#ID-dbee64d1-6891-4d36-95a1-caff4cd87956">representable functor as kappa compact object</a><br />
+By reasons of <a href="20241101-combinatorial_model_category.html#ID-02c24af2-ad42-4cbc-ae80-cb8cf37dfb60">combinatorial model</a> category (that I have to blackbox, sorry), we may compute the colimit in <a href="20240404-category_of_infinity_categories_of_simplicial_sets.html#ID-21b89225-6641-4472-8a05-f936e8571fe0">Quasicat</a> and even in <a href="20240128-simplicial_set.html#ID-43a75466-c729-429a-a459-56f226b81262">simplicial set</a> (cf. <a href="20241204-filtered_colimit_of_quasicategories_as_quasicategory.html#ID-49bf1600-4197-470d-bcf0-b95a4d7c449b">filtered colimit of quasicategories as quasicategory</a>).
+Here this follows immediately from <a href="20241019-representable_functor_as_kappa_compact_object.html#ID-dbee64d1-6891-4d36-95a1-caff4cd87956">representable functor as kappa compact object</a>
 </p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-12-10 Di 11:11</p>
+
 </div>
 </body>
 </html>

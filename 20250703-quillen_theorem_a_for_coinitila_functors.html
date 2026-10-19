@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>quillens theorem A for coinitial functors</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-13829398-7e1e-48bb-859e-e0f3c615bfb5"></span><h1 class="title">quillens theorem A for coinitial functors</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $f: \mathcal{C} \rightarrow \mathcal{D}$ be an <a href="20240404-functor_between_infinity_categories.html#ID-7428dc84-9acd-49bc-8e93-b1541326a6b9">infinity functor</a>.
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol>
+<li>$f$ is <a href="20241017-coinitial_infinity_functor.html#ID-7c2e8e73-1566-48ed-a481-8ddc45412c3a">coinitial</a>, in the sense that for each <a href="20240404-simplicial_set_as_infinity_category.html#ID-4635a6ee-1ad5-44cb-8e36-4a934f5ae4bf">infinity category</a> $\mathcal{E}$ and each functor $\mathcal{F}: \mathcal{D} \rightarrow \mathcal{E}$ </li>
+
+<li>the same as $2)$, just specialize for $\mathcal{E} = \mathrm{An}$ <a href="20240404-infinity_groupoid.html#ID-b516d6fd-fec1-4d8a-8efa-b2ad1f1bb283">anima</a></li>
+
+<li>for all $d \in \mathcal{D}$ the <a href="20240924-infinity_slice_category.html#ID-62e46e6b-dcf7-4ba7-8e8a-92bc1476d165">infinity slice category</a> $\mathcal{C}_{/d} = \mathcal{C} \times_{\mathcal{D}} \mathcal{D}_{/d}$ is <a href="20241018-weakly_contractible_simplicial_set.html#ID-2902b340-ff8c-4755-a61d-1bf9e86695b0">weakly contractible</a> </li>
+</ol>
+<h2 id="proof">Proof</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+<p>
+follows from
+</p>
+<ul>
+<li><a href="20240526-yoneda_embedding_preserves_limits.html#ID-ed882984-c3fb-4e62-863b-a5c92ddf4f22">yoneda embedding preserves limits</a> </li>
+
+<li>where we can check   </li>
+</ul>
+<h3 id="2-implies-3">2) $\implies$ 3),</h3>
+
+
+<h3 id="3-implies-1">3) $\implies$ 1)</h3>
+<p>
+consider the <a href="20241203-infinity_left_kan_extension.html#ID-61e0ecf3-2202-48fc-8af5-3ea0ae73581e">left kan extension</a>
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+\mathcal{C} \rar{\mathrm{const(*)} \dar &amp; \mathrm{An} \\
+\mathcal{D} \arrow[]{ru}{f_!(\mathrm{const}(*))} &amp; \\
+\end{tikzcd}
+\end{displaymath}</pre></div>
+
+<p>
+then using
+</p>
+<ol>
+<li><a href="20250620-left_kan_extension_formula.html#ID-beff797b-a218-49f2-806d-93a286599113">infinity left kan extension formula</a> </li>
+
+<li><a href="20241126-lurie_theorem_about_colimits_in_anima.html#ID-f415dd21-9969-45bb-a513-9e8a97701537">Lurie theorem about colimits in Anima</a>    </li>
+</ol>
+<p>
+we conclude that the left kan extension is given pointwise
+</p>
+
+<div class="math-block">\begin{align*}
+\vert \mathrm{colim}_{\mathcal{C}_{/d}} * \vert
+\end{align*}</div>
+
+<p>
+which is the point <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> $\mathcal{C}_{/d}$ is <a href="20241018-weakly_contractible_simplicial_set.html#ID-2902b340-ff8c-4755-a61d-1bf9e86695b0">weakly contractible</a>.
+</p>
+
+<p>
+Hence $f_!(\mathrm{const}(*)) = \mathrm{const}(*)$ iff $\mathcal{C}_{/d}$
+</p>
+
+<p>
+now using adjunctions and &lt;mapping anima out of point&gt; we get
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/73533eed29c6035a4433.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+
+
+</div>
+</body>
+</html>

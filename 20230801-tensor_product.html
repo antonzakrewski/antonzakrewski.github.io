@@ -1,52 +1,77 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 15:34 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tensor product for a commutative Ring</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">tensor product for a commutative Ring</h1>
-<div id="outline-container-orgfe80bd1" class="outline-2">
-<h2 id="orgfe80bd1"><span class="section-number-2">1.</span> Definition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-42c4ecff-8f9a-40cf-bebc-70569ded24bf"></span><h1 class="title">tensor product for a commutative Ring</h1>
+
+<h2 id="definition">Definition</h2>
 <p>
-Let <img src="ltximg/20230801-tensor_product_6130b692b4d58a44d70e323b9432701598ebebee.svg" alt="20230801-tensor_product_6130b692b4d58a44d70e323b9432701598ebebee.svg" class="org-svg" /> be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative</a> <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a>, <img src="ltximg/20230801-tensor_product_2273b15653e62f647e7bff48b42dac4fad211430.svg" alt="20230801-tensor_product_2273b15653e62f647e7bff48b42dac4fad211430.svg" class="org-svg" /> <img src="ltximg/20230801-tensor_product_d9fed023a9d07263c522f5c4dbb780117ad7ad02.svg" alt="20230801-tensor_product_d9fed023a9d07263c522f5c4dbb780117ad7ad02.svg" class="org-svg" />-<a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">modules</a>.
-Then a tensor product <img src="ltximg/20230801-tensor_product_1e75ef27324f0d8a63055b223d2a01cae2dc9254.svg" alt="20230801-tensor_product_1e75ef27324f0d8a63055b223d2a01cae2dc9254.svg" class="org-svg" /> is a <img src="ltximg/20230801-tensor_product_d9fed023a9d07263c522f5c4dbb780117ad7ad02.svg" alt="20230801-tensor_product_d9fed023a9d07263c522f5c4dbb780117ad7ad02.svg" class="org-svg" />-module  <img src="ltximg/20230801-tensor_product_85b0b5f834f1d715f4a19258070f3afca7a3cbe5.svg" alt="20230801-tensor_product_85b0b5f834f1d715f4a19258070f3afca7a3cbe5.svg" class="org-svg" /> with a <a href="20230222204703-modulhomomorphismus.html#ID-bb388d52-298a-4714-b290-80d9ab79eb2e">homomorphism</a> <img src="ltximg/20230801-tensor_product_f0558bdee8321cb1ce34f49172c927e9ac61fe5e.svg" alt="20230801-tensor_product_f0558bdee8321cb1ce34f49172c927e9ac61fe5e.svg" class="org-svg" /> satisfying the following universal property:
+Let $R$ be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative</a> <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a>, $M,N$ \(R\)-<a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">modules</a>.
+Then a tensor product $M \otimes_R N$ is a \(R\)-module  $T$ with a <a href="20230222204703-modulhomomorphismus.html#ID-bb388d52-298a-4714-b290-80d9ab79eb2e">homomorphism</a> $g: M \times N \rightarrow T$ satisfying the following universal property:
 </p>
 
 <p>
-For any module <img src="ltximg/20230801-tensor_product_cd0ff9796d5d44181802247ecadcd48ba7fe30fc.svg" alt="20230801-tensor_product_cd0ff9796d5d44181802247ecadcd48ba7fe30fc.svg" class="org-svg" /> and <a href="20221003210458-bilineare_abbildung.html#ID-4a5036f7-358f-484f-88aa-638a29f2e1f7">bilinear map</a> <img src="ltximg/20230801-tensor_product_3f4df379e61d057fb771d6608bae023667a413bf.svg" alt="20230801-tensor_product_3f4df379e61d057fb771d6608bae023667a413bf.svg" class="org-svg" /> there exists a unique module-homomorphism <img src="ltximg/20230801-tensor_product_c69e63940e9aa0f860165a7f913b244dff27cd78.svg" alt="20230801-tensor_product_c69e63940e9aa0f860165a7f913b244dff27cd78.svg" class="org-svg" /> such that <a href="20220824224824-kommutierendes_diagramm.html#ID-968cc45b-2492-4495-b9e3-261866c0901d">diagramm commutes</a> 
+For any module $P$ and <a href="20221003210458-bilineare_abbildung.html#ID-4a5036f7-358f-484f-88aa-638a29f2e1f7">bilinear map</a> $f: M \times N \rightarrow P$ there exists a unique module-homomorphism $\tilde{f}: T \rightarrow P$ such that <a href="20220824224824-kommutierendes_diagramm.html#ID-968cc45b-2492-4495-b9e3-261866c0901d">diagramm commutes</a>
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20230801-tensor_product_36b463ff4b3dd2d622e2a4604fde474404be0664.svg" alt="20230801-tensor_product_36b463ff4b3dd2d622e2a4604fde474404be0664.svg" class="org-svg" />
-</span>
-</div>
-</div>
-</div>
-<div id="outline-container-org140b4e8" class="outline-2">
-<h2 id="org140b4e8"><span class="section-number-2">2.</span> See</h2>
-<div class="outline-text-2" id="text-2">
-<ul class="org-ul">
+<div class="equation-container"><span class="equation"><img src="ltximg/8622da29ce78971eb88b.svg" class="org-svg" alt="diagram" /></span></div>
+
+<h2 id="see">See</h2>
+<ul>
 <li><a href="20230801-existence_of_a_tensor_product.html#ID-ec576c28-ae56-402f-8a0b-a9fd9127bc1e">Existence of a tensor product</a></li>
-<li><a href="20230801-uniqueness_of_a_tensor_product.html#ID-d6e6ac59-fef0-487d-ab04-724334d750f2">uniqueness of a tensor product</a></li>
+
+<li><a href="20230801-uniqueness_of_a_tensor_product.html#ID-d6e6ac59-fef0-487d-ab04-724334d750f2">uniqueness of a tensor product</a> </li>
 </ul>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 15:34</p>
 </div>
 </body>
 </html>

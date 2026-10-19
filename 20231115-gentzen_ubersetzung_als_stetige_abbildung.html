@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 19:13 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Gentzen-Übersetzung als stetige Abbildung</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,63 +52,58 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Gentzen-Übersetzung als stetige Abbildung</h1>
-<div id="outline-container-org42d2586" class="outline-2">
-<h2 id="org42d2586"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-153331e8-5e13-417b-bcdd-023abcb94ea7"></span><h1 class="title">Gentzen-Übersetzung als stetige Abbildung</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-die <a href="20231106-gentzen_ubersetzung.html#ID-460eb1d5-03f9-4f39-a188-08031790aec0">Gentzen Übersetzung</a> ist eine <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">stetige</a> <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a> bezüglich der <a href="20231115-topologie_auf_den_formeln.html#ID-98796e9b-6a96-464c-95cd-a75532056bc8">topologie auf den Formeln</a> 
+die <a href="20231106-gentzen_ubersetzung.html#ID-460eb1d5-03f9-4f39-a188-08031790aec0">Gentzen Übersetzung</a> ist eine <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">stetige</a> <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a> bezüglich der <a href="20231115-topologie_auf_den_formeln.html#ID-98796e9b-6a96-464c-95cd-a75532056bc8">topologie auf den Formeln</a>
 </p>
-</div>
-</div>
-<div id="outline-container-orgcd9fa8a" class="outline-2">
-<h2 id="orgcd9fa8a"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<h2 id="beweis">Beweis</h2>
 <p>
-Sei \(\mathcal{O}_A\) als basiselement für eine <a href="20230102152602-formel_logik.html#ID-c64a841a-b6f1-49fa-baa7-6b628b4e189d">Formel</a> \(A\) gegeben.
+Sei $\mathcal{O}_A$ als basiselement für eine <a href="20230102152602-formel_logik.html#ID-c64a841a-b6f1-49fa-baa7-6b628b4e189d">Formel</a> $A$ gegeben.
 </p>
 
 <p>
 Sei ferner
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 P \coloneqq \bigcup_{B \in \mathcal{F}, B^g \in \mathcal{O}_A} \mathcal{O}_B
-\end{align*}
+\end{align*}</div>
 <p>
 <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a> und nach Konstruktion gilt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 (\cdot^{g})^{-1}[ \mathcal{O}_A] \subseteq P
-\end{align*}
+\end{align*}</div>
 
 <p>
-Sei \(C \in P\), so existiert ein \(B \in \mathcal{F}\) mit \(\vdash: A \rightarrow B^g\) und \(\vdash: B \rightarrow C\).
+Sei $C \in P$, so existiert ein $B \in \mathcal{F}$ mit $\vdash: A \rightarrow B^g$ und $\vdash: B \rightarrow C$.
 Da die <a href="20231115-gentzen_ubersetzung_schwacher.html#ID-52d89b13-0c57-4dc0-b44b-715bc2b24acd">Gentzen-Übersetzung schwächer</a> ist, folgt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \vdash (B \rightarrow C) \rightarrow (B^g \rightarrow C^g)
-\end{align*}
+\end{align*}</div>
 <p>
-bzw. da \(\vdash: B \rightarrow C\) annahmslos herleitbar ist auch \(\vdash: B^g \rightarrow C^g\).
+bzw. da $\vdash: B \rightarrow C$ annahmslos herleitbar ist auch $\vdash: B^g \rightarrow C^g$.
 somit folgt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \vdash: A \rightarrow C^g
-\end{align*}
+\end{align*}</div>
 <p>
-bzw. \((\cdot^g)(C) \in \mathcal{O}_A\) respektive
+bzw. $(\cdot^g)(C) \in \mathcal{O}_A$ respektive
 </p>
 
-\begin{align*}
-(\cdot^{g})^{-1}[ \mathcal{O}_A] =& P
-\end{align*}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 19:13</p>
+
+<div class="math-block">\begin{align*}
+(\cdot^{g})^{-1}[ \mathcal{O}_A] =&amp; P
+\end{align*}</div>
+
 </div>
 </body>
 </html>

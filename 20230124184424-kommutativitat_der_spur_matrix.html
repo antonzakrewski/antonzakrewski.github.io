@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:56 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Kommutativität der Spur (Matrix)</title>
+<title>trace commutes with cyclic permutations</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,46 +52,46 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Kommutativität der Spur (Matrix)</h1>
-<div id="outline-container-org123fd74" class="outline-2">
-<h2 id="org123fd74"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-4c648f4d-9564-4fcd-82bd-4382a6ee97be"></span><h1 class="title">trace commutes with cyclic permutations</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(K\) ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a> und \(A,B \in K^{n \times n}\) eine <a href="20220303181007-matrix.html#ID-3234cd94-0d93-470b-a319-75288f97326e">Matrix</a>
+Sei $K$ ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a> und $A,B \in K^{n \times n}$ eine <a href="20220303181007-matrix.html#ID-3234cd94-0d93-470b-a319-75288f97326e">Matrix</a>
 Dann gilt:
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \tr(AB) = \tr(BA)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org8ed2cb5" class="outline-2">
-<h2 id="org8ed2cb5"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
 <p>
-Sei \((c_{ij}) = AB, (c_{ij}') = BA\)
+Sei $(c_{ij}) = AB, (c_{ij}') = BA$
 Nach der Definition der <a href="20221126194743-matrixmultiplikation.html#ID-f1eb1007-4ae9-4903-825c-8c59f9c0f3ad">Matrixmultiplikation</a> gilt:
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 c_{ij} = \sum_{s=1}^{n} a_{is} b_{sj}
-\end{align*}
+\end{align*}</div>
 <p>
 Damit gilt für die Spur:
 </p>
-\begin{align*}
-\tr(AB) =& \sum_{k=1}^{n} c_{kk} \\
-=& \sum_{k=1}^{n} \sum_{s=1}^{n} a_{ks} b_{sk}
-=& \sum_{s=1}^{n} \sum_{k=1}^{n}  b_{sk} a_{ks} 
-=& \sum_{s=1}^{n} c'_{ss} \\
-=& \tr(BA)
-\end{align*}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:56</p>
+
+<div class="math-block">\begin{align*}
+\tr(AB) =&amp; \sum_{k=1}^{n} c_{kk} \\
+=&amp; \sum_{k=1}^{n} \sum_{s=1}^{n} a_{ks} b_{sk}
+=&amp; \sum_{s=1}^{n} \sum_{k=1}^{n}  b_{sk} a_{ks} 
+=&amp; \sum_{s=1}^{n} c'_{ss} \\
+=&amp; \tr(BA)
+\end{align*}</div>
+
+
+<p>
+see also:
+</p>
+<ul>
+<li>https://mathoverflow.net/a/23481</li>
+</ul>
 </div>
 </body>
 </html>

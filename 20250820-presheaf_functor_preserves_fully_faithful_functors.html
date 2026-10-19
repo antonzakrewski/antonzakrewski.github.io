@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>presheaf functor preserves and detects fully faithful functors</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-1c98ac31-cf94-420a-852c-1ae33c777cca"></span><h1 class="title">presheaf functor preserves and detects fully faithful functors</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+The <a href="20250820-presheaf_functor.html#ID-bf9cf957-0fa7-4a6f-b0a3-d8e4f12e1061">presheaf functor</a> preserves and detects <a href="20240701-fully_faithful_functor_between_infinity_categories.html#ID-bb0d3e0e-92a5-4687-999c-a99d4043ea38">fully faithful</a> <a href="20240404-functor_between_infinity_categories.html#ID-7428dc84-9acd-49bc-8e93-b1541326a6b9">functors.</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="preserves">preserves</h3>
+<p>
+note that the functor $\mathcal{C} \rightarrow \mathcal{P}(\mathcal{D})$ given by the composition
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/98e642bb9119df1e32e6.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+is <a href="20240701-fully_faithful_functor_between_infinity_categories.html#ID-bb0d3e0e-92a5-4687-999c-a99d4043ea38">fully faithful</a>, since the <a href="20241017-infinity_yoneda_functor.html#ID-e769602f-add0-4754-8ec4-7faed679c87a">yoneda embedding</a> is fully faithful
+</p>
+
+<p>
+Now by <a href="20250706-left_kan_extension_along_a_fully_faithful_functor_as_fully_faithful_functor.html#ID-ec03cc33-3ef3-4224-9ea6-aba445ce4c92">left kan extension along a fully faithful functor is fully faithful</a> we may conclude that
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/8237fabed91aa29709dc.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+commutes.
+</p>
+
+<p>
+So now let $\mathcal{F}, \mathcal{G} \in \mathcal{P}(\mathcal{C})$ be <a href="20241021-infinity_presheaf.html#ID-463d818a-2c01-4c74-a241-fd6db6e244fd">presheaves</a>, then using <a href="20241208-infinity_contravariant_co_yoneda_lemma.html#ID-0e8ace3f-680c-45c7-b780-a1e9864b9b65">co-yoneda lemma</a> write
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{F} \simeq&amp; \mathrm{colim}_{\mathcal{C}_{/\mathcal{F}}} c \\
+\mathcal{G} \simeq&amp; \mathrm{colim}_{\mathcal{C}_{/\mathcal{G}}} c
+\end{align*}</div>
+
+<p>
+Then using the <a href="20250620-left_kan_extension_formula.html#ID-beff797b-a218-49f2-806d-93a286599113">left kan extension formula</a> we get $\iota_!(\mathcal{F}) = \mathrm{colim}_{\mathcal{C}_{/\mathcal{F}} \iota(c), \iota_!(\mathcal{G}) = \mathrm{colim}_{\mathcal{C}_{/\mathcal{G}} \iota(c)$
+So using <a href="20241126-infinity_colimit_in_a_functor_category.html#ID-58ad0856-95b7-420d-bcde-3feb4746c5a2">pointwise calculation of colimits</a> and the <a href="20241126-contravariant_infinity_yoneda_lemma.html#ID-d7af3e15-e2bd-46cb-b8ad-82df3c68d093">contravariant yoneda lemma</a> we get
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{map}_{\mathcal{P}(\mathcal{C})}(\mathcal{F}, \mathcal{G}) \simeq&amp; \mathrm{lim}_{\mathcal{C}_{/\mathcal{F}}} \mathrm{map}_{\mathcal{P}(\mathcal{C})}(c,\mathcal{G}) \\
+\simeq&amp; \mathrm{lim}_{\mathcal{C}_{/\mathcal{F}}} \mathcal{G}(c) \\
+\simeq&amp; \mathrm{lim}_{\mathcal{C}_{/\mathcal{F}}} \mathrm{colim}_{\mathcal{C}_{/\mathcal{G}}} \mathrm{map}_{\mathcal{C}}(c,c') \\
+\simeq&amp; \mathrm{lim}_{\mathcal{C}_{/\mathcal{F}}} \mathrm{colim}_{\mathcal{C}_{/\mathcal{G}}} \mathrm{map}_{\mathcal{D}}(\iota(c),\iota(c')) \\
+\simeq&amp; \mathrm{lim}_{\mathcal{C}_{/\mathcal{F}}} \mathrm{map}_{\mathcal{P}(\mathcal{D})}(\mathrm{map}_{\mathcal{D}}(-,\iota(c)),\mathrm{colim}_{\mathcal{C}_{/\mathcal{G}}} \mathrm{map}_{\mathcal{D}}(-,\iota(c'))) \\
+\simeq&amp;  \mathrm{map}_{\mathcal{P}(\mathcal{D})}(\mathrm{colim}_{\mathcal{C}_{/\mathcal{F}}} \mathrm{map}_{\mathcal{D}}(-,\iota(c)), \iota_!(\mathcal{G}))\\
+\simeq&amp;  \mathrm{map}_{\mathcal{P}(\mathcal{D})}(\iota_!(\mathcal{F}), \iota_!(\mathcal{G}))\\
+\end{align*}</div>
+
+
+
+<p>
+note that we abuse notation since the kan extension is technically given along the yoneda embedding
+</p>
+
+<h3 id="detects">detects</h3>
+<p>
+using <a href="20250706-left_kan_extension_along_a_fully_faithful_functor_as_fully_faithful_functor.html#ID-ec03cc33-3ef3-4224-9ea6-aba445ce4c92">left kan extension along a fully faithful functor is fully faithful</a> we get that
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/7a535beb3c02973cb9f8.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+<a href="20220824222939-kommutieren_eines_diagramms.html#ID-446e5d02-ed5b-4cbf-b40a-3ed58067ef7c">commutes</a>
+hence use <a href="20250323-pseudo_two_out_of_three_for_fully_faithful.html#ID-b4a60065-c276-42ed-9496-59fe7ff8005f">pseudo two out of three for fully faithful infinity functors</a>
+</p>
+
+</div>
+</body>
+</html>

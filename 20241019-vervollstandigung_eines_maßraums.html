@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Existenz einer Vervollständigung eines Maßraums</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-b22be446-ac05-40a0-9b04-fe3656146d4e"></span><h1 class="title">Existenz einer Vervollständigung eines Maßraums</h1>
+
+<h2 id="definition-proposition">Definition / Proposition</h2>
+<p>
+Sei $(X,\mathcal{A}, \mu)$ ein <a href="20241019-maßraum.html#ID-2135bec8-c3bb-4fca-a24a-21334f66d7ae">Maßraum</a>.
+Dann existiert ein kleinster <a href="20241019-vollstandiges_maß.html#ID-bb9f23b6-d014-4b02-9ecc-9d67c529b38a">vollständiger</a> Maßraum $(X, \overline{\mathcal{A}}, \overline{\mu})$  - die Vervollständigung - mit
+</p>
+<ol>
+<li>$\overline{\mathcal{A}} \supseteq \mathcal{A}$</li>
+
+<li>$\overline{\mu}_{\mathcal{A}} = \mu$</li>
+
+<li>$\overline{\mu}$ vollständig   </li>
+</ol>
+<h2 id="beweis">Beweis</h2>
+<p>
+Sei
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{\mathcal{A}} \coloneqq \{A \cup N \vert A \in \mathcal{A}, \exists \overline{N} \in \mathcal{A} : N \subseteq \overline{N}, \mu(\overline{N}) = 0\} 
+\end{align*}</div>
+<p>
+Dann ist
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{\mathcal{A}}
+\end{align*}</div>
+<p>
+ein <a href="20241010-ring_of_sets.html#ID-96a10eeb-f89d-4001-a253-a040a7bbe64a">mengenring</a>
+</p>
+
+<h3 id="mengenring">mengenring</h3>
+<p>
+Man bemerke dass $\emptyset \in \mathcal{A} \supseteq \overline{\mathcal{A}}$.
+Ferner gilt für den endlichen Schnitt (<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a>  $n = 2$)
+</p>
+
+<div class="math-block">\begin{align*}
+(A_1 \cup N_1) \cap (A_2 \cup N_1) = (A_1 \cap A_2) \cup (A_1 \cap N_1 \cup A_2 \cap N_2 \cup N_1 \cap N_2)
+\end{align*}</div>
+<p>
+wobei für Nullmengen $\overline{N}_i \supseteq N_i$
+</p>
+
+<div class="math-block">\begin{align*}
+(A_1 \cap N_1 \cup A_2 \cap N_2 \cup N_1 \cap N_2) \subseteq \overline{N}_1 \cup \overline{N}_2
+\end{align*}</div>
+<p>
+selbst eine Teilmenge einer Nullmenge ist, da gilt $\mu(\overline{N}_1 \cup \overline{N}_2) = \mu(\overline{N}_1) + \mu(\overline{N}_2)$
+</p>
+
+<p>
+Ferner ist
+</p>
+
+<div class="math-block">\begin{align*}
+(A_1 \cup N_1) \cup (A_2 \cup N_2) = (A_1 \cup A_2) \cup (N_1 \cup N_2)
+\end{align*}</div>
+<p>
+wobei analog $N_1 \cup N_2 \subseteq \overline{N}_1 \cup \overline{N}_2$ und $A_1 \cap A_2 \in \mathcal{A}$ liegt, da $\mathcal{A}$ eine Sigma Algebra ist.
+</p>
+
+
+<h4 id="komplement">Komplement</h4>
+<p>
+Seien $(A \cup N), (A' \cup N') \in \overline{\mathcal{A}}$.
+Dann gilt
+</p>
+
+<div class="math-block">\begin{align*}
+(A \cup N) \setminus (A' \cup N') = A \setminus (A' \cup N') \cup N \setminus (A' \cup N')
+\end{align*}</div>
+<p>
+wegen $N \setminus (A' \cup N') \subseteq N \subseteq \overline{N}$ it follows that $N \setminus (A' \cup N') = \emptyset \cup N \setminus (A' \cup N') \in \mathcal{A}$.
+Furthermore there exists an $\overline{N}'$ such that $N \subseteq \overline{N}$.
+</p>
+
+<p>
+It follows that
+</p>
+
+<div class="math-block">\begin{align*}
+A \setminus N' =&amp; A \setminus \overline{N} \cup (A \cap \overline{N} \setminus N)
+\end{align*}</div>
+<p>
+where $A \setminus \overline{N} \in \mathcal{A}$ and $A \cap (\overline{N} \setminus N) \subseteq \overline{N}$ hence
+</p>
+
+<div class="math-block">\begin{align*}
+A \setminus N' \in \overline{\mathcal{A}}
+\end{align*}</div>
+<p>
+by definition
+</p>
+
+
+
+<h3 id="stetiger-inhalt">stetiger inhalt</h3>
+<p>
+Definiere
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{\mu}: \overline{\mathcal{A}} \rightarrow&amp; [0,\infty] \\
+A \cup N \mapsto \mu(A)
+\end{align*}</div>
+<p>
+wobei $N \subseteq \overline{N}$ mit $\overline{N}$ Nullmenge.
+</p>
+
+
+<h4 id="wohldefiniert">wohldefiniert</h4>
+<p>
+Sei $A_1 \cup N_1 = A_2 \cup N_2 \in \overline{\mathcal{A}}$.
+Dann folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\mu(A_1  \cup (\overline{N}_1 \cup \overline{N}_2)) =&amp; \mu(A_1 \cup N_1 \cup (\overline{N}_1 \cup \overline{N}_2)) \\
+=&amp; \mu(A_2 \cup N_2 \cup \overline{N}_1 \cup \overline{N}_2) \\
+=&amp; \mu(A_2 \cup \overline{N}_1 \cup \overline{N}_2) 
+\end{align*}</div>
+<p>
+mit $\overline{N}_1,\overline{N}_2 \in \mathcal{A}$ resp. $\overline{N}_1 \cup \overline{N}_2 \in \mathcal{A}$.dh
+</p>
+
+<p>
+Ferner gilt, da $\mu$ ein Maß ist auch
+</p>
+
+<div class="math-block">\begin{align*}
+\mu(A_1  \cup (\overline{N}_1 \cup \overline{N}_2)) =&amp; \mu(A_1) + \mu(\overline{N}_1 \cup \overline{N}_2) 
+\end{align*}</div>
+<p>
+mit $\mu(\overline{N}_1 \cup \overline{N}_2) \leq \mu(\overline{N}_1) + \mu(\overline{N}_2) = 0wa
+</p>
+
+<p>
+analog gilt.
+</p>
+
+<div class="math-block">\begin{align*}
+\mu(A_2  \cup (\overline{N}_1 \cup \overline{N}_2)) =&amp; \mu(A_2) 
+\end{align*}</div>
+
+<p>
+bzw.
+</p>
+
+<div class="math-block">\begin{align*}
+\mu(A_1) = \mu(A_2)
+\end{align*}</div>
+
+<h4 id="overlinemu-vert-mathcala-mu">$\overline{\mu_{\vert \mathcal{A}}} = \mu$</h4>
+<p>
+folgt aus
+</p>
+
+<div class="math-block">\begin{align*}
+\mu(A) =&amp; \overline{\mu}(A \cup \emptyset) \\
+=&amp; \overline{\mu}(A)
+\end{align*}</div>
+
+
+<h4 id="emptyset">$\emptyset$</h4>
+<p>
+folgt aus $0 = \mu(\emptyset) = \mu(\emptyset \cup \emptyset)$
+</p>
+
+<h4 id="endlich-additiv">endlich additiv</h4>
+<p>
+folgt aus
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{\mu}((A_1 \cup N) \coprod (A_2 \cup N_2)) =&amp; \overline{\mu}((A_1 \coprod A_2) \cup (N_1 \cup N_2)) \\
+=&amp; \mu(A_1 \coprod A_2) \\
+=&amp; \mu(A_1) + \mu(A_2)
+\end{align*}</div>
+
+<h4 id="idc414d8ac-2af4-44cd-8cec-6ff51242610avon-unten-stetig"><a href="20241019-stetiger_und_von_unten_stetiger_inhalt.html#ID-c414d8ac-2af4-44cd-8cec-6ff51242610a">von unten stetig</a></h4>
+<p>
+Gegeben $A_n \cup N \nearrow A \cup N$ folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{\mu}(A_n \cup N) = \mu(A_n) \rightarrow \mu(A) = \overline{\mu}(A \cup N)d
+\end{align*}</div>
+
+
+<h3 id="fortsetzung">fortsetzung</h3>
+<ul>
+<li><a href="20241019-fortsetzungssatz_von_caratheodory.html#ID-f06ae0bf-74c5-4caf-8c58-941c107b0a19">Fortsetzungssatz von Caratheodory für stetigen Inhalt</a></li>
+</ul>
+</div>
+</body>
+</html>

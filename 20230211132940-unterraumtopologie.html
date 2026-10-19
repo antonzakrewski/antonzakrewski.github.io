@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-12 Sa 23:08 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Subspace topology</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,67 +52,48 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Subspace topology</h1>
-<div id="outline-container-orgdb906da" class="outline-2">
-<h2 id="orgdb906da"><span class="section-number-2">1.</span> Definition / Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-e38ab938-b4e6-4094-98a1-4a8dec808b54"></span><h1 class="title">Subspace topology</h1>
+
+<h2 id="definition-satz">Definition / Satz</h2>
 <p>
-Sei ein <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topologischer Raum</a> $(X, \mathcal{T})$geben, mit einer <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">Teilmenge</a> \(U \subseteq X\), so ist die Unterraumtopologie auf \(\mathcal{T}\) definiert als:
+Sei ein <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topologischer Raum</a> $(X, \mathcal{T})$geben, mit einer <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">Teilmenge</a> $U \subseteq X$, so ist die Unterraumtopologie auf $\mathcal{T}$ definiert als:
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \mathcal{T}_U  \coloneqq \{O \cap U \vert O \in \mathcal{T}\}
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org95581f9" class="outline-2">
-<h2 id="org95581f9"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orge3b378e" class="outline-3">
-<h3 id="orge3b378e"><span class="section-number-3">2.1.</span> triviale Mengen</h3>
-<div class="outline-text-3" id="text-2-1">
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="triviale-mengen">triviale Mengen</h3>
 <p>
-\(\emptyset, O \in \mathcal{T}_U\) folgt aus \(\emptyset = O \cap \emptyset\) und \(O = O \cap X\)
+$\emptyset, O \in \mathcal{T}_U$ folgt aus $\emptyset = O \cap \emptyset$ und $O = O \cap X$
 </p>
-</div>
-</div>
-<div id="outline-container-orgbb06927" class="outline-3">
-<h3 id="orgbb06927"><span class="section-number-3">2.2.</span> Abgeschlossenheit</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<h3 id="abgeschlossenheit">Abgeschlossenheit</h3>
 <p>
-Seien \(O_i = O \cap U_i \in \mathcal{T}_U\), so gilt für:
+Seien $O_i = O \cap U_i \in \mathcal{T}_U$, so gilt für:
 </p>
-<ul class="org-ul">
+<ul>
 <li>beliebige <a href="20230317161154-allgemeine_vereinigung.html#ID-69c0d505-311b-4ea6-a337-8450d6529d02">Vereinigungen</a> (vgl. <a href="20230324121812-allgemeine_distributivgesetz_fur_vereinigung_und_schnitt.html#ID-2365d754-a288-4146-9866-3d818afa661b">Allgemeine Distributivgesetz für Vereinigung und Schnitt</a>):</li>
 </ul>
-\begin{align*}
-\bigcup_{i \in I} O_i =& \bigcup_{i \in I} O \cap U_i \\
-=& O \cap \bigcup_{i \in I} U_i \in \mathcal{T}_U
-\end{align*}
-<ul class="org-ul">
-<li>für <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">endliche</a> <a href="20230317161158-allgemeiner_schnitt.html#ID-d7547939-8d3f-48f8-b2fd-cfb5734ae78f">Durchschnitte</a></li>
+<div class="math-block">\begin{align*}
+\bigcup_{i \in I} O_i =&amp; \bigcup_{i \in I} O \cap U_i \\
+=&amp; O \cap \bigcup_{i \in I} U_i \in \mathcal{T}_U
+\end{align*}</div>
+<ul>
+<li>für <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">endliche</a> <a href="20230317161158-allgemeiner_schnitt.html#ID-d7547939-8d3f-48f8-b2fd-cfb5734ae78f">Durchschnitte</a> </li>
 </ul>
-\begin{align*}
-\bigcap_{i = 1}^n O_i =& \bigcap_{i = 1}^n O \cap U_i \\
-=& O \cap \bigcup_{i = 1}^n U_i \in \mathcal{T}_U
-\end{align*}
-</div>
-</div>
-</div>
+<div class="math-block">\begin{align*}
+\bigcap_{i = 1}^n O_i =&amp; \bigcap_{i = 1}^n O \cap U_i \\
+=&amp; O \cap \bigcup_{i = 1}^n U_i \in \mathcal{T}_U
+\end{align*}</div>
 
-<div id="outline-container-orgc3cdbaf" class="outline-2">
-<h2 id="orgc3cdbaf"><span class="section-number-2">3.</span> see:</h2>
-<div class="outline-text-2" id="text-3">
-<ul class="org-ul">
+
+<h2 id="see">see:</h2>
+<ul>
 <li><a href="20230314152709-unterraumtopologie_als_initialtopologie_fur_die_inklusionsabbildung.html#ID-4ae32ece-3e49-4434-84d3-8817d64bb960">Subspace topology as initial topology for the inclusion</a></li>
 </ul>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-12 Sa 23:08</p>
 </div>
 </body>
 </html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ana3: Lebesgue Räume und der Satz von Radon-Nikodym</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-190658c3-d83f-466e-b0b9-aa37d598e398"></span><h1 class="title">Ana3: Lebesgue Räume und der Satz von Radon-Nikodym</h1>
+
+<h2 id="i-lp-raum-als-normierter-raum">I LP Raum als normierter Raum</h2>
+
+<h3 id="131">13.1</h3>
+<ul>
+<li><a href="20241116-komplexwertiges_integral.html#ID-2fb3d043-06ae-4533-bf02-edd1cc346fd9">komplexwertiges Integral</a>   </li>
+
+<li><a href="p-norm.html#ID-3110c7a9-4f14-4f65-9db8-7fac47c5895c">p-Norm</a>   </li>
+
+<li><a href="20241116-komplexwertig_integrierbare_abbiludng.html#ID-37184a35-721f-4108-85d9-c78d66ad615a">komplexwertig integrierbare Abbildung</a>   </li>
+
+<li><a href="20241116-komplexwertig_messbare_abbildung.html#ID-8fe2a9aa-f7cb-41fd-8f55-69f2941476dc">komplexwertig messbare Abbildung</a> </li>
+
+<li><a href="20241116-essential_supremum.html#ID-e51c6ad3-3a1e-4d84-adc2-a8b50d5ce12d">essential supremum</a>   </li>
+
+<li><a href="20241116-lp_raum.html#ID-71341a95-9e48-4c08-9eb6-e8d5a5f0f22c">Lp Raum</a> </li>
+</ul>
+<h3 id="132">13.2</h3>
+<ul>
+<li>meisten aussagen (welche keine ordunng auf $\mathbb{R}$ verwenden) gelten für das komplexe integral</li>
+
+<li>insbesondere: dreiecksungleichung, linearform</li>
+
+<li><a href="20241102-dreiecksungleichung_des_integrals.html#ID-898b4d21-560e-4650-a0a1-758f88383f9e">Dreiecksungleichung des Integrals</a> </li>
+
+<li><a href="20241102-integral_als_funktional.html#ID-c8dda496-b173-4a35-9fef-386638f89d48">Integral als Funktional</a>   </li>
+
+<li><a href="20241116-komplexwertiges_integral.html#ID-2fb3d043-06ae-4533-bf02-edd1cc346fd9">komplexwertiges Integral</a> </li>
+</ul>
+<h3 id="133">13.3</h3>
+<ul>
+<li><a href="20241116-verallgemeinerte_holder_ungleichung.html#ID-5d650c79-9bcf-4dcd-b992-ced9d65f1888">verallgemeinerte Hölder-Ungleichung</a> </li>
+
+<li><a href="20230223222837-minkowskische_ungleichung.html#ID-d02ec633-8ad6-450f-85d4-8dba1e8b668e">Minkowskische Ungleichung</a>   </li>
+
+<li><a href="20241117-minkowskische_ungleichung_fur_eine_p_norm.html#ID-f53c0cc9-303e-4cc8-8cd5-3ba017423174">Minkowskische Ungleichung für eine p-Norm</a>   </li>
+
+<li><a href="20241116-abschatzung_von_lp.html#ID-97f0a0e7-6be6-4041-b927-0531ac995505">Abschätzung von p-Normen</a>   </li>
+
+<li><a href="20241116-lp_als_unterraum.html#ID-4b383553-bb90-400a-a220-0cb59569d146">LP als Unterraum</a>   </li>
+
+<li><a href="20241116-l_unendlich.html#ID-c65519bd-7da9-4476-9252-507edfe916a4">L unendlich</a> </li>
+</ul>
+<h3 id="134">13.4</h3>
+<ul>
+<li><a href="p-norm.html#ID-3110c7a9-4f14-4f65-9db8-7fac47c5895c">p-Norm</a> </li>
+
+<li><a href="20241117-naive_p_norm_nur_als_halbnorm.html#ID-d98dfca2-87d0-40a1-9ab0-b80d36ab2096">naive p-Norm nur als Halbnorm</a> </li>
+
+<li><a href="20241117-l_unendlich_kein_unterraum_auf_einem_unendlichen_maßraum.html#ID-48fb7e94-3e70-4105-a1a8-0df721646212">L unendlich kein Unterraum auf einem unendlichen Maßraum</a> </li>
+</ul>
+<h3 id="135">13.5</h3>
+<ul>
+<li><a href="20241116-lp_raum.html#ID-71341a95-9e48-4c08-9eb6-e8d5a5f0f22c">Lp Raum</a> </li>
+
+<li><a href="20241117-lp_dicht_in_lq.html#ID-220b7470-6ffa-4ec7-874f-a9f477adc9b3">Lp dicht in Lq</a>   </li>
+</ul>
+<h3 id="136">13.6</h3>
+<ul>
+<li><a href="20241117-lp_raum_bis_auf_aquivalenz.html#ID-d09dbb9e-90b8-4415-b10e-16627de8a5ee">Lp Raum bis auf Äquivalenz</a> </li>
+
+<li><a href="20241116-lp_als_normierter_vektorraum.html#ID-4ff61056-7895-4a7a-b4d4-ac9421a6b1aa">Lp bis auf Äquivalenz als normierter Vektorraum</a>   </li>
+
+<li><a href="20241117-skalarprodukt_auf_l2.html#ID-e9ce2dbd-9850-4bfc-a321-f5a18d2dafea">Skalarprodukt auf L2</a> </li>
+</ul>
+<h3 id="137">13.7</h3>
+
+<h3 id="138">13.8</h3>
+<ul>
+<li><a href="20241117-majorisierte_konvergenz_fur_lp.html#ID-39896cfd-b996-48ce-a01f-2d8fa6b4dd4c">majorisierte Konvergenz für Lp</a> </li>
+</ul>
+<h2 id="ii-vollstandigkeit">II Vollständigkeit</h2>
+
+<h3 id="139">13.9</h3>
+<ul>
+<li><a href="20241117-abschatzung_einer_reihe_von_lp_funktionen.html#ID-21e4c8e5-5e93-4340-80ae-24d8b15c6e25">Abschätzung einer Reihe von Lp funktionen</a> </li>
+</ul>
+<h3 id="1310">13.10</h3>
+<ul>
+<li><a href="20241116-riesz_fischer.html#ID-93a23610-a034-4f56-878b-738f2955b635">Riesz-Fischer</a> </li>
+
+<li><a href="20241116-hilbertraum.html#ID-c884ff07-da92-448d-a745-6f23fee0c6e3">Hilbertraum</a>   </li>
+
+<li>insbesondere $L2$ als hilbertraum bezüglich des skalarproduktsd   </li>
+</ul>
+<h3 id="1311">13.11</h3>
+<ul>
+<li><a href="20241117-konvergenz_bezuglich_lp_und_existenz_einer_fast_uberall_konvergenten_teilfolge.html#ID-11848961-4e85-49bb-ba64-0f21ef9c2b54">konvergenz bezüglich Lp und existenz einer fast überall konvergenten Teilfolge</a> </li>
+</ul>
+<h2 id="iii-dichte-unterraume">III Dichte Unterräume</h2>
+
+<h3 id="1312">13.12</h3>
+<ul>
+<li><a href="essential-support.html#ID-74fbd318-d76b-491e-a49c-004fa942a0d0">essential support</a> </li>
+
+<li><a href="20241117-essential_support_welldefined.html#ID-f98fbc21-a461-4db1-84f9-42daed71eb8d">essential support welldefined</a> </li>
+
+<li><a href="20241117-essential_support_as_closed_subset.html#ID-7780a0c6-e447-4452-84cf-76014f9879f6">essential support as closed subset</a>   </li>
+
+<li><a href="20230123233223-differentiationsklasse.html#ID-7ef674b2-958d-4fa2-af99-dc7188f4acce">Differentiationsklasse</a> </li>
+
+<li><a href="20241117-differentiability_class_of_a_manifold.html#ID-473c3dd9-f398-4e26-97f5-5400964d4102">differentiability class of a Manifold</a> </li>
+
+<li><a href="20241117-differentiability_class_with_compact_support.html#ID-d3f14aae-8e33-42b6-baf9-f9c9806a49e5">differentiability class with compact support</a> </li>
+</ul>
+<h3 id="1313">13.13</h3>
+<ul>
+<li><a href="20241117-continuous_map_and_essential_support.html#ID-26da480a-dd56-40f2-ac35-86f114184238">continuous map and essential support</a> </li>
+
+<li><a href="20241117-inclusion_of_c_k_maps_with_compact_support_into_lp.html#ID-d6fedfeb-4709-4533-a6f4-6f566ad00865">inclusion of C^k maps with compact support into LP</a> </li>
+</ul>
+<h3 id="1314">13.14</h3>
+<ul>
+<li><a href="20241117-continuous_maps_with_compact_support_dense_in_lp.html#ID-2b1465bd-a4d4-4f87-8a23-7d4b62eabdc7">continuous maps with compact support dense in Lp</a> </li>
+</ul>
+<h3 id="1315">13.15</h3>
+<ul>
+<li><a href="20241117-continuous_maps_with_compact_support_not_dense_in_l_infinity.html#ID-0b7d5ec8-d69e-4c61-ad5f-581fcfd486f2">continuous maps with compact support not dense in L infinity</a> </li>
+
+<li><a href="20241117-approximationssatz_von_weierstraß.html#ID-f500834c-90b8-4984-b63a-a6a4733fb20f">Approximationssatz von Weierstraß</a>   </li>
+
+<li><a href="20241231-smooth_maps_with_compact_support_dense_within_continuous_maps_with_compact_support.html#ID-20001987-ebb7-4806-a20d-b424a8ec09b8">smooth maps with compact support dense within continuous maps with compact support</a>   </li>
+</ul>
+<h3 id="1316">13.16</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="1317">13.17</h3>
+
+<h3 id="1318">13.18</h3>
+<ul>
+<li><a href="20230624-zerlegung_der_eins.html#ID-10798e53-88ba-444d-8e06-c980d6ee8295">partition of unity</a> </li>
+
+<li><a href="20241117-c_k_partition_of_unity.html#ID-0689573f-d036-45cf-ab70-e159be869929">C^k partition of unity</a>   </li>
+
+<li></li>
+</ul>
+<h3 id="1319">13.19</h3>
+
+<h3 id="1320">13.20</h3>
+<ul>
+<li><a href="20241117-continuous_maps_with_compact_support_not_dense_in_l_infinity.html#ID-0b7d5ec8-d69e-4c61-ad5f-581fcfd486f2">continuous maps with compact support not dense in L infinity</a> </li>
+
+<li><a href="20241117-smooth_maps_with_compact_support_not_finite_dimensional.html#ID-bb491c3f-0bfd-4f36-8c52-cfa13a0153a3">smooth maps with compact support not finite dimensional</a>   </li>
+
+<li><a href="20241117-finite_dimensional_subspace_as_closed_subspace.html#ID-2f015ff3-de22-454c-bd28-5cbed4fb9d3e">finite dimensional subspace of a hilbert space as closed subspace</a>   </li>
+</ul>
+<h2 id="iv-geometrie-in-hilbertrauman">IV Geometrie in Hilbertraumän</h2>
+
+<h3 id="1321">13.21</h3>
+<ul>
+<li><a href="20230105092749-orthogonales_komplement.html#ID-e1d31ecf-7be2-4812-ba03-7145c5c0dbe8">orthogonales Komplement</a> </li>
+</ul>
+<h3 id="1322">13.22</h3>
+<ul>
+<li><a href="20230712-direktheit_der_summe_mit_dem_orthogonalen_komplement.html#ID-435c688d-9c35-4725-8693-51cba98315a5">Direktheit der Summe mit dem orthogonalen Komplement</a> </li>
+</ul>
+<h3 id="1323">13.23</h3>
+<ul>
+<li><a href="20241116-darstellung_eines_vektors_als_summe_von_einem_abgeschlossenen_unterraum_und_dem_orthogonalen_komplement.html#ID-485912da-04e6-44d0-bea5-7024673a60fa">Darstellung eines Vektors als summe von einem abgeschlossenen Unterraum und dem orthogonalen Komplement</a> </li>
+
+<li></li>
+</ul>
+<h3 id="1324">13.24</h3>
+<ul>
+<li><a href="20241116-riesz_darstellung_stetiger_linearer_funktionale.html#ID-743c17bc-e4c0-467d-b1c2-a8750638ecd2">Riesz-Darstellung stetiger linearer Funktionale</a> </li>
+</ul>
+<h2 id="v-radon-nikodym">V Radon-Nikodym</h2>
+
+<h3 id="1325">13.25</h3>
+<ul>
+<li><a href="20241127-absolut_stetige_maße.html#ID-58e228c8-d7ee-4214-8e8a-d1128fa56813">absolut stetiges Maß</a> </li>
+
+<li><a href="20241127-maß_mit_dichte.html#ID-69fdceb1-154c-4653-a20a-e874e94defe6">maß mit dichte</a>   </li>
+
+<li><a href="20241127-dichtefunktion_eines_maß.html#ID-5f0794b6-aa1e-4755-becf-4360dbf96b4a">Dichtefunktion eines Maß</a>   </li>
+</ul>
+<h3 id="1326">13.26</h3>
+<ul>
+<li><a href="20241127-integrierbare_positive_funktion_induziert_ma.html#ID-2fb9271a-51f7-4f46-b783-5ad971f4ee41">integrierbare positive Funktion induziert Maß</a>  </li>
+
+<li></li>
+
+<li><a href="20241127-dichte_eines_maß_fast_uberall_eindeutig.html#ID-f9a24357-c0af-4df4-b51e-5f410cb0e075">Dichte eines maß fast überall eindeutig</a>   </li>
+
+<li></li>
+</ul>
+<h3 id="1327">13.27</h3>
+<ul>
+<li><a href="20241127-dichtefunktion_absolut_stetig.html#ID-20c7640e-04ab-46cd-8325-a749ce9790fa">Dichtefunktion absolut stetig</a>  </li>
+
+<li><a href="20241127-radon_nikodym.html#ID-c51dc342-9c18-442a-b04c-57b87088cd15">Radon-Nikodym</a>   </li>
+</ul>
+</div>
+</body>
+</html>

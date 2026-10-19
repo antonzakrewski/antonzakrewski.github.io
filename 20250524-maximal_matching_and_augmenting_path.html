@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>maximal matching and augmenting path</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-fefca198-c3f3-417a-9076-b48888768a02"></span><h1 class="title">maximal matching and augmenting path</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $G = (V,E)$ be a <a href="20220904165445-graph.html#ID-2de260cf-41c4-4dec-9ae9-450c507fda60">graph</a> and $M$ a <a href="20250521-matching.html#ID-cf8a30fa-4ffa-475e-8620-ba2765330472">matching</a>
+</p>
+
+<p>
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol>
+<li>$M$ is a <a href="20250521-maximum_matching.html#ID-f3db4ae5-f553-4428-8b63-c6814d3f14c9">maximal matching</a> </li>
+
+<li>there does not exist an <a href="20250524-augmenting_path_for_a_matching.html#ID-f5571347-4b59-42bc-ada7-3b6604a6e8b3">augmenting path for a matching</a> for $M$  </li>
+</ol>
+<h2 id="proof">Proof</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+<p>
+Suppose there exists an <a href="20250524-augmenting_path_for_a_matching.html#ID-f5571347-4b59-42bc-ada7-3b6604a6e8b3">augmenting path for a matching</a> $E$
+Then in particular choosing the edges which dont lie in the matching $M$ provides a matching $M'$.
+Consider the <a href="20250522-symmetric_difference_of_subgraphs.html#ID-a8cf91ff-cb2a-4774-9805-e550fccdf549">symmetric difference</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{M} \coloneqq M \Delta M'
+\end{align*}</div>
+<p>
+which is a matching $\overline{M}$ with $\vert \overline{M} \vert = \vert M \vert + 1$ (todo)
+</p>
+
+
+<h3 id="2-implies-1">2) $\implies$ 1)</h3>
+<p>
+Suppose there exists a bigger matching $M'$.
+</p>
+
+<p>
+Let $A = M \cup M'$.
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> assume that $A$ is <a href="20250426-connected_component_of_a_graph.html#ID-a24433b2-bbc8-477b-8010-7f8646882a73">connected</a>, otherwise choose a $C_i \subseteq A$ which contains more edges of $M'$ than $M$, which has to exist since $\vert M' \vert &gt; \vert M \vert$ (cf. <a href="20221028093107-schubfachprinzip.html#ID-d33a1094-3551-47b8-a056-3602e11fa14b">Pigeonhole principle</a>).
+Then choose an edge $v_1v_2 \in M' \setminus M$, where $v_1 \not\in M$, which has to exist since $M'$ contains more edges and more vertices than $M$.
+</p>
+
+<p>
+Then if $v_2 \not\in M$, then $v_1v_2$ is an augmenting path.
+otherwise choose the unique vertex $w_2$ with $v_2w_2 \in M$ and $v_3 \in M'$ with $v_2v_3 \in M'$.
+Note that such a $v_3$ has to exist: there exists a vertex $v_l \neq v_1,v_2,v_3, v_l \in M$ which is connected to $v_1$ (since $\vert M' \vert &gt; \vert M \vert$ and $A$ is connected.).
+In particular $v_1$ has by construction degree $1$, each other vertex has at most degree $2$ (since it has at most degree $1$ in $M$ and $M'$) and our choices for the path $v_1 \rightarrow v_l$ have been unique so far.
+Hence there exists an edge outgoing from $v_2$ to $v_3$ which necessarily lies in $M'$ (otherwise $M$ wouldn't be a matching).
+</p>
+
+<p>
+Then repeat this algorithm, which has to terminate (when we cant choose an edge in $M$) since we only have finitely many edges and at each step our constructed path has to be circlefree (otherwise some vertex would have degree 3).
+</p>
+
+<p>
+Then the constructed path provides an augmenting path, since by construction we alternate between $M$ and $M'$ and we start and end in $M' \setminus M$
+</p>
+
+</div>
+</body>
+</html>

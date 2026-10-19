@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>hom chain complex</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-6bbbf89c-f279-45ae-a934-6b73a2924981"></span><h1 class="title">hom chain complex</h1>
+
+<h2 id="definition-proposition">Definition / Proposition</h2>
+<p>
+Let $\mathcal{A}$ be an <a href="20230827-abelian_category.html#ID-9003af72-f684-4897-b096-c1d8a681c624">abelian category</a> and $\mathrm{Ch_*}(\mathcal{A})$ be the <a href="20230817-category_of_chain_complexes.html#ID-57e47ad9-c74a-47af-a261-31b1a6a74f8b">category of chain complexes</a>.
+</p>
+
+<p>
+Then the hom chain complex is defined as <a href="20230802-chain_complex.html#ID-e4c10be9-3796-4aff-9579-5cc0b5f47e36">chain complex</a> in <a href="20230302131734-kategorie_ab.html#ID-4a704879-962d-4f99-8075-273888da2937">Category Ab</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\underline{\mathrm{Hom}(C,D)}_n \coloneqq \prod_{p \in \mathbb{Z}} \mathrm{Hom}_{\mathcal{A}}^{\mathrm{Ab}}(C_p, D_{p+n})
+\end{align*}</div>
+<p>
+where $\mathrm{Hom}^{\mathrm{Ab}}_{\mathcal{A}}(-,-)$ is the <a href="20240503-ab_hom_functor.html#ID-c2a69331-5290-4045-9aa7-92b46a6921a7">ab-hom functor</a>
+with differentials defined as
+</p>
+
+<div class="math-block">\begin{align*}
+d_n(\varphi_p) \coloneqq d_{p+n}^D \circ \varphi_p + (-1)^{n +1} \varphi_{p-1} \circ d_p^{C}
+\end{align*}</div>
+<p>
+where $t
+see also:
+</p>
+<ul>
+<li><a href="20240416-hom_of_chain_complexes_functor.html#ID-f09b5e6c-5d6d-44fa-b8f2-895881979a75">hom chain complexes functor</a> </li>
+</ul>
+<h2 id="proof">Proof</h2>
+<p>
+Let $(\varphi_p)_{p \in \mathbb{Z}}$ be an element.
+Then for $p \in \mathbb{Z}$ the derivative is given by
+</p>
+
+<div class="math-block">\begin{align*}
+d_{n-1} \circ d_{n} (\varphi_p) =&amp; d_{n-1}(d^D \circ \varphi_p + (-1)^{n+1} \varphi_{p-1} \circ d^C) \\
+=&amp; d^{D} \circ d^D  \circ \varphi_p + (-1)^{n} d^D \circ \varphi_p \circ d^C + (-1)^{n+1} \cdot d^D  \varphi_{p-1} \circ d^C + (-1)^{n+1} \varphi_{p-1} \circ d^C \circ d^C \\
+=&amp; 0 + (-1)^{n}(d^D \circ \varphi_p \circ d^C - \cdot d^D  \varphi_{p-1} \circ d^C) + 0 \\
+=&amp; 0
+\end{align*}</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>E-acyclic spectrum is a kappa filtered colimit of kappa compact E-acyclic spectra</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-50881c50-add9-4d02-868f-1e61cf39f3ab"></span><h1 class="title">E-acyclic spectrum is a kappa filtered colimit of kappa compact E-acyclic spectra</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $E$ be a <a href="20250324-spectra.html#ID-1ef9e5d3-8217-4f4a-b505-99a24ce06021">spectrum</a> and $\kappa$ an <a href="20211227215849-uberabzahlbar_unendlich.html#ID-9a4cb7c5-90c2-48e3-ad83-d9bcf341b6e9">uncountable</a> <a href="20241016-regular_cardinal.html#ID-971d460d-ad43-48cd-b619-b83936191fce">regular cardinal</a> such that $E$ is a <a href="20241016-kappa_compact_object.html#ID-4a8967b2-7c84-4c8b-b590-aadea095f9fd">kappa compact object</a> (cf. <a href="20250327-object_in_an_accessible_category_as_compact_object_for_large_enough_cardinal.html#ID-73229f70-efc3-4c2e-9e28-42e41feec29c">object in an accessible category is a compact object for large enough cardinal</a>, <a href="20250324-category_of_spectra_as_presentable_category.html#ID-46b45ae8-123b-4dbc-a929-052a5be61787">category of spectra is presentable category</a>).
+Then every <a href="20260215-e_acyclic_spectrum.html#ID-dc701420-f509-471a-935c-d2c2f28108d2">E-acyclic spectrum</a> $X$ is the <a href="kappa-filtered-colimit.html#ID-4435e491-8d1a-4889-b240-19a69d781978">kappa filtered colimit</a> of <a href="20241016-kappa_compact_object.html#ID-4a8967b2-7c84-4c8b-b590-aadea095f9fd">kappa compact</a>, \(E\)-acyclic spectra.
+</p>
+
+<h2 id="proofsketch">Proofsketch</h2>
+
+<p>
+Let $X \simeq \mathrm{colim}_{i \in I} X_i$ be the $\kappa$ filtered colimit of $\kappa$ compact spectra (cf. <a href="20260827-spectrum_is_kappa_filtered_colimit_of_kappa_compact_spectra.html#ID-285de22e-285d-4c03-b74e-dd68b6d50471">spectrum is kappa filtered colimit of kappa compact spectrum</a>).
+Using <a href="20250326-cofinal_approximation_of_a_kappa_filtered_category.html#ID-c8847431-6ee9-4808-9a01-7503d0e9f3a3">cofinal approximation of a kappa filtered category by a directed set</a> we may assume that $I$ is a directed poset.
+</p>
+
+<p>
+Then $E \otimes_{i \in I} X_i$ is a $\kappa$ compact object (cf. <a href="20260827-infinite_extension_of_scalars_preserves_kappa_compact_objects.html#ID-94dac3df-7c3b-4119-a0fc-0046788d0267">infinite extension of scalars preserves kappa compact objects</a>) and hence $\pi_*(E \otimes_{i \in I} X_i)$ is $\kappa$ compactly presented (cf. <a href="20260827-kappa_compact_in_modules_over_a_ring_spectrum_and_kappa_small_presentation.html#ID-b01a4899-35ad-472a-9132-5cfa61c2208e">kappa compact in modules over a ring spectrum and kappa small presentation</a>).
+So we may choose less than $\kappa$ many generators $g_j \in \pi_{*}(E \otimes_{\mathbb{S}} X_i)$ and for each $g_i$ find a map $f_j: X_i \rightarrow X_j$ such that $g_j$ is killed by $f_j$.
+</p>
+
+<p>
+The collection $\{f_j\}$ is a $\kappa$ small set, so we may find a map $\varphi_i: X_i \rightarrow X_{i'}$ which is nullhomotopic after applying $- \otimes_{\mathbb{S}} E$.
+</p>
+
+<p>
+Then consider the (in general non-full), <a href="20250509-infinity_wide_subcategory.html#ID-fdd0f55c-8d3c-47be-aeda-442793487336">wide</a> <a href="20240711-sub_infinity_category.html#ID-79df3d53-7239-474c-bfa4-a3fdbcf588d6">subcategory</a> $J$ containing maps which are nullhomotopic after applying $- \otimes_{\mathbb{S}} E$.
+It is also a directed poset: for a $\kappa$ small amount of $X_l, l \in L$, we may first find an upper bound $Y$ and then a map $Y \rightarrow Y'$ which kills everything on homotopy groups.
+</p>
+
+<p>
+By the previous argument (+ handwaving), $J \rightarrow I$ is a <a href="20241017-coinitial_infinity_functor.html#ID-7c2e8e73-1566-48ed-a481-8ddc45412c3a">coinitial</a> approximation (cf. <a href="20240620-cofinal_morpihsm_of_posets.html#ID-d49e17e3-a9d7-45d6-864f-8d6206227556">cofinal morphism of posets</a>), so we may assume that every map is nullhomotopic after applying $- \otimes_{\mathbb{S}} E$
+</p>
+
+<p>
+Now we may <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> assume that for each $i \in I$ we may assume that there exist infinitely many $j \in J$ with $i &lt; j$.
+</p>
+
+<p>
+Otherwise, the diagram has a supremum, so the colimit is given by evaluating at the supremum and therefore also $\kappa$ compact.
+The colimit is also by assumption acyclic.
+</p>
+
+<p>
+todo:
+</p>
+<ul>
+<li>find "enough" infinite countable families" </li>
+
+<li>if there exist suprema, coinitially forget the suprema</li>
+
+<li>then <a href="20241203-infinity_left_kan_extension.html#ID-61e0ecf3-2202-48fc-8af5-3ea0ae73581e">left kan extension</a> to get the suprema as colimits, they are countable (= $\kappa$ small) colimits of compact spectra, furthermore $E$ acyclic by something like <a href="20260412-filtered_colimit_of_eventually_nullhomotopic_maps_vanishes.html#ID-c8f8ad89-9d0a-4a1d-90fc-0a1dcdf5dc5c">filtered colimit of eventually nullhomotopic maps vanishes</a>). </li>
+
+<li>then forget everything else, have coinitial approximation </li>
+</ul>
+
+</div>
+</body>
+</html>

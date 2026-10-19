@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>metric separable space is second countable</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-58dffec3-c256-4152-8eff-08a2fe9ba984"></span><h1 class="title">metric separable space is second countable</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X$ be a <a href="20230307213929-seperabler_raum.html#ID-6e659d10-83a5-4a03-88b7-119feee141fa">separable</a> <a href="20220716173517-metrik.html#ID-0aa21afc-5f24-4618-a61e-e5ebf2e9640c">metric</a> space.
+Then $X$ is <a href="20230211132410-zweite_abzahlbarkeitsaxiom.html#ID-155a3f29-5e48-4647-a11e-5bc32b501755">secondcountable</a>.
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Choose a <a href="20220903164044-abzahlbar.html#ID-96f3063e-a99a-4c33-93c2-5c9f99f15717">countable</a> dense subset $Y$ and for each point $y \in Y$ the standard <a href="20220903164044-abzahlbar.html#ID-96f3063e-a99a-4c33-93c2-5c9f99f15717">countable</a>, <a href="20230211132320-umgebungsbasis.html#ID-24c84114-5d59-4fa3-87fb-10baabcc5faa">neighbourhood basis</a> $\mathcal{N}_y := \{B_{\frac{1}{n}}(y) \vert n \in \mathbb{N}^+\}$.
+</p>
+
+<p>
+We claim that $\bigcup_{y \in Y} \mathcal{N}_y$ is a <a href="20220903164044-abzahlbar.html#ID-96f3063e-a99a-4c33-93c2-5c9f99f15717">countable</a> <a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">neighbourhood</a> basis.
+It is countable, as it is the <a href="20221211114037-abzahlbarkeit_von_abzahlbar_vielen_vereinigungen_abzahlbarer_mengen.html#ID-9847a3d2-4b6c-417e-9f5f-b7d30613edb3">countable union of countable sets</a>.
+</p>
+
+<p>
+So let $O$ be an open <a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">neighbourhood</a>, then it remains to show that for each point $x \in O$, there exists an open subset $U_x$ contained in $O$ with $x \in U$.
+By the <a href="20231110-lands_self_indexing_trick.html#ID-5ea87d82-3211-46ad-8c58-8104bf45e830">self indexing trick</a>, it then follows that $\bigcup_{x \in O} U_x = O$.
+</p>
+
+<p>
+Now $\mathcal{N}_x$ is a neighbourhood basis of $x$, so in particular it follows that there exists an $n \in \mathbb{N}^+$ such that $B_{\frac{1}{n}}(x) \subseteq O$.
+Moreover, $B_{\frac{1}{10n}}(x) \cap Y$ is nonempty, as $Y$ is <a href="20221124232157-dichte_menge_topologie.html#ID-921fe319-4945-4303-a9a5-3723804e0737">dense</a>.
+Hence choose a $y$ in $B_{\frac{1}{10n}}(x) \cap Y$ and it follows that $x \in B_{\frac{1}{5n}}(y)$.
+Moreover, $B_{\frac{1}{5n}}(y) \subseteq B_{\frac{1}{n}}(x)$ since $d(x,y) &lt; \frac{1}{10n}$ and therefore for $z \in B_{\frac{1}{5n}(y)}$ we may estimate by the <a href="20220105160859-dreiecks_ungleichung.html#ID-15e7fac7-e9f4-4e7e-b3f7-832d6493ec2d">triangle inequality</a>
+</p>
+
+<div class="math-block">\begin{align*}
+d(x,z) \leq \frac{1}{10n} + \frac{1}{5n} &lt; \frac{1}{n}
+\end{align*}</div>
+
+<p>
+In particular, $B_{\frac{1}{5n}(y)} \subseteq O$.
+</p>
+
+</div>
+</body>
+</html>

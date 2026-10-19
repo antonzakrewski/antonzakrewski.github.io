@@ -1,371 +1,173 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2025-01-15 Mi 17:04 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>relative K1 depends on the Ring</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">relative K1 depends on the Ring</h1>
-<div id="outline-container-orgae2a358" class="outline-2">
-<h2 id="orgae2a358">Proposition</h2>
-<div class="outline-text-2" id="text-orgae2a358">
+<span id="ID-0233d51f-7ceb-4d34-81da-6cf0cb6fe59d"></span><h1 class="title">relative K1 depends on the Ring</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let<br />
+Let
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250112-relative_k1_depends_on_the_ring_49890d0365a4f0a08575780493922a54e09a5a2d.svg" alt="20250112-relative_k1_depends_on_the_ring_49890d0365a4f0a08575780493922a54e09a5a2d.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/f656cf3e62816ce71526.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-be <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">rings</a> <img src="ltximg/20250112-relative_k1_depends_on_the_ring_ed8d003b66e6574aa9fb9345deda6426c5a39a2b.svg" alt="20250112-relative_k1_depends_on_the_ring_ed8d003b66e6574aa9fb9345deda6426c5a39a2b.svg" class="org-svg" /> with <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideals</a> <img src="ltximg/20250112-relative_k1_depends_on_the_ring_aee92c1112b23b8e118e23c884bc9c2bd009cd36.svg" alt="20250112-relative_k1_depends_on_the_ring_aee92c1112b23b8e118e23c884bc9c2bd009cd36.svg" class="org-svg" /> such that<br />
+be <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">rings</a> $R,S$ with <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideals</a> $\mathfrak{a}, \mathfrak{b}$ such that
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250112-relative_k1_depends_on_the_ring_50c6b931f1a4587dbeaa742e3d11027b2ce56080.svg" alt="20250112-relative_k1_depends_on_the_ring_50c6b931f1a4587dbeaa742e3d11027b2ce56080.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+f_{\vert \mathfrak{a}}
+\end{align*}</div>
 <p>
-is a <a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">Bijection</a><br />
+is a <a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">Bijection</a>
 </p>
 
 <p>
-Then in general we can't conclude that<br />
+Then in general we can't conclude that
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250112-relative_k1_depends_on_the_ring_acae950b3e082f7f6bb9b871286050032f804ae8.svg" alt="20250112-relative_k1_depends_on_the_ring_acae950b3e082f7f6bb9b871286050032f804ae8.svg" class="org-svg" />
-</span>
-</div>
-</div>
-</div>
-<div id="outline-container-org51c8ec4" class="outline-2">
-<h2 id="org51c8ec4">Proof</h2>
-<div class="outline-text-2" id="text-org51c8ec4">
+<div class="math-block">\begin{align*}
+K_1(R,\mathfrak{a}) \cong K_1(S,\mathfrak{b})
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
 <p>
-Let <img src="ltximg/20250112-relative_k1_depends_on_the_ring_446b0665bfd5cf5c5b4169960840e91cf88dcf0b.svg" alt="20250112-relative_k1_depends_on_the_ring_446b0665bfd5cf5c5b4169960840e91cf88dcf0b.svg" class="org-svg" /> denote your favorite <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">field</a>,<br />
+Let $k$ denote your favorite <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">field</a>,
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250112-relative_k1_depends_on_the_ring_af381348ee99185feb796ff0b7e3f3255a131e83.svg" alt="20250112-relative_k1_depends_on_the_ring_af381348ee99185feb796ff0b7e3f3255a131e83.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/9cbd87cd1b82bb3895bd.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-and the ring morphism<br />
+and the ring morphism
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250112-relative_k1_depends_on_the_ring_ba527a26755ee0d62002feaa5c9671fc8b44667b.svg" alt="20250112-relative_k1_depends_on_the_ring_ba527a26755ee0d62002feaa5c9671fc8b44667b.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/261e3c2bbe960913ef55.svg" class="org-svg" alt="diagram" /></span></div>
 
 <p>
-Then both maps have the same <a href="20230827-kernel_category_theory.html#ID-1f1c40b0-77e0-4949-8893-3cb7b0166eba">kernel</a><br />
+Then both maps have the same <a href="20230827-kernel_category_theory.html#ID-1f1c40b0-77e0-4949-8893-3cb7b0166eba">kernel</a>
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250112-relative_k1_depends_on_the_ring_c2bbf19e967d6bc49b09dc85cf129acc9a70fdf5.svg" alt="20250112-relative_k1_depends_on_the_ring_c2bbf19e967d6bc49b09dc85cf129acc9a70fdf5.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/ec6bfe6c238089e13b8c.svg" class="org-svg" alt="diagram" /></span></div>
 
 <p>
-and are <a href="20230914-split_epi.html#ID-e428977d-76b0-4665-9c1c-114058b59940">split epis</a> with one sided inverse<br />
+and are <a href="20230914-split_epi.html#ID-e428977d-76b0-4665-9c1c-114058b59940">split epis</a> with one sided inverse
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250112-relative_k1_depends_on_the_ring_604fbc07548e0db3f512675cf3d8a9aefe27ff15.svg" alt="20250112-relative_k1_depends_on_the_ring_604fbc07548e0db3f512675cf3d8a9aefe27ff15.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/56de4b1d276b415032d2.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-resp.<br />
+resp.
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250112-relative_k1_depends_on_the_ring_fd9dbf53b13f3b5174b512e0dc6887987e9571c1.svg" alt="20250112-relative_k1_depends_on_the_ring_fd9dbf53b13f3b5174b512e0dc6887987e9571c1.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/45ec0187af64fdb5a773.svg" class="org-svg" alt="diagram" /></span></div>
 
 <p>
-by <a href="20250112-relative_general_linear_group_depends_only_on_the_ideal.html#ID-4b6649e4-79b2-4860-8bea-11b1529a9a92">relative general linear group depends only on the ideal</a> <br />
+by <a href="20250113-relative_infinite_general_linear_group_depends_only_on_the_ideal.html#ID-a64160bb-e615-41f8-9a00-7b40287dc4a0">relative infinite general linear group depends only on the ideal</a>  /   <a href="20250112-relative_general_linear_group_depends_only_on_the_ideal.html#ID-4b6649e4-79b2-4860-8bea-11b1529a9a92">relative general linear group depends only on the ideal</a>
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250112-relative_k1_depends_on_the_ring_ab6468d8c506553a57dfba523d7bfac7e6cee5ad.svg" alt="20250112-relative_k1_depends_on_the_ring_ab6468d8c506553a57dfba523d7bfac7e6cee5ad.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/012af4ac4070b9258ac4.svg" class="org-svg" alt="diagram" /></span></div>
 
 
 
 <p>
-Consider<br />
+Consider
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250112-relative_k1_depends_on_the_ring_3f4b4ca9dd9880468f3a4d75e70bafe3e1b609a3.svg" alt="20250112-relative_k1_depends_on_the_ring_3f4b4ca9dd9880468f3a4d75e70bafe3e1b609a3.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/f6b5e7d3a69b0bec8874.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-Then define<br />
+Then define
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250112-relative_k1_depends_on_the_ring_84bb9f29bf45b6b3097c789f57189a33ae988991.svg" alt="20250112-relative_k1_depends_on_the_ring_84bb9f29bf45b6b3097c789f57189a33ae988991.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+e(r,a) = e_{2,1}(r) e_{12}(a) e_{21}(r)^{-1} \in \mathrm{GL}(R,\mathfrak{a}) = \mathrm{Gl}(R',\mathfrak{a})
+\end{align*}</div>
 
 <p>
-which represents an element in <img src="ltximg/20250112-relative_k1_depends_on_the_ring_4a736a932ce290e37bb8879b2a505e63b184ccf7.svg" alt="20250112-relative_k1_depends_on_the_ring_4a736a932ce290e37bb8879b2a505e63b184ccf7.svg" class="org-svg" />.<br />
+which represents an element in $K_1(R',a)$.
 </p>
 
 <p>
-It follows that <img src="ltximg/20250112-relative_k1_depends_on_the_ring_6a0efac5517736a009d876a2b95af3de8b34746c.svg" alt="20250112-relative_k1_depends_on_the_ring_6a0efac5517736a009d876a2b95af3de8b34746c.svg" class="org-svg" /> hence <img src="ltximg/20250112-relative_k1_depends_on_the_ring_43a974db0ca0cf0b9d0ab34c97b2875f02153be5.svg" alt="20250112-relative_k1_depends_on_the_ring_43a974db0ca0cf0b9d0ab34c97b2875f02153be5.svg" class="org-svg" />.<br />
+It follows that $e_{r,a} \in E(R)$ hence $e_{r,a} = 0 \in K_1(R,\mathfrak{a})$.
 </p>
 
 <p>
-we want to show, that <img src="ltximg/20250112-relative_k1_depends_on_the_ring_b240c61afc4ee1207a623afaae46463946106c02.svg" alt="20250112-relative_k1_depends_on_the_ring_b240c61afc4ee1207a623afaae46463946106c02.svg" class="org-svg" />.<br />
+we want to show, that $e_{r,a} \neq 1$.
 </p>
 
 <p>
-Note that<br />
+Note that
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250112-relative_k1_depends_on_the_ring_6aa869e39342a85b15eb255543080cc9d7279d7a.svg" alt="20250112-relative_k1_depends_on_the_ring_6aa869e39342a85b15eb255543080cc9d7279d7a.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+R \cong k[T]/(t^2)
+\end{align*}</div>
 <p>
-is commutative, hence the <a href="20250109-determinant_map_of_k1_of_a_ring.html#ID-def37a6f-1053-40a6-ae96-64dbf9e23f73">determinant map of k1 of a ring</a><br />
+is commutative, hence the <a href="20250109-determinant_map_of_k1_of_a_ring.html#ID-def37a6f-1053-40a6-ae96-64dbf9e23f73">determinant map of k1 of a ring</a>
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250112-relative_k1_depends_on_the_ring_09f0883cc3dad13364f7eba4ff1032b610cc60fa.svg" alt="20250112-relative_k1_depends_on_the_ring_09f0883cc3dad13364f7eba4ff1032b610cc60fa.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+K_1(R') \rightarrow (R')^{\times}
+\end{align*}</div>
 <p>
-is welldefined.<br />
+is welldefined.
 </p>
 
 <p>
-But then it follows that (omitted)<br />
+But then it follows that (omitted)
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250112-relative_k1_depends_on_the_ring_a5dad8d775dab37f5ecc5fd97803e9decc57d666.svg" alt="20250112-relative_k1_depends_on_the_ring_a5dad8d775dab37f5ecc5fd97803e9decc57d666.svg" class="org-svg" />
-</span>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2025-01-15 Mi 17:04</p>
+<div class="math-block">\begin{align*}
+\mathrm{det}(e(r,a)) = 1 + ra - ar \neq 1
+\end{align*}</div>
+
+
 </div>
 </body>
 </html>

@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:27 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Starrheit der reellen Zahlen</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,36 +52,27 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Starrheit der reellen Zahlen</h1>
-<div id="outline-container-orga96ebf6" class="outline-2">
-<h2 id="orga96ebf6"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-4cfeb032-5ff9-4a21-9f11-3c047fdd8c23"></span><h1 class="title">Starrheit der reellen Zahlen</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
 Der <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a> der <a href="20210702104510-rationale_zahlen.html#ID-3db33e99-bceb-451d-804c-51a884630be1">rationale Zahlen</a> ist <a href="20220305201649-starrheit_automorphismus.html#ID-fda7363d-5113-41f5-b265-f9d561853ecc">starr</a>.
 </p>
-</div>
-</div>
-<div id="outline-container-org7d99bdb" class="outline-2">
-<h2 id="org7d99bdb"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<h2 id="beweis">Beweis</h2>
 <p>
 Über einen <a href="20210305204939-beweis_durch_widerspruch.html#ID-ee659788-c975-494a-aef0-85087f3db839">Beweis durch Widerspruch</a>:
-Sei \(f\) ein <a href="20230318174914-korperautomorphismus.html#ID-776e9cb7-a17c-4875-b44f-c01ed1d8602c">Automorphismus</a>.
+Sei $f$ ein <a href="20230318174914-korperautomorphismus.html#ID-776e9cb7-a17c-4875-b44f-c01ed1d8602c">Automorphismus</a>.
 Das Argument der <a href="20220305193833-starrheit_von_q.html#ID-d18ef144-9bb5-48f0-addf-d76f8e7f5186">Starrheit der rationalen Zahlen</a> lässt sich analog übertragen und es folgt:
-Sei \(f(r) \neq r\), <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> \(r < f(r)\) für ein \(r \in \mathbb{R}\), so existiert wegen der <a href="20230112093247-rationale_zahlen_dicht_in_den_reellen_zahlen.html#ID-5f371b3f-73d5-4f32-a965-63d456f22775">Dichtheit der rationalen Zahlen in den reellen Zahlen</a> ein \(q \in \mathbb{Q}\) mit \(r < q < f(q)\)
+Sei $f(r) \neq r$, <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> $r &lt; f(r)$ (sonst setze $r' = -r$), für ein $r \in \mathbb{R}$, so existiert wegen der <a href="20230112093247-rationale_zahlen_dicht_in_den_reellen_zahlen.html#ID-5f371b3f-73d5-4f32-a965-63d456f22775">Dichtheit der rationalen Zahlen in den reellen Zahlen</a> ein $q \in \mathbb{Q}$ mit $r &lt; q &lt; f(q)$
 Dies führt zu einem <a href="20220902194001-widerspruch.html#ID-d758d8be-c0f8-45d8-b7b4-5d9ecc65476a">Widerspruch</a> zur <a href="20220303180912-invarianz_der_ordnungsrelation.html#ID-d1a00963-50ee-462c-a15f-4d24c9e8d125">Invarianz der Ordnungsrelation</a>, da gilt:
 </p>
-\begin{align*}
-r <& q < f(r) \\
-f(r) <& f(q) = q 
-\end{align*}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:27</p>
+
+<div class="math-block">\begin{align*}
+r &lt;&amp; q &lt; f(r) \\
+f(r) &lt;&amp; f(q) = q 
+\end{align*}</div>
+
 </div>
 </body>
 </html>

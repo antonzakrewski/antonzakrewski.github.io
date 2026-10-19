@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-14 Mo 00:01 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>injective image and intersection</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,61 +52,51 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">injective image and intersection</h1>
-<div id="outline-container-orge5c243d" class="outline-2">
-<h2 id="orge5c243d"><span class="section-number-2">1.</span> Proposition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-7835b9c1-6d8f-4750-a266-ccdf60645608"></span><h1 class="title">injective image and intersection</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let \(X,Y\) be <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">sets</a> and \(f: X \rightarrow Y\) an <a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injection</a>.
+Let $X,Y$ be <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">sets</a> and $f: X \rightarrow Y$ an <a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injection</a>.
 </p>
 
 <p>
-Then for a <a href="20220823154734-mengenfamilie.html#ID-d5f647a4-b9c9-406e-82fc-ceeaacb27fd9">family</a> \(A_i \subseteq X\), it holds for the <a href="20230317161158-allgemeiner_schnitt.html#ID-d7547939-8d3f-48f8-b2fd-cfb5734ae78f">intersection</a> and <a href="20211230205458-bild_mengenlehre.html#ID-e7c4bebe-0c9a-4999-bd38-f1ceec101025">image</a> 
+Then for a <a href="20220823154734-mengenfamilie.html#ID-d5f647a4-b9c9-406e-82fc-ceeaacb27fd9">family</a> $A_i \subseteq X$, it holds for the <a href="20230317161158-allgemeiner_schnitt.html#ID-d7547939-8d3f-48f8-b2fd-cfb5734ae78f">intersection</a> and <a href="20211230205458-bild_mengenlehre.html#ID-e7c4bebe-0c9a-4999-bd38-f1ceec101025">image</a>
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 f[\bigcap_{i \in I} A_i] = \bigcap_{i \in I} f[A_i]
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org4dda25d" class="outline-2">
-<h2 id="org4dda25d"><span class="section-number-2">2.</span> Proof</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org1a8adc9" class="outline-3">
-<h3 id="org1a8adc9"><span class="section-number-3">2.1.</span> \(\subseteq\)</h3>
-<div class="outline-text-3" id="text-2-1">
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="subseteq">$\subseteq$</h3>
 <p>
-follows from <a href="20230522170637-bild_und_schnitt.html#ID-df5f6475-ac83-4335-a2a0-7562b52b22f7">image and intersection</a> 
+follows from <a href="20230522170637-bild_und_schnitt.html#ID-df5f6475-ac83-4335-a2a0-7562b52b22f7">image and intersection</a>
 </p>
-</div>
-</div>
-<div id="outline-container-org268e3d8" class="outline-3">
-<h3 id="org268e3d8"><span class="section-number-3">2.2.</span> \(\supseteq\)</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<h3 id="supseteq">$\supseteq$</h3>
 <p>
-Suppose \(y \in \bigcap_{i \in I} f[A_i]\), then for \(i \in I\) it holds, that \(y \in f[A_i]\), hence there exists an \(x_i \in A_i\) such that
+Suppose $y \in \bigcap_{i \in I} f[A_i]$, then for $i \in I$ it holds, that $y \in f[A_i]$, hence there exists an $x_i \in A_i$ such that
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 f(x_i) = y
-\end{align*}
+\end{align*}</div>
 
 <p>
-then for \(i,j\) it follows by injectivity, that
+then for $i,j$ it follows by injectivity, that
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 x_i = x_j
-\end{align*}
+\end{align*}</div>
 <p>
-Hence $x<sub>i</sub> &isin; \bigcap<sub>i &isin; I</sub> f[A<sub>i</sub>]
+Hence $x_i \in \bigcap_{i \in I} f[A_i]
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-14 Mo 00:01</p>
+
+
+
+
 </div>
 </body>
 </html>

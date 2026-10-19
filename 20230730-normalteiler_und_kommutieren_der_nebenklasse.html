@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 15:31 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Normalteiler und kommutieren der Nebenklasse</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,126 +52,111 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Normalteiler und kommutieren der Nebenklasse</h1>
-<div id="outline-container-org1a02407" class="outline-2">
-<h2 id="org1a02407"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-d13ad5d4-9a6c-4330-9b6b-337850eac72a"></span><h1 class="title">Normalteiler und kommutieren der Nebenklasse</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(G\) eine <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">Gruppe</a>, \(U \subseteq G\) eine <a href="20220911122242-untergruppe.html#ID-ded4020a-b34f-4433-9d64-2afa33a552d8">Untergruppe</a>.
+Sei $G$ eine <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">Gruppe</a>, $U \subseteq G$ eine <a href="20220911122242-untergruppe.html#ID-ded4020a-b34f-4433-9d64-2afa33a552d8">Untergruppe</a>.
 <a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
 </p>
-<ol class="org-ol">
-<li>\(U\) ist ein <a href="20221210192900-normalteiler.html#ID-f971f946-d0ca-444a-a450-efbef237a278">Normalteiler</a></li>
-<li>für \(g \in G\) gilt \(gU = Ug\) (siehe: <a href="20221023184221-rechtsnebenklasse.html#ID-42fba0c0-da9a-4186-b482-fa6aacf8b3d6">Rechtsnebenklasse</a>, <a href="20221023184226-linksnebenklasse.html#ID-4e4d767d-dd03-4f5b-9e4b-02b969181d85">Linksnebenklasse</a>)</li>
+<ol>
+<li>$U$ ist ein <a href="20221210192900-normalteiler.html#ID-f971f946-d0ca-444a-a450-efbef237a278">Normalteiler</a> </li>
+
+<li>für $g \in G$ gilt $gU = Ug$ (siehe: <a href="20221023184221-rechtsnebenklasse.html#ID-42fba0c0-da9a-4186-b482-fa6aacf8b3d6">Rechtsnebenklasse</a>, <a href="20221023184226-linksnebenklasse.html#ID-4e4d767d-dd03-4f5b-9e4b-02b969181d85">Linksnebenklasse</a>)</li>
 </ol>
-</div>
-</div>
-<div id="outline-container-orgf104711" class="outline-2">
-<h2 id="orgf104711"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+<h2 id="beweis">Beweis</h2>
 <p>
 using <a href="20221211163603-darstellung_eines_elements_in_einer_links_rechts_nebenklasse.html#ID-6d5f63f0-c8f2-4316-ba55-f2f0ce998b19">Darstellung einer Links/Rechts-Nebenklasse</a>
 </p>
-</div>
-<div id="outline-container-org7fbce38" class="outline-3">
-<h3 id="org7fbce38"><span class="section-number-3">2.1.</span> 1) \(\implies\) 2)</h3>
-<div class="outline-text-3" id="text-2-1">
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
 <p>
-Let \(g \in G, u \in U\).
+Let $g \in G, u \in U$.
 </p>
-</div>
-<div id="outline-container-org8d723fc" class="outline-4">
-<h4 id="org8d723fc"><span class="section-number-4">2.1.1.</span> \(\subseteq\)</h4>
-<div class="outline-text-4" id="text-2-1-1">
+
+<h4 id="subseteq">$\subseteq$</h4>
 <p>
 Then
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 g \cdot u \cdot g^{-1} = u'
-\end{align*}
+\end{align*}</div>
 <p>
-for some \(u' \in U\)
+for some $u' \in U$
 </p>
 
 <p>
-hence 
+hence
 </p>
-\begin{align*}
-g \cdot u \cdot g^{-1} =& u' && \vert \cdot g \\
-g \cdot u =& u' \cdot g
-\end{align*}
+
+<div class="math-block">\begin{align*}
+g \cdot u \cdot g^{-1} =&amp; u' &amp;&amp; \vert \cdot g \\
+g \cdot u =&amp; u' \cdot g
+\end{align*}</div>
 
 <p>
-hence \(g \cdot u \in Ug\)
+hence $g \cdot u \in Ug$
 </p>
-</div>
-</div>
-<div id="outline-container-org7d6497e" class="outline-4">
-<h4 id="org7d6497e"><span class="section-number-4">2.1.2.</span> \(\supseteq\)</h4>
-<div class="outline-text-4" id="text-2-1-2">
+
+<h4 id="supseteq">$\supseteq$</h4>
 <p>
 Then
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 g^{-1} \cdot u \cdot g = u'
-\end{align*}
+\end{align*}</div>
 <p>
-for some \(u' \in U\)
+for some $u' \in U$
 </p>
 
 <p>
 Thus
 </p>
-\begin{align*}
-g^{-1} \cdot u \cdot g =& u' && \vert g \cdot \\
-u \cdot g =& g \cdot u'
-\end{align*}
+
+<div class="math-block">\begin{align*}
+g^{-1} \cdot u \cdot g =&amp; u' &amp;&amp; \vert g \cdot \\
+u \cdot g =&amp; g \cdot u'
+\end{align*}</div>
 
 <p>
-and therefore \(u \cdot g \in gU\).
+and therefore $u \cdot g \in gU$.
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgb8bd193" class="outline-3">
-<h3 id="orgb8bd193"><span class="section-number-3">2.2.</span> 2) \(\implies\) 1)</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<h3 id="2-implies-1">2) $\implies$ 1)</h3>
 <p>
-Let \(g \in G\) and \(u \in U\).
+Let $g \in G$ and $u \in U$.
 Then by assumption,
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 g \cdot u \in Ug 
-\end{align*}
+\end{align*}</div>
 <p>
 and hence
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 g \cdot u = u' \cdot g
-\end{align*}
+\end{align*}</div>
 <p>
-for some \(u' \in U\).
+for some $u' \in U$.
 </p>
 
 <p>
 thus it follows, that
 </p>
-\begin{align*}
-g \cdot u =& u' \cdot g && \vert \cdot g^{-1} \\
-g \cdot u g^{-1} =& u' \in U
-\end{align*}
+
+<div class="math-block">\begin{align*}
+g \cdot u =&amp; u' \cdot g &amp;&amp; \vert \cdot g^{-1} \\
+g \cdot u g^{-1} =&amp; u' \in U
+\end{align*}</div>
 
 <p>
-Hence \(U\) is a normal subgroup
+Hence $U$ is a normal subgroup
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 15:31</p>
+
 </div>
 </body>
 </html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>cartan formula for chern classes</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-dade2231-0ac2-4a59-b7d6-24f8b3df4109"></span><h1 class="title">cartan formula for chern classes</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\pi_1,\pi_2$ be <a href="20230903-complex_topological_vector_bundle.html#ID-ce498b51-c9e4-4ca0-aac9-e47fa6f6722a">complex vector bundles</a>
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+c(\pi_1 \oplus \pi_2) = c(\pi_1) \cdot c(\pi_2)
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+consider
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/e7a2c2f7f6e2af37b8ae.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+by &lt;kunneth&gt; + <a href="20250520-integral_cohomology_of_bu_d_by_chern_classes.html#ID-63b45ebe-176f-49d9-85ce-550494c8b447">integral cohomology of BU(d)</a>  e get
+</p>
+
+<div class="math-block">\begin{align*}
+\varphi: H^*(\mathrm{BU}(d+ d')) \rightarrow&amp; H^*(\mathrm{BU}(d)) \otimes_{\mathbb{Z}} H^*(\mathrm{BU}(d')) \\
+\mathbb{Z}[c_1,...,c_{d+d'}] \mapsto&amp; \mathbb{Z}[c_{1}^{l},...,c_{d}^l,c_1^r,...,c_{d'}^r]
+\end{align*}</div>
+
+
+<p>
+we show that
+</p>
+
+<div class="math-block">\begin{align*}
+\varphi(c) =&amp; c^l \cdot c^r \\
+=&amp; (\sum c_i^l) \cdot (\sum c_i^r)
+\end{align*}</div>
+
+<p>
+<a href="20221024165350-beweis_durch_vollstandige_induktion_mit_starkerer_induktionsvoraussetzung.html#ID-1534f6c1-e094-4672-8e87-f36eb0e54b8b">Proof by induction</a>
+</p>
+
+<h3 id="induction-basis-d-d-0">induction basis, $d = d' = 0$.</h3>
+<p>
+Then
+</p>
+
+<h3 id="induction-step">induction step</h3>
+<p>
+consider
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/47d657f561ff377cffdb.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+which commutes up to homotopy.
+</p>
+
+<p>
+Then applying the cohomology gives
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/8371358d89e2e363a318.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+where the $\widehat{c}_d$ is missing
+</p>
+
+
+<p>
+By induction hypothesis we get
+</p>
+
+<div class="math-block">\begin{align*}
+\varphi(1 + ... c_{d'}) = (\sum_{i=0}^{d-1} c_{1}^l) (\sum_{j=0}^{d'} c_j^r)
+\end{align*}</div>
+
+<p>
+which shows that
+</p>
+
+<div class="math-block">\begin{align*}
+\varphi(c) \equiv c^l \cdot c^r \mod{c_d^l}
+\end{align*}</div>
+
+<p>
+By a symmetric argument we get
+</p>
+
+
+<div class="math-block">\begin{align*}
+\varphi(c) \equiv c^l \cdot c^r \mod{c_{d'}^r}
+\end{align*}</div>
+
+<p>
+Then by <a href="20221227223812-faktorieller_ring.html#ID-7bbf4bf1-38fd-4069-9816-6aa5aea3839f">unique factorization domain</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\varphi(c) \equiv c^l \cdot c^r \mod{c_d^l \cdot c_{d'}^r}
+\end{align*}</div>
+
+<p>
+or
+</p>
+
+<div class="math-block">\begin{align*}
+\varphi(c) = c^l \cdot c^r + p \cdot c_{d}^l c_{d'}^r
+\end{align*}</div>
+
+<p>
+where $c \in H^*(\mathrm{BU}(d+d'))$ has highest degree $2 \cdot (d+d')$.
+Furhtermore $\varphi$ preserves the grading, hence the highest degree appearing in $c$ has degree $2(d+d')$.
+</p>
+
+<p>
+But this shows that $\mathrm{deg}(p) = 0$ since $\mathrm{deg}(c_d^l \cdot d_{d'}^r) = 2(d+d')$ or $p \in \mathbb{Z}$.
+</p>
+
+<p>
+Moreover the highest degree element of $c$ is given by $c_{d+d'} = e \in H^{2(d+d')}(\mathrm{BU}(d+d')$ or
+</p>
+
+<div class="math-block">\begin{align*}
+\varphi(c_{d+d'}) =&amp; \varphi(c) \\
+=&amp; e(\gamma_{\mathbb{C}}^d \times \gamma_{\mathbb{C}}^{d'}) \\
+=&amp;  e(\gamma_{\mathbb{C}}^d) \cdot e(\gamma_{\mathbb{C}}^{d'}) \\
+=&amp; c_d^l \cdot c_d^r
+\end{align*}</div>
+<p>
+which shows that $p = 0$
+</p>
+
+
+</div>
+</body>
+</html>

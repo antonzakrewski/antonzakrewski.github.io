@@ -1,359 +1,169 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2025-02-04 Di 19:57 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>einfacher gauß algorithmus</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">einfacher gauß algorithmus</h1>
-<div id="outline-container-orgc877651" class="outline-2">
-<h2 id="orgc877651">Schritte</h2>
-<div class="outline-text-2" id="text-orgc877651">
+<span id="ID-da8871b2-95c4-4c4a-918a-69a0bf8985cd"></span><h1 class="title">einfacher gauß algorithmus</h1>
+
+<h2 id="schritte">Schritte</h2>
 <p>
-Sei in einem <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a> <img src="ltximg/20231129-einfacher_gauß_algorithmus_3cfd7a299d478f9bf2528fa65c00521e0cd88159.svg" alt="20231129-einfacher_gauß_algorithmus_3cfd7a299d478f9bf2528fa65c00521e0cd88159.svg" class="org-svg" /> ein lineares Gleichungssystem<br />
+Sei in einem <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a> $K$ ein lineares Gleichungssystem
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231129-einfacher_gauß_algorithmus_b59acc0ef5e1a29ea083bd070d2ce67abb629978.svg" alt="20231129-einfacher_gauß_algorithmus_b59acc0ef5e1a29ea083bd070d2ce67abb629978.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+\sum_{i=1}^n \alpha_{1,i} x_i =&amp; \gamma_1 \\
+\vdots&amp; \\
+\sum_{i=1}^n \alpha_{m,i} x_i  =&amp; \gamma_m \\
+\end{align*}</div>
 
 <p>
-gegeben.<br />
+gegeben.
 </p>
 
 <p>
-Dann suchen wir die Lösungen von<br />
+Dann suchen wir die Lösungen von
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231129-einfacher_gauß_algorithmus_33d6f74da975180b172f820bf320dd05de06544f.svg" alt="20231129-einfacher_gauß_algorithmus_33d6f74da975180b172f820bf320dd05de06544f.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/68e2cff031d76ddd8c19.svg" class="org-svg" alt="diagram" /></span></div>
+
 
 
 <p>
-Dann ist der Gauß Algorithmus gegeben durch<br />
+Dann ist der Gauß Algorithmus gegeben durch
 </p>
-<ol class="org-ol">
-<li>Aufschreiben der Matrix<br /></li>
-<li>durch <a href="20241217-elementare_zeilenumformung.html#ID-5fc822d4-f777-4107-b3db-d427c4423d3a">Elementare Zeilenumformung</a> bringt man die Matrix auf <a href="20221210183428-zeilenstufenform.html#ID-c86c4b1e-7fc4-4fb9-b8d9-6ade802afaae">Zeilenstufenform</a> <br />
-a) falls <img src="ltximg/20231129-einfacher_gauß_algorithmus_f854ef2455465d1da003fcc43a2b14a014918ac8.svg" alt="20231129-einfacher_gauß_algorithmus_f854ef2455465d1da003fcc43a2b14a014918ac8.svg" class="org-svg" /> aber ein <img src="ltximg/20231129-einfacher_gauß_algorithmus_17d639f4cea87b7621808a814994b87c4ff06941.svg" alt="20231129-einfacher_gauß_algorithmus_17d639f4cea87b7621808a814994b87c4ff06941.svg" class="org-svg" /> so tauscht man die beiden Zeilen<br />
-b) ansonsten subtrahiert man von der <img src="ltximg/20231129-einfacher_gauß_algorithmus_359ac03314ded3dcd3fe83c074128c557efb2290.svg" alt="20231129-einfacher_gauß_algorithmus_359ac03314ded3dcd3fe83c074128c557efb2290.svg" class="org-svg" />-ten Zeile <img src="ltximg/20231129-einfacher_gauß_algorithmus_2f760649e729a3178bd2d51ae24064acbb94781a.svg" alt="20231129-einfacher_gauß_algorithmus_2f760649e729a3178bd2d51ae24064acbb94781a.svg" class="org-svg" /> mal die erste Zeile<br />
-c) damit bringt man <img src="ltximg/20231129-einfacher_gauß_algorithmus_7cc187ad66f2cbf15e84002f48164790801c70e6.svg" alt="20231129-einfacher_gauß_algorithmus_7cc187ad66f2cbf15e84002f48164790801c70e6.svg" class="org-svg" /> auf <img src="ltximg/20231129-einfacher_gauß_algorithmus_46213a69cc0fd8e7646d063f18a2b1b9e029e7db.svg" alt="20231129-einfacher_gauß_algorithmus_46213a69cc0fd8e7646d063f18a2b1b9e029e7db.svg" class="org-svg" /><br />
-d) man wiederholt dann den Algorithmus, um <img src="ltximg/20231129-einfacher_gauß_algorithmus_ae28c0c3f92b416df338feefa7a5f00c59e70935.svg" alt="20231129-einfacher_gauß_algorithmus_ae28c0c3f92b416df338feefa7a5f00c59e70935.svg" class="org-svg" /> auf <img src="ltximg/20231129-einfacher_gauß_algorithmus_46213a69cc0fd8e7646d063f18a2b1b9e029e7db.svg" alt="20231129-einfacher_gauß_algorithmus_46213a69cc0fd8e7646d063f18a2b1b9e029e7db.svg" class="org-svg" /> zu bringen, etc.<br /></li>
-<li>Dann kann man überlegen, ob das Gleichungssystem lösbar ist und Lösungen bestimmen<br /></li>
+<ol>
+<li>Aufschreiben der Matrix</li>
+
+<li>durch <a href="20241217-elementare_zeilenumformung.html#ID-5fc822d4-f777-4107-b3db-d427c4423d3a">Elementare Zeilenumformung</a> bringt man die Matrix auf <a href="20221210183428-zeilenstufenform.html#ID-c86c4b1e-7fc4-4fb9-b8d9-6ade802afaae">Zeilenstufenform</a>  a) falls $\alpha_{1,1} = 0$ aber ein $\alpha_{i,1} \neq 0$ so tauscht man die beiden Zeilen b) ansonsten subtrahiert man von der \(i\)-ten Zeile $\alpha_{i,1} \cdot \alpha_{1,1}^{-1}$ mal die erste Zeile c) damit bringt man $\alpha_{2,1},...,\alpha_{m,1}$ auf $0$ d) man wiederholt dann den Algorithmus, um $\alpha_{3,2},...,\alpha_{m,2}$ auf $0$ zu bringen, etc.</li>
+
+<li>Dann kann man überlegen, ob das Gleichungssystem lösbar ist und Lösungen bestimmen</li>
 </ol>
-
 <p>
-Dabei soll die aufgeschriebene Matrix so aussehen<br />
+Dabei soll die aufgeschriebene Matrix so aussehen
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231129-einfacher_gauß_algorithmus_260e767b237e5a8e6a1f6888a588dce68688bc46.svg" alt="20231129-einfacher_gauß_algorithmus_260e767b237e5a8e6a1f6888a588dce68688bc46.svg" class="org-svg" />
-</span>
-</div>
-</div>
-</div>
-<div id="outline-container-orgd228f50" class="outline-2">
-<h2 id="orgd228f50">häufige Fälle</h2>
-<div class="outline-text-2" id="text-orgd228f50">
-</div>
-<div id="outline-container-org86e83b5" class="outline-3">
-<h3 id="org86e83b5">a) Ablesen</h3>
-<div class="outline-text-3" id="text-org86e83b5">
+<div class="equation-container"><span class="equation"><img src="ltximg/98dbdb7dd07415564d86.svg" class="org-svg" alt="diagram" /></span></div>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231129-einfacher_gauß_algorithmus_42b1b2752f09a6273f2fea4b196d416fc9261a2b.svg" alt="20231129-einfacher_gauß_algorithmus_42b1b2752f09a6273f2fea4b196d416fc9261a2b.svg" class="org-svg" />
-</span>
-</div>
+
+
+<h2 id="haufige-falle">häufige Fälle</h2>
+
+<h3 id="a-ablesen">a) Ablesen</h3>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/3233094fe65a16808114.svg" class="org-svg" alt="diagram" /></span></div>
 
 <p>
-Angenommen die Diagonale ist ungleich <img src="ltximg/20231129-einfacher_gauß_algorithmus_46213a69cc0fd8e7646d063f18a2b1b9e029e7db.svg" alt="20231129-einfacher_gauß_algorithmus_46213a69cc0fd8e7646d063f18a2b1b9e029e7db.svg" class="org-svg" />.<br />
+Angenommen die Diagonale ist ungleich $0$.
 </p>
 
 <p>
-Hier ist dann <img src="ltximg/20231129-einfacher_gauß_algorithmus_00b07146ceceb0b35813344f7e53f94abca5697f.svg" alt="20231129-einfacher_gauß_algorithmus_00b07146ceceb0b35813344f7e53f94abca5697f.svg" class="org-svg" /> für <img src="ltximg/20231129-einfacher_gauß_algorithmus_52e0a10c155cdae2c5184932a10ec07b2ba8f401.svg" alt="20231129-einfacher_gauß_algorithmus_52e0a10c155cdae2c5184932a10ec07b2ba8f401.svg" class="org-svg" /> bzw. <img src="ltximg/20231129-einfacher_gauß_algorithmus_a07429a1c1fe6940f103c7b8d0105c7a0d4691a4.svg" alt="20231129-einfacher_gauß_algorithmus_a07429a1c1fe6940f103c7b8d0105c7a0d4691a4.svg" class="org-svg" /> sonst.<br />
-Dann kann man iterativ <img src="ltximg/20231129-einfacher_gauß_algorithmus_8677e0549ed6ad4eceb5d201d8b075e88f9616ee.svg" alt="20231129-einfacher_gauß_algorithmus_8677e0549ed6ad4eceb5d201d8b075e88f9616ee.svg" class="org-svg" /> bestimmen, indem man <img src="ltximg/20231129-einfacher_gauß_algorithmus_8b71537fc4e8b6368a8066d537864e4c9ef2cc3f.svg" alt="20231129-einfacher_gauß_algorithmus_8b71537fc4e8b6368a8066d537864e4c9ef2cc3f.svg" class="org-svg" /> einsetzt etc.<br />
-</p>
-</div>
-</div>
-<div id="outline-container-org458252e" class="outline-3">
-<h3 id="org458252e">b) einfaches, unterbestimmtes Gleichungssystem</h3>
-<div class="outline-text-3" id="text-org458252e">
-
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231129-einfacher_gauß_algorithmus_90cb9874283c5d9d4c40813eef8b090ad85f0eb0.svg" alt="20231129-einfacher_gauß_algorithmus_90cb9874283c5d9d4c40813eef8b090ad85f0eb0.svg" class="org-svg" />
-</span>
-</div>
-<p>
-hier kann man <img src="ltximg/20231129-einfacher_gauß_algorithmus_6c918f89c724dbc1bbe18ee2973225b90942f27e.svg" alt="20231129-einfacher_gauß_algorithmus_6c918f89c724dbc1bbe18ee2973225b90942f27e.svg" class="org-svg" /> beliebig setzen und dann den Rest gesondert lösen<br />
-</p>
-</div>
-</div>
-<div id="outline-container-org5f67162" class="outline-3">
-<h3 id="org5f67162">c) unterbestimmtes Gleichungssystem</h3>
-<div class="outline-text-3" id="text-org5f67162">
-<p>
-Manchmal sind Lineare Gleichungssysteme auf kompliziertere Art und Weise unterbestimmt.<br />
-z.B.<br />
+Hier ist dann $x_n = \frac{\beta_{n,n}}{\gamma_n}$ für $\gamma_n \neq 0$ bzw. $x_n = 0$ sonst.
+Dann kann man iterativ $x_{n-1}$ bestimmen, indem man $x_n$ einsetzt etc.
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231129-einfacher_gauß_algorithmus_268f3cbab44093e8f0f7370e43c51793ed4ab58b.svg" alt="20231129-einfacher_gauß_algorithmus_268f3cbab44093e8f0f7370e43c51793ed4ab58b.svg" class="org-svg" />
-</span>
-</div>
+<h3 id="b-einfaches-unterbestimmtes-gleichungssystem">b) einfaches, unterbestimmtes Gleichungssystem</h3>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/954f48ef28a711ae4bc2.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-bzw. dazu korrespondierend<br />
+hier kann man $x_1$ beliebig setzen und dann den Rest gesondert lösen
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231129-einfacher_gauß_algorithmus_2f81e309e0a2447500d2b2d58d8abc0bd12f7b89.svg" alt="20231129-einfacher_gauß_algorithmus_2f81e309e0a2447500d2b2d58d8abc0bd12f7b89.svg" class="org-svg" />
-</span>
-</div>
+<h3 id="c-unterbestimmtes-gleichungssystem">c) unterbestimmtes Gleichungssystem</h3>
+<p>
+Manchmal sind Lineare Gleichungssysteme auf kompliziertere Art und Weise unterbestimmt.
+z.B.
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/54087139822a729939a3.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+bzw. dazu korrespondierend
+</p>
+
+<div class="math-block">\begin{align*}
+x_1 + x_3 =&amp; 0 \\
+x_2 + x_3 =&amp; 1
+\end{align*}</div>
 
 <p>
-Dann bietet es sich an, eine der unteren Variablen, hier <img src="ltximg/20231129-einfacher_gauß_algorithmus_d751bfb6d2fa2efb30268271a5a5e7d5828c6659.svg" alt="20231129-einfacher_gauß_algorithmus_d751bfb6d2fa2efb30268271a5a5e7d5828c6659.svg" class="org-svg" /> oder <img src="ltximg/20231129-einfacher_gauß_algorithmus_a4d1798e6a2455790b8ffc444e79375e0232afc6.svg" alt="20231129-einfacher_gauß_algorithmus_a4d1798e6a2455790b8ffc444e79375e0232afc6.svg" class="org-svg" /> beliebig zu setzen und den Rest in abhängigkeit von <img src="ltximg/20231129-einfacher_gauß_algorithmus_a4d1798e6a2455790b8ffc444e79375e0232afc6.svg" alt="20231129-einfacher_gauß_algorithmus_a4d1798e6a2455790b8ffc444e79375e0232afc6.svg" class="org-svg" /> zu berechnen.<br />
+Dann bietet es sich an, eine der unteren Variablen, hier $x_2$ oder $x_3$ beliebig zu setzen und den Rest in abhängigkeit von $x_3$ zu berechnen.
 </p>
 
 <p>
-Sei also <img src="ltximg/20231129-einfacher_gauß_algorithmus_a4d1798e6a2455790b8ffc444e79375e0232afc6.svg" alt="20231129-einfacher_gauß_algorithmus_a4d1798e6a2455790b8ffc444e79375e0232afc6.svg" class="org-svg" /> beliebig<br />
-Dann ist <img src="ltximg/20231129-einfacher_gauß_algorithmus_8143df92545b35defd2f40d5c2b0f36b60012d07.svg" alt="20231129-einfacher_gauß_algorithmus_8143df92545b35defd2f40d5c2b0f36b60012d07.svg" class="org-svg" /> und <img src="ltximg/20231129-einfacher_gauß_algorithmus_baf900c2613156aecba9a43ffcdc9cc21e9621c6.svg" alt="20231129-einfacher_gauß_algorithmus_baf900c2613156aecba9a43ffcdc9cc21e9621c6.svg" class="org-svg" />.<br />
-</p>
-</div>
-</div>
-<div id="outline-container-org0ec1ee4" class="outline-3">
-<h3 id="org0ec1ee4">d) unlösbares Gleichungssystem</h3>
-<div class="outline-text-3" id="text-org0ec1ee4">
-<p>
-z.b.<br />
+Sei also $x_3$ beliebig
+Dann ist $x_2 = 1 - x_3$ und $x_1 = - x_3$.
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231129-einfacher_gauß_algorithmus_45bc03dc0a5f5d09db26a8a473cfba900e5acf51.svg" alt="20231129-einfacher_gauß_algorithmus_45bc03dc0a5f5d09db26a8a473cfba900e5acf51.svg" class="org-svg" />
-</span>
-</div>
+
+<h3 id="d-unlosbares-gleichungssystem">d) unlösbares Gleichungssystem</h3>
 <p>
-mit <img src="ltximg/20231129-einfacher_gauß_algorithmus_6dc4ef58fa9752df78d972c0f664a6866f821fee.svg" alt="20231129-einfacher_gauß_algorithmus_6dc4ef58fa9752df78d972c0f664a6866f821fee.svg" class="org-svg" />.<br />
-Die letzte Zeile korrespondiert zur Linearen Gleichung<br />
+z.b.
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231129-einfacher_gauß_algorithmus_337283ac57cfd4c84d2c4c6237eca7a9ecedd2db.svg" alt="20231129-einfacher_gauß_algorithmus_337283ac57cfd4c84d2c4c6237eca7a9ecedd2db.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/50478567ec482f64d909.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-was für <img src="ltximg/20231129-einfacher_gauß_algorithmus_6dc4ef58fa9752df78d972c0f664a6866f821fee.svg" alt="20231129-einfacher_gauß_algorithmus_6dc4ef58fa9752df78d972c0f664a6866f821fee.svg" class="org-svg" /> nicht lösbar ist.<br />
+mit $\gamma_2 \neq 0$.
+Die letzte Zeile korrespondiert zur Linearen Gleichung
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2025-02-04 Di 19:57</p>
+
+<div class="math-block">\begin{align*}
+0 \cdot x_1 + 0 \cdot x_2 = \gamma_2
+\end{align*}</div>
+<p>
+was für $\gamma_2 \neq 0$ nicht lösbar ist.
+</p>
+
+
+
+
 </div>
 </body>
 </html>

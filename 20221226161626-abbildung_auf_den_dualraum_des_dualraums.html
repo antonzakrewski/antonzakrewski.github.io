@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:47 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Abbildung auf den Bidualraum</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,76 +52,59 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Abbildung auf den Bidualraum</h1>
-<div id="outline-container-org859cf55" class="outline-2">
-<h2 id="org859cf55"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-31f52dd1-d205-41a1-b255-7537f188d532"></span><h1 class="title">Abbildung auf den Bidualraum</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(V\) ein <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">K-Vektorraum</a> und \(V^{**} = (V^*)^*\)  (siehe: <a href="20221210210302-dualraum.html#ID-9ace6f30-29f8-4e46-82c2-875f67c452fc">Dualraum</a>)
+Sei $V$ ein <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">K-Vektorraum</a> und $V^{**} = (V^*)^*$  (siehe: <a href="20221210210302-dualraum.html#ID-9ace6f30-29f8-4e46-82c2-875f67c452fc">Dualraum</a>)
 Sei zudem:
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 T: V \rightarrow V^{**} \\
-(Tv)(f) = f(v) && v \in V, f \in V^*
-\end{align*}
+(Tv)(f) = f(v) &amp;&amp; v \in V, f \in V^*
+\end{align*}</div>
 <p>
-Dann folgt, dass \(T\) ein <a href="20230303151658-vektorraummonomorphismus.html#ID-f0288756-d404-4cf9-8f45-508ac443d32c">Monomorphismus</a> ist und falls \(\mathrm{dim}_{K}(V) = n < \infty\) auch dass \(T\) ein <a href="20230227153105-vektorraumisomorphismus.html#ID-27b6dd7a-30ae-4eb8-b5c4-e1a268344d2e">Vektorraumisomorphismus</a> ist.
+Dann folgt, dass $T$ ein <a href="20230303151658-vektorraummonomorphismus.html#ID-f0288756-d404-4cf9-8f45-508ac443d32c">Monomorphismus</a> ist und falls $\mathrm{dim}_{K}(V) = n &lt; \infty$ auch dass $T$ ein <a href="20230227153105-vektorraumisomorphismus.html#ID-27b6dd7a-30ae-4eb8-b5c4-e1a268344d2e">Vektorraumisomorphismus</a> ist.
 </p>
-</div>
-</div>
-<div id="outline-container-org0b9909d" class="outline-2">
-<h2 id="org0b9909d"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org20ed3e0" class="outline-3">
-<h3 id="org20ed3e0"><span class="section-number-3">2.1.</span> a)</h3>
-<div class="outline-text-3" id="text-2-1">
-</div>
-<div id="outline-container-orgd0694f8" class="outline-4">
-<h4 id="orgd0694f8"><span class="section-number-4">2.1.1.</span> <a href="20221119162741-vektorraumhomomorphismus.html#ID-863f0f55-054c-413e-9cf4-2c2704ea5b14">Vektorraumhomomorphismus</a></h4>
-<div class="outline-text-4" id="text-2-1-1">
-\begin{align*}
-(Tv)(f_1 + f_2) =& (f_1 + f_2)(v) \\
-=& f_1(v) + f_2(v) \\
-=& (Tv)(f_1) + (Tv)(f_2) \\
-(Tv)( \alpha f_1) =& (\alpha f_1)(v) \\
-=& \alpha f_1(v) \\
-=& \alpha (Tv)(f_1)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgf94a863" class="outline-4">
-<h4 id="orgf94a863"><span class="section-number-4">2.1.2.</span> <a href="20230303151658-vektorraummonomorphismus.html#ID-f0288756-d404-4cf9-8f45-508ac443d32c">Monomorphismus</a></h4>
-<div class="outline-text-4" id="text-2-1-2">
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="a">a)</h3>
+
+<h4 id="id863f0f55-054c-413e-9cf4-2c2704ea5b14vektorraumhomomorphismus"><a href="20221119162741-vektorraumhomomorphismus.html#ID-863f0f55-054c-413e-9cf4-2c2704ea5b14">Vektorraumhomomorphismus</a></h4>
+
+<div class="math-block">\begin{align*}
+(Tv)(f_1 + f_2) =&amp; (f_1 + f_2)(v) \\
+=&amp; f_1(v) + f_2(v) \\
+=&amp; (Tv)(f_1) + (Tv)(f_2) \\
+(Tv)( \alpha f_1) =&amp; (\alpha f_1)(v) \\
+=&amp; \alpha f_1(v) \\
+=&amp; \alpha (Tv)(f_1)
+\end{align*}</div>
+
+<h4 id="idf0288756-d404-4cf9-8f45-508ac443d32cmonomorphismus"><a href="20230303151658-vektorraummonomorphismus.html#ID-f0288756-d404-4cf9-8f45-508ac443d32c">Monomorphismus</a></h4>
 <p>
-Sei \(v \neq 0\):
-Nach dem <a href="20221226004025-trennungslemma.html#ID-b7d8bb99-f5d0-4fe4-a9e9-016fa9cdd693">Trennungslemma</a> folgt für \(U = \{0\}\), dass ein \(f \in V^*\) existiert mit \(f(v) = 1\).
+Sei $v \neq 0$:
+Nach dem <a href="20221226004025-trennungslemma.html#ID-b7d8bb99-f5d0-4fe4-a9e9-016fa9cdd693">Trennungslemma</a> folgt für $U = \{0\}$, dass ein $f \in V^*$ existiert mit $f(v) = 1$.
 Daraus folgt aus der <a href="20221117113054-lemma_uber_die_aquivalenz_von_einem_monomorphismus_und_einem_minimalen_kern.html#ID-a7df72cc-6dd4-456c-aad8-2622472e7b0c">Äquivalenz von einem Monomorphismus und einem minimalen Kern</a>.
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-org52ec65c" class="outline-3">
-<h3 id="org52ec65c"><span class="section-number-3">2.2.</span> b)</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<h3 id="b">b)</h3>
 <p>
-Sei \(\mathrm{dim}_{K}(V) = n\) so folgt:
+Sei $\mathrm{dim}_{K}(V) = n$ so folgt:
 </p>
-\begin{align*}
-\mathrm{dim}_{K}(V) =& \mathrm{dim}_{K}(V^*) \\ \\
-=& \mathrm{dim}_{K}(V^{**})
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\mathrm{dim}_{K}(V) =&amp; \mathrm{dim}_{K}(V^*) \\ \\
+=&amp; \mathrm{dim}_{K}(V^{**})
+\end{align*}</div>
 <p>
 Der Rest folgt aus dem <a href="20221117134514-lemma_uber_die_aquivalenz_von_isomorphismus_monomorphismus_und_epimorphismus_fur_vektorraume_endlicher_dimension.html#ID-5d07393d-5b03-4f13-8312-2c389758e552">Lemma über die Äquivalenz von Isomorphismus, Monomorphismus und Epimorphismus für Vektorräume endlicher Dimension</a>
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:47</p>
+
+
+
 </div>
 </body>
 </html>

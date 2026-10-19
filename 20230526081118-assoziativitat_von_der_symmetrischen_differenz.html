@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-12 Sa 23:16 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Assoziativität der symmetrischen Differenz</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,39 +52,37 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Assoziativität der symmetrischen Differenz</h1>
-<div id="outline-container-org9bb36ed" class="outline-2">
-<h2 id="org9bb36ed"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-f1fe9786-aebd-4bdd-a40a-8a51d750f511"></span><h1 class="title">Assoziativität der symmetrischen Differenz</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(X\) eine <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> und \(A,B,C \subseteq X\).
-Dann gilt für die <a href="20220922095603-symmetrische_differenz.html#ID-24c1eab0-fb11-465e-a750-cd5a6ea752ad">Symmetrische Differenz</a> \(\Delta\)
+Sei $X$ eine <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a> und $A,B,C \subseteq X$.
+Dann gilt für die <a href="20220922095603-symmetrische_differenz.html#ID-24c1eab0-fb11-465e-a750-cd5a6ea752ad">Symmetrische Differenz</a> $\Delta$
 </p>
-\begin{align*}
-(A \Delta B ) \Delta C =& A \Delta (B \Delta C)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org1406286" class="outline-2">
-<h2 id="org1406286"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<div class="math-block">\begin{align*}
+(A \Delta B ) \Delta C =&amp; A \Delta (B \Delta C)
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
 <p>
 using <a href="20230530191043-symmetrische_differenz_als_disjunkte_vereinigung.html#ID-22d45271-a9c6-41b6-b0e4-c4e4c222fef6">Symmetrische Differenz als disjunkte Vereinigung</a> we get
 </p>
-\begin{align*}
-(A \Delta B ) \Delta C =& (A \setminus B \cup B \setminus A) \Delta C \\
-=& (A \setminus B) \setminus C \cup (B \setminus A) \setminus C \cup C \setminus (A \setminus B \cup B \setminus A) \\
-=& A \setminus (B \cup \setminus C) \cup B \setminus (A \cup C) \cup C \setminus (A \setminus B \cup B \setminus A) \\
-% =& … \cup C \setminus (A \setminus B \cup B \setminus A) \\
-=& … \cup C \setminus ((A \setminus B) \cup (B \setminus A)) \\
-=& … \cup (C \setminus (A \setminus B) \cap C \setminus (B \setminus A)) \\
-=& … \cup (C \setminus A \cup (C \cap B)) \cap (C \setminus B \cup (C \cap A)) \\
-=& … \cup (C \setminus A \cup (C \cap B)) \cap (C \setminus B \cup (C \cap A)) \\
-=& … \cup (C \setminus A \cap C \setminus B) \cup (C \setminus A \cap C \cap A) \cup (C \setminus B \cap C \cap B) \cup (C \cap B \cap C \cap A) \\
-=& … \cup (C \setminus (A \cup B) \cup \emptyset \cup \emptyset \cup (C \cap B \cap A) \\
-=& … \cup C \setminus (A \cup B) \cup (C \cap B \cap A) \\
-=& A \setminus (B \cup \setminus C) \cup B \setminus (A \cup C) \cup C \setminus (A \cup B) \cup (C \cap B \cap A) \\
-\end{align*}
+
+<div class="math-block">\begin{align*}
+(A \Delta B ) \Delta C =&amp; (A \setminus B \cup B \setminus A) \Delta C \\
+=&amp; (A \setminus B) \setminus C \cup (B \setminus A) \setminus C \cup C \setminus (A \setminus B \cup B \setminus A) \\
+=&amp; A \setminus (B \cup  C) \cup B \setminus (A \cup C) \cup C \setminus (A \setminus B \cup B \setminus A) \\
+% =&amp; … \cup C \setminus (A \setminus B \cup B \setminus A) \\
+=&amp; … \cup C \setminus ((A \setminus B) \cup (B \setminus A)) \\
+=&amp; … \cup (C \setminus (A \setminus B) \cap C \setminus (B \setminus A)) \\
+=&amp; … \cup (C \setminus A \cup (C \cap B)) \cap (C \setminus B \cup (C \cap A)) \\
+=&amp; … \cup (C \setminus A \cup (C \cap B)) \cap (C \setminus B \cup (C \cap A)) \\
+=&amp; … \cup (C \setminus A \cap C \setminus B) \cup (C \setminus A \cap C \cap A) \cup (C \setminus B \cap C \cap B) \cup (C \cap B \cap C \cap A) \\
+=&amp; … \cup (C \setminus (A \cup B) \cup \emptyset \cup \emptyset \cup (C \cap B \cap A) \\
+=&amp; … \cup C \setminus (A \cup B) \cup (C \cap B \cap A) \\
+=&amp; A \setminus (B \cup  C) \cup B \setminus (A \cup C) \cup C \setminus (A \cup B) \cup (C \cap B \cap A) \\
+\end{align*}</div>
 <p>
 where the last term is clearly symmetric.
 </p>
@@ -85,18 +90,16 @@ where the last term is clearly symmetric.
 <p>
 Here we used:
 </p>
-<ol class="org-ol">
-<li><a href="20240910-complement_union_and_intersection.html#ID-12342026-2e51-414d-ae8b-8093a4288ec3">complement dualizes union and intersection</a></li>
-<li><a href="20221209102328-distributivgesetz_fur_vereinigung_und_schnitt.html#ID-95eae3f0-560a-49e4-ac8d-86cfc8c32f2c">Distributivgesetz für Vereinigung und Schnitt</a></li>
-<li><a href="20241008-complement_and_brackets.html#ID-a2198ebb-2752-40c3-887b-05c0f1cf51b1">complement and brackets</a></li>
+<ol>
+<li><a href="20240910-complement_union_and_intersection.html#ID-12342026-2e51-414d-ae8b-8093a4288ec3">complement dualizes union and intersection</a> </li>
+
+<li><a href="20221209102328-distributivgesetz_fur_vereinigung_und_schnitt.html#ID-95eae3f0-560a-49e4-ac8d-86cfc8c32f2c">Distributivgesetz für Vereinigung und Schnitt</a>    </li>
+
+<li><a href="20241008-complement_and_brackets.html#ID-a2198ebb-2752-40c3-887b-05c0f1cf51b1">complement and brackets</a>    </li>
 </ol>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-12 Sa 23:16</p>
+
+
+
 </div>
 </body>
 </html>

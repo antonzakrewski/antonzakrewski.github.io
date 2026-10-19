@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:36 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Beweis: Addition von Integralgrenzen</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,44 +52,40 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Beweis: Addition von Integralgrenzen</h1>
-<div id="outline-container-org1b68032" class="outline-2">
-<h2 id="org1b68032"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-ae6fb9c8-5d9e-464a-a768-7779f0721720"></span><h1 class="title">Beweis: Addition von Integralgrenzen</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(f\) eine im <a href="20220401195853-intervall.html#ID-ea9ab8cb-ef38-4c06-bab0-d392820614f3">Intervall</a> \(I\) <a href="20221004081717-riemann_integrierbar.html#ID-72604220-5110-45f1-985f-f7077d1ce8cd">riemann integrierbare</a> (auch für lebesgue ?!) <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktion</a> mit \(a,b,c \in I\). Dann gilt
+Sei $f$ eine im <a href="20220401195853-intervall.html#ID-ea9ab8cb-ef38-4c06-bab0-d392820614f3">Intervall</a> $I$ <a href="20221004081717-riemann_integrierbar.html#ID-72604220-5110-45f1-985f-f7077d1ce8cd">riemann integrierbare</a> (auch für lebesgue ?!) <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktion</a> mit $a,b,c \in I$. Dann gilt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \int_{a}^{b} f(x) \mathrm{d}x = \int_{a}^{c} f(x) \mathrm{d}x + \int_{c}^{b} f(x) \mathrm{d}x 
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org8bf53ff" class="outline-2">
-<h2 id="org8bf53ff"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
 <p>
-Sei \(F(x)\) eine <a href="20221014123755-stammfunktion.html#ID-14e5eab8-30c3-4028-94ed-a40b17e90c87">Stammfunktion</a> von \(f(x)\).
-Dann gilt aufgrund des <a href="20221014124312-zweiter_hauptsatz_der_differential_und_integralrechnung.html#ID-2738cccc-2b00-4aa9-b6bd-ca0b0a59f749">Zweiten Hauptsatz der Differential- und Integralrechnung</a> 
+Sei $F(x)$ eine <a href="20221014123755-stammfunktion.html#ID-14e5eab8-30c3-4028-94ed-a40b17e90c87">Stammfunktion</a> von $f(x)$.
+Dann gilt aufgrund des <a href="20221014124312-zweiter_hauptsatz_der_differential_und_integralrechnung.html#ID-2738cccc-2b00-4aa9-b6bd-ca0b0a59f749">Zweiten Hauptsatz der Differential- und Integralrechnung</a>
 </p>
-\begin{align*}
-\int_{a}^{b} f(x) \mathrm{d}x =& F(b) - F(a) \\
-=& F(b) - F(a) + \left(F(c) - F(c)\right) \\
-=& (F(c) - F(a)) + (F(b) - F(c))  \\
-=& \int_{a}^{c} f(x) \mathrm{d}x + \int_{c}^{b} f(x) \mathrm{d}x  
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\int_{a}^{b} f(x) \mathrm{d}x =&amp; F(b) - F(a) \\
+=&amp; F(b) - F(a) + \left(F(c) - F(c)\right) \\
+=&amp; (F(c) - F(a)) + (F(b) - F(c))  \\
+=&amp; \int_{a}^{c} f(x) \mathrm{d}x + \int_{c}^{b} f(x) \mathrm{d}x  
+\end{align*}</div>
 <p>
-Insbesondere existiert \(F(c)\), da für \(x_0 \in I\) und wegen \(c \in I\) gilt:
+Insbesondere existiert $F(c)$, da für $x_0 \in I$ und wegen $c \in I$ gilt:
 </p>
-\begin{align*}
-\int_{c}^{x_0} f(x) \mathrm{d}x =& F(x_0) - F(c)
-\end{align*}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:36</p>
+
+<div class="math-block">\begin{align*}
+\int_{c}^{x_0} f(x) \mathrm{d}x =&amp; F(x_0) - F(c)
+\end{align*}</div>
+
+
+
+
 </div>
 </body>
 </html>

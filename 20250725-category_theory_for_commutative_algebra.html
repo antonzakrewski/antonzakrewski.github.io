@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>category theory for commutative algebra</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-f62eaf3e-0c3c-4295-969b-d97b80e6ab8e"></span><h1 class="title">category theory for commutative algebra</h1>
+
+<h2 id="list">List</h2>
+
+<h3 id="motivation">motivation</h3>
+<ul>
+<li>a huge part of pure math aims to understand mathematical structure</li>
+
+<li>category theory structurully studies mathematical structure</li>
+
+<li>hence many arguments/constructions can be done once in the general framework and the concrete statements follow as corollary (e.g. Isomorphism theorems). </li>
+
+<li>category theory can also be guidance for mathematical questions: </li>
+<ul>
+<li>it often removes unneccesary technicalities and highlights the structure</li>
+
+<li>I like that having intuiton for category theory already always gives me (some) intuition for the special case</li>
+</ul></ul>
+<h4 id="fields">fields</h4>
+<ul>
+<li>essential:</li>
+<ul>
+<li>algebraic topology</li>
+
+<li>algebraic geometry</li>
+
+<li>algebraic k-theory</li>
+
+<li>higher algebra    </li>
+
+<li>homotopy theory</li>
+</ul>
+<li>at least useful: for pure math:</li>
+<ul>
+<li>although strictly speaking not necessary, many propositions/statements can be done categorically.</li>
+
+<li>for example commutative algebra can be taught without categories. But if one is willing to introduce it, then there exist shortcuts for certain arguments/constructions </li>
+
+<li>technically for everything we want to use it would be faster to do the specific case</li>
+
+<li>but theorems from category theory can be applied to other arguments, so at least we will develop very useful theory</li>
+</ul></ul>
+<h4 id="regarding-intuition">regarding intuition</h4>
+<ul>
+<li>category theory is sometimes viewed as devoid of intuiton and dry</li>
+
+<li>in particular: it is normal to lack intuition when first learning it</li>
+
+<li>We face the dilemma:</li>
+<ul>
+<li>do We want to introduce commutative algebra first and then do category theory with examples from commutative algebra</li>
+
+<li>do We want to introduce category theory first and then do commutative algebra which (hopefullyr provides intuition for category theory</li>
+</ul>
+<li>typically when given a statement it first is completely unclear until one stares long enough at some diagrams and then eventually it will be trivial</li>
+
+<li>the proofs are "formal nonsense":</li>
+<ul>
+<li>most of the time "you do the only thing that you can" and it will work</li>
+</ul></ul>
+<h3 id="convention">convention</h3>
+<p>
+I will use category synonymously with <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">(1,1)-Category</a>.
+Whenever some link maps to some more general concept, e.g. (\infty,1)-categories - just ignore it.
+</p>
+
+<h3 id="basic">basic</h3>
+<ul>
+<li><a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a> </li>
+
+<li><a href="20230225165858-lokal_kleine_kategorie.html#ID-29f14fa2-ae57-46d2-8e23-3f2924bc1ebe">locally small category</a>   </li>
+
+<li><a href="20220819181004-kleine_kategorie.html#ID-3c3f1c0d-53ad-476e-810a-756acd885263">small category</a>   </li>
+
+<li>comment on set theoretic foundations  </li>
+</ul>
+<h4 id="examples-categories">examples: categories</h4>
+<ul>
+<li><a href="20221216142701-kategorie_set.html#ID-dc78356f-1fcf-41e8-b05a-47cdd731513c">category set</a> </li>
+
+<li><a href="20230225135520-kategorie_group.html#ID-5a96a492-9173-4be0-8064-24cc3715f31c">category Group</a>  </li>
+
+<li><a href="20230225170152-kategorie_mod.html#ID-15b21b3a-18bb-4d60-a716-c69681d7222d">category RMod</a> (in particular: <a href="20230302131734-kategorie_ab.html#ID-4a704879-962d-4f99-8075-273888da2937">Category Ab</a>, <a href="20230225170122-kategorie_vect.html#ID-c0ead26b-4b08-4c59-8c13-5a1a872775bd">category vect_k</a>), <a href="20230225170135-kategorie_ring.html#ID-fa4634e9-174f-42f5-8e08-0e6d676130d7">category Ring</a>, <a href="20230225170140-kategorie_cring.html#ID-bc232c14-ca9c-476c-8b94-67f3d8781a26">category CRing</a>, </li>
+
+<li>morphisms don't have to be some maps of sets:   &lt;$\mathrm{B}G$&gt; for a group $G$</li>
+
+<li><a href="20230827-partially_ordered_set_as_category.html#ID-0f6d0690-68f0-4695-ba6d-d417aa9eb938">partially ordered set as category</a></li>
+
+<li><a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a></li>
+
+<li>exercise: <a href="20230403175130-uniqueness_of_a_two_sided_inverse_morphism.html#ID-eeec873b-3ed0-43a8-a312-f9097223acc0">uniqueness of a two-sided inverse morphism</a>    </li>
+</ul>
+<h4 id="constructions-properties">constructions / properties</h4>
+<ul>
+<li><a href="20220824221623-unterkategorie.html#ID-2165c92b-8025-4134-b3b1-4d523a8795a4">subcategory</a> - todo</li>
+
+<li><a href="20230225184516-volle_unterkategorie.html#ID-02c96fc8-ac4f-42b6-804d-bc08d25bfb2a">full subcategory</a>: example: CRing as full subcategory of Ring - todo</li>
+
+<li><a href="20231128-groupoid.html#ID-faa255e1-0c3c-476f-9d08-78181da165c8">groupoid</a>   </li>
+</ul>
+<h4 id="functor">functor</h4>
+<ul>
+<li><a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a></li>
+
+<li><a href="20220830173327-kontravarianter_funktor.html#ID-88bd5800-bc2d-4ad5-81d2-90240d062847">contravariant functor</a> </li>
+
+<li>explicit definition: contravariant  </li>
+
+<li><a href="20230924-opposite_functor.html#ID-8206c170-5e55-4a16-8d25-2de905a1ffab">opposite functor</a>   </li>
+</ul>
+<h5 id="properties">properties</h5>
+<ul>
+<li><a href="20230301211925-voller_funktor.html#ID-300944ac-0e6d-4b27-99f1-176a261999aa">full</a> / <a href="20230301211921-treuer_funktor.html#ID-28e54961-a758-4c55-ba93-95268bcebd92">faithful</a>   </li>
+
+<li><a href="20230420222307-essentially_surjective_functor.html#ID-84f987b7-b7b6-45e6-ace0-865d5f6d6812">essentially surjective</a>  </li>
+
+<li><a href="20231118-equivalence_of_categories.html#ID-9f984af9-949c-46b1-9221-7ba43cdae897">equivalence of categories</a>  </li>
+
+<li><a href="20230603-equivalence_of_categories_and_fully_faithful_and_essentially_surjective_functor.html#ID-52024b5e-fa8a-46b9-9fbb-ac9b36efd990">equivalence of categories and fully faithful and essentially surjective functor</a>   </li>
+
+<li><a href="20230404193851-conservative_functor.html#ID-86f87410-7730-4592-842c-278d9718aa2f">conservative</a> functor</li>
+
+<li><a href="20231120-fully_faithful_functor_as_conservative_functor.html#ID-0c238a5b-cedb-4295-a31b-55f5cc73dd32">fully faithful functor as conservative functor</a> (exercise)</li>
+
+<li>exercise: <a href="20230420221620-isomorphisms_under_functors.html#ID-c6c5ffcb-a860-453a-a71a-ddca7f8a9c7f">isomorphisms under functors</a>   </li>
+
+<li><a href="20230301211140-kategorie_der_kleinen_kategorien.html#ID-0974d48a-c50e-471e-9dab-61b60297d34b">Category Cat</a> </li>
+
+<li>CAT   </li>
+
+<li><a href="20220830192239-duale_kategorie.html#ID-711d7a6e-e765-4a59-90a2-baeee955dea1">dual category</a></li>
+
+<li><a href="20250727-opposite_category_functor.html#ID-dca50e5e-d5e3-40e6-8519-ba09f1128ff8">opposite (1,1)-category functor</a>   </li>
+</ul>
+<h4 id="natural-trafo">natural trafo</h4>
+<ul>
+<li><a href="20220821182915-naturliche_transformation_kategorientheorie.html#ID-4e6e50c0-c0df-44ff-a140-bebfa492ef7e">natural transformation</a> </li>
+
+<li><a href="20230404122456-natural_isomorphism.html#ID-0977f626-bc15-4197-93bd-092d014c8270">natural isomorphism</a>   </li>
+
+<li><a href="20231111-natural_isomorphism_and_isomorphism_on_the_objects.html#ID-db7bc60d-3b95-402f-9606-c66ec355e9df">natural isomorphism and isomorphism on the objects</a> (exercise)</li>
+</ul>
+<h4 id="functor-categories">functor categories</h4>
+<ul>
+<li><a href="20220825194828-funktorkategorie.html#ID-39ebe96a-b96d-4a11-8642-30527c1b92ea">functor category</a> </li>
+</ul>
+<h5 id="example">example</h5>
+<ul>
+<li><a href="20231228-category_of_g_sets_as_functor_category.html#ID-07f43dbf-28ad-47be-bdec-2f270eee8877">Category of G-Sets as functor category</a>   </li>
+
+<li><a href="20230403183725-arrow_category.html#ID-0554b693-0143-4f63-be7a-4a7af587c98b">arrow category</a>   </li>
+
+<li>&lt;functor category out of a point&gt;   </li>
+
+<li><a href="20231215-precomposition_with_a_functor_for_a_functor_category.html#ID-b43f2781-2a8a-4f07-b4d9-a72f322ee02b">precomposition with a functor for a functor categories</a>   </li>
+
+<li><a href="20231215-postcomposition_with_a_functor_for_functor_categories.html#ID-5c5c5884-d230-4d12-9458-f1f480ebee69">postcomposition with a functor for functor categories</a>   </li>
+
+<li><a href="20231111-evaluation_functor_from_the_functor_category.html#ID-30adf351-f54a-4fd7-a6ea-55bc19db41fd">evaluation functor from the functor category</a>   </li>
+
+<li><a href="20250726-intuition_precomposition_on_functor_categories.html#ID-3a59aab0-3909-4a8b-8b33-af4683b0fd59">intuition: precomposition on functor categories</a>   </li>
+
+<li><a href="20231231-constant_diagram_functor.html#ID-b6ebc577-14be-4b51-9c98-8edc3c3ea09f">constant diagram functor</a> </li>
+
+<li><a href="20230510092709-slice_category.html#ID-1e81c30c-0f74-4f7c-bf95-400bc8889156">slice category</a> / <a href="20230402145452-coslice_category.html#ID-bdbe4411-02d7-4534-8788-2843a7007af4">coslice category</a>   </li>
+</ul>
+<h3 id="yoneda">yoneda</h3>
+<ul>
+<li><a href="20230603-presheaf_of_sets.html#ID-d49e3c63-1428-4b98-9f00-238ae7770cbf">presheaf</a>  </li>
+
+<li><a href="20231027-category_of_presheafs.html#ID-bc0b8b4f-77da-40d3-a6c6-85d37bb68623">category of presheaves</a></li>
+
+<li><a href="20240102-natural_transformation_from_contravariant_hom_functor_as_precomposition.html#ID-2879cce2-1bea-4614-8e01-601c41b997bc">natural transformation from contravariant hom functor as element</a>   </li>
+
+<li><a href="20230404222048-natural_transformations_of_a_hom_set_as_preceed_by.html#ID-f3d4340c-d14e-4ce6-9188-35f71fdacc85">natural transformation from covariant hom functor as element</a> </li>
+
+<li><a href="20220821183109-satz_von_yoneda.html#ID-6ca48066-e32c-48de-ac92-a5edec9d29af">Yoneda Lemma by yoneda embedding</a> </li>
+</ul>
+<h3 id="adjoints-colimits">adjoints, colimits</h3>
+
+<h4 id="todo">todo:</h4>
+<ul>
+<li>unravel: what a natural transformation to $\mathrm{const}$ means</li>
+
+<li></li>
+
+<li>limits / colimits concretely</li>
+
+<li>reformualation of limits/colimits via adjoint objects</li>
+
+<li>def. adjoint objects  </li>
+
+<li>def. adjoint functor</li>
+
+<li>theorems  </li>
+</ul>
+<h4 id="adjoint-object">adjoint object</h4>
+<ul>
+<li>free vector space on a set as left adjoint object for a set  </li>
+
+<li><a href="20250725-left_adjoint_object.html#ID-17be8944-66db-48d1-8e3d-c1fb11f26b8b">left adjoint object</a>   </li>
+
+<li><a href="20241126-right_adjoint_object.html#ID-846b7d38-b258-4a7c-8b65-9525eb8a9101">right adjoint object</a> </li>
+</ul>
+<ul>
+<li><a href="20250727-left_adjoint_object_unique_up_to_isomorphism.html#ID-dba98128-a690-4b8b-8d33-0af17702c5dd">left adjoint object unique up to isomorphism</a>   </li>
+
+<li><a href="20250727-right_adjoint_object_unique_up_to_isomorphism.html#ID-5e9d94b4-19b4-4a51-a6f8-b811fcc512af">right adjoint object unique up to isomorphism</a> </li>
+</ul>
+<ul>
+<li><a href="20250727-triangle_identity_for_a_left_adjoint_object.html#ID-fc7dc301-b69b-466c-9d18-a0e9a69e2c18">triangle identity for a left adjoint object</a>   </li>
+
+<li><a href="20250727-triangle_identity_for_a_right_adjoint_object.html#ID-60c9f657-a4a6-4d1d-a28f-3743f2c9c6ae">triangle identity for a right adjoint object</a>   </li>
+</ul>
+
+
+<h4 id="adjoint-functor">adjoint functor</h4>
+<ul>
+<li><a href="20220831221344-linksadjungierte.html#ID-1e87e6b9-24df-41fb-bc1b-d35cfd2eaa7f">left adjoint</a>  </li>
+
+<li><a href="20220831221352-rechtsadjungierte.html#ID-9d92e651-1d26-4e9b-a0b9-32a09ca84328">right adjoint</a> </li>
+</ul>
+<ul>
+<li><span class="broken-link" title="unresolved id:a3665370-8923-427d-8347-dcf151fa36ad">Adjunction and triangle identity</span>   </li>
+</ul>
+<ul>
+<li><a href="20240331-right_adjoint_functor_and_objectwise_representable.html#ID-8fe83741-b4b3-4130-baec-05656dadc850">right adjoint functor and objectwise representable</a> </li>
+
+<li><a href="20240331-adjoint_functor_objectwise_representable.html#ID-2bcff726-3d48-41e8-bce7-11a219bf1ba4">left adjoint functor objectwise representable</a>    </li>
+</ul>
+<h5 id="examples">examples</h5>
+<ul>
+<li></li>
+</ul>
+<h4 id="limits-and-colimits">limits and colimits</h4>
+<ul>
+<li>explicit definition: colimit</li>
+
+<li>explicit definition: limit</li>
+
+<li><a href="20230725-limit_category_theory.html#ID-b1acaf40-c197-4df4-aec7-af30557ea689">limit</a> / <a href="20230725-colimit.html#ID-581b1561-25d0-479a-b0cc-063c894e10be">colimit</a> </li>
+
+<li><a href="20230923-complete_category.html#ID-8877dd56-54c0-42cc-a1d8-2785b0cec19b">complete</a> / <a href="20230923-cocomplete_category.html#ID-89cedbd1-199b-47a8-bc3f-574dd3accda9">cocomplete</a></li>
+
+<li><a href="20230923-bicomplete_category.html#ID-b259f0df-b6aa-4a20-8135-22332d04ebf8">bicomplete</a> </li>
+</ul>
+<h5 id="examples">examples</h5>
+<ul>
+<li><a href="20220825145505-initiales_objekt.html#ID-7ad29aa1-f819-4a5b-8ef9-24c92a84802f">initial object</a> / <a href="20231201-terminal_object_as_empty_limit.html#ID-6e965b9d-414e-44bb-a724-e30b103e6489">terminal object as empty limit</a>  </li>
+
+<li><a href="20220825145511-terminales_objekt.html#ID-16825b5e-51d8-4e5e-ac19-2a05cd9fb110">terminal object</a> / <a href="20230923-colimit_of_the_empty_diagram_as_initial_object.html#ID-0e356fd1-277e-4c8d-9cad-a17083b200d1">colimit of the empty diagram as initial object</a> </li>
+
+<li><a href="20230402213821-zero_object.html#ID-9ea95c71-2120-411e-8447-87c82ba32c98">zero object</a>   </li>
+
+<li><a href="20230404141718-categorical_product.html#ID-c6b25f4e-7486-4399-bea3-ace8da2a18c9">product</a> / <a href="20230404161607-categorical_coproduct.html#ID-25822c41-825b-480b-b8a6-eeb904ca5649">coproduct</a>   </li>
+
+<li><a href="20230806-pullback.html#ID-730c4312-492d-4b9c-a347-9281309d3e6f">pullback</a> / <a href="20230806-pushforward.html#ID-a4141d87-68ee-4337-8f80-997a6d4b4091">pushout</a> </li>
+</ul>
+<h5 id="computations">computations</h5>
+<ul>
+<li><a href="20231207-limit_in_set.html#ID-a992be77-f9f2-41e1-85a6-55bb96c17f51">limit in Set</a> / <a href="20231207-colimit_in_set.html#ID-34d24f31-a0d5-41bc-9075-f7b2a863c18f">colimit in set</a> </li>
+
+<li><a href="20231017-set_as_bicomplete_category.html#ID-d174bf3d-af6d-4957-8582-99169812aec9">set is bicomplete</a>   </li>
+</ul>
+<ul>
+<li><a href="20250727-small_product_and_pullback_implies_small_limit_1_1_categorical.html#ID-9d01b770-7e55-4f27-905e-b1318af98751">small product and pullback implies small limit ((1,1)-categorical)</a> </li>
+
+<li><a href="20250727-small_coproduct_and_pushout_implies_small_colimit_1_1_categorical.html#ID-3ed98b73-d814-49a3-bcd5-6f6d932d551d">small coproduct and pushout implies small colimit ((1,1)-categorical)</a> </li>
+</ul>
+<ul>
+<li><a href="20230827-kernel_category_theory.html#ID-1f1c40b0-77e0-4949-8893-3cb7b0166eba">kernel</a> / <a href="20230827-cokernel_category_theory.html#ID-3e52d31a-b97e-454b-b565-4ae3d2b26482">cokernel</a>    </li>
+</ul>
+<h5 id="section"></h5>
+<ul>
+<li><a href="20250725-left_adjoint_object_under_composition.html#ID-059ae31d-f650-4590-a29d-ddfe2dafbfa5">left adjoint object under composition</a>   </li>
+
+<li><a href="20250725-right_adjoint_object_under_composition.html#ID-d37bc568-7fb7-4a88-8d37-0f26e09661c4">right adjoint object under composition</a> </li>
+</ul>
+<ul>
+<li>left adjoint preserves limits</li>
+
+<li>right adjoint preserves limits    </li>
+</ul>
+<ul>
+<li>adjoint preserve limits/colimits</li>
+</ul>
+
+<h2 id="what-to-use">what to use</h2>
+<ul>
+<li>RMod/CRing as bicomplete category</li>
+
+<li>tensor hom adjunction</li>
+
+<li>algebras as slice category</li>
+
+<li>exact square</li>
+
+<li>isomorphism theorems</li>
+
+<li>localization functor</li>
+
+<li>universal property: via yoneda</li>
+
+<li>snake lemma  </li>
+<ul>
+<li>improved snake lemma</li>
+
+<li>one tracing argument</li>
+</ul>
+<li>right/left exact functors via limit/colimit</li>
+
+<li></li>
+</ul>
+<h2 id="didactic-comments">didactic comments</h2>
+<ul>
+<li>I've tried to use as many arguments which are already coherent - while giving the more explicit (and less cohorent) characterizations as "Intuiton"</li>
+
+<li></li>
+</ul>
+</div>
+</body>
+</html>

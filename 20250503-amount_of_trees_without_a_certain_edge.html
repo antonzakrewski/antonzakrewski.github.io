@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>amount of trees without a certain edge</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-808c5812-1361-462d-8a5e-25bba7c93ee5"></span><h1 class="title">amount of trees without a certain edge</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $n \in \mathbb{N}$, then there exist ? many <a href="20221024152607-baum.html#ID-b2969a00-e313-42e8-afe1-62a33cb45013">tree</a>s with $\{1,...,n\}$ as <a href="20220904171138-knoten.html#ID-68ae441c-5aec-4100-8cfc-e31884ff6842">vertices</a> and without the edge $\{1,2\}$
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+consider the <a href="20250429-prufer_code_as_bijection.html#ID-1a21690a-bfc2-4eba-81e6-d5a8fe6fde28">prüfer code as bijection</a> resp. the inverse construction.
+Here we add an edge $1-2$ iff one of the following cases appear
+</p>
+<ol>
+<li>the Prüfer code starts with $2$ and then does not contain any $1$</li>
+
+<li>the Prüfer code starts with $1$ and then does not contain any $2$</li>
+
+<li>the prüfer code contains a sequence $1,2$ and then does not contain any $1$   </li>
+
+<li>the prüfer code contains a sequence $2,1$ and then does not contain any $2$   </li>
+</ol>
+<p>
+Note that we never add an edge $1-2$ as last step, since in the case of a graph with $3$ vertices $1,2,n$ we always remove $1$ or $2$ (graph contains at least 2 leafs)
+</p>
+
+<p>
+Furthermore the four cases are distinct and we have
+</p>
+<ol>
+<li>$(n-1)^{n-3}$ </li>
+
+<li>$(n-1)^{n-3}$ </li>
+
+<li>$\sum_{a=0}^{n-4} n^a \cdot (n-1)^{n-4-a}$</li>
+
+<li>$\sum_{a=0}^{n-4} n^a \cdot (n-1)^{n-4-a}$</li>
+</ol>
+<p>
+Hence we have
+</p>
+
+<div class="math-block">\begin{align*}
+n^{n-2} - 2 \cdot (n-1)^{n-3} - 2 \cdot \sum_{a=0}^{n-4} n^a (n-1)^{n-4-a}
+\end{align*}</div>
+<p>
+many trees without the edge $1,2$
+</p>
+
+<h3 id="alternative-proof">alternative proof</h3>
+
+</div>
+</body>
+</html>

@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:22 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Unabhängigkeit zweier Variablen: äquivalente Formeln</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,101 +52,73 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Unabhängigkeit zweier Variablen: äquivalente Formeln</h1>
-<div id="outline-container-org37b9a8d" class="outline-2">
-<h2 id="org37b9a8d"><span class="section-number-2">1.</span> Schnittmenge und einzelne Wahrscheinlichkeiten</h2>
-<div class="outline-text-2" id="text-1">
-\begin{equation}
+<span id="ID-340d0aac-ba16-418a-a86b-d43f2dcfc049"></span><h1 class="title">Unabhängigkeit zweier Variablen: äquivalente Formeln</h1>
+
+<h2 id="schnittmenge-und-einzelne-wahrscheinlichkeiten">Schnittmenge und einzelne Wahrscheinlichkeiten</h2>
+
+<div class="math-block">\begin{equation}
 P(B\cap S) = P(B) \cdot P(S)
-\end{equation}
-</div>
-</div>
-<div id="outline-container-orgea07ed1" class="outline-2">
-<h2 id="orgea07ed1"><span class="section-number-2">2.</span> Einzelne bedingte Wahrscheinlichkeiten</h2>
-<div class="outline-text-2" id="text-2">
-\begin{equation}
+\end{equation}</div>
+
+<h2 id="einzelne-bedingte-wahrscheinlichkeiten">Einzelne bedingte Wahrscheinlichkeiten</h2>
+
+<div class="math-block">\begin{equation}
 P_B(A) = P_{\bar{B}(A)
-\end{equation}
-</div>
-<div id="outline-container-orge5c618f" class="outline-3">
-<h3 id="orge5c618f"><span class="section-number-3">2.1.</span> Beweis</h3>
-<div class="outline-text-3" id="text-2-1">
-</div>
-<div id="outline-container-org218354d" class="outline-4">
-<h4 id="org218354d"><span class="section-number-4">2.1.1.</span> Lemma</h4>
-<div class="outline-text-4" id="text-2-1-1">
-\begin{align*}
+\end{equation}</div>
+
+<h3 id="beweis">Beweis</h3>
+
+<h4 id="lemma">Lemma</h4>
+
+<div class="math-block">\begin{align*}
 B = P(A \cap B) \dot\cup (\bar{A} \cap B) \\
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgf3c5040" class="outline-4">
-<h4 id="orgf3c5040"><span class="section-number-4">2.1.2.</span> Umformung</h4>
-<div class="outline-text-4" id="text-2-1-2">
-</div>
-<div id="outline-container-org2ecba6d" class="outline-5">
-<h5 id="org2ecba6d"><span class="section-number-5">2.1.2.1.</span> a)</h5>
-<div class="outline-text-5" id="text-2-1-2-1">
- \begin{align*}
+\end{align*}</div>
+
+<h4 id="umformung">Umformung</h4>
+
+<h5 id="a">a)</h5>
+
+<div class="math-block"> \begin{align*}
  B = P(A \cap B) \dot\cup (\bar{A} \cap B) \\
  P(B) = P(A \cap B) + P(\bar{A} \cap B) \\
 P(\bar{A} \cap B) = P(B) - P(A \cap B)
- \end{align*}
-</div>
-</div>
-<div id="outline-container-orgd625581" class="outline-5">
-<h5 id="orgd625581"><span class="section-number-5">2.1.2.2.</span> b)</h5>
-<div class="outline-text-5" id="text-2-1-2-2">
-\begin{equation}
+ \end{align*}</div>
+
+<h5 id="b">b)</h5>
+
+<div class="math-block">\begin{equation}
 P_A(b) = P_{\bar(A}}(B) \Leftrightarrow \\
 \frac{P(A \cap B)}{P(A)} = \frac{P(\bar{A} \cap B)}{P(\bar{A})} \Leftrightarrow \\
 P(A \cap B) \cdot P(\bar{A}) = P(A) \cdot P(\bar{A} \cap B) \Leftrightarrow \\
 P(A \cap B) \cdot (1 - P(\bar{A})) = P(A) \cdot (P(B) - P(A \cap B)) \Leftrightarrow \\
 P(A \cap B) - P(A) \cdot P(A \cap b) = P(A) \cdot P(B) - P(A) \cdot P(A \cap B) \Leftrightarrow \\
 P(A \cap B) = P(A) \cdot P(B)
-\end{equation}
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-org94718cc" class="outline-3">
-<h3 id="org94718cc"><span class="section-number-3">2.2.</span> Veranschaulicht</h3>
-<div class="outline-text-3" id="text-2-2">
-<ul class="org-ul">
-<li>egal welches vorherige ereignis B:
-<ul class="org-ul">
+\end{equation}</div>
+
+<h3 id="veranschaulicht">Veranschaulicht</h3>
+<ul>
+<li>egal welches vorherige ereignis B:</li>
+<ul>
 <li>A bleibt gleich</li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-orgd29163f" class="outline-2">
-<h2 id="orgd29163f"><span class="section-number-2">3.</span> bedingte Wahrscheinlichkeit und aggregierte Wahrscheinlichkeit</h2>
-<div class="outline-text-2" id="text-3">
-\begin{equation}
+</ul></ul>
+<h2 id="bedingte-wahrscheinlichkeit-und-aggregierte-wahrscheinlichkeit">bedingte Wahrscheinlichkeit und aggregierte Wahrscheinlichkeit</h2>
+
+<div class="math-block">\begin{equation}
 P_B(A) = P(A) \\
-\end{equation}
-</div>
-<div id="outline-container-org88122f1" class="outline-3">
-<h3 id="org88122f1"><span class="section-number-3">3.1.</span> Beweis</h3>
-<div class="outline-text-3" id="text-3-1">
-\begin{align*}
+\end{equation}</div>
+
+<h3 id="beweis">Beweis</h3>
+
+<div class="math-block">\begin{align*}
 P_B(A) = P(A) \\
 \frac{P(B \cap A)}{P(B)} = P(A) \\
 P(B \cap A) = P(A) \cdot P(B) \\
-\end{align*}
-</div>
-<div id="outline-container-org5432e4f" class="outline-4">
-<h4 id="org5432e4f"><span class="section-number-4">3.1.1.</span> Veranschaulichung</h4>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:22</p>
+\end{align*}</div>
+
+<h4 id="veranschaulichung">Veranschaulichung</h4>
+
+
+
 </div>
 </body>
 </html>

@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 15:45 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>semidirect product</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,92 +52,80 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">semidirect product</h1>
-<div id="outline-container-org4e369fc" class="outline-2">
-<h2 id="org4e369fc"><span class="section-number-2">1.</span> Definition / Proposition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-1a59594e-f846-47fe-acd6-f69e365d0b93"></span><h1 class="title">semidirect product</h1>
+
+<h2 id="definition-proposition">Definition / Proposition</h2>
 <p>
-Let \(G,H\) be <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">groups</a>, \(\varphi: H \rightarrow \mathrm{Aut}(G)\) a <a href="20220928134932-gruppenhomomorphismus.html#ID-7d86b4b2-8f83-4da4-b1ef-08c3d37aa417">homomorphism</a> between \(G\) and the <a href="20230302210538-automorphismengruppe.html#ID-ad2bea99-3395-41e7-84ca-c93a1fc0efab">automorphism group</a>.
-Then the semidirect product \(G \rtimes_{\varphi} H\) is defined as <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a> \(G \times H\) with the <a href="20220925215102-binare_verknupfung.html#ID-213966ae-84e5-480d-93a3-f1d55034b939">operation</a> 
+Let $G,H$ be <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">groups</a>, $\varphi: H \rightarrow \mathrm{Aut}(G)$ a <a href="20220928134932-gruppenhomomorphismus.html#ID-7d86b4b2-8f83-4da4-b1ef-08c3d37aa417">homomorphism</a> between $G$ and the <a href="20230302210538-automorphismengruppe.html#ID-ad2bea99-3395-41e7-84ca-c93a1fc0efab">automorphism group</a>.
+Then the semidirect product $G \rtimes_{\varphi} H$ is defined as <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a> $G \times H$ with the <a href="20220925215102-binare_verknupfung.html#ID-213966ae-84e5-480d-93a3-f1d55034b939">operation</a>
 </p>
-\begin{align*}
-(g_1,h_1) * (g_2,h_2) =& (g_1 \left(\varphi(h_1)\right)(g_2), h_1 \cdot h_2)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org0055c28" class="outline-2">
-<h2 id="org0055c28"><span class="section-number-2">2.</span> Proof</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org06faa59" class="outline-3">
-<h3 id="org06faa59"><span class="section-number-3">2.1.</span> <a href="20210702074906-neutrales_element_mathe.html#ID-2a95aac8-42e6-4724-9f37-15f6143a35ca">neutral element</a></h3>
-<div class="outline-text-3" id="text-2-1">
+
+<div class="math-block">\begin{align*}
+(g_1,h_1) * (g_2,h_2) =&amp; (g_1 \left(\varphi(h_1)\right)(g_2), h_1 \cdot h_2)
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="id2a95aac8-42e6-4724-9f37-15f6143a35caneutral-element"><a href="20210702074906-neutrales_element_mathe.html#ID-2a95aac8-42e6-4724-9f37-15f6143a35ca">neutral element</a></h3>
 <p>
-Let \(e \in G,H\), then
+Let $e \in G,H$, then
 </p>
-\begin{align*}
-(g_1,h_1) * (e,e) =& (g_1 \varphi(h_1)(e), h_1 \cdot e) \\
-=& (g_1 \cdot e, h_i) \\ 
-=& (g_1,h_1) \\
-(e,e) * (g_1,h_1) =& (e \circ \varphi(e)(g_1), e \cdot h_1) \\
-=& (e \circ \mathrm{id}(g_1), h_1) \\
-=& (g_1,h_1) 
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgb1596a0" class="outline-3">
-<h3 id="orgb1596a0"><span class="section-number-3">2.2.</span> <a href="20211218210712-inverses_element.html#ID-f9edb7bd-9975-4606-9f12-698118b3d992">inverse element</a></h3>
-<div class="outline-text-3" id="text-2-2">
+
+<div class="math-block">\begin{align*}
+(g_1,h_1) * (e,e) =&amp; (g_1 \varphi(h_1)(e), h_1 \cdot e) \\
+=&amp; (g_1 \cdot e, h_i) \\ 
+=&amp; (g_1,h_1) \\
+(e,e) * (g_1,h_1) =&amp; (e \circ \varphi(e)(g_1), e \cdot h_1) \\
+=&amp; (e \circ \mathrm{id}(g_1), h_1) \\
+=&amp; (g_1,h_1) 
+\end{align*}</div>
+
+<h3 id="idf9edb7bd-9975-4606-9f12-698118b3d992inverse-element"><a href="20211218210712-inverses_element.html#ID-f9edb7bd-9975-4606-9f12-698118b3d992">inverse element</a></h3>
 <p>
-Let \((g_1,h_1) \in G \rtimes_{\varphi} H\).
-By assumption, \(\varphi(h_i)\) is an <a href="20220928135903-gruppenautomorphismus.html#ID-bde82a42-2a52-4890-a477-dc738b045a46">automorphism</a>, so there exists an \(g_2 \in G\) such that \(g_1^{-1} = \varphi(h_1)(g_2)\).
+Let $(g_1,h_1) \in G \rtimes_{\varphi} H$.
+By assumption, $\varphi(h_i)$ is an <a href="20220928135903-gruppenautomorphismus.html#ID-bde82a42-2a52-4890-a477-dc738b045a46">automorphism</a>, so there exists an $g_2 \in G$ such that $g_1^{-1} = \varphi(h_1)(g_2)$.
 Therefore
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 (g_1, h_1) * (g_2, h_1^{-1}) = (g_1 \cdot \varphi(h_1)(g_2), h_1 \cdot h_1^{-1}) \\
-=& (g_1 \cdot g_1^{-1}, h_1 \cdot h_1^{-1}) \\
-=& (e,e)
-\end{align*}
+=&amp; (g_1 \cdot g_1^{-1}, h_1 \cdot h_1^{-1}) \\
+=&amp; (e,e)
+\end{align*}</div>
 <p>
-Furthermore, \(\varphi(h_1^{-1}) = \varphi(h_1)^{-1}\) and hence
+Furthermore, $\varphi(h_1^{-1}) = \varphi(h_1)^{-1}$ and hence
 </p>
-\begin{align*}
-g_1^{-1} =& \varphi(h_1)(g_2) && \vert \varphi(h_1)^{-1}  \\
-\varphi(h_1)^{-1}(g_1^{-1}) =& g_2 && \vert ()^{-1} \\
-\varphi(h_1)^{-1}(g_1) =& g_2^{-1}
-\end{align*}
+
+<div class="math-block">\begin{align*}
+g_1^{-1} =&amp; \varphi(h_1)(g_2) &amp;&amp; \vert \varphi(h_1)^{-1}  \\
+\varphi(h_1)^{-1}(g_1^{-1}) =&amp; g_2 &amp;&amp; \vert ()^{-1} \\
+\varphi(h_1)^{-1}(g_1) =&amp; g_2^{-1}
+\end{align*}</div>
 <p>
 Thus
 </p>
-\begin{align*}
-(g_2,h_1^{-1}) * (g_1,h_1) =& (g_2 \varphi(h_1^{-1})(g_1), h_1^{-1} h_1) \\
-=& (g_2 \cdot g_2^{-1}, h_1^{-1} h_1 ) \\
-=& (e,e)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org71378cf" class="outline-3">
-<h3 id="org71378cf"><span class="section-number-3">2.3.</span> associative</h3>
-<div class="outline-text-3" id="text-2-3">
+
+<div class="math-block">\begin{align*}
+(g_2,h_1^{-1}) * (g_1,h_1) =&amp; (g_2 \varphi(h_1^{-1})(g_1), h_1^{-1} h_1) \\
+=&amp; (g_2 \cdot g_2^{-1}, h_1^{-1} h_1 ) \\
+=&amp; (e,e)
+\end{align*}</div>
+
+<h3 id="associative">associative</h3>
 <p>
-For \((g_1,h_1), (g_2,h_2), (g_3,h_3)\) it holds
+For $(g_1,h_1), (g_2,h_2), (g_3,h_3)$ it holds
 </p>
-\begin{align*}
-((g_1, h_1) * (g_2,h_2)) * (g_3, h_3) =& (g_1 (\varphi(h_1))(g_2), h_1 \cdot h_2) * (g_3, h_3) \\
-=& ( \left( g_1 \varphi(h_1)(g_2) \right) \cdot \varphi(h_1 \cdot h_2)(g_3), \left(h_1 \cdot h_2 \right) \cdot h_3) \\
-=& ( g_1 \varphi(h_1)(g_2) \cdot \varphi(h_1)(g_3) \cdot \varphi(h_2)(g_3), h_1 \cdot h_2 \cdot h_3) \\
-=& (g_1 \varphi(h_1)(g_2 \varphi(h_2)(g_3)), h_1 \cdot h_2 \cdot h_3) \\
-=& (g_1,h_1) * (g_2 \varphi(h_2)(g_3), h_2 \cdot h_3) \\
-=& (g_1,h_1) * ((g_2,h_2) * (g_3, h_3))
-\end{align*}
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 15:45</p>
+
+<div class="math-block">\begin{align*}
+((g_1, h_1) * (g_2,h_2)) * (g_3, h_3) =&amp; (g_1 (\varphi(h_1))(g_2), h_1 \cdot h_2) * (g_3, h_3) \\
+=&amp; ( \left( g_1 \varphi(h_1)(g_2) \right) \cdot \varphi(h_1 \cdot h_2)(g_3), \left(h_1 \cdot h_2 \right) \cdot h_3) \\
+=&amp; ( g_1 \varphi(h_1)(g_2) \cdot \varphi(h_1)(g_3) \cdot \varphi(h_2)(g_3), h_1 \cdot h_2 \cdot h_3) \\
+=&amp; (g_1 \varphi(h_1)(g_2 \varphi(h_2)(g_3)), h_1 \cdot h_2 \cdot h_3) \\
+=&amp; (g_1,h_1) * (g_2 \varphi(h_2)(g_3), h_2 \cdot h_3) \\
+=&amp; (g_1,h_1) * ((g_2,h_2) * (g_3, h_3))
+\end{align*}</div>
+
+
 </div>
 </body>
 </html>

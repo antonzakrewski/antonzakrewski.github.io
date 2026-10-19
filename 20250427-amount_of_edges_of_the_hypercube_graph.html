@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>amount of edges of the hypercube graph</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-a2ac99f2-3755-4da9-9c8e-5a437c2611f2"></span><h1 class="title">amount of edges of the hypercube graph</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $Q_d \coloneqq [0,1]^d$ denote the hypercube of dimension $d$ as <a href="20220904165445-graph.html#ID-2de260cf-41c4-4dec-9ae9-450c507fda60">Graph</a>
+Then $Q_d$ contains precisely $d \cdot 2^{d-1}$ edges
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $f_d$ denote the amount of edges of $Q_d$.
+</p>
+
+<h3 id="recursion-formula">recursion formula</h3>
+<p>
+Note that $Q_d$ contains 2 copies of $Q_{d-1}$ where the opposite edges are connected via a single edge.
+Hence
+</p>
+
+<div class="math-block">\begin{align*}
+f_d = 2 f_{d-1} + 2^{d-1}
+\end{align*}</div>
+<p>
+since $Q_{d-1}$ contains $2^{d-1}$ edges.
+</p>
+
+
+<h3 id="induction-formula">induction formula</h3>
+<p>
+<a href="20221024165350-beweis_durch_vollstandige_induktion_mit_starkerer_induktionsvoraussetzung.html#ID-1534f6c1-e094-4672-8e87-f36eb0e54b8b">Proof by induction</a>
+</p>
+
+<h4 id="induction-basis">induction basis</h4>
+<p>
+clear for $d = 0$
+</p>
+
+<h4 id="induction-step">induction step</h4>
+<p>
+Then by the recursion formula
+</p>
+
+<div class="math-block">\begin{align*}
+f_{d} =&amp; 2 \cdot f_{d-1} + 2^{d-1} \\
+=&amp; 2 \cdot ((d-1) \cdot 2^{d-2}) + 2^{d-1} \\
+=&amp; d \cdot 2^{d-1}
+\end{align*}</div>
+
+</div>
+</body>
+</html>

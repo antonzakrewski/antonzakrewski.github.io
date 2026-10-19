@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>endofunctor with natural transformation and hom functor of coslice determines functor from twisted arrows</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-73ae42f2-3352-4f8b-b4f3-cb989fc8b04d"></span><h1 class="title">endofunctor with natural transformation and hom functor of coslice determines functor from twisted arrows</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathcal{C}$ be a <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a>, $\mathrm{Tw}(\mathcal{C})$ the <a href="20240405-twisted_arrow_category.html#ID-3acc6115-031c-4d44-a137-dd72615022e7">twisted arrow category</a>, $\mathcal{F}: \mathcal{C} \rightarrow \mathcal{C}$ a <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a> with a <a href="20220821182915-naturliche_transformation_kategorientheorie.html#ID-4e6e50c0-c0df-44ff-a140-bebfa492ef7e">natural transformation</a> $\eta: \mathrm{id}_{\mathcal{C}} \rightarrow \mathcal{F}$
+Let $\mathrm{Hom}_{A / \mathcal{C}}(-,-)$ be the <a href="20230302220438-hom_funktor.html#ID-188d17e0-5587-4a90-8927-2d8eb57adc90">hom-functor</a> of the <a href="20230402145452-coslice_category.html#ID-bdbe4411-02d7-4534-8788-2843a7007af4">coslice category</a> $A/ \mathcal{C}$ for an <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">object</a> $A$.
+</p>
+
+<p>
+Then there exists a <a href="20220830173246-kovarianter_funktor.html#ID-c5286004-d249-4969-86d5-c75655b7f5d3">covariant functor</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{F}^{\mathrm{Tw}, \eta}: \mathrm{Tw}(\mathcal{C}) \rightarrow&amp; \mathrm{Set} \\
+(p: A \rightarrow B) \mapsto&amp; \mathrm{Hom}_{A / \mathcal{C}}((\eta(A): A \rightarrow \mathcal{F}(A)),(p: A \rightarrow B)) \\
+(\alpha,\beta) \mapsto&amp; (\alpha^{ \rightarrow}, \beta^{ \leftarrow})
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $p: A \rightarrow B, q: C \rightarrow D$ be <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">objects</a> in $\mathrm{Tw}(\mathcal{C})$ and
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/ee51dc00d8a6f1077f18.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+a morphism $(C \rightarrow D) \rightarrow (A \rightarrow B)$
+</p>
+
+<p>
+Then we get a commutative <a href="20220821183856-diagramm_kategorientheorie.html#ID-ad9d3642-913a-4374-8605-52121d00b349">diagram</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/cf812716033fbc272fd1.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+in $\mathcal{C}$ and using naturality of $\eta$ also
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/4d8686ca3adaa6b2fcf8.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Then <a href="20230404215213-preceed_by_morphism.html#ID-2cd9081c-653f-4dee-9da3-b78d6ed6c4d2">precomposition</a> with $\mathcal{F}(\alpha): \mathcal{F}(A) \rightarrow \mathcal{F}(C)$ and <a href="20231105-postcomposition.html#ID-22f84481-9574-4f6d-87a5-162a5512dd13">postcomposition</a> with $\beta$ gives a <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">map</a>
+</p>
+
+<div class="math-block">\begin{align*}
+(\alpha^{ \rightarrow}, \beta^{ \leftarrow}): \mathrm{Hom}_{\mathcal{C}}(\mathcal{F}(C),D) \rightarrow \mathrm{Hom}_{\mathcal{C}}(\mathcal{F}(A),B)
+\end{align*}</div>
+
+<p>
+It remains to show that those morphisms are also morphisms in the coslice category, i.e. given an $f: \mathcal{F}(C) \rightarrow D$ such that
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/da4e181be091761f5b5d.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+commutes, then the resulting morphism
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/ad2c5f4406d5c7f87619.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+results in a commutative digaram
+</p>
+
+
+
+</div>
+</body>
+</html>

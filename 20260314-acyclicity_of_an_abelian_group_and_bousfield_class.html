@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>acyclicity of an abelian group and bousfield class</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-d1db8070-7aba-44c0-940a-3a764d00ce77"></span><h1 class="title">acyclicity of an abelian group and bousfield class</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $A,B$ be <a href="20211008174655-abelsche_gruppe.html#ID-7281c9cf-564f-4c4c-8c3f-fc1424ac85f8">abelian</a> <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">groups</a>.
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol>
+<li>$A \sim B$ have the same <a href="20260314-acyclicity_of_an_abelian_group.html#ID-74eef69b-f4e2-4d84-84d9-69c7262a5d2d">acyclicity</a>  </li>
+
+<li>$\langle \mathbb{S}_{A}\rangle = \langle \mathbb{S}_{B}\rangle$ have the same <a href="20260314-bousfield_class_of_a_spectrum.html#ID-c247e300-7c6b-4de9-94c5-0df1110d902e">bousfield class of a spectrum</a> </li>
+
+<li>$\langle A\rangle = \langle B\rangle$ have the same bousfield class</li>
+</ol>
+<h2 id="proof">Proof</h2>
+<p>
+using <a href="20260314-acyclicity_of_an_abelian_group_and_set_of_primes.html#ID-cec9ee0c-77a3-40bf-a6f4-831629e9a24f">acyclicity of an abelian group and set of primes</a> it suffices to treat the cases
+</p>
+<ol>
+<li>$B = \mathbb{Z}[P^{-1}]$ if $A$ is torsion free, where $P$ consists of the primes acting invertibly</li>
+
+<li>$B = \biogplus_{p \in \mathbb{P}} \mathbb{F}_p$ if $A$ contains torsion, where $P$ consists of all primes, which don't act invertibly</li>
+</ol>
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+
+<h4 id="1-b-mathbbzp-1">1) $B = \mathbb{Z}[P^{-1}]$</h4>
+<p>
+we may choose a presentation $\bigoplus \mathbb{Z} \rightarrow \bigoplus \mathbb{Z} \rightarrow A$ and tensor it with the <a href="20230801-flat_module.html#ID-1fec67f0-a4f2-444f-a53f-3e8e7fcfc491">flat module</a> $\mathbb{Z}[P^{-1}]$ to get a presentation $\bigoplus \mathbb{Z}[P^{-1}] \rightarrow \bigoplus \mathbb{Z}[P^{-1}] \rightarrow A$.
+This gives a presentation of <a href="20260215-moore_spectrum.html#ID-fc4b7793-a90b-42d7-9d80-43fea35d272c">moore spectra</a> $\bigoplus \mathbb{S}[P^{-1}] \rightarrow \bigoplus \mathbb{S}[P^{-1}] \rightarrow \mathbb{S}_{A}$ (cf. <a href="20260418-localization_of_a_moore_spectrum_is_a_moore_spectrum.html#ID-60003b87-1907-4051-b6cf-ac9c2cc69a96">localization of a moore spectrum is a moore spectrum</a>).
+</p>
+
+<p>
+Now let $X$ be an arbitrary spectrum:
+Suppose $X$ is $\mathbb{S}_{\mathbb{Z}[P^{-1}]}$ acyclic, then the sequence
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/86906444b54b3e46e891.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+is still a cofiber sequence.
+</p>
+
+<p>
+Suppose $X$ is $\mathbb{S}_{A}$ acyclic, then it suffices to show that every element in $\pi_*(X)$ is $P$ torsion (cf. <a href="20260828-s_p_acyclic_spectrum.html#ID-5fd435a0-0918-4632-b838-c09ed2502d5d">S_(p) acyclic spectrum</a>) .
+Let us consider $\pi_0(-)$, the other cases follow from shifting $X$ (everything is exact etc).
+</p>
+
+<p>
+Assume that we have an element $g \in \pi_0(X)$, which is not P torsion.
+Then there exists a map $\mathbb{Z} \rightarrow G$
+<a href="20240606-m_flat_module_and_sum.html#ID-531788f6-3f18-463b-bf53-43a8d500b61b">M-flat module and sum</a>
+</p>
+
+<h4 id="2-b-bigoplus-mathbbf-p">2) $B = \bigoplus \mathbb{F}_p$</h4>
+<p>
+using <a href="20260827-bousfield_class_of_a_sum_is_the_intersection.html#ID-99fcb71b-297e-47e9-b150-e6d6db46684a">bousfield class of a sum is the intersection</a>
+</p>
+
+
+<h5 id="bigoplus-mathbbf-p-acyclic">$\bigoplus \mathbb{F}_p$ acyclic</h5>
+<p>
+Suppose $X$ is $\bigoplus \mathbb{F}_p$ acyclic
+</p>
+
+<h5 id="a-acyclic">$A$ acyclic</h5>
+<p>
+Suppose $X$ is $A$ acyclic, then we need to show that $X$ is $\mathbb{S}/p$ acyclic for every $p$.
+In other words, it suffices to show that every element in $\pi_*(X)$ is uniquely $p$ divisible (cf. <a href="20260828-s_p_acyclic_spectrum_is_s_p_local.html#ID-5c237232-28c1-426e-8527-da14b161a485">S/p acyclic spectrum is S_(p) local</a>).
+This follows as we have a fiber
+</p>
+
+
+<h3 id="2-implies-3">2) $\implies$ 3)</h3>
+<p>
+we have the following equivalent conditions
+a) $X \otimes_{\mathbb{S}} A = 0$
+b) $X \otimes_{\mathbb{S}} (\mathbb{Z} \otimes_{\mathbb{S}} \mathbb{S}_A) = 0$
+c) $(X \otimes_{\mathbb{S}} \mathbb{Z}) \otimes_{\mathbb{S}} \mathbb{S}_A = 0$
+d) $(X \otimes_{\mathbb{S}} \mathbb{Z}) \otimes_{\mathbb{S}} \mathbb{S}_B = 0$ by assumption
+e) $(X \otimes_{\mathbb{S}} B = 0$
+</p>
+
+<p>
+This implies $\langle A\rangle = \langle B\rangle$
+</p>
+
+<h3 id="3-implies-1">3) $\implies$ 1)</h3>
+
+<h4 id="1">1)</h4>
+<p>
+Suppose $\langle A \rangle = \langle \mathbb{Z}[P^{-1}]\rangle$, then we need to show that
+</p>
+<ol>
+<li>$p$ acts invertibly for all $p \in P$</li>
+
+<li>$q$ does not act invertibly for $q \not\in P$.</li>
+</ol>
+<p>
+Here $p$ acts invertibly on $A$ ($\mathbb{Z}[P^{-1}]$ <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> $\mathbb{S}/p \otimes_{\mathbb{S}} A$ ($ \mathbb{S}/p \otimes_{\mathbb{S}} \mathbb{Z}[P^{-1}])$ vanishes (cf. <a href="20260418-multiplication_is_an_equivalence_and_mod_p.html#ID-e1e42ba6-20c7-4fcd-b23a-c6033b7c36f0">multiplication is an equivalence and mod p is trivial in a stable category</a>, <a href="20260312-mod_n_in_spectra_is_tensor_product_with_sphere.html#ID-a5d73f4f-cded-456b-a6b9-7ff0e0ebf266">mod n in spectra is tensor product with sphere</a>).
+</p>
+
+<h4 id="2">2)</h4>
+<p>
+So it remains to show that if $\langle A\rangle = \langle \bigoplus \mathbb{F}_p\rangle$, then $A$ contains torsion:
+This follows as $\mathbb{Z}[p^{-1}] \otimes -$ detects whether an element in the homotopy groups - so in particular $\pi_0(A) = A$ - has $p$ primary torison.
+</p>
+
+</div>
+</body>
+</html>

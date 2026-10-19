@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>gleichmäßig stetige lp funktion und grenzwert</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-3f2ff87b-c07a-430d-87b8-17141f18d3e3"></span><h1 class="title">gleichmäßig stetige lp funktion und grenzwert</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $f: \mathbb{R}^d \rightarrow \mathbb{C}$ eine <a href="20230111191254-gleichmaßige_stetigkeit.html#ID-9f0b13c9-32bd-4d18-beb7-91cd6db42d85">gleichmäßig stetige</a>, <a href="20221014122223-lebesgue_integrierbar.html#ID-256bdd18-94ed-434b-9847-bee1c2965eaf">lebesgue integrierbare</a> <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a>.
+Dann gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{lim}_{\vert x \vert \rightarrow \infty} f(x) = 0
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+über die <a href="20211231000331-realteil.html#ID-c669a4ac-f9b2-4b06-8575-41633f0d096c">Realteil</a> / <a href="20211231000354-imaginarteil.html#ID-8267ad48-49dc-48a8-a7d0-e1b3e1d502fc">Imaginärteil</a> abbildung reduziert sich der Fall auf eine abbildung
+</p>
+
+<div class="math-block">\begin{align*}
+f: \mathbb{R}^d \rightarrow \mathbb{R}
+\end{align*}</div>
+
+<p>
+(todo)
+</p>
+
+<p>
+<a href="20210305204939-beweis_durch_widerspruch.html#ID-ee659788-c975-494a-aef0-85087f3db839">Beweis durch Widerspruch</a>
+</p>
+
+
+<p>
+Angenommen nicht, dann existiert eine Folge $x \in \mathbb{R}^d$ mit
+</p>
+
+<div class="math-block">\begin{align*}
+\vert f(x) \vert &gt; \varepsilon
+\end{align*}</div>
+<p>
+für ein $\varepsilon &gt; 0$
+</p>
+
+<p>
+Sei $\delta$ nach gleichmäßiger stetigkeit gewählt für $\frac{\varepsilon}{2}$
+</p>
+
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> nach <a href="20221028093107-schubfachprinzip.html#ID-d33a1094-3551-47b8-a056-3602e11fa14b">Pigeonhole principle</a> dürfen wir annehmen dass
+</p>
+
+<div class="math-block">\begin{align*}
+f(x) &gt; \varepsilon
+\end{align*}</div>
+<p>
+(alternativ: betrachte $-f$)
+</p>
+
+<p>
+Ferner können wir obda $x_n$ so wählen, dass
+</p>
+
+<div class="math-block">\begin{align*}
+\vert x_n \vert - \vert x_{n+1} \vert &gt; 3 \delta
+\end{align*}</div>
+<p>
+gilt und $\vert x_n \vert$ monoton steigt.
+</p>
+
+<p>
+Dann folgt, dass auf dem $\delta$ ball um $x_n$
+</p>
+
+<div class="math-block">\begin{align*}
+f(B_{\delta}(x_n)) \geq \frac{\varepsilon}{2}
+\end{align*}</div>
+<p>
+gilt.
+</p>
+
+<p>
+Zudem sind die \(\delta\)-bälle paarweise disjunkt wegen $\vert x_n \vert - \vert x_{n+1} \vert &gt; 3 \delta$ und der <a href="20220716173747-dreiecksungleichung_metrik.html#ID-e5ef5ef6-266f-4486-aa97-9ba2093531fe">Dreiecksungleichung (Metrik)</a>
+</p>
+
+<p>
+Man bemerke, dass der epsilon ball ein festes lebesgue volumen hat
+Damit erhalten wir
+</p>
+
+<div class="math-block">\begin{align*}
+\int_{\mathbb{R}^d} \vert f \vert \mathrm{d} \mu \geq&amp; \int_{\mathbb{R}^d} \frac{\varepsilon}{2} \chi_{\bigcup B_{\delta}(x_n)} \\
+=&amp; \sum_{n=1}^{\infty} \mu(B_{\delta}(x_n)) \varepsilon \\
+=&amp; \infty
+\end{align*}</div>
+
+<p>
+Widerspruch zur Integrierbarkeit
+</p>
+
+
+
+</div>
+</body>
+</html>

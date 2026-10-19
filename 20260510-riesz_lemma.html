@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>riesz lemma</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-60cb454e-b024-414e-afd7-ac493b34dc8f"></span><h1 class="title">riesz lemma</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X$ be a <a href="20221005101046-normierter_vektorraum.html#ID-2ba5953b-83c1-4e4f-8a82-198c6bbbd76a">normed vector space</a> and $U \subsetneq X$ a <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">closed</a> <a href="20230211132940-unterraumtopologie.html#ID-e38ab938-b4e6-4094-98a1-4a8dec808b54">subspace</a>
+Then for all $\lambda \in (0,1)$, there exists an $x_{\lambda} \in X \setminus U$ such that
+</p>
+<ol>
+<li>$\| x_{\lambda} \| = 1$</li>
+
+<li>$\| x_{\lambda} - u \| \geq \lambda$   </li>
+</ol>
+<h2 id="proof">Proof</h2>
+<p>
+Let $x \in X \setminus U$, where $X \setminus U$ is open.
+Then there exists an $\varepsilon_x &gt; 0$ such that $B_{\varepsilon_x}(x) \subseteq X \setminus U$ and hence $d \coloneqq \mathrm{dist}(x,U) \geq \varepsilon_x$ .
+Now fix an $\lambda \in (0,1)$, then there exists an $u_{\lambda} \in U$ such that
+</p>
+
+<div class="math-block">\begin{align*}
+d = \mathrm{inf}_{u \in U} \| x - u \| \leq \| x - u_{\lambda} \| \leq \frac{d}{\lambda}
+\end{align*}</div>
+<p>
+since $d$ is some infimum.
+Hence let $y = \frac{1}{\| x - u_{\lambda} \|} \geq \frac{\lambda}{d}$.
+we define $x_{\lambda} = y (x - u_{\lambda} \in X \setminus U$ (recall that complements of linear subspaces are closed under multiplication with nonzero elemenst).
+</p>
+
+<p>
+then
+</p>
+<ol>
+<li>$\| x_{\lambda} \| = y \cdot \| x - u_{\lambda} \| = 1$ follows by defintiion of $y$</li>
+</ol>
+<p>
+2)
+</p>
+
+<div class="math-block">\begin{align*}
+\| x_{\lambda} - u \| =&amp; \| y \cdot (x - u_{\\lambda}) - u \|  \\
+=&amp; \| y x - (u + yu_{\lambda}) \| \\
+=&amp; y \cdot \| x - (u_\lambda - \frac{u}{\lambda}) \| \\
+\geq y d \\
+\geq \lambda
+\end{align*}</div>
+<p>
+since $u_{\lambda} - \frac{u}{y}$ lies in $U$.
+</p>
+
+
+</div>
+</body>
+</html>

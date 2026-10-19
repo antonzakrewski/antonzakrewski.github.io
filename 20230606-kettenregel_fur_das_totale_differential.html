@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 15:01 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Kettenregel für das totale Differential</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,88 +52,80 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Kettenregel für das totale Differential</h1>
-<div id="outline-container-org71a5946" class="outline-2">
-<h2 id="org71a5946"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-8b45d9e9-87fb-42ce-a53c-b1aca5fac3e5"></span><h1 class="title">Kettenregel für das totale Differential</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Seien \(U \subseteq \mathbb{R}^n\) und \(V \subseteq \mathbb{R}^m\) gegeben und <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a> sowie \(F: U \rightarrow V\) und \(G: V \rightarrow \mathbb{R}^k\) <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildungen</a>, so dass \(F\) <a href="20230601102558-totale_differenzierbarkeit.html#ID-2bdfcfac-76de-4f04-b2c7-6eca0297c586">total differenzierbar</a> in \(x_0\) und \(G\) <a href="20230601102558-totale_differenzierbarkeit.html#ID-2bdfcfac-76de-4f04-b2c7-6eca0297c586">total differenzierbar</a> in \(F(x_0)\) ist.
-Dann ist \(G \circ F\) <a href="20230601102558-totale_differenzierbarkeit.html#ID-2bdfcfac-76de-4f04-b2c7-6eca0297c586">total differenzierbar</a> in \(x_0\) mit <a href="20221113224442-totales_differential.html#ID-9361fe82-74cf-489a-8551-9da7453a92b7">totalem Differential</a>:
+Seien $U \subseteq \mathbb{R}^n$ und $V \subseteq \mathbb{R}^m$ gegeben und <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a> sowie $F: U \rightarrow V$ und $G: V \rightarrow \mathbb{R}^k$ <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildungen</a>, so dass $F$ <a href="20230601102558-totale_differenzierbarkeit.html#ID-2bdfcfac-76de-4f04-b2c7-6eca0297c586">total differenzierbar</a> in $x_0$ und $G$ <a href="20230601102558-totale_differenzierbarkeit.html#ID-2bdfcfac-76de-4f04-b2c7-6eca0297c586">total differenzierbar</a> in $F(x_0)$ ist.
+Dann ist $G \circ F$ <a href="20230601102558-totale_differenzierbarkeit.html#ID-2bdfcfac-76de-4f04-b2c7-6eca0297c586">total differenzierbar</a> in $x_0$ mit <a href="20221113224442-totales_differential.html#ID-9361fe82-74cf-489a-8551-9da7453a92b7">totalem Differential</a>:
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \mathrm{d} (G \circ F)_{x_0} = \mathrm{d} G_{F(x_0)} \circ \mathrm{d}F_{x_0}
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org6ec3507" class="outline-2">
-<h2 id="org6ec3507"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org55b05ea" class="outline-3">
-<h3 id="org55b05ea"><span class="section-number-3">2.1.</span> Umformungen</h3>
-<div class="outline-text-3" id="text-2-1">
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="umformungen">Umformungen</h3>
 <p>
 Nach Annahme sei
 </p>
-\begin{align*}
-F(x) =& F(x_0) + \mathrm{d} F_{x_0}(x - x_0) + r_{F,x_0}(x) \\
-G(x) =& G(F(x_0)) + \mathrm{d} G_{F(x_0)} (y - F(x_0) + r_{G,F(x_0)}(y) 
-\end{align*}
+
+<div class="math-block">\begin{align*}
+F(x) =&amp; F(x_0) + \mathrm{d} F_{x_0}(x - x_0) + r_{F,x_0}(x) \\
+G(x) =&amp; G(F(x_0)) + \mathrm{d} G_{F(x_0)} (y - F(x_0) + r_{G,F(x_0)}(y) 
+\end{align*}</div>
 <p>
 Somit folgt
 </p>
-\begin{align*}
-(G \circ F) \cdot x =& G(F(x)) \\
-=& G(F(x_0)) + \mathrm{d} G_{F(x_0)}(F(x) - F(x_0)) + r_{G,F(x_0)}(F(x))
-\end{align*}
+
+<div class="math-block">\begin{align*}
+(G \circ F) \cdot x =&amp; G(F(x)) \\
+=&amp; G(F(x_0)) + \mathrm{d} G_{F(x_0)}(F(x) - F(x_0)) + r_{G,F(x_0)}(F(x))
+\end{align*}</div>
 <p>
 Ferner gilt nach Annahme
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 (F(x) - F(x_0)) = \mathrm{d} F_{x_0}(x - x_0) + r_{F,x_0}(x)
-\end{align*}
+\end{align*}</div>
 <p>
 D.h. durch Einsetzen folgt:
 </p>
-\begin{align*}
-G(F(x_0)) + \mathrm{d} G_{F(x_0)}(F(x) - F(x_0)) + r_{G,F(x_0)}(F(x)) =& G(F(x_0)) + (\mathrm{d} G_{F(x_0)} \circ \mathrm{d} F_{x_0})(x - x_0) + \mathrm{d}G_{F(x_0)}(r_{F,x_0}(x)) + r_{G,F(x_0)}(F(x))
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org5764c59" class="outline-3">
-<h3 id="org5764c59"><span class="section-number-3">2.2.</span> abschätzung des Restglieds</h3>
-<div class="outline-text-3" id="text-2-2">
-\begin{align*}
-\| \mathrm{d} G_{F(x_0)}(r_{F,x_0}(x)) \| \leq& \| d G_{F(x_0)} \| \cdot \| r_{F,x_0}(x) \| \\
-=& o(\| x - x_0\|)
-\end{align*}
+
+<div class="math-block">\begin{align*}
+G(F(x_0)) + \mathrm{d} G_{F(x_0)}(F(x) - F(x_0)) + r_{G,F(x_0)}(F(x)) =&amp; G(F(x_0)) + (\mathrm{d} G_{F(x_0)} \circ \mathrm{d} F_{x_0})(x - x_0) + \mathrm{d}G_{F(x_0)}(r_{F,x_0}(x)) + r_{G,F(x_0)}(F(x))
+\end{align*}</div>
+
+<h3 id="abschatzung-des-restglieds">abschätzung des Restglieds</h3>
+
+<div class="math-block">\begin{align*}
+\| \mathrm{d} G_{F(x_0)}(r_{F,x_0}(x)) \| \leq&amp; \| d G_{F(x_0)} \| \cdot \| r_{F,x_0}(x) \| \\
+=&amp; o(\| x - x_0\|)
+\end{align*}</div>
 <p>
 Dabei sei <a href="20230228183044-operatornorm_als_echte_norm.html#ID-ee5d7893-af98-4807-8118-00bde790b509">Operatornorm</a> als Lipschitzkonstante
 Desweiteren gilt aufgrund der <a href="20220716173747-dreiecksungleichung_metrik.html#ID-e5ef5ef6-266f-4486-aa97-9ba2093531fe">Dreiecksungleichung</a>:
 </p>
-\begin{align*}
-r_{G,F(x_0)}(F(x)) =& o(\| F(x) - F(x_0) \|) \\
-\leq& \| d F_{x_0} \| \cdot \| x - x_0 \| + \| r_{F,x_0}(x) \| \\
-=& O(\| x - x_0 \|
-\end{align*}
+
+<div class="math-block">\begin{align*}
+r_{G,F(x_0)}(F(x)) =&amp; o(\| F(x) - F(x_0) \|) \\
+\leq&amp; \| d F_{x_0} \| \cdot \| x - x_0 \| + \| r_{F,x_0}(x) \| \\
+=&amp; O(\| x - x_0 \|
+\end{align*}</div>
 <p>
 Daraus folgt dann
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 r_{G,F(x_0)}(F(x)) = o(\| x - x_0 \|)
-\end{align*}
+\end{align*}</div>
 
 <p>
 Durch die <a href="20221003143707-dreiecksungleichung_einer_norm.html#ID-ab6dc42a-e937-4409-8dce-39b5925205dd">Dreiecksungleichung</a> folgt dann auch
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 15:01</p>
+
 </div>
 </body>
 </html>

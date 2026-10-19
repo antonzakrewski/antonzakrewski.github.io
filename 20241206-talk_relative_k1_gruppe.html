@@ -1,348 +1,161 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2025-01-15 Mi 20:53 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Talk: Relative K1-Gruppe</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Talk: Relative K1-Gruppe</h1>
-<div id="outline-container-org89dd6a4" class="outline-2">
-<h2 id="org89dd6a4">meta</h2>
-<div class="outline-text-2" id="text-org89dd6a4">
-</div>
-<div id="outline-container-org3b1497a" class="outline-3">
-<h3 id="org3b1497a">default Notation</h3>
-<div class="outline-text-3" id="text-org3b1497a">
-<ul class="org-ul">
-<li><img src="ltximg/20241206-talk_relative_k1_gruppe_22a535293244fe74fc7a4bdd15d746de7c32685f.svg" alt="20241206-talk_relative_k1_gruppe_22a535293244fe74fc7a4bdd15d746de7c32685f.svg" class="org-svg" /> is a ring, unital but not necessary commutative<br /></li>
-<li>Ideals are assumed to be two-sided, unless stated otherwise<br /></li>
+<span id="ID-a7624c9c-2483-4d73-8f4c-810485407b3f"></span><h1 class="title">Talk: Relative K1-Gruppe</h1>
+
+<h2 id="meta">meta</h2>
+
+<h3 id="default-notation">default Notation</h3>
+<ul>
+<li>$R$ is a ring, unital but not necessary commutative</li>
+
+<li>Ideals are assumed to be two-sided, unless stated otherwise</li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org672cded" class="outline-3">
-<h3 id="org672cded">other notes</h3>
-<div class="outline-text-3" id="text-org672cded">
-<ul class="org-ul">
-<li>I follow the numbers of the script<br /></li>
-<li>In these notes, I may write alternative (categorical) proofs and I will<br /></li>
+<h3 id="other-notes">other notes</h3>
+<ul>
+<li>I follow the numbers of the script</li>
+
+<li>In these notes, I may write alternative (categorical) proofs and I will</li>
 </ul>
-</div>
-</div>
-</div>
-<div id="outline-container-org0751ad4" class="outline-2">
-<h2 id="org0751ad4">Motivation</h2>
-<div class="outline-text-2" id="text-org0751ad4">
+<h2 id="motivation">Motivation</h2>
 <p>
-We want to construct long exact sequence<br />
+We want to construct long exact sequence
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20241206-talk_relative_k1_gruppe_fb728104804d80e47639be7ef8f7f9202e1c9fa2.svg" alt="20241206-talk_relative_k1_gruppe_fb728104804d80e47639be7ef8f7f9202e1c9fa2.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/6b0846936507c9d1971c.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-Hence we will also need a notion of relative <img src="ltximg/20241206-talk_relative_k1_gruppe_fdd8dd5961c81ac9b6cb11c7de00227e8636ce01.svg" alt="20241206-talk_relative_k1_gruppe_fdd8dd5961c81ac9b6cb11c7de00227e8636ce01.svg" class="org-svg" /><br />
+Hence we will also need a notion of relative $K_1$
 </p>
 
 <p>
-This gives us further tools to compute <img src="ltximg/20241206-talk_relative_k1_gruppe_240fba92ca4c4148235f548db2a82d47ab3448df.svg" alt="20241206-talk_relative_k1_gruppe_240fba92ca4c4148235f548db2a82d47ab3448df.svg" class="org-svg" /> (by restricting the possiblilities).<br />
+This gives us further tools to compute $K_1(-)$ (by restricting the possiblilities).
 </p>
 
 <p>
-Furthermore we may use powerful tools of homological algebra, especially the <a href="20230803-5_lemma.html#ID-fa3db9a5-91b8-446d-955f-158e123bc141">Five-Lemma</a> / <a href="20230902-four_lemma_of_monomorphisms.html#ID-ef104894-0d50-49ab-8e75-8aff8f7b1f00">Four-Lemma of modules of monomorphisms</a> / <a href="20230902-four_lemma_of_epimorphisms.html#ID-8f7efe3a-675e-47a0-b76f-50723ed6635d">Four-Lemma of modules of epimorphisms</a> <br />
+Furthermore we may use powerful tools of homological algebra, especially the <a href="20230803-5_lemma.html#ID-fa3db9a5-91b8-446d-955f-158e123bc141">Five-Lemma</a> / <a href="20230902-four_lemma_of_monomorphisms.html#ID-ef104894-0d50-49ab-8e75-8aff8f7b1f00">Four-Lemma of modules of monomorphisms</a> / <a href="20230902-four_lemma_of_epimorphisms.html#ID-8f7efe3a-675e-47a0-b76f-50723ed6635d">Four-Lemma of modules of epimorphisms</a>
 </p>
 
 <p>
-This comes at the cost of <img src="ltximg/20241206-talk_relative_k1_gruppe_fdd8dd5961c81ac9b6cb11c7de00227e8636ce01.svg" alt="20241206-talk_relative_k1_gruppe_fdd8dd5961c81ac9b6cb11c7de00227e8636ce01.svg" class="org-svg" /> being a "worse" invariant.<br />
+This comes at the cost of $K_1$ being a "worse" invariant.
 </p>
-</div>
-</div>
-<div id="outline-container-org6061140" class="outline-2">
-<h2 id="org6061140">Aspects</h2>
-<div class="outline-text-2" id="text-org6061140">
-</div>
-<div id="outline-container-org0ebc2e8" class="outline-3">
-<h3 id="org0ebc2e8">Reminder</h3>
-<div class="outline-text-3" id="text-org0ebc2e8">
-<ul class="org-ul">
-<li><a href="20241025-pullback_of_a_ring_and_ideal.html#ID-0a63ef48-fcb6-4707-8a9c-cecb368adb0d">explicite description of a pullback of a ring and ideal</a> <br /></li>
-<li><a href="20250109-whitehead_theorem_for_k1.html#ID-88c07e4e-dc37-4972-9052-aeca2d3deaa0">whitehead theorem for K1 of a ring</a>   <br /></li>
-<li><a href="20250112-snake_lemma_for_groups_and_normal_subgroups.html#ID-3d11558b-29da-41ee-bf1b-705e6ba865f4">snake lemma for groups and normal subgroups</a>   <br /></li>
+
+<h2 id="aspects">Aspects</h2>
+
+<h3 id="reminder">Reminder</h3>
+<ul>
+<li><a href="20241025-pullback_of_a_ring_and_ideal.html#ID-0a63ef48-fcb6-4707-8a9c-cecb368adb0d">explicit description of a pullback of a ring and ideal</a> </li>
+
+<li><a href="20250109-whitehead_theorem_for_k1.html#ID-88c07e4e-dc37-4972-9052-aeca2d3deaa0">whitehead theorem for K1 of a ring</a>   </li>
+
+<li><a href="20250112-snake_lemma_for_groups_and_normal_subgroups.html#ID-3d11558b-29da-41ee-bf1b-705e6ba865f4">snake lemma for groups and normal subgroups</a>   </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org6d3ad1a" class="outline-3">
-<h3 id="org6d3ad1a">7.1</h3>
-<div class="outline-text-3" id="text-org6d3ad1a">
-<ul class="org-ul">
-<li><a href="20241017-relative_infinite_general_linear_grou.html#ID-995cd489-ecc7-4a2c-bb51-145809ab8777">relative infinite general linear group</a> <br /></li>
+<h3 id="71">7.1</h3>
+<ul>
+<li><a href="20241017-relative_infinite_general_linear_grou.html#ID-995cd489-ecc7-4a2c-bb51-145809ab8777">relative infinite general linear group</a> </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org62605ab" class="outline-3">
-<h3 id="org62605ab">7.2</h3>
-<div class="outline-text-3" id="text-org62605ab">
-<ul class="org-ul">
-<li><a href="20241017-relative_infinite_general_linear_group_and_projection.html#ID-1d3e5924-f75c-4151-8ff8-237b321437e9">relative infinite general linear group and projection</a> <br /></li>
-<li><a href="20250113-relative_infinite_general_linear_group_depends_only_on_the_ideal.html#ID-a64160bb-e615-41f8-9a00-7b40287dc4a0">relative infinite general linear group depends only on the ideal</a>   <br /></li>
+<h3 id="72">7.2</h3>
+<ul>
+<li><a href="20241017-relative_infinite_general_linear_group_and_projection.html#ID-1d3e5924-f75c-4151-8ff8-237b321437e9">relative infinite general linear group and projection</a> </li>
+
+<li><a href="20250113-relative_infinite_general_linear_group_depends_only_on_the_ideal.html#ID-a64160bb-e615-41f8-9a00-7b40287dc4a0">relative infinite general linear group depends only on the ideal</a>   </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org381fcf6" class="outline-3">
-<h3 id="org381fcf6">7.3</h3>
-<div class="outline-text-3" id="text-org381fcf6">
-<ul class="org-ul">
-<li><a href="infinite-elementary-linear-group.html#ID-f8f55825-967f-40d4-895f-5f084e8326a8">infinite elementary linear group</a> <br /></li>
-<li><a href="20241017-relative_infinite_elementary_linear_group.html#ID-10b49cd6-3154-4ce9-92df-2e3ea00a4bb3">relative infinite elementary linear group</a> <br /></li>
+<h3 id="73">7.3</h3>
+<ul>
+<li><a href="infinite-elementary-linear-group.html#ID-f8f55825-967f-40d4-895f-5f084e8326a8">infinite elementary linear group</a> </li>
+
+<li><a href="20241017-relative_infinite_elementary_linear_group.html#ID-10b49cd6-3154-4ce9-92df-2e3ea00a4bb3">relative infinite elementary linear group</a> </li>
 </ul>
 
+<ul>
+<li><a href="20241026-natural_transformation_from_elementary_linear_group_to_general_linear_group.html#ID-35de4553-cfc9-43de-ad3f-8ad0aa7d6203">natural transformation from elementary linear group to general linear group</a>   </li>
 
-<ul class="org-ul">
-<li><a href="20241026-natural_transformation_from_elementary_linear_group_to_general_linear_group.html#ID-35de4553-cfc9-43de-ad3f-8ad0aa7d6203">natural transformation from elementary linear group to general linear group</a>   <br /></li>
-<li><a href="20241026-natural_transformation_from_infinite_elemenatry_linear_group_to_general_linear_group.html#ID-18dadd29-5f4d-4fed-b4a2-a8f777df43d1">natural transformation from infinite elementary linear group to general linear group</a>   <br /></li>
-<li><a href="20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups.html#ID-fa0e39b7-d615-4769-9161-bf75754c4bf6">exact diagram of infinite general linear groups and elementary linear groups</a> <br /></li>
+<li><a href="20241026-natural_transformation_from_infinite_elemenatry_linear_group_to_general_linear_group.html#ID-18dadd29-5f4d-4fed-b4a2-a8f777df43d1">natural transformation from infinite elementary linear group to general linear group</a>   </li>
 
-<li><a href="20241026-relative_infinite_elementary_linear_group_as_normal_subgroup.html#ID-c011a477-1a48-4aeb-b097-082015a09bac">relative infinite elementary linear group as normal subgroup</a> <br /></li>
-<li><a href="20241026-explicite_description_of_the_relative_elementary_linear_group.html#ID-9d7b77db-1472-416a-813e-bc49771fccd3">explicite description of the relative elementary linear group</a> <br /></li>
+<li><a href="20241026-exact_diagram_of_infinite_general_linear_groups_and_elementary_linear_groups.html#ID-fa0e39b7-d615-4769-9161-bf75754c4bf6">exact diagram of infinite general linear groups and elementary linear groups</a> </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgfcac1fc" class="outline-3">
-<h3 id="orgfcac1fc">7.4</h3>
-<div class="outline-text-3" id="text-orgfcac1fc">
-<ul class="org-ul">
-<li><a href="20241017-relative_k1_group.html#ID-df244d3a-9d0a-4907-a165-8bdeea429604">relative K1-Group of a ring and ideal</a> <br /></li>
-<li><a href="20241017-relative_k1_group_functor.html#ID-f6fcba40-7f19-49a9-927b-aa8d77c0ccd2">relative K1-Group functor from Pairs of Rings</a>   <br /></li>
-<li><a href="20241026-relative_k1_group_as_kernel.html#ID-9e7aefc7-c2f8-48eb-a962-222113fa4fa5">relative K1-Group as kernel</a><br /></li>
-<li><a href="20250115-map_from_relative_k1_to_k1.html#ID-2b7169a9-28b7-4d94-8cdb-d66c8f356176">map from relative K1 to K1</a> <br /></li>
-<li><a href="20241026-k1_of_a_ring_as_relative_k1_grop.html#ID-a0d6a62a-52d6-44e2-8c80-994bb9d2e5f5">K1 of a ring as relative K1 group</a> <br /></li>
+<ul>
+<li><a href="20241026-relative_infinite_elementary_linear_group_as_normal_subgroup.html#ID-c011a477-1a48-4aeb-b097-082015a09bac">relative infinite elementary linear group as normal subgroup</a> </li>
+
+<li><a href="20241026-explicite_description_of_the_relative_elementary_linear_group.html#ID-9d7b77db-1472-416a-813e-bc49771fccd3">explicit description of the relative elementary linear group</a> </li>
 </ul>
 
-<ul class="org-ul">
-<li><a href="20241026-forgetful_map_from_relative_k1_to_k1_of_rings.html#ID-f25bad91-a076-4a7b-8717-39b5c681d5bc">forgetful natural transformation from relative K1 to K1 of rings</a><br /></li>
-</ul>
+<h3 id="74">7.4</h3>
+<ul>
+<li><a href="20241017-relative_k1_group.html#ID-df244d3a-9d0a-4907-a165-8bdeea429604">relative K1-Group of a ring and ideal</a> </li>
 
-<ul class="org-ul">
-<li><a href="20241026-morphism_of_pair_of_ideals_induces_morphism_on_pullbacks.html#ID-81b892f8-7ab6-4495-9709-e9d38b384ca8">morphism of pair of ideals induces morphism on pullbacks</a> <br /></li>
+<li><a href="20241017-relative_k1_group_functor.html#ID-f6fcba40-7f19-49a9-927b-aa8d77c0ccd2">relative K1-Group functor from Pairs of Rings</a>   </li>
+
+<li><a href="20241026-relative_k1_group_as_kernel.html#ID-9e7aefc7-c2f8-48eb-a962-222113fa4fa5">relative K1-Group as kernel</a></li>
+
+<li><a href="20250115-map_from_relative_k1_to_k1.html#ID-2b7169a9-28b7-4d94-8cdb-d66c8f356176">map from relative K1 to K1</a> </li>
+
+<li><a href="20241026-k1_of_a_ring_as_relative_k1_grop.html#ID-a0d6a62a-52d6-44e2-8c80-994bb9d2e5f5">K1 of a ring as relative K1 group</a> </li>
+
+<li><a href="20241026-forgetful_map_from_relative_k1_to_k1_of_rings.html#ID-f25bad91-a076-4a7b-8717-39b5c681d5bc">forgetful natural transformation from relative K1 to K1 of rings</a></li>
+
+<li><a href="20241026-morphism_of_pair_of_ideals_induces_morphism_on_pullbacks.html#ID-81b892f8-7ab6-4495-9709-e9d38b384ca8">morphism of pair of ideals induces morphism on pullbacks</a> </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgb2d164e" class="outline-3">
-<h3 id="orgb2d164e">7.5</h3>
-<div class="outline-text-3" id="text-orgb2d164e">
-<ul class="org-ul">
-<li><a href="20241026-boundary_map_of_k1_to_k0.html#ID-50f1e533-2a5c-4363-88b1-b81cf12db2f5">boundary map of K1 to K0</a> <br /></li>
-<li><a href="20241017-exact_sequence_of_k0_and_k1.html#ID-15b0ca7a-0593-42a0-8f55-303509c3ed80">exact sequence of K0 and K1</a> <br /></li>
+<h3 id="75">7.5</h3>
+<ul>
+<li><a href="20241026-boundary_map_of_k1_to_k0.html#ID-50f1e533-2a5c-4363-88b1-b81cf12db2f5">boundary map of K1 to K0</a> </li>
+
+<li><a href="20241017-exact_sequence_of_k0_and_k1.html#ID-15b0ca7a-0593-42a0-8f55-303509c3ed80">exact sequence of K0 and K1</a> </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org6cd73a5" class="outline-3">
-<h3 id="org6cd73a5">7.6</h3>
-<div class="outline-text-3" id="text-org6cd73a5">
-<ul class="org-ul">
-<li><a href="20250112-relative_k1_depends_on_the_ring.html#ID-0233d51f-7ceb-4d34-81da-6cf0cb6fe59d">relative K1 depends on the Ring</a> <br /></li>
+<h3 id="76">7.6</h3>
+<ul>
+<li><a href="20250112-relative_k1_depends_on_the_ring.html#ID-0233d51f-7ceb-4d34-81da-6cf0cb6fe59d">relative K1 depends on the Ring</a> </li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2025-01-15 Mi 20:53</p>
 </div>
 </body>
 </html>

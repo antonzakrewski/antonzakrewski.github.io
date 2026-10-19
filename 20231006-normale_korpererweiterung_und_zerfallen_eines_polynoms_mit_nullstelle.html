@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 18:33 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>normale Körpererweiterung und Zerfallen eines irreduziblen Polynoms mit Nullstelle</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,49 +52,33 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">normale Körpererweiterung und Zerfallen eines irreduziblen Polynoms mit Nullstelle</h1>
-<div id="outline-container-org7b32481" class="outline-2">
-<h2 id="org7b32481"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-5bebddec-b88b-4b8a-94e5-9acea69ccd30"></span><h1 class="title">normale Körpererweiterung und Zerfallen eines irreduziblen Polynoms mit Nullstelle</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(K\) ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a> und \(L/K\) eine <a href="20230603-field_extension.html#ID-afbdca38-90b9-4db1-9d10-cfd826cbfac6">Körpererweiterung</a>.
+Sei $K$ ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a> und $L/K$ eine <a href="20230603-field_extension.html#ID-afbdca38-90b9-4db1-9d10-cfd826cbfac6">Körpererweiterung</a>.
 <a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
 </p>
-<ol class="org-ol">
-<li>\(L\) ist eine <a href="20230723-normale_korpererweiterung.html#ID-2e8decef-eac5-46db-a814-aa1bb98d8df0">normale Körpererweiterung</a></li>
-<li>jedes <a href="20221226125836-irreduzibles_element.html#ID-0cc3140d-cb4c-48a2-8cb6-2d9801e34db0">irreduzible</a> <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c-70182b7714f9">Polynom</a> \(f \in K[X]\) mit <a href="20220320113706-nullstelle.html#ID-b094e637-5f3c-42a2-a2c2-ae73bbbe29a2">Nullstelle</a> in \(L\) <a href="20221229010309-zerfallen_eines_polynoms.html#ID-8e83cdb4-e8e8-465c-806e-0960939bd509">zerfällt</a></li>
+<ol>
+<li>$L$ ist eine <a href="20230723-normale_korpererweiterung.html#ID-2e8decef-eac5-46db-a814-aa1bb98d8df0">normale Körpererweiterung</a> </li>
+
+<li>jedes <a href="20221226125836-irreduzibles_element.html#ID-0cc3140d-cb4c-48a2-8cb6-2d9801e34db0">irreduzible</a> <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c-70182b7714f9">Polynom</a> $f \in K[X]$ mit <a href="20220320113706-nullstelle.html#ID-b094e637-5f3c-42a2-a2c2-ae73bbbe29a2">Nullstelle</a> in $L$ <a href="20221229010309-zerfallen_eines_polynoms.html#ID-8e83cdb4-e8e8-465c-806e-0960939bd509">zerfällt</a> </li>
 </ol>
-</div>
-</div>
-<div id="outline-container-org9d4ce48" class="outline-2">
-<h2 id="org9d4ce48"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orgff9707f" class="outline-3">
-<h3 id="orgff9707f"><span class="section-number-3">2.1.</span> 1) \(\implies\) 2)</h3>
-<div class="outline-text-3" id="text-2-1">
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
 <p>
-Sei \(f\) irreduzibel mit einer Nullstelle \(\alpha \in L\), so ist \(f\) das <a href="20230723-minimalpolynom_eines_algebraischen_elements.html#ID-e76a1f34-1911-4281-a969-5abea577522a">Minimalpolynom</a> von \(\alpha \in L\).
-Damit zerfällt \(f\) nach Annahme
+Sei $f$ irreduzibel mit einer Nullstelle $\alpha \in L$, so ist $f$ das <a href="20230723-minimalpolynom_eines_algebraischen_elements.html#ID-e76a1f34-1911-4281-a969-5abea577522a">Minimalpolynom</a> von $\alpha \in L$.
+Damit zerfällt $f$ nach Annahme
 </p>
-</div>
-</div>
-<div id="outline-container-org11723c7" class="outline-3">
-<h3 id="org11723c7"><span class="section-number-3">2.2.</span> 2) \(\implies\) 1)</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<h3 id="2-implies-1">2) $\implies$ 1)</h3>
 <p>
-Sei \(\mathcal{F} \subseteq K[X]\) die <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">menge</a> der irreduziblen Polynome mit Nullstelle in \(L\).
-Dann ist \(K[\mathcal{F}] \subseteq L\) und ferner gilt für \(\alpha \in L\), dass ein minimalpolynom existiert, welches wiederrum in \(\mathcal{F}\) liegt.
-Damit folgt auch gleichheit, d.h. \(L\) ist zerfällungskörper
+Sei $\mathcal{F} \subseteq K[X]$ die <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">menge</a> der irreduziblen Polynome mit Nullstelle in $L$.
+Dann ist $K[\mathcal{F}] \subseteq L$ und ferner gilt für $\alpha \in L$, dass ein minimalpolynom existiert, welches wiederrum in $\mathcal{F}$ liegt.
+Damit folgt auch gleichheit, d.h. $L$ ist zerfällungskörper
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 18:33</p>
+
 </div>
 </body>
 </html>

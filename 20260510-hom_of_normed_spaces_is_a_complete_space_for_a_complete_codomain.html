@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>bounded hom of normed spaces is a complete space for a complete codomain</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-c623aead-4e2a-45e2-8024-ccdedc6ccf30"></span><h1 class="title">bounded hom of normed spaces is a complete space for a complete codomain</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X,Y$ be <a href="20221005101046-normierter_vektorraum.html#ID-2ba5953b-83c1-4e4f-8a82-198c6bbbd76a">normed vector spaces</a>, where $Y$ is <a href="20221124122659-vollstandiger_metrischer_raum.html#ID-d68e391c-415a-49a8-93ce-0b1de559796d">complete</a>.
+Then the <a href="20260510-hom_of_normed_spaces_is_a_normed_space.html#ID-8f4a1efa-6661-463e-a7db-67f3fd180fc3">bounded hom</a> is also complete.
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $T_n$ be a <a href="20220105223523-fundamental_folge.html#ID-45b890ea-39cc-4f8c-bf97-4de5c09d772a">Cauchy</a> sequence in $\mathrm{BL}(X,Y)$.
+Then $T_n(x)$ is a cauchy sequence in $Y$ for $x \in X$:
+By assumption,
+</p>
+
+<div class="math-block">\begin{align*}
+\| T_n(x) - T_m(x) \| \leq \| T_n - T_m \| \cdot \| x \|
+\end{align*}</div>
+<p>
+where $\| x\|$ is constant and $\|T_n - T_m \|$ is a cauchy sequence (and everything is nonnegative).
+</p>
+
+<p>
+So define
+</p>
+
+<div class="math-block">\begin{align*}
+T \colon X \rightarrow&amp; Y \\
+x \mapsto&amp; \lim_{n \rightarrow \infty} T_n(x)
+\end{align*}</div>
+<p>
+where the limit exists, as $Y$ is cauchy.
+</p>
+
+<h3 id="well-defined">well-defined</h3>
+
+<h4 id="linear-operator">linear operator</h4>
+<p>
+for $x_1,x_2 \in X$ and $\lambda \in \mathbb{K}$ we get
+</p>
+
+<div class="math-block">\begin{align*}
+\lim_{n \rightarrow \infty}( T_n(x_1 + \lambda x_2)) =&amp; \lim_{n \rightarrow \infty}( T_n(x_1)  + \lambda T_n(x_2)) \\
+=&amp; \lim_{n \rightarrow \infty}( T_n(x_1))  + \lambda \lim_{n \rightarrow \infty}(T_n(x_2)) \\
+=&amp; T(x_1) + \lambda T(x_2)
+\end{align*}</div>
+
+<h4 id="bounded-operator">bounded operator</h4>
+<p>
+Observe that $\lim_{n \rightarrow \infty} \| T_n \|$ is a cauchy sequence in $\mathbb{R}^+$, so in particular convergent and bounded.
+So let $x \in X$, then
+</p>
+
+<div class="math-block">\begin{align*}
+\frac{\| \lim_{n \rightarrow \infty} T_n(x) \||}{\| x \|} =&amp; \lim_{n \rightarrow \infty} \frac{\| T_n(x) \|}{\| x \|} \leq \lim_{n \rightarrow \infty} \| T_n \|   
+\end{align*}</div>
+<p>
+so passing to supremum on the left side shows
+</p>
+
+<div class="math-block">\begin{align*}
+\| T \| \leq \lim_{n \rightarrow \infty} \| T_n \|   
+\end{align*}</div>
+<p>
+where the RHS is bounded.
+</p>
+
+<h3 id="limit-point">limit point</h3>
+<p>
+Let $\varepsilon &gt; 0$, then we need to show that there exists an $n_0 &gt;&gt; 0$ such that
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{sup}_{\| x \| = 1} \frac{\| T(x) - T_n(x) \|}{\| x \|} &lt; \varepsilon
+\end{align*}</div>
+<p>
+for all $n &gt; n_0$.
+</p>
+
+<p>
+Recall taht for every $x \in X$ and $k,l \in \mathbb{N}$ we have $\| T_k(x) - T_l(x) \leq \| T_k - T_l \| \cdot \| x \|$ (by the definition of the operator norm)
+Thus
+</p>
+
+<div class="math-block">\begin{align*}
+\forall \varepsilon &gt; 0 \exists N \in \mathbb{N} \forall k, l \geq N \forall x \in X : \| T_k x - T_l x\| \leq \varepsilon  \| x \|
+\end{align*}</div>
+<p>
+as $T_k$ is cauchy.
+</p>
+
+<p>
+In particular, passing to $\lim_{l \rightarrow \infty}$ shows
+</p>
+
+<div class="math-block">\begin{align*}
+\| T_k x - T x \| \leq&amp; \varepsilon \| x \|
+\end{align*}</div>
+<p>
+and passing to supremum shows
+</p>
+
+<div class="math-block">\begin{align*}
+\| T_k - T \| \leq&amp; \varepsilon
+\end{align*}</div>
+<p>
+for the operator norm
+</p>
+
+<p>
+In other words, $T_k \xrightarrow{n \rightarrow \infty} T$.
+</p>
+
+</div>
+</body>
+</html>

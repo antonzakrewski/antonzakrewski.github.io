@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 22:00 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Wohldefiniertheit des charakteristischen Polynoms bezüglich der Basis</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,52 +52,45 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Wohldefiniertheit des charakteristischen Polynoms bezüglich der Basis</h1>
-<div id="outline-container-org7edb33e" class="outline-2">
-<h2 id="org7edb33e"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-13842095-b256-4644-9559-5995c19cbc9e"></span><h1 class="title">Wohldefiniertheit des charakteristischen Polynoms bezüglich der Basis</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Das <a href="20230222202847-charakteristische_polynom.html#ID-dd44aea9-79be-473f-90e3-e2d6c67a41ae">charakteristische Polynom</a> ist <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">Wohldefiniert</a> bezüglich der Wahl der <a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">Basis</a> 
+Das <a href="20230222202847-charakteristische_polynom.html#ID-dd44aea9-79be-473f-90e3-e2d6c67a41ae">charakteristische Polynom</a> ist <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">Wohldefiniert</a> bezüglich der Wahl der <a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">Basis</a>
 </p>
-</div>
-</div>
-<div id="outline-container-org453d233" class="outline-2">
-<h2 id="org453d233"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<h2 id="beweis">Beweis</h2>
 <p>
-Sei \(f \in \mathrm{End}_K(V)\) und \(A_{f, B,B}, A'{f,B',B'} \in K^{n \times n}\) für gegebenfalls verschiedene <a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">Basen</a>  \(B,B'\)
-Dann existiert eine <a href="20220303181007-matrix.html#ID-3234cd94-0d93-470b-a319-75288f97326e">Matrix</a> für den <a href="20221210160045-satz_uber_den_basiswechsel.html#ID-b624872f-ba84-4d92-bfdb-930136bbb24a">Basiswechsel</a> \(C_{\mathrm{id}_{}, B,B'}\) bzw. \(C_{\mathrm{id}_{}, B', B} = C_{\mathrm{id}_{}, B,B'}^{-1}\)  
+Sei $f \in \mathrm{End}_K(V)$ und $A_{f, B,B}, A'{f,B',B'} \in K^{n \times n}$ für gegebenfalls verschiedene <a href="20221030151204-basis_vektorraum.html#ID-4b0d1e47-5503-4b26-9ab3-a142097c2624">Basen</a>  $B,B'$
+Dann existiert eine <a href="20220303181007-matrix.html#ID-3234cd94-0d93-470b-a319-75288f97326e">Matrix</a> für den <a href="20221210160045-satz_uber_den_basiswechsel.html#ID-b624872f-ba84-4d92-bfdb-930136bbb24a">Basiswechsel</a> $C_{\mathrm{id}_{}, B,B'}$ bzw. $C_{\mathrm{id}_{}, B', B} = C_{\mathrm{id}_{}, B,B'}^{-1}$
 Es folgt:
 </p>
-\begin{align*}
-A_{f,B,B} =& C_{\mathrm{id}_{}, B',B} A_{f, B',B'} C_{\mathrm{id}_{}, B,B'}
-\end{align*}
+
+<div class="math-block">\begin{align*}
+A_{f,B,B} =&amp; C_{\mathrm{id}_{}, B',B} A_{f, B',B'} C_{\mathrm{id}_{}, B,B'}
+\end{align*}</div>
 <p>
-und wegen der <a href="20221128194935-distributivitat_des_matrixprodukts.html#ID-4bbfac39-ca02-4d2b-b25d-595a0e7eda62">Distributivität des Matrixprodukts</a> 
+und wegen der <a href="20221128194935-distributivitat_des_matrixprodukts.html#ID-4bbfac39-ca02-4d2b-b25d-595a0e7eda62">Distributivität des Matrixprodukts</a>
 </p>
-\begin{align*}
-C_{\mathrm{id}_{}, B',B} (xE - A_{f, B',B'}) C_{\mathrm{id}_{}, B,B'} =& C_{\mathrm{id}_{}, B',B} x \cdot E C_{\mathrm{id}_{}, B,B'} - C_{\mathrm{id}_{}, B',B} A_{f, B',B'}) C_{\mathrm{id}_{}, B,B'} \\
-=&  x \cdot C_{\mathrm{id}_{}, B',B}  \cdot E C_{\mathrm{id}_{}, B,B'} - A_{f,B,B}  \\
-=&  x \cdot C_{\mathrm{id}_{}, B',B} \cdot C_{\mathrm{id}_{}, B,B'} - A_{f,B,B}  \\
-=& xE - A_{f,B,B} 
-\end{align*}
+
+<div class="math-block">\begin{align*}
+C_{\mathrm{id}_{}, B',B} (xE - A_{f, B',B'}) C_{\mathrm{id}_{}, B,B'} =&amp; C_{\mathrm{id}_{}, B',B} x \cdot E C_{\mathrm{id}_{}, B,B'} - C_{\mathrm{id}_{}, B',B} A_{f, B',B'}) C_{\mathrm{id}_{}, B,B'} \\
+=&amp;  x \cdot C_{\mathrm{id}_{}, B',B}  \cdot E C_{\mathrm{id}_{}, B,B'} - A_{f,B,B}  \\
+=&amp;  x \cdot C_{\mathrm{id}_{}, B',B} \cdot C_{\mathrm{id}_{}, B,B'} - A_{f,B,B}  \\
+=&amp; xE - A_{f,B,B} 
+\end{align*}</div>
 <p>
-Daraus folgt aus dem <a href="20221224180209-multiplikativitat_der_determinante.html#ID-3755c9f1-a210-4ed2-981d-efabc6596635">Determinantenproduktsatz</a>: 
+Daraus folgt aus dem <a href="20221224180209-multiplikativitat_der_determinante.html#ID-3755c9f1-a210-4ed2-981d-efabc6596635">Determinantenproduktsatz</a>:
 </p>
-\begin{align*}
-\det(C_{\mathrm{id}_{}, B',B} (xE - A_{f, B',B'}) C_{\mathrm{id}_{}, B,B'} ) =& \det(C_{\mathrm{id}_{}, B',B} \det(xE - A_{f, B',B'}) \det(C_{\mathrm{id}_{}, B,B'} ) \\
-=& \det(C_{\mathrm{id}_{}, B',B}  \det(C_{\mathrm{id}_{}, B',B}^{-1}) \det(xE - A_{f, B',B'}) \\
-=& \det(C_{\mathrm{id}_{}, B',B}  \det(C_{\mathrm{id}_{}, B',B})^{-1} \det(xE - A_{f, B',B'}) \\
-=& 1 \cdot \det(xE - A_{f, B',B'}) \\
-=& \det(xE - A_{f, B',B'})
-\end{align*}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 22:00</p>
+
+<div class="math-block">\begin{align*}
+\det(C_{\mathrm{id}_{}, B',B} (xE - A_{f, B',B'}) C_{\mathrm{id}_{}, B,B'} ) =&amp; \det(C_{\mathrm{id}_{}, B',B} \det(xE - A_{f, B',B'}) \det(C_{\mathrm{id}_{}, B,B'} ) \\
+=&amp; \det(C_{\mathrm{id}_{}, B',B}  \det(C_{\mathrm{id}_{}, B',B}^{-1}) \det(xE - A_{f, B',B'}) \\
+=&amp; \det(C_{\mathrm{id}_{}, B',B}  \det(C_{\mathrm{id}_{}, B',B})^{-1} \det(xE - A_{f, B',B'}) \\
+=&amp; 1 \cdot \det(xE - A_{f, B',B'}) \\
+=&amp; \det(xE - A_{f, B',B'})
+\end{align*}</div>
+
 </div>
 </body>
 </html>

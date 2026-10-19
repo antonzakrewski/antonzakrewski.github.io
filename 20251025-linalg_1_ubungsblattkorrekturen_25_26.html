@@ -1,208 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2026-02-01 So 14:02 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>LinAlg 1 - Übungsblattkorrekturen (25/26)</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -229,149 +52,91 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">LinAlg 1 - Übungsblattkorrekturen (25/26)</h1>
-<div id="outline-container-org7cde76d" class="outline-2">
-<h2 id="org7cde76d">Blatt 1</h2>
-<div class="outline-text-2" id="text-org7cde76d">
-</div>
-<div id="outline-container-org26231f9" class="outline-3">
-<h3 id="org26231f9">Aufgabe 4)</h3>
-<div class="outline-text-3" id="text-org26231f9">
-</div>
-<div id="outline-container-org8852329" class="outline-4">
-<h4 id="org8852329">allgemein</h4>
-<div class="outline-text-4" id="text-org8852329">
-<ul class="org-ul">
-<li>es wurde öfters vergessen, die gesamte Aufgabe zu bearbeiten: also z.B. beide Richtungen der Äquivalenz zu zeigen.<br /></li>
-<li>häufig wurde verschiedene Typen vertauscht, d.h. z.B. \(f \circ g = n\) geschrieben o.ä.: die linke Seite davon ist eine Abbildung von \(N\) nach \(N\) und die rechte Seite ist ein Element in \(n\)<br /></li>
+<span id="ID-b21e9f6a-6211-46a5-b702-4dd78fba531b"></span><h1 class="title">LinAlg 1 - Übungsblattkorrekturen (25/26)</h1>
+
+<h2 id="blatt-1">Blatt 1</h2>
+
+<h3 id="aufgabe-4">Aufgabe 4)</h3>
+
+<h4 id="allgemein">allgemein</h4>
+<ul>
+<li>es wurde öfters vergessen, die gesamte Aufgabe zu bearbeiten: also z.B. beide Richtungen der Äquivalenz zu zeigen.</li>
+
+<li>häufig wurde verschiedene Typen vertauscht, d.h. z.B. $f \circ g = n$ geschrieben o.ä.: die linke Seite davon ist eine Abbildung von $N$ nach $N$ und die rechte Seite ist ein Element in $n$</li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgb31ec1e" class="outline-4">
-<h4 id="orgb31ec1e">a) + b)</h4>
-<div class="outline-text-4" id="text-orgb31ec1e">
-<ul class="org-ul">
-<li>oft wurde vergessen, die linksseitige/rechtsseitige Umkehrfunktion sauber und explizit zu definieren.<br /></li>
-<li>es wurde oft mathematisch eher unsauber argumentiert, wieso das \(g\) nicht eindeutig sein muss. Einfacher und formaler wäre es, ein Gegenbeispiel anzugeben<br /></li>
-<li>die Richtung "injektiv \(\Rightarrow\) Existenz von \(g\) mit \(g \circ f = \mathrm{id}\)" fiel dabei meist schwerer als die Richtung "Existenz von \(g\) \(\Rightarrow\) \(f\) ist injektiv"<br /></li>
-<li>Interessanterweise gibt es injektive \(f: M \rightarrow N\) bei denen die rechtsseitige Umkehrabbildung eindeutig ist, obwohl \(f\) nicht surjektiv ist (z.B. jede Abbildung \(f: \{1\} \hookrightarrow \{1,2\}\)<br /></li>
+<h4 id="a-b">a) + b)</h4>
+<ul>
+<li>oft wurde vergessen, die linksseitige/rechtsseitige Umkehrfunktion sauber und explizit zu definieren.</li>
+
+<li>es wurde oft mathematisch eher unsauber argumentiert, wieso das $g$ nicht eindeutig sein muss. Einfacher und formaler wäre es, ein Gegenbeispiel anzugeben </li>
+
+<li>die Richtung "injektiv $\Rightarrow$ Existenz von $g$ mit $g \circ f = \mathrm{id}$" fiel dabei meist schwerer als die Richtung "Existenz von $g$ $\Rightarrow$ $f$ ist injektiv"</li>
+
+<li>Interessanterweise gibt es injektive $f: M \rightarrow N$ bei denen die rechtsseitige Umkehrabbildung eindeutig ist, obwohl $f$ nicht surjektiv ist (z.B. jede Abbildung $f: \{1\} \hookrightarrow \{1,2\}$</li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgc47aa32" class="outline-4">
-<h4 id="orgc47aa32">c)</h4>
-<div class="outline-text-4" id="text-orgc47aa32">
-<ul class="org-ul">
-<li>es wurde öfters vergessen, dass die Aufgabe 4a) &amp; 4b) einem ein \(g_L: N \rightarrow M\) und \(g_R: N \rightarrow M\) mit \(g_L \circ f = \mathrm{id}, f \circ g_R = \mathrm{id}\) gibt, aber die Aussage 4c) noch stärker ist, nämlich dass auch noch \(g_L = g_R\) gilt (was man zeigen muss).<br /></li>
+<h4 id="c">c)</h4>
+<ul>
+<li>es wurde öfters vergessen, dass die Aufgabe 4a) &amp; 4b) einem ein $g_L: N \rightarrow M$ und $g_R: N \rightarrow M$ mit $g_L \circ f = \mathrm{id}, f \circ g_R = \mathrm{id}$ gibt, aber die Aussage 4c) noch stärker ist, nämlich dass auch noch $g_L = g_R$ gilt (was man zeigen muss).  </li>
 </ul>
-</div>
-</div>
-</div>
-<div id="outline-container-org3407098" class="outline-3">
-<h3 id="org3407098">Aufgabe 6)</h3>
-<div class="outline-text-3" id="text-org3407098">
-</div>
-<div id="outline-container-org70ab96b" class="outline-4">
-<h4 id="org70ab96b">a)</h4>
-<div class="outline-text-4" id="text-org70ab96b">
-<ul class="org-ul">
-<li>diese Aufgabe ging ganz gut; es wäre schön, keine Brüche zu verwenden (weil man erst über die Äquivalenzrelation so etwas wie Brüche mathematisch sauber definieren kann)<br /></li>
+<h3 id="aufgabe-6">Aufgabe 6)</h3>
+
+<h4 id="a">a)</h4>
+<ul>
+<li>diese Aufgabe ging ganz gut; es wäre schön, keine Brüche zu verwenden (weil man erst über die Äquivalenzrelation so etwas wie Brüche mathematisch sauber definieren kann) </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org58ce696" class="outline-4">
-<h4 id="org58ce696">b)</h4>
-<div class="outline-text-4" id="text-org58ce696">
-<ul class="org-ul">
-<li>die meisten Abgaben haben vergessen, Wohldefiniertheit der Abbildung zu zeigen.<br /></li>
-<li>ich kann euch versprechen, dass man das in Linearer Algebra noch ein dutzend Mal zeigen wird<br /></li>
-<li>siehe: <a href="20230110140932-beweisstruktur_nachweis_von_wohldefiniertheit.html#ID-ec00f895-f5b1-4fb7-b5f1-2668c85a8224">Beweisstruktur: Nachweis von Wohldefiniertheit</a>   <br /></li>
+<h4 id="b">b)</h4>
+<ul>
+<li>die meisten Abgaben haben vergessen, Wohldefiniertheit der Abbildung zu zeigen.</li>
+
+<li>ich kann euch versprechen, dass man das in Linearer Algebra noch ein dutzend Mal zeigen wird</li>
+
+<li>siehe: <a href="20230110140932-beweisstruktur_nachweis_von_wohldefiniertheit.html#ID-ec00f895-f5b1-4fb7-b5f1-2668c85a8224">Beweisstruktur: Nachweis von Wohldefiniertheit</a>   </li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-org07899c8" class="outline-2">
-<h2 id="org07899c8">Blatt 2</h2>
-<div class="outline-text-2" id="text-org07899c8">
-</div>
-<div id="outline-container-orgab90151" class="outline-3">
-<h3 id="orgab90151">Allgemein</h3>
-<div class="outline-text-3" id="text-orgab90151">
+<h2 id="blatt-2">Blatt 2</h2>
+
+<h3 id="allgemein">Allgemein</h3>
 <p>
-Bei den 12 Abgaben die ich korrigieren durfte waren alle mindestens ordentlich, meist sogar gut bis sehr gut :)<br />
+Bei den 12 Abgaben die ich korrigieren durfte waren alle mindestens ordentlich, meist sogar gut bis sehr gut :)
 </p>
-</div>
-</div>
-<div id="outline-container-org8fdae79" class="outline-3">
-<h3 id="org8fdae79">Aufgabe 3)</h3>
-<div class="outline-text-3" id="text-org8fdae79">
-<ul class="org-ul">
-<li>die Aufgabe 3b) hat nichts mit der 3a zu tun, d.h. insbesondere gilt auch für eine (abelsche) gruppe auch im Allgemeinen nicht \(g^2 = e\)<br /></li>
+
+<h3 id="aufgabe-3">Aufgabe 3)</h3>
+<ul>
+<li>die Aufgabe 3b) hat nichts mit der 3a zu tun, d.h. insbesondere gilt auch für eine (abelsche) gruppe auch im Allgemeinen nicht $g^2 = e$</li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org4b68076" class="outline-3">
-<h3 id="org4b68076">Aufgabe 5)</h3>
-<div class="outline-text-3" id="text-org4b68076">
-<ul class="org-ul">
-<li>ich bin nicht ganz glücklich mit der Bezeichnung, „Sie dürfen grundlegende Aussagen zu Primzahlen, wie z.B. die Eindeutigkeit der Primfaktorzerlegung<br /></li>
+<h3 id="aufgabe-5">Aufgabe 5)</h3>
+<ul>
+<li>ich bin nicht ganz glücklich mit der Bezeichnung, „Sie dürfen grundlegende Aussagen zu Primzahlen, wie z.B. die Eindeutigkeit der Primfaktorzerlegung</li>
 </ul>
 <p>
-verwenden.“. Da es aber da stand, habe ich viele Fakten über Primzahlen akzeptiert. (hier reicht die 5b) &amp; Lemma 1.15 aus)<br />
+verwenden.“. Da es aber da stand, habe ich viele Fakten über Primzahlen akzeptiert. (hier reicht die 5b) &amp; Lemma 1.15 aus)
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgb96d0a4" class="outline-2">
-<h2 id="orgb96d0a4">Blatt 3</h2>
-<div class="outline-text-2" id="text-orgb96d0a4">
-</div>
-<div id="outline-container-orge773b4f" class="outline-3">
-<h3 id="orge773b4f">Allgemein</h3>
-<div class="outline-text-3" id="text-orge773b4f">
+
+<h2 id="blatt-3">Blatt 3</h2>
+
+<h3 id="allgemein">Allgemein</h3>
 <p>
-Bei den 12 Abgaben die ich korrigieren durfte waren alle mindestens ordentlich, meist sogar gut bis sehr gut :)<br />
+Bei den 12 Abgaben die ich korrigieren durfte waren alle mindestens ordentlich, meist sogar gut bis sehr gut :)
 </p>
-</div>
-</div>
-<div id="outline-container-orgb567d10" class="outline-3">
-<h3 id="orgb567d10">Aufgabe 4)</h3>
-</div>
-<div id="outline-container-org4c6b256" class="outline-3">
-<h3 id="org4c6b256">Aufgabe 5)</h3>
-</div>
-</div>
-<div id="outline-container-orgf37e427" class="outline-2">
-<h2 id="orgf37e427">Blatt 5</h2>
-<div class="outline-text-2" id="text-orgf37e427">
+
+<h3 id="aufgabe-4">Aufgabe 4)</h3>
+
+<h3 id="aufgabe-5">Aufgabe 5)</h3>
+
+<h2 id="blatt-5">Blatt 5</h2>
 <p>
-für die Direkte Summe von \((U \cap U'), W, W'\) kamen öfters falsche Argumente.<br />
-Das Gegenbeispiel an das man denken sollte wäre <a href="20251123-trivial_intersection_of_vector_spaces_and_intersection_with_direct_sum_in_general_not_trivial.html#ID-a52cd3cf-68e7-4f0d-ad43-732b53c376c5">trivial intersection of vector spaces and intersection with direct sum in general not trivial</a> <br />
+für die Direkte Summe von $(U \cap U'), W, W'$ kamen öfters falsche Argumente.
+Das Gegenbeispiel an das man denken sollte wäre <a href="20251123-trivial_intersection_of_vector_spaces_and_intersection_with_direct_sum_in_general_not_trivial.html#ID-a52cd3cf-68e7-4f0d-ad43-732b53c376c5">trivial intersection of vector spaces and intersection with direct sum in general not trivial</a>
 </p>
-</div>
-</div>
-<div id="outline-container-org9be0ccf" class="outline-2">
-<h2 id="org9be0ccf">Blatt 6</h2>
-<div class="outline-text-2" id="text-org9be0ccf">
-</div>
-<div id="outline-container-org6d1c26b" class="outline-3">
-<h3 id="org6d1c26b">Allgemein</h3>
-<div class="outline-text-3" id="text-org6d1c26b">
+
+<h2 id="blatt-6">Blatt 6</h2>
+
+<h3 id="allgemein">Allgemein</h3>
 <p>
-ich hatte durchgehend sehr gute Abgaben<br />
+ich hatte durchgehend sehr gute Abgaben
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-org3f0a9e7" class="outline-2">
-<h2 id="org3f0a9e7">Blatt</h2>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2026-02-01 So 14:02</p>
+
+<h2 id="blatt">Blatt</h2>
+
 </div>
 </body>
 </html>

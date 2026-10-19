@@ -1,208 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2025-10-20 Mo 12:45 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>LinAlg 1 - Tut 1 (24/25)</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -229,441 +52,355 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">LinAlg 1 - Tut 1 (24/25)</h1>
-<div id="outline-container-org08b9288" class="outline-2">
-<h2 id="org08b9288">Erinnerung</h2>
-<div class="outline-text-2" id="text-org08b9288">
-</div>
-<div id="outline-container-orgdd1672a" class="outline-3">
-<h3 id="orgdd1672a">disclaimer</h3>
-<div class="outline-text-3" id="text-orgdd1672a">
+<span id="ID-54b76a0a-ae84-4fb8-9f29-4638169127c1"></span><h1 class="title">LinAlg 1 - Tut 1 (24/25)</h1>
+
+<h2 id="erinnerung">Erinnerung</h2>
+
+<h3 id="disclaimer">disclaimer</h3>
 <p>
-Diese Erinnerung dient primär als Hilfe für die Tutoriumsaufgaben.<br />
+Diese Erinnerung dient primär als Hilfe für die Tutoriumsaufgaben.
 </p>
 
 <p>
-Insbesondere ist diese weder vollständig (ich habe leider als Tutor auch keine genauen Informationen zu den Vorlesungsinhalten) noch i.A. korrekt (ich habe viele Zettel selber während des ersten Semesters geschrieben und selten gegengelesen, d.h. jedes Buch wird um Größenordnungen weniger Fehler beinhalten)<br />
+Insbesondere ist diese weder vollständig (ich habe leider als Tutor auch keine genauen Informationen zu den Vorlesungsinhalten) noch i.A. korrekt (ich habe viele Zettel selber während des ersten Semesters geschrieben und selten gegengelesen, d.h. jedes Buch wird um Größenordnungen weniger Fehler beinhalten)
 </p>
-</div>
-</div>
-<div id="outline-container-org6ce4e0c" class="outline-3">
-<h3 id="org6ce4e0c">Liste</h3>
-<div class="outline-text-3" id="text-org6ce4e0c">
-<ul class="org-ul">
-<li><a href="20220725223641-extensionalitatsprinzip.html#ID-ed13fa3f-3106-4c24-82b4-a9dd10ee8568">Axiom of extensionality</a> <br /></li>
-<li><a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">Teilmenge</a>   <br /></li>
-<li><a href="20230317161154-allgemeine_vereinigung.html#ID-69c0d505-311b-4ea6-a337-8450d6529d02">Vereinigung</a> \(\bigcup\)<br /></li>
-<li><a href="20230317161158-allgemeiner_schnitt.html#ID-d7547939-8d3f-48f8-b2fd-cfb5734ae78f">Schnitt</a> \(\bigcap\)<br /></li>
-<li><a href="20220904090339-absolute_komplement.html#ID-ac89983c-e4da-4840-8979-63428383fe13">absolute Komplement</a> \(\overline{A}\) bzw. \((-)^{\mathrm{c}}\)<br /></li>
-<li><a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a>   <br /></li>
+
+<h3 id="liste">Liste</h3>
+<ul>
+<li><a href="20220725223641-extensionalitatsprinzip.html#ID-ed13fa3f-3106-4c24-82b4-a9dd10ee8568">Axiom of extensionality</a> </li>
+
+<li><a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">Teilmenge</a>   </li>
+
+<li><a href="20230317161154-allgemeine_vereinigung.html#ID-69c0d505-311b-4ea6-a337-8450d6529d02">Vereinigung</a> $\bigcup$</li>
+
+<li><a href="20230317161158-allgemeiner_schnitt.html#ID-d7547939-8d3f-48f8-b2fd-cfb5734ae78f">Schnitt</a> $\bigcap$</li>
+
+<li><a href="20220904090339-absolute_komplement.html#ID-ac89983c-e4da-4840-8979-63428383fe13">absolute Komplement</a> $\overline{A}$ bzw. $(-)^{\mathrm{c}}$</li>
+
+<li><a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a>   </li>
+
+<li><a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injektiv</a> </li>
+
+<li><a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjektiv</a>  </li>
+
+<li><a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">bijektiv</a>   </li>
 </ul>
+<h2 id="aufgaben">Aufgaben</h2>
 
-<ul class="org-ul">
-<li><a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injektiv</a> <br /></li>
-<li><a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjektiv</a>  <br /></li>
-<li><a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">bijektiv</a>   <br /></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-org26a9687" class="outline-2">
-<h2 id="org26a9687">Aufgaben</h2>
-<div class="outline-text-2" id="text-org26a9687">
-</div>
-<div id="outline-container-org344e42c" class="outline-3">
-<h3 id="org344e42c">1)</h3>
-<div class="outline-text-3" id="text-org344e42c">
+<h3 id="1">1)</h3>
 <p>
-Sei \(X\) eine <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a>, \(B \subseteq X\) eine <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">Teilmenge</a> und \(A_i \subseteq X\) eine <a href="20220823154734-mengenfamilie.html#ID-d5f647a4-b9c9-406e-82fc-ceeaacb27fd9">Familie</a> von Teilmengen<br />
+Sei $X$ eine <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a>, $B \subseteq X$ eine <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">Teilmenge</a> und $A_i \subseteq X$ eine <a href="20220823154734-mengenfamilie.html#ID-d5f647a4-b9c9-406e-82fc-ceeaacb27fd9">Familie</a> von Teilmengen
 </p>
 
 <p>
-Zeige<br />
+Zeige
 </p>
-\begin{align*}
-(\bigcup_{i \in I} A_i) \cap B =& \bigcup_{i \in I} (A_i \cap B) \\
-(\bigcap_{i \in I} A_i) \cup B =& \bigcap_{i \in I} (A_i \cup B)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org2436fdc" class="outline-3">
-<h3 id="org2436fdc">2)</h3>
-<div class="outline-text-3" id="text-org2436fdc">
+
+<div class="math-block">\begin{align*}
+(\bigcup_{i \in I} A_i) \cap B =&amp; \bigcup_{i \in I} (A_i \cap B) \\
+(\bigcap_{i \in I} A_i) \cup B =&amp; \bigcap_{i \in I} (A_i \cup B)
+\end{align*}</div>
+
+<h3 id="2">2)</h3>
 <p>
-für eine <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a>  \(f: X \rightarrow Y\) ist ein Linksinverses eine Abbildung \(g: Y \rightarrow X\) so dass die Verknüpfung<br />
+für eine <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a>  $f: X \rightarrow Y$ ist ein Linksinverses eine Abbildung $g: Y \rightarrow X$ so dass die Verknüpfung
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 g \circ f = \mathrm{id}_X
-\end{align*}
+\end{align*}</div>
 <p>
-ergibt.<br />
+ergibt.
 </p>
 
 <p>
-Dual ist ein Rechtsinverses eine Abbildung \(g: Y \rightarrow X\) so dass gilt<br />
+Dual ist ein Rechtsinverses eine Abbildung $g: Y \rightarrow X$ so dass gilt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 f \circ g = \mathrm{id}_Y
-\end{align*}
+\end{align*}</div>
 
 <p>
-Zeige dass folgende Aussagen äquivalent sind<br />
+Zeige dass folgende Aussagen äquivalent sind
 </p>
-</div>
-<div id="outline-container-org54a5051" class="outline-4">
-<h4 id="org54a5051">a)</h4>
-<div class="outline-text-4" id="text-org54a5051">
-<ol class="org-ol">
-<li>\(f\) ist injektiv (und \(X\) ist <a href="20220902125304-nichtleere_menge.html#ID-119fa0d9-a2b3-4b46-bb61-a6e590282321">nichtleer</a>)<br /></li>
-<li>\(f\) hat ein Linksinverses<br /></li>
+
+<h4 id="a">a)</h4>
+<ol>
+<li>$f$ ist injektiv (und $X$ ist <a href="20220902125304-nichtleere_menge.html#ID-119fa0d9-a2b3-4b46-bb61-a6e590282321">nichtleer</a>)</li>
+
+<li>$f$ hat ein Linksinverses</li>
 </ol>
-</div>
-</div>
-<div id="outline-container-org49be96b" class="outline-4">
-<h4 id="org49be96b">b)</h4>
-<div class="outline-text-4" id="text-org49be96b">
-<ol class="org-ol">
-<li>\(f\) ist surjektiv<br /></li>
-<li>\(f\) hat ein Rechtsinverses<br /></li>
+<h4 id="b">b)</h4>
+<ol>
+<li>$f$ ist surjektiv</li>
+
+<li>$f$ hat ein Rechtsinverses</li>
 </ol>
-</div>
-</div>
-<div id="outline-container-org6d43d31" class="outline-4">
-<h4 id="org6d43d31">c)</h4>
-<div class="outline-text-4" id="text-org6d43d31">
+<h4 id="c">c)</h4>
 <p>
-Folgere dass äquivalent sind<br />
+Folgere dass äquivalent sind
 </p>
-<ol class="org-ol">
-<li>\(f\) ist bijektiv<br /></li>
-<li>\(f\) hat ein beidseitig inverses, d.h. eine Abbildung \(g\) welche sowohl Links- als auch Rechtsinverses ist.<br /></li>
+<ol>
+<li>$f$ ist bijektiv</li>
+
+<li>$f$ hat ein beidseitig inverses, d.h. eine Abbildung $g$ welche sowohl Links- als auch Rechtsinverses ist.</li>
 </ol>
-</div>
-</div>
-</div>
-<div id="outline-container-org5a31052" class="outline-3">
-<h3 id="org5a31052">3)</h3>
-<div class="outline-text-3" id="text-org5a31052">
+
+<h3 id="3">3)</h3>
 <p>
-Zeige für das absolute Komplement<br />
+Zeige für das absolute Komplement
 </p>
-\begin{align*}
-\overline{(\bigcup_{i \in I} A_i)} =& \bigcap_{i \in I} \overline{A_i} \\
-\overline{(\bigcap_{i \in I} A_i)} =& \bigcup_{i \in I} \overline{A_i} \\
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org89936a5" class="outline-3">
-<h3 id="org89936a5">4)</h3>
-<div class="outline-text-3" id="text-org89936a5">
+
+<div class="math-block">\begin{align*}
+\overline{(\bigcup_{i \in I} A_i)} =&amp; \bigcap_{i \in I} \overline{A_i} \\
+\overline{(\bigcap_{i \in I} A_i)} =&amp; \bigcup_{i \in I} \overline{A_i} \\
+\end{align*}</div>
+
+<h3 id="4">4)</h3>
 <p>
-Sei \(X\) eine Menge, \(\{w,f\}\) eine Menge mit 2 Elementen.<br />
+Sei $X$ eine Menge, $\{w,f\}$ eine Menge mit 2 Elementen.
 </p>
 
 <p>
-Sei \(\mathrm{Abb}(X, \{w,f\})\) die Menge mit genau den Abbildungen \(f: X \rightarrow \{w,f\}\) als Elementen.<br />
+Sei $\mathrm{Abb}(X, \{w,f\})$ die Menge mit genau den Abbildungen $f: X \rightarrow \{w,f\}$ als Elementen.
 </p>
 
 <p>
-Sei \(\mathcal{P}(X)\) die <a href="20220108205337-potenzmenge.html#ID-2615a647-bca5-49f5-919d-cf131c750c2b">Potenzmenge</a>.<br />
+Sei $\mathcal{P}(X)$ die <a href="20220108205337-potenzmenge.html#ID-2615a647-bca5-49f5-919d-cf131c750c2b">Potenzmenge</a>.
 </p>
 
 <p>
-Finde eine Bijektion<br />
+Finde eine Bijektion
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \mathrm{Abb}(X, \{w,f\}) \rightarrow \mathcal{P}(X)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org6758803" class="outline-3">
-<h3 id="org6758803">5)</h3>
-<div class="outline-text-3" id="text-org6758803">
+\end{align*}</div>
+
+<h3 id="5">5)</h3>
 <p>
-Seien \(U_1, U_2 \subseteq X\) und \(V_1,V_2 \subseteq Y\) Teilmengen und \(f: X \rightarrow Y\) eine Abbildung<br />
-Zeige oder wiederlege<br />
+Seien $U_1, U_2 \subseteq X$ und $V_1,V_2 \subseteq Y$ Teilmengen und $f: X \rightarrow Y$ eine Abbildung
+Zeige oder wiederlege
 </p>
-<ol class="org-ol">
-<li>\(f[U_1 \cup U_2] = f[U_1] \cup f[U_2]\)<br /></li>
-<li>\(f[U_1 \cap U_2] = f[U_1] \cap f[U_2]\)<br /></li>
-<li>\(f^{-1}[V_1 \cup V_2] = f^{-1}[V_1] \cup f^{-1}[V_2]\)<br /></li>
-<li>\(f^{-1}[V_1 \cap V_2] = f^{-1}[V_1] \cap f^{-1}[V_2]\)<br /></li>
+<ol>
+<li>$f[U_1 \cup U_2] = f[U_1] \cup f[U_2]$</li>
+
+<li>$f[U_1 \cap U_2] = f[U_1] \cap f[U_2]$</li>
+
+<li>$f^{-1}[V_1 \cup V_2] = f^{-1}[V_1] \cup f^{-1}[V_2]$</li>
+
+<li>$f^{-1}[V_1 \cap V_2] = f^{-1}[V_1] \cap f^{-1}[V_2]$</li>
 </ol>
-</div>
-</div>
-</div>
-<div id="outline-container-orge319339" class="outline-2">
-<h2 id="orge319339">Kommentare zu meinem eigenen Tutorium</h2>
-<div class="outline-text-2" id="text-orge319339">
-</div>
-<div id="outline-container-orgf14e8f4" class="outline-3">
-<h3 id="orgf14e8f4">Mittwochstutorium</h3>
-<div class="outline-text-3" id="text-orgf14e8f4">
+
+<h2 id="kommentare-zu-meinem-eigenen-tutorium">Kommentare zu meinem eigenen Tutorium</h2>
+
+<h3 id="mittwochstutorium">Mittwochstutorium</h3>
 <p>
-Ich denke ich war zu schnell und auch zu formal.<br />
-Wenn ich zu schnell bin, ist das <b>mein</b> Fehler (und nicht eurer).<br />
-Ich hätte paar mehr Bilder malen sollen, die Sachen intuitiver erklären.<br />
-Ich hätte etwas expliziter die grundlegenden Beweistechniken erklären sollen.<br />
-Das tut mir Leid.<br />
+Ich denke ich war zu schnell und auch zu formal.
+Wenn ich zu schnell bin, ist das <strong>mein</strong> Fehler (und nicht eurer).
+Ich hätte paar mehr Bilder malen sollen, die Sachen intuitiver erklären.
+Ich hätte etwas expliziter die grundlegenden Beweistechniken erklären sollen.
+Das tut mir Leid.
 </p>
 
 <p>
-Ich war auch etwas unsicher (was sich am Donnerstag gelegt hat).<br />
+Ich war auch etwas unsicher (was sich am Donnerstag gelegt hat).
 </p>
 
 <p>
-Danke auf jeden Fall an alle, die Fragen gestellt haben, das hat mir das Tutorieren erleichtert.<br />
+Danke auf jeden Fall an alle, die Fragen gestellt haben, das hat mir das Tutorieren erleichtert.
 </p>
 
 <p>
-Paar Sachen die ich etwas ungenau erklärt habe<br />
+Paar Sachen die ich etwas ungenau erklärt habe
 </p>
-</div>
-<div id="outline-container-orgdd80e75" class="outline-4">
-<h4 id="orgdd80e75">Bildmenge</h4>
-<div class="outline-text-4" id="text-orgdd80e75">
+
+<h4 id="bildmenge">Bildmenge</h4>
 <p>
-Ich habe die <a href="20221224140013-bildmenge.html#ID-def6ffac-1c21-427b-bacf-7b8580f5d7dd">Bildmenge</a> für eine Abbildung \(f: X \rightarrow Y\) und eine Teilmenge \(U \subseteq X\) definiert als<br />
+Ich habe die <a href="20221224140013-bildmenge.html#ID-def6ffac-1c21-427b-bacf-7b8580f5d7dd">Bildmenge</a> für eine Abbildung $f: X \rightarrow Y$ und eine Teilmenge $U \subseteq X$ definiert als
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 f[U] = \{f(x) \vert x \in U \}
-\end{align*}
+\end{align*}</div>
 <p>
-Die Definition ist nicht falsch (wenn man versteht, was sie sagt), sie ist (für den Anfang) etwas nur sloppy.<br />
-Eine formellere Definition ist<br />
+Die Definition ist nicht falsch (wenn man versteht, was sie sagt), sie ist (für den Anfang) etwas nur sloppy.
+Eine formellere Definition ist
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 f[U] = \{y \in Y \vert \exists x \in U \mathrm{mit} f(x) = y\}
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgda8acdb" class="outline-4">
-<h4 id="orgda8acdb">Schnitt und Vereinigung</h4>
-<div class="outline-text-4" id="text-orgda8acdb">
+\end{align*}</div>
+
+<h4 id="schnitt-und-vereinigung">Schnitt und Vereinigung</h4>
 <p>
-Das folgende ist eine technische Erklärung (ich war auch im Tutorium verwirrt) und für die Vorlesung nicht weiter wichtig.<br />
+Das folgende ist eine technische Erklärung (ich war auch im Tutorium verwirrt) und für die Vorlesung nicht weiter wichtig.
 </p>
 
 <p>
-Sei<br />
+Sei
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \bigcap_{i \in I} (A_i \cup B) \subseteq (\bigcap_{i \in I} A_i) \cup B
-\end{align*}
+\end{align*}</div>
 <p>
-zu zeigen.<br />
+zu zeigen.
 </p>
 
 <p>
-Sei \(x \in \bigcap_{i \in I} (A_i \cup B)\) ein Element.<br />
-Dann gilt für beliebiges \(i \in I\) auch \(x \in (A_i \cap B)\).<br />
+Sei $x \in \bigcap_{i \in I} (A_i \cup B)$ ein Element.
+Dann gilt für beliebiges $i \in I$ auch $x \in (A_i \cap B)$.
 </p>
 
 <p>
-Hier funktioniert eine Fallunterscheidung \(x \in A_i\) oder \(x \in B\) (vermutlich) nicht.<br />
-Das Problem ist, dass im Fall \(x \in A_i\) a priori nur gegeben ist, dass \(x \in A_i\) für dieses eine \(i\) - und nicht alle \(i \in I\) - gilt.<br />
-Damit kann man leider nicht dass \(\bigcap\) einführen.<br />
+Hier funktioniert eine Fallunterscheidung $x \in A_i$ oder $x \in B$ (vermutlich) nicht.
+Das Problem ist, dass im Fall $x \in A_i$ a priori nur gegeben ist, dass $x \in A_i$ für dieses eine $i$ - und nicht alle $i \in I$ - gilt.
+Damit kann man leider nicht dass $\bigcap$ einführen.
 </p>
 
 <p>
-Ich denke, dass man hier einen Widerspruchsbeweis braucht (also über \(x \in B\) oder \(x \not\in B\)).<br />
-siehe:<br />
+Ich denke, dass man hier einen Widerspruchsbeweis braucht (also über $x \in B$ oder $x \not\in B$).
+siehe:
 </p>
-<ul class="org-ul">
-<li><a href="20241023-schnitt_von_den_vereinigungen.html#ID-e06aabec-c925-4b0d-bd24-63ded9a3c0ad">Schnitt von den Vereinigungen</a> <br /></li>
+<ul>
+<li><a href="20241023-schnitt_von_den_vereinigungen.html#ID-e06aabec-c925-4b0d-bd24-63ded9a3c0ad">Schnitt von den Vereinigungen</a> </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org582aafe" class="outline-4">
-<h4 id="org582aafe">Gleichheit von Mengen und Abbildungen</h4>
-<div class="outline-text-4" id="text-org582aafe">
+<h4 id="gleichheit-von-mengen-und-abbildungen">Gleichheit von Mengen und Abbildungen</h4>
 <p>
-Ob für eine Abbildung \(f: X \rightarrow Y\) \(X\) und \(Y\) unterschiedliche Elemente haben ist i.A. unwichtig.<br />
-Man z.B. auch für den Fall \(X = Y\) (also alle Elemente im einen sind die Elemente vom anderen) abbildungen<br />
+Ob für eine Abbildung $f: X \rightarrow Y$ $X$ und $Y$ unterschiedliche Elemente haben ist i.A. unwichtig.
+Man z.B. auch für den Fall $X = Y$ (also alle Elemente im einen sind die Elemente vom anderen) abbildungen
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 f: X \rightarrow X
-\end{align*}
+\end{align*}</div>
 <p>
-konstruieren, z.b<br />
+konstruieren, z.b
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 f: \{1,2\} \rightarrow \{1,2\} \\
-1 \mapsto& 2\\
-2 \mapsto& 1 \\
-\end{align*}
-</div>
-</div>
-</div>
-<div id="outline-container-org9e26d8f" class="outline-3">
-<h3 id="org9e26d8f">Donnerstagstutorium</h3>
-<div class="outline-text-3" id="text-org9e26d8f">
+1 \mapsto&amp; 2\\
+2 \mapsto&amp; 1 \\
+\end{align*}</div>
+
+
+
+
+
+<h3 id="donnerstagstutorium">Donnerstagstutorium</h3>
 <p>
-Ich habe gleich viel wie im Mittwochstutorium geschafft.<br />
-Ich denke im wesentlichen konnte ich meine Kritikpunkte ans erste Tutorium umsetzen.<br />
+Ich habe gleich viel wie im Mittwochstutorium geschafft.
+Ich denke im wesentlichen konnte ich meine Kritikpunkte ans erste Tutorium umsetzen.
 </p>
 
 <p>
-Ich war weniger einschüchternd, die Atmosphäre war entspannter.<br />
+Ich war weniger einschüchternd, die Atmosphäre war entspannter.
 </p>
 
 <p>
-Indexmenge und über etwas zu induzieren ist etwas verwirrend erklärt, das über eine Abbildung zu definieren ist mathematisch die formelle Art und Weise, aber unintuitiv.<br />
+Indexmenge und über etwas zu induzieren ist etwas verwirrend erklärt, das über eine Abbildung zu definieren ist mathematisch die formelle Art und Weise, aber unintuitiv.
 </p>
 
 <p>
-Es hat mich gefreut, dass viele von euch so aktiv und motiviert dabei waren.<br />
+Es hat mich gefreut, dass viele von euch so aktiv und motiviert dabei waren.
 </p>
 
 <p>
-Und auch lustige Morel Zitate könnt ihr mir gerne mitteilen :)<br />
+Und auch lustige Morel Zitate könnt ihr mir gerne mitteilen :)
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgf26fdfa" class="outline-2">
-<h2 id="orgf26fdfa">Lösungsskizzen</h2>
-<div class="outline-text-2" id="text-orgf26fdfa">
-</div>
-<div id="outline-container-org0a4257e" class="outline-3">
-<h3 id="org0a4257e">1)</h3>
-<div class="outline-text-3" id="text-org0a4257e">
-<ul class="org-ul">
-<li><a href="20230324121812-allgemeine_distributivgesetz_fur_vereinigung_und_schnitt.html#ID-2365d754-a288-4146-9866-3d818afa661b">Allgemeine Distributivgesetz für Vereinigung und Schnitt</a><br /></li>
-<li><a href="20241023-schnitt_von_den_vereinigungen.html#ID-e06aabec-c925-4b0d-bd24-63ded9a3c0ad">Schnitt von den Vereinigungen</a> <br /></li>
+
+<h2 id="losungsskizzen">Lösungsskizzen</h2>
+
+<h3 id="1">1)</h3>
+<ul>
+<li><a href="20230324121812-allgemeine_distributivgesetz_fur_vereinigung_und_schnitt.html#ID-2365d754-a288-4146-9866-3d818afa661b">Allgemeine Distributivgesetz für Vereinigung und Schnitt</a></li>
+
+<li><a href="20241023-schnitt_von_den_vereinigungen.html#ID-e06aabec-c925-4b0d-bd24-63ded9a3c0ad">Schnitt von den Vereinigungen</a> </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgfff257b" class="outline-3">
-<h3 id="orgfff257b">2)</h3>
-<div class="outline-text-3" id="text-orgfff257b">
-<ul class="org-ul">
-<li><a href="20241020-injektion_und_rechtsinverse.html#ID-8ecae26f-bcd1-47ea-a956-60a46e9177c5">Injektion und Rechtsinverse</a>  <br /></li>
-<li><a href="20241020-surjektion_und_linksinverse.html#ID-c03c0abc-0ce2-46cd-97ad-d49176be42e9">Surjektion und Linksinverse</a>   <br /></li>
-<li><a href="20241020-bijektion_und_umkehrfunktion.html#ID-736b36d5-7005-4d4a-adbd-d7f8d4f94e6d">bijektion und umkehrfunktion</a> <br /></li>
+<h3 id="2">2)</h3>
+<ul>
+<li><a href="20241020-injektion_und_rechtsinverse.html#ID-8ecae26f-bcd1-47ea-a956-60a46e9177c5">Injektion und Rechtsinverse</a>  </li>
+
+<li><a href="20241020-surjektion_und_linksinverse.html#ID-c03c0abc-0ce2-46cd-97ad-d49176be42e9">Surjektion und Linksinverse</a>   </li>
+
+<li><a href="20241020-bijektion_und_umkehrfunktion.html#ID-736b36d5-7005-4d4a-adbd-d7f8d4f94e6d">bijektion und umkehrfunktion</a> </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgd0163e6" class="outline-3">
-<h3 id="orgd0163e6">3)</h3>
-<div class="outline-text-3" id="text-orgd0163e6">
-<ul class="org-ul">
-<li><a href="20240910-complement_union_and_intersection.html#ID-12342026-2e51-414d-ae8b-8093a4288ec3">complement dualizes union and intersection</a> <br /></li>
+<h3 id="3">3)</h3>
+<ul>
+<li><a href="20240910-complement_union_and_intersection.html#ID-12342026-2e51-414d-ae8b-8093a4288ec3">complement dualizes union and intersection</a> </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org16f0e39" class="outline-3">
-<h3 id="org16f0e39">4)</h3>
-<div class="outline-text-3" id="text-org16f0e39">
-<ul class="org-ul">
-<li><a href="20221019170812-charakteristische_funktion_einer_teilmenge.html#ID-496e4797-3efb-493a-aece-c86770c46d12">charakteristische Funktion einer Teilmenge</a> <br /></li>
-<li><a href="20241020-bijektion_der_potenzmenge_und_den_charakteristischen_funktion.html#ID-d98056e4-2879-47d9-a73c-c509d9dd4612">bijektion der Potenzmenge und den charakteristischen Funktion</a>   <br /></li>
+<h3 id="4">4)</h3>
+<ul>
+<li><a href="20221019170812-charakteristische_funktion_einer_teilmenge.html#ID-496e4797-3efb-493a-aece-c86770c46d12">charakteristische Funktion einer Teilmenge</a> </li>
+
+<li><a href="20241020-bijektion_der_potenzmenge_und_den_charakteristischen_funktion.html#ID-d98056e4-2879-47d9-a73c-c509d9dd4612">bijektion der Potenzmenge und den charakteristischen Funktion</a>   </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org828b381" class="outline-3">
-<h3 id="org828b381">5)</h3>
-<div class="outline-text-3" id="text-org828b381">
-</div>
-<div id="outline-container-orge8b971d" class="outline-4">
-<h4 id="orge8b971d">1) wahr</h4>
-<div class="outline-text-4" id="text-orge8b971d">
-<ul class="org-ul">
-<li><a href="20230522165952-bild_und_vereinigung.html#ID-e5d426be-3447-44f8-97f4-4b9c6d0f8f0b">image and union</a> <br /></li>
+<h3 id="5">5)</h3>
+
+<h4 id="1-wahr">1) wahr</h4>
+<ul>
+<li><a href="20230522165952-bild_und_vereinigung.html#ID-e5d426be-3447-44f8-97f4-4b9c6d0f8f0b">image and union</a> </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orge4c79bb" class="outline-4">
-<h4 id="orge4c79bb">2) i.A. falsch</h4>
-<div class="outline-text-4" id="text-orge4c79bb">
-<ul class="org-ul">
-<li><a href="20241020-bild_und_schnitt_kommutieren_i_a_nicht.html#ID-be88b15c-f3dd-4fad-bb32-7f9f95b91cbb">Bild und Schnitt kommutieren i.A. nicht</a> <br /></li>
-<li>Bemerkung: es gilt immerhin <a href="20230522170637-bild_und_schnitt.html#ID-df5f6475-ac83-4335-a2a0-7562b52b22f7">image and intersection</a> <br /></li>
+<h4 id="2-ia-falsch">2) i.A. falsch</h4>
+<ul>
+<li><a href="20241020-bild_und_schnitt_kommutieren_i_a_nicht.html#ID-be88b15c-f3dd-4fad-bb32-7f9f95b91cbb">Bild und Schnitt kommutieren i.A. nicht</a> </li>
+
+<li>Bemerkung: es gilt immerhin <a href="20230522170637-bild_und_schnitt.html#ID-df5f6475-ac83-4335-a2a0-7562b52b22f7">image and intersection</a> </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgdaf5dd8" class="outline-4">
-<h4 id="orgdaf5dd8">3)</h4>
-<div class="outline-text-4" id="text-orgdaf5dd8">
-<ul class="org-ul">
-<li><a href="20230207111547-vereinigung_von_beliebig_vielen_mengen_beim_bild.html#ID-07499b54-0b64-4699-be7c-d2e22a80bcfd">Vereinigung von beliebig vielen Mengen beim Urbild</a>   <br /></li>
+<h4 id="3">3)</h4>
+<ul>
+<li><a href="20230207111547-vereinigung_von_beliebig_vielen_mengen_beim_bild.html#ID-07499b54-0b64-4699-be7c-d2e22a80bcfd">Vereinigung von beliebig vielen Mengen beim Urbild</a>   </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgff2fedb" class="outline-4">
-<h4 id="orgff2fedb">4)</h4>
-<div class="outline-text-4" id="text-orgff2fedb">
-<ul class="org-ul">
-<li><a href="20230228184214-urbild_vom_durchschnitt.html#ID-55918080-5c82-4743-9578-74dda4c85693">preimage commutes with intersections</a> <br /></li>
+<h4 id="4">4)</h4>
+<ul>
+<li><a href="20230228184214-urbild_vom_durchschnitt.html#ID-55918080-5c82-4743-9578-74dda4c85693">preimage commutes with intersections</a> </li>
 </ul>
-</div>
-</div>
-</div>
-<div id="outline-container-org1350677" class="outline-3">
-<h3 id="org1350677">Kommentar zu den Lösungsskizzen</h3>
-<div class="outline-text-3" id="text-org1350677">
+
+
+<h3 id="kommentar-zu-den-losungsskizzen">Kommentar zu den Lösungsskizzen</h3>
 <p>
-Die Lösungen im Tutorium waren sehr kleinschrittig und formal.<br />
-Die Skizzen hier sind dagegen informeller und kürzer.<br />
+Die Lösungen im Tutorium waren sehr kleinschrittig und formal.
+Die Skizzen hier sind dagegen informeller und kürzer.
 </p>
 
 <p>
-Im Laufe des Semesters (und Studium) werden die Beweise immer weniger kleinschrittig (sowohl in der VL als auch das was von euch verlangt ist), weil mit der Zeit erwartet wird, dass ihr diese auch prinzipiell ausfüllen könntet (wenn ihr müsstet)<br />
+Im Laufe des Semesters (und Studium) werden die Beweise immer weniger kleinschrittig (sowohl in der VL als auch das was von euch verlangt ist), weil mit der Zeit erwartet wird, dass ihr diese auch prinzipiell ausfüllen könntet (wenn ihr müsstet)
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgcb90bfc" class="outline-2">
-<h2 id="orgcb90bfc">Meinung zu Andreis Aufgabensammlung</h2>
-<div class="outline-text-2" id="text-orgcb90bfc">
-</div>
-<div id="outline-container-org09204c3" class="outline-3">
-<h3 id="org09204c3">1)</h3>
-<div class="outline-text-3" id="text-org09204c3">
+
+<h2 id="meinung-zu-andreis-aufgabensammlung">Meinung zu Andreis Aufgabensammlung</h2>
+
+<h3 id="1">1)</h3>
 <p>
-Aufgabe 1.1 und 1.2 halte ich für am wichtigsten.<br />
-Aufgabe 1.3 und 1.4 sind auch sehr gute Übungen.<br />
-Die Aufgaben zur symmetrischen Differenz (5 - 11) sind hilfreich, wenn man mehr Übung zu Mengen haben möchte.<br />
-Wenn man sich aber sicher mit Mengen fühlt, kann (sollte ?) man lieber stattdessen andere Aufgaben machen.<br />
-Die Aufgabe 1.12 ist wieder eine sehr gute Aufgabe.<br />
+Aufgabe 1.1 und 1.2 halte ich für am wichtigsten.
+Aufgabe 1.3 und 1.4 sind auch sehr gute Übungen.
+Die Aufgaben zur symmetrischen Differenz (5 - 11) sind hilfreich, wenn man mehr Übung zu Mengen haben möchte.
+Wenn man sich aber sicher mit Mengen fühlt, kann (sollte ?) man lieber stattdessen andere Aufgaben machen.
+Die Aufgabe 1.12 ist wieder eine sehr gute Aufgabe.
 </p>
-</div>
-</div>
-<div id="outline-container-org5b32526" class="outline-3">
-<h3 id="org5b32526">2)</h3>
-<div class="outline-text-3" id="text-org5b32526">
+
+<h3 id="2">2)</h3>
 <p>
-Ich halte v.a. die Richtung "hat links (rechts-) inverses impliziert injektiv (surjektiv)" für sehr wichtig.<br />
-Die andere Richtung ist auch eine gute Übung, aber etwas technischer.<br />
+Ich halte v.a. die Richtung "hat links (rechts-) inverses impliziert injektiv (surjektiv)" für sehr wichtig.
+Die andere Richtung ist auch eine gute Übung, aber etwas technischer.
 </p>
-</div>
-</div>
-<div id="outline-container-org2c9f79a" class="outline-3">
-<h3 id="org2c9f79a">3)</h3>
-<div class="outline-text-3" id="text-org2c9f79a">
+
+<h3 id="3">3)</h3>
 <p>
-Ich halte diese Aufgabe für relativ schwierig und auch nicht (direkt) wichtig.<br />
-Dennoch finde ich sollte man den Lösungsweg gesehen haben:<br />
-Man weiß nichts über die Menge \(X\) und macht "das einzige was man irgendwie machen kann" und es funktioniert.<br />
-In (Linearer) Algebra sind Beweise häufig ähnlich, dass man fast keine Annahmen hat und daraus etwas konstruieren muss.<br />
+Ich halte diese Aufgabe für relativ schwierig und auch nicht (direkt) wichtig.
+Dennoch finde ich sollte man den Lösungsweg gesehen haben:
+Man weiß nichts über die Menge $X$ und macht "das einzige was man irgendwie machen kann" und es funktioniert.
+In (Linearer) Algebra sind Beweise häufig ähnlich, dass man fast keine Annahmen hat und daraus etwas konstruieren muss.
 </p>
-</div>
-</div>
-<div id="outline-container-orge69b2f9" class="outline-3">
-<h3 id="orge69b2f9">4)</h3>
-<div class="outline-text-3" id="text-orge69b2f9">
+
+<h3 id="4">4)</h3>
 <p>
-Die letzte Aufgabe ist zwar eine nette Knobelaufgabe, aber ich hatte noch nie eine vergleichbare Aufgabe / Aussage im Bachelor gesehen.<br />
-Ich würde diese nur dann machen, wenn ich Spaß/Interesse daran habe.<br />
+Die letzte Aufgabe ist zwar eine nette Knobelaufgabe, aber ich hatte noch nie eine vergleichbare Aufgabe / Aussage im Bachelor gesehen.
+Ich würde diese nur dann machen, wenn ich Spaß/Interesse daran habe.
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2025-10-20 Mo 12:45</p>
+
 </div>
 </body>
 </html>

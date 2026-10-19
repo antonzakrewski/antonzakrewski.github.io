@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 14:57 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Initial Object in CRing</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,57 +52,44 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Initial Object in CRing</h1>
-<div id="outline-container-org1b3b400" class="outline-2">
-<h2 id="org1b3b400"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-bc0a470b-0ce4-4033-884a-a32aafe86f7a"></span><h1 class="title">Initial Object in CRing</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Let \(\mathrm{CRing}\) be the <a href="20230225170140-kategorie_cring.html#ID-bc232c14-ca9c-476c-8b94-67f3d8781a26">category of Commutative Rings</a>, then the <a href="20210702104458-ganze_zahlen.html#ID-179209f5-5cb0-426c-b035-470f9b3935a8">integers</a> \(\mathbb{Z}\) are the <a href="20220825145505-initiales_objekt.html#ID-7ad29aa1-f819-4a5b-8ef9-24c92a84802f">initial object</a>.
+Let $\mathrm{CRing}$ be the <a href="20230225170140-kategorie_cring.html#ID-bc232c14-ca9c-476c-8b94-67f3d8781a26">category of Commutative Rings</a>, then the <a href="20210702104458-ganze_zahlen.html#ID-179209f5-5cb0-426c-b035-470f9b3935a8">integers</a> $\mathbb{Z}$ are the <a href="20220825145505-initiales_objekt.html#ID-7ad29aa1-f819-4a5b-8ef9-24c92a84802f">initial object</a>.
 </p>
-</div>
-</div>
-<div id="outline-container-orge1cd438" class="outline-2">
-<h2 id="orge1cd438"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<h2 id="beweis">Beweis</h2>
 <p>
-Let \(R\) be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a> with \(1_R \in R\).
+Let $R$ be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a> with $1_R \in R$.
 </p>
-</div>
-<div id="outline-container-org27377d6" class="outline-3">
-<h3 id="org27377d6"><span class="section-number-3">2.1.</span> Existence</h3>
-<div class="outline-text-3" id="text-2-1">
+
+<h3 id="existence">Existence</h3>
 <p>
 Let
 </p>
-\begin{align*}
-\varphi: \mathbb{Z} \rightarrow& R \\
-1 \mapsto& 1_R \\
-n \mapsto& \sum_{i=1}^{n} (\mathrm{sgn}(n) 1)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org494949d" class="outline-3">
-<h3 id="org494949d"><span class="section-number-3">2.2.</span> Unique</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<div class="math-block">\begin{align*}
+\varphi: \mathbb{Z} \rightarrow&amp; R \\
+1 \mapsto&amp; 1_R \\
+n \mapsto&amp; \sum_{i=1}^{n} (\mathrm{sgn}(n) 1)
+\end{align*}</div>
+
+<h3 id="unique">Unique</h3>
 <p>
-Suppose \(\varphi, \psi: \mathbb{Z}  \rightarrow R\) are ring homomorphism.
-Then by assumption \(\varphi(1) = \psi(1) = 1_R\)
-Hence for \(n \in \mathbb{Z}\) we conclude, that
+Suppose $\varphi, \psi: \mathbb{Z}  \rightarrow R$ are ring homomorphism.
+Then by assumption $\varphi(1) = \psi(1) = 1_R$
+Hence for $n \in \mathbb{Z}$ we conclude, that
 </p>
-\begin{align*}
-\varphi(n) =& \varphi(\sum_{i=1}^{n} \mathrm{sgn}(n) 1) \\
-=& \sum_{i=1}^{n} \mathrm{sgn}(n) 1 \\
-=& \psi(\sum_{i=1}^{n} \mathrm{sgn}(n) 1) \\
-=& \psi(n)
-\end{align*}
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 14:57</p>
+
+<div class="math-block">\begin{align*}
+\varphi(n) =&amp; \varphi(\sum_{i=1}^{n} \mathrm{sgn}(n) 1) \\
+=&amp; \sum_{i=1}^{n} \mathrm{sgn}(n) 1 \\
+=&amp; \psi(\sum_{i=1}^{n} \mathrm{sgn}(n) 1) \\
+=&amp; \psi(n)
+\end{align*}</div>
+
+
 </div>
 </body>
 </html>

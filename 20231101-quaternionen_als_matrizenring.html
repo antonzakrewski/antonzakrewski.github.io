@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 18:58 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>quaternionen als Matrizenring</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,82 +52,68 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">quaternionen als Matrizenring</h1>
-<div id="outline-container-orgb11f2fe" class="outline-2">
-<h2 id="orgb11f2fe"><span class="section-number-2">1.</span> Definition / Satz</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-Die <a href="20211230225918-quaternion.html#ID-3f46036d-daf8-4b3f-a79a-31c4b070e907">Quaternionen</a> \(\mathbb{H}\) sind definiert als nichtkommutative \(\mathbb{R}\)-<a href="20230722-a_algebra.html#ID-c3ba0b73-5545-48cc-9e90-81fda7909b5f">Algebra</a> 
-</p>
-\begin{align*}
-\varphi: \mathbb{R}[X_1,...,X_3] \rightarrow& \mathbb{H} \\
-r \mapsto& r \cdot \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \\
-X_1 \mapsto& I \\
-X_2 \mapsto& J \\ 
-X_3 \mapsto& K 
-\end{align*}
+<span id="ID-27a18e97-df11-480d-a62f-9a75786e80a4"></span><h1 class="title">quaternionen als Matrizenring</h1>
 
+<h2 id="definition-satz">Definition / Satz</h2>
+<p>
+Die <a href="20211230225918-quaternion.html#ID-3f46036d-daf8-4b3f-a79a-31c4b070e907">Quaternionen</a> $\mathbb{H}$ sind definiert als nichtkommutative \(\mathbb{R}\)-<a href="20230722-a_algebra.html#ID-c3ba0b73-5545-48cc-9e90-81fda7909b5f">Algebra</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\varphi: \mathbb{R}[X_1,...,X_3] \rightarrow&amp; \mathbb{H} \\
+r \mapsto&amp; r \cdot \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix} \\
+X_1 \mapsto&amp; I \\
+X_2 \mapsto&amp; J \\ 
+X_3 \mapsto&amp; K 
+\end{align*}</div>
 <p>
 mit Matrixaddition und Matrixmultiplikation als Verknüpfung für
 </p>
-\begin{align*}
-I \coloneqq& \begin{pmatrix} \mathrm{i} & 0 \\ 0 & - \mathrm{i} \end{pmatrix} \\
-J \coloneqq& \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}   \\
-K \coloneqq& \begin{pmatrix} 0 & \mathrm{i} \\ \mathrm{i} & 0 \end{pmatrix} 
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org196b63b" class="outline-2">
-<h2 id="org196b63b"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org066ff20" class="outline-3">
-<h3 id="org066ff20"><span class="section-number-3">2.1.</span> multiplikativ abgeschlossen</h3>
-<div class="outline-text-3" id="text-2-1">
-\begin{align*}
-I \cdot J =& \begin{pmatrix} 0 & i \\ \mathrm{i} 0 \end{pmatrix} \\
-=& K
-J \cdot I =& \begin{pmatrix} 0 & - \mathrm{i} \\ - \mathrm{i} & 0  \end{pmatrix} 
-=& - K
-J \cdot K =& \begin{pmatrix} \mathrm{i} & 0 \\ 0 & -\mathrm{i} \end{pmatrix} 
-=& I
-K \cdot J =& \begin{pmatrix} - \mathrm{i} & 0 \\0 & \mathrm{i} \end{pmatrix} 
-=& - I
-K \cdot I =& \begin{pmatrix} 0 & 1 \\ - 1 & 0 \end{pmatrix} 
-=& J
-I \cdot K =& \begin{pmatrix} & - 1 \\ 1 & 0  \end{pmatrix} 
-=& - J
-\end{align*}
+
+<div class="math-block">\begin{align*}
+I \coloneqq&amp; \begin{pmatrix} \mathrm{i} &amp; 0 \\ 0 &amp; - \mathrm{i} \end{pmatrix} \\
+J \coloneqq&amp; \begin{pmatrix} 0 &amp; 1 \\ -1 &amp; 0 \end{pmatrix}   \\
+K \coloneqq&amp; \begin{pmatrix} 0 &amp; \mathrm{i} \\ \mathrm{i} &amp; 0 \end{pmatrix} 
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="multiplikativ-abgeschlossen">multiplikativ abgeschlossen</h3>
+
+<div class="math-block">\begin{align*}
+I \cdot J =&amp; \begin{pmatrix} 0 &amp; i \\ \mathrm{i} 0 \end{pmatrix} \\
+=&amp; K
+J \cdot I =&amp; \begin{pmatrix} 0 &amp; - \mathrm{i} \\ - \mathrm{i} &amp; 0  \end{pmatrix} 
+=&amp; - K
+J \cdot K =&amp; \begin{pmatrix} \mathrm{i} &amp; 0 \\ 0 &amp; -\mathrm{i} \end{pmatrix} 
+=&amp; I
+K \cdot J =&amp; \begin{pmatrix} - \mathrm{i} &amp; 0 \\0 &amp; \mathrm{i} \end{pmatrix} 
+=&amp; - I
+K \cdot I =&amp; \begin{pmatrix} 0 &amp; 1 \\ - 1 &amp; 0 \end{pmatrix} 
+=&amp; J
+I \cdot K =&amp; \begin{pmatrix} &amp; - 1 \\ 1 &amp; 0  \end{pmatrix} 
+=&amp; - J
+\end{align*}</div>
 <p>
 und
 </p>
-\begin{align*}
-I \cdot I =& \begin{pmatrix} - 1 & 0 \\ 0 & -1 \end{pmatrix} \\
-=& - E \\
-J \cdot J =& \begin{pmatrix} - 1 & 0 \\ 0 & -1 \end{pmatrix} \\
-=& - E \\
-K \cdot K =& \begin{pmatrix} - 1 & 0 \\ 0 & -1 \end{pmatrix} \\
-=& - E
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgb5de817" class="outline-3">
-<h3 id="orgb5de817"><span class="section-number-3">2.2.</span> inverses</h3>
-</div>
-<div id="outline-container-org5a04f12" class="outline-3">
-<h3 id="org5a04f12"><span class="section-number-3">2.3.</span> fehlende kommutavität</h3>
-<div class="outline-text-3" id="text-2-3">
+
+<div class="math-block">\begin{align*}
+I \cdot I =&amp; \begin{pmatrix} - 1 &amp; 0 \\ 0 &amp; -1 \end{pmatrix} \\
+=&amp; - E \\
+J \cdot J =&amp; \begin{pmatrix} - 1 &amp; 0 \\ 0 &amp; -1 \end{pmatrix} \\
+=&amp; - E \\
+K \cdot K =&amp; \begin{pmatrix} - 1 &amp; 0 \\ 0 &amp; -1 \end{pmatrix} \\
+=&amp; - E
+\end{align*}</div>
+
+<h3 id="inverses">inverses</h3>
+
+<h3 id="fehlende-kommutavitat">fehlende kommutavität</h3>
 <p>
-Folgt z.B. aus \(I \cdot J = - J \cdot I\), siehe oben
+Folgt z.B. aus $I \cdot J = - J \cdot I$, siehe oben
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 18:58</p>
+
 </div>
 </body>
 </html>

@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 15:52 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>nilpotent element in a polynomial ring</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,70 +52,54 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">nilpotent element in a polynomial ring</h1>
-<div id="outline-container-org87e74e6" class="outline-2">
-<h2 id="org87e74e6"><span class="section-number-2">1.</span> Proposition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-905f0a99-f845-4388-a323-48d51adadb15"></span><h1 class="title">nilpotent element in a polynomial ring</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let \(A\) be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a>, \(A[X]\) the <a href="20220303185921-polynomring.html#ID-1a010da5-5e8a-407f-87ba-85383825403f">polynomial ring</a> and \(f = \sum_{i=0}^{n} a_i X^i \in A[X]\)
+Let $A$ be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a>, $A[X]$ the <a href="20220303185921-polynomring.html#ID-1a010da5-5e8a-407f-87ba-85383825403f">polynomial ring</a> and $f = \sum_{i=0}^{n} a_i X^i \in A[X]$
 <a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
 </p>
-<ol class="org-ol">
-<li>\(f \in \mathcal{N}_{A[X]}\) is <a href="20230315113206-nilpotent.html#ID-e1be03af-ebb8-42d9-8caa-1fe3a1093c3f">nilpotent</a></li>
-<li>all coefficients \(a_i\) are <a href="20230315113206-nilpotent.html#ID-e1be03af-ebb8-42d9-8caa-1fe3a1093c3f">nilpotent</a></li>
+<ol>
+<li>$f \in \mathcal{N}_{A[X]}$ is <a href="20230315113206-nilpotent.html#ID-e1be03af-ebb8-42d9-8caa-1fe3a1093c3f">nilpotent</a> </li>
+
+<li>all coefficients $a_i$ are <a href="20230315113206-nilpotent.html#ID-e1be03af-ebb8-42d9-8caa-1fe3a1093c3f">nilpotent</a> </li>
 </ol>
-</div>
-</div>
-<div id="outline-container-org22af6ba" class="outline-2">
-<h2 id="org22af6ba"><span class="section-number-2">2.</span> Proof</h2>
-<div class="outline-text-2" id="text-2">
+<h2 id="proof">Proof</h2>
 <p>
 graded ?
 </p>
-</div>
-<div id="outline-container-orgde774d6" class="outline-3">
-<h3 id="orgde774d6"><span class="section-number-3">2.1.</span> 1) \(\implies\) 2)</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-by assumption, there exists an \(m \in \mathbb{N}\) such that \(f^m = 0\).
-Then, we conclude, that the \(n \cdot m\) component is zero, hence
-</p>
-\begin{align*}
-(\alpha_n x^{n})^m  =& \alpha_n^{m \cdot n} \cdot x^{nm} \\
-=& 0
-\end{align*}
 
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
 <p>
-Since \(x^{nm}\) is by construction not a <a href="20221226125328-nullteiler.html#ID-dc985755-3df5-4b03-929e-659ee65ad000">zero divisor</a>, it follows, that \(\alpha_n^{m \cdot n} = 0\).
+by assumption, there exists an $m \in \mathbb{N}$ such that $f^m = 0$.
+Then, we conclude, that the $n \cdot m$ component is zero, hence
 </p>
 
+<div class="math-block">\begin{align*}
+(\alpha_n x^{n})^m  =&amp; \alpha_n^{m \cdot n} \cdot x^{nm} \\
+=&amp; 0
+\end{align*}</div>
+
 <p>
-Thus by <a href="20230421142812-summe_von_nilpotenten_elementen_sind_nilpotent.html#ID-80668bdd-085d-45eb-92f9-36c74eb32773">sum of nilpotent elements</a> we can reduce the case to \(n-1\) while having shown, that \(\alpha_n\) is nilpotent
+Since $x^{nm}$ is by construction not a <a href="20221226125328-nullteiler.html#ID-dc985755-3df5-4b03-929e-659ee65ad000">zero divisor</a>, it follows, that $\alpha_n^{m \cdot n} = 0$.
 </p>
 
 <p>
-Hence by iteration, we conclude, that \(a_n,...,a_{0}\) are nilpotent
+Thus by <a href="20230421142812-summe_von_nilpotenten_elementen_sind_nilpotent.html#ID-80668bdd-085d-45eb-92f9-36c74eb32773">sum of nilpotent elements</a> we can reduce the case to $n-1$ while having shown, that $\alpha_n$ is nilpotent
 </p>
-</div>
-</div>
 
-<div id="outline-container-org00adce3" class="outline-3">
-<h3 id="org00adce3"><span class="section-number-3">2.2.</span> 2) \(\implies\) 1)</h3>
-<div class="outline-text-3" id="text-2-2">
+<p>
+Hence by iteration, we conclude, that $a_n,...,a_{0}$ are nilpotent
+</p>
+
+
+<h3 id="2-implies-1">2) $\implies$ 1)</h3>
 <p>
 corollary of:
 </p>
-<ul class="org-ul">
+<ul>
 <li><a href="20230421142812-summe_von_nilpotenten_elementen_sind_nilpotent.html#ID-80668bdd-085d-45eb-92f9-36c74eb32773">Summe von nilpotenten Elementen sind nilpotent</a></li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 15:52</p>
 </div>
 </body>
 </html>

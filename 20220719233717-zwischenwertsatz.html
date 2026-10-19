@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:28 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>einfacher Zwischenwertsatz</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,47 +52,45 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">einfacher Zwischenwertsatz</h1>
-<div id="outline-container-orgb480567" class="outline-2">
-<h2 id="orgb480567"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-f17f7890-df11-47cf-81d3-ab463e3219ff"></span><h1 class="title">einfacher Zwischenwertsatz</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(f: [a,b] \rightarrow \mathbb{R}\) eine <a href="20220819232419-stetigkeit.html#ID-b2d86612-ee0d-43a3-b49c-6953d712ecc5">stetige</a> <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktion</a> und \(y \in \mathbb{R}\) mit \(f(a) \leq y \leq f(b)\) oder \(f(b) \leq y \leq f(a)\)
-Dann existiert ein  \(x \in [a,b]\) so dass gilt
+Sei $f: [a,b] \rightarrow \mathbb{R}$ eine <a href="20220819232419-stetigkeit.html#ID-b2d86612-ee0d-43a3-b49c-6953d712ecc5">stetige</a> <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktion</a> und $y \in \mathbb{R}$ mit $f(a) \leq y \leq f(b)$ oder $f(b) \leq y \leq f(a)$
+Dann existiert ein  $x \in [a,b]$ so dass gilt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 f(x) = y
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org73e1b38" class="outline-2">
-<h2 id="org73e1b38"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
 <p>
-Sei <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> \(f(a) < y < f(b)\) und sei \(M  \coloneqq \{x \in [a,b] \vert f(x) \geq y\}\).
-Insbesondere gilt \(M \neq  \emptyset\) wegen \(b \in M\).
-Deswegen existiert ein <a href="20220904222702-infimum_reelle_zahlen.html#ID-0bef9d06-d278-4fd8-8866-4a4e6889ae49">Infimum</a> und es gilt \(a < \inf M\) wegen \(a \not \in M\) und wegen der <a href="20220819232419-stetigkeit.html#ID-b2d86612-ee0d-43a3-b49c-6953d712ecc5">Stetigkeit</a> für \(\varepsilon = f(b) - y\) \(\exists \delta > 0\), d.h. \(b - \delta \in M\) und damit auch \(\inf M < b\)
-Sei \(x_0  \coloneqq \inf M \in (a,b)\).
-Dann existieren <a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">Folgen</a> \((x_n)\) und  \((x_n')\) in \([a,b]\), so dass \(x_n \rightarrow x_0\) <a href="20220105225408-monoton_fallende_folge.html#ID-2f1d7e9c-6c3c-44d9-acd7-f2cb83cc1e87">monoton fallend</a> und \(x_n' \rightarrow x_0\) <a href="20220105225333-monoton_wachsende_folge.html#ID-bcf5584f-c888-4d25-8a32-ea72fc6e8145">monoton wachsend</a> (z.B \(x_n'  \coloneqq x_0 - \frac{1}{n}\)) (alternativ: konstruktion durch halbieren)
+Sei <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> $f(a) &lt; y &lt; f(b)$ und sei $M  \coloneqq \{x \in [a,b] \vert f(x) \geq y\}$.
+Insbesondere gilt $M \neq  \emptyset$ wegen $b \in M$.
+Deswegen existiert ein <a href="20220904222702-infimum_reelle_zahlen.html#ID-0bef9d06-d278-4fd8-8866-4a4e6889ae49">Infimum</a> und es gilt $a &lt; \inf M$ wegen $a \not \in M$ und wegen der <a href="20220819232419-stetigkeit.html#ID-b2d86612-ee0d-43a3-b49c-6953d712ecc5">Stetigkeit</a> für $\varepsilon = f(b) - y$ $\exists \delta &gt; 0$, d.h. $b - \delta \in M$ und damit auch $\inf M &lt; b$
+Sei $x_0  \coloneqq \inf M \in (a,b)$.
+Dann existieren <a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">Folgen</a> $(x_n)$ und  $(x_n')$ in $[a,b]$, so dass $x_n \rightarrow x_0$ <a href="20220105225408-monoton_fallende_folge.html#ID-2f1d7e9c-6c3c-44d9-acd7-f2cb83cc1e87">monoton fallend</a> und $x_n' \rightarrow x_0$ <a href="20220105225333-monoton_wachsende_folge.html#ID-bcf5584f-c888-4d25-8a32-ea72fc6e8145">monoton wachsend</a> (z.B $x_n'  \coloneqq x_0 - \frac{1}{n}$) (alternativ: konstruktion durch halbieren)
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
  \lim_{n \to \infty}\left(f(x_n)\right) \geq y \\
  \lim_{n \to \infty}\left(f(x_n')\right) \leq y
-\end{align*}
+\end{align*}</div>
 <p>
 Es folgt dann wegen der <a href="20221208094811-folgenstetigkeit.html#ID-934a1a9a-3464-4876-babd-3ece8651719e">Folgenstetigkeit</a>:
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
  \lim_{n \to \infty}\left(f(x_n\right) = f(x_0) =  \lim_{n \to \infty}\left(f(x_n')\right) \\
 \Rightarrow f(x_0) = y_0
-\end{align*}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:28</p>
+\end{align*}</div>
+
+
+
+
+
+
 </div>
 </body>
 </html>

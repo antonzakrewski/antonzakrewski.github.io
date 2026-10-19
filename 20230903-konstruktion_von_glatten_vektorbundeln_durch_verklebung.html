@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 18:09 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Konstruktion von glatten Vektorbündeln durch Verklebung</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,97 +52,87 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Konstruktion von glatten Vektorbündeln durch Verklebung</h1>
-<div id="outline-container-org30491f8" class="outline-2">
-<h2 id="org30491f8"><span class="section-number-2">1.</span> Satz / Konstruktion</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-924d8687-feb0-4d05-8420-77320aada7f6"></span><h1 class="title">Konstruktion von glatten Vektorbündeln durch Verklebung</h1>
+
+<h2 id="satz-konstruktion">Satz / Konstruktion</h2>
 <p>
-Sei eine <a href="20230302132423-glatte_mannigfaltigkeit.html#ID-0606629a-5a69-4933-ad86-4d3a60637621">glatte Mannigfaltigkeit</a> mit einer <a href="20221125072633-offene_uberdeckung.html#ID-f64293ce-3838-4f49-b45d-07666123c2c9">offenen Überdeckung</a> \(\bigcup_{i \in I} U_i\) und für beliebige \(i,j \in I\) eine glatte Funktion
+Sei eine <a href="20230302132423-glatte_mannigfaltigkeit.html#ID-0606629a-5a69-4933-ad86-4d3a60637621">glatte Mannigfaltigkeit</a> mit einer <a href="20221125072633-offene_uberdeckung.html#ID-f64293ce-3838-4f49-b45d-07666123c2c9">offenen Überdeckung</a> $\bigcup_{i \in I} U_i$ und für beliebige $i,j \in I$ eine glatte Funktion
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \psi_{ij}: U_i \cap U_j \rightarrow \mathrm{GL}(k,\mathbb{R})
-\end{align*}
+\end{align*}</div>
 <p>
-so dass für \(i,j,k \in I\) und \(p \in U_i \cap U_j \cap U_k\) gilt
+so dass für $i,j,k \in I$ und $p \in U_i \cap U_j \cap U_k$ gilt
 </p>
-\begin{align*}
-(\psi_{ik})(p) =& (\psi_{ij}(p) \circ \psi_{jk}(p)) \in \mathrm{GL}(k,\mathbb{R})
-\end{align*}
+
+<div class="math-block">\begin{align*}
+(\psi_{ik})(p) =&amp; (\psi_{ij}(p) \circ \psi_{jk}(p)) \in \mathrm{GL}(k,\mathbb{R})
+\end{align*}</div>
 
 <p>
-hieraus folgt, \(\psi_{ii}(p) = \mathrm{id}\) wegen der Invertierbarkeit
+hieraus folgt, $\psi_{ii}(p) = \mathrm{id}$ wegen der Invertierbarkeit
 </p>
-\begin{align*}
-\psi_{ii}(p) =& \psi_{ii} \cdot \psi_{ii}(p) && \vert \cdot \psi_{ii}(p)^{-1} \\
-1 =& \psi_{ii}(p)
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\psi_{ii}(p) =&amp; \psi_{ii} \cdot \psi_{ii}(p) &amp;&amp; \vert \cdot \psi_{ii}(p)^{-1} \\
+1 =&amp; \psi_{ii}(p)
+\end{align*}</div>
 
 <p>
 Zudem folgt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \psi_{ki}(p) = \psi_{ik}(p)^{-1}
-\end{align*}
+\end{align*}</div>
 <p>
 wegen
 </p>
-\begin{align*}
-1 =& \psi_{ii}(p) \\
-=& \psi_{ik}(p) \cdot \psi_{ki}(p)
-\end{align*}
+
+<div class="math-block">\begin{align*}
+1 =&amp; \psi_{ii}(p) \\
+=&amp; \psi_{ik}(p) \cdot \psi_{ki}(p)
+\end{align*}</div>
 
 
 <p>
 dann sei
 </p>
-\begin{align*}
-E =& \coprod_{i \in I} U_i \times \mathbb{R}^k/\sim \\
-\cong& \bigcup_{i \in I} U_i \times \mathbb{R}^k \times \{i\} /\sim
-\end{align*}
+
+<div class="math-block">\begin{align*}
+E =&amp; \coprod_{i \in I} U_i \times \mathbb{R}^k/\sim \\
+\cong&amp; \bigcup_{i \in I} U_i \times \mathbb{R}^k \times \{i\} /\sim
+\end{align*}</div>
 <p>
 mit
 </p>
-\begin{align*}
-(p, v,i) \cong (q,w,j) :\Leftrightarrow& p = q, v = \psi_{i,ji}(p)(w)
-\end{align*}
+
+<div class="math-block">\begin{align*}
+(p, v,i) \cong (q,w,j) :\Leftrightarrow&amp; p = q, v = \psi_{i,ji}(p)(w)
+\end{align*}</div>
 <p>
 ein <a href="20230903-smooth_real_vector_bundle.html#ID-10de8083-9961-451d-b58e-f2441cc9c9bb">glattes reelle Vektorbündel</a> mit
 </p>
-\begin{align*}
-\pi: E \rightarrow& M  \\
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org8e306a6" class="outline-2">
-<h2 id="org8e306a6"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org771815e" class="outline-3">
-<h3 id="org771815e"><span class="section-number-3">2.1.</span> <a href="20211227225754-aquivalenzrelation_mengenlehre.html#ID-bf83e0aa-4df1-48a5-b910-2837942bdd19">Äquivalenzrelation</a></h3>
-<div class="outline-text-3" id="text-2-1">
-</div>
-<div id="outline-container-org972fdd6" class="outline-4">
-<h4 id="org972fdd6"><span class="section-number-4">2.1.1.</span> <a href="20220929191559-symmetrische_relation.html#ID-ecd19bf0-673a-47ba-b40f-3331655ff473">Symmetrische Relation</a></h4>
-</div>
-<div id="outline-container-orgffe0fb8" class="outline-4">
-<h4 id="orgffe0fb8"><span class="section-number-4">2.1.2.</span> <a href="20220929192418-reflexive_relation.html#ID-a6016d54-aefb-460f-9da3-37388a9a4941">reflexive relation</a></h4>
-</div>
-<div id="outline-container-org0f5d67a" class="outline-4">
-<h4 id="org0f5d67a"><span class="section-number-4">2.1.3.</span> <a href="20220929192405-transitive_relation.html#ID-b1ee8b48-b51c-4099-b1c8-27dd3e757e0b">transitive relation</a></h4>
-</div>
-</div>
-<div id="outline-container-orgec899ec" class="outline-3">
-<h3 id="orgec899ec"><span class="section-number-3">2.2.</span> Vektorbündel</h3>
-</div>
-<div id="outline-container-orga5e5978" class="outline-3">
-<h3 id="orga5e5978"><span class="section-number-3">2.3.</span> Glatt</h3>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 18:09</p>
+
+<div class="math-block">\begin{align*}
+\pi: E \rightarrow&amp; M  \\
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="idbf83e0aa-4df1-48a5-b910-2837942bdd19aquivalenzrelation"><a href="20211227225754-aquivalenzrelation_mengenlehre.html#ID-bf83e0aa-4df1-48a5-b910-2837942bdd19">Äquivalenzrelation</a></h3>
+
+<h4 id="idecd19bf0-673a-47ba-b40f-3331655ff473symmetrische-relation"><a href="20220929191559-symmetrische_relation.html#ID-ecd19bf0-673a-47ba-b40f-3331655ff473">Symmetrische Relation</a></h4>
+
+<h4 id="ida6016d54-aefb-460f-9da3-37388a9a4941reflexive-relation"><a href="20220929192418-reflexive_relation.html#ID-a6016d54-aefb-460f-9da3-37388a9a4941">reflexive relation</a></h4>
+
+<h4 id="idb1ee8b48-b51c-4099-b1c8-27dd3e757e0btransitive-relation"><a href="20220929192405-transitive_relation.html#ID-b1ee8b48-b51c-4099-b1c8-27dd3e757e0b">transitive relation</a></h4>
+
+<h3 id="vektorbundel">Vektorbündel</h3>
+
+<h3 id="glatt">Glatt</h3>
+
 </div>
 </body>
 </html>

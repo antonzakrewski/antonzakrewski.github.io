@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:26 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Abelsche Partielle Summation</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,60 +52,51 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Abelsche Partielle Summation</h1>
-<div id="outline-container-org18feb89" class="outline-2">
-<h2 id="org18feb89"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-0d70e0e2-094f-49ed-86ea-15ec518f410f"></span><h1 class="title">Abelsche Partielle Summation</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Seien \(a_0,a_1,...,a_n\) und \(b_0,b_1,...,b_n\) reelle Zahlen und
+Seien $a_0,a_1,...,a_n$ und $b_0,b_1,...,b_n$ reelle Zahlen und
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 A_k  \coloneqq \sum_{i=0}^k a_i \\
 B_k  \coloneqq \sum_{i=0}^k b_i \\
 \text{für }k = 0,1,...,n
-\end{align*}
-\begin{align*}
+\end{align*}</div>
+
+<div class="math-block">\begin{align*}
 \sum_{k=0}^n A_kb_k = A_nb_n - \sum_{k=0}^{n-1} a_{k+1}B_k
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org8854b95" class="outline-2">
-<h2 id="org8854b95"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org6c7f5fa" class="outline-3">
-<h3 id="org6c7f5fa"><span class="section-number-3">2.1.</span> Induktionsanfang</h3>
-<div class="outline-text-3" id="text-2-1">
-\begin{align*}
-\sum_{k=0}^0 A_0 b_0 =& A_0 \cdot b_0 \\
-A_0B_0 - \sum_{k=0}^{0-1} a_{0+1}B_k =& A_0B_0 \\
-B_0 =& \sum_{i=0}^0 b_i = b_0 \\
-\Rightarrow& A_0 \cdot b_0 = A_0B_0
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgd28c2c3" class="outline-3">
-<h3 id="orgd28c2c3"><span class="section-number-3">2.2.</span> Induktionsschritt</h3>
-<div class="outline-text-3" id="text-2-2">
-\begin{align*}
-\sum_{k=0}^{n+1} A_kb_k =& \sum_{k=0}^n A_kb_k + A_{n+1}b_{n+1} \\
-=& \sum_{k=0}^n A_kb_k + (A_{n} + a_{n+1})b_{n+1} \\
-=& \sum_{k=0}^n A_kb_k + (A_{n} + a_{n+1})b_{n+1} \\
-\end{align*}
-\begin{align*}
-A_{n+1}B_{n+1} - \sum_{k=0}^{n+1-1}a_{k+1}B_k =& A_{n+1}B_{n+1} - \sum_{k=0}^{n}a_{k+1}B_k \\
-=&  (A_{n} + a_{n+1})(B_{n} + b_{n+1}) - \sum_{k=0}^{n-1}(a_{k+1}B_k) - a_{n+1}B_{n} \\
-=& ( A_nB_n - \sum_{k=0}^{n-1}(a_{k+1}B_k) ) + (a_{n+1}B_{n} - a_{n+1}B_{n}) + (A_{n}b_{n+1} + a_{n+1}b_{n+1}) \\
-=& \sum_{k=0}^{n+1}A_kb_k = + (A_{n}b_{n+1} + a_{n+1}b_{n+1})
-\end{align*}
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:26</p>
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="induktionsanfang">Induktionsanfang</h3>
+
+<div class="math-block">\begin{align*}
+\sum_{k=0}^0 A_0 b_0 =&amp; A_0 \cdot b_0 \\
+A_0B_0 - \sum_{k=0}^{0-1} a_{0+1}B_k =&amp; A_0B_0 \\
+B_0 =&amp; \sum_{i=0}^0 b_i = b_0 \\
+\Rightarrow&amp; A_0 \cdot b_0 = A_0B_0
+\end{align*}</div>
+
+<h3 id="induktionsschritt">Induktionsschritt</h3>
+
+<div class="math-block">\begin{align*}
+\sum_{k=0}^{n+1} A_kb_k =&amp; \sum_{k=0}^n A_kb_k + A_{n+1}b_{n+1} \\
+=&amp; \sum_{k=0}^n A_kb_k + (A_{n} + a_{n+1})b_{n+1} \\
+=&amp; \sum_{k=0}^n A_kb_k + (A_{n} + a_{n+1})b_{n+1} \\
+\end{align*}</div>
+
+<div class="math-block">\begin{align*}
+A_{n+1}B_{n+1} - \sum_{k=0}^{n+1-1}a_{k+1}B_k =&amp; A_{n+1}B_{n+1} - \sum_{k=0}^{n}a_{k+1}B_k \\
+=&amp;  (A_{n} + a_{n+1})(B_{n} + b_{n+1}) - \sum_{k=0}^{n-1}(a_{k+1}B_k) - a_{n+1}B_{n} \\
+=&amp; ( A_nB_n - \sum_{k=0}^{n-1}(a_{k+1}B_k) ) + (a_{n+1}B_{n} - a_{n+1}B_{n}) + (A_{n}b_{n+1} + a_{n+1}b_{n+1}) \\
+=&amp; \sum_{k=0}^{n+1}A_kb_k = + (A_{n}b_{n+1} + a_{n+1}b_{n+1})
+\end{align*}</div>
+
+
+
 </div>
 </body>
 </html>

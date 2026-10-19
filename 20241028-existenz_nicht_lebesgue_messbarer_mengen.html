@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Existenz nicht-Lebesgue messbarer Mengen</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-b503003a-352f-4da4-8cde-8b22cc0d8cfa"></span><h1 class="title">Existenz nicht-Lebesgue messbarer Mengen</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Es existieren nicht-<a href="20241028-lebesgue_messbare_mengen.html#ID-5f5b96d9-5f03-4cc8-be94-71bda2cee727">lebesgue messbare Mengen</a> in $\mathbb{R}^d$ für $d \geq 1$
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Für $x \in \mathbb{R}^d$ definiere
+</p>
+
+<div class="math-block">\begin{align*}
+[x] \coloneqq x + \mathbb{Q}^d \subseteq \mathbb{R}^d
+\end{align*}</div>
+<p>
+d.h. die <span class="broken-link" title="unresolved id:5ee76318-ae03-4cb3-877f-6b6ff88ad6fa">Äquivalenzklasse</span> für $x \sim y :\Leftrightarrow x - y \in \mathbb{Q}^d$
+</p>
+
+<p>
+Damit folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\{[x] : x \in \mathbb{R}^d\} = \mathbb{R}^d / \mathbb{Q}^d
+\end{align*}</div>
+<p>
+bzw. $[x] \cap [0,1[^d \neq \emptyset$ für die Äquivalenzklasse von $[x]$ und den Einheitsquader.
+</p>
+
+<p>
+Für alle $[x] \in \mathbb{R}^d/\mathbb{Q}^d$ wähle durch das <a href="20220817142613-auswahlaxiom.html#ID-0fac098f-bed6-4f86-a90b-7a269c9fd21e">Axiom of choice</a>  ein element $v_{[x]} \}n [x] \cap [0,1[^d$.
+Sei
+</p>
+
+<div class="math-block">\begin{align*}
+V \coloneqq \{v_{[x]} \in [0,1[^d : [x] \in \mathbb{R}^d/\mathbb{Q}^d\}
+\end{align*}</div>
+
+<p>
+Dann folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{R}^d =&amp; \coprod_{v \in v} v + \mathbb{Q}^d) \\
+=&amp; \bigcup_{v \in V} \coprod_{q \in \mathbb{Q}^d} \{v + q\} \\
+=&amp; \coprod_{q \in \mathbb{Q}^d} (q + V)
+\end{align*}</div>
+
+<p>
+Nach annahme sei $V$ lebesgue messbar.
+Dann folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\infty =&amp; \overline{\lambda^d}(\mathbb{R}^d) \\
+=&amp; \sum_{q \in \mathbb{Q}^d} \overline{\lambda^d}(q + V)
+\end{align*}</div>
+<p>
+wobei aus der Translationsinvarianz von $\overline{\lambda}$ auch folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{\lambda^d}(q + V) =&amp; \overline{\lambda}(V)
+\end{align*}</div>
+<p>
+damit folgt $\overline{\lambda}(V) &gt; 0$
+</p>
+
+<p>
+Andererseits gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\infty &gt;&amp; \overline{\lambda^d([0,1[^d} \\
+\geq&amp; \overline{\lambda^d}(\coprod_{q \in \mathbb{Q}^d \cap [0,1[^d}(q + V))
+\end{align*}</div>
+<p>
+mit $q + V \subseteq [0,1[^d$ für $q \in \mathbb{Q}^d \cap [0,1[^d$
+</p>
+
+<p>
+Aufgrund der <a href="20220903163940-sigma_additivitat.html#ID-74369b78-426b-4272-95f6-66d2fdf933b4">sigma-Additivität</a> folgt dann
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{\lambda^d}(\coprod_{q \in \mathbb{Q}^d \cap [0,1[^d}(q + V)) =&amp; \sum_{q \in \mathbb{Q}^d \cap [0,1[^d} \overline{\lambda^d}(q + V) \\
+\end{align*}</div>
+
+<p>
+Widerspruhc
+</p>
+
+
+
+
+</div>
+</body>
+</html>

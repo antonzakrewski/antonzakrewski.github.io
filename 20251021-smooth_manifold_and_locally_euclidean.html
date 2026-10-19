@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>smooth manifold and locally euclidean</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-5a74ecbf-b7e1-4650-a760-0d3a17295889"></span><h1 class="title">smooth manifold and locally euclidean</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $M$ be a <a href="20230905-smooth_differentiable_manifold.html#ID-0ddfb9d4-93f0-4b88-bb28-f6ca87b18ee0">smooth manifold</a> (candidate).
+Then it is equivalent to either assume that it is
+</p>
+<ol>
+<li>locally of the form $\mathbb{R}^n$ </li>
+
+<li>locally of the form $U \subseteq \mathbb{R}^n$</li>
+</ol>
+<h2 id="proof">Proof</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+<p>
+follows from setting $U = \mathbb{R}^n$
+</p>
+
+<h3 id="2-implies-1">2) $\implies$ 1)</h3>
+<p>
+Now assume that for each point $x \in M$ and assume that $x \in V_m \simeq U \subseteq \mathbb{R}^n$ is a <a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">neighbourhood</a> which is locally homeomorphic to an open of $\mathbb{R}^n$.
+Then we may use the <a href="20230301102039-maximumsnorm.html#ID-9f9f07b2-ec6b-49bf-89b6-6cab73f1f3a7">Maximumsnorm</a> and find a neighbourhoood $[- \varepsilon, \varepsilon]^n \subseteq U \subseteq \mathbb{R}^n$ (<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> assuming that $x \mapsto 0 \in U$ after translation).
+Now use <a href="20231020-epsilon_ball_homeomorphic_to_the_euclidean_space.html#ID-a37c2dd9-31bc-4ace-bafa-67b0d9aaa008">epsilon ball homeomorphic to the euclidean space</a> to get a diffeomorphism
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{R}^n \simeq [- \varepsilon, \varepsilon]^n \subseteq U \subseteq M
+\end{align*}</div>
+
+<p>
+We want to show that this forms a <a href="20230903-glatter_atlas.html#ID-c37d09db-3c0b-4c94-8bc0-0a1bc6267254">smooth atlas</a>.
+So let $\varphi_1: \mathbb{R}^n \hookrightarrow M, \varphi_2: \mathbb{R}^n \rightarrow M$ be two different <a href="20230723-karte_mannigfaltigkeit.html#ID-ba69f262-31e8-4d80-b2b1-d9e270e32a08">charts</a> which are constructed as above using $\mathrm{im}(\varphi_i)\subseteq U_i \xrightarrow{f_i} M$.
+Let $W \coloneqq \mathrm{im}(\varphi_1) \cap \mathrm{im}(\varphi_2)$, then we can factor
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/e6f2cff5359c4ae93606.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Here we use that $\varphi^{-1}_1[W] \rightarrow f^{-1}[U_1 \cap U_2]$ is by construction of a diffeo onto its image so after restricting $f^{-1}[U_1 \cap U_2]$ to the image we find that we may factor the transition map
+</p>
+
+<div class="math-block">\begin{align*}
+\varphi_1^{-1}[W] \rightarrow \mathrm{im}(f^{-1}[U_1 \cap U_2]) \rightarrow \mathrm{im}(U_1 \cap U_2) \rightarrow f^{-1}[U_1 \cap U_2] \rightarrow \varphi_2^{-1}[W]
+\end{align*}</div>
+<p>
+where the first, last and middle composite is smooth
+</p>
+
+
+</div>
+</body>
+</html>

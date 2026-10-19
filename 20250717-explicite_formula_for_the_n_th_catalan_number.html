@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>explicit formula for the n-th catalan number</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-d9569453-21ef-48ed-b897-1dc5a7f78525"></span><h1 class="title">explicit formula for the n-th catalan number</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $n \in \mathbb{N}$, then the \(n\)-th <a href="20250703-catalan_number.html#ID-3330c890-e1fb-4212-8e19-fe9392b3066d">catalan number</a> is given by
+</p>
+
+<div class="math-block">\begin{align*}
+B_n = \frac{1}{n+1} \binom{2n}{n}
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $B = (B_n)_{n \in \mathbb{N}} \in \mathbb{N}[ [X]]$.
+Then since $B_0 = 1$ we get
+</p>
+
+<div class="math-block">\begin{align*}
+B =&amp; 1 \cdot X^0 + \sum_{n \geq 1} B_n X^n  \\
+=&amp; 1 + \sum_{n\geq 1} ( \sum_{k=1}^n B_{k-1} B_{n-k}) X^n
+\end{align*}</div>
+<p>
+where the second step follows from the <a href="20250703-recursion_formula_for_amount_of_binary_trees.html#ID-ed08d031-27d5-4b34-81cb-2eb0e5aaea63">recursion formula for the catalan number</a>.
+</p>
+
+<p>
+Then by index shift we get
+</p>
+
+<div class="math-block">\begin{align*}
+\sum_{n\geq 1} ( \sum_{k=1}^n B_{k-1} B_{n-k}) X^n =&amp; \sum_{n\geq 1} ( \sum_{k=0}^n B_{k} B_{(n-1)-k}) X^n 
+\end{align*}</div>
+<p>
+or
+</p>
+
+<div class="math-block">\begin{align*}
+1 + \sum_{n\geq 1} ( \sum_{k=1}^n B_{k-1} B_{n-k}) X^n =&amp; 1 + \sum_{n\geq 1} ( \sum_{k=0}^n B_{k} B_{(n-1)-k}) X^n  \\
+=&amp; 1 + \sum_{n \geq 1}  (B^2)_{n-1} \cdot X^n
+\end{align*}</div>
+<p>
+where we use $\sum_{k=0}^n B_{k} B_{(n-1)-k} = (B^2)_{n-1}$ or
+</p>
+
+<p>
+Now by index shifting this gives
+</p>
+
+<div class="math-block">\begin{align*}
+1 + \sum_{n \geq 1}  (B^2)_{n-1} \cdot X^n = 1 + \sum_{n \geq 0} B^2_n X^n+1 =&amp; 1 + X \cdot \sum_{n \geq 1}  (B^2)_{n-1} \cdot X^n = 1 + \sum_{n \geq 0} B^2_n X^n \\
+=&amp; 1 + X \cdot B^2 
+\end{align*}</div>
+
+<p>
+Now let
+</p>
+
+<div class="math-block">\begin{align*}
+C = X \cdot B = (0,B_0,B_1,...)
+\end{align*}</div>
+
+<p>
+Then we get in particular $C_{n+1} = B_n$
+</p>
+
+<p>
+Now using $C = X \cdot B$ and $B = 1 + X B^2$ we get
+</p>
+
+<div class="math-block">\begin{align*}
+B =&amp; 1 + B^2 &amp;&amp; \vert \cdot X \\
+C =&amp; X + C^2
+C^2 - C =&amp; - X \\
+\end{align*}</div>
+
+<p>
+and do &lt;quadratische ergänzung&gt; to get
+</p>
+
+<div class="math-block">\begin{align*}
+4C^2 - 4C =&amp; -4X \\
+4C^2 - 4C + 1 =&amp; 1 - 4X \\
+(2C - 1)^2 =&amp; 1 - 4X \\
+\end{align*}</div>
+<p>
+where we use that the binomial formulas hold in any ring
+Now use
+</p>
+
+<div class="math-block">\begin{align*}
+(2C - 1)^2 =&amp; 1 - 4X \\
+\end{align*}</div>
+
+<p>
+which shows that
+</p>
+
+<div class="math-block">\begin{align*}
+(2C - 1) = \pm (1 - 4X)^{\frac{1}{2}}
+\end{align*}</div>
+
+<p>
+using the <a href="20250717-binomial_coefficient_theorem_for_power_series_ring.html#ID-1726f720-a0de-4431-9d9b-c2b47183860e">formal binomial coefficient theorem for power series ring</a> we get
+</p>
+
+<div class="math-block">\begin{align*}
+((1 - 4X)^{\frac{1}{2}})_n =&amp; \binom{\frac{1}{2}}{n} \cdot (-4)^n \\
+=&amp; \frac{\frac{1}{2}^{\overline{n}}{n!} (-4)^n \\
+=&amp; \frac{1}{n!} \prod_{i=0}^n-1} (\frac{1}{2} - i) \cdot (-4)^n \\
+=&amp; \frac{1}{n!} \prod_{i=0}^n-1} (\frac{1}{2} - i) \cdot (-4)^n \\
+=&amp; \frac{1}{n!} \prod_{i=0}^n-1} (\frac{1}{2} - i) \cdot (-2)^n \cdot (2)^n \\
+=&amp; \frac{1}{n!} \prod_{i=0}^n-1} (2i - 1)  \cdot (2)^n \\
+=&amp; \frac{1}{n!} \prod_{i=0}^n-1} (2i - 1)  \cdot (2)^n \cdot \frac{(n-1)!}{(n-1)!}\\
+=&amp; - \frac{2}{n!} \frac{(2n-2)!}{(n-1)!} \\
+=&amp; - \frac{2}{n} \binom{2n-2}{n-1}
+\end{align*}</div>
+
+<p>
+Hence we get
+</p>
+
+<div class="math-block">\begin{align*}
+2C - 1 = -\sqrt{(1 - 4X)}
+\end{align*}</div>
+
+<p>
+therefore we get
+</p>
+
+<div class="math-block">\begin{align*}
+C = \frac{1}{2} (1 - \sqrt{(1 - 4X)})
+\end{align*}</div>
+
+<p>
+or (for $n \geq 1$)
+</p>
+
+<div class="math-block">\begin{align*}
+C_n = \frac{1}{2} \cdot \binom{2n-2}{n-1} 
+\end{align*}</div>
+<p>
+or
+</p>
+
+<div class="math-block">\begin{align*}
+C_{n+1} = B_n = \frac{1}{n+1} \binom{2n}{n}
+\end{align*}</div>
+
+
+
+
+
+</div>
+</body>
+</html>

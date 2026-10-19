@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>pseudo n-lipschitz maps are nowhere dense</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-b474d259-0345-4d53-87d0-5cbb277bdad3"></span><h1 class="title">pseudo n-lipschitz maps are nowhere dense</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+The set of <a href="20260430-pseudodifferential_maps.html#ID-b46aca44-e223-4c33-9d64-4f1ad49bfca8">pseudo n-lipschitz map</a> $A_n$ is <a href="20230222172146-nirgends_dicht_topologie.html#ID-022a1587-f478-44ec-a8c6-3ecb6fcc6ad8">nowhere dense</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $f$ be in $\overline{A_n} = A_n$ and $\varepsilon &gt; 0$..
+Then it suffices to show that there exists an $h$ with $\| h - f \|_{\infty} &lt; \varepsilon$ with $h \not\in A_n$.
+</p>
+
+<p>
+We first define
+</p>
+
+<div class="math-block">\begin{align*}
+h': \mathbb{R} \rightarrow&amp; [0,1] \\
+x \mapsto&amp; 
+    \begin{cases}
+x - \lceil x \rceil     &amp; \mbox{if } \lceil x \rceil \equiv 1 \mathrm{mod} 2 \\
+1 + \lceil x \rceil - x     &amp; \mbox{if } \lceil x \rceil \equiv 1 \mathrm{mod} 2 \\
+    \end{cases}
+\end{align*}</div>
+<p>
+Observe that this map is a <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a> <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">map</a> by some glueing lemma (cf. <a href="20230330151432-stetige_fortsetzung_zweier_abbildungen_von_einer_uberdeckung.html#ID-43361c3e-7e6f-4ffb-a0ec-7988d859da0d">glueing lemma for a locally finite, closed covering</a>) and $\| h' \|_{\infty} = 1$.
+</p>
+
+<p>
+Let $\tilde{h}(x) \coloneqq \frac{\varepsilon}{2} \cdot h'(4 \cdot \frac{n+1}{\varepsilon} \cdot x)$.
+</p>
+
+<p>
+Then we claim that for each $x$ in $[0,1]$, there exists some $y$ such that
+</p>
+
+<div class="math-block">\begin{align*}
+\vert \tilde{h}(x) - \tilde{h}(y) \vert \geq (2n + 1) \vert x - y \vert
+\end{align*}</div>
+<p>
+Namely it suffices to see that $\tilde{h}$ is piecewise linear with differential $\pm 2 (n+1)$ (whereever differentiable).
+Moreover for the/any continuous map $\tilde{h}$, the subspace $B_{\tilde{h}} = \{x \in [0,1] \vert \forall y \in [0,1] : \vert \tilde{h}(x) - \tilde{h}(y) \vert \leq (2n+1) \vert x - y \vert\}$ is a closed subspace:
+Suppose $x_n \xrightarrow{n \rightarrow \infty} x$ is a convergent sequence in $B_{\tilde{h}}$, then we may use that $\vert - \vert$ and $\tilde{h}(-)$ are <a href="20221208094811-folgenstetigkeit.html#ID-934a1a9a-3464-4876-babd-3ece8651719e">sequentially continuous</a> and estimate
+</p>
+
+<div class="math-block">\begin{align*}
+\vert \tilde{h}(x) - \tilde{h}(y) \vert = \mathrm{lim}_{n} \vert \tilde{h}(x_n) - \tilde{h}(y) \vert \leq \mathrm{lim}_{n} (2n+1) \vert x_n - y \vert = (2n+1) \vert x - y \vert
+\end{align*}</div>
+
+<p>
+This shows that the closed subset $B_{\tilde{h}}$ is given by $[0,1]$, since it at least contains all points, where $\tilde{h}(-)$ is differentiable (which is $[0,1]$ except for finitely many points), which is a dense subset.
+</p>
+
+<p>
+Then we claim that
+</p>
+
+<div class="math-block">\begin{align*}
+h: [0,1] \rightarrow&amp; \mathbb{R} \\
+x \mapsto&amp; f(x) + \tilde{h}(x)
+\end{align*}</div>
+<p>
+suffices:
+It is again a continuous map as composition of continuous maps.
+</p>
+
+<p>
+Moreover, it follows immediately that $\| h - f \|_{\infty} \leq \frac{\varepsilon}{2} &lt; \varepsilon$ and we claim that $h \not\in A_n$:
+Here we use the <a href="20230420132847-umgekehrte_dreiecksungleichung.html#ID-7b5a2782-1ef3-49b0-a51a-c9751470aaeb">inverse triangle inequality</a> and get
+</p>
+
+<div class="math-block">\begin{align*}
+\vert h(x) - h(y) \vert =&amp; \vert f(x) - f(y) + \tilde{h}(x) - \tilde{h}(y) \vert \\
+\geq&amp; \vert \tilde{h}(x) - \tilde{h}(y) \vert - \vert f(x) - f(y) \vert \\
+\geq&amp; \vert \tilde{h}(x) - \tilde{h}(y) \vert - n \vert x - y \vert \\
+\overset{*}{\geq}&amp; (2n+1) \vert x - y \vert - n \vert x - y \vert \\
+\geq&amp; n+1 \vert x - y \vert
+\end{align*}</div>
+<p>
+where (*) follows for some $y$ as we have shown previously, that for each $x$ in $[0,1]$, there exists some $y$ with $\vert \tilde{h}(x) - \tilde{h}(y) \geq 2n+1 \vert x - y \vert$.
+</p>
+
+
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>

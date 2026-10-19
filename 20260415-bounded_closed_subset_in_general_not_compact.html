@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>bounded closed subset in general not compact</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-cf70177e-eb8f-48ba-9c4b-85fd78a0b6ff"></span><h1 class="title">bounded closed subset in general not compact</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X$ be a <a href="20230418124304-beschrankter_metrischer_raum.html#ID-a582443e-422f-45f5-8df6-eed57c5a2366">bounded</a> <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">closed</a> <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">subset</a>.
+Then $X$ is in general not <a href="20230412003456-compact_set.html#ID-d09ae6d2-2b5c-41c1-a54d-3259d3e2f0f0">compact</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="easy">easy</h3>
+<p>
+Let $X$ be an <a href="20230826-infinite.html#ID-66aecdb2-720e-4e41-9a27-dab1700474fc">infinite</a> <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">set</a>
+Then consider the metric
+</p>
+
+<div class="math-block">\begin{align*}
+d(x,y) = 
+    \begin{cases}
+    0 &amp; \mbox{if } x = y \\
+    1  &amp; \mbox{else } \\  
+    \end{cases}
+\end{align*}</div>
+<p>
+which induces the <a href="20221002144647-diskrete_topologie.html#ID-c9466868-60fd-4b1f-ae1c-1bf7606f3ec7">discrete topology</a>.
+</p>
+
+<p>
+In particular, any compact subset of $X$ is finite, hence $X$ is not compact.
+But $X$ is <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">closed</a> and moreover bounded since $d(-,-) \leq 1$.
+</p>
+
+<h3 id="lp">$L^p$</h3>
+<p>
+Let $p \in [1,\infty]$ and consider $B_1[0] = \{x \in l^p \vert \| x \|_p \leq 1\} = \overline{B_1(0)}$.
+Consider $e^n = (0,..,0,1,0...,)$
+Then $e^n \in \overline{B_1(0)}$, but for $n \neq m$
+</p>
+
+<div class="math-block">\begin{align*}
+d_p(e^n,e^m) = 
+    \begin{cases}
+     2^{\frac{1}{p}} &amp; \mbox{if } p &lt; \infty \\
+    1  &amp; \mbox{if } p = \infty \\  
+    \end{cases}
+\end{align*}</div>
+<p>
+so, the sequence $e^n$ cannot have a convergent subsequence, as no subsequence can be <a href="20220105223523-fundamental_folge.html#ID-45b890ea-39cc-4f8c-bf97-4de5c09d772a">Cauchy</a> (cf. <a href="20220707223216-jede_konvergente_folge_ist_eine_cauchy_folge.html#ID-2643f547-230c-4117-b36d-9f4390122712">konvergente Folge als Cauchy-Folge</a>).
+</p>
+
+<p>
+Hence $\overline{B_1(0)}$ cannot be <a href="20230416212931-sequentially_compact.html#ID-68800746-06e2-4793-9c60-53922ee89eae">sequentially compact</a>.
+As $l^p$ is a <a href="20221002145259-metrischer_raum.html#ID-6b95a0b5-83e0-43cc-830f-05b416769fe1">metric space</a>, any sequentially compact space would be <a href="20230412003456-compact_set.html#ID-d09ae6d2-2b5c-41c1-a54d-3259d3e2f0f0">compact</a> (cf. <a href="20230514221110-kompaktheit_und_folgenkompaktheit_in_metrischen_raumen.html#ID-c46e8b32-db22-4a90-83d0-98e71a6e81c7">Kompaktheit und Folgenkompaktheit in metrischen Räumen</a>).
+</p>
+
+</div>
+</body>
+</html>

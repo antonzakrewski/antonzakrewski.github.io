@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>unabhängige ereignisse und bedingte Wahrscheinlichkeit des Komplements</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-b5e0268b-4bd7-4d08-86de-1ecdcffc0d3b"></span><h1 class="title">unabhängige ereignisse und bedingte Wahrscheinlichkeit des Komplements</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $(\Omega, \mathcal{F}, \mathbb{P})$ ein <a href="20220903151423-wahrscheinlichkeitsraum.html#ID-0a7fdeda-13a2-44be-bc7e-d6ab02447255">Wahrscheinlichkeitsraum</a>, $A,B \in \mathcal{F}$ Ereignisse mit $0 &lt; \mathbb{P}(B) &lt; 1$.
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol>
+<li>$A,B$ sind <a href="20241116-unabhangige_ereignisse.html#ID-b2d23d82-1f80-4b1b-9f04-e18ddb443af1">Unabhängig</a> </li>
+
+<li>für das <a href="20220904090339-absolute_komplement.html#ID-ac89983c-e4da-4840-8979-63428383fe13">absolutes Komplement</a> gilt.</li>
+</ol>
+<div class="math-block">\begin{align*}
+\mathbb{P}(A \vert B^{c}) = \mathbb{P}(A \vert B)
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+
+<p>
+Es gilt wegen der <a href="20241015-subtraktivitat_eines_inhalts.html#ID-e768ef1b-bfd6-49c6-bb98-6cf549671de6">Subtraktivität eines Inhalts</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{P}(B^{c}) = 1 - \mathbb{P}(B)
+\end{align*}</div>
+
+<p>
+und wegen der additivität auch
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{P}(A) = \mathbb{P}(A \cap B) + \mathbb{P}(A \cap B^{c})
+\end{align*}</div>
+
+<p>
+Damit folgt die Äquivalenz von
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{P}(A) =&amp; \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)} \\
+\mathbb{P}(A \cap B) + \mathbb{P}(A \cap B^c) =&amp; \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)} \\
+\mathbb{P}(B) \cdot \mathbb{P}(A \cap B) + \mathbb{P}(B) \mathbb{P}(A \cap B^c) =&amp; \mathbb{P}(A \cap B) \\
+\mathbb{P}(B) \cdot \mathbb{P}(A \cap B) =&amp; (1 - \mathbb{P}(B)) \mathbb{P}(A \cap B) \\
+\mathbb{P}(B) \cdot \mathbb{P}(A \cap B) =&amp; \mathbb{P}(B^c) \mathbb{P}(A \cap B) \\
+\frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)} =&amp; \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B^c)} \\
+\mathbb{P}(A \vert B) =&amp; \mathbb{P}(A \vert B^c) 
+\end{align*}</div>
+
+
+<p>
+Man bemerke, dass dabei $\mathbb{P}(B), \mathbb{P}(B^c) \neq 0$ gilt.
+</p>
+
+</div>
+</body>
+</html>

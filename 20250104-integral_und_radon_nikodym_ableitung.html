@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>integral und radon nikodym ableitung</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-db16f9e5-c951-4498-8764-9ed8527af15e"></span><h1 class="title">integral und radon nikodym ableitung</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $(X, \mathcal{A})$ ein <a href="20230302132218-messraum.html#ID-7d8d7a50-6fe1-4cee-a847-365b73490c86">Messraum</a>, $\mu,\nu$ <a href="20241014-measure.html#ID-fad27267-4c6a-4159-831f-36ae94e4012e">Maße</a>, wobei $\frac{\nu}{\mu}$ die <a href="20241127-dichtefunktion_eines_maß.html#ID-5f0794b6-aa1e-4755-becf-4360dbf96b4a">Dichtefunktion</a> ist.
+Dann gilt für $g \in \mathcal{L}^1(X,\nu)$ auch
+</p>
+
+<div class="math-block">\begin{align*}
+\int_{E} g \mathrm{d} \nu = \int_{E} g \frac{\mathrm{d}\nu}{\mathrm{d}\mu} \mathrm{d}\mu
+\end{align*}</div>
+<p>
+sowie
+</p>
+
+<div class="math-block">\begin{align*}
+g \frac{\mathrm{d}\nu}{\mathrm{d}\mu} \in \mathcal{L}^1(X, \mu)
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="g-c-konstant">$g = c$ konstant</h3>
+<p>
+folgt aus
+</p>
+
+<div class="math-block">\begin{align*}
+\int_{E} c \mathrm{d} \nu =&amp; c \cdot \int_{E} \mathrm{d}\nu \\
+=&amp; c \cdot \nu(E) \\
+=&amp; c \cdot \int_{E} \frac{d\nu}{\mu} \mu \\
+=&amp; \int_E c \frac{d\nu}{\mu} \mu 
+\end{align*}</div>
+
+<h3 id="treppenfunktion">Treppenfunktion</h3>
+<p>
+Der Fall einer Treppenfunktion $g$ lässt sich durch Additivität des Integrals auf eine konstante Funktion reduzieren.
+</p>
+
+<h3 id="allgemeine-funktion">allgemeine Funktion</h3>
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> können wir annehmen, dass $g \geq 0$ gilt, nachdem man $E$ aufteilt in $\{g \geq 0\} \cap E, \{g \leq 0\} \cap E$.
+Dann wähle eine Folge von Treppenfunktionen $T_n \nearrow g$ (cf. <a href="20241028-messbare_numerische_abbildung_als_treppenapproximierbare_abbildung.html#ID-38f99614-5fef-4910-b678-582184281eb8">messbare numerische Abbildung als treppenapproximierbare Abbildung</a>)
+Nach <a href="20241102-monotone_konvergenz_nach_beppo_levi.html#ID-1e30c517-bdfc-4450-b455-3171447d4a55">Monotone Konvergenz nach Beppo Levi</a> folgt dann
+</p>
+
+<div class="math-block">\begin{align*}
+\int_{E} g \mathrm{d} \nu =&amp; \int_E \mathrm{lim} T_n \mathrm{d} \nu \\
+=&amp; \mathrm{lim}  \int_E T_n \mathrm{d} \nu \\
+=&amp; \mathrm{lim}  \int_E T_n \frac{\mathrm{d}\nu}{\mathrm{d} \mu} \mathrm{d} \mu \\
+=&amp; \int_E \mathrm{lim}   T_n \frac{\mathrm{d}\nu}{\mathrm{d} \mu} \mathrm{d} \mu \\
+=&amp; \int_E g \frac{\mathrm{d}\nu}{\mathrm{d} \mu} \mathrm{d} \mu \\
+\end{align*}</div>
+
+<p>
+insbesondere dürfen wir annehmen, dass $\frac{\mathrm{d}\nu}{\mathrm{d}\mu} \geq 0$ gilt.
+</p>
+
+
+</div>
+</body>
+</html>

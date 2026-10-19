@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>reduced Fp homology of eilenberg-mac lane space for an R-module vanishes</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-51434111-8340-41f2-8390-3416fa1f5aec"></span><h1 class="title">reduced Fp homology of eilenberg-mac lane space for an R-module vanishes</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $R \coloneqq \mathbb{Z}[p_i^{-1}] \subseteq \mathbb{Q}$ a <a href="20230724-localization_of_a_ring.html#ID-0b26fdfb-9d28-4981-acde-2ea1ea96837d">localization</a> for primes $p_i$ and $M$ an \(R\)-<a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">module</a>.
+Then the reduced \(\mathbb{F}_p\)-homology of the <a href="20240417-eilenberg_maclane_space.html#ID-ea371170-ec9b-4f59-afe5-4dc951855bb3">Eilenberg-MacLane space</a> vanishes, i.e. $\tilde{H}_*(K(M,n),\mathbb{F}_{p_i}) = 0$ for $n &gt; 0$
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="reduction-to-single-prime">reduction to single prime</h3>
+<p>
+use the <a href="20240122-restriction_of_scalars_functor.html#ID-ae7501dc-2c1b-4ad9-a4f4-cf9062905cce">restriction of scalars</a> to restrict to the case $\mathbb{Z}[p_i^{-1}] = \mathbb{Z}[p^{-1}]$
+</p>
+
+<h3 id="n-1">$n = 1$</h3>
+
+<h4 id="reduction-to-finitely-generated-case">reduction to finitely generated case</h4>
+<p>
+Write $M \simeq \mathrm{colim}_{N \subseteq M, M \textrm{ f.g.}} N$ (cf. <a href="20240528-module_as_filtered_colimit_of_finitely_generated_modules.html#ID-862d84fe-a506-4bd0-b3bf-879ca5dfec12">module as filtered colimit of finitely generated submodules</a>) and use the fact that
+</p>
+<ul>
+<li>connected anima are closed under filtered colimits</li>
+
+<li><a href="20251028-eilenberg_maclane_space_functor_preserves_filtered_colimits.html#ID-6b1e2b5b-1d74-4ffb-a0bf-f5d2f7e3bcf2">eilenberg-maclane space functor preserves filtered colimits</a> </li>
+
+<li><a href="20251028-homology_commutes_with_filtered_colimits.html#ID-67d847ed-289d-4efa-9b57-b8f3dfef0428">homology commutes with filtered colimits</a> </li>
+</ul>
+<p>
+so it suffices to show that $\tilde{H}_*(K(N,1)) = 0$ for a finitely generated module $N$
+</p>
+
+<p>
+Now use the <a href="20240415-classification_of_finitely_generated_modules_over_a_pid.html#ID-9c0420bb-8953-4d19-bd16-aff816696bf4">classification of finitely generated modules over a pid</a> (&amp; <a href="20240629-localization_of_a_pid_as_pid.html#ID-8617e2f2-4731-47bb-95f7-d55ce0c2845e">localization of a pid as pid</a>) to reduce it to a sum of
+</p>
+<ol>
+<li>$M = R/q^n$ for a $q \in \mathbb{Z}$ <a href="20230410004341-coprime_ideal.html#ID-b5d829a1-26dc-4274-a072-42fd3f2cba7c">coprime</a> to $p$</li>
+
+<li>$M = R$</li>
+</ol>
+<p>
+Now <a href="20240528-kunneth_formula_for_singular_cohomology.html#ID-d157a733-4cfe-4b8f-921a-18fc182253cb">kunneth formula for singular cohomology</a> reduces it to the case of a single summand
+</p>
+
+<h4 id="m-r-mathbbzp-1">$M = R = \mathbb{Z}[p^{-1}]$</h4>
+<p>
+Then $M$ is given as sequential colimit of
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/d1e54e4a1fce1d4cf555.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+which using naturality of <a href="20241021-absolute_hurewicz_theorem.html#ID-bea99a77-baab-48ac-9998-3f7defd490c6">Hurewicz</a> shows that the induced map on homology is
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/807aa36038d56eca4948.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+so $\tilde{H}_*(K(R,1)) = R$.
+Now use <a href="20240425-universal_coefficient_formula_for_singular_homology.html#ID-1d642f80-c398-4591-997d-98444ae4a1ac">universal coefficient theorem for singular homology</a> to get
+</p>
+
+<div class="math-block">\begin{align*}
+\tilde{H}_*(K(R,1),\mathbb{F}_p) = R \otimes \mathbb{F}_p 
+\end{align*}</div>
+<p>
+since $\mathrm{Tor}$ vanishes (cf. <a href="20230803-localization_of_a_ring_as_flat_module.html#ID-a63158b2-0d3e-4398-98fd-9be33ea2f940">localization is flat</a>).
+</p>
+
+<p>
+Then apply the <a href="20230902-universal_coefficient_theorem.html#ID-11130c15-b23a-4605-b1c5-6446ab0b5ae3">universal coefficient Theorem for cohomology</a>
+</p>
+
+
+<h4 id="m-rqn">$M = R/q^n$</h4>
+<p>
+Then we may use the <a href="20251028-integral_cohomology_of_bz_nz.html#ID-ac37a913-4d6e-4715-b4ca-142159e38e11">integral cohomology of BZ/q^nZ</a> and
+</p>
+
+<h3 id="n-arbitrary">$n$ arbitrary</h3>
+<p>
+use <a href="20251104-fiber_sequence_with_homology_contractible_anima_induces_isomorphism.html#ID-2f9c9ac6-b9d1-44b8-9850-3dbfebb228ac">fiber sequence with homology-contractible fiber induces isomorphism</a>
+</p>
+
+</div>
+</body>
+</html>

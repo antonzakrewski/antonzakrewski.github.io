@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>equivalence between 1-functor categories for yoneda embedding</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-b0bab1c4-11b9-483c-aeeb-37b2502a5e05"></span><h1 class="title">equivalence between 1-functor categories for yoneda embedding</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathcal{C}$ be a $\kappa$ <a href="20220819181004-kleine_kategorie.html#ID-3c3f1c0d-53ad-476e-810a-756acd885263">small</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a>, $\mathcal{D}$ a <a href="20241020-kappa_cocomplete_category.html#ID-e24811a9-76f3-40c8-9294-ce11cc182162">kappa cocomplete</a> category.
+Then the <a href="20220821183109-satz_von_yoneda.html#ID-6ca48066-e32c-48de-ac92-a5edec9d29af">yoneda embedding</a> induces an <a href="20231118-equivalence_of_categories.html#ID-9f984af9-949c-46b1-9221-7ba43cdae897">equivalence</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Fun}^{\mathrm{colim}}(\mathrm{PSh}(\mathcal{C}), \mathcal{D}) \cong \mathrm{Fun}(\mathcal{C}, \mathcal{D})
+\end{align*}</div>
+<p>
+where $\mathrm{Fun}^{\mathrm{colim}}(\mathrm{PSh}(\mathcal{C}), \mathcal{D})$ is the <a href="20230225184516-volle_unterkategorie.html#ID-02c96fc8-ac4f-42b6-804d-bc08d25bfb2a">full subcategory</a> of <a href="20231014-functor_preserving_colimits.html#ID-3d77cdc9-e177-40d9-b57d-dc17d897d8a7">colimit preserving</a> <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functors</a>
+</p>
+
+<p>
+here we get this by
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/d73f7ccd5007666b7599.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+<h2 id="proof">Proof</h2>
+<p>
+to modify: $\kappa$ caswa
+</p>
+
+
+<h3 id="idaea681f7-4e6d-4c8c-88f4-b689f91519cdimage"><a href="20240713-full_image_of_a_functor.html#ID-aea681f7-4e6d-4c8c-88f4-b689f91519cd">image</a></h3>
+<p>
+Let $\mathcal{F}: \mathcal{C} \rightarrow \mathcal{D}$ be a functor.
+Then define
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{\mathcal{F}}: \mathrm{PSh}(\mathcal{C}) \rightarrow&amp; \mathcal{D} \\
+\mathrm{Hom}(-,c) \mapsto&amp; \mathcal{F}(c) \\
+(f^*: \mathrm{Hom}(-,c) \rightarrow \mathrm{Hom}(-,c')) \mapsto (\mathcal{F}(f): \mathcal{F}(c) \rightarrow \mathcal{F}(c'))
+\end{align*}</div>
+<p>
+and extending it via the <a href="20240128-presheaf_as_colimit_of_representables.html#ID-712129fd-4e4d-4cd0-a2f8-2cf69862f577">contravariant co-Yoneda Lemma</a>, i.e.
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{G} = \mathrm{colim} \mathrm{Hom}(-,c) \mapsto&amp; \mathrm{colim} \mathcal{F}(c)
+\end{align*}</div>
+<p>
+and for a natural transformation $\mathcal{G} \rightarrow \mathcal{G}'$ writing it down as
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{colim} \mathrm{Hom}(-,c) \rightarrow \mathrm{colim} \mathrm{Hom}(-,c)
+\end{align*}</div>
+<p>
+as well as commuting with $\overline{\mathcal{F}}$
+</p>
+
+<p>
+TODOs uniqueness ?
+</p>
+
+<h3 id="id300944ac-0e6d-4b27-99f1-176a261999aafull"><a href="20230301211925-voller_funktor.html#ID-300944ac-0e6d-4b27-99f1-176a261999aa">full</a></h3>
+<p>
+Let $\mathcal{F}, \mathcal{F}': \mathcal{C} \rightarrow \mathcal{D}$ be functors and $\eta: \mathcal{F} \rightarrow \mathcal{F}'$ a natural transformation.
+Let $\overline{\mathcal{F}}, \overline{\mathcal{F}'}$ be the functors described above.
+</p>
+
+<p>
+Then define
+</p>
+
+<div class="math-block">\begin{align*}
+\eta': \overline{\mathcal{F}} \rightarrow \overline{\mathcal{F}'}
+\mathrm{Hom}(-,c) \mapsto \eta(c): \mathcal{F}(c) \rightarrow \mathcal{F}'(c)
+\end{align*}</div>
+<p>
+as well as extending it via
+</p>
+
+<div class="math-block">\begin{align*}
+\eta(\mathcal{G}) = \mathrm{colim} \eta(c): \mathrm{colim} \mathcal{F}(c) \rightarrow \mathrm{colim} \mathcal{F}'(c)
+\end{align*}</div>
+
+<p>
+Then it follows that restriction of $\eta'$ along $\mathcal{C} \rightarrow \mathrm{PSh}(\mathcal{C})$ gives $\eta$.
+</p>
+
+<h3 id="id28e54961-a758-4c55-ba93-95268bcebd92faithful"><a href="20230301211921-treuer_funktor.html#ID-28e54961-a758-4c55-ba93-95268bcebd92">faithful</a></h3>
+<p>
+Suppose there exist two natural transformations $\eta, \eta': \mathcal{H} \rightarrow \mathcal{H}'$ for $\mathcal{H}, \mathcal{H}' \in \mathrm{Fun}^{\mathrm{colim}}(\mathrm{PSh}(\mathcal{C}), \mathcal{D})$ such that they agree on the restriction to $\mathcal{C}$.
+Then it follows that $\eta(\mathrm{Hom}(-,c)) = \eta'(\mathrm{Hom}(-,c))$ and
+TODO
+</p>
+
+</div>
+</body>
+</html>

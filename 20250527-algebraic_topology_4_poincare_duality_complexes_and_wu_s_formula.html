@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>algebraic topology 4 - poincare duality complexes and Wu&#x27;s formula</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-96b8c02a-e8ff-4efa-b8ba-f2dfbd31af6c"></span><h1 class="title">algebraic topology 4 - poincare duality complexes and Wu&#x27;s formula</h1>
+
+<h2 id="aspects">Aspects</h2>
+<p>
+notation: $r: X \rightarrow *$ as <a href="terminal-object-in-an-infinity-category.html#ID-b49b437f-7d5c-4d8a-a413-1c995de811f6">terminal map</a>
+</p>
+<ul>
+<li><a href="20250503-compact_anima.html#ID-4350f2db-b8b4-4124-b850-2a59af4df2dd">compact anima</a> </li>
+
+<li><a href="20250621-module_over_a_ring_spectrum.html#ID-ff15d87e-6808-4cb5-ab80-8484014dbc6d">module over a ring spectrum</a> / <a href="20250621-infinity_module_category_of_a_ring_spectrum.html#ID-60f804bb-5dd6-44ca-9e25-4fbdb749d314">infinity module category of a ring spectrum</a> </li>
+
+<li><a href="20250817-category_of_module_spectra_as_presentable_category.html#ID-f2e3ad71-39c6-4373-a7cc-0655bb900bc5">category of module spectra as presentable category</a> </li>
+</ul>
+<ul>
+<li><a href="20250615-infinity_tensor_product_of_modules.html#ID-c84cdb1f-9608-480b-8e1e-92338f7d5b9c">infinity tensor product of modules</a> </li>
+
+<li><a href="20250615-infinity_map_module.html#ID-6ed74b17-f306-44a2-a9c5-af86f56257e4">infinity map module</a> </li>
+
+<li><a href="20250817-inner_hom_of_a_presentably_monoidal_infinity_category.html#ID-d6ea033a-da9e-4218-9303-371e84c3abc0">inner hom of a presentably monoidal infinity category</a> </li>
+
+<li><a href="20250817-category_of_module_spectra_as_presentably_monoidal_category.html#ID-28b22a27-f68a-43a5-8b5d-52025ae08172">category of module spectra as presentably monoidal category</a> </li>
+</ul>
+<ul>
+<li><a href="20250615-infinity_tensor_product_of_modules_preserves_colimits_in_boht_variables.html#ID-f8425c8a-2ced-42f2-844d-60833fec0576">infinity tensor product of modules preserves colimits in boht variables</a>   </li>
+</ul>
+<ul>
+<li><a href="20250530-infinite_restriction_of_scalars.html#ID-b8209f6a-1426-4fec-ac74-29714f888b25">infinite restriction of scalars</a> </li>
+
+<li><a href="20250530-infinite_extension_of_scalars.html#ID-996bf83d-e42c-42cb-93d1-6df6fa06cbdf">infinite extension of scalars</a></li>
+
+<li><a href="20250615-infinite_coextension_of_scalars.html#ID-3a5f2c8e-ff5f-4820-bfab-6b39f9394883">infinite co-extension of scalars</a>   </li>
+</ul>
+<ul>
+<li><a href="20250603-compact_limit.html#ID-99606548-878f-4477-bd7a-a0be49aa0ca2">compact limit</a> / <a href="20250616-compact_colimit.html#ID-0c7d551e-45fd-4490-b625-2fc47616b89d">compact colimit</a>   </li>
+
+<li><a href="20250817-forgetful_functor_from_module_spectra_to_anima.html#ID-3e3d73ba-4090-4024-9864-83e40efd6763">forgetful functor from module spectra to anima</a>   </li>
+
+<li><a href="20250817-inner_hom_of_module_spectra_lifts_mapping_anima.html#ID-8410f29f-781e-4347-a51e-c111da8a9c27">inner hom of module spectra lifts mapping anima</a>   </li>
+
+<li><a href="20250519-spectra_as_module_over_the_sphere_spectrum.html#ID-1883ce69-ee3e-41d0-86b7-d81a28eb6502">spectra is the module category over the sphere spectrum</a>   </li>
+</ul>
+<ul>
+<li><a href="20250615-infinite_restriction_of_scalars_preserves_limits.html#ID-462a3c1a-bb82-4992-956f-25523ce0f1a5">infinite restriction of scalars preserves limits</a>  </li>
+
+<li><a href="20250615-infinite_restriction_of_scalars_preserves_colimits.html#ID-4a3b03de-2c08-46f3-8e96-7bc86c1be3c5">infinite restriction of scalars preserves colimits</a>   </li>
+</ul>
+
+<ul>
+<li><a href="20250615-functor_preserving_finite_limits_preserves_compact_limits.html#ID-04238dd3-4a75-4a83-bf49-564415997e81">functor preserving finite limits preserves compact limits</a>   </li>
+
+<li><a href="20250615-functor_preserving_finite_colimits_preserves_compact_colimits.html#ID-b79bad68-cab4-4c73-9ac2-b9ea1e8b19c8">functor preserving finite colimits preserves compact colimits</a> - todo</li>
+</ul>
+<ul>
+<li><a href="20241022-functor_category_for_a_stable_infinity_category_as_stable_infinity_categories.html#ID-77b132e7-ee88-4f8e-82ab-f4923ae8e852">functor category for a stable infinity category as stable infinity categories</a>   </li>
+</ul>
+<ul>
+<li>whatever ?</li>
+
+<li><a href="20250905-forgetful_functor_from_o_algebras_to_o_modules.html#ID-93ebf3e9-bb9c-4a19-b57c-f3ca8603b174">forgetful functor from O-Algebras to O-Modules</a>   </li>
+</ul>
+<ul>
+<li><a href="20250621-compact_colimit_in_a_stable_infinity_category_commutes_with_limits.html#ID-725382cb-7e9f-428f-933a-dbb480583d90">compact colimit in a stable infinity category commutes with limits</a>   </li>
+
+<li><a href="20250621-compact_limit_in_a_stable_infinity_category_commutes_with_colimits.html#ID-b8996956-69ac-4e88-a553-d74482054f0c">compact limit in a stable infinity category commutes with colimits</a>   </li>
+</ul>
+<ul>
+<li><a href="20250817-restriction_of_scalars_induces_commutative_square_for_a_local_system_and_kan_extension.html#ID-3cfe41a8-0628-4dc2-a730-6020b24d9565">restriction of scalars induces commutative square for a local system and kan extension</a> </li>
+
+<li><a href="20250817-extension_of_scalars_induces_a_commutative_square_for_a_local_system_and_kan_extension.html#ID-830c47f1-8ec0-411f-9afc-4b59cecae2d0">extension of scalars induces a commutative square for a local system and kan extension</a>   </li>
+
+<li><a href="20250817-coextension_of_scalars_induces_a_commutative_square_for_a_local_system_and_kan_extension.html#ID-2519e8e0-9777-4786-9a1d-bd41ccadfc66">coextension of scalars induces a commutative square for a local system and kan extension</a>   </li>
+</ul>
+
+<ul>
+<li><a href="20250615-morita_equivalence_of_infinite_module_categories.html#ID-d72d6938-b6c3-4066-b4a6-f51e5b858cfc">morita equivalence of infinite module categories</a> - todo</li>
+</ul>
+
+
+<h3 id="51">5.1)</h3>
+<ul>
+<li><a href="20250604-r_dualizing_spectrum.html#ID-7c238ade-10a7-4fd9-951e-92371f4bda5b">R-dualizing spectrum</a> </li>
+
+<li><a href="20250604-dualizing_spectrum.html#ID-a59b2c30-6b45-4ff6-9aec-857e7cbc2400">dualizing spectrum</a>  </li>
+</ul>
+<h3 id="52">5.2)</h3>
+<ul>
+<li><a href="20250620-suspension_spectrum_of_a_compact_anima_as_dualizable_object.html#ID-ba59a6fe-b86e-4988-83e1-e1ae208a7deb">suspension module of a compact anima as dualizable object</a> </li>
+
+<li><a href="20250620-dualizable_object_closed_under_retracts.html#ID-d5cf0d9c-4f0f-4298-bc2e-773859825a36">dualizable object in a closed monoidal category closed under retracts</a> </li>
+</ul>
+<ul>
+<li><a href="20250604-dualizable_object.html#ID-d7ce66ea-0546-4473-8c08-89abdaf29e7a">dualizable object</a> </li>
+
+<li><a href="20250818-subcategory_of_dualizable_objects_of_a_stable_category_is_stable.html#ID-a3d1b0ca-bca1-4a7f-a2c7-7099ad211325">subcategory of dualizable objects of a stable category is stable</a> /  </li>
+</ul>
+<ul>
+<li><a href="20250818-dualizable_object_closed_under_finite_colimit_in_a_stably_symmetric_monoidal_category.html#ID-acff3597-6994-4a66-8293-add3edb6b2e7">dualizable object closed under finite colimit in a stably symmetric monoidal category</a> /  </li>
+
+<li><a href="20250818-dualizable_object_closed_under_finite_limit_in_a_stably_symmetric_monoidal_category.html#ID-75a07f5c-2c8c-48f8-8532-926dbe9336c9">dualizable object closed under finite limit in a stably symmetric monoidal category_</a>   </li>
+</ul>
+<ul>
+<li><a href="20250620-compact_object_in_infinity_modules_as_retract_of_finite_modules.html#ID-5ffe5015-c6d7-4128-afed-496528ef02b1">compact module spectrum as retract of finite modules</a>   </li>
+
+<li><a href="20250818-finite_module_spectrum.html#ID-00474c74-02e6-4737-8705-fe5e6b664fe2">finite module spectrum</a>   </li>
+</ul>
+<ul>
+<li><a href="20250915-colimit_of_dualizing_spectrum_is_dualizing_object.html#ID-b560606c-897f-4fef-8c84-7c682cb0a8b3">colimit of dualizing spectrum is dualizing object</a>   </li>
+</ul>
+<ul>
+<li><a href="20250818-forgetful_functor_from_module_spectra_to_spectra.html#ID-a5a26d6e-ec45-4c91-a02b-8ec8279c7d3d">forgetful functor from module spectra to spectra</a>   </li>
+
+<li><a href="20250818-forgetful_functor_from_spectra_to_anima_not_conservative.html#ID-9b7615e4-2bec-4d42-bc47-a6b38f02aa87">forgetful functor from spectra to anima not conservative</a> </li>
+
+<li><a href="20250818-forgetful_functor_from_module_spectra_to_spectra_is_conservative.html#ID-8cf1f6cc-be7b-42ba-a2d3-b234d370abc7">forgetful functor from module spectra to spectra is conservative</a>   </li>
+</ul>
+<ul>
+<li><a href="20250617-compact_colimit_of_compact_objects_as_compact_object.html#ID-3ccc471d-1d98-4d97-bc67-3233baea69b4">compact colimit of compact objects as compact object</a> </li>
+
+<li><a href="20241021-left_adjoint_of_a_continuous_right_adjoint_preserves_compact_objects.html#ID-2d4f39de-1630-48b4-9adb-7a1a111090d8">left adjoint of a continuous right adjoint preserves compact objects</a> </li>
+</ul>
+
+<ul>
+<li></li>
+</ul>
+<h3 id="53">5.3)</h3>
+
+<h3 id="54">5.4)</h3>
+<ul>
+<li><a href="20250617-corepresentability_of_left_kan.html#ID-aa542658-e068-4447-8f45-64bbd10b961d">corepresentability of left kan for Modules</a> </li>
+
+<li><a href="20250617-costenoble_waner_duality.html#ID-f20ce4c9-10ff-48a8-922c-9440461d7111">costenoble waner duality</a> </li>
+</ul>
+<h3 id="55">5.5)</h3>
+<ul>
+<li><a href="20250621-dualizing_spectrum_as_corepresing_object.html#ID-19f279e1-bb95-4222-9c94-dee749d426ff">dualizing spectrum as corepresing object</a> </li>
+</ul>
+<h3 id="56">5.6)</h3>
+<ul>
+<li><a href="20250617-costenoble_waner_duality.html#ID-f20ce4c9-10ff-48a8-922c-9440461d7111">costenoble waner duality</a> </li>
+</ul>
+<h3 id="57">5.7)</h3>
+<ul>
+<li><a href="20250621-left_kan_extension_of_a_local_system_of_modules_over_a_commutative_ring_spectrum.html#ID-515d1f4b-d9af-4344-a99f-71637159fde9">left kan extension of a local system of modules over a commutative ring spectrum</a> </li>
+</ul>
+<h3 id="58">5.8)</h3>
+<ul>
+<li><a href="20250620-natural_transformation_from_right_kan_extension_to_left_kan_extension_for_a_local_system.html#ID-28bc9a1c-501e-4680-9add-8824e4717e22">factorization of a natural transformation from right kan extension to left kan extension for a local system</a> </li>
+<ul>
+<li>todo</li>
+</ul></ul>
+<h3 id="59">5.9)</h3>
+<ul>
+<li><a href="20250617-generalized_cap_product.html#ID-d6f6d525-4cca-4235-9a97-687cc91106d7">generalized cap product</a> </li>
+</ul>
+<h3 id="510">5.10)</h3>
+<ul>
+<li><a href="20250604-dualizing_spectrum.html#ID-a59b2c30-6b45-4ff6-9aec-857e7cbc2400">dualizing spectrum</a> </li>
+
+<li><a href="20250617-tensor_product_of_a_commutative_ring_spectrum_as_r_dualizing_spectrum.html#ID-6893eae9-6d8f-4bad-beaf-992fe58f4463">tensor product of a commutative ring spectrum as r-dualizing spectrum</a>   </li>
+
+<li>&lt;tensor invertible object as shift of sphere spectrum&gt;</li>
+
+<li></li>
+
+<li></li>
+</ul>
+<ul>
+<li><a href="20250617-picard_of_the_sphere_spectrum.html#ID-09373924-6fd1-43bc-b732-c94aa597fdd2">Picard^+ of the sphere spectrum</a>   </li>
+
+<li><a href="20250521-picard_of_the_sphere_spectrum.html#ID-d0587ae7-68bc-4ab7-a287-a6303331928d">Picard of the sphere spectrum</a> </li>
+</ul>
+<h3 id="511">5.11)</h3>
+<ul>
+<li><a href="20250617-homology_with_local_coefficients.html#ID-311078f8-8e7e-4273-a367-ec214d31c8f7">homology with local coefficients</a> </li>
+
+<li><a href="20250617-cohomology_with_local_coefficients.html#ID-034e0d6c-0f65-4a29-b536-8e27ce6005c5">cohomology with local coefficients</a>   </li>
+</ul>
+<ul>
+<li><a href="20250619-chain_complex_description_of_homology_with_local_coefficients.html#ID-ae7cdd7f-571c-4cb7-92b9-7d0d83938de9">chain complex description of homology with local coefficients</a> </li>
+
+<li><a href="20250619-chain_complex_description_of_cohomology_with_local_coefficients.html#ID-d3f91ebc-fc1f-4b48-8c56-848cac3cc3e7">chain complex description of cohomology with local coefficients</a>   </li>
+</ul>
+<h3 id="512">5.12)</h3>
+<ul>
+<li><a href="20250617-tensor_product_of_a_commutative_ring_spectrum_as_r_dualizing_spectrum.html#ID-6893eae9-6d8f-4bad-beaf-992fe58f4463">tensor product of a commutative ring spectrum as r-dualizing spectrum</a> </li>
+</ul>
+<h3 id="513">5.13)</h3>
+<ul>
+<li><a href="20250617-picard_of_the_sphere_spectrum.html#ID-09373924-6fd1-43bc-b732-c94aa597fdd2">Picard^+ of the sphere spectrum</a> </li>
+
+<li><a href="20250521-picard_of_the_sphere_spectrum.html#ID-d0587ae7-68bc-4ab7-a287-a6303331928d">Picard of the sphere spectrum</a>   </li>
+
+<li><a href="20250520-poincare_duality_complex.html#ID-9e35ba28-8260-48ca-869c-531b0374e00d">poincare duality complex</a> </li>
+</ul>
+<ul>
+<li><a href="20250617-spivak_normal_fibratino.html#ID-5e28186a-95d3-44ba-9e23-81b031b2acc2">Spivak normal fibration</a> </li>
+
+<li><a href="20250617-spivak_tangent_fibration.html#ID-67884935-62fc-43cc-9d90-6f6169a25d43">Spivak tangent fibration</a>   </li>
+</ul>
+<ul>
+<li><a href="20250617-dimension_of_a_poincare_duality_complex.html#ID-b0a3eee5-852b-4413-b2a9-8065510c9c4d">dimension of a poincare duality complex</a> </li>
+
+<li><a href="20250617-oriented_poincare_duality_compex.html#ID-0e5bd8b1-9fef-49cf-9840-38c36ad55d4f">oriented poincare duality complex</a>   </li>
+</ul>
+<ul>
+<li></li>
+</ul>
+<p>
+Let $X$ be a <a href="20250310-connected_anima.html#ID-3a5f1513-1e7e-49aa-90e7-a728c310990c">connected</a> <a href="20250520-poincare_duality_complex.html#ID-9e35ba28-8260-48ca-869c-531b0374e00d">poincare duality complex</a>.
+Then
+</p>
+<ul>
+<li><a href="20250617-orientation_character_of_a_pd_complex.html#ID-b865471e-b12e-4d5f-ae7a-0e5bf2d45bcb">orientation character of a poincare duality complex</a> </li>
+
+<li><a href="20250620-poincare_duality_of_a_poincare_duality_complex.html#ID-e299d40a-17dd-4312-9ddb-b5f942fc7ffa">poincare duality of a poincare duality complex</a>   </li>
+
+<li><a href="20240624-cup_product_pairing_non_degenerate.html#ID-927aae5b-b44d-4fd5-bdf6-8497093ca098">cup product pairing non degenerate</a>   </li>
+</ul>
+<p>
+-f2 cup product perfect pairing
+</p>
+
+<h3 id="514">5.14)</h3>
+<ul>
+<li><a href="20250817-poincare_isomorphism_of_a_poincare_duality_complex.html#ID-2cc0d58a-5173-4fb1-9a2e-925efbf3c0b0">poincare isomorphism of a poincare duality complex</a> </li>
+
+<li><a href="20250817-poincare_isomorphism_of_an_oriented_poincare_duality_complex.html#ID-1e1d0c8c-0e86-42a4-8938-a78b532d81f9">poincare isomorphism of an oriented poincare duality complex</a> </li>
+
+<li><a href="20250817-f2_poincare_isomorphism_of_a_poincare_duality_complex.html#ID-8afc16dd-105c-4565-83f2-66d84b0522d6">F2-poincare isomorphism of a poincare duality complex</a>   </li>
+</ul>
+
+
+
+<h3 id="515">5.15)</h3>
+<ul>
+<li><a href="20250701-wu_class_of_a_connected_poincare_duality_complex.html#ID-80ff424a-bf40-4794-a1c1-a2457fa2c657">wu class of a connected poincare duality complex</a> </li>
+</ul>
+
+<h3 id="516">5.16)</h3>
+<ul>
+<li><a href="20250701-dualizing_complex_under_equivalences.html#ID-c369f454-a25d-4349-9da1-9b70809d27c4">dualizing complex under equivalences</a> </li>
+
+<li><a href="20250701-poincare_duality_complexes_under_equivalences.html#ID-4312a9e8-fa6b-4643-bdac-272ebfe31331">poincare duality complexes under equivalences</a>   </li>
+
+<li><a href="20250701-wu_class_of_a_poincare_duality_complex_under_equivalences.html#ID-8f0199f6-27f6-48c3-a5cd-4cf734a8213e">wu class of a poincare duality complex under equivalences</a>   </li>
+</ul>
+<ul>
+<li><a href="20250701-stiefel_whitney_class_of_a_poincare_duality_complex_invariant_under_equivalences.html#ID-192039c3-3c37-4db9-b1d4-975c7d390c11">stiefel whitney class of a poincare duality complex invariant under equivalences</a> </li>
+</ul>
+<h3 id="517">5.17)</h3>
+<ul>
+<li><a href="20250701-wu_s_third_formula.html#ID-d2f2d243-31a8-4d52-b363-f509c192650f">Wu's third formula</a> </li>
+
+<li><a href="20250701-wu_class_of_a_poincare_duality_complex_under_equivalences.html#ID-8f0199f6-27f6-48c3-a5cd-4cf734a8213e">wu class of a poincare duality complex invariant under equivalences</a>   </li>
+</ul>
+<h3 id="518">5.18)</h3>
+<ul>
+<li><a href="20250701-wu_class_of_a_poincare_duality_complex_vanishing_above_half_of_the_dimension.html#ID-9382ddbb-17e4-4827-a53d-c8570b39e197">wu class of a poincare duality complex vanishing above half of the dimension</a> </li>
+</ul>
+<h3 id="519">5.19)</h3>
+<ul>
+<li><a href="20250701-first_stiefel_whitney_class_and_first_wu_class_of_a_poincare_duality_complex.html#ID-b85d3a97-03a8-41d2-b37a-fc43f3088457">first stiefel whitney class and first wu class of a poincare duality complex</a> </li>
+
+<li><a href="20250701-first_stiefel_whitney_class_and_orientability.html#ID-03ff304b-8107-4914-bd7c-28d9fac4676c">first stiefel whitney class and orientability</a>   </li>
+
+<li><a href="20250701-first_steenrod_operation_on_an_orientable_poincare_duality_complex.html#ID-e9bb11ed-1572-4dc2-9f0a-55b369405b13">first steenrod operation on an orientable poincare duality complex</a>   </li>
+
+<li></li>
+</ul>
+
+<div class="math-block">\begin{align*}
+w_2(X) =&amp; \mathrm{Sq}(v(x))_2 \\
+=&amp; v_2(x) + \mathrm{Sq}^1(v_1) + \mathrm{Sq}^0(v_0) \\
+=&amp; v_2(x) + w_1^2
+\end{align*}</div>
+<ul>
+<li></li>
+</ul>
+<h3 id="520">5.20)</h3>
+<ul>
+<li><a href="20250704-stiefel_whitney_classes_of_an_orientable_pd_complex_of_dimension_3_vanish.html#ID-36996116-5c3b-4e15-8155-550f8b3f31d0">stiefel whitney classes of an orientable PD complex of dimension 3 vanish</a> </li>
+</ul>
+<h3 id="521">5.21)</h3>
+
+<h3 id="522">5.22)</h3>
+<ul>
+<li></li>
+</ul>
+<p>
+Let $X$ be an <a href="20250617-oriented_poincare_duality_compex.html#ID-0e5bd8b1-9fef-49cf-9840-38c36ad55d4f">oriented poincare duality complex</a> of <a href="20250617-dimension_of_a_poincare_duality_complex.html#ID-b0a3eee5-852b-4413-b2a9-8065510c9c4d">dimension</a> $4$.
+The $w_2(X) = 0$
+</p>
+
+<h3 id="523">5.23)</h3>
+<ul>
+<li><a href="20250701-closed_manifold_as_poincare_duality_complex.html#ID-a91194bb-753b-4f1e-aa8e-5001cb421f80">closed manifold as poincare duality complex</a>  </li>
+</ul>
+<h3 id="524">5.24)</h3>
+
+<h3 id="525">5.25)</h3>
+
+<h3 id="526">5.26)</h3>
+<ul>
+<li><a href="20250708-pointwise_formula_for_the_dualizing_spectrum.html#ID-0a0597a9-80b2-4b78-99c3-5578969d8c4c">pointwise formula for the dualizing spectrum</a> </li>
+
+<li><a href="20250708-dualizing_spectrum_as_bounded_below_spectrum.html#ID-bfc58755-5f53-4552-91ba-670a8d7e7216">dualizing spectrum as bounded below spectrum</a>   </li>
+</ul>
+<ul>
+<li><a href="20250915-projection_formula.html#ID-b521436f-1f6c-42e1-b888-6a74608b5a15">projection formula in spectra</a> - todo  </li>
+</ul>
+<ul>
+<li><a href="20250708-left_kan_extension_and_commutative_square_commutes_up_to_natural_transformation.html#ID-f8d3aa94-74de-4326-9a33-362b4856c980">left kan extension and commutative square commutes up to natural transformation</a>   </li>
+
+<li><a href="20250708-right_kan_extension_and_commutative_square_commutes_up_to_natural_transformation.html#ID-a312abe7-f1d2-437b-b408-e5140434badb">right kan extension and commutative square commutes up to natural transformation</a> </li>
+</ul>
+<ul>
+<li><a href="20250708-beck_chevalley_for_left_kan_extension.html#ID-156ddf4e-ae8c-44ea-9013-1531f89a9991">Beck Chevalley for left kan extension</a>   </li>
+
+<li><a href="20250708-beck_chevalley_for_right_kan_extension.html#ID-d4cce1c8-231b-4b0d-bf7f-3b68e3dcab01">Beck Chevalley for right kan extension</a>   </li>
+</ul>
+<h3 id="527">5.27)</h3>
+<ul>
+<li><a href="20250708-recognition_principle_for_spivak_normal_fibrations.html#ID-b1a3192a-14d7-4f96-97b0-834795f9a740">recognition principle for spivak normal fibrations</a> </li>
+</ul>
+<h3 id="528">5.28)</h3>
+<ul>
+<li><a href="20250701-closed_manifold_as_poincare_duality_complex.html#ID-a91194bb-753b-4f1e-aa8e-5001cb421f80">closed manifold as poincare duality complex</a> </li>
+</ul>
+<h3 id="529">5.29)</h3>
+<ul>
+<li><a href="20250708-factorization_of_the_dualizing_spectrum_to_ktop_for_a_topological_manifold.html#ID-c7f52947-f4db-4dff-85d8-8035c996bcd8">factorization of the dualizing spectrum to ktop for a topological manifold</a> </li>
+
+<li><a href="20250708-factorization_of_the_dualizing_spectrum_to_ko_for_a_topological_manifold.html#ID-61f719c6-cce8-4514-9156-5e654fe5b50d">factorization of the dualizing spectrum to ko for a topological manifold</a> </li>
+</ul>
+<h3 id="530">5.30)</h3>
+<ul>
+<li><a href="20250708-stably_null_homotopic_map_and_trivial_dualizing_spectrum_for_a_single_cell_attachment.html#ID-77c9b586-d043-4e12-ab76-8a0a6f75c016">stably null homotopic map and trivial dualizing spectrum for a single cell attachment</a> </li>
+</ul>
+<h3 id="531">5.31)</h3>
+
+
+</div>
+</body>
+</html>

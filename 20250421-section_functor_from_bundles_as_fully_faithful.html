@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>section functor from Bundles as fully faithful</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-544b75b9-4cc0-49f2-bc66-79d61d254a9f"></span><h1 class="title">section functor from Bundles as fully faithful</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X$ be a <a href="20230227205526-normaler_raum_topologie.html#ID-8dac9b3a-6b0d-479c-b4c8-e6a022e96e12">normal</a> space, then the <a href="20241212-section_functor_from_bundles_to_r_mod.html#ID-2c5ea9af-b19a-4c37-b1cc-75db5d90b04c">section functor from Bundles to R-Mod</a> is <a href="20230301211947-volltreuer_funktor.html#ID-85a359f5-50f6-4f57-ae10-c34278befc6c">fully faithful</a>.
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="faithful">faithful</h3>
+<p>
+Let $E_1,E_2$ be bundles and $f,g: E_1 \rightarrow E_2$ be <a href="20231227-morphism_of_vector_bundles.html#ID-9cebb3b8-c280-4d39-bfb0-4933b4a9818b">morphism of topological vector bundles</a>.
+Suppose $\Gamma(f) = \Gamma(g)$
+</p>
+
+<p>
+Let $e \in E_1$ be arbitrary and $x \coloneqq p(e_1) \in X$.
+CHoose a local basis $s_i$ (cf. <a href="20250420-existence_of_a_local_basis_of_a_vector_bundle.html#ID-19752656-4161-4d74-a06c-41b1e3bd65fe">existence of a local basis of a vector bundle</a>) such that
+</p>
+
+<div class="math-block">\begin{align*}
+e = \sum_{i=1}^n a_i s_i(x)
+\end{align*}</div>
+
+<p>
+Define
+</p>
+
+<div class="math-block">\begin{align*}
+s: U \rightarrow E
+\end{align*}</div>
+<p>
+as
+</p>
+
+<div class="math-block">\begin{align*}
+s(y) = \sum_{i=1^n a_i s_i(-)
+\end{align*}</div>
+<p>
+and use <a href="20241212-extension_of_a_section.html#ID-76f8c8f3-abc0-4deb-8287-0202ade20c44">local extension of a section for a normal space</a> to get a section $s'$ with $s'(x) = e$
+</p>
+
+<p>
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+f(e) =&amp; f(s'(x)) \\
+=&amp; \Gamma(f)(s')(x) \\
+=&amp; \Gamma(g)(s')(x) \\
+=&amp; g(s'(x)) \\
+=&amp; g(e)
+\end{align*}</div>
+
+
+<h3 id="full">full</h3>
+<p>
+Let $I_X \subseteq C(X)$ be the <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a> with fucntions vanishing on $x$.
+</p>
+
+<p>
+Then we get an isomorphism
+</p>
+
+<div class="math-block">\begin{align*}
+\Gamma(E_1)/I_x \simeq&amp; p^{-1}[x]
+[s] \mapsto&amp; s(x)
+\end{align*}</div>
+
+<p>
+Let $F: \Gamma(E_1) \rightarrow \Gamma(E_2)$ be a \(C(X)\)- <a href="20230222204703-modulhomomorphismus.html#ID-bb388d52-298a-4714-b290-80d9ab79eb2e">module-homomorphism</a>
+We have to construct a bundle map $f$ with $\Gamma(f) = F$
+</p>
+
+<p>
+This induces a map
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+\Gamma(E_1)/I_x \rar \dar &amp; \Gamma(E_2)/I_y \dar \\
+p_1^{-1}_{1}( \{x\}) \rar &amp; p_2^{-1}_{1}( \{x\}) \\
+\end{tikzcd}
+\end{displaymath}</pre></div>
+
+<p>
+Now define
+</p>
+
+<div class="math-block">\begin{align*}
+f: E_1 \rightarrow E_2 \\
+f_{\vert p_1^{-1}[ \{x\}]} = f_x
+\end{align*}</div>
+
+<p>
+it is by definition linear.
+</p>
+
+<p>
+it remains to show that this map is <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a>
+</p>
+
+</div>
+</body>
+</html>

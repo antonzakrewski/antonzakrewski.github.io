@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>stochastische konvergenz und Teilfolgen</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-31f027da-5810-4fd9-a8a9-f153ca03ee88"></span><h1 class="title">stochastische konvergenz und Teilfolgen</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $(X, \mathcal{A}, \mu)$ ein <a href="20241019-maßraum.html#ID-2135bec8-c3bb-4fca-a24a-21334f66d7ae">Maßraum</a>, $f_n \in \mathcal{L}_1$ eine folge von funktionen.
+</p>
+
+<p>
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol>
+<li>$f_n \rightarrow f$ <a href="20241102-stochastische_konvergenz.html#ID-c4840a83-fd42-4069-86b2-37511f6874e8">konvergiert stochastisch</a> </li>
+
+<li>für alle <a href="20220717191708-teilfogle.html#ID-133bb3cb-5829-417d-a264-b95b6e343f41">Teilfolgen</a> $f_{n_k}$ von $f_n$ folgt, dass eine Teilfolge $f_{n_{k_l}}$ existiert, welche <a href="20241102-fast_uberall_konvergente_funktionenfolge.html#ID-14cfd263-e7b6-4db8-a28a-64133f0d442f">fast überall konvergiert</a> </li>
+</ol>
+<div class="math-block">\begin{align*}
+f_{n_k_l} \rightarrow f
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="id0755b55c-cb40-4e38-964a-dd44d1061a6asigma-endliches-ma"><a href="20241103-sigma_endliches_maß.html#ID-0755b55c-cb40-4e38-964a-dd44d1061a6a">sigma endliches maß</a></h3>
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> sei $f = 0$, sonst setze $f' \coloneqq f - f_n$
+</p>
+
+<h4 id="2-implies-1">2) $\implies$ 1)</h4>
+<p>
+Angenommen $f_n \not \rightarrow 0$ konvergiert nicht stochsatisch.
+Dann existieren $\varepsilon, \delta &gt; 0$, $A \in \mathcal{A}$ mit $\mu(A) &lt; \infty$ und eine Teilfolge $f_{n_k}$ mit
+</p>
+
+<div class="math-block">\begin{align*}
+\mu( \{x \in A : \vert f_{n_k}(x) \vert &gt; \varepsilon\}) &gt; \delta
+\end{align*}</div>
+<p>
+für beliebiges $k \in \mathbb{N}$
+</p>
+
+<p>
+Nach Annahme hat $f_{n_k}$ <a href="20241102-fast_uberall.html#ID-9d225c6c-ef25-44c8-9cb2-4d677ed59727">fast überall</a> konvergiente Teilfolgen $f_{n_{k_l}}$.
+Nach <a href="20241104-konvergenz_fast_uberall_impliziert_stochastische_konvergenz.html#ID-9c50e2d2-9df7-493d-9c1f-6590d3bdb92a">konvergenz fast überall impliziert stochastische konvergenz</a> konvergiert diese Teilfolge stochastisch gegen $0$, was ein Widerspruch ist.
+</p>
+
+
+<h4 id="1-implies-2">1) $\implies$ 2)</h4>
+<p>
+Sei $f_n \rightarrow 0$ stochastisch konvergent, dann ist zu zeigen, dass iene Teilfolge $f_{n_k}$ existiert welche fast überall gegen $0$ konvergiert.
+(Insbesondere ist eine Teilfolge einer stochastisch konvergenten Folge eine stochastisch konvergente Folge)
+</p>
+
+<p>
+Sei $X_l \in \mathcal{A}$ mit $\mu(X_l) &lt; \infty$ und $\bigcup_{l \in \mathbb{N}} X_l = X$, was nach Annahme der sigma-endlichkeit existiert.
+Sei im folgenden $l$ fix.
+</p>
+
+<p>
+Nach Annahme gilt, dass für beliebiges $k \in \mathbb{N}$ ein $n_k \in \mathbb{N}$ existiert, so dass für $n \geq n_k$ gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\mu( \{x_1 \in X_1 : \vert f_n(x) \vert &gt; \frac{1}{k}\}) = \mu( \{ \vert f_n \chi_{X_l} &gt; \frac{1}{k}\}) \leq \frac{1}{2^k}
+\end{align*}</div>
+
+<p>
+Wähle im folgenden $n_{k+1}$ derart, dass $n_{k+1} &gt; n_k$ für alle $k \in \mathbb{N}$ gilt.
+</p>
+
+<p>
+setze
+</p>
+
+<div class="math-block">\begin{align*}
+A_k^l \coloneqq \{ \vert f_{n_k} \chi_{X_l} \vert &gt; \frac{1}{k}\}
+\end{align*}</div>
+<p>
+und
+</p>
+
+<div class="math-block">\begin{align*}
+A^l \coloneqq \bigcap_{j \in \mathbb{N}} (\bigcup_{k \geq j} A_k^l
+\end{align*}</div>
+<p>
+Dann lieg t$x \in A^l$ <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">g.d.w.</a> $x \in A_k^l$ für unendlich viele $k \in \mathbb{N}$ liegt.
+</p>
+
+<p>
+Dan gilt für $x \not\in A^l$ auch $x \in X \setminus A_k^l$ für <a href="20221013222501-fast_alle.html#ID-a3da14cb-05c1-4f9e-a68a-a693980f5ede">fast alle</a> $k$, d.h.
+</p>
+
+<div class="math-block">\begin{align*}
+\vert f_{n_k}(x) \chi_{X_l}(x) \vert \leq \frac{1}{k}
+\end{align*}</div>
+
+<p>
+Damit folgt für $k \rightarrow \infty$ auch
+</p>
+
+<div class="math-block">\begin{align*}
+f_{n_k} \chi_{X_l}(x) \rightarrow 0
+\end{align*}</div>
+
+<p>
+und es gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\mu(A^l) \leq \mu(\bigcup A_k^l) \leq \sum_{k=j}^[\infty} \frac{1}{2^k}
+\end{align*}</div>
+<p>
+für alle $j \in \mathbb{N}$ bzw. wegen der Monotonie und <a href="20241020-maß_und_von_oben_stetiger_inhalt.html#ID-90789e3c-8050-4af6-a6b6-9697903b3dee">stetigkeit von oben</a> auch $\mu(A^l) = 0$.
+</p>
+
+<p>
+Sei $A \coloneqq \bigcup_{l \in \mathbb{N}} A^l$, dann sit $A$ eine <a href="20220902125205-nullmenge.html#ID-4edd0c4c-7828-4cbc-a25d-1031fecd0d5f">Nullmenge</a> (cf. <a href="20241103-abzahlbare_vereinigung_von_nullmengen_als_nullmenge.html#ID-f7d3c053-7697-4977-a56f-34f4e6695b5b">abzählbare vereinigung von Nullmengen als Nullmenge</a>)
+</p>
+
+<p>
+Ferner gilt für $x \in X \setminus A_l$ auch
+</p>
+
+<div class="math-block">\begin{align*}
+(f_{n_k} \chi_{X_l})(x) \rightarrow 0
+\end{align*}</div>
+<p>
+für beliebiges $l \in \mathbb{N}$ bzw. $f_{n_k}(x) \rightarrow 0$ (für $x \in X_l$, da $X = \bigcup X_l$)
+</p>
+
+<p>
+Damit gilt $f_{n_k} \rightarrow 0$ fast überall.
+</p>
+
+
+
+<h5 id="idee">Idee</h5>
+<ul>
+<li><a href="20241118-reduktion_von_fast_uberall_auf_einem_sigma_endlichem_maßraum.html#ID-d3c864db-edcc-4625-9794-dc8657d933ba">Reduktion von fast überall auf einem sigma-endlichem Maßraum</a> </li>
+
+<li>auf einem endlichen Raum:</li>
+<ul>
+<li>schnitt der Mengen (über k), auf der nicht fast alle $f_n$ kleiner als $\frac{1}{2^k}$ ist</li>
+<ul>
+<li>nach stochastischer konvergenz ~&gt; gibt einem kontrolle (verwendung von Endlichkeit)</li>
+</ul>
+<li>diese eine Nullmenge</li>
+</ul></ul>
+<h3 id="allgemein">allgemein</h3>
+<ul>
+<li>Bauer </li>
+</ul>
+</div>
+</body>
+</html>

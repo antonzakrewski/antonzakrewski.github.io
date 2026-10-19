@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>unitalization equivalence between Rng and augmented Ring</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-6d8e2e52-22ee-4948-a01f-c305872b5aed"></span><h1 class="title">unitalization equivalence between Rng and augmented Ring</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathrm{Rng}$ be the <a href="20241205-category_rng.html#ID-283a65cc-dde3-4de0-9b4e-8b7732681729">category Rng</a> and $\mathrm{Ring}$ be the <a href="20230225170135-kategorie_ring.html#ID-fa4634e9-174f-42f5-8e08-0e6d676130d7">category Ring</a>.
+Then the <a href="20250125-unitalization_functor_to_augmented_ring.html#ID-82e5b78c-87a0-4909-a7a1-7f76ad21e48f">unitalization functor to augmented Ring</a> is an <a href="20231118-equivalence_of_categories.html#ID-9f984af9-949c-46b1-9221-7ba43cdae897">equivalence of categories</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="fully-faithful">fully faithful</h3>
+
+<h4 id="injective">injective</h4>
+<p>
+follows as we can recover the original map by restricting to
+</p>
+
+<div class="math-block">\begin{align*}
+A \times \{0\}
+\end{align*}</div>
+
+<h4 id="surjective">surjective</h4>
+<p>
+let
+</p>
+
+<div class="math-block">\begin{align*}
+f: \mathbb{Z} \times A \rightarrow \mathbb{Z} \times B
+\end{align*}</div>
+<p>
+be a morphism.
+Then since
+</p>
+
+<div class="math-block">\begin{align*}
+(1,0) \mapsto (1,0)
+\end{align*}</div>
+<p>
+it suffices to show that
+</p>
+
+<div class="math-block">\begin{align*}
+(0,a) \mapsto (0, f(a))
+\end{align*}</div>
+<p>
+for some $f(a)$.
+</p>
+
+<p>
+Here the first component follows from commutativity of
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/7361f4d55a3f7643f2d3.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+Then
+</p>
+
+
+<div class="math-block">\begin{align*}
+f: A \rightarrow&amp; B \\
+a \mapsto&amp; f(a) 
+\end{align*}</div>
+
+<p>
+is a rgn-homomorphism (todo)
+</p>
+
+
+<p>
+alternatively: use the <a href="20230722-short_exact_sequence.html#ID-7b01038e-f4c1-4e1e-ad52-a0c6a18008f3">short exact sequence</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/7ce5fd00b6be9e465523.svg" class="org-svg" alt="diagram" /></span></div>
+
+<ul>
+<li><a href="20240424-kernel_functor.html#ID-079c0a66-8956-4e48-b90b-8de9abec9ac0">kernel functor</a> </li>
+</ul>
+<h3 id="essentially-surjective">essentially surjective</h3>
+<p>
+Let $A \rightarrow \mathbb{Z}$ be an <a href="20241205-augmented_ring.html#ID-e8b3074a-ba86-4c98-8f90-78883d470190">augmented Ring</a>.
+Then consider $\mathrm{ker}(A \rightarrow \mathbb{Z})$.
+It follows that
+</p>
+
+<div class="math-block">\begin{align*}
+f: \mathrm{ker} \times \mathbb{Z} \cong A
+(a,n) \mapsto a + n
+\end{align*}</div>
+<p>
+is an isomorphism, compatible with the augmentation
+</p>
+
+<h4 id="injective">injective</h4>
+<p>
+Let
+</p>
+
+<div class="math-block">\begin{align*}
+(a,n) \mapsto 0
+\end{align*}</div>
+<p>
+then by commutativity of
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/c354ce93f05183d11596.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+we may conclude that $n = 0$.
+Hence $a \mapsto 0$ or $a = 0$
+</p>
+
+<h4 id="surjective">surjective</h4>
+<p>
+For $x \in A$ consider $\varphi(x) \in \mathbb{Z}$.
+Then $x - \varphi(x), \varphi(x) \mapsto x$
+</p>
+
+
+</div>
+</body>
+</html>

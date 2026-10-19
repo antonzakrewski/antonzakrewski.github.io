@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>flat resolution lemma</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-4507c6d5-6452-42eb-b33b-311a837bf86b"></span><h1 class="title">flat resolution lemma</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let \(R\) be a <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a> and $\mathrm{RMod}$ the <a href="20230225170152-kategorie_mod.html#ID-15b21b3a-18bb-4d60-a716-c69681d7222d">category RMod</a>
+Suppose $M_* \rightarrow M$ is a <a href="20240225-flat_resolution.html#ID-e0f49568-91be-46ec-8782-43b57afdd2dd">flat resolution</a>, then the <a href="20230902-tor_functor.html#ID-b722ea72-1c6d-45c9-bf92-84164a0b360a">Tor Functor</a> evaluates as
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Tor}_n^R(M,-) \cong&amp; H_n(M_* \otimes_R -)
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+it suffices to show that $H_n(M_* \otimes_R -)$ is a <a href="20240416-universal_delta_functor.html#ID-0544d3b3-c211-41af-9bb5-dde407527669">universal delta functor</a>.
+Then it follows by uniqueness, that $\mathrm{Tor}_n^R(M,-) \cong H_n(M_* \otimes_R -)$
+</p>
+
+<h3 id="delta-functor">delta functor</h3>
+<p>
+Let $A \in \mathrm{Ob}(\mathrm{RMod})$
+</p>
+
+<h4 id="welldefined">welldefined</h4>
+<p>
+Let $M_* \rightarrow M, M_*' \rightarrow M$ be <a href="20240225-flat_resolution.html#ID-e0f49568-91be-46ec-8782-43b57afdd2dd">flat resolutions</a>
+Then choose a <a href="20231212-projective_resolution.html#ID-0d6124f2-59f2-4f96-838a-e8b023821bc6">projective resolution</a> $P_* \rightarrow M$.
+</p>
+
+<p>
+Then we get an induced <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphism</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/d30860b5fcbcb734656b.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Note that this morphism is a <a href="20231212-quasi_isomorphism.html#ID-4d0430a5-c6db-4a21-8c43-cd224592d992">quasi-isomorphism</a> (cf. <a href="20240713-morphism_between_acyclic_chain_complexes_as_quasi_isomorphism.html#ID-c8fb725b-f55c-4037-8441-8e5fd62946b6">morphism between acyclic chain complexes as quasi isomorphism</a>)
+</p>
+
+<p>
+By <a href="20240530-tensor_product_of_chain_complexes_and_degreewise_projective_modules.html#ID-3aa9c81c-b9d9-4091-8d91-437f5c15962e">tensor product of chain complexes and degreewise flat modules</a> and <a href="20240525-strong_fernbahnhof_theorem_for_exact_functors.html#ID-202ee9fe-9bb6-4748-b0c3-7d5ae49de70e">strong FHHF for exact functors</a> we get a diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/57d38370d1fa78205803.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+<a href="20240713-quasi_isomorphism_between_trivial_boundary_complexes_as_isomorphism.html#ID-cc0521a9-4f7d-4614-b2a9-be9d3e9db94c">quasi isomorphism between trivial boundary complexes as isomorphism</a>
+</p>
+
+
+<h4 id="n-0">$n = 0$</h4>
+<p>
+Then we get
+</p>
+
+<div class="math-block">\begin{align*}
+H_0(M_* \otimes_R A) =&amp; \mathrm{ker}(M_0 \otimes_R A \rightarrow 0)/ \mathrm{im}(M_1 \otimes_R A \rightarrow M_0 \otimes_R A) \\
+=&amp; (M_0 \otimes_R A)/\mathrm{im}(M_1 \otimes_R A \rightarrow M_0 \otimes_R A)
+\end{align*}</div>
+<p>
+by <a href="20240430-quotient_modulo_image_as_coker.html#ID-b34a1a61-efeb-45f0-81d2-3e929efc4410">quotient modulo image as coker</a> we get
+</p>
+
+<div class="math-block">\begin{align*}
+(M_0 \otimes_R A)/\mathrm{im}(M_1 \otimes_R A \rightarrow M_0 \otimes_R A) \cong \mathrm{coker}(M_1 \otimes_R A \rightarrow M_0 \otimes_R A)
+\end{align*}</div>
+<p>
+and as the <a href="20230801-tensor_product.html#ID-42c4ecff-8f9a-40cf-bebc-70569ded24bf">tensor product</a> $- \otimes_R A$is <a href="20230903-right_exact_functor.html#ID-9af3df51-d300-4ca2-b340-8ac92cdd3fca">right exact</a>, it preserves <a href="20230802-cokernel_of_a_group.html#ID-ae0db2f0-a65e-4920-a806-bd6bc5a3c168">cokernels</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{coker}(M_1 \otimes_R A \rightarrow M_0 \otimes_R A) \cong \mathrm{coker}(M_1 \rightarrow M_0) \otimes_R A
+\end{align*}</div>
+<p>
+here since $M_1 \rightarrow M_0 \rightarrow M \rightarrow 0$ is a resolution we get
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{coker}(M_1 \rightarrow M_0) \otimes_R A \cong M \otimes_R A
+\end{align*}</div>
+
+<h4 id="construction">construction</h4>
+<p>
+Let
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/392c6a772a3f4d1bb97d.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+be exact.
+</p>
+
+<p>
+Then consider the diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/4e5bfb30aa5f5634d614.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+here each row is short exact.
+Therefore after applying $M_i \otimes_R -$
+</p>
+
+<p>
+we get a diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/5a88c28fead5028b251c.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Here all rows are short exact
+</p>
+
+<p>
+Therefore by <a href="20240124-short_exact_sequence_of_chain_complexes_induces_long_exact_sequence.html#ID-dbfcfdf5-a509-4af0-9f20-b269fe098695">zig-zag lemma for modules</a> there exists a natural boundary map
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/7068629f688688b96bd9.svg" class="org-svg" alt="diagram" /></span></div>
+
+<h3 id="universal">universal</h3>
+<p>
+we use that <a href="20240418-coeffacable_delta_functor_as_universal_delta_functor.html#ID-a8626258-8deb-45f8-b802-17d26fdc995c">coeffacable delta functor are universal delta functor</a>:
+</p>
+
+<p>
+For $A \in \mathrm{Ob}(\mathrm{RMod})$ choosing a <a href="20230727-projective_module.html#ID-d7827fce-3372-4b89-bd57-fafc2c16e937">projective module</a> $P \twoheadrightarrow A$, e.g. $R^A \rightarrow A$.
+Then it follows that
+</p>
+
+<div class="math-block">\begin{align*}
+M_* \otimes_R P
+\end{align*}</div>
+<p>
+is exact, as $P$ is flat (cf. <a href="20240216-projective_module_as_flat_module.html#ID-09d6dfa4-1297-43ee-885b-5b56c58cc541">projective module as flat module</a>)
+</p>
+
+<p>
+Therefore
+</p>
+
+<div class="math-block">\begin{align*}
+H_n(M_* \otimes_R P) = 0
+\end{align*}</div>
+<p>
+for $n \geq 1$.
+</p>
+
+<p>
+Thus
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/281fdf9484619ca88193.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+
+
+</div>
+</body>
+</html>

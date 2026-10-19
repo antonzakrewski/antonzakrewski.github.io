@@ -1,259 +1,97 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2026-02-02 Mo 17:14 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>abelian group in general not an injective object</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">abelian group in general not an injective object</h1>
-<div id="outline-container-org89daa8e" class="outline-2">
-<h2 id="org89daa8e">Proposition</h2>
-<div class="outline-text-2" id="text-org89daa8e">
+<span id="ID-4e125c54-578d-488b-bc55-6e63d0011960"></span><h1 class="title">abelian group in general not an injective object</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let <img src="ltximg/20260202-abelian_group_in_general_not_an_injective_object_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" alt="20260202-abelian_group_in_general_not_an_injective_object_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" class="org-svg" /> be an <a href="20211008174655-abelsche_gruppe.html#ID-7281c9cf-564f-4c4c-8c3f-fc1424ac85f8">abelian</a> <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a>, then <img src="ltximg/20260202-abelian_group_in_general_not_an_injective_object_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" alt="20260202-abelian_group_in_general_not_an_injective_object_bc693172e3e84a891cfc37b25c000aa67abdac66.svg" class="org-svg" /> is in general not an <a href="20230903-injective_object.html#ID-7fbb0ef7-bb6c-4135-b65f-2d8fb5f2df00">injective object</a>.<br />
-</p>
-</div>
-</div>
-<div id="outline-container-org715aa65" class="outline-2">
-<h2 id="org715aa65">Proof</h2>
-<div class="outline-text-2" id="text-org715aa65">
-<p>
-Let <img src="ltximg/20260202-abelian_group_in_general_not_an_injective_object_b9ae6c2d73183a7c4d588e3b05d74428ce481baa.svg" alt="20260202-abelian_group_in_general_not_an_injective_object_b9ae6c2d73183a7c4d588e3b05d74428ce481baa.svg" class="org-svg" />.<br />
-Then we need to find a group <img src="ltximg/20260202-abelian_group_in_general_not_an_injective_object_7fb417af05eeb2c7d5dd264a4acac431e528f8de.svg" alt="20260202-abelian_group_in_general_not_an_injective_object_7fb417af05eeb2c7d5dd264a4acac431e528f8de.svg" class="org-svg" /> and a <a href="20220911122242-untergruppe.html#ID-ded4020a-b34f-4433-9d64-2afa33a552d8">subgroup</a> <img src="ltximg/20260202-abelian_group_in_general_not_an_injective_object_5fd6b96827550b700ecc08ed128bdbb801a6c01e.svg" alt="20260202-abelian_group_in_general_not_an_injective_object_5fd6b96827550b700ecc08ed128bdbb801a6c01e.svg" class="org-svg" /> and a group homomorphism <img src="ltximg/20260202-abelian_group_in_general_not_an_injective_object_fb1d47cf389792c720339b6abfabd65a80a484f7.svg" alt="20260202-abelian_group_in_general_not_an_injective_object_fb1d47cf389792c720339b6abfabd65a80a484f7.svg" class="org-svg" /> which does not extend to <img src="ltximg/20260202-abelian_group_in_general_not_an_injective_object_7fb417af05eeb2c7d5dd264a4acac431e528f8de.svg" alt="20260202-abelian_group_in_general_not_an_injective_object_7fb417af05eeb2c7d5dd264a4acac431e528f8de.svg" class="org-svg" /><br />
+Let $G$ be an <a href="20211008174655-abelsche_gruppe.html#ID-7281c9cf-564f-4c4c-8c3f-fc1424ac85f8">abelian</a> <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a>, then $G$ is in general not an <a href="20230903-injective_object.html#ID-7fbb0ef7-bb6c-4135-b65f-2d8fb5f2df00">injective object</a>.
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20260202-abelian_group_in_general_not_an_injective_object_e284bee3cd54e079524512366546d64b138bc32a.svg" alt="20260202-abelian_group_in_general_not_an_injective_object_e284bee3cd54e079524512366546d64b138bc32a.svg" class="org-svg" />
-</span>
-</div>
-
+<h2 id="proof">Proof</h2>
 <p>
-So for example consider <img src="ltximg/20260202-abelian_group_in_general_not_an_injective_object_de0c383b9a16980fc66e6b767b4becb8b3a3867f.svg" alt="20260202-abelian_group_in_general_not_an_injective_object_de0c383b9a16980fc66e6b767b4becb8b3a3867f.svg" class="org-svg" /> and <img src="ltximg/20260202-abelian_group_in_general_not_an_injective_object_1b643f8a40ff1cfb08908da9d1a019617dca1216.svg" alt="20260202-abelian_group_in_general_not_an_injective_object_1b643f8a40ff1cfb08908da9d1a019617dca1216.svg" class="org-svg" /> and<br />
+Let $G = \mathbb{Z}/p \mathbb{Z}$.
+Then we need to find a group $H$ and a <a href="20220911122242-untergruppe.html#ID-ded4020a-b34f-4433-9d64-2afa33a552d8">subgroup</a> $U$ and a group homomorphism $\varphi: U \rightarrow G$ which does not extend to $H$
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20260202-abelian_group_in_general_not_an_injective_object_0ac75566f33b71308ebb568a2994a734ff78f3d0.svg" alt="20260202-abelian_group_in_general_not_an_injective_object_0ac75566f33b71308ebb568a2994a734ff78f3d0.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/3e1a5144c221ebb29d01.svg" class="org-svg" alt="diagram" /></span></div>
+
 <p>
-where <img src="ltximg/20260202-abelian_group_in_general_not_an_injective_object_c8a26f3714e77a3d68d7258be639c1967df362ff.svg" alt="20260202-abelian_group_in_general_not_an_injective_object_c8a26f3714e77a3d68d7258be639c1967df362ff.svg" class="org-svg" /> is the projection.<br />
+So for example consider $H = \mathbb{Q}$ and $U = \mathbb{Z}$ and
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/4312a754c60b524d554c.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+where $\mathbb{Z} \rightarrow \mathbb{Z}/p \mathbb{Z}$ is the projection.
 </p>
 
 <p>
-we claim that there does not exist an extension:<br />
-Assume there exists a <img src="ltximg/20260202-abelian_group_in_general_not_an_injective_object_074aa42758b4ab6c26c3b1c3160a4155a53b0859.svg" alt="20260202-abelian_group_in_general_not_an_injective_object_074aa42758b4ab6c26c3b1c3160a4155a53b0859.svg" class="org-svg" /> with <img src="ltximg/20260202-abelian_group_in_general_not_an_injective_object_d6a5152ceee65f9e8d01449bef3aaca147542b08.svg" alt="20260202-abelian_group_in_general_not_an_injective_object_d6a5152ceee65f9e8d01449bef3aaca147542b08.svg" class="org-svg" />.<br />
-Then in particular<br />
+we claim that there does not exist an extension:
+Assume there exists a $\overline{\varphi}: \mathbb{Q} \rightarrow \mathbb{Z}/p \mathbb{Z}$ with $\overline{\varphi}(1) = 1$.
+Then in particular
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20260202-abelian_group_in_general_not_an_injective_object_36ec17a09efd0e567f8341475a984085c3bf15c3.svg" alt="20260202-abelian_group_in_general_not_an_injective_object_36ec17a09efd0e567f8341475a984085c3bf15c3.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+\overline{\varphi(1)} =&amp; \overline{\varphi(\sum_{i=1}^p \frac{1}{p})} \\
+=&amp; \sum_{i=1}^p \overline{\varphi}(\frac{1}{p}) \\
+=&amp; p \cdot [\varphi(\frac{1}{p})] \\
+=&amp; 0
+\end{align*}</div>
 <p>
-which is a contradiction..<br />
+which is a contradiction..
 </p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2026-02-02 Mo 17:14</p>
+
 </div>
 </body>
 </html>

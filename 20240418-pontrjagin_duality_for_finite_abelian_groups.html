@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>pontryagin duality for finite abelian groups</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-64d0c90c-e959-45e7-bab3-0b2b8ab999f0"></span><h1 class="title">pontryagin duality for finite abelian groups</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathrm{FinAb}$ the <a href="20240419-category_of_finite_abelian_groups.html#ID-59114794-62d4-45ff-9973-4390191e736c">category of finite abelian groups</a>, then the <a href="20230403222857-contravariant_hom_functor.html#ID-9a5969b2-314a-45b2-88d2-693b5a9ae96e">contravariant hom-functor</a> is an <a href="20231118-equivalence_of_categories.html#ID-9f984af9-949c-46b1-9221-7ba43cdae897">equivalence</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Hom}_{\mathrm{Ab}}(-, S^1): \mathrm{FinAb}^{\mathrm{op}} \rightarrow \mathrm{FinAb}
+\end{align*}</div>
+
+<p>
+where $\mathrm{FinAb}$ is seen as <a href="20220824221623-unterkategorie.html#ID-2165c92b-8025-4134-b3b1-4d523a8795a4">subcategory</a> of $\mathrm{Ab}$
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="bijective-on-objects">bijective on objects</h3>
+<p>
+corollary of
+</p>
+<ul>
+<li><a href="20240419-abelian_group_isomorphic_to_contravariant_hom_s_1.html#ID-012ba480-51ce-4e9b-920d-5977ee882c4d">finite abelian group isomorphic to contravariant hom S^1</a></li>
+</ul>
+<h3 id="bijective-on-morphisms">bijective on morphisms</h3>
+<p>
+As by the <a href="20230608-hauptsatz_uber_endlich_erzeugte_abelsche_gruppen.html#ID-8f2257ff-4702-461a-891b-b51d8eece7d7">classification of finitely generated abelian groups</a> it suffices to show that
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Hom}_{\mathrm{Ab}}(-,S^1): \mathrm{Hom}(\mathbb{Z}/ (p_1)^n \mathbb{Z} \rightarrow \mathbb{Z}/ (p_2)^m\mathbb{Z}) \rightarrow \mathrm{Hom}_{\mathrm{FinAb}}(\mathrm{Hom}_{\mathrm{Ab}}(\mathbb{Z}/ (p_2)^m \mathbb{Z},S^1, \mathrm{Hom}_{\mathrm{FinAb}}(\mathbb{Z}/(p_1)^n \mathbb{Z}, S^1)) \\
+f \mapsto&amp; f^{ \rightarrow} 
+\end{align*}</div>
+<p>
+is a <a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">bijection</a>.
+</p>
+
+<p>
+using the canonical <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a> this reduces to
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/6e279054e09a89567af9.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+<h4 id="injective">injective</h4>
+<p>
+Suppose $f,g: \mathbb{Z}/(p_1)^n \mathbb{Z} \rightarrow \mathbb{Z}/(p_2)^m$ are different morphisms, then it follows that $f(1) \neq g(1) \mod{p_2^m}$, as $1$ is a generator of $\mathbb{Z}/(p_1)^n \mathbb{Z}$.
+Hence for $\iota: 1 \mapsto&amp; 1 \in \mathrm{Hom}_{\mathrm{Ab}}(\mathbb{Z}/ (p_2)^m \mathbb{Z},S^1)$ this results in
+</p>
+
+<div class="math-block">\begin{align*}
+\iota(f)(1) =&amp; \iota(f(1)) \\
+=&amp; f(1) \neq g(1) \mod{p_2^m}
+\end{align*}</div>
+<p>
+Therefore $f^{ \rightarrow}, g^{ \rightarrow}$ are different morphisms.
+</p>
+
+<h4 id="surjective">surjective</h4>
+<p>
+TODO
+</p>
+
+</div>
+</body>
+</html>

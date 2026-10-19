@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:51 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Potenzreihenentwicklung um beliebige Punkte in der Konvergenzscheibe</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,33 +52,44 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Potenzreihenentwicklung um beliebige Punkte in der Konvergenzscheibe</h1>
-<div id="outline-container-orgd4f8e02" class="outline-2">
-<h2 id="orgd4f8e02"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-18885eeb-7f09-4442-9f9c-d3f12d735591"></span><h1 class="title">Potenzreihenentwicklung um beliebige Punkte in der Konvergenzscheibe</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(\sum_{n=0}^{\infty} a_n \cdot z^n\) eine <a href="20221204223941-potenzreihe.html#ID-dab65874-6741-4bba-97fe-d305f01190aa">Potenzreihe</a> in \(\mathbb{C}\) mit <a href="20221221125942-konvergenzradius.html#ID-ed39dc3e-08d0-4b04-bfa2-e3b0bc367301">Konvergenzradius</a> \(R\) und <a href="20221221125938-konvergenzscheibe.html#ID-dbec4606-587e-4457-b2e0-d9c028c5385d">Konvergenzscheibe</a> \(D_{R}(0)\).
-Sei \(z_0 \in D_{R}(0)\), dann existiert eine <a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">Folge</a> \(b_n\), sodass für \(\sum_{n=0}^{\infty} b_n \cdot (z - z_0)^n\) mit  <a href="20221221125942-konvergenzradius.html#ID-ed39dc3e-08d0-4b04-bfa2-e3b0bc367301">Konvergenzradius</a> \(R_{z_0} \geq R - \vert z_0 \vert\) für einen Punkt \(z'\) auf \(D_{R - \vert z_0 \vert}(z_0)\) gilt
+Sei $\sum_{n=0}^{\infty} a_n \cdot z^n$ eine <a href="20221204223941-potenzreihe.html#ID-dab65874-6741-4bba-97fe-d305f01190aa">Potenzreihe</a> in $\mathbb{C}$ mit <a href="20221221125942-konvergenzradius.html#ID-ed39dc3e-08d0-4b04-bfa2-e3b0bc367301">Konvergenzradius</a> $R$ und <a href="20221221125938-konvergenzscheibe.html#ID-dbec4606-587e-4457-b2e0-d9c028c5385d">Konvergenzscheibe</a> $D_{R}(0)$.
+Sei $z_0 \in D_{R}(0)$, dann existiert eine <a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">Folge</a> $b_n$, sodass für $\sum_{n=0}^{\infty} b_n \cdot (z - z_0)^n$ mit  <a href="20221221125942-konvergenzradius.html#ID-ed39dc3e-08d0-4b04-bfa2-e3b0bc367301">Konvergenzradius</a> $R_{z_0} \geq R - \vert z_0 \vert$ für einen Punkt $z'$ auf $D_{R - \vert z_0 \vert}(z_0)$ gilt
 </p>
-\begin{align*}
-\sum_{n=0}^{\infty} a_n \cdot z'^n =& \sum_{n=0}^{\infty} b_n \cdot (z' - z_0)^n
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\sum_{n=0}^{\infty} a_n \cdot z'^n =&amp; \sum_{n=0}^{\infty} b_n \cdot (z' - z_0)^n
+\end{align*}</div>
 <p>
-Insbesondere gilt für \(b_n\):
+Insbesondere gilt für $b_n$:
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 b_k  \coloneqq \sum_{n=0}^{\infty} \binom{n}{k} a_n \cdot z_0^{n-k}
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgad82e98" class="outline-2">
-<h2 id="orgad82e98"><span class="section-number-2">2.</span> Beweis</h2>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:51</p>
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
+<p>
+Es gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\sum_{n=0}^{\infty} a_n \cdot z'^n =&amp; \sum_{n=0}^{\infty} a_n \cdot (z - z_0 + z_0)^n \\
+=&amp; \sum_{n=0}^{\infty} a_n \cdot \sum_{i=0}^{\infty} \binom{n}{i}(z - z_0)^{i} \cdot z_0^{n-i} \\
+=&amp; \sum_{i=0}^{\infty} (\sum_{n=0}^{\infty} a_n \binom{n}{i} (z - z_0)^{i}) \cdot z_0^{n-i}
+\end{align*}</div>
+
+<p>
+wobei der letzte schritt der <a href="20221216221056-riemannscher_umordnungssatz.html#ID-0a500364-542d-443a-8ea5-7350c292a523">Riemannscher Umordnungssatz</a> ist (und der erste der <a href="20230425084202-allgemeiner_binomischer_lehrsatz.html#ID-9b8c3973-38f6-423b-8fa1-fcd8b1488faa">Binomische Lehrsatz</a>).
+</p>
+
+<p>
+Insbesondere konvergiert $(\sum_{n=0}^{\infty} a_n \binom{n}{i} (z - z_0)^{i})$ nach dem riemannschen umordnungssatz
+</p>
+
 </div>
 </body>
 </html>

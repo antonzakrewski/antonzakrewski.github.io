@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>algebraic topology 3 - weak equivalences, H_* isomorphisms and Hurewicz theorem</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-b0a1f7b4-a16a-43ba-9f0d-f911e863fd8f"></span><h1 class="title">algebraic topology 3 - weak equivalences, H_* isomorphisms and Hurewicz theorem</h1>
+
+<h2 id="aspects">Aspects</h2>
+
+<h3 id="21">2.1</h3>
+<ul>
+<li><a href="20241014-singular_homology_is_weak_homotopy_invariant.html#ID-b9ddc548-3940-4643-955b-9364c107c575">singular homology is weak homotopy invariant</a> </li>
+
+<li><a href="20241014-weak_homotopy_invariant_functor_from_top.html#ID-1039eed1-3523-4ae4-b04c-d69ea9b4e47c">weak homotopy invariant functor from top</a>   </li>
+</ul>
+<h3 id="22">2.2</h3>
+<ul>
+<li>simplicial bla bla</li>
+</ul>
+<h3 id="23">2.3</h3>
+<ul>
+<li><a href="20240708-realization_sing_adjunction.html#ID-469f840f-02fb-40bb-b802-88cc6ac37942">realization / sing adjunction</a> </li>
+</ul>
+<h3 id="24">2.4</h3>
+<ul>
+<li><a href="20240422-geometric_realization_as_left_adjoint.html#ID-2451576a-b59a-421b-bbc5-ea0414761bf6">geometric realization</a> </li>
+
+<li><a href="20240129-geometric_realization_of_a_simplicial_set.html#ID-dd7fca72-80cd-4b4b-a63f-1ff75e2bccd0">explicit description of the geometric realization functor</a>   </li>
+</ul>
+<h3 id="25">2.5</h3>
+<ul>
+<li><a href="20240129-skeleton_of_a_simplicial_set.html#ID-ffd10241-9ff2-45b1-8b88-b6a8cd55ae37">skeleton of a simplicial set</a> </li>
+</ul>
+<h3 id="26">2.6</h3>
+<ul>
+<li><a href="20240415-n_1_skeleton_of_a_standard_simplex_as_boundary.html#ID-4bae9da8-ae53-4088-bbe5-1f9fc91c5799">n-1 skeleton of a n standard simplex as boundary</a> </li>
+
+<li><a href="20240415-n_skeleton_of_a_standard_simplex_as_standard_simplex.html#ID-979ec56d-c28b-49f4-91bf-947c8619c3d2">n skeleton of a n standard simplex as standard simplex</a>   </li>
+</ul>
+<h3 id="27">2.7</h3>
+<ul>
+<li><a href="cw-structure-of-a-simplicial-set.html#ID-ebe3cf8c-afaf-4533-9d4b-0f3c4ccc8933">cw structure of a simplicial set</a> </li>
+</ul>
+<h3 id="28">2.8</h3>
+<ul>
+<li><a href="20240415-geometric_realization_of_a_simplicial_set_as_cw_complex.html#ID-264e92c3-b288-4d33-9677-021506a9df05">geometric realization of a simplicial set as cw complex</a> </li>
+</ul>
+<h3 id="29">2.9</h3>
+<ul>
+<li><a href="20240422-singular_simplicial_set_as_kan_complex.html#ID-d3589b63-06f3-4dc4-8ba0-c8f365bb7655">singular simplicial set as kan complex</a> </li>
+
+<li><a href="20241016-singular_chains_of_a_serre_fibration_as_kan_fibration.html#ID-44d1d73e-def3-4c33-8bdb-1a36d307fb46">singular chains of a serre fibration as kan fibration</a>   </li>
+</ul>
+<h3 id="210">2.10</h3>
+<ul>
+<li><a href="20240422-homotopy_between_morphisms_of_simplicial_sets.html#ID-037a7313-6b02-4731-b0e2-2fd01fe9012e">simplicial homotopy</a></li>
+</ul>
+<h3 id="211">2.11</h3>
+<ul>
+<li>simp homotopy </li>
+</ul>
+<h3 id="212">2.12</h3>
+<ul>
+<li><a href="20241016-category_hsset.html#ID-9161f4f8-a9ae-4187-bcee-ce11ff7f44c3">category hsSet</a> </li>
+</ul>
+<h3 id="213">2.13</h3>
+<ul>
+<li><a href="20241016-factorization_of_singular_homology_through_hsset.html#ID-b641b146-43bf-4d2c-ab30-fbd2fe02d3d0">factorization of singular homology through hsSet</a> </li>
+</ul>
+<h3 id="214">2.14</h3>
+<ul>
+<li><a href="20240919-singular_simplicial_set_functor_preserves_weak_equivalences.html#ID-7db8af22-3d6a-4959-943a-8d7305ec6af2">singular simplicial set functor preserves weak equivalences</a> </li>
+</ul>
+<h3 id="215">2.15</h3>
+<ul>
+<li><a href="20240419-geometric_realization_preserves_finite_products.html#ID-d2e81f6c-59bc-4b74-abb0-4685ce5c1d81">geometric realization to spaces preserves finite products</a> </li>
+
+<li><a href="20241019-geometric_realization_to_top_preserves_product_with_a_compact_simplicial_set.html#ID-5eefb261-cbc9-43db-a909-b07f8dcd8f13">geometric realization to top preserves product with a compact simplicial set</a>   </li>
+</ul>
+<h2 id="22-hurewicz-theorem">2.2 Hurewicz Theorem</h2>
+
+<h3 id="216">2.16</h3>
+<ul>
+<li><a href="20240225-hurewicz_homomorphism.html#ID-8129b98c-7d06-4e7a-a3d3-c527ed98ec8f">hurewicz homomorphism</a> </li>
+</ul>
+<h3 id="217">2.17</h3>
+<ul>
+<li><a href="20241021-naturality_of_the_hurewicz_homomorphism.html#ID-74246368-4e4f-48a9-bf18-15a44e67b012">Naturality of the Hurewicz Homomorphism</a> </li>
+
+<li><a href="20241021-hurewicz_homomorphism_and_suspension.html#ID-aa93d921-7060-462b-96fc-18cd1cfdb493">Hurewicz Homomorphism and suspension</a></li>
+
+<li><a href="20241021-hurewicz_homomorphism_between_spheres_as_isomorphism.html#ID-d1240ad1-cb63-4851-b402-43bc3f14048a">hurewicz homomorphism between spheres as isomorphism</a>   </li>
+</ul>
+<h3 id="218">2.18</h3>
+<ul>
+<li><a href="20241021-relative_homotopy_group.html#ID-73787c30-31da-4985-92a0-795b6ff865c3">relative homotopy group</a> </li>
+
+<li><a href="20241021-reduction_of_a_relative_homotopy_group.html#ID-7330a684-699b-4db9-ab5d-dea337191bde">reduction of a relative homotopy group</a> </li>
+
+<li><a href="hurewicz-homomorphism-for-pairs-of-spaces.html#ID-610686a8-129d-42a9-b3d2-48062743b9d5">hurewicz homomorphism for pairs of spaces</a> </li>
+</ul>
+<h3 id="219">2.19</h3>
+<ul>
+<li><a href="20241021-long_exact_sequence_of_relative_homotopy.html#ID-7e8c6399-f9f6-48f0-ab50-a8e532ea13b5">long exact sequence of relative homotopy</a> - todo</li>
+
+<li><a href="20241021-relative_homotopy_group_and_homotopy_group_of_the_homotopy_fibre.html#ID-1ea0e155-06ea-433f-9478-677e5b59af39">relative homotopy group and homotopy group of the homotopy fibre</a> - todo</li>
+</ul>
+<h3 id="220">2.20</h3>
+<ul>
+<li><a href="20240704-homotopy_fibre_sequence.html#ID-61d9b603-40ce-4b33-8e60-a048d64a0397">homotopy fiber sequence</a> - todo ?</li>
+
+<li><a href="hurewicz-homomorphism-and-long-exact-sequences.html#ID-726cd38e-b75f-465d-8a91-14e9e9c4cdda">hurewicz homomorphism and long exact sequences of homology and homotopy</a> - todo</li>
+
+<li><a href="20241022-hurewicz_homomorphism_and_long_exact_sequences_of_a_fibration_sequence.html#ID-40bc394a-9b5c-4207-a1a6-39f288829480">hurewicz homomorphism and long exact sequences of a fibration sequence</a> - todo ??</li>
+</ul>
+<h3 id="221">2.21</h3>
+<ul>
+<li><a href="20240708-d_connected_map.html#ID-b5746a29-4c15-4b74-aae6-b5482569e0f1">d-connected map</a> </li>
+
+<li><a href="20240708-d_connected_space.html#ID-71a7e289-8de9-43d0-a4de-f14bc4e84ae2">d-connected space</a></li>
+
+<li><a href="20241021-connected_space_and_connectivity_of_the_terminal_morphism.html#ID-fe7d6e89-853f-47b9-8eea-2cc8be2c659b">connected space and connectivity of the terminal morphism</a>   </li>
+</ul>
+<h3 id="222">2.22</h3>
+<ul>
+<li><a href="20241021-n_connected_pair_of_spaces.html#ID-ba6fd47c-9cee-4a16-b29a-ca03c277f9e3">n-connected pair of spaces</a> </li>
+
+<li><a href="20241021-n_connected_pair_of_spaces_and_relative_homotopy.html#ID-19c264bb-d221-4d1a-9e92-69e22477b1f0">n-connected pair of spaces and relative homotopy</a>   </li>
+</ul>
+<h3 id="223">2.23</h3>
+<ul>
+<li><a href="20241021-homotopy_pushout_square.html#ID-4e91056d-12c4-407e-85eb-af384f747f28">cell pushout square</a> </li>
+
+<li><a href="20241021-homotopy_excision_theorem_for_cw_complexes.html#ID-e874499d-253e-4787-b1d3-c1d5471470ea">homotopy excision theorem for CW complexes</a>   </li>
+</ul>
+<h3 id="224">2.24</h3>
+<ul>
+<li><a href="20241021-homotopy_cofibration_sequence.html#ID-5793c85c-9d37-457b-8c25-0cb4381d3715">homotopy cofibration sequence</a> - todo</li>
+
+<li><a href="20241021-long_exact_sequence_of_homotopy_groups_for_a_homotopy_cofibration_sequence.html#ID-914c9f24-ea51-4bf2-b298-ceeb2ae95792">long exact sequence of homotopy groups for a homotopy cofibration sequence</a> - todo</li>
+</ul>
+<h3 id="225">2.25</h3>
+<ul>
+<li><a href="20241021-long_exact_sequence_of_homotopy_groups_for_a_homotopy_cofibration_sequence_in_general_does_not_extend.html#ID-83f11d69-c0b2-4082-a141-8c7e7c9b7f59">long exact sequence of homotopy groups for a homotopy cofibration sequence in general does not extend</a> - todo</li>
+</ul>
+<h3 id="226">2.26</h3>
+<ul>
+<li><a href="20241022-n_th_homotopy_of_a_cone_as_cokernel_for_n_1_connected_spaces.html#ID-6d07097f-237b-41cf-8c77-43c895eda99f">n-th homotopy of a cone as cokernel for n-1 connected spaces</a> - todo</li>
+
+<li><a href="20241021-homotopy_group_of_wedge_of_spheres.html#ID-adbc7091-9c4f-4b0e-a477-5e9571d802f4">homotopy group of a wedge of spheres</a> - todo</li>
+</ul>
+<h3 id="227">2.27</h3>
+<ul>
+<li><a href="20241021-absolute_hurewicz_theorem.html#ID-bea99a77-baab-48ac-9998-3f7defd490c6">absolute Hurewicz theorem</a> </li>
+
+<li><a href="20241023-moore_space.html#ID-b1285fc5-6d3d-4e00-8f77-f2a6ddf00710">Moore space</a> </li>
+
+<li><a href="20241028-n_1_skeleton_of_a_cw_complex_homotopy_equivalent_to_moore_space_wedge_sphere.html#ID-b118ddbb-a5c4-4dc9-b5f4-317552e2f3ca">n+1 skeleton of a n-1 connected cw complex homotopy equivalent to moore space wedge sphere</a>   </li>
+
+<li><a href="20240709-inclusion_of_a_finite_wedge_of_n_spheres_as_2n_1_connected_map.html#ID-2f88354b-74c6-474b-94e3-d56d1228c541">inclusion of a finite wedge of n spheres as 2n-1 connected map</a> </li>
+</ul>
+<h3 id="228">2.28</h3>
+<ul>
+<li><a href="20241023-fiber_functor_to_htop.html#ID-ddb591c8-f994-418c-a6c2-f99a58c7690c">fiber functor to hTop</a>   </li>
+
+<li><a href="20241023-fiber_functor_to_pointed_htop.html#ID-88ebe3c4-4953-4de6-beb0-680c9a5b423f">fiber functor to pointed hTop</a>   </li>
+</ul>
+<h3 id="229">2.29</h3>
+<ul>
+<li><a href="20240712-fundamental_group_acts_on_homotopy_groups.html#ID-710a44b0-a560-4824-9fa9-fb266ca48bba">fundamental group acts on homotopy group</a>  </li>
+
+<li><a href="20241023-fundamental_group_acts_on_pointed_homotopic_endomorphisms.html#ID-65f4126f-2757-4183-ae7e-019b83247fde">fundamental group for a fibration acts on pointed homotopic endomorphisms</a> </li>
+
+<li><a href="20241023-terminal_morphism_as_hurewicz_fibration.html#ID-b2c54913-828c-41b6-94f2-7251aa784d79">terminal morphism as hurewicz fibration</a> </li>
+
+<li><a href="20241023-simple_topological_space.html#ID-8d748ba6-d8c9-47b7-982d-f15c706def04">simple topological space</a> </li>
+
+<li><a href="20241030-nilpotent_space.html#ID-dba446a1-708c-44ea-b5fd-c86f033de78c">nilpotent space</a>   </li>
+
+<li><a href="nilpotent-action.html#ID-84de1caf-ad6b-424d-af61-1eaa712c4954">nilpotent action</a> </li>
+
+<li><a href="20241023-action_of_a_fundamental_group_on_simple_topological_space_as_nilpotent_action.html#ID-d40dffc2-f137-4724-9f84-8f8f6a79339a">action of a fundamental group on simple topological space as nilpotent action</a>  - todo</li>
+
+<li><a href="20241023-fundamental_group_action_on_first_homotopy_group_as_conjugation.html#ID-787eca32-3f2b-456c-a737-4d64df2ea233">pi_1 action on pi_1 as conjugation</a> </li>
+
+<li><a href="20241023-terminal_morphism_as_hurewicz_fibration.html#ID-b2c54913-828c-41b6-94f2-7251aa784d79">terminal morphism as hurewicz fibration</a> </li>
+
+<li><a href="20241023-long_exact_sequence_of_a_serre_fibration_as_long_exact_sequence_of_g_modules.html#ID-997e0cc3-e5b0-4322-bbbd-896cb5698d1d">long exact sequence of a serre fibration as long exact sequence of G-Modules</a> - todo</li>
+</ul>
+
+<h3 id="229">2.29</h3>
+
+<h3 id="230">2.30</h3>
+<ul>
+<li></li>
+</ul>
+
+
+
+
+
+<h3 id="231">2.31</h3>
+<ul>
+<li><a href="20241031-absolute_hurewicz_theorem_for_the_homotopy_fiber_and_a_1_connected_space.html#ID-cc4190fd-2216-49be-a6eb-478362dc9e7a">absolute hurewicz theorem for the homotopy fiber and a 1 connected space</a> </li>
+
+<li><a href="20241031-absolute_hurewicz_theorem_for_the_homotopy_fiber.html#ID-0cb280f6-f643-4844-94bd-1537616abf65">absolute hurewicz theorem for the homotopy fiber</a> </li>
+</ul>
+<h3 id="232">2.32</h3>
+<ul>
+<li><a href="20241030-whitehead_theorem_for_nilpotent_connected_spaces.html#ID-c3c9ec9f-8150-42c2-b4a4-50ccd748cbdd">whitehead theorem for nilpotent connected spaces</a> </li>
+
+<li><a href="20241023-action_of_a_fundamental_group_on_simple_topological_space_as_nilpotent_action.html#ID-d40dffc2-f137-4724-9f84-8f8f6a79339a">action of a fundamental group on a simple topological space as nilpotent action</a>   </li>
+
+<li></li>
+
+<li><a href="20241030-simply_connected_space_as_simple_space.html#ID-a2b3e682-02e4-4d10-bb67-5425345d41bd">simply connected space as simple space</a> </li>
+
+<li><a href="20241030-simply_connected_space_as_simple_space.html#ID-a2b3e682-02e4-4d10-bb67-5425345d41bd">simply connected space as simple space</a>   </li>
+
+<li><a href="20241030-whitehead_theorem_for_nilpotent_connected_spaces.html#ID-c3c9ec9f-8150-42c2-b4a4-50ccd748cbdd">whitehead theorem for nilpotent connected spaces</a>  </li>
+</ul>
+<h3 id="recollection">recollection ?</h3>
+<ul>
+<li></li>
+
+<li><a href="20241023-hurewicz_fibration.html#ID-8660051b-9f49-4cf9-849f-41ed68a6050e">hurewicz fibration</a> </li>
+
+<li><a href="20241023-hurewicz_fibration_as_serre_fibration.html#ID-6aedc16c-fe80-481f-b9f3-1b620ae9a054">hurewicz fibration as serre fibration</a> </li>
+
+<li><a href="20241023-serre_fibration_between_cw_complexes_as_hurewicz_fibration.html#ID-75b2f174-1959-47af-8da1-97ff67a5a08b">serre fibration between CW complexes as hurewicz fibration</a>   </li>
+</ul>
+<p>
+Let $p: E \rightarrow B$ be a   <a href="20240702-serre_fibration.html#ID-b429be95-8451-46cb-8c4f-7e1be057a766">serre fibration</a>
+</p>
+
+
+
+
+
+<h2 id="new">new</h2>
+<ul>
+<li><a href="20241111-long_exact_sequence_of_a_based_map.html#ID-0bdd43e4-9b98-4e94-998e-1a7e3ea1431d">long exact sequence of a based map</a> </li>
+
+<li><a href="20240528-h_space.html#ID-5c763b61-be9f-4acf-90db-b0c097197584">H-space</a> </li>
+</ul>
+<p>
+Observe
+</p>
+
+</div>
+</body>
+</html>

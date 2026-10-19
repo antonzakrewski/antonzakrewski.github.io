@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Horsehoe lemma</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-ac592fdd-d7b7-433b-a305-ac676b3359ea"></span><h1 class="title">Horsehoe lemma</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathcal{A}$ be an <a href="20230827-abelian_category.html#ID-9003af72-f684-4897-b096-c1d8a681c624">abelian</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a> and
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/8830dfa1e7b76d561ecc.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+a <a href="20230722-short_exact_sequence.html#ID-7b01038e-f4c1-4e1e-ad52-a0c6a18008f3">short exact sequence</a>
+Suppose $P_{*}^1 \rightarrow A_1, P_{*}^{3} \rightarrow A_3$ are <a href="20231212-projective_resolution.html#ID-0d6124f2-59f2-4f96-838a-e8b023821bc6">projective resolutions</a>.
+</p>
+
+<p>
+Then there exists a projective resolution $P_{*}^2 \rightarrow A_2$ and maps  such that
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/353b0c2e7fd47031d618.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+such that each row
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/17b570bf2e4448ef644e.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+is <a href="20240216-split_exact_sequence.html#ID-32d696f6-9166-4967-88f4-35225b407928">split exact</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+sloppy at times
+</p>
+
+<h3 id="construction">construction</h3>
+<p>
+We construct such a resolution by induction:
+Let
+</p>
+
+<div class="math-block">\begin{align*}
+P_n^2 = P_n^3 \oplus P_n^1
+\end{align*}</div>
+
+<p>
+With the <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphisms</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/b60230567e1e30186cff.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+This is clearly split exact (cf. <a href="20230815-splitting_lemma.html#ID-076e37fe-2414-41d1-a0a6-59e323b13104">Splitting Lemma</a>)
+</p>
+
+<p>
+Then it remains to construct a differential
+</p>
+
+<div class="math-block">\begin{align*}
+\pi: P_{n}^1 \oplus P_{n}^3 \rightarrow&amp; P_{n-1}^1 \oplus P_{n-1}^3
+\end{align*}</div>
+<p>
+with the convention $P_{0}^i = A_i$
+</p>
+
+<p>
+Since $P_n^3$ is projective, there exists a lift
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+&amp; P_{n}^3 \arrow[dashed]{ld}{\exists q_{n}^3}} \arrow[]{d}{} \\
+P_{n-1}^2 \arrow[twoheadrightarrow]{r}{} &amp; P_{n-1}^{3} \\
+\end{tikzcd}
+\end{displaymath}</pre></div>
+
+<p>
+Then we define
+</p>
+
+<div class="math-block">\begin{align*}
+p_n^2 \coloneqq \iota_{n-1} p_{n}^1 + q_{n}^3
+\end{align*}</div>
+
+
+<div class="equation-container"><span class="equation"><img src="ltximg/e583e154cfc810539774.svg" class="org-svg" alt="diagram" /></span></div>
+
+<h3 id="commutes">commutes</h3>
+<p>
+Then it follows that
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/4cac42638f9c0a4175cf.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+and
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/1da7b5760a897f2dad27.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+commute as
+</p>
+
+
+<div class="math-block">\begin{align*}
+\iota(p_n^2) =&amp; \iota_{n-1} p_n^1 + q_n^3 \circ 0\\
+=&amp; \iota_{n-1} p_n^1
+\end{align*}</div>
+
+<p>
+and
+</p>
+
+<div class="math-block">\begin{align*}
+\pi(p_n^2) =&amp; \pi(\iota_{n-1} p_{n}^1 + q_{n}^3) \\
+=&amp; \pi(q_n^3)
+\end{align*}</div>
+
+
+<h3 id="resolution">resolution</h3>
+
+<h4 id="chain-complex">chain complex</h4>
+<p>
+follows as
+</p>
+
+<div class="math-block">\begin{align*}
+p_n^2 p_{n+1}^2 =&amp; (\iota_{n-2} p_{n-1}^1 + q_{n-1}^3) (\iota_{n-1} p_{n}^1 + q_{n}^3) \\
+=&amp; p_{n-1} p_n + q_{n-1}^3 q_n^3 \\
+=&amp; 0 + 0 \\
+=&amp; 0
+\end{align*}</div>
+
+<h4 id="section"></h4>
+<p>
+using <a href="20240114-mitchell_s_embedding_theorem.html#ID-cbc85e4e-94bf-4b65-895c-806159236f2a">Mitchell's embedding theorem</a> we may assume that $\mathcal{A} = \mathrm{RMod}$ for some ring $R$.
+</p>
+
+<p>
+Given
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/a0dfaf71b7b92f8a828d.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Let $p_2^2 \in \mathrm{ker}(P_2^2 \twoheadrightarrow P_1^2)$.
+Then by commutativity of the square, $\pi(p_2^2) \in \mathrm{ker}(P_2^3 \rightarrow P_1^3)$ and by exactness of the third column there exists a preimage $p_3^3$.
+By surjectivity of $P_3^2 \twoheadrightarrow P_3^3$ there exists a preimage $p_3^2$.
+Then it follows that $p_2^2 - \pi(p_3^2)$ is in the kernel of $P_2^2 \rightarrow P_2^3$.
+Hence by exactness of the row, there exists a preimage $p_2^1$.
+Furthermore $p_2^2 - \pi(p_3^2)$ is still in the kernel of $P_1^2 \rightarrow P_2^2$, as $p_2^2$ is in the kernel by assumption and $\pi(p_3^2)$ by exactness.
+Thus since $P_1^1 \rightarrow P_1^2$ is injective it follows that $p_2^1$ is in the Kernel of $P_2^1 \rightarrow P_1^1$.
+Then by exactness there exists a preimage $p_3^1$.
+At last $\pi(p_3^1) + p_3^2 \in P_3^2$ is a preimage of $p_2^2$ under $P_3^2 \rightarrow P_2^2$, as
+</p>
+
+<div class="math-block">\begin{align*}
+\pi(\pi(p_3^1)) = \pi(p_2^1) = p_2^2 - \pi(p_3^2)
+\end{align*}</div>
+<p>
+and thus $\pi(p_3^2)$ cancels.
+</p>
+
+
+</div>
+</body>
+</html>

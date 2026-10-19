@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Linearität des Kurvenintegrals</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-d548ae94-3cbb-4ed7-a094-7be005b18f6c"></span><h1 class="title">Linearität des Kurvenintegrals</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\Sigma \subseteq \mathbb{C}$ be <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a>, and $f,g: \Sigma \rightarrow \mathbb{C}$ be <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a> maps and $\alpha,\beta \in \mathbb{C}$ .
+Then for $\gamma: [a,b] \rightarrow \Omega$
+</p>
+
+<div class="math-block">\begin{align*}
+\int_{\gamma} \alpha f(z) + \beta g(z) \mathrm{d} z =&amp; \alpha \int_{\gamma} f(z) +  \beta \int_{\gamma}  g(z) \mathrm{d} z 
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+Assume that $\gamma$ consist of $\gamma_1,...,\gamma_n$, each picewise $C^1$.
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+\int_{\gamma} \alpha f(z) + \beta g(z) \mathrm{d} z =&amp; 
+=&amp; \sum_{i=1}^n \int_{a_i}^{a_{i+1}} (\alpha \cdot f(\gamma'(t)) + \beta g(\gamma'(t))) \gamma_i'(z) \mathrm{d}t \\
+=&amp; \sum_{i=1}^n \int_{a_i}^{a_{i+1}} (\alpha \cdot f(\gamma'(t)) \gamma'(t) \mathrm{d}t +  \sum_{i=1}^n \beta g(\gamma'(t))) \gamma_i'(z) \mathrm{d}t \\
+=&amp; \alpha \cdot \left(\sum_{i=1}^n \int_{a_i}^{a_{i+1}} (\cdot f(\gamma'(t)) \gamma'(t) \mathrm{d}t \right) + \beta \cdot \left(\sum_{i=1}^n g(\gamma'(t))) \gamma_i'(z) \mathrm{d}t \right) \\
+=&amp; \alpha \cdot \int_{\gamma} \alpha f(z) \mathrm{d}z + \beta \cdot \int_{\gamma} \alpha f(z) \mathrm{d}z 
+\end{align*}</div>
+
+
+
+</div>
+</body>
+</html>

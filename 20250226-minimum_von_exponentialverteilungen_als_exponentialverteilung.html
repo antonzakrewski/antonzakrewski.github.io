@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>minimum von exponentialverteilungen als exponentialverteilung</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-57ffe76f-f625-4381-b0d7-45c7f4d5fab3"></span><h1 class="title">minimum von exponentialverteilungen als exponentialverteilung</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Seien $X_1,X_2$ <a href="unabhangige-zufallsvariablen.html#ID-152c420c-ac1d-45ea-ac35-510acca4cf46">unabhängige</a> <a href="20220908083835-exponentialverteilung.html#ID-10b57029-c043-442a-a0d4-dfdfef11a3ff">Exponentialverteilte</a> Zufallsvariablen zu $\alpha_1,\alpha_2 &gt; 0$.
+Dann ist $\mathrm{min}(X_1,X_2)$ exponentialverteilt zu $\alpha_1 + \alpha_2$
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Es gilt für die kumulative Verteilungsfunktion
+wobei der erste Schritt die unabhängigkeit verwendet
+</p>
+
+
+<div class="math-block">\begin{align*}
+F_{\mathrm{min}(X_1,X_2)}(c) = F_{X_1}(c) + F_{X_2}(c) - F_{X_1}(c) \cdot F_{X_2}(c)
+\end{align*}</div>
+<p>
+wobei
+</p>
+
+<div class="math-block">\begin{align*}
+F_{X_i}(c) =&amp; \int_{0}^{c} \alpha_i \mathrm{e}^{- \alpha_i x} \mathrm{d}x \\
+=&amp; 1 - \mathrm{e}^{- \alpha_i c}
+\end{align*}</div>
+
+<p>
+Damit folgt
+</p>
+
+<div class="math-block">\begin{align*}
+F_{X_1}(c) + F_{X_2}(c) - F_{X_1}(c) \cdot F_{X_2}(c) =&amp; 1 - \mathrm{e}^{- \alpha_i c} + 1 - \mathrm{e}^{- \alpha_2 c} - \left(1 - \mathrm{e}^{- \alpha_i c} \right) \cdot (left(1 - \mathrm{e}^{- \alpha_2 c} \right)
+=&amp; 1 - \mathrm{e}^{- (\alpha_1 + \alpha_2) c}
+\end{align*}</div>
+<p>
+was die kumulative Verteilungsfunktion der exponentialverteilung zu $\alpha_1 + \alpha_2$ ist
+</p>
+
+</div>
+</body>
+</html>

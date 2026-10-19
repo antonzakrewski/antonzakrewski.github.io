@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>algebraic k-theory - K-Theory of categories</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-18d44cee-250c-4dfd-98b1-f2d6f6114cfb"></span><h1 class="title">algebraic k-theory - K-Theory of categories</h1>
+
+<h2 id="aspects">Aspects</h2>
+<ul>
+<li></li>
+
+<li>k-theory of schemes as right kan extension</li>
+</ul>
+<ul>
+<li><a href="20241017-stable_infinity_category.html#ID-baac6abf-7cfd-4eb9-9764-dfc1933edba4">stable infinity category</a>   </li>
+
+<li><a href="20250616-stable_infinity_categories_as_exact_category_with_maximal_exact_structure.html#ID-b9066a9b-ecc0-403a-8211-071bb10d9052">stable infinity categories as exact category with maximal exact structure</a> </li>
+</ul>
+
+<ul>
+<li><a href="20250204-category_cat_stable.html#ID-b528357e-93c4-47ad-bfe5-4b5493d84b8d">category cat stable</a>   </li>
+
+<li></li>
+</ul>
+
+<ul>
+<li><a href="20250616-cat_ex_as_preadditive_category.html#ID-0eeb183a-2644-4279-bcf3-6529a66eec0b">Cat Ex as preadditive category</a> </li>
+
+<li><a href="20250616-product_of_exact_infinity_category_as_exact_infinity_category.html#ID-f7398e72-0e95-4e54-9556-a9bb806b3d1e">product of exact infinity category as exact infinity category</a> </li>
+</ul>
+<ul>
+<li><a href="20250616-minimal_exact_structure_of_an_additive_category.html#ID-465e8b42-8ec1-4fba-9188-8c2e3fcf9204">minimal exact structure of an additive category</a> </li>
+</ul>
+<ul>
+<li><a href="20250425-waldhausen_category.html#ID-fc76801d-8c3c-4b9c-9192-e43a57cd6181">waldhausen category</a>    </li>
+
+<li><a href="20250616-k_theory_functor_from_cat_ex.html#ID-7ff6285b-7031-4425-8204-b15d295450ad">K Theory functor from Cat Ex</a> </li>
+</ul>
+<h3 id="51">5.1)</h3>
+<ul>
+<li><a href="20241017-pointed_infinity_category.html#ID-488f7c01-a376-4367-b36f-5d023ba572bf">pointed category</a></li>
+
+<li><a href="20250306-preadditive_category.html#ID-bd625aa5-3c5c-46f8-a7d9-d405eaf85c96">preadditive infinity-category</a> </li>
+
+<li><a href="20241217-additive_infinity_category.html#ID-e168d6e3-8dc6-424e-a950-8b24f6ed45f8">additive infinity category</a>  </li>
+
+<li><a href="20241017-stable_infinity_category.html#ID-baac6abf-7cfd-4eb9-9764-dfc1933edba4">stable</a>    </li>
+
+<li><a href="20250128-reduced_infinity_functor.html#ID-8c1e14a4-5e7b-415e-987f-69485f17a66f">reduced infinity functor</a>   </li>
+
+<li><a href="20250616-additive_infinity_functor.html#ID-c4d788ac-1077-4e55-8b41-3691c39f38bb">additive infinity functor</a>   </li>
+
+<li><a href="20241022-exact_infinity_functor.html#ID-ad972639-9cea-45ab-8f5f-595d620392cf">exact infinity functor</a> /    </li>
+
+<li><a href="20250616-infinity_category_of_additive_categories.html#ID-3a12c444-7b03-46be-99e0-d585c45c07f2">infinity category of additive categories</a> </li>
+
+<li></li>
+
+<li><a href="20250204-category_cat_stable.html#ID-b528357e-93c4-47ad-bfe5-4b5493d84b8d">category cat stable</a> </li>
+
+<li><a href="20241023-cat_ex.html#ID-9d478d33-94d6-4cfb-8ef7-fe0f69b10e8a">Cat Ex</a>   </li>
+</ul>
+<h3 id="52">5.2)</h3>
+<ul>
+<li><a href="20250617-category_of_additive_categories_as_preadditive_category.html#ID-88bbe559-3d77-4baa-96a1-8c91bf0b07eb">category of additive categories as preadditive category</a>   </li>
+
+<li><a href="20250617-category_cat_stable_as_preadditive_category.html#ID-df2dc0ed-ad51-4f3d-8404-9e47dbd16a2b">category Cat Stable as preadditive category</a>   </li>
+</ul>
+<h3 id="53">5.3)</h3>
+<ul>
+<li><a href="20241023-cat_ex.html#ID-9d478d33-94d6-4cfb-8ef7-fe0f69b10e8a">Cat Ex</a> </li>
+
+<li><a href="20250616-exact_infinity_category.html#ID-2cc5bf32-1e16-4a73-b2ef-b19fcea66366">exact infinity category</a>   </li>
+</ul>
+<h3 id="54">5.4)</h3>
+<ul>
+<li><a href="20250617-opposite_category_of_an_exact_category_as_exact_category.html#ID-328f9fcb-c968-4b25-8da8-d4fedb406a6c">opposite category of an exact category as exact category</a> </li>
+</ul>
+<h3 id="55">5.5)</h3>
+<ul>
+<li><a href="20250621-waldhausen_infinity_category.html#ID-473e0213-34a1-428c-963e-a2cfa3366bc7">waldhausen infinity category</a> </li>
+
+<li><a href="20250621-exact_functor_between_waldhausen_infinity_categories.html#ID-75908532-9340-439a-b673-a4e0886114cf">exact functor between waldhausen infinity categories</a> </li>
+
+<li><a href="20250621-category_of_waldhausen_categories.html#ID-60bba6b6-5344-47a7-ac6f-80d846941ed9">category of waldhausen categories</a>   </li>
+
+<li><a href="20250621-fully_faithful_inclusion_of_cat_ex_into_waldhausen_categories.html#ID-bb6b0ec7-a6d0-45a5-af96-a7eb28e9ac33">fully faithful inclusion of Cat Ex into waldhausen categories</a> </li>
+</ul>
+<h3 id="56">5.6)</h3>
+<ul>
+<li><a href="20250616-cat_ex_as_preadditive_category.html#ID-0eeb183a-2644-4279-bcf3-6529a66eec0b">Cat Ex as preadditive category</a> </li>
+</ul>
+<h3 id="57">5.7)</h3>
+<ul>
+<li><a href="20250616-stable_infinity_categories_as_exact_category_with_maximal_exact_structure.html#ID-b9066a9b-ecc0-403a-8211-071bb10d9052">stable infinity categories as exact category with maximal exact structure</a> </li>
+
+<li><a href="20250617-inclusion_of_cat_stable_into_cat_ex.html#ID-239b80de-0e81-47c9-ba64-d692a578bd9c">inclusion of Cat Stable into Cat Ex</a>   </li>
+</ul>
+<h3 id="58">5.8)</h3>
+<ul>
+<li><a href="20250616-minimal_exact_structure_functor_from_additive_to_stable.html#ID-3aaded23-f35f-48bf-89c3-ed040fa2ef54">minimal exact structure functor from additive to stable</a> </li>
+
+<li><a href="20250616-minimal_exact_structure_of_an_additive_category.html#ID-465e8b42-8ec1-4fba-9188-8c2e3fcf9204">minimal exact structure of an additive category</a>   </li>
+
+<li><a href="20250617-category_of_additive_categories_as_bousfield_colocalization_of_cat_ex.html#ID-d2468cf5-6036-4c43-85c6-27ef6d9ce6ef">category of additive categories as bousfield colocalization of Cat Ex</a>   </li>
+</ul>
+<h3 id="59">5.9)</h3>
+<ul>
+<li><a href="20250531-1_categorical_stable_infinity_category_as_point.html#ID-bf77e39e-6846-449b-abcd-f8191a8b34b0">1 categorical stable infinity category as point</a> </li>
+
+<li><a href="20250424-exact_category.html#ID-01c85709-7c3f-44eb-8004-071ef859b61b">exact category</a> </li>
+
+<li><a href="20250617-fully_faithful_inclusion_of_exact_1_categories_to_cat_ex.html#ID-6eaad978-17c1-495b-83bc-ca29a7a6c8ff">fully faithful inclusion of exact 1 categories to Cat Ex</a>   </li>
+</ul>
+<h3 id="510">5.10)</h3>
+<ul>
+<li><a href="20250617-cofiber_condition_for_a_pushout_of_injections_in_an_exact_infinity_category.html#ID-7728df4d-e42f-4109-9e46-9f49efadac14">cofiber condition for a pushout of injections in an exact infinity category</a> </li>
+
+<li><a href="20250617-square_with_parallel_injections_as_pullback_in_an_exact_infinity_category.html#ID-b6bb2642-367a-470c-a6fe-9e2ea799041d">square with parallel injections as pullback in an exact infinity category</a>   </li>
+
+<li><a href="20250617-generalized_shear_map_as_equivalence_in_an_additive_category.html#ID-83f3a8e1-4c54-4cfb-b30a-6ae8daff4118">generalized shear map as equivalence in an additive category</a> </li>
+
+<li><a href="20250621-pullback_in_an_additive_category_and_fiber.html#ID-09c6226a-f325-4698-9ae6-b9f022720581">pullback in an additive category and fiber</a> </li>
+</ul>
+<h3 id="511">5.11)</h3>
+<ul>
+<li><a href="20250616-exact_infinity_functor_preserves_projections.html#ID-e86527fc-bc79-4d48-8db7-7d7d9f349129">exact infinity functor preserves projections</a>   </li>
+
+<li><a href="20250616-exact_infinity_functor_preserves_injections.html#ID-2f57ab07-7ade-422e-bfa7-b5c0b299dba7">exact infinity functor preserves injections</a>   </li>
+</ul>
+<ul>
+<li><a href="20250617-exact_infinity_functor_preserves_pushouts_along_an_inclusion.html#ID-7c92ff79-24fb-4e16-9858-826fb0ae6cbc">exact infinity functor preserves pushouts along an inclusion</a> </li>
+
+<li><a href="20250617-exact_infinity_functor_preserves_pullbacks_along_a_projection.html#ID-58ccd5ae-b207-4980-8cb9-44f18a114128">exact infinity functor preserves pullbacks along a projection</a>   </li>
+</ul>
+<ul>
+<li><a href="20250617-exact_infinity_functor_preserves_cofibers.html#ID-ef7c27b7-50e4-444a-ab58-7b683aabd4e9">exact infinity functor preserves cofibers</a>   </li>
+
+<li><a href="20250617-exact_infinity_functor_preserves_fibers.html#ID-21ad59b0-d07a-41b6-b519-3a0b0a7ba29a">exact infinity functor preserves fibers</a> </li>
+</ul>
+<ul>
+<li><a href="20250616-exact_infinity_functor_as_additive_functor.html#ID-7acd25fe-042c-4a70-bac8-2c11e3372071">exact infinity functor as additive functor</a> </li>
+</ul>
+
+<h3 id="512">5.12)</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="513">5.13)</h3>
+<ul>
+<li><a href="20250424-abelian_category_as_exact_category.html#ID-3b86630a-0436-4878-ba3e-beba0bcc729d">abelian category as exact category</a></li>
+
+<li><a href="20240226-category_of_quasi_coherent_sheaves_of_modules.html#ID-67ac0682-ed11-4fb6-a5b9-db7e8b5a9d3c">category of quasi coherent sheaves of modules</a>     </li>
+
+<li><a href="20250618-category_of_quasi_coherent_sheaves_of_modules_as_abelian_category.html#ID-460c0a08-9958-491e-acb7-9ce37bf853d9">category of quasi coherent sheaves of modules as abelian category</a>  </li>
+
+<li></li>
+</ul>
+<h3 id="514">5.14)</h3>
+<ul>
+<li><a href="20250616-stable_infinity_categories_as_exact_category_with_maximal_exact_structure.html#ID-b9066a9b-ecc0-403a-8211-071bb10d9052">stable infinity categories as exact category with maximal exact structure</a> </li>
+
+<li><a href="20250128-category_of_spectra.html#ID-78346c8a-2ddf-4ac3-b528-1a7117278c24">category of Spectra</a></li>
+
+<li>category of k-modules   </li>
+
+<li><a href="20241031-infinity_derived_category_of_a_grothendieck_category_as_stable_infinity_category.html#ID-5c90ac13-38c9-4b35-9fd2-a1d4f7c029e6">infinity derived category of a grothendieck category as stable infinity category</a>   </li>
+
+<li><a href="20250618-perfect_object.html#ID-7bbf6d9d-9320-4ba7-ac84-314bd6223a7c">perfect object</a> ???</li>
+
+<li><a href="20250618-category_of_perfect_objects.html#ID-5a111f17-f118-458d-aadf-99aa543433df">category of perfect objects</a> ???</li>
+
+<li><a href="20250621-category_of_perfect_modules.html#ID-6ca4fb06-b472-4501-bfbc-52b7812fd824">category of perfect modules</a>   </li>
+
+<li><a href="20250618-qcqs_scheme.html#ID-31bd0cb5-2133-4fc3-9386-a04c5a43f16b">qcqs scheme</a>  </li>
+
+<li><a href="20250618-derived_category_of_a_qcqs_scheme.html#ID-8569cd1d-c3a5-4d53-b012-7b55c316961a">derived category of a qcqs scheme</a> </li>
+
+<li><a href="20241022-functor_category_for_a_stable_infinity_category_as_stable_infinity_categories.html#ID-77b132e7-ee88-4f8e-82ab-f4923ae8e852">functor category for a stable infinity category as stable infinity categories</a>   </li>
+</ul>
+<h3 id="515">5.15)</h3>
+<ul>
+<li><a href="20250618-twisted_arrow_category_cosimplicial_category.html#ID-7495688f-d755-44b4-a0d8-629750f67296">twisted arrow cosimplicial category</a> </li>
+
+<li><a href="20250618-category_of_spans_for_an_exact_category.html#ID-325be919-bc93-4f52-8c0c-d1e9c9541eeb">category of spans for an exact infinity category</a>   </li>
+
+<li><a href="20250618-q_construction_of_an_exact_infinity_category.html#ID-b7766265-71c2-4768-a0bf-da7a0d5b6350">Q construction of an exact infinity category</a>   </li>
+
+<li><a href="20250618-span_category_functor.html#ID-ccabe02b-a180-4085-a972-a6b86d623e8d">span category functor</a> </li>
+</ul>
+<h3 id="516">5.16)</h3>
+<ul>
+<li><a href="20250618-k_space_of_an_exact_category.html#ID-71475941-fe00-40d7-964c-b48f08a8067c">K space of an exact category</a> </li>
+</ul>
+<p>
+-
+</p>
+
+<h3 id="517">5.17)</h3>
+<ul>
+<li><a href="20250619-k_space_of_an_opposite_category.html#ID-33d43ce3-947a-438e-8c3d-4044226528ea">K space of an opposite category</a> </li>
+</ul>
+<h3 id="518">5.18)</h3>
+<ul>
+<li><a href="20250619-k_space_functor_preserves_filtered_colimits.html#ID-d81ba148-d951-4233-b9b1-62895039f3f1">K space functor preserves filtered colimits</a> </li>
+
+<li><a href="20250618-k_space_functor_from_cat_ex.html#ID-d9d136b1-7709-4d0b-98f3-12187f7e8998">K space functor from Cat Ex</a> </li>
+
+<li><a href="20250618-k_space_functor_from_cat_ex_preserves_finite_products.html#ID-cac829f7-4652-42ed-afa5-8ff597976ab4">K space functor from Cat ex preserves finite products</a>   </li>
+
+<li><a href="20250306-commutative_cartesian_monoids_in_a_preadditive_category.html#ID-2120bfcd-5705-4fd5-bf13-0a32dbac3ede">commutative cartesian monoids in a preadditive category</a> </li>
+
+<li><a href="20250619-exact_structure_of_an_abelian_category.html#ID-753bc46a-21ec-4d01-b30b-f9d852c6c761">exact structure of an abelian category</a> </li>
+</ul>
+<h3 id="519">5.19)</h3>
+<ul>
+<li><a href="20250618-span_category_functor.html#ID-ccabe02b-a180-4085-a972-a6b86d623e8d">span category functor</a> </li>
+
+<li><a href="20250621-span_category_functor_preserves_products.html#ID-4363962e-497a-468d-babc-535f3db1f7d0">span category functor preserves products</a>   </li>
+</ul>
+<h3 id="520">5.20)</h3>
+<ul>
+<li><a href="20250618-k_space_functor_from_cat_ex.html#ID-d9d136b1-7709-4d0b-98f3-12187f7e8998">K space functor from Cat Ex</a> </li>
+
+<li></li>
+</ul>
+<h3 id="521">5.21)</h3>
+<ul>
+<li><a href="20250621-k_space_functor_from_cat_stable.html#ID-f96c95cd-7020-4633-89e0-5235d20490a5">K space functor from Cat Stable</a> </li>
+</ul>
+<h3 id="522">5.22)</h3>
+<ul>
+<li></li>
+
+<li><a href="20250619-naive_k_theory_of_a_scheme.html#ID-f522c2f1-1ede-4015-a38f-860dd3156884">naive k-theory of a scheme</a> </li>
+</ul>
+<h3 id="523">5.23)</h3>
+<ul>
+<li><a href="20250424-g_theory_of_a_ring.html#ID-57ca9016-e57f-415c-a26c-b9227ba716a8">G-theory of a Ring</a>   </li>
+
+<li><a href="20250619-g_theory_of_a_coherent_ring.html#ID-b2e7da41-7237-483f-baf0-4389071f9a89">G theory of a coherent ring</a> </li>
+
+<li><a href="20250619-g_theory_of_a_schewe_with_coherent.html#ID-b55a12c5-e09c-4863-8d5d-4ae2c3079b67">G-theory of a scheme with coherent</a> </li>
+</ul>
+<h3 id="524">5.24)</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="525">5.25)</h3>
+<ul>
+<li><a href="20250618-q_equal_plus_theorem.html#ID-a571ec5a-3819-4e3d-a2f8-7267d2f30829">Q equal group completion theorem</a> </li>
+</ul>
+<h3 id="527">5.27)</h3>
+<ul>
+<li><a href="20250630-edgewise_subdivision.html#ID-022bd161-3995-43bb-bfb0-fc90b5703303">edgewise subdivision on the simplex category</a> </li>
+
+<li><a href="20250630-edgewise_subdivision_functor_on_simplicial_anima.html#ID-f84accb0-5189-4301-bd0c-5ebc86c83130">edgewise subdivision functor on simplicial Anima</a>   </li>
+</ul>
+<h3 id="528">5.28)</h3>
+<ul>
+<li><a href="20250630-realization_and_edgewise_subdivision_of_a_simplicial_anima.html#ID-fd72a840-195d-4576-adfa-1a3acdd5f43a">realization and edgewise subdivision of a simplicial Anima</a> </li>
+</ul>
+<h3 id="529">5.29)</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="530">5.30)</h3>
+<ul>
+<li><a href="20250630-subdivision_of_the_s_construction_as_op_of_the_q_construction.html#ID-58b588d0-ee4c-4fd4-896c-5144b07daa6d">subdivision of the S construction as op of the Q construction</a> </li>
+</ul>
+<h3 id="531">5.31)</h3>
+<ul>
+<li><a href="20250630-s_equals_group_completion_theorem.html#ID-a9ff6d45-8df9-454d-8b80-99605d6548dc">S equals group completion theorem</a></li>
+
+<li><a href="20250630-s_construction_as_segal_anima_and_minimal_exact_structure.html#ID-8125d943-b572-4f0d-b4ea-3d45431eae96">S construction as segal anima and minimal exact structure</a> </li>
+
+<li><a href="20250630-s_equals_q.html#ID-47640a0f-164c-4490-a964-78b566c42567">S equals Q</a>   </li>
+</ul>
+<h3 id="531">5.31)</h3>
+<ul>
+<li><a href="20250701-functor_to_cat_infinity_and_restriction_to_objectwise_subcategories.html#ID-ba7acee4-b0a8-48f4-8a7f-209b83e886e7">functor to cat infinity and restriction to objectwise subcategories</a> </li>
+</ul>
+<h3 id="532">5.32)</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="533">5.33)</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="534">5.34)</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="535">5.35)</h3>
+<ul>
+<li><a href="20250424-k0_of_an_exact_category.html#ID-27bfd633-204f-4135-8f67-77c011fc924c">k0 of an exact category</a> </li>
+
+<li><a href="20250702-realization_of_a_simplicial_anima_with_contractible_zero_simplices.html#ID-0ccc3c78-6725-4ab3-9fe9-86f3eb665f8c">pi_1 of a realization of a simplicial Anima with contractible zero simplices</a>   </li>
+
+<li></li>
+</ul>
+<h3 id="536">5.36)</h3>
+<ul>
+<li><a href="20250107-quillens_theorem_a.html#ID-d31a6185-4827-43b6-a586-73cf82ef127f">Quillens Theorem A</a> </li>
+
+<li><a href="20250315-cofinal_map_induces_homotopy_equivalence_on_anima.html#ID-8c8ac51a-c831-45c2-93ac-dd8cf94b5c83">cofinal map induces homotopy equivalence on total dwyer-kan localizations</a> </li>
+
+<li><a href="20250315-cofinal_map_induces_homotopy_equivalence_on_anima.html#ID-8c8ac51a-c831-45c2-93ac-dd8cf94b5c83">cofinal map induces equivalence on geometric realization</a>   </li>
+
+<li><a href="20250516-coinitial_infinity_functor_as_weak_equivalence.html#ID-a3cc4935-87da-4ccd-b53d-b6d34153b2ee">coinitial infinity functor as weak equivalence</a>   </li>
+</ul>
+
+<h2 id="53-resolutions">5.3 Resolutions</h2>
+
+<h3 id="537">5.37)</h3>
+<ul>
+<li><a href="20250616-exact_infinity_subcategory.html#ID-bff5664b-f929-4c48-9b20-1d6f8ea7b240">exact infinity subcategory</a> </li>
+
+<li><a href="20250702-resolving_exact_subcategory.html#ID-946f5334-94c4-440f-84a6-a5c8318935b7">resolving exact subcategory</a> </li>
+
+<li><a href="20250702-coresolving_exact_subcategory.html#ID-dc7425da-5e50-417a-9048-58e276fcbd73">coresolving exact subcategory</a>   </li>
+</ul>
+<h3 id="538">5.38)</h3>
+<ul>
+<li><a href="20250702-equivalent_characterization_of_a_resolving_exact_subcategory.html#ID-855eb5d2-b693-4f35-a75e-8b96092f3040">equivalent characterization of a resolving exact subcategory</a> </li>
+
+<li><a href="20250702-quillens_resolution_theorem.html#ID-5e3bed5d-8100-41c6-8ce6-e7740dc0fd56">quillens resolution theorem</a> </li>
+</ul>
+<h3 id="540">5.40)</h3>
+<ul>
+<li><a href="20250702-category_of_finitely_presented_modules_of_projective_dimension_at_most_n.html#ID-7e0d87e1-6e61-4c81-92c1-695b6bc74b5f">category of finitely presented modules of projective dimension at most n</a> </li>
+
+<li><a href="20250702-category_of_finitely_presented_modules_of_bounded_projective_dimension.html#ID-824ac13a-4b30-4478-90e5-c42bf73b01f4">category of finitely presented modules of bounded projective dimension</a>   </li>
+
+<li></li>
+</ul>
+<h3 id="541">5.41)</h3>
+
+<h3 id="542">5.42)</h3>
+<ul>
+<li><a href="20250702-regular_coherent_ring.html#ID-36a17bfd-3ebe-4138-9109-ce4cef46ef73">left regular coherent ring</a> </li>
+</ul>
+<h3 id="543">5.43)</h3>
+<ul>
+<li><a href="20250702-g_and_k_theory_of_a_regular_coherent_ring_coincide.html#ID-c8a175e1-bba4-49b6-a317-fbe9373b1742">G and K theory of a regular coherent ring coincide</a> </li>
+</ul>
+<h3 id="544">5.44)</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="545">5.45)</h3>
+
+<h3 id="546">5.46)</h3>
+
+<h3 id="547">5.47)</h3>
+
+<h2 id="54-devisage">5.4) devisage</h2>
+
+<h3 id="548">5.48)</h3>
+<ul>
+<li><a href="20250707-quillens_devisage.html#ID-c68dc527-2038-4b12-ad5a-0a89137243eb">quillens devisage</a> </li>
+
+<li><a href="20240803-exact_abelian_subcategoy.html#ID-d63fc18c-ee62-482c-9c5e-a920aa335235">exact abelian subcategory</a>   </li>
+
+<li><a href="20250707-abelian_full_subcategory.html#ID-0e0a4eb4-67f4-42b7-ac95-fba6415fad24">abelian full subcategory</a>   </li>
+</ul>
+<h3 id="549">5.49)</h3>
+<ul>
+<li><a href="20250708-g_theory_of_a_coherent_ring_modulo_two_sided_nilpotent_ideal.html#ID-03188f1d-868f-489b-b39c-09b317090587">G theory of a coherent ring modulo two sided nilpotent ideal</a> </li>
+</ul>
+<h3 id="550">5.50)</h3>
+<ul>
+<li><a href="20250708-simple_object.html#ID-a275a20e-9384-4354-99f8-39ee827e2d7d">simple object</a> </li>
+
+<li><a href="20250708-k_theory_abelian_category_with_each_object_admitting_finite_filtration_with_quotient_as_simple_objects.html#ID-037cdbbf-983a-4b10-a75e-12f88cdf2b31">k-theory abelian category with each object admitting finite filtration with quotient as simple objects</a> </li>
+</ul>
+<h3 id="551">5.51)</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="552">5.52)</h3>
+<ul>
+<li><a href="20240807-serre_subcategory.html#ID-f5c2fa3b-936e-48a3-a1e1-aa0b11ce6244">serre subcategory</a> - <a href="20240807-weak_serre_subcategory.html#ID-00fefcec-0c1a-4590-9fca-92bae53be029">weak serre subcategory</a> </li>
+
+<li><a href="20240807-weak_serre_subcategory_as_exact_abelian_subcategory.html#ID-1a86acc9-b9fd-4a4b-b5d2-4f55136b5a13">weak serre subcategory as exact abelian subcategory</a>   </li>
+
+<li><a href="20250709-localization_by_a_serre_subcategory.html#ID-c8071d5d-5cdb-46b1-88e6-0c608b2f3c80">localization by a serre subcategory</a>  </li>
+</ul>
+<p>
+Let $\mathcal{A}$ be an <a href="20230827-abelian_category.html#ID-9003af72-f684-4897-b096-c1d8a681c624">abelian</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a> and $B$ a <a href="20220824221623-unterkategorie.html#ID-2165c92b-8025-4134-b3b1-4d523a8795a4">subcategory</a> closed under
+</p>
+
+
+<h3 id="553">5.53)</h3>
+<ul>
+<li></li>
+</ul>
+<p>
+Let $\mathcal{D}$ be a <a href="20240429-dedekind_domain.html#ID-39cacee8-4752-43f4-bcf1-b24852e051ff">dedekind domain</a> and $T$ a &lt;mult closed subset&gt;.
+Then there exists a <a href="20241022-fiber_of_an_infinity_morphism.html#ID-315c0bce-7cf8-468b-9149-1e254debcf95">fiber</a> sequence
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/4503b3ecc7f1faddd85b.svg" class="org-svg" alt="diagram" /></span></div>
+<ul>
+<li><a href="20250709-fiber_sequence_of_connective_k_spaces_for_a_dedekind_domain.html#ID-80841041-85d8-4a94-814f-382deb89430c">fiber sequence of connective k spaces for a dedekind domain</a> </li>
+</ul>
+<h3 id="554">5.54)</h3>
+
+<h3 id="555">5.55)</h3>
+<ul>
+<li><a href="20250709-abelian_localization_theorem.html#ID-536024a9-a87a-4b15-8d7b-5fa6bc31b852">abelian localization theorem for connective k-spaces</a> </li>
+</ul>
+<h3 id="556">5.56)</h3>
+
+<h3 id="557">5.57)</h3>
+<ul>
+<li><a href="20250709-fiber_sequence_of_connective_k_spaces_for_a_dedekind_domain.html#ID-80841041-85d8-4a94-814f-382deb89430c">fiber sequence of connective k spaces for a dedekind domain</a> </li>
+
+<li></li>
+</ul>
+<h3 id="558">5.58)</h3>
+<ul>
+<li><a href="20250709-fiber_sequence_of_connective_k_spaces_of_integers_and_fields.html#ID-a81b1b0b-c2c7-4ef3-8b9e-1b37d21c6f67">fiber sequence of connective k spaces of integers and fields</a>   </li>
+
+<li><a href="20250709-k_theory_of_fp_and_p_power_torsion_groups_coincide.html#ID-7cd0c5e5-1f05-4857-9a26-4da2bdf57288">K theory of Fp and p-power torsion groups coincide</a> </li>
+
+<li></li>
+
+<li><a href="20250709-k_theory_of_finite_fields.html#ID-81ecccbc-2b09-4065-8975-5d44fb01c7c9">K-theory of finite fields</a> </li>
+
+<li><a href="20250709-k_theory_of_a_number_field.html#ID-eb8dcdb8-aa86-4f79-8c86-1936db0c35ae">K-Theory of a number field</a>  </li>
+
+<li><a href="20250709-quotient_of_an_e_infinity_group_by_n.html#ID-b142506b-b60e-40ac-be57-47a5814d68ab">quotient of an E infinity group by n</a>  </li>
+</ul>
+<h3 id="559">5.59)</h3>
+
+<h3 id="560">5.60)</h3>
+<ul>
+<li></li>
+</ul>
+<h2 id="55-k-theory-of-stable-categories">5.5 K-theory of stable categories</h2>
+
+<h3 id="561">5.61)</h3>
+<ul>
+<li><a href="20250709-category_cat_stable_as_bicomplete_category.html#ID-04a27be3-887d-4f23-992e-480589b7f352">category cat stable is bicomplete</a> </li>
+
+<li><a href="20250204-category_cat_stable_as_pointed_infinity_category.html#ID-f848ccc0-8d5f-43db-b511-ce3939f03083">category cat stable is pointed</a>   </li>
+
+<li><a href="20250709-category_cat_stable_admits_fibers.html#ID-0acf9ed9-d24f-49dc-b621-2524ea52be7e">category cat stable admits fibers</a>   </li>
+
+<li><a href="20250709-category_cat_stable_admits_cofibers.html#ID-9bfcb9aa-119c-472c-be1c-665078cd6d75">category cat stable admits cofibers</a>   </li>
+</ul>
+<ul>
+<li><a href="20250709-category_with_finite_coproducts_as_contractible_category.html#ID-286608d1-02ea-421b-a9c8-bbab090a9b86">category with finite coproducts in general not filtered</a>   </li>
+</ul>
+<h3 id="562">5.62)</h3>
+
+<h4 id="a-additive">a) additive</h4>
+<ul>
+<li><a href="20250709-product_preserving_functors_into_a_stable_category_as_stable_category.html#ID-99975fa9-904e-4b46-88ec-62880b89cdb4">product preserving functors out of an additive category into a stable category as stable category</a> </li>
+
+<li><a href="20250810-stabilization_of_additive_categories.html#ID-09ff3ad2-cf60-4993-a4af-598637a9dfae">stabilization of additive categories</a>  </li>
+
+<li></li>
+</ul>
+<h4 id="b-exact">b) exact</h4>
+<ul>
+<li><a href="20250709-stabilization_of_an_exact_category.html#ID-c7208bc2-9a51-4aae-a56e-448996e8688b">stabilization of an exact category</a> </li>
+
+<li><a href="20250709-category_cat_stable_as_bousfield_localization_of_exact_categories.html#ID-71366923-8d19-4cf8-9eb5-2fe0882ce5cf">category cat stable as bousfield localization of exact categories</a> </li>
+
+<li><a href="20250709-unit_of_stabilization_as_fully_faithful_functor.html#ID-daf5c915-2221-4a93-97d7-9d590d283275">unit of stabilization as fully faithful functor</a>   </li>
+
+<li><a href="20250709-exact_structure_determined_by_stabilization.html#ID-3363eace-b24b-49ca-8b08-eceaa1a6d14d">exact structure determined by stabilization</a>   </li>
+</ul>
+<h3 id="563">5.63)</h3>
+<ul>
+<li><a href="20250714-stabilization_of_prestable_categories_as_filtered_colimit.html#ID-3949da6f-ff6c-4e74-bff2-15993a04e54d">spanier whitehead stabilization of prestable categories</a> </li>
+
+<li><a href="20250714-stabilization_of_an_exact_category_via_left_exact_functors.html#ID-71cd372b-756c-4289-83b5-0f2d1df959bc">stabilization of an exact category via left exact functors</a>   </li>
+
+<li><a href="20250714-prestable_infinity_category.html#ID-18688231-0f3e-4b4a-aafd-95b44fe0b862">prestable infinity category</a>   </li>
+</ul>
+<h3 id="564">5.64)</h3>
+<ul>
+<li><a href="20250810-bounded_heart_structure.html#ID-78bc5d98-5e14-4d27-9fe4-73c4a83d8166">bounded heart structure</a> </li>
+
+<li><a href="20250810-weight_structure.html#ID-67d2e6d1-fe9a-46eb-b463-5ac415a5a2af">weight structure</a>  </li>
+
+<li><a href="20250810-bounded_weight_structure.html#ID-615becab-dfba-475f-9969-c35671adaf1d">bounded weight structure</a>   </li>
+</ul>
+<ul>
+<li><a href="20250810-essential_image_of_additive_stabilization_as_categories_with_bounded_weight_structure.html#ID-9aa73027-a13b-4dd7-9db1-55276a2d7965">essential image of additive stabilization as categories with bounded weight structure</a> </li>
+
+<li><a href="20250810-essential_image_of_exact_stabilization_as_categories_with_bounded_heart_structure.html#ID-45c11fa6-8e79-4cf8-81cd-e52e941c2982">essential image of exact stabilization as categories with bounded heart structure</a> </li>
+</ul>
+<h3 id="565">5.65)</h3>
+
+<h3 id="566">5.66)</h3>
+<ul>
+<li><a href="20250714-resolving_functor_as_equivalence_on_stabilization.html#ID-9a369e96-705f-4fd7-a98d-8ddcb3014827">resolving functor is an equivalence on stabilization</a> </li>
+
+<li></li>
+</ul>
+<h3 id="567">5.67)</h3>
+<ul>
+<li><a href="20250810-left_special_inclusion.html#ID-0447bac8-e5e9-42da-823c-988ce27b6505">left-special inclusion</a> </li>
+
+<li><a href="20250810-left_special_inclusion_induce_fully_faithful_functor_on_stabilization.html#ID-1c753a0d-96aa-4ebe-85b6-ec4a4bdad963">left-special inclusion induces fully faithful functor on stabilization</a> </li>
+
+<li><a href="20250810-resolving_functor_as_left_special_functor.html#ID-668a0869-0c01-40ad-8f75-cd8c5f6c46b4">resolving functor as left-special functor</a>   </li>
+</ul>
+<h3 id="568">5.68)</h3>
+<ul>
+<li><a href="20250714-stable_comparison_theorem_for_k_theory.html#ID-156f1c08-c448-4e72-b43c-2380c574ba1e">stable comparison theorem for k theory</a> </li>
+</ul>
+<h3 id="569">5.69)</h3>
+<ul>
+<li><a href="20250204-verdier_sequence.html#ID-bce7b93f-5431-42a7-8f1c-6ff324627bc3">verdier sequence</a> </li>
+
+<li><a href="20250204-verdier_injection.html#ID-a53c9a61-c3c1-455e-8808-1453ed86aaae">verdier injection</a> / <a href="20250204-verdier_projection.html#ID-03b30b9d-38be-41bb-8e79-d569888749e6">verdier projection</a>   </li>
+
+<li><a href="20250204-split_verdier_sequence.html#ID-b660d342-9837-46b1-b5e8-fccb5910a808">split verdier sequence</a> </li>
+
+<li><a href="20250204-splitting_lemma_of_verdier_sequences.html#ID-19134aee-fb0e-4cb4-8b2e-0477034c0386">splitting lemma of verdier sequences</a></li>
+
+<li>&lt;verdier quotient&gt; </li>
+
+<li><a href="20250102-bousfield_localization.html#ID-0289401d-a871-4e2d-bd40-b33d54e0d4f5">bousfield localization</a> /  </li>
+
+<li><a href="20250102-bousfield_localization.html#ID-0289401d-a871-4e2d-bd40-b33d54e0d4f5">right bousfield localization</a> / <a href="20250110-left_bousfield_localization.html#ID-92822a0b-cdc7-45b9-bbf8-30e49a290671">left bousfield localization</a>  </li>
+</ul>
+<h3 id="570">5.70)</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="571">5.71)</h3>
+<ul>
+<li><a href="20250716-localization_theorem_of_stable_connective_k_space.html#ID-ae896010-b946-4b92-8165-aed3078f1e53">localization theorem of stable connective k-space</a> </li>
+
+<li><a href="20250716-additivity_of_the_stable_connective_k_space_functor.html#ID-1174468c-02fe-45ea-ac65-bf16e828e5a9">additivity of the stable connective k-space functor</a>   </li>
+
+<li><a href="20250716-verdier_localization.html#ID-e2c6ac1f-87e7-482c-98df-d23cd6b98a80">verdier localization</a>   </li>
+</ul>
+<ul>
+<li><a href="20250716-localization_theorem_of_idempotent_complete_stable_k_theory.html#ID-d48ceb8a-a1bf-4e38-aded-a6b1deaf8187">localization theorem of idempotent complete stable k-theory</a> </li>
+</ul>
+<h3 id="572">5.72)</h3>
+<ul>
+<li><a href="20250722-verdier_projection_criterion_of_small_stable_infinity_categories.html#ID-5588c40a-8b48-49df-a20e-e8a1ae283a52">verdier projection criterion of small stable infinity categories</a> </li>
+</ul>
+<h3 id="573">5.73)</h3>
+<ul>
+<li><a href="20250810-realization_of_the_span_functor_from_cat_stable_as_additive_functor_to_connective_spectra.html#ID-4422ce57-025c-4264-a69c-fef867ddae76">realization of the span functor from Cat Stable as additive functor to connective spectra</a> </li>
+</ul>
+<h3 id="574">5.74)</h3>
+<ul>
+<li><a href="20250810-split_verdier_sequence_and_k_theory_as_direct_sum.html#ID-35daf6b7-fdf0-44f0-9316-fc25095463e3">split verdier sequence and k-theory as direct sum</a> </li>
+</ul>
+<h3 id="575">5.75)</h3>
+<ul>
+<li><a href="20250716-classification_of_split_verdier_sequences.html#ID-ae38d847-001b-456f-8346-d50ca2b05c3c">classification of split verdier sequences with fiber</a> </li>
+
+<li><a href="20250810-universal_split_verdier_sequence.html#ID-9a5b6296-9b12-4fb0-a970-e6b6eb588545">universal split verdier sequence</a>   </li>
+</ul>
+<h3 id="576">5.76)</h3>
+<ul>
+<li><a href="20250723-realization_of_the_span_functor_sends_split_verdier_sequences_to_fiber_sequences.html#ID-e1a99616-042a-4d6d-8661-2aa5d129602f">realization of the span functor sends split verdier sequences to fiber sequences</a></li>
+
+<li><a href="20250723-right_split_verdier_sequence.html#ID-25390389-99a2-4309-940a-1a83f85bbeca">right split verdier sequence</a>   </li>
+
+<li><a href="20250723-left_split_verdier_sequence.html#ID-948dba1b-2f33-4c20-8cc6-a48896e7ab7b">left split verdier sequence</a>  </li>
+
+<li><a href="20250204-splitting_lemma_of_verdier_sequences.html#ID-19134aee-fb0e-4cb4-8b2e-0477034c0386">splitting lemma of verdier sequences</a>   </li>
+</ul>
+<h3 id="577">5.77)</h3>
+<ul>
+<li><a href="20250723-dense_stable_subcategory.html#ID-bd3ae10e-23f2-4f45-910d-7b8c089eb8e1">dense stable subcategory</a> </li>
+
+<li><a href="20250723-cofinality_theorem_of_k_theory.html#ID-f2c10aad-3367-4688-918a-3d554400e9a2">cofinality theorem of k-theory</a>   </li>
+</ul>
+<h3 id="578">5.78)</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="579">5.79)</h3>
+<ul>
+<li><a href="20250905-ind_criterion_for_a_verdier_sequence_of_small_stable_categories.html#ID-d38f762b-3c4c-43a0-9093-508aa7b7bd82">Ind criterion for a verdier sequence of small, stable categories</a> </li>
+
+<li>verdier sequence </li>
+
+<li></li>
+</ul>
+<h3 id="580">5.80)</h3>
+<ul>
+<li><a href="20250905-stabilization_of_proj_is_perf_r.html#ID-01639d3f-24e9-47f8-8bf1-13bf818357fb">stabilization of Proj is Perf(R)</a> </li>
+</ul>
+<h3 id="581">5.81)</h3>
+<ul>
+<li><a href="20241023-t_structure_on_a_stable_infinity_category.html#ID-6e276613-1d75-469a-a934-a7f6211cdadd">t-structure</a></li>
+</ul>
+<h3 id="582">5.82)</h3>
+<ul>
+<li><a href="20250418-upper_t_subcategory_of_a_stable_infinity_category_as_right_bousfield_localization.html#ID-c8727123-9d0d-4b7d-be58-a7cb7dc97c99">upper t-subcategory of a stable infinity category as right bousfield localization</a> </li>
+
+<li><a href="20241023-t_subcategory_of_a_stable_infinity_category_as_localization.html#ID-4d53c8bb-86bb-4968-ae9e-4a65d796f024">lower t-subcategory of a stable infinity category as left bousfield localization</a>   </li>
+</ul>
+<h3 id="583">5.83)</h3>
+<ul>
+<li><a href="20250417-t_structure_of_spectra.html#ID-072be816-3903-4da3-b2b0-13fbde52e544">t-structure of spectra</a> </li>
+
+<li></li>
+</ul>
+<h3 id="584">5.84)</h3>
+<ul>
+<li><a href="20250810-standard_t_structure_of_modules_over_a_ring_spectrum.html#ID-5a08e42b-fd94-4833-a9a6-bf6bb1b9ed28">standard t-structure of modules over a ring spectrum</a> </li>
+
+<li><a href="20250810-standard_t_structure_of_modules_over_a_connective_ring_spectrum.html#ID-0d6eab0c-2b38-405e-bbcc-d175dbb0af19">standard t-structure of modules over a connective ring spectrum</a>   </li>
+</ul>
+<h3 id="585">5.85)</h3>
+<ul>
+<li><a href="20250810-t_structure_on_perfect_modules_over_a_coherent_ring.html#ID-97c6005e-c6d2-4704-b339-8d0b94c666de">t-structure on perfect modules over a coherent ring</a> </li>
+</ul>
+<h3 id="586">5.86)</h3>
+<ul>
+<li><a href="20250723-theroem_of_the_heart.html#ID-500c787e-fe0d-477a-938d-f6e1101ffd49">barwicks theroem of the heart</a> </li>
+</ul>
+<h3 id="587">5.87)</h3>
+<ul>
+<li>todo: </li>
+</ul>
+<h3 id="588">5.88)</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="589">5.89)</h3>
+<ul>
+<li><a href="20250810-fiber_sequence_of_connective_k_spaces_of_integers_and_ku.html#ID-893d5762-c62a-4bcc-b60a-6401a3fa35ee">fiber sequence of connective k spaces of integers and ku</a> </li>
+
+<li><a href="20250810-ku_spectrum.html#ID-c842a718-4085-430d-bd46-1b0a8a1f55a2">little ku spectrum</a> </li>
+
+<li><a href="20250810-big_ku_spectrum.html#ID-eff1f921-9230-4433-832a-e7e824d14e19">ku spectrum</a>   </li>
+</ul>
+<h3 id="590">5.90)</h3>
+<ul>
+<li><a href="20250810-fiber_sequence_of_a_regular_coherent_ring_and_the_laurent_polynomial_ring.html#ID-eadf4bed-ddeb-4cca-a510-49e2fd27ad9a">fiber sequence of a regular coherent ring and the laurent polynomial ring</a> </li>
+
+<li><a href="20250810-laurent_polynomial_ring.html#ID-13aa0627-c244-4e24-aabd-b9835286817c">laurent polynomial ring</a>   </li>
+</ul>
+<h3 id="591">5.91)</h3>
+<ul>
+<li><a href="20250716-underlying_anima_criterion_for_a_fiber_sequence_in_connective_spectra.html#ID-74e5e152-ad62-4b91-94b1-f68dd8b965c8">underlying anima criterion for a fiber sequence in connective spectra</a> </li>
+</ul>
+<h3 id="592">5.92)</h3>
+<ul>
+<li><a href="20250810-perf_p_r_1.html#ID-4869a384-37e5-49fa-ab6b-feef2810d48e">Perf(P_R^1)</a> </li>
+
+<li><a href="20250810-right_split_verdier_sequence_of_perf_p_r_1.html#ID-e4cddaac-c956-42d0-883c-153398f8279c">right split verdier sequence of Perf P_R^1</a> </li>
+</ul>
+<h3 id="593">5.93)</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="594">5.94)</h3>
+<ul>
+<li><a href="20250810-fundamental_theorem_of_k_theory.html#ID-2952468b-7530-46bd-8602-00932d3b0ead">fundamental theorem of connective k-theory</a> </li>
+
+<li><a href="20250810-nk_r_of_a_regular_coherent_ring.html#ID-5d7cf1fb-47dc-43e5-bc4d-38298ebfdc14">NK(R) of a regular coherent ring</a>   </li>
+
+<li><a href="20250810-nk_r_of_a_ring.html#ID-dfb9aa37-1792-4efd-a2c5-7f870902c34d">NK(R) of a ring</a>   </li>
+
+<li><a href="20250810-k_theory_of_the_laurent_ring_of_a_regular_coherent_ring.html#ID-c5957112-6d9b-430a-aea5-d5d74ae3d69e">connective K-theory of the laurent ring of a regular coherent ring</a> </li>
+</ul>
+<h3 id="595">5.95)</h3>
+<ul>
+<li><a href="20250810-map_to_polynomial_ring_as_equivalence_on_conncetive_k_theory_for_a_regular_coherent_ring.html#ID-01d651b4-1e0d-4beb-b731-c54c2220357c">map to polynomial ring as equivalence on connective k-theory for a regular coherent ring</a> </li>
+
+<li><a href="20250810-nk_r_of_a_regular_coherent_ring.html#ID-5d7cf1fb-47dc-43e5-bc4d-38298ebfdc14">NK(R) of a regular coherent ring</a>   </li>
+
+<li><a href="20250810-k_theory_of_the_laurent_ring_of_a_regular_coherent_ring.html#ID-c5957112-6d9b-430a-aea5-d5d74ae3d69e">connective K-theory of the laurent ring of a regular coherent ring</a>   </li>
+</ul>
+<h2 id="sort">sort</h2>
+<ul>
+<li><a href="20241023-t_structure_on_a_stable_infinity_category.html#ID-6e276613-1d75-469a-a934-a7f6211cdadd">t-structure on a stable infinity category</a> </li>
+</ul>
+<ul>
+<li><a href="20250723-connective_subcategory_of_a_t_structure.html#ID-4ef7c6cb-87b6-4324-89e2-1b44f99d44e0">connective subcategory of a t-structure</a>   </li>
+
+<li><a href="20250723-coconnective_subcategory_of_a_t_strutcure.html#ID-2cc917d8-2ef6-4ec4-987b-a222f776a603">coconnective subcategory of a t-structure</a>   </li>
+</ul>
+<ul>
+<li><a href="20241101-upper_truncation_of_a_t_structure.html#ID-0541840c-e4f6-4886-832b-e83398770961">upper truncation of a t-structure</a>   </li>
+
+<li><a href="20241101-lower_truncation_of_a_t_structure.html#ID-4fb8d1e5-2f30-41f0-ae13-512d13cffc9c">lower truncation of a t-structure</a>   </li>
+</ul>
+<ul>
+<li><a href="20241024-stable_infinity_category_induces_triangulated_structure_on_the_homotopy_category.html#ID-b71a15d5-f1eb-48f7-bf08-8a5e78a67ef0">stable infinity category induces triangulated structure on the homotopy category</a>   </li>
+
+<li></li>
+</ul>
+<ul>
+<li><a href="20250723-t_structure_of_r_modules.html#ID-ba8cbff3-13e1-4ea9-b62b-100e033f3097">t-structure of R-modules</a>   </li>
+
+<li><a href="20250723-coconnective_subcategory_of_a_t_strutcure.html#ID-2cc917d8-2ef6-4ec4-987b-a222f776a603">coconnective subcategory of a t-structure</a> </li>
+</ul>
+<ul>
+<li><a href="20250723-bounded_t_structure.html#ID-41a93fd8-f479-4a2f-8734-e276e07bd67e">bounded t-structure</a> </li>
+
+<li><a href="20250723-theroem_of_the_heart.html#ID-500c787e-fe0d-477a-938d-f6e1101ffd49">theroem of the heart</a>   </li>
+</ul>
+
+</div>
+</body>
+</html>

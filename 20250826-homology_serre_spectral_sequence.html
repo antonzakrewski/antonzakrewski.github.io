@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>homological serre spectral sequence</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-d8f619c6-c31a-4152-9894-753ef7f2cfed"></span><h1 class="title">homological serre spectral sequence</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $F \rightarrow E \rightarrow B$ be a <a href="20241022-fiber_of_an_infinity_morphism.html#ID-315c0bce-7cf8-468b-9149-1e254debcf95">fiber</a> sequence where the <a href="20250430-pi_1_action_on_the_fiber_for_anima.html#ID-8cbbe259-ab77-48cd-81b4-472f0779c5bb">pi_1 action on the fiber</a> is trivial, $B$ is <a href="20230118223336-zusammenhangender_raum.html#ID-bcc53507-bc5a-46d4-bd83-53e504f62b9d">connected</a> and $A$ is an <a href="20211008174655-abelsche_gruppe.html#ID-7281c9cf-564f-4c4c-8c3f-fc1424ac85f8">abelian</a> <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a>.
+Then there exists a <a href="20250826-spectral_sequence.html#ID-37b89bcc-af64-4182-9e25-2a7ac65f9ec4">spectral sequence</a> where the <a href="20250826-r_th_page_of_a_spectral_sequence.html#ID-692a5c39-e145-465d-8e11-d5985bd90fcb">second page</a> is given by
+</p>
+
+<div class="math-block">\begin{align*}
+E_2^{p,q} = H_p(B, H_q(F,A)) \Rightarrow H_{p+q}(E,A)
+\end{align*}</div>
+<p>
+which <a href="20250826-convergence_of_a_spectral_sequence.html#ID-3034484c-bd7e-4d74-b9b1-31370a0e2f81">converges</a>.
+</p>
+
+
+<div class="equation-container"><span class="equation"><img src="ltximg/aa0451c1ffb0d24456f1.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="ferdi">ferdi</h3>
+<p>
+let $F_{(-)}: B \rightarrow \mathrm{An}$ be the <a href="20250906-straightening.html#ID-a1264caa-868a-4794-bd08-07c09a3069eb">straightening</a> of $E \rightarrow B$.
+Then $X \simeq \vert X \vert \simeq \mathrm{colim}_{b \in B} \mathcal{F}_b$ using <a href="20241126-lurie_theorem_about_colimits_in_anima.html#ID-f415dd21-9969-45bb-a513-9e8a97701537">Lurie theorem about colimits in Anima</a>.
+Furthermore
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{S}[X] \otimes A \simeq&amp; \mathrm{colim}_{b \in B} \mathbb{S}[F_b] \otimes A 
+\end{align*}</div>
+<p>
+and we consider the following filtered spectrum
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{colim}_{*} \mathrm{colim}_{b \in B} (\tau_{\geq *} (\mathbb{S}[F_b] \otimes A))
+\end{align*}</div>
+<p>
+with
+</p>
+<ol>
+<li>$\mathrm{colim} \simeq \mathbb{S}[X] \otimes A$ (use: $\tau_{\geq *}$ commutes with colimits)</li>
+
+<li>colimit comumte with colimits ???</li>
+
+<li>$\mathrm{lim} \simeq 0$ by ... connectivity argument: homtopoy groups vanish for trunctaion reasons</li>
+</ol>
+
+<p>
+Now
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{gr}^j(\mathrm{colim}_{b \in B} (\tau_{\geq *} \mathbb{S}[F_b] \otimes A)) \simeq&amp; \mathrm{colim}_{b \in B} \mathrm{gr}^j( (\tau_{\geq *} \mathbb{S}[F_b] \otimes A))  \\
+\simeq&amp; \mathrm{colim}_{b \in B} \Sigma^j \pi_j(\mathbb{S}[F_b] \otimes A) \\
+\simeq&amp; \mathrm{colim}_{b \in B} \Sigma^j H_j(F_b, A)
+\end{align*}</div>
+
+<p>
+now the functor
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/48e488ac360960d48a3e.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+if $\pi_1$ acts triviall, then
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/951cc772c44d7cad2e89.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+the functor is constant.
+</p>
+
+<p>
+Now using that the functor is constant, we can write
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{colim}_{b \in B} \Sigma^j H_j(F_b, A) \simeq&amp; \mathbb{S}[B] \otimes \Sigma^j H_j(F,A) \\
+\end{align*}</div>
+
+<p>
+Hence
+</p>
+
+<div class="math-block">\begin{align*}
+\pi_{i+j}(\mathrm{gr}^j ...) \simeq&amp; \pi_{i+j}(\mathbb{S}[B] \otimes \Sigma^j H_j(F,A)) \\
+\simeq&amp; \pi_i(\mathbb{S}[B] \otimes H_j(F,A)) \\
+\end{align*}</div>
+
+<p>
+hence the LHS is given by what we want
+</p>
+
+
+
+<h3 id="markus">markus</h3>
+<p>
+Let $F \rightarrow E \rightarrow B$ be a <a href="20241022-fiber_of_an_infinity_morphism.html#ID-315c0bce-7cf8-468b-9149-1e254debcf95">fiber</a> sequence of <a href="20240404-infinity_groupoid.html#ID-b516d6fd-fec1-4d8a-8efa-b2ad1f1bb283">anima</a> and $A$ an <a href="20211008174655-abelsche_gruppe.html#ID-7281c9cf-564f-4c4c-8c3f-fc1424ac85f8">abelian</a> <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a> .
+</p>
+
+
+</div>
+</body>
+</html>

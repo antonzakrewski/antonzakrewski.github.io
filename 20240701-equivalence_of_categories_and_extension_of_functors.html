@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>equivalence of categories and extension of functors</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-5e5d24ac-14e0-4fcb-a5c4-bf7ba0687661"></span><h1 class="title">equivalence of categories and extension of functors</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathcal{C}, \mathcal{D}, \mathcal{E}$ be <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">categories</a>, $\mathcal{F}: \mathcal{C} \rightarrow \mathcal{D}$ an <a href="20231118-equivalence_of_categories.html#ID-9f984af9-949c-46b1-9221-7ba43cdae897">equivalence</a>.
+Suppose $\mathcal{G}: \mathcal{C} \rightarrow \mathcal{E}$ is a <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a>, then there exists an extension in the sense that for a <a href="20230225184516-volle_unterkategorie.html#ID-02c96fc8-ac4f-42b6-804d-bc08d25bfb2a">full subcategory</a> $\overline{\mathcal{C}}$ such that the <a href="20231209-restriction_of_a_functor.html#ID-f2ce99cd-a219-47a1-9c96-9d3d94abb788">restriction</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{F}_{\overline{\mathcal{C}}}: \overline{\mathcal{C}} \rightarrow \mathcal{D}
+\end{align*}</div>
+<p>
+is <a href="20231129-object_injective_functor.html#ID-48d5a6f0-4a1d-4ab5-aaf5-c9b0110dc1be">object-injective functor</a> (e.g. a <a href="20231209-skeleton_of_a_category.html#ID-31835e76-42be-4631-b31a-cf858a8235c1">skeleton of a category</a>)
+</p>
+
+
+
+<div class="equation-container"><span class="equation"><img src="ltximg/a7f83a04bad3243d33d5.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+commutes
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+using <a href="20230603-equivalence_of_categories_and_fully_faithful_and_essentially_surjective_functor.html#ID-52024b5e-fa8a-46b9-9fbb-ac9b36efd990">adjoint equivalence of categories and fully faithful and essentially surjective functor</a>:
+</p>
+
+<p>
+For each object $D \in \mathcal{D}$ choose by essentially surjectivity an object $C_{D}$ such that $\mathcal{F}(C_{D}) \simeq D$.
+Then choose a fixed isomorphism $f_{D}: \mathcal{F}(C_{D}) \simeq C$
+</p>
+
+<p>
+If $D$ is in the <a href="20230402194515-image_of_a_functor.html#ID-70ce7618-7873-4fc4-a139-a84fcda6d996">Image</a> of $\mathcal{F}$ we may <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> choose $\mathrm{id}: \mathcal{F}(C_D) = D$ for some $C_D$
+</p>
+
+<p>
+Then define
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{G}': \mathcal{D} \rightarrow&amp; \mathcal{E} \\
+D \mapsto&amp; \mathcal{G}(C_D) \\
+(g: D_1 \rightarrow D_2) \mapsto&amp; \mathcal{G}(\overline{g}): \mathcal{G}(C_{D_1}) \rightarrow \mathcal{G}(C_{D_2})
+\end{align*}</div>
+<p>
+where $\overline{g}$ is defined by the unique morhpism $\overline{g}: \mathcal{F}(C_{D_1}) \rightarrow \mathcal{F}(C_{D_2})$ such that
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/b68aaaeb32b2d16d8571.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+commutes (note that $\mathcal{F}$ is fully faithful)
+</p>
+
+<p>
+Todo some technicality
+</p>
+
+<h3 id="functorality">functorality</h3>
+
+<h4 id="identity">identity</h4>
+
+<h4 id="composition">composition</h4>
+
+<h3 id="commutes">commutes</h3>
+
+</div>
+</body>
+</html>

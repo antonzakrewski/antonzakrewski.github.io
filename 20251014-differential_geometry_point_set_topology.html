@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>differential geometry: point set topology</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-c035abec-63f4-4955-a5a9-beb9e759f2c7"></span><h1 class="title">differential geometry: point set topology</h1>
+
+<h2 id="aspects">Aspects</h2>
+<ul>
+<li><a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological space</a> </li>
+
+<li><a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a></li>
+
+<li><a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">closed</a>  </li>
+
+<li><a href="20221002144647-diskrete_topologie.html#ID-c9466868-60fd-4b1f-ae1c-1bf7606f3ec7">discrete topology</a> </li>
+
+<li><a href="20230227174346-indiskrete_topologie.html#ID-9447f709-30a2-4b9a-b651-73909b037fad">indiscrete topology</a>   </li>
+
+<li><a href="20221002145259-metrischer_raum.html#ID-6b95a0b5-83e0-43cc-830f-05b416769fe1">metric space</a>   </li>
+
+<li><a href="20220719203620-epsilon_delta_kriterium_der_stetigkeit.html#ID-5e1dc3b4-6c4b-47e2-a859-a3269fa5baa0">Epsilon-Delta Kriterium der Stetigkeit</a>   </li>
+
+<li><a href="20230127080110-homeomorphismus.html#ID-9f615f4b-b7b4-4dd6-a222-b9ec170e4390">homeomorph</a>    </li>
+
+<li></li>
+
+<li><a href="20230325190943-schnitt_von_topologien_als_topologie.html#ID-669e13dd-6d26-47b5-86e5-5aa5640c1a6d">intersection of topologies as topology</a> /  </li>
+
+<li><a href="20230211132940-unterraumtopologie.html#ID-e38ab938-b4e6-4094-98a1-4a8dec808b54">Subspace topology</a>  </li>
+
+<li><a href="20230211133152-produkttopologie.html#ID-32030f19-ac2a-4c46-aaed-1abb1cd6df9f">product topology</a></li>
+
+<li><a href="20230223230317-quotiententopologie.html#ID-593cff5a-5f97-433d-b2d9-20f3aba02006">quotient topology</a>   </li>
+
+<li><a href="20230222175426-abschluss_in_einer_topologie.html#ID-9134c61c-5ec6-4cd6-8928-9ef53b6bfd37">closure</a> </li>
+
+<li><a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">neighbourhood</a>  </li>
+
+<li><a href="20221122074811-hausdorff_raum.html#ID-f49f9b47-9f16-456f-837f-7b9656c46aba">hausdorff</a> </li>
+
+<li><a href="20230518091728-hausdorff_raum_und_unterraum.html#ID-67f424d4-d476-49e5-9e89-414978341c38">subspace of a hausdorff space is hausdorff</a> </li>
+
+<li><a href="20230517212415-produkt_von_hausdorff_raumen_als_hausdorff_raum.html#ID-11849ef0-9371-436f-a215-b736d98f5d95">product of hausdorff spaces as hausdorff space</a> </li>
+
+<li>$\mathbb{R}/ \mathbb{Q}$ is not hausdorff</li>
+
+<li><a href="20251014-real_numbers_modulo_rational_numbers_topology.html#ID-b5f6370e-f7f8-42f2-9fd9-861b4d7f6b9e">real numbers modulo rational numbers topology</a> </li>
+
+<li><a href="20230525121839-quotinetentopologie_und_hausdorff_eigenschaft.html#ID-0ce0fc23-33af-492e-a5ec-8f06ed168b29">Quotiententopologie und Hausdorff-Eigenschaft</a> </li>
+
+<li><a href="20221122074811-hausdorff_raum.html#ID-f49f9b47-9f16-456f-837f-7b9656c46aba">Hausdorff space</a>  </li>
+
+<li><a href="20230412003456-compact_set.html#ID-d09ae6d2-2b5c-41c1-a54d-3259d3e2f0f0">compact</a> </li>
+
+<li><a href="20230416212630-first_countable_compact_space_as_sequentially_compact_space.html#ID-bd068d83-9e7f-4b96-a528-9d36ba513db4">first countable, compact space as sequentially compact space</a> / <a href="20230616-folgenkompaktheit_impliziert_i_a_keine_kompaktheit.html#ID-6f6ab913-8f9b-4c92-bb9a-aff2618fb394">Folgenkompaktheit impliziert i.A. keine Kompaktheit</a>   </li>
+
+<li><a href="20230308142455-zusammenhang_eines_wegzusammenhangenden_raumes.html#ID-9c70f942-db03-480d-bfe3-1e3993ba0494">path connected Space as connected space</a> </li>
+
+<li><a href="20230504132522-reelle_offene_intervalle_sind_zusammenhangend.html#ID-7574fbbc-be31-4bd9-850f-8099fcb02b53">reelle, offene Intervalle sind zusammenhängend</a>   </li>
+
+<li><a href="20230112110346-kompaktheit_des_bildes_einer_kompakten_menge_einer_stetigen_funktion.html#ID-a2b585a8-d9b6-4663-be20-3eea36a6495a">image of compact space is compact</a> </li>
+
+<li><a href="20230511112853-abgeschlossene_mengen_kompakter_raume_sind_kompakt.html#ID-2b714bee-6153-4623-8e5a-6c46e87e3474">closed subset of a compact space is compact set</a>   </li>
+
+<li><a href="20230511112904-abgeschlossenheit_von_kompakten_mengen.html#ID-77b86d0c-e901-449a-9147-602be657eae5">closedness of compact sets in Hausdorff spaces</a>   </li>
+
+<li><a href="20230204225815-satz_von_heine_borel.html#ID-32bccc34-fe35-4ddc-8c4c-18bd422a8948">Satz von Heine-Borel</a>  / <a href="20231025-euklidischer_raum_als_eigentlicher_raum.html#ID-4a9304dd-aa25-42be-8c7b-427df70257d9">euklidischer raum als eigentlicher Raum</a> </li>
+
+<li><a href="20230114140701-satz_vom_minimum_und_maximun.html#ID-e6271294-4695-4486-92db-f72c4008eed2">Satz vom Minimum und Maximum</a> / <a href="20230521021923-allgemeiner_satz_vom_minimum_und_maximum.html#ID-3121256b-40c2-48ce-b563-e646bd50fda6">allgemeiner Satz vom Minimum und Maximum</a> </li>
+
+<li><a href="20230519090021-satz_von_tychonoff.html#ID-30c83690-820b-4f4f-ac1b-5019fde136a9">Tychonoff's Theorem</a>   </li>
+
+<li>Lemma des todes: <a href="20231103-injective_continuous_map_from_a_compact_space_to_a_hausdorff_space_as_homeomorphism.html#ID-985618d3-be7a-4ce0-97dd-0cc8e0976303">bijective continuous map from a compact space to a hausdorff space as homeomorphism</a>    </li>
+
+<li><a href="20230620-kompakte_ausschopfung.html#ID-6565290e-a5f3-4db6-80d5-a5cc40cd0823">kompakte Ausschöpfung</a>   </li>
+
+<li><a href="20230406114101-paracompact_space.html#ID-e335d767-4989-4ad5-ba4e-28c7559ae05a">parakompakt</a> - assumed to be <a href="20221122074811-hausdorff_raum.html#ID-f49f9b47-9f16-456f-837f-7b9656c46aba">hausdorff</a> </li>
+
+<li><a href="20230627-satz_von_stone.html#ID-99875e36-a8c8-4518-a312-a0727ededca5">Satz von Stone über die Parakompaktheit</a>   </li>
+
+<li><a href="20231121-cw_complex_as_paracompact_space.html#ID-2bd5e5b7-73e8-42aa-84af-64d286e6cccf">CW complex as paracompact space</a>   </li>
+
+<li><a href="20230620-parakompakte_raume_als_normale_raume.html#ID-ca12849c-ea14-45dc-83c6-273f2d57f97a">Parakompakte Hausdorff-Raum als normaler Raum</a>   </li>
+
+<li><a href="20230624-zerlegung_der_eins.html#ID-10798e53-88ba-444d-8e06-c980d6ee8295">partition of unity</a> </li>
+
+<li><a href="20230309100938-urysohnsches_lemma.html#ID-289a9c8b-1a5b-493a-bd59-936e07abd336">Urysohnsches Lemma</a> </li>
+
+<li><a href="20230211132406-erste_abzahlbarkeitsaxiom.html#ID-8ec08cf5-0668-49c6-a8f3-7ec959f31636">first-countable</a>  </li>
+
+<li><a href="20230211132410-zweite_abzahlbarkeitsaxiom.html#ID-155a3f29-5e48-4647-a11e-5bc32b501755">secondcountable</a>   </li>
+
+<li><a href="20251016-topological_manifold_with_paracompactness.html#ID-fdd553dc-1b1f-470d-8fe3-56f36dc4202f">topological manifold with paracompactness</a> </li>
+
+<li><a href="20230624-zerlegung_der_eins.html#ID-10798e53-88ba-444d-8e06-c980d6ee8295">partition of unity</a></li>
+
+<li><a href="20241121-smooth_partition_of_unity.html#ID-c18bbd27-5591-465b-93a3-b591daa0679a">smooth partition of unity</a>   </li>
+
+<li><a href="20230302132423-glatte_mannigfaltigkeit.html#ID-0606629a-5a69-4933-ad86-4d3a60637621">smooth manifold</a> </li>
+
+<li><a href="20230902-aquivalenzklasse_von_differenzierbaren_atlanten.html#ID-fe11322b-473a-4120-87be-1b40c47a7d8d">Äquivalenzklasse von differenzierbaren Atlanten</a>   </li>
+
+<li><a href="20251016-paracompact_manifold_with_countably_many_components_implies_second_countability.html#ID-4ee3acda-7fcb-442c-a406-4e35d734374c">paracompact manifold with countably many components implies second countability</a> </li>
+
+<li><a href="20251021-maximal_atlas.html#ID-d5af0194-44e6-4082-8fa7-22ba73a1aaa9">maximal atlas</a> </li>
+
+<li><a href="20230724-untermannigfaltigkeit.html#ID-4cbfea3f-6f77-453a-b018-e39f14e31af2">submanifold</a>    </li>
+</ul>
+<ul>
+<li><a href="20251021-emptyset_is_a_smooth_manifold.html#ID-46a515d4-1087-43ff-ba02-bf2813fb2a1e">emptyset is a smooth manifold</a> </li>
+
+<li><a href="20231017-open_subset_of_the_euclidean_space_as_topological_manifold.html#ID-60cca790-10c7-4e66-b6fe-91cc28334524">open subset of the euclidean space is a smooth manifold</a>   </li>
+
+<li>&lt;inverse function theorem&gt;   </li>
+
+<li></li>
+</ul>
+<ul>
+<li><a href="20230724-sphare_als_mannigfaltigkeit.html#ID-c2cbfe74-02e0-4cd5-b334-1b3891114d74">sphere is a smooth manifold</a> </li>
+
+<li><a href="20231024-projective_space_as_real_manifold.html#ID-a4504d94-0cc9-45a2-833c-48aca32c93df">real projective space is a smooth manifold</a> </li>
+
+<li><a href="20231024-complex_projective_space_as_real_manifold.html#ID-0816cadf-53c3-452a-b446-de19801d29ef">complex projective space is a smooth manifold</a> </li>
+
+<li><a href="20231019-smoot_map_between_manifolds.html#ID-e1c05631-4029-4813-8af5-21144af74ddc">smooth map</a></li>
+
+<li><a href="20251023-smooth_map_independent_of_choice_of_charst.html#ID-431f3eb4-9c15-4069-8bf3-55f51278fc06">smooth map independent of choice of charts</a> </li>
+
+<li><a href="20251023-composition_of_smooth_maps_is_smooth.html#ID-b3eadd3a-a804-482a-bde1-a8bfd31ce3bf">composition of smooth maps is smooth</a>   </li>
+</ul>
+<ul>
+<li><a href="20231017-product_of_topological_manifolds_as_topological_manifold.html#ID-6ae8afd9-6e0b-466f-bcff-4b9be0e9f9d5">finite Product of topological manifolds as topological manifold</a>   </li>
+
+<li><a href="20251023-finite_product_of_smooth_manifolds_is_smooth.html#ID-d5119be3-9a8f-44f9-8639-04a21bb741a0">finite product of smooth manifolds is smooth</a> </li>
+
+<li><a href="20250625-smooth_diffeomorphism.html#ID-e1ef57fa-a0d5-4479-9710-16789a9317f0">smooth diffeomorphism</a> </li>
+
+<li><a href="20251023-local_diffeomorphism.html#ID-ae2aa595-06ef-402d-b637-ed539bd08ef9">local diffeomorphism</a> </li>
+
+<li><a href="20251023-underlying_smooth_identity_and_equivalent_atlases.html#ID-83a9110a-9295-4932-8338-7464bbde2a9a">underlying smooth identity and equivalent atlases</a>   </li>
+</ul>
+
+<ul>
+<li><a href="20251023-fixed_point_free_quotient_of_a_smooth_manifold_by_an_involution_is_a_smooth_manifold.html#ID-55123b43-0d85-44a9-b6f5-f60e5f9586bb">fixed point free quotient of a smooth manifold by an involution is a smooth manifold</a> </li>
+</ul>
+<ul>
+<li><a href="20231020-lens_space.html#ID-d72e7a29-6800-4a80-b71e-e5cb954e449c">lens space</a>   </li>
+
+<li><a href="20251028-lens_space_is_a_manifold.html#ID-4e72d0d1-e6e2-4676-95d9-635ced893504">lens space is a manifold</a>  </li>
+</ul>
+<ul>
+<li><a href="20241125-special_linear_group_as_lie_group.html#ID-09731e1d-4fd4-4a85-b7cf-35a82c72611c">special linear group as lie group</a>   </li>
+
+<li><a href="20241125-orthogonal_group_as_lie_group.html#ID-ffe6855e-3197-4fcb-91b7-7fe568f44c79">orthogonal group is a lie group</a>   </li>
+
+<li><a href="20251030-so_n_is_connected.html#ID-ea272e54-7f92-4986-8c3f-3c5645ef1101">SO(n) is connected</a>   </li>
+
+<li><a href="20241125-general_unitary_group_as_lie_group.html#ID-f8b1d5c4-53dc-46cd-be66-f3246acfea95">general unitary group as lie group</a> </li>
+
+<li></li>
+</ul>
+</div>
+</body>
+</html>

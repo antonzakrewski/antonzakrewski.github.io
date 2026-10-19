@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>distance in a hilbert space takes minimum</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-28f00b4e-a1b4-49e7-9eae-69f46098b062"></span><h1 class="title">distance in a hilbert space takes minimum</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+let $X$ be a <a href="20230521021534-hilbert_space.html#ID-6c70b215-2588-4ecc-9240-f21ab3ec7d81">Hilbert space</a>, $A \subseteq X$ a <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">closed</a> subspace and $x \in X$.
+Then there exists a unique $a \in A$ such that $\mathrm{dist}(x,A) = \| x - a \|$
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="existence">existence</h3>
+<p>
+Let $d \coloneqq \mathrm{dist}(x,A) = \mathrm{inf}_{y \in A} \| x - y \|$.
+Then there exists a sequence $(y_n) \in A$ such that
+</p>
+
+<div class="math-block">\begin{align*}
+d = \mathrm{lim}_{n \rightarrow \infty} \| x - y_n \| 
+\end{align*}</div>
+<p>
+with $\| x - y_n \| \geq d$.
+The <a href="20241117-parallelogramidentitat.html#ID-30ab922b-fb8c-4a98-9acd-314c0aa34394">parallelogram identity</a> -- $\| u + v \|^2 = 2 \cdot (\| u\|^2 + \|v\|^2 ) - \| u - v \|^2$ shows
+</p>
+
+<div class="math-block">\begin{align*}
+\| y_n - y_m \|^2 =&amp; \|(y_n - x) + (x - y_m) \|^2 \\
+=&amp; 2 \cdot \left(\| y_n - x \|^2 + \| y_m - x \|^2 \right) - \| 2 x - y_m - y_n \|^2
+\end{align*}</div>
+<p>
+We may further calculate
+</p>
+
+<div class="math-block">\begin{align*}
+\| 2 x - y_m - y_n \|^2 = 4 \cdot \| x - \frac{y_m - y_n}{2} \| \geq 4 d^2
+\end{align*}</div>
+<p>
+since $y_m - y_n \in A$ and equivalently $\frac{y_m - y_n}{2} \in A$.
+</p>
+
+<p>
+this shows
+</p>
+
+<div class="math-block">\begin{align*}
+\| y_n - y_m \|^2 \leq&amp; 2 \cdot \left(\| y_n - x \|^2 + \| y_m - x \|^2 \right) - 4d^2 \xrightarrow{m,n \rightarrow \infty} 0
+\end{align*}</div>
+
+<p>
+Hence $y_n$ is a <a href="20220105223523-fundamental_folge.html#ID-45b890ea-39cc-4f8c-bf97-4de5c09d772a">Cauchy</a> sequence and $X$ is complete, that is $y_n \rightarrow a$ for some $a \in X$.
+Moreover, $A$ is closed, which shows that $a \in A$ and by <a href="20230506130948-stetigkeit_der_norm.html#ID-95077cc6-84d2-4fcc-b765-b2fec0bfffe3">continuity of the norm</a> we get $d = \| x - a \|$.
+</p>
+
+<h3 id="uniqueness">uniqueness</h3>
+<p>
+Assume that there exists another $a'$, then the estimate
+</p>
+
+<div class="math-block">\begin{align*}
+\| a - a' \|^2 \leq&amp; 2 \cdot \left(\| a - x \|^2 + \| a' - x \|^2 \right) - 4d^2  \\
+=&amp; 0
+\end{align*}</div>
+<p>
+shows that $\| a - a' \| = 0$ or equivalently $a = a'$.
+</p>
+
+</div>
+</body>
+</html>

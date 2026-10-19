@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>talk: categorical point set topology</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-2e31658f-3c98-436e-8637-fc33d60a5bab"></span><h1 class="title">talk: categorical point set topology</h1>
+
+<h2 id="aspects">Aspects</h2>
+
+<h3 id="reminder">reminder</h3>
+<ul>
+<li><a href="20250110-left_bousfield_localization.html#ID-92822a0b-cdc7-45b9-bbf8-30e49a290671">left bousfield localization</a> / <a href="20250102-bousfield_localization.html#ID-0289401d-a871-4e2d-bd40-b33d54e0d4f5">right bousfield localization</a> </li>
+
+<li>&lt;limits, colimits&gt;   </li>
+
+<li>&lt;how to compute them&gt;  </li>
+</ul>
+<h3 id="setup">setup</h3>
+<ul>
+<li><a href="20250804-topological_functor_1_1_category_theory.html#ID-f4386d1e-d903-4c4f-8676-3d64309fed08">topological functor (1,1-category theory)</a> </li>
+
+<li><a href="20250804-colimit_slice_adjunction_of_a_topological_funtcor.html#ID-8fe63f10-bc7d-4b13-a79d-e67505c5a0c4">colimit slice adjunction of a topological funtcor</a>   </li>
+
+<li><a href="20250423-category_of_j_generated_spaces.html#ID-d0e588c5-2c74-4620-8f12-43e61dbb7d25">category of J-generated spaces</a>  </li>
+
+<li><a href="20250422-j_generated_space.html#ID-66e6886d-68fd-4505-a2de-bcf73d1a2f1a">J-generated space</a>   </li>
+
+<li><a href="20250519-j_generated_space_adjunction_of_top.html#ID-093b6937-068f-4eb5-a163-28d0a139fbb1">J-generated space adjunction of Top</a>   </li>
+</ul>
+<h3 id="some-cases">some cases</h3>
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>J</th><th>J-generated space</th><th>category of J-generated spaces</th><th>Remark</th></tr></thead><tbody><tr><td>$\mathrm{Top}$</td><td>topological space</td><td><a href="20230225170221-kategorie_top.html#ID-55f8744f-3e21-4c41-889f-06a52add975b">category Top</a></td><td>upper bound: how much "nice" properties we can proof by abstract nonsense</td></tr><tr><td><a href="20250804-category_of_compact_topological_spaces.html#ID-8b6932a0-22f7-4b2a-8865-9592d6af08ff">category of compact topological spaces</a></td><td><a href="20230828-compactly_generated_topological_space.html#ID-ef531d1e-96df-4024-980b-9c4cdceca988">compactly generated topological space</a></td><td><a href="20250804-category_of_compactly_generated_spaces.html#ID-4c397d5e-c7c6-43b8-9e62-c0ef12bb0c9a">category of compactly generated spaces</a> $\mathrm{CG}$</td><td>embedd into condensed sets</td></tr><tr><td><a href="20230302133127-kategorie_comphaus.html#ID-691c668e-c4f4-4f4b-8d99-03468801cb28">Category CompHaus</a></td><td><a href="20240625-compactly_generated_weakly_hausdorff_space.html#ID-cf80c0c1-19bf-4cf2-bba2-4f86deeb09d1">compactly generated weakly hausdorff space</a></td><td><a href="20240625-category_of_compactly_generated_weakly_hausdorff_spaces.html#ID-f7b268be-5434-4b55-9af8-7d3b5f6d9c57">category of compactly generated weakly hausdorff spaces</a> $\mathrm{CGWH}$</td><td>common convenient category</td></tr><tr><td><a href="20250518-category_of_metrizable_spaces.html#ID-5bf0d7f9-87e4-4a3a-92a2-92d3e8f3edb5">category of metrizable spaces</a></td><td><a href="20250518-sequential_space.html#ID-f5829123-cc59-4e8e-83d2-ec5ef96b0a00">sequential space</a></td><td><a href="20250518-category_of_sequential_spaces.html#ID-80ab1c30-2f2e-482e-88b9-d1ca29eae677">category of sequential spaces</a> $\mathrm{Seq}$</td><td>embedd into light condensed sets</td></tr><tr><td>$\{\Delta^n\} \simeq \{I^n\}$</td><td><a href="20250417-delta_generated_space.html#ID-99a6c0ba-a932-43c0-8b02-b10008d3b136">delta generated space</a></td><td><a href="20250422-category_of_delta_spaces.html#ID-ddebf935-43cd-4278-a3ad-7170aac57d19">category of delta spaces</a>, $\mathrm{\Delta}-\mathrm{Space}$</td><td>presentable category</td></tr></tbody></table>
+<h3 id="general-theorems">general theorems</h3>
+
+<h4 id="colimitslimits">colimits/limits</h4>
+
+<h5 id="a">a)</h5>
+<ul>
+<li><a href="20250804-category_j_generated_spaces_as_bicomplete_category.html#ID-cc442305-cf60-4df8-bc22-644c7eb1dfc4">category of J-generated spaces is bicomplete</a> </li>
+
+<li>corollary: all 5 Spaces are bicomplete </li>
+</ul>
+<h5 id="b">b)</h5>
+<ul>
+<li><a href="20250423-category_of_j_generated_spaces_as_closure_under_colimits.html#ID-61b98ba0-babb-42e6-85d5-76df26a211fe">category of J-generated spaces is the closure under colimits</a> </li>
+
+<li>corollary: colimits are computed underlying </li>
+
+<li><a href="20250423-colimit_in_the_category_of_compactly_generated_spaces_as_colimit_in_top.html#ID-52bc88b9-4146-4578-819d-b5e73b39b140">colimit in the category of compactly generated spaces as colimit in Top</a>  ????</li>
+
+<li><a href="20250512-existence_of_j_ification_for_arbitrary_categories.html#ID-6578cfc8-9d05-40f5-9439-193395b1523c">existence of J-ification for arbitrary categories</a>   </li>
+
+<li>J-ification is a refinement  </li>
+
+<li><a href="20250805-j_ification_is_a_refinement.html#ID-83a559e0-be68-4590-8bdf-68cda0a6fff3">j-ification is a refinement</a>   </li>
+</ul>
+<h3 id="inclusions">inclusions</h3>
+
+<h4 id="among-j-generated">among J-generated</h4>
+<ul>
+<li><a href="20250804-inclusion_of_categories_of_j_generated_spaces.html#ID-ccbb21ba-0e03-4320-bbda-9e3092db1529">inclusion of categories of J-generated spaces</a> </li>
+</ul><ol>
+<li><a href="20250804-compactly_generated_weakly_hausdorff_space_as_compactly_generated_space.html#ID-b6e2731b-33c8-417d-a17d-1aa21a2a6ede">compactly generated, weakly hausdorff space is compactly generated</a>  </li>
+
+<li><a href="20250518-delta_generated_space_as_sequential_space.html#ID-8b0a959f-9116-479a-b652-e7243551b198">delta generated space is sequential</a> </li>
+
+<li><a href="20250512-metric_space_as_compactly_generated_space.html#ID-a762f01c-1fd3-44e5-a1a0-dda21e2bbbe3">metric space as compactly generated space</a>,  <a href="20250518-sequential_space_as_compactly_generated_space.html#ID-c7726ba9-b79a-4825-8ca1-5e434471601c">sequential space as compactly generated space_</a> </li>
+</ol>
+<h4 id="important-spaces">important spaces</h4>
+<ul>
+<li><a href="20250423-manifold_as_delta_generated_space.html#ID-199f03e2-49fb-4d8b-9eea-13b4964087d0">manifold is a delta generated space</a> </li>
+
+<li><a href="20250423-cw_complex_as_delta_generated_space.html#ID-09c674a5-5120-486c-80c8-aea04bc770dc">CW complex is a delta generated space</a> </li>
+</ul>
+<h4 id="counterexamples">counterexamples</h4>
+<ul>
+<li><a href="20250805-locally_path_connected_first_countable_space_as_delta_generated_space.html#ID-157ba0ed-6d5e-48d8-9d1d-f83fae74cb82">locally path connected, first countable space as delta generated space</a>   </li>
+
+<li><a href="20250805-hawaiian_earring.html#ID-68e1a483-59ec-4b35-ba4c-4f0c6bc61345">hawaiian earring</a> </li>
+
+<li><a href="20250805-hawaiian_earring_is_delta_generated.html#ID-7020f7f0-2d84-4617-abe0-e22145d1128a">hawaiian earring is delta generated</a>   </li>
+</ul>
+<h3 id="some-algebraic-topology">some algebraic topology</h3>
+<ul>
+<li><a href="20250805-counit_of_j_generated_spaces_is_a_weak_equivalence_for_nice_j.html#ID-8c004462-ffcc-4e09-bda5-4d5a98203ad9">counit of J-generated spaces is a weak equivalence for nice J</a>   </li>
+</ul>
+<p>
+corollary:
+</p>
+<ul>
+<li><a href="20250423-counit_of_delta_generated_spaces_as_weak_equivalence.html#ID-a57f7eca-6f12-471f-a962-957fd9e60906">counit of delta generated spaces is a weak equivalence</a> </li>
+
+<li><a href="20250423-counit_of_compactly_generated_spaces_as_weak_equivalence.html#ID-065665b4-74b4-4364-b9fa-65eab6a39d83">counit of compactly generated spaces is a weak equivalence</a> </li>
+
+<li><a href="20250804-counit_of_compactly_generated_weakly_hausdorff_spaces_is_a_weak_equivalence.html#ID-65cf5865-7cf1-4525-ade0-b62aedbcb914">counit of compactly generated, weakly hausdorff spaces is a weak equivalence</a>   </li>
+
+<li><a href="20250518-counit_of_sequential_spaces_as_weak_equivalence.html#ID-f6c847d4-d016-425f-b5db-07467319acdb">counit of sequential spaces is a weak equivalence</a>   </li>
+</ul>
+<h4 id="cartesian-closed">cartesian closed</h4>
+<ul>
+<li><a href="20241109-category_of_compactly_generated_weakly_hausdorff_spaces_as_cartesian_closed_category.html#ID-735a0bdc-f977-4645-8511-f6a7d659c332">category of compactly generated weakly hausdorff spaces as cartesian closed category</a> </li>
+
+<li><a href="20250805-category_of_compactly_generated_spaces_is_cartesian_closed.html#ID-469b6f81-51ba-4e68-b8bc-641d04300a35">category of compactly generated spaces is cartesian closed</a>  </li>
+
+<li><a href="20250805-category_of_sequential_spaces_is_cartesian_closed.html#ID-d086bc75-f4a1-4b27-8349-165c499f0577">category of sequential spaces is cartesian closed</a>   </li>
+
+<li><a href="20250805-category_of_delta_generated_spaces_is_cartesian_closed.html#ID-ec94c471-3cc9-47a2-9b99-a7a71907035c">category of delta generated spaces is cartesian closed</a>   </li>
+</ul>
+<h4 id="presentable">presentable</h4>
+<ul>
+<li><a href="20250804-category_of_j_generated_spaces_as_presentable_category_for_a_set.html#ID-bb6bd54a-c8c1-4615-a4fb-14092240dfb6">category of J-generated spaces is presentable category for a set J</a> </li>
+
+<li><a href="20250804-category_of_delta_generated_spaces_as_presentable_category.html#ID-d8c4922f-8288-46c1-9266-c8ca71fab357">category of delta generated spaces is presentable category</a>   </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>colimit of colimit of indexing categories</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-ecf8911a-b855-4db2-baa4-1fc18916e6fb"></span><h1 class="title">colimit of colimit of indexing categories</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $I: J \rightarrow \mathrm{Cat}$ be a <a href="20241109-infinity_commutative_diagram.html#ID-2786f5c6-8d4d-4a25-87fb-1202aaa103a7">diagram</a> and let $\mathcal{I} = \mathrm{colim}_I$ be the <a href="20241016-colimit_in_an_infinity_category.html#ID-de45d65c-0326-401d-93b3-f10a929be459">colimit</a> of $I$.
+Let $\mathcal{C}$ be another <a href="20240404-simplicial_set_as_infinity_category.html#ID-4635a6ee-1ad5-44cb-8e36-4a934f5ae4bf">category</a> and let $\mathcal{F}: \mathcal{I} \rightarrow \mathcal{C}$ be a functor.
+</p>
+
+<p>
+Suppose
+</p>
+<ol>
+<li>each restriction $I_j \rightarrow \mathcal{I} \xrightarrow{\mathcal{F}} \mathcal{C}$ admits a <a href="20241016-colimit_in_an_infinity_category.html#ID-de45d65c-0326-401d-93b3-f10a929be459">colimit</a></li>
+
+<li>the resulting diagram</li>
+</ol>
+<div class="math-block">\begin{align*}
+J \rightarrow&amp; \mathcal{C} \\
+j \mapsto&amp; \mathrm{colim}_{I_j}
+\end{align*}</div>
+<p>
+admits a <a href="20241016-colimit_in_an_infinity_category.html#ID-de45d65c-0326-401d-93b3-f10a929be459">colimit</a>
+</p>
+
+<p>
+Then $\mathcal{F}$ also admits a colimit which is given by $\mathrm{colim}_I \mathrm{colim}_{I_j}$
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+follows as
+</p>
+<ol>
+<li><a href="20250903-functor_category_functor_preserves_limits.html#ID-a3cae2bf-1c20-4b8e-abbd-8966f4b6dd92">functor category functor preserves limits</a></li>
+
+<li><a href="20250619-mapping_anima_in_the_limit_of_categories.html#ID-06afcca2-bd59-4d48-9686-04ec086ac062">mapping anima in the limit of categories</a> </li>
+</ol>
+<p>
+which shows
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{map}_{[\mathcal{I}, \mathcal{C}]}(\mathcal{F}, \mathrm{const}(-)) \simeq&amp; \mathrm{map}_{[\mathrm{colim}_I, \mathcal{C}]}(\mathcal{F}, \mathrm{const}(-))  \\
+\simeq&amp; \mathrm{lim}_I \mathrm{map}_{[I_j, \mathcal{C}]}(\mathcal{F}_{\vert I_j}, \mathrm{const}(-)) \\
+\simeq&amp; \mathrm{lim}_I \mathrm{map}_{\mathcal{C}}(\mathrm{colim}_{I_j}, -) \\
+\simeq&amp; \mathrm{map}_{\mathcal{C}}(\mathrm{colim}_I \mathrm{colim}_{I_j}, -)
+\end{align*}</div>
+<p>
+which shows that $\mathrm{colim}_I \mathrm{colim}_{I_j}$ the <a href="20250907-left_adjoint_object.html#ID-9b87cb02-bf64-4338-9c2e-99dd6bc58d0f">left adjoint object</a>
+</p>
+
+
+</div>
+</body>
+</html>

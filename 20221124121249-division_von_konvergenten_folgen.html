@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:40 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Division von Konvergenten Folgen</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,54 +52,59 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Division von Konvergenten Folgen</h1>
-<div id="outline-container-org71ea201" class="outline-2">
-<h2 id="org71ea201"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-d514938e-3f98-41e2-8f07-f371657d1333"></span><h1 class="title">Division von Konvergenten Folgen</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(K\) ein <a href="20221124122431-vollstandiger_bewerteter_korper.html#ID-4a97308f-1aa7-4352-be57-80f8fc9984b4">vollständiger bewerteter Körper</a> und seien \((a_n)_{n \in \mathbb{N}}\) und \((b_n)_{n \in \mathbb{N}}\) <a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">Folgen</a> mit <a href="20211120130127-grenzwert.html#ID-c9d16981-08f6-40ca-af81-22b5db6f06df">Grenzwerten</a> \(a\) und \(b \neq 0\)
-Dann ist der Grenzwert von der Folge \((a_n \cdot (b_n)^{-1})_{n \in \mathbb{N}} \rightarrow a \cdot b^{-1}\)
+Sei $K$ ein <a href="20221124122431-vollstandiger_bewerteter_korper.html#ID-4a97308f-1aa7-4352-be57-80f8fc9984b4">vollständiger bewerteter Körper</a> und seien $(a_n)_{n \in \mathbb{N}}$ und $(b_n)_{n \in \mathbb{N}}$ <a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">Folgen</a> mit <a href="20211120130127-grenzwert.html#ID-c9d16981-08f6-40ca-af81-22b5db6f06df">Grenzwerten</a> $a$ und $b \neq 0$
+Dann ist der Grenzwert von der Folge $(a_n \cdot (b_n)^{-1})_{n \in \mathbb{N}} \rightarrow a \cdot b^{-1}$
 </p>
-</div>
-</div>
-<div id="outline-container-org8e6335f" class="outline-2">
-<h2 id="org8e6335f"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<h2 id="beweis">Beweis</h2>
 <p>
-Sei \(\varepsilon' > 0\)  mit \(\varepsilon' = \vert b \vert \cdot \varepsilon\) und \(\varepsilon \rightarrow 0^+\)
-Dann gilt, dass ein \(n(\varepsilon)\) existiert, so dass für \(m > n(\varepsilon)\) gilt
+Sei $\varepsilon' &gt; 0$  mit $\varepsilon' = \vert b \vert \cdot \varepsilon$ und $\varepsilon \rightarrow 0^+$
+Dann gilt, dass ein $n(\varepsilon)$ existiert, so dass für $m &gt; n(\varepsilon)$ gilt
 </p>
-\begin{align*}
-b_n - b < \varepsilon'
-\end{align*}
+
+<div class="math-block">\begin{align*}
+b_n - b &lt; \varepsilon'
+\end{align*}</div>
 <p>
 und damit auch
 </p>
-\begin{align*}
-\frac{1}{b_n} - \frac{1}{b} =& \frac{1}{b_n - b + b} - \frac{1}{b} \\
-\vert \frac{1}{b_n - b + b} - \frac{1}{b}\vert \leq& \vert \frac{1}{\pm \varepsilon' + b} - \frac{1}{b} \vert \\
-\leq& \vert  \frac{1 \pm \varepsilon}{b} - \frac{1}{b} \vert \\
-=& \vert \frac{\pm \varepsilon}{b} \vert \rightarrow 0
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\frac{1}{b_n} - \frac{1}{b} =&amp; \frac{1}{b_n - b + b} - \frac{1}{b} \\
+\vert \frac{1}{b_n - b + b} - \frac{1}{b}\vert \leq&amp; \vert \frac{1}{\pm \varepsilon' + b} - \frac{1}{b} \vert \\
+\leq&amp; \vert  \frac{1 \pm \varepsilon}{b} - \frac{1}{b} \vert \\
+=&amp; \vert \frac{\pm \varepsilon}{b} \vert \rightarrow 0
+\end{align*}</div>
 <p>
 d.h. die Folge
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \frac{1}{b_n} \rightarrow \frac{1}{b}
-\end{align*}
+\end{align*}</div>
 <p>
-Daraus folgt dann aus der <a href="20221124121235-multiplikation_von_konvergenten_folgen.html#ID-db9eb570-34d3-4868-865c-9e127aeb3c4e">Multiplikation von Konvergenten Folgen</a> 
+Daraus folgt dann aus der <a href="20221124121235-multiplikation_von_konvergenten_folgen.html#ID-db9eb570-34d3-4868-865c-9e127aeb3c4e">Multiplikation von Konvergenten Folgen</a>
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \frac{a_n}{b_n} \rightarrow \frac{a}{b}
-\end{align*}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:40</p>
+\end{align*}</div>
+
+
+
+
+
+
+
+
+<p>
+antonzakrewski@tutanota.com
+</p>
+
 </div>
 </body>
 </html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>explicit formula for the fibonacci number</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-33fbe6c2-9f51-49d3-8d9d-a36f9b56cfdf"></span><h1 class="title">explicit formula for the fibonacci number</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $n \in \mathbb{N}$.
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+F_n = \frac{1}{\sqrt{5}}( q^n - \widehat{q}^n)
+\end{align*}</div>
+<p>
+for
+</p>
+
+<div class="math-block">\begin{align*}
+q =&amp; \frac{1+ \sqrt{5}}{2} \\
+\widehat{q} =&amp; \frac{1 - \sqrt{5}}{2} \\
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $F = \sum_{n \geq 0}F_n X^n$.
+Then by definition
+</p>
+
+<div class="math-block">\begin{align*}
+F =&amp; X + \sum_{n\geq 2} (F_{n-1} + F_n-2) X^n\\
+=&amp; X + \sum_{n\geq 2} F_{n-1} X^n + \sum_{n \geq 2} F_{n-2} X^n \\
+=&amp; X + X \cdot \sum_{n \geq 2} F_{n-1} X^{n-1} + X^2 \sum_{n\geq 2} F_{n-2} X^{n-2}
+=&amp; X + X \cdot F + X^2 F
+\end{align*}</div>
+
+<p>
+Thus
+</p>
+
+<div class="math-block">\begin{align*}
+F = X + XF + X^2 F
+\end{align*}</div>
+<p>
+where we use $F_0 = 0$ or
+</p>
+
+<div class="math-block">\begin{align*}
+(1 - X - X^2) F = X
+\end{align*}</div>
+<p>
+or
+</p>
+
+<div class="math-block">\begin{align*}
+F = X \cdot (1 - X - X^2)^{-1}
+\end{align*}</div>
+
+<p>
+where the inverse exists by <a href="20230427071343-einheiten_des_rings_der_formalen_potenzreihen.html#ID-cbfa24e6-7e6b-4dea-8542-30d435eb8965">units in the ring of formal power series</a> .
+</p>
+
+<p>
+Now the solutions of $1 - z - z^2 = 0$ in $\mathbb{C}$ are given by $-\varhphi, - \widehat{\varhphi}$ or
+</p>
+
+<div class="math-block">\begin{align*}
+1 - z - z^2 =&amp; - (z + \varhphi) \cdot (z + \widehat{\varhphi})
+\end{align*}</div>
+
+<p>
+Hence
+</p>
+
+<div class="math-block">\begin{align*}
+1- X - X^2 = - (X + \varhphi)(X + \widehat{\varhphi})
+\end{align*}</div>
+<p>
+or
+</p>
+
+<div class="math-block">\begin{align*}
+1 - X - X^2 =&amp; -\frac{1}{\varhphi \cdot \widehat{\varhphi}} (1 + \frac{X}{\varhphi}) (1 + \frac{X}{\widehat{\varhphi}})  \\
+=&amp; (1 + \frac{X}{\varhphi}) (1 + \frac{X}{\widehat{\varhphi}})  \\
+\end{align*}</div>
+<p>
+where we use $\frac{1}{\varphi \cdot \widehat{\varphi}} = 1$
+</p>
+
+<p>
+Now we get
+</p>
+
+<div class="math-block">\begin{align*}
+\frac{1}{\varphi} = - \widehat{\varphi}
+\end{align*}</div>
+<p>
+and therefore
+</p>
+
+
+<div class="math-block">\begin{align*}
+1 - X - X^2 =&amp; (1 - \varphi X) (1 - \widehat{\varphi}X})  \\
+\end{align*}</div>
+
+<p>
+Now this amounts to
+</p>
+
+<div class="math-block">\begin{align*}
+(1 - \widehat{\varphi} X) (1 - \varphi X) \cdot F = X
+\end{align*}</div>
+
+<p>
+using <a href="20250717-binomial_coefficient_theorem_for_power_series_ring.html#ID-1726f720-a0de-4431-9d9b-c2b47183860e">formal binomial coefficient theorem for power series ring</a> we
+</p>
+
+
+<p>
+now
+</p>
+
+<div class="math-block">\begin{align*}
+\sqrt{5} =&amp; \varphi - \widehat{\varphi} \\
+=&amp; \varphi \cdot (1 - \widehat{\varphi}) - \widehat{\varphi} (1 - \varphi X) 
+\end{align*}</div>
+
+<p>
+therefore
+</p>
+
+<div class="math-block">\begin{align*}
+\sqrt{5} =&amp; (1- \widehat{\varphi}X)^{-1} (1 - \varphi X)^{-1} \\
+=&amp; \varphi ( 1 - \varphi X)^{-1} - \widehat{\varphi} (1 - \widehat{\varphi} X)^{-1}
+\end{align*}</div>
+
+<p>
+this shows
+</p>
+
+<div class="math-block">\begin{align*}
+(1 - X - X^2) F =&amp; X \\
+(1 - \widehat{\varphi}X)(1 - \varphi X) F =&amp; X \\
+F = \frac{1}{\sqrt{5}} X \cdot ( \varphi(1 - \varphi X)^{-1} - \widehat{\varphi}(1 - \widehat{\varphi} X^{-1}))  
+\end{align*}</div>
+
+<p>
+now by &lt;kosta thm 3.15&gt; we get
+</p>
+
+<div class="math-block">\begin{align*}
+F_n =&amp; \frac{1}{\sqrt{5}} (\varphi \cdot \varphi^{n-1} - \widehat{\varphi} \cdot \widehat{\varphi}^{n-1}) \\
+=&amp; \frac{1}{\sqrt{5}} (\varphi  - \widehat{\varphi} ) \\
+\end{align*}</div>
+
+
+</div>
+</body>
+</html>

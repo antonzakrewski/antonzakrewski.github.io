@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Markovkette und Wahrscheinlichkeit eines Zustands</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-72b863ec-0e2e-4940-bf64-4e1dae674351"></span><h1 class="title">Markovkette und Wahrscheinlichkeit eines Zustands</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $X_n$ eine <a href="20220904101519-markow_kette.html#ID-7ed34770-d827-4d65-806c-4590f95b642b">homogene Markovkette</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\alpha_n: E \rightarrow [0,1]
+y \mapsto \mathbb{P}(X_n = y)
+\end{align*}</div>
+
+<p>
+Dann gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\alpha_n(y) = \sum_{x \in E} \alpha_0(x) \Pi^n(x,y)
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+<a href="20221024165350-beweis_durch_vollstandige_induktion_mit_starkerer_induktionsvoraussetzung.html#ID-1534f6c1-e094-4672-8e87-f36eb0e54b8b">Proof by induction</a>
+</p>
+
+<h3 id="induction-basis">induction basis</h3>
+<p>
+folgt aus $\Pi^0 = E$ und somit ist die Formel eine Tautologie
+</p>
+
+<h3 id="induction-step">induction step</h3>
+<p>
+Dann gilt
+</p>
+
+<div class="math-block">\begin{align*}
+a_{n+1}(y) =&amp; \mathbb{P}(X_{n+1} = y) \\
+=&amp; \sum_{x \in E} \mathbb{P}(X_{n+1} = y \vert X_{n} = x) \cdot \mathbb{P}(X_n = x)\\
+=&amp; \sum_{x \in E} \Pi(x,y) \cdot \alpha^n(x) \\
+=&amp; \sum_{x \in E} \Pi(x,y) \cdot (\sum_{x' \in E} \alpha_0(x') \Pi^n(x',x) \\
+=&amp; \sum_{x' \in E} \sum_{x \in E} \Pi(x,y) \cdot \alpha_0(x') \cdot \Pi^n(x',x) \\
+=&amp; \sum_{x' \in E} \Pi^{n+1}(x',y) \alpha_0(x') 
+\end{align*}</div>
+
+
+
+</div>
+</body>
+</html>

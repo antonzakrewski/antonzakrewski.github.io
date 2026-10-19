@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-12 Sa 23:16 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>local ring and non-units as maximal ideal</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,113 +52,83 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">local ring and non-units as maximal ideal</h1>
-<div id="outline-container-org62fb0a6" class="outline-2">
-<h2 id="org62fb0a6"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-95674ee7-2af9-4b4d-9b31-52585d797aab"></span><h1 class="title">local ring and non-units as maximal ideal</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(R\) ein <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">kommutativer Ring</a>.
+Sei $R$ ein <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">kommutativer Ring</a>.
 <a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
 </p>
-<ol class="org-ol">
-<li>\(R\) ist ein <a href="20230531093017-lokaler_ring.html#ID-55f224fa-39d9-4b7b-a771-9466ec684881">lokaler Ring</a></li>
-<li>\(R \setminus R^{\times}\) ist das <a href="20230314223428-maximales_ideal.html#ID-9d76bba3-11a8-42c9-9bdb-f774da2bb06a">maximale Ideal</a></li>
-<li>es existiert ein  <a href="20230427200359-echtes_ideal.html#ID-fa54a328-b081-4a6c-9106-4348783138df">striktes ideal</a> \(\mathfrak{m} \subseteq A\) mit \(R \setminus R^{\times} \subseteq \mathfrak{m}\)</li>
+<ol>
+<li>$R$ ist ein <a href="20230531093017-lokaler_ring.html#ID-55f224fa-39d9-4b7b-a771-9466ec684881">lokaler Ring</a> </li>
+
+<li>$R \setminus R^{\times}$ ist das <a href="20230314223428-maximales_ideal.html#ID-9d76bba3-11a8-42c9-9bdb-f774da2bb06a">maximale Ideal</a> </li>
+
+<li>es existiert ein  <a href="20230427200359-echtes_ideal.html#ID-fa54a328-b081-4a6c-9106-4348783138df">striktes ideal</a> $\mathfrak{m} \subseteq A$ mit $R \setminus R^{\times} \subseteq \mathfrak{m}$</li>
 </ol>
-</div>
-</div>
-<div id="outline-container-orgae85959" class="outline-2">
-<h2 id="orgae85959"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org1cf3797" class="outline-3">
-<h3 id="org1cf3797"><span class="section-number-3">2.1.</span> 1) \(\implies\) 2)</h3>
-<div class="outline-text-3" id="text-2-1">
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
 <p>
-Seien \(x,y \in R \setminus R^{\times}\) so gilt
+Seien $x,y \in R \setminus R^{\times}$ so gilt
 </p>
-\begin{align*}
-(x) \subsetneq& R \\
-(y) \subsetneq& R
-\end{align*}
+
+<div class="math-block">\begin{align*}
+(x) \subsetneq&amp; R \\
+(y) \subsetneq&amp; R
+\end{align*}</div>
 <p>
-Ferner gilt auch \((x), (y) \subseteq I\), da sonst eine geeignete Erweiterung \(I'\) von \((x)\) existiert, so dass \(I\) ein <a href="20230314223428-maximales_ideal.html#ID-9d76bba3-11a8-42c9-9bdb-f774da2bb06a">maximales Ideal</a> ist (vgl. <a href="20230314223206-existenz_eines_maximalen_ideals.html#ID-028984d3-9095-4e31-ad1f-5acfc2e4c3c8">Existenz eines maximalen Ideals</a>)
-Analog für \((y)\).
-Aus der additiven Abgeschlossenheit folgt \(x + y \in I\) und aus \(x + y \in R^{\times}\) folgt ein <a href="20220902194001-widerspruch.html#ID-d758d8be-c0f8-45d8-b7b4-5d9ecc65476a">Widerspruch</a>, vgl. <a href="20230314174015-von_einer_einheit_erzeugtes_ideal.html#ID-cf419725-19a8-46df-bd48-e2b7c58b7996">von einer Einheit erzeugtes Ideal und triviales Ideal</a>)
+Ferner gilt auch $(x), (y) \subseteq I$, da sonst eine geeignete Erweiterung $I'$ von $(x)$ existiert, so dass $I$ ein <a href="20230314223428-maximales_ideal.html#ID-9d76bba3-11a8-42c9-9bdb-f774da2bb06a">maximales Ideal</a> ist (vgl. <a href="20230314223206-existenz_eines_maximalen_ideals.html#ID-028984d3-9095-4e31-ad1f-5acfc2e4c3c8">Existenz eines maximalen Ideals</a>)
+Analog für $(y)$.
+Aus der additiven Abgeschlossenheit folgt $x + y \in I$ und aus $x + y \in R^{\times}$ folgt ein <a href="20220902194001-widerspruch.html#ID-d758d8be-c0f8-45d8-b7b4-5d9ecc65476a">Widerspruch</a>, vgl. <a href="20230314174015-von_einer_einheit_erzeugtes_ideal.html#ID-cf419725-19a8-46df-bd48-e2b7c58b7996">von einer Einheit erzeugtes Ideal und triviales Ideal</a>)
 </p>
-</div>
-</div>
-<div id="outline-container-org05b8a44" class="outline-3">
-<h3 id="org05b8a44"><span class="section-number-3">2.2.</span> 2) \(\implies\) 1)</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<h3 id="2-implies-1">2) $\implies$ 1)</h3>
 <p>
-Wir zeigen, dass \((R \setminus R^{\times})\) ein <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">Ideal</a> ist:
+Wir zeigen, dass $(R \setminus R^{\times})$ ein <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">Ideal</a> ist:
 Ferner ist dieses nicht der ganze Ring (vgl. <a href="20230314174015-von_einer_einheit_erzeugtes_ideal.html#ID-cf419725-19a8-46df-bd48-e2b7c58b7996">von einer Einheit erzeugtes Ideal und triviales Ideal</a>)
 Nach dem <a href="20221227225042-kriterium_fur_ein_ideal_bei_einem_kommutativen_ring.html#ID-5de5dd23-6705-45f0-9653-8749965794ae">Kriterium für ein Ideal bei einem kommutativen Ring</a> zeigen wir
 </p>
-</div>
-<div id="outline-container-org9c1e8aa" class="outline-4">
-<h4 id="org9c1e8aa"><span class="section-number-4">2.2.1.</span> <a href="20220902125304-nichtleere_menge.html#ID-119fa0d9-a2b3-4b46-bb61-a6e590282321">nichtleer</a></h4>
-<div class="outline-text-4" id="text-2-2-1">
+
+<h4 id="id119fa0d9-a2b3-4b46-bb61-a6e590282321nichtleer"><a href="20220902125304-nichtleere_menge.html#ID-119fa0d9-a2b3-4b46-bb61-a6e590282321">nichtleer</a></h4>
 <p>
-folgt aus \(0 \in R \setminus R^{\times}\)
+folgt aus $0 \in R \setminus R^{\times}$
 </p>
-</div>
-</div>
-<div id="outline-container-org6a3d613" class="outline-4">
-<h4 id="org6a3d613"><span class="section-number-4">2.2.2.</span> abgeschlossen gegenüber addition</h4>
-<div class="outline-text-4" id="text-2-2-2">
+
+<h4 id="abgeschlossen-gegenuber-addition">abgeschlossen gegenüber addition</h4>
 <p>
 folgt nach Annahme
 </p>
-</div>
-</div>
-<div id="outline-container-org35cc7f7" class="outline-4">
-<h4 id="org35cc7f7"><span class="section-number-4">2.2.3.</span> abgeschlossen gegenüber Multiplikation</h4>
-<div class="outline-text-4" id="text-2-2-3">
+
+<h4 id="abgeschlossen-gegenuber-multiplikation">abgeschlossen gegenüber Multiplikation</h4>
 <p>
-folgt aus der <a href="20230531085710-abgeschlossenheit_der_nichteinheiten_gegenuber_multiplikation.html#ID-6161bfa0-ed45-4038-aaf7-b27f8e81654f">Abgeschlossenheit der Nichteinheiten gegenüber Multiplikation</a> 
+folgt aus der <a href="20230531085710-abgeschlossenheit_der_nichteinheiten_gegenuber_multiplikation.html#ID-6161bfa0-ed45-4038-aaf7-b27f8e81654f">Abgeschlossenheit der Nichteinheiten gegenüber Multiplikation</a>
 </p>
-</div>
-</div>
-<div id="outline-container-orgd3977ec" class="outline-4">
-<h4 id="orgd3977ec"><span class="section-number-4">2.2.4.</span> maximal</h4>
-<div class="outline-text-4" id="text-2-2-4">
+
+<h4 id="maximal">maximal</h4>
 <p>
-Sei \(I'\) ein <a href="20230314223428-maximales_ideal.html#ID-9d76bba3-11a8-42c9-9bdb-f774da2bb06a">maximales Ideal</a>, so folgt für \(a \in R^{\times}\) auch \(a \not\in I'\).
-Damit gilt \(I' \subseteq R \setminus R^{\times} = I\), d.h. es gilt \(I = I'\)
+Sei $I'$ ein <a href="20230314223428-maximales_ideal.html#ID-9d76bba3-11a8-42c9-9bdb-f774da2bb06a">maximales Ideal</a>, so folgt für $a \in R^{\times}$ auch $a \not\in I'$.
+Damit gilt $I' \subseteq R \setminus R^{\times} = I$, d.h. es gilt $I = I'$
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgdbbe6b6" class="outline-3">
-<h3 id="orgdbbe6b6"><span class="section-number-3">2.3.</span> 2) \(\implies\) 3)</h3>
-<div class="outline-text-3" id="text-2-3">
+
+<h3 id="2-implies-3">2) $\implies$ 3)</h3>
 <p>
-folgt aus \(\mathfrak{m} = R^{\times}\)
+folgt aus $\mathfrak{m} = R^{\times}$
 </p>
-</div>
-</div>
-<div id="outline-container-orgdd811ae" class="outline-3">
-<h3 id="orgdd811ae"><span class="section-number-3">2.4.</span> 3) \(\implies\) 1)</h3>
-<div class="outline-text-3" id="text-2-4">
+
+<h3 id="3-implies-1">3) $\implies$ 1)</h3>
 <p>
-Dann folgt \(\mathfrak{m}\) als maximales ideal, da für \(a \in R \ \mathfrak{m}\) auch folgt \(a \in R^{\times}\) und somit
+Dann folgt $\mathfrak{m}$ als maximales ideal, da für $a \in R \ \mathfrak{m}$ auch folgt $a \in R^{\times}$ und somit
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 (\mathfrak{m}, a) \supseteq (a) = R
-\end{align*}
+\end{align*}</div>
 <p>
 bzw. kein echtes ideal
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-12 Sa 23:16</p>
+
+
 </div>
 </body>
 </html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>erzeugte monotone Klasse einer Mengenalgebra als sigma algebra</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-30883be2-ad58-45fe-96ef-134870fc275c"></span><h1 class="title">erzeugte monotone Klasse einer Mengenalgebra als sigma algebra</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $\mathcal{A} \subseteq \mathcal{P}(X)$ eine <a href="20241014-algebra_of_sets.html#ID-22d52b23-bf30-41e9-a8fd-bcf99ce44f24">Mengenalgebra</a>.
+Dann ist die <a href="20241015-erzeugte_monotone_klasse.html#ID-450051c1-ca95-4ff1-b5eb-f34e85cb622b">erzeugte monotone Klasse</a> eine <a href="20220903142815-sigma_algebra.html#ID-54306c73-fba1-4737-a42e-adc9ce14a354">sigma-algebra</a> bzw. es gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{mon}(\mathcal{A}) = \sigma(\mathcal{A})
+\end{align*}</div>
+<p>
+siehe: <a href="20241015-generated_borel_algebra.html#ID-d1f1ee03-ae6b-461c-ab1c-32880a8d6520">generated sigma algebra</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="a-mathrmmonmathcala-subseteq-sigmamathcala">a) $\mathrm{mon}(\mathcal{A}) \subseteq \sigma(\mathcal{A})$</h3>
+<p>
+folgt aus <a href="20241020-sigma_algebra_als_monotone_klasse.html#ID-90ee8ad3-78c3-4321-8d2b-45d29f4004cc">sigma algebra als monotone Klasse</a>
+</p>
+
+<h3 id="b-sigmamathcala-subseteq-mathrmmonmathcala">b) $\sigma(\mathcal{A}) \subseteq \mathrm{mon}(\mathcal{A})$</h3>
+<ul>
+<li><a href="20241129-monotone_klasse_und_mengenalgebra_als_sigma_algebra.html#ID-46a31f9a-447b-4e7d-8493-ae55abe1730d">monotone Klasse und Mengenalgebra als Sigma Algebra</a> </li>
+</ul>
+<h4 id="x-in-mathrmmonmathcala">$X \in \mathrm{mon}(\mathcal{A})$</h4>
+<p>
+folgt aus $X \in \mathcal{A}$
+</p>
+
+<h4 id="komplement">komplement</h4>
+<p>
+Sei
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{mon}(\mathcal{\mathcal{A}})^{c} = \{A \in \mathrm{mon}(\mathcal{A}) \vert A^c \in \mathrm{mon}(\mathcal{A})\}
+\end{align*}</div>
+
+<p>
+Dann ist zu zeigen, dass $\mathrm{mon}(\mathcal{\mathcal{A}})^{c} = \mathrm{mon}(\mathcal{A})$.
+</p>
+
+<p>
+Es reicht aus zu zeigen, dass $\mathrm{mon}(\mathcal{\mathcal{A}})^{c}$ eine monotone Klasse mit $\mathcal{A} \subseteq \mathrm{mon}(\mathcal{\mathcal{A}})^{c}$ ist.
+</p>
+
+<p>
+Aus $A \in \mathcal{A}$ folgt auch $X \setminus A \in \mathcal{A} \subseteq \mathrm{mon}(\mathcal{A})$ bzw. damit auch $A \in \mathrm{mon}(\mathcal{A})^c$
+</p>
+
+<p>
+Seien $A_n,B_n \in \mathrm{mon}(\mathcal{A})^c$ eine monotone Folgen $A_n \nearrow A, B_n \searrow B$.
+Dann sind $X \setminus A_n \searrow X \setminus A, X \setminus B_n \nearrow X \setminus B$ monotone Folgen in $\mathrm{mon}(\mathcal{A})$ und damit liegt nach Annahme der Grenzwert $\bigcap X \setminus A_n = X \setminus (\bigcup A_n) \in \mathrm{mon}(\mathcal{A})$ resp. $\bigcup X \setminus B_n = X \setminus (\bigcap b_n) \in \mathrm{mon}(\mathcal{A})$.
+Somit auch $\bigcup A_n, \bigcap B_n \in \mathrm{mon}(\mathcal{A})^c$
+</p>
+
+<h4 id="vereinigung">vereinigung</h4>
+<p>
+Sei
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{mon}(\mathcal{\mathcal{A}})_E = \{A \in \mathrm{mon}(\mathcal{A}) \vert A \cup E \in \mathrm{mon}(\mathcal{A})\} \subseteq \mathrm{mon}(\mathcal{A})
+\end{align*}</div>
+
+<p>
+Wir zeigen, dass für bel. $E \in \mathrm{mon}(\mathcal{A})$ auch
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{mon}(\mathcal{\mathcal{A}})_E = \mathrm{mon}(\mathcal{A})
+\end{align*}</div>
+<p>
+gilt, d.h. für $E' \in \mathrm{mon}(\mathcal{A})$ auch $E \cup E' \in \mathrm{mon}(\mathcal{A})$ gilt.
+</p>
+
+<p>
+Dafür zeigen wir, dass $\mathrm{mon}(\mathcal{\mathcal{A}})_E$ für beliebiges $E \subseteq X$ eine montone Klasse ist und später, dass $\mathcal{A} \subseteq \mathrm{mon}_{E}(\mathcal{A})$ für $E \in \mathrm{mon}(\mathcal{A})$ gilt.
+</p>
+
+
+<h5 id="monotone-klasse">monotone Klasse</h5>
+<p>
+Seien $A_n,B_n \in \mathrm{mon}(\mathcal{A})_E$ monotone Folgen $A_n \nearrow A, B_n \searrow B$.
+Dann sind $A_n \cup E \searrow A \cup E, B_n \cup E \nearrow B \cup E$ monotone Folgen in $\mathrm{mon}(\mathcal{A})$ und damit liegen nach Annahme die Grenzwerte $\bigcup A_n \cup E, \bigcap B_n \cap E \in \mathrm{mon}(\mathcal{A})$
+</p>
+
+<p>
+Somit auch $\bigcup A_n, \bigcap B_n \in \mathrm{mon}(\mathcal{A})_E$
+</p>
+
+<h5 id="e-in-mathcala">$E \in \mathcal{A}$</h5>
+<p>
+Sei $E \in \mathcal{A}$.
+</p>
+
+<p>
+Aus $A \in \mathcal{A}$ folgt auch $A \cup E \in \mathcal{A} \subseteq \mathrm{mon}(\mathcal{A})$ bzw. damit auch $A \in \mathrm{mon}(\mathcal{A})_E$
+</p>
+
+<h5 id="e-in-mathrmmonmathcala-e">$E \in \mathrm{mon}(\mathcal{A})_{E}$</h5>
+<p>
+Für $A \in \mathcal{A}$ gilt $\mathrm{mon}(\mathcal{A})_{A} = \mathrm{mon}(\mathcal{A})$ d.h. auch nach Definition $A \in \mathrm{mon}_{E}(\mathcal{A})$
+</p>
+
+</div>
+</body>
+</html>

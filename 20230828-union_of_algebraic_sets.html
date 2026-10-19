@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 18:02 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>union of algebraic sets</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,62 +52,44 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">union of algebraic sets</h1>
-<div id="outline-container-org082e6c0" class="outline-2">
-<h2 id="org082e6c0"><span class="section-number-2">1.</span> Proposition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-d8aeefad-1a8f-4af6-afa2-080410ee0d60"></span><h1 class="title">union of algebraic sets</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let \(K\) be an <a href="20221017154133-algebraischer_abschluss.html#ID-ec785259-c20d-4d7a-af35-a0904d20d7b6">algebraically closed</a> <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">field</a> and \(\mathbb{A}_{K}^n\) the <a href="20230725-affine_space_over_a_field.html#ID-10df971c-c815-41df-b913-6d2255d56a66">affine space</a>.
-then for <a href="20230828-algebraic_set.html#ID-1dea3db8-b570-4133-a1da-b691ab956ee5">algebraic sets</a> \(Z(S_1),...,Z(S_k)\) it follows, that
+Let $K$ be an <a href="20221017154133-algebraischer_abschluss.html#ID-ec785259-c20d-4d7a-af35-a0904d20d7b6">algebraically closed</a> <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">field</a> and $\mathbb{A}_{K}^n$ the <a href="20230725-affine_space_over_a_field.html#ID-10df971c-c815-41df-b913-6d2255d56a66">affine space</a>.
+then for <a href="20230828-algebraic_set.html#ID-1dea3db8-b570-4133-a1da-b691ab956ee5">algebraic sets</a> $Z(S_1),...,Z(S_k)$ it follows, that
 </p>
-\begin{align*}
-\bigcup_{i = 1}^{k} Z(S_i) =& Z(\prod_{i =1}^k S_i)
-=& Z(\bigcap_{i = 1}^{k} S_i)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org315f6fb" class="outline-2">
-<h2 id="org315f6fb"><span class="section-number-2">2.</span> Proof</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orgcf05f4d" class="outline-3">
-<h3 id="orgcf05f4d"><span class="section-number-3">2.1.</span> \(\bigcup_{i = 1}^{k} Z(S_i) \subseteq Z(\bigcap_{i =1}^k S_i)\)</h3>
-<div class="outline-text-3" id="text-2-1">
+
+<div class="math-block">\begin{align*}
+\bigcup_{i = 1}^{k} Z(S_i) =&amp; Z(\prod_{i =1}^k S_i)
+=&amp; Z(\bigcap_{i = 1}^{k} S_i)
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="bigcup-i-1k-zs-i-subseteq-zbigcap-i-1k-s-i">$\bigcup_{i = 1}^{k} Z(S_i) \subseteq Z(\bigcap_{i =1}^k S_i)$</h3>
 <p>
-Suppose \((p_1,...,p_n) \in \bigcup_{i = 1}^k Z(S_i)\), then there exists an \(j\) such that \((p_1,...,p_n) \in Z(S_j)\).
-Hence for all \(f \in S_j\), it holds that \(f(p_1,...,p_n) = 0\), thus especially also for all \(f \in \bigcap_{i=1}^n S_i \subseteq S_j\)
+Suppose $(p_1,...,p_n) \in \bigcup_{i = 1}^k Z(S_i)$, then there exists an $j$ such that $(p_1,...,p_n) \in Z(S_j)$.
+Hence for all $f \in S_j$, it holds that $f(p_1,...,p_n) = 0$, thus especially also for all $f \in \bigcap_{i=1}^n S_i \subseteq S_j$
 </p>
-</div>
-</div>
-<div id="outline-container-org8925b03" class="outline-3">
-<h3 id="org8925b03"><span class="section-number-3">2.2.</span> \(Z(\bigcap_{i = 1}^{k} S_i) \subseteq Z(\prod_{i =1}^k S_i)\)</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<h3 id="zbigcap-i-1k-s-i-subseteq-zprod-i-1k-s-i">$Z(\bigcap_{i = 1}^{k} S_i) \subseteq Z(\prod_{i =1}^k S_i)$</h3>
 <p>
 corollary of
 </p>
-<ul class="org-ul">
-<li><a href="20221228001225-komplexprodukt_von_idealen_als_teilmenge_des_schnitts.html#ID-77901cfe-29aa-4816-afdb-99358c798b03">product of ideals as subset of the intersection</a></li>
-<li><a href="20230828-algebraic_set_and_order.html#ID-9866a444-2379-40e1-b7c8-f3728f85bd0a">algebraic set and order</a></li>
+<ul>
+<li><a href="20221228001225-komplexprodukt_von_idealen_als_teilmenge_des_schnitts.html#ID-77901cfe-29aa-4816-afdb-99358c798b03">product of ideals as subset of the intersection</a> </li>
+
+<li><a href="20230828-algebraic_set_and_order.html#ID-9866a444-2379-40e1-b7c8-f3728f85bd0a">algebraic set and order</a>     </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgeb97320" class="outline-3">
-<h3 id="orgeb97320"><span class="section-number-3">2.3.</span> \(Z(\prod_{i = 1}^{k} S_i) \subseteq \bigcup_{i = 1}^{k} Z(S_i)\)</h3>
-<div class="outline-text-3" id="text-2-3">
+<h3 id="zprod-i-1k-s-i-subseteq-bigcup-i-1k-zs-i">$Z(\prod_{i = 1}^{k} S_i) \subseteq \bigcup_{i = 1}^{k} Z(S_i)$</h3>
 <p>
-Let \((p_1,...,p_n) \in Z(\prod_{i = 1}^{k} S_i)\), then for all \(f = \sum \alpha_j \prod_{i=1}^n f_i\) with $f<sub>i</sub> &isin; it holds, that \(f(p_1,...,p_n) = 0\).
-Suppose for all \(S_i\) there exists an \(g_i \in S_i\) such that \(g_i(p_1,...,p_n) \neq 0\), then \((\prod_{i=1}^n g_i)(p_1,...,p_n) \neq 0\).
-Hence by <a href="20210305204929-beweis_durch_gegenbeispiel.html#ID-82f7f698-c489-4630-b2a1-ec7a6228b374">contraposition</a>, there exists an \(S_j\) such that for all \(f \in S_j\) it holds, that \(f(p_1,...,p_n) = 0\).
-Therefore \((p_1,...,p_n) \in Z(S_j) \subseteq \bigcup_{i = 1}^{k} Z(S_i)\)
+Let $(p_1,...,p_n) \in Z(\prod_{i = 1}^{k} S_i)$, then for all $f = \sum \alpha_j \prod_{i=1}^n f_i$ with $f_i \in it holds, that $f(p_1,...,p_n) = 0$.
+Suppose for all $S_i$ there exists an $g_i \in S_i$ such that $g_i(p_1,...,p_n) \neq 0$, then $(\prod_{i=1}^n g_i)(p_1,...,p_n) \neq 0$.
+Hence by <a href="20210305204929-beweis_durch_gegenbeispiel.html#ID-82f7f698-c489-4630-b2a1-ec7a6228b374">contraposition</a>, there exists an $S_j$ such that for all $f \in S_j$ it holds, that $f(p_1,...,p_n) = 0$.
+Therefore $(p_1,...,p_n) \in Z(S_j) \subseteq \bigcup_{i = 1}^{k} Z(S_i)$
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 18:02</p>
+
 </div>
 </body>
 </html>

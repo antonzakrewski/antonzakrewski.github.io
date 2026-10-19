@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>left and right invariant basis property are equivalent</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-2b1379e0-e1ed-4ec8-a050-571570fa763e"></span><h1 class="title">left and right invariant basis property are equivalent</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $R$ be a <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a>.
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol>
+<li>$R$ satisfies the left <a href="20241011-left_invariant_basis_property.html#ID-f0a7c88f-26ef-478a-baf5-9667b5e3cd19">invariant basis property</a> </li>
+
+<li>$R$ satisfies the right invariant basis property</li>
+</ol>
+<h2 id="proof">Proof</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+<p>
+Choose $n,m$ and an isomorphism $R^n \rightarrow R^m, R^m \rightarrow R^n$.
+These are given by <a href="20220303181007-matrix.html#ID-3234cd94-0d93-470b-a319-75288f97326e">matrices</a> $A = (a_{i,j}) \in R^{n \times m}, B = (b_{i,j}) \in R^{m \times n}$ satisfying
+</p>
+
+<div class="math-block">\begin{align*}
+(A \cdot_{\mathrm{left}} B)_{i,k} =&amp; (\sum_{j} b_{j,k} a_{i,j}) \\
+=&amp; \partial_{i,k} \\
+(B \cdot_{\mathrm{left}} A)_{i,k} =&amp; (\sum_{j} a_{j,k} b_{i,j}) \\
+=&amp; \partial_{i,k} \\
+\end{align*}</div>
+
+<p>
+Set
+</p>
+
+<div class="math-block">\begin{align*}
+A' \coloneqq&amp; (a_{i,j}') \\
+B' \coloneqq&amp; (b_{i,j}')
+\end{align*}</div>
+<p>
+for
+</p>
+
+<div class="math-block">\begin{align*}
+a_{i,j}' =&amp; b_{j,i} \\
+b_{i,j}' =&amp; a_{j,i} 
+\end{align*}</div>
+
+<p>
+Then we get
+</p>
+
+<div class="math-block">\begin{align*}
+(A' \cdot_{\mathrm{right}} B')_{i,k} =&amp; (\sum_{j} a_{i,j}' b_{j,k}') \\
+=&amp; (\sum_{j} b_{j,i} a_{k,j}) \\
+=&amp; \partial_{k,i} \\
+=&amp; \partial_{i,k}
+\end{align*}</div>
+
+<p>
+analogously for $B' \cdot_{\mathrm{right}} A'$
+</p>
+
+</div>
+</body>
+</html>

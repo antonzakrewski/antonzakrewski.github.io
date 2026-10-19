@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>zariski local nature of monomorphisms between algebraic functors</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-5fc88c75-be60-488d-8ab2-4c86e3ff32dd"></span><h1 class="title">zariski local nature of monomorphisms between algebraic functors</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $A$ be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a> and $u: X \rightarrow \mathrm{Spec}(A)$ a map of <a href="20260611-algebraic_functor.html#ID-316f0157-24c4-446a-b8a5-d7eb82359ddd">algebraic functors</a>.
+Suppose that $X$ satisfies <a href="20260716-zariski_descent_for_algebraic_functors.html#ID-5de73414-2c92-4962-bebc-5878b85d4254">zariski descent</a> and let $(f_i)$ be a family generating the unit <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a>.
+Let $u_i: X \times_{\mathrm{Spec}(A)} D(f_i) \rightarrow D(f_i)$ be the <a href="20241017-infinity_pullback.html#ID-7aaac468-a0bb-4e73-bfd3-d4c591c10e4f">pullback</a> of $u$ along $D(f_i) \rightarrow \mathrm{Spec}(A)$ and suppose that each $u_i$ is a <a href="20220819135911-monomorphismus.html#ID-60b63797-32fa-4d4e-a577-7616faa010ba">monomorphism</a>
+Then so is $u$.
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+it suffices to show that $u$ is pointwise an <a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injection</a>, so let $R$ be any ring.
+Then we need to show that $u(R): U(R) \rightarrow \mathrm{Spec}(A)(R)$ is an injection.
+So let $x,x' \in X(R)$ such that $u_R(x) = u_{R}(x') = \varphi: A \rightarrow R$.
+</p>
+
+<p>
+Now $f_i$ generates the unit ideal of $A$ and therefore $\varphi(f_i)$ generates the unit ideal of $R$.
+Let $x_i$ ($x_i'$) be the image of $x$ ($x'$) under the map $X(R) \rightarrow X(R_{\varphi(f_i)})$.
+Then
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/1265d619bb09c5dbeab8.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+commutes.
+</p>
+
+<p>
+So in particular $x \in X(R)$ is mapped to the composition $A \rightarrow A_{f_i} \rightarrow R_{\varphi(f_i)}$ since the diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/7928c901f7a43542e590.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+This ipmlies htat the elements $(x_i, \varphi_i)$ and $(x_i', \varphi_i)$ actually lie in $(X \times_{\mathrm{Spec}(A)} \mathrm{Spec}(A_{f_i}))(R_{\varphi(f_i)})$ where $\varphi_i$ is the induced map $A_{f_i} \rightarrow R_{f_i}$.
+</p>
+
+<p>
+Since their image under the injection, being the pullback of a monomorphism in <a href="20221216142701-kategorie_set.html#ID-dc78356f-1fcf-41e8-b05a-47cdd731513c">category set</a>
+</p>
+
+<div class="math-block">\begin{align*}
+(u_i)_{R_{f_i}}: (X \times_{\mathrm{Spec}(A)} \mathrm{Spec}(R_{f_i})(R_{f_i}) \rightarrow \mathrm{Spec}(A_{f_i})(R_f)
+\end{align*}</div>
+<p>
+are indetical, we have $x_i = x_i'$ for all $i \in I$.
+</p>
+
+<p>
+But the map $X(R) \rightarrow \prod_{i \in I} X(R_{\varphi(f_i)})$ is injective, we have $x = x'$.
+</p>
+
+
+<h3 id="remark">Remark</h3>
+<p>
+Let $x,x' \in X(R)$ in $\mathrm{fib}_{\varphi}(u)$, then we have a commutative diagram
+</p>
+
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+X \times_{\mathrm{Spec}(A_{f_i})} \mathrm{Spec}(A) \rar \dar &amp; X(R) \arrow[hookrightarrow, ]{r}{}\dar &amp; \prod_{i \in I}  X(R_{\varphi(f_i)}) \dar \\
+\mathrm{Spec}(A_{f_i})(R) \arrow[hookrightarrow, ]{r}{} &amp; \mathrm{Spec}(A)(R) \arrow[hookrightarrow, ]{d}{} &amp; \prod_{i \in I} \mathrm{Spec}(A)(R_{\varphi(f_i)}) 
+\end{tikzcd}
+\end{displaymath}</pre></div>
+<p>
+Here $A \twoheadrightarrow A_{f_i}$ is an <a href="20220819135905-epimorphismus.html#ID-ad206194-a416-4910-a5c4-d72528ae5ba0">epimorphism</a> / $\mathrm{Spec}(A_{f_i})(R) \hookrightarrow \mathrm{Spec}(A)(R)$ is a monomorhpism and the horizontal right morphisms are monos by zariski descent.
+</p>
+
+<p>
+Then we can - todo: find argument -lift elements in the fiber and have tha thte bettom composition is a monomorphism, so
+</p>
+
+
+</div>
+</body>
+</html>

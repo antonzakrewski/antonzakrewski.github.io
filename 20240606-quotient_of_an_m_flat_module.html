@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>quotient-flatness of an M-flat module</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-c60b1e99-ed0c-4b4e-af12-f6173ec46449"></span><h1 class="title">quotient-flatness of an M-flat module</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let \(R\) be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative</a> <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a> and $\mathrm{RMod}$ the <a href="20230225170152-kategorie_mod.html#ID-15b21b3a-18bb-4d60-a716-c69681d7222d">category RMod</a>
+Suppose $N$ is <a href="20240606-m_flat_module.html#ID-5c18ddda-cbe6-434f-83f7-86f2d70d8bca">M-flat</a>, $\overline{M} = M/ \widehat{M}$ a <a href="20230222204643-faktormodul.html#ID-9f848ff8-95b8-4f0b-ad74-7997012399a0">quotient module</a> for a <a href="20230222204739-untermodul.html#ID-72f8c93c-c8cd-4dd0-b1c4-81e2efb54d75">submodule</a> $\widehat{M} \subseteq M$.
+Then $N$ is $\widehat{M}$ flat
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Consider the projection
+</p>
+
+<div class="math-block">\begin{align*}
+M \twoheadrightarrow M/ \widehat{M}
+\end{align*}</div>
+<p>
+which can be <a href="20240424-exactification_of_a_morphism_in_an_abelian_category.html#ID-884d6c56-4476-468a-8ec1-ed66ecdf71ba">exactified</a> to
+</p>
+
+<div class="math-block">\begin{align*}
+0 \arrow[]{r}{} &amp; \mathrm{ker}(\pi) \arrow[]{r}{} &amp; M \arrow[]{r}{} &amp; \arrow[]{r}{}M/ \widehat{M} &amp; 0
+\end{align*}</div>
+
+<p>
+Let $\iota: \overline{M}' \rightarrow \overline{M}$ be a <a href="20220819135911-monomorphismus.html#ID-60b63797-32fa-4d4e-a577-7616faa010ba">monomorphism</a>.
+then $\overline{M}' \subseteqov \overline{M}$ can be regarded as <a href="20230222204739-untermodul.html#ID-72f8c93c-c8cd-4dd0-b1c4-81e2efb54d75">submodule</a>.
+</p>
+
+<p>
+Define $M' \subseteq M$ by $M' \coloneqq p^{-1}[\overline{M}']$.
+Since $0 \in \overline{M}'$ it follows that $\mathrm{ker}(\pi) = p^{-1}[ \{0\}] \subseteq p^{-1}[\overline{M}']$
+</p>
+
+<p>
+therefore there exists a diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/a73cf4f842fd9ad3f5b2.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+where $\mathrm{ker}(f) \hookrightarrow M' \hookrightarrow M$ are the inclusions.
+</p>
+
+<p>
+Then the upper row is also exact, as
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{ker}(f) = \mathrm{ker}(M' \rightarrow \overline{M}')
+\end{align*}</div>
+
+<p>
+applying the <a href="20230812-tensoring_functor.html#ID-761d2307-1593-44ac-8782-0398791c46ec">tensoring functor</a> results in the diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/bb2fca4f026003c8156b.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+where the right part is exact as the <a href="20230903-tensor_functor_as_right_exact_functor.html#ID-f764fee4-70ed-43a7-8b99-f27aba83523d">tensor functor is right exact</a> and the bottom left is exact by assumption of $N$ being $M$ flat.
+Furthermore the map $M' \otimes_R N \rightarrow M \otimes_R N$ is injective.
+</p>
+
+<p>
+therefore we may use the <a href="20230802-snake_lemma.html#ID-d1fa92c4-30dd-4e98-bb54-620596a2800e">Snake lemma for modules</a> giving us an exact sequence
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/ebe7846f25da2a08d9dd.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+since $\mathrm{id}$ is an <a href="20230303170514-modulepimorphismus.html#ID-8658ea5e-6f26-4544-a083-aec8a247284f">module-epimorphism</a> and $M \otimes_R N \rightarrow  M \otimes_R N)$ is injective this gives the exact sequence
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/ff0fceab651192af1490.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+therefore by <a href="20240312-sandwhich_by_isomorphisms_and_exact.html#ID-342db6fe-286c-49d3-b7f7-d39f65e78788">exactly sandwhiched by isomorphisms and zero object</a> we conclude that
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{ker}(\overline{M} \otimes_R N \rightarrow \overline{M} \otimes_R N) = 0
+\end{align*}</div>
+<p>
+showing that the map $\overline{M} \otimes_R N \rightarrow \overline{M} \otimes_R N$ is a monomorphism.
+</p>
+
+<p>
+thus $N$ is also \(\overline{M}\)-flat
+</p>
+
+</div>
+</body>
+</html>

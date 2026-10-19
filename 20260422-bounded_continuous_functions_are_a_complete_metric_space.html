@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>bounded continuous functions are a complete metric space</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-ddf14f63-6231-4587-93d0-bc59f3461ddb"></span><h1 class="title">bounded continuous functions are a complete metric space</h1>
+
+<h2 id="proposition">Proposition</h2>
+
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="id6b95a0b5-83e0-43cc-830f-05b416769fe1metric-space-id0aa21afc-5f24-4618-a61e-e5ebf2e9640cmetrik"><a href="20221002145259-metrischer_raum.html#ID-6b95a0b5-83e0-43cc-830f-05b416769fe1">metric space</a> / <a href="20220716173517-metrik.html#ID-0aa21afc-5f24-4618-a61e-e5ebf2e9640c">Metrik</a></h3>
+
+<h4 id="nonnegative">nonnegative</h4>
+
+<h4 id="symmetric">symmetric</h4>
+<p>
+follows as $\vert f(x) - g(x) \vert = \vert g(x) - f(x) \vert$ and hence it is also symmetric after applying $\mathrm{sup}(-)$
+this shows $d_{\infty}(f,g) = d_{\infty}(g,f)$
+</p>
+
+<h4 id="positive-definite">positive definite</h4>
+<p>
+Assume that $d_{\infty}(f,g) = 0$, then for each $x$ in $X$ it holds that $\vert f(x) - g(x) \vert \leq \mathrm{sup}_{x} \vert f(x) - g(x) \vert = 0$, i.e., $f(x) = g(x)$ or $f = g$.
+Moreover, $d_{\infty}(f,f) = 0$ follows as $\mathrm{sup}_{x \in X} \vert f(x) - f(x) = 0$.
+</p>
+
+<h4 id="triangle">triangle</h4>
+<p>
+observe that for $f,g,h$ and $x$ in $X$: $\vert f(x) - h(x) \vert \leq \vert f(x) - g(x) \vert + \vert g(x) - h(x) \vert$.
+Hence applying $\mathrm{sup}(-)$ preserves this relation, i.e., $\mathrm{sup}_{x \in X} \vert f(x) - h(x) \vert \leq \mathrm{sup}_{x \in X}( \vert f(x) - g(x) \vert + \vert g(x) - h(x) \vert) \leq \mathrm{sup}_{x \in X} \vert f(x) - h(x) \vert \leq \mathrm{sup}_{x \in X}( \vert f(x) - g(x) \vert + \mathrm{sup}_{x \in X} ( \vert g(x) - h(x) \vert)$
+</p>
+
+<h3 id="complete">complete</h3>
+<p>
+Observe that the map
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{ev}_x: C_b(X) \rightarrow&amp; \mathbb{K} \\
+f \mapsto f(x)
+\end{align*}</div>
+<p>
+is <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a>/ 1 <a href="20221125175541-lipschitzstetig.html#ID-53d30a09-5724-4c59-9495-2ffa2f053707">lipschitzs</a> for $x$ in $X$.
+Let $f_n$ be a <a href="20220105223523-fundamental_folge.html#ID-45b890ea-39cc-4f8c-bf97-4de5c09d772a">Cauchy</a> sequence.
+Then $f_n(x) = \mathrm{ev}_x(f)$ is also a cauchy sequnce, since $\mathrm{ev}_x$ is 1-lipschitz.
+Moreover, $\mathbb{K}$ is complete, hence $f_n(x) \rightarrow f(x)$ for some $f(x) \in \mathbb{K}$.
+We claim, that $f: x \mapsto f(x)$ is a <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a>, bounded function.
+</p>
+
+<h4 id="bounded">bounded</h4>
+<p>
+Observe that $\mathrm{sup}_{x \in X} \vert f_n(x) \vert$ converges, as it is a <a href="20220105223523-fundamental_folge.html#ID-45b890ea-39cc-4f8c-bf97-4de5c09d772a">Cauchy</a> sequence in $\mathbb{R}$.
+Hence $\mathrm{sup}_{x \in X} \vert f_n(x) \vert$ is bounded by some $C$, i.e. for all $x \in X$ and all $n$ we get $\vert f_n(x) \vert \leq C$.
+Now we may apply the limit (and use that $\vert - \vert$ is continuous) and get, that for all $x \in X$ $\vert f(x) \vert = \vert \mathrm{lim} f_n(x) \vert \mathrm{lim} \vert f_n(x) \vert \leq C$, hence $\mathrm{sup}_{x \in X} \vert f_n(x) \vert \leq C$.
+</p>
+
+<h4 id="continuous">continuous</h4>
+<p>
+Let $x \in X$ and $U$ be an open neighbourhood of $f(x)$.
+Then we need to show that there exists a neighbourhood $U_x$ of $x$ such that $f[U_x] \subseteq U$ (cf. <a href="20260423-existence_of_neighbourhoods_and_continuous_map.html#ID-40375a46-1a9d-4616-9d10-95fbc555ec34">existence of neighbourhoods and continuous map</a>)
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> we may assume that $U = B_{\varepsilon}(f(x))$.
+</p>
+
+<p>
+Then $f_n(x) \rightarrow f(x)$, hence for <a href="20221013222501-fast_alle.html#ID-a3da14cb-05c1-4f9e-a68a-a693980f5ede">almost all</a> $n$: $\mathrm{sup}_{n \in \mathbb{N}}( \vert f(x) - f_n(x) \vert ) &lt; \frac{\varepsilon}{5}$.
+Moreover, $f_n$ converges to $f$ (in the metric space $C_b(X) \cup \{f\}$ with the supremum norm) so for <a href="20221013222501-fast_alle.html#ID-a3da14cb-05c1-4f9e-a68a-a693980f5ede">almost all</a> $n$: $\mathrm{sup}_{x \in X} \vert f(x) - f_n(x) \vert &lt; \frac{\varepsilon}{5}$.
+</p>
+
+<p>
+Now choose $n &gt;&gt; 0$ such that both conditions above hold and consider the open subset $O \coloneqq f_n^{-1}[B_{\frac{\varepsilon}{5}}(f_n(x))]$.
+We claim that $f[O] \subseteq U$ and $x \in f_n^{-1}[B_{\frac{\varepsilon}{5}}(f_n(x))]$.
+The second claim is evident, so it remains to show the first.
+</p>
+
+<p>
+So let $x' \in O$, then
+</p>
+<ol>
+<li>$\vert f(x') - f_n(x') \vert  &lt; \frac{\varepsilon}{5}$ as $\mathrm{sup}_{x \in X} \vert f(x) - f_n(x) \vert &lt; \frac{\varepsilon}{5}$</li>
+
+<li>$\vert f_n(x') - f_n(x) \vert &lt; \frac{\varepsilon}{5}$ as $x' \in f_n^{-1}[B_{\frac{\varepsilon}{5}}(f_n(x))]$</li>
+
+<li>$\vert f_n(x) - f(x) \vert    &lt; \frac{\varepsilon}{5}$ as $\vert f(x) - f_n(x) \vert &lt; \frac{\varepsilon}{5}$.</li>
+</ol>
+<p>
+Therefore, the triangle inequality shows
+</p>
+
+<div class="math-block">\begin{align*}
+\vert f(x') - f(x) \vert \leq&amp; \vert f(x') - f_n(x') \vert  + \vert f_n(x') - f_n(x) \vert + \vert f_n(x) - f(x) \vert   \\
+&lt;&amp; \varepsilon
+\end{align*}</div>
+<p>
+and hence $f(x') \in f[B_{\varepsilon}(f(x))]$.
+This shows - as claime
+</p>
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>

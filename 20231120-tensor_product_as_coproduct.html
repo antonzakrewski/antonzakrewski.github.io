@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 19:19 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tensor product of Algebras as categorical coproduct in CAlg</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,65 +52,53 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">tensor product of Algebras as categorical coproduct in CAlg</h1>
-<div id="outline-container-org020f342" class="outline-2">
-<h2 id="org020f342"><span class="section-number-2">1.</span> Proposition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-c4180f06-150f-45ac-8df3-86237e96ed6d"></span><h1 class="title">tensor product of Algebras as categorical coproduct in CAlg</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let \(A\) be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a> and \(\mathrm{CALg}_A\) the <a href="20231018-category_calg_r.html#ID-eb38dea7-24a5-4ea6-a1bc-84b0974ca914">Category of commutative algebras</a>, then the <a href="20230404161607-categorical_coproduct.html#ID-25822c41-825b-480b-b8a6-eeb904ca5649">categorical coproduct</a> is the <a href="20230801-tensor_product.html#ID-42c4ecff-8f9a-40cf-bebc-70569ded24bf">tensor product</a>. 
+Let $A$ be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a> and $\mathrm{CALg}_A$ the <a href="20231018-category_calg_r.html#ID-eb38dea7-24a5-4ea6-a1bc-84b0974ca914">Category of commutative algebras</a>, then the <a href="20230404161607-categorical_coproduct.html#ID-25822c41-825b-480b-b8a6-eeb904ca5649">categorical coproduct</a> is the <a href="20230801-tensor_product.html#ID-42c4ecff-8f9a-40cf-bebc-70569ded24bf">tensor product</a>.
 </p>
-</div>
-</div>
-<div id="outline-container-orgf9b161f" class="outline-2">
-<h2 id="orgf9b161f"><span class="section-number-2">2.</span> Proof</h2>
-<div class="outline-text-2" id="text-2">
+
+<h2 id="proof">Proof</h2>
 <p>
-Let \(B_1, B_2\) be <a href="20230722-a_algebra.html#ID-c3ba0b73-5545-48cc-9e90-81fda7909b5f">A-Algebras</a>.
+Let $B_1, B_2$ be <a href="20230722-a_algebra.html#ID-c3ba0b73-5545-48cc-9e90-81fda7909b5f">A-Algebras</a>.
 </p>
-\begin{displaymath}
-\begin{tikzcd}
-& A \arrow[]{rd}{f_2} \arrow[]{ld}{f_1}& \\
-B_1 & & B_2
-\end{tikzcd}
-\end{displaymath}
+
+<div class="equation-container"><span class="equation"><img src="ltximg/c5ed049789d034d162eb.svg" class="org-svg" alt="diagram" /></span></div>
 
 <p>
 Then the tensor product is an <a href="20230722-a_algebra.html#ID-c3ba0b73-5545-48cc-9e90-81fda7909b5f">A-Algebra</a> via
 </p>
-\begin{align*}
-\iota_1 \otimes \iota_2: A \rightarrow& M_1 \otimes M_2 \\
-(a) \mapsto& (f_1(a), f_2(a))
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\iota_1 \otimes \iota_2: A \rightarrow&amp; M_1 \otimes M_2 \\
+(a) \mapsto&amp; (f_1(a), f_2(a))
+\end{align*}</div>
 
 
 <p>
-Given an A-algebra \(Z\) and <a href="20230726-morphism_of_a_algebras.html#ID-0b458fde-ab1b-4066-b6c3-f7cac22900d8">morphisms of A-Algebras</a> 
+Given an A-algebra $Z$ and <a href="20230726-morphism_of_a_algebras.html#ID-0b458fde-ab1b-4066-b6c3-f7cac22900d8">morphisms of A-Algebras</a>
 </p>
-\begin{align*}
-g_1: B_1 \rightarrow& Z \\
-g_2: B_2 \rightarrow& Z \\
-\end{align*}
+
+<div class="math-block">\begin{align*}
+g_1: B_1 \rightarrow&amp; Z \\
+g_2: B_2 \rightarrow&amp; Z \\
+\end{align*}</div>
 
 <p>
 Then define
 </p>
-\begin{align*}
-b_1 \otimes b_2 \mapsto& g_1(b_1) \cdot g_2(b_2)
-\end{align*}
-</div>
-<div id="outline-container-org4ee1278" class="outline-3">
-<h3 id="org4ee1278"><span class="section-number-3">2.1.</span> algebra-homomorphism</h3>
-</div>
 
-<div id="outline-container-org13750be" class="outline-3">
-<h3 id="org13750be"><span class="section-number-3">2.2.</span> coproduct</h3>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 19:19</p>
+<div class="math-block">\begin{align*}
+b_1 \otimes b_2 \mapsto&amp; g_1(b_1) \cdot g_2(b_2)
+\end{align*}</div>
+
+<h3 id="algebra-homomorphism">algebra-homomorphism</h3>
+
+
+<h3 id="coproduct">coproduct</h3>
+
+
 </div>
 </body>
 </html>

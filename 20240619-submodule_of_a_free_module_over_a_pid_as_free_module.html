@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>submodule of a free module over a pid as free module</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-69a9ab4a-0c83-4c54-91fe-545c59eecdb8"></span><h1 class="title">submodule of a free module over a pid as free module</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $A$ be a <a href="20221227223925-hauptidealring.html#ID-41717608-2c65-435a-aca7-549eff5b4ca2">principal ideal domain</a>, $\oplus_{i \in I} A$ a <a href="20230222205257-freier_modul.html#ID-f31e26dc-9f62-4ff2-81db-88cd88c22229">free module</a> and $N \hookrightarrow \oplus_{i \in I} A$ a <a href="20230222204739-untermodul.html#ID-72f8c93c-c8cd-4dd0-b1c4-81e2efb54d75">submodule</a>
+Then $N$ is also free
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $&lt;$ be a <a href="20220929195946-wohlordnung.html#ID-8f3e284b-c3c9-4aaf-8bf5-5eadc47faa78">well order</a> on $\oplus_{i \in I} A$ and $\mathrm{pr}_i: \oplus_{i \in I} A \rightarrow A$ the projection to the \(i\)-th component.
+Let $F_j$ be the submodule $\oplus_{i \leq j} A$ and $N_j = N \cap F_j$.
+</p>
+
+<p>
+Then $\mathrm{pr}_j(U_j)$ is a <a href="20230222204739-untermodul.html#ID-72f8c93c-c8cd-4dd0-b1c4-81e2efb54d75">submodule</a> of $A$ or equivalently an <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a> and hence of the form $A \alpha_i$ for some $\alpha_i \in a$.
+Choose $u_j \in N_j$ with $\mathrm{pr}_j(u_j) = \alpha_j$. If $\alpha_j=0$, then choose exactly $u_j = 0$.
+</p>
+
+<p>
+We claim that $\{u_j \neq 0\}$ is a basis:
+</p>
+
+<h3 id="generates">generates</h3>
+<p>
+Let $v = \sum_{n=1}^k \beta_{n} e_{j_n} \in N$ with $j_1 &lt; j_2 ... &lt; j_n$.
+Then $\mathrm{pr}_{j_n}(v) \in \mathrm{pr}_{j_n}(N_j)$ and hence of the form $\gamma_{j_n} \alpha_{j_n}$.
+It follows that $v - \gamma_{j_n} u_{j_n} \in N_j$ with $\mathrm{pr}_{j_n}(v - \gamma_{j_n} u_{j_n}) = 0$.
+Therefore (by <a href="20260607-well_ordered_set_has_only_finite_descending_sequence.html#ID-603c409f-4fc6-43bd-96d3-2406e175ac2b">well-ordered set has only finite descending sequence</a>) we get that $v - \gamma_{j_n} u_{j_n}$ lies in some $N_{j_1}$ and repeating this shows that we eventually -- after finitely many steps -- have to land in $N_{1}$ for the first
+</p>
+
+<h3 id="linearly-independent">linearly independent</h3>
+<p>
+Assume that $0 = \sum_{n=1}^k \beta_n \alpha_{j_n}$ with $j_1 &lt; j_2 ... &lt; j_n$.
+Then $0 = \mathrm{pr}_{j_n}(0) = \mathrm{pr}_{j_n}(\sum_{n=1}^j \beta_n \alpha_{j_n}) = \beta_n \alpha_{j_n}$.
+As $u_{j_{n}} \neq 0$, this shows that $\beta_n = 0$ and hence $0 = \sum_{n = 1}^{k-1} \beta_n \alpha_{j_n}$.
+Hence by induction, $\beta_1,...,\beta_n = 0$.
+</p>
+
+</div>
+</body>
+</html>

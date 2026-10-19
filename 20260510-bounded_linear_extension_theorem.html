@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>bounded linear extension theorem</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-e95e9978-e25f-444f-968f-a92212b4a4da"></span><h1 class="title">bounded linear extension theorem</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X$ be a <a href="20221005101046-normierter_vektorraum.html#ID-2ba5953b-83c1-4e4f-8a82-198c6bbbd76a">normed vector space</a>, $X_0 \subseteq X$ a linear <a href="20230211132940-unterraumtopologie.html#ID-e38ab938-b4e6-4094-98a1-4a8dec808b54">subspace</a> and $Y$ a  <a href="20221124132702-banachraum.html#ID-43ef125e-d9bb-454f-9427-4d3d8426893a">banach space</a>.
+Let $T: X_0 \rightarrow Y$ be a <a href="20260509-bounded_operator.html#ID-c9aa0020-0a75-4250-9116-0d18e171bb90">bounded operator</a> such that $X_0 \subseteq X$ is <a href="20221124232157-dichte_menge_topologie.html#ID-921fe319-4945-4303-a9a5-3723804e0737">dense</a>.
+</p>
+
+<p>
+Then there exists a unique bounded linear extension
+</p>
+
+<div class="math-block">\begin{align*}
+\tilde{T}: X \rightarrow Y
+\end{align*}</div>
+<p>
+with $\| \tilde{T} \| = \| T \|$.
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="uniqueness">uniqueness</h3>
+<p>
+follows from <a href="20230331172342-dense_map_in_a_hausdorff_space.html#ID-cf93c6db-3299-4e7b-b6d8-af224c40b3ca">restriction of a map to dense subspace in a Hausdorff space</a>
+</p>
+
+<h3 id="existence">existence</h3>
+<p>
+follows from the
+</p>
+<ul>
+<li><a href="20260510-completion_functor_of_normed_vector_spaces.html#ID-cc16e704-3d05-488c-839c-48b4db22dbf6">completion functor of normed vector spaces</a> </li>
+
+<li>from this adjunction: for an element $</li>
+
+<li>todo:</li>
+<ul>
+<li>linearity follows from uniqueness of the limit point </li>
+</ul></ul>
+<h3 id="operator-norm">operator norm</h3>
+<p>
+observe that
+</p>
+
+<div class="math-block">\begin{align*}
+\| T \| = \mathrm{sup}_{x \in X_0 \setminus \{0\}} \frac{\| T x \|}{\| x \|} = \mathrm{sup}_{x \in X_0 \setminus \{0\}} \frac{\| \tilde{T} x \|}{\| x \|} \geq \mathrm{sup}_{x \in X \setminus \{0\}} \frac{\| T x \|}{\| x \|} = \| \tilde{T} \|
+ \end{align*}</div>
+
+<p>
+So it remains to show $\| T \| \geq \| \tilde{T} \|$.
+Now let $\varepsilon &gt; 0$, then we it suffices to show that $\| T \| \geq \| \tilde{T} \| - \varepsilon$.
+By assumption, there exists an $x \in X$ with $\frac{\| \tilde{T} x \|}{\| x \|} &gt; \| \tilde{T} \| - \varepsilon$.
+Moreover, choose a <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">convergent</a> sequence $x_n \rightarrow x$ with $x_n \in X_0$.
+We may assume that $x \neq 0$ and $x_n \neq 0$ for <a href="20221013222501-fast_alle.html#ID-a3da14cb-05c1-4f9e-a68a-a693980f5ede">almost all</a> $n$.
+</p>
+
+<p>
+Then this follows as
+</p>
+
+<div class="math-block">\begin{align*}
+X_0 \rightarrow&amp; \mathbb{R} \\
+x \mapsto \frac{\| T(x) \|}{\| x \|} =  \frac{\| \tilde{T}(x) \|}{\| x \|}
+\end{align*}</div>
+<p>
+is <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a> (in particular <a href="20221208094811-folgenstetigkeit.html#ID-934a1a9a-3464-4876-babd-3ece8651719e">sequentially continuous</a>).
+</p>
+
+<p>
+So $\frac{\| T(x_n) \|}{\| x_n \|} \rightarrow \frac{\| \tilde{T}(x) \|}{\| x \|} &gt; \| \tilde{T} \| - \varepsilon$, so in particular $\| T \| \geq \| \tilde{T} \| - \varepsilon$.
+</p>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>upper bound of edges for a disconnected, bipartite graph</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-440c2493-31c4-4c8b-b1a5-9ea30d3b9c41"></span><h1 class="title">upper bound of edges for a disconnected, bipartite graph</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $G = (V,E)$ be a <a href="20250426-bipartit_graph.html#ID-a2f92440-01b7-42a5-9529-fad127a7e9ea">bipartite</a> <a href="20220904165445-graph.html#ID-2de260cf-41c4-4dec-9ae9-450c507fda60">graph</a> with $\vert V \vert = n$ and $\vert E \vert &gt; \mathrm{floor}(\frac{n-1}{2} \cdot \mathrm{ceil}(\frac{n-1}{2})$.
+Then $G$ is a <a href="20221024152649-zusammenhangender_graph.html#ID-5c0f8ef4-52f7-4762-a4dd-8772c7ea392c">connected graph</a>.
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="optimal">optimal</h3>
+<p>
+Consider
+</p>
+
+<div class="math-block">\begin{align*}
+K_{\mathrm{floor}(\frac{n-1}{2}), \mathrm{ceil}(\frac{n-1}{2})} \coprod K_1
+\end{align*}</div>
+<p>
+Then it has
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{floor}(\frac{n-1}{2} \cdot \mathrm{ceil}(\frac{n-1}{2}
+\end{align*}</div>
+<p>
+many edges
+</p>
+
+<h3 id="bound">bound</h3>
+<p>
+Let $G$ be a maximal, disconnected bipartite graph.
+Assume that $A \coprod B = V$ are disjoint with $A \times B \subseteq V$.
+Then consider the <a href="20230317161158-allgemeiner_schnitt.html#ID-d7547939-8d3f-48f8-b2fd-cfb5734ae78f">intersection</a> with the connected compenents, which forms a partition $A_1,...,A_l, B_1,...,B_l$.
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> we may assume that $l = 2$ as otherwise we could connect $A_{l-1}, A_l$ with $B_{l-1},B_{l}$ etc.
+Thus we get $K_{n_1,n_2} \coprod K_{m_1,m_2}$ with $n = n_1 + n_2 + m_1 + m_2$.
+</p>
+
+<p>
+Here $K_{n_1,n_2}$ contains $n_1 \cdot n_2$ many edges, hence
+</p>
+
+<div class="math-block">\begin{align*}
+\vert E_{K_{n_1,n_2} \coprod K_{m_1,m_2}} \vert = n_1 \cdot n_2 + m_1 \cdot m_2
+\end{align*}</div>
+<p>
+which is maximal for $m_1 = 1,m_2 = 0$ and $n_1 = \mathrm{ceil}(\frac{n-1}{2}), n_2 = \mathrm{floor}(\frac{n-1}{2})$
+</p>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>induzierte äußere Maß</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-f8fd5538-1f36-4076-9a5b-3973c863976e"></span><h1 class="title">induzierte äußere Maß</h1>
+
+<h2 id="definition-satz">Definition / Satz</h2>
+<p>
+Sei $(X, \mathcal{F})$ ein <a href="20241010-ring_of_sets.html#ID-96a10eeb-f89d-4001-a253-a040a7bbe64a">Mengenring</a> und $\mathcal{U}(-)$ das <a href="20241019-umgebungssystem_der_abzahlbaren_uberdeckungen.html#ID-3797a6e0-3711-43c5-9ecc-ebb38275429d">Umgebungssystem der abzählbaren Überdeckungen</a> .
+Sei ferner $\mu: \mathcal{F} \rightarrow [0,\infty]$ ein <a href="inhalt.html#ID-1a69a538-d4c2-4bfd-b723-404df4b12769">inhalt</a>.
+</p>
+
+<p>
+Dann ist das induzierte <a href="20241019-außeres_maß.html#ID-2e8fdbd4-fa6b-4db9-97f9-a495ac15e44a">äußeres Maß</a>  definiert als
+</p>
+
+<div class="math-block">\begin{align*}
+\mu^*: \mathcal{P}(X) \rightarrow&amp; [0,\infty] \\
+A \mapsto&amp; \mu^*(A) \coloneqq 
+    \begin{cases}
+     \mathrm{inf}((A_n) \in \mathcal{U}(A) &amp; \mbox{if } \mathcal{U}(A) \neq \emptyset \\
+    \infty &amp; \mbox{else } \\  
+    \end{cases}
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="ubereinstimmen-mit-mu">übereinstimmen mit $\mu$</h3>
+
+<h3 id="emptyset">$\emptyset$</h3>
+<p>
+folgt aus der Überdeckung $\emptyset$ und $\mu(\emptyset)$
+</p>
+
+<h3 id="monotonie">monotonie</h3>
+<p>
+für $A \subseteq B$ folgt $\mathcal{U}(A) \subseteq \mathcal{U}(B)$
+</p>
+
+<h3 id="sub-sigma-additivitat">sub-sigma additivität</h3>
+<p>
+Sei $A_n \subseteq \mathcal{P}(X)$ mit <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> $\mu^*(A_n) &lt; \infty$ für alle $n$
+Dann folgt $\mathcal{U}(A_n) \neq \emptyset$ und $\forall n \in \mathbb{N}, \varepsilon &gt; 0$ existiert $(B_k^(n))_{k \in \mathbb{N}} \in \mathcal{U}(A_n)$ so dass
+</p>
+
+<div class="math-block">\begin{align*}
+\sum_{k \in \mathbb{N}} \mu(\B_k^n) \leq \mu^*(A_n) + \frac{\varepsilon}{2^n}
+\end{align*}</div>
+<p>
+nach definition des infimum.
+</p>
+
+<p>
+Zudem ist $(B_{k}^n)_{(k,n) \in \mathbb{N}^2}$ eine <a href="20220903164044-abzahlbar.html#ID-96f3063e-a99a-4c33-93c2-5c9f99f15717">abzählbare</a> Menge mti $\bigcup_{k,n} B_{k}^n \supseteq \bigcup A_n$ d.h.
+</p>
+
+<div class="math-block">\begin{align*}
+(B_k^n) \in \mathcal{U}(\bigcup A_n)
+\end{align*}</div>
+
+<p>
+Dann folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\mu^*(\bigcup A_n) \leq&amp; \sum_{k,n} \mu(B_k^n) \\
+\leq&amp; \sum_{n \in \mathbb{N}} \mu^*(A_n) + \varepsilon \sum_{n\in \mathbb{N}} \frac{1}{2^n} \
+=&amp; \sum_{n \in \mathbb{N}} \mu_{n \in \mathbb{N}} \mu^*(A_n) + \varepsilon
+\end{align*}</div>
+<p>
+wobei die reihe absolut konvergiert (es gilt $\mu^*(-) \geq 0$) oder gegen unendlich divergiert (todo), d.h. umgeordnet werden darf.
+</p>
+
+<p>
+Da $\varepsilon$ beliebig war, folgt $\mu^*(\bigcup A_n) \leq \sum \mu^*(A_n)$
+</p>
+
+</div>
+</body>
+</html>

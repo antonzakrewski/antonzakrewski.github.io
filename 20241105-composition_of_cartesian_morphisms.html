@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>composition of cartesian morphisms</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-7f6278b6-a3a8-4a1b-9c99-b36ebb5538c7"></span><h1 class="title">composition of cartesian morphisms</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathcal{C}, \mathcal{D}$ be <a href="20240404-simplicial_set_as_infinity_category.html#ID-4635a6ee-1ad5-44cb-8e36-4a934f5ae4bf">infinity categories</a>, $p: \mathcal{E} \rightarrow \mathcal{C}$ be an <a href="20240327-inner_fibration.html#ID-1915e43c-9378-4583-b34c-5f4e084cb5a0">inner fibration</a>
+ASsume that $\sigma: \Delta^2 \rightarrow \mathcal{E}$ is a \(2\)-simplex in $\mathcal{E}$
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/63f0254851a24a78f58f.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+such that $\varphi, f$ are <a href="20241016-p_cartesian_morphism.html#ID-5c59bae9-66b7-4c64-be5a-505532f0d1b9">p-cartesian</a>
+</p>
+
+<p>
+Then so is $g \sim \varphi \circ f$
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Regard $f$ as $\Delta^{ \{0,1\}} \rightarrow \Delta^2$ and $g: \Delta^{ \{0,2\}} \rightarrow \Delta^2$.
+Both maps are <a href="20240327-left_anodyne_map.html#ID-5d6a9c9d-3b6b-4dbd-930b-b6eab541565f">left anodyne maps</a> (cf. <a href="20240608-left_anodyne_as_saturation_of_left_horn_inclusions.html#ID-24127b65-dc1f-45f1-a001-ec84e47666ae">left anodyne as saturation of left horn inclusions</a> )
+</p>
+
+<p>
+Then consider
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/93b29f949b584ccd3af7.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+and
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+\mathcal{E}_{/\sigma} \rar \dar &amp; \mathcal{E}_{/y} \times_{\mathcal{C}_{/p(y)} \mathcal{C}_{/p\sigma} \dar \\
+\mathcal{E}_{/f} \arrow[]{r}{\beta} &amp; \mathcal{E}_{/y} \times_{\mathcal{C}_{/p(y)}} \mathcal{C}_{/pf} \\
+\end{tikzcd}
+\end{displaymath}</pre></div>
+
+<p>
+Left anodyne maps induce the trivial fibrations (? + <a href="20241107-pullback_functor_preserves_lifting_properties.html#ID-bae74747-6d4e-4b57-9284-deef061c98c3">base change functor preserves lifting properties</a>), hence all vertical arrows are <a href="20240603-trivial_fibration.html#ID-e6f29863-7f0d-4ac3-aa0b-f3d104146c24">trivial fibrations</a> and <a href="20240703-joyal_equivalence_between_simplicial_sets.html#ID-0b735a57-8c6f-4e38-a681-e5cd3c5c2fad">joyal equivalence</a>s (cf. <a href="20240624-trivial_fibration_as_joyal_equivalence.html#ID-49b9babe-acf8-48cf-8d89-04dc1d90e36f">trivial fibration as joyal equivalence</a>)
+</p>
+
+<p>
+We want to show, that the lower horizontal maps are trivial fibrations.
+Both lower horizontal maps are isofibrations, hence by <a href="20240712-trivial_fibration_as_joyal_equivalence_and_isofibration.html#ID-3a43aa48-9c58-4603-bf02-8cc644757f96">trivial fibration as joyal equivalence and isofibration</a> it suffices to show that one map is a joyal equivalence <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> so is the other (cf. <a href="20240925-joyal_equivalence_satisfy_two_out_of_three.html#ID-fde72bb0-739e-4d6b-a8df-50848150002d">joyal equivalence satisfy two out of three</a>)
+</p>
+
+
+
+
+<div class="equation-container"><span class="equation"><img src="ltximg/49a24647f2be43087353.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+<div class="equation-container"><span class="equation"><img src="ltximg/674eeeb21edf9a302a0a.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+</div>
+</body>
+</html>

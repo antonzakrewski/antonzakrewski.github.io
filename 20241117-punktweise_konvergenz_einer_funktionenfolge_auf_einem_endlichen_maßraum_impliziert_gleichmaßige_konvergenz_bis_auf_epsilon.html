@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>punktweise konvergenz einer Funktionenfolge auf einem endlichen Maßraum impliziert gleichmäßige Konvergenz bis auf Epsilon</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-46a13712-7a87-482e-97c3-63ce7bed09bb"></span><h1 class="title">punktweise konvergenz einer Funktionenfolge auf einem endlichen Maßraum impliziert gleichmäßige Konvergenz bis auf Epsilon</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $(X, \mathcal{A}, \mu)$ ein <a href="20241104-endliches_maß.html#ID-407e2952-905a-4927-aa4a-34bc67dfb95f">endlicher</a> <a href="20241019-maßraum.html#ID-2135bec8-c3bb-4fca-a24a-21334f66d7ae">Maßraum</a>, $f_n: X \rightarrow \mathbb{R}$ eine <a href="20230110111536-funktionenfolge.html#ID-679d2805-ad6f-4a4e-bcbb-1fbed51e8745">Funktionenfolge</a> <a href="20230302132316-messbare_funktion.html#ID-12ee602d-64f5-44a3-9676-6425e9cec637">messbarer Funktionen</a> welche <a href="20230110111858-konvergenz_einer_funktionsfolge.html#ID-1865b844-cfea-426e-a811-f7f19bfebadb">punktweise Konvergieren</a>
+Dann existiert für $\varepsilon &gt; 0$ eine menge $X_{\varepsilon} \in \mathcal{A}$ mit $\mu(X_{\varepsilon}^c) &lt; \varepsilon$, so dass
+</p>
+
+<div class="math-block">\begin{align*}
+(f_n)
+\end{align*}</div>
+<p>
+auf $X_{\varepsilon}$ <a href="20230110113621-gleichmaßige_konvergenz_einer_funktionenfolge.html#ID-e895942f-e89f-4078-875a-79790b2e125b">gleichmäßig Konvergiert</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="hilfslemma">hilfslemma</h3>
+<p>
+Sei
+</p>
+
+<div class="math-block">\begin{align*}
+X_{k,l} \coloneqq \{x \in X : \vert f_n(x) - f(x) \vert &lt; \frac{1}{k} \forall n \geq l \}
+\end{align*}</div>
+
+<p>
+Dann gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{lim}_{l \rightarrow \infty} \mu(X_{k,l}) \rightarrow \mu(X)
+\end{align*}</div>
+<p>
+wegen (some) <a href="20241020-maß_und_von_oben_stetiger_inhalt.html#ID-90789e3c-8050-4af6-a6b6-9697903b3dee">stetigkeit</a> und
+</p>
+
+<div class="math-block">\begin{align*}
+X = \bigcup_{l \in \mathbb{N}} X_{k,l}
+\end{align*}</div>
+<p>
+da für $x \in X$ für hinreichend große $n$ gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\vert f_n(x) - f(x) \vert &lt; \frac{1}{k}
+\end{align*}</div>
+
+<p>
+Damit existiert insbesondere für beliebiges $\varepsilon &gt; 0$ auch ein $l_{\varepsilon}$ mit
+</p>
+
+<div class="math-block">\begin{align*}
+\mu(X_{k,l_{\varepsilon}})^{c} &lt; \varepsilon
+\end{align*}</div>
+<p>
+(cf. <a href="20241015-subtraktivitat_eines_inhalts.html#ID-e768ef1b-bfd6-49c6-bb98-6cf549671de6">Subtraktivität eines Inhalts</a>)
+</p>
+
+<h3 id="beweis">beweis</h3>
+
+<h4 id="konstruktiond">konstruktiond</h4>
+<p>
+Sei $\varepsilon &gt; 0$ beliebig.
+Wähle $X_{k,l_{\varepsilon}(k)}$ mit
+</p>
+
+<div class="math-block">\begin{align*}
+\mu(X_{k,l_{\varepsilon}(k)}^c) &lt; 2^{-k} \varepsilon
+\end{align*}</div>
+
+<p>
+und setze
+</p>
+
+<div class="math-block">\begin{align*}
+X_{\varepsilon} = \bigcap_{k \in \mathbb{N}} X_{k,l_{\varepsilon}}(k)
+\end{align*}</div>
+
+<p>
+Dann folgt wegen der <a href="20241015-super_sigma_additivitat_eines_inhalts.html#ID-46ba763c-9c4a-4607-ac16-fad27e4f0083">super-sigma additivität eines inhalts</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mu(X_{\varepsilon}^c) =&amp; \mu(\bigcup X_{k,l_{\varepsilon}(k)}^c) \\
+\leq&amp; \sum_{k \in \mathbb{N}} \mu(X_{k,l_{\varepsilon}(k)}^c) \\
+&lt;&amp; \sum_{k \in \mathbb{N}} 2^{-k} \varepsilon \\
+=&amp; \varepsilon
+\end{align*}</div>
+
+
+<h4 id="gleichmaige-konvergenz">gleichmäßige konvergenz</h4>
+<p>
+Sei $\varepsilon &gt; \frac{1}{k} &gt; 0$.
+Dann betrachte $l \coloneqq l_{\varepsilon}(k)$.
+Es gilt dann insbesondere, dass für $n \geq l$ und $x \in X_{k,l_{\varepsilon}(k)}$ auch $\vert f_n(x) - f(x) \vert &lt; \frac{1}{k} &lt; \varepsilon$ gilt.
+Insbesondere gilt $\vert f_n(x) - f(x) \vert &lt; \frac{1}{k}$ für $x \in X_{\varepsilon}$, da $X_{\varepsilon} \subseteq X_{k,l_{\varepsilon}(k)}$ gilt.
+</p>
+
+<p>
+Damit folgt $\mathrm{sup}_{x} \| f_n(x) - f(x) \| \leq \frac{1}{k} &lt; \varepsilon$ für $n &gt; l$ und da $\varepsilon &gt; 0$ beliebig war,  konvergiert somit $f_n$ gleichmäßig gegen $f$
+</p>
+
+</div>
+</body>
+</html>

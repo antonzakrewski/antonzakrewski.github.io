@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>closed connected oriented n-manifold and map to the n-sphere</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-e6a20803-cbb5-46d2-8676-aa76e6439ee7"></span><h1 class="title">closed connected oriented n-manifold and map to the n-sphere</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let \(M\) be a <a href="20240606-closed_topological_manifold.html#ID-e5619774-ee4d-40ce-ba8a-b98f23ddb7f2">closed</a> <a href="20230118223336-zusammenhangender_raum.html#ID-bcc53507-bc5a-46d4-bd83-53e504f62b9d">connected</a> \(n\)-dimensional <a href="20221113224914-mannigfaltigkeit.html#ID-635e5ff5-f006-46bf-891a-869ae972d6e6">manifold</a> and $\sigma_X \in H_n(X)$ an <a href="20240613-orientation_of_a_manifold.html#ID-015ad7ba-6538-407f-9593-139399f789f6">orientation</a>
+Then there exists a <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a> <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">map</a>
+</p>
+
+<div class="math-block">\begin{align*}
+f: X \rightarrow S^n
+\end{align*}</div>
+<p>
+such that
+</p>
+
+<div class="math-block">\begin{align*}
+f_*(\sigma_X}) \in H_n(S^n)
+\end{align*}</div>
+<p>
+is a generator of $H_n(S^n)$
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Pick a point $x \in X$ and let $U$ be a <a href="20230723-karte_mannigfaltigkeit.html#ID-ba69f262-31e8-4d80-b2b1-d9e270e32a08">chart</a>.
+Then using <a href="20240611-one_point_compactification_of_a_subspace_as_collapse.html#ID-eabc0b16-5803-4734-915c-5dcb6348da47">one point compactification of a subspace as collapse</a> we get for the <a href="20230604-kollaps_eines_topologischen_raums.html#ID-a6c84a23-6bfe-4089-b94e-bae9c0cf25a9">topological collapse</a>
+</p>
+
+<div class="math-block">\begin{align*}
+f: X \rightarrow X/(X \setminus U) \cong (U)^+ \cong (\mathbb{R}^n)^+ \cong S^n
+\end{align*}</div>
+
+<p>
+Then
+</p>
+
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+H_n(X) \arrow[]{r}{f_*} \arrow[]{d}{} &amp; H_n(S^n) \arrow[]{d}{} \arrow[]{d}{}\\
+H_n(X, X \setminus \{x\}) \arrow[swap]{r}{\cong}\arrow[]{r}{f_*}}&amp; H_n(S^n, S^n \setminus f(x)) \\
+H_n(U, U \setminus \{x\}) \arrow[]{r}{f_*}\arrow[swap]{r}{\cong}\arrow[]{u}{\cong} &amp; H_n(f[U], f[U] \setminus f(u)) \arrow[]{u}{\cong}\\
+\end{tikzcd}
+\end{displaymath}</pre></div>
+<p>
+where the bottom isomorphism follows as $f$ is a homeomorphism and the vertical are isomorphisms by <a href="20240128-relative_singular_homology_and_excision_theorem.html#ID-2aa73d86-0baf-4b30-b919-534fe82c5388">relative singular homology and excision theorem</a>
+</p>
+
+<p>
+note that
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+H_n(X) \arrow[]{r}{f_*} \arrow[dashed]{d}{} &amp; H_n(S^n) \arrow[]{d}{} \arrow[]{d}{}\\
+H_n(X, X \setminus \{x\}) \arrow[swap]{r}{\cong}\arrow[]{r}{f_*}}&amp; H_n(S^n, S^n \setminus f(x)) \\
+\end{tikzcd}
+\end{displaymath}</pre></div>
+<p>
+the dashed arrow maps by definition of an orientation a generator to a generator and the right vertical arrow is an isomorphism, as $S^n$ is a orientable, closed and connected (cf. ?)
+</p>
+
+
+<p>
+Hence a generator maps
+</p>
+
+</div>
+</body>
+</html>

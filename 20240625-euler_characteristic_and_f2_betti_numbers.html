@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>euler characteristic and betti numbers over an arbitrary field</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-d4700942-2508-4af2-970a-85d705c5edbd"></span><h1 class="title">euler characteristic and betti numbers over an arbitrary field</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X$ be a <a href="20240223-homologically_finite_topological_space.html#ID-b3b41cef-afdf-4070-ba0a-3fd50cd32fd2">homologically finite topological space</a>.
+Then the <a href="20240223-euler_characteristic.html#ID-a1fa5115-e292-441f-a5b9-ea6a4f7faf25">homological euler characteristic</a> can be computed by the \(K\)-<a href="20240625-betti_number_for_a_field.html#ID-34d44405-2720-4787-9f06-6ef93a1407aa">betti number</a> for a <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">field</a> $K$
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="prime-field">prime field</h3>
+
+<h4 id="mathbbq">$\mathbb{Q}$</h4>
+<p>
+then this follows from application of <a href="20240425-universal_coefficient_formula_for_singular_homology.html#ID-1d642f80-c398-4591-997d-98444ae4a1ac">universal coefficient theorem for singular homology</a> where the <a href="20230902-tor_functor.html#ID-b722ea72-1c6d-45c9-bf92-84164a0b360a">Tor</a> term vanishes (cf. <a href="20240416-tor_functor_for_a_flat_module.html#ID-1b9d3f7c-aa13-4d1a-ba0b-67963b45173b">tor functor for a flat module</a> &amp; <a href="20240604-rationals_as_flat_module.html#ID-e5f5e2a1-d192-4aad-84d2-8e23201a0ef3">rationals as flat module</a>)
+Hence
+</p>
+
+<div class="math-block">\begin{align*}
+H_n(-,\mathbb{Q}) \cong H_n(-, \mathbb{Z}) \otimes_{\mathbb{Z}} \mathbb{Q}
+\end{align*}</div>
+
+
+<h4 id="mathbbf-p">$\mathbb{F}_p$</h4>
+<p>
+Since $X$ is homologically finite, we conclude that $H_n(X)$ is a finitely generated abelian group.
+Thus using the <a href="20230608-hauptsatz_uber_endlich_erzeugte_abelsche_gruppen.html#ID-8f2257ff-4702-461a-891b-b51d8eece7d7">classification of finitely generated abelian groups</a> it suffices to show this for the cases
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{Z}
+\mathbb{Z}/q^k
+\end{align*}</div>
+<p>
+for a prime $q$.
+</p>
+
+<p>
+Then using the <a href="20240425-universal_coefficient_formula_for_singular_homology.html#ID-1d642f80-c398-4591-997d-98444ae4a1ac">universal coefficient theorem for singular homology</a> and
+</p>
+
+<div class="math-block">\begin{align*}
+H_n(X,\mathbb{F}_p) = H_n(X) \otimes \mathbb{F}_p \oplus \mathrm{Tor}_{\mathbb{Z}}^{n-1}(H_{n-1}(X,R);\mathbb{F}_p) 
+\end{align*}</div>
+
+<p>
+Then using additivity of $\mathrm{Tor}(-,\mathbb{F}_p)$ and the case distiction results in
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Tor}_{\mathbb{Z}}^{1}(\mathbb{Z}/q^k, \mathbb{F}_p) =&amp; 
+    \begin{cases}
+    0 &amp; \mbox{if } (p,q) \mathrm{ coprime} \\
+    \mathbb{F}_p  &amp; \mbox{if } p = q \\  
+    \end{cases}
+\end{align*}</div>
+
+<h3 id="arbitrary-field-k">arbitrary field $k$</h3>
+<p>
+Then $K$ is a module over its prime field $k$.
+In particular we may apply the universal coefficient theorem for $R = k$ and $M = K$.
+But by <a href="20240501-field_as_absolutely_flat_ring.html#ID-67d26020-7f4d-44b5-a93d-2c57d6f6125d">field as absolutely flat ring</a>, <a href="20240501-tor_for_an_absolutely_flat_ring.html#ID-ebd5f07a-9a2e-4d1e-baa6-11fd390daad6">tor for an absolutely flat ring</a> the tor term vanishes, i.e.
+</p>
+
+<div class="math-block">\begin{align*}
+H_n(X,K) \cong H_n(X,k) \otimes_{k} K
+\end{align*}</div>
+
+
+<p>
+Hence we get
+</p>
+
+
+</div>
+</body>
+</html>

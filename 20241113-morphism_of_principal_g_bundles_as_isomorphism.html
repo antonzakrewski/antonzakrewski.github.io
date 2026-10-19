@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>morphism of principal G-bundles as isomorphism</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-97860951-cbfe-4ece-8db4-a2216cb380fa"></span><h1 class="title">morphism of principal G-bundles as isomorphism</h1>
+
+<h2 id="lemma">Lemma</h2>
+<p>
+Let $p: E \rightarrow B, p' E' \rightarrow B$ be <a href="20241113-principal_g_bundle.html#ID-41366781-604c-4d30-ac8e-985b2fb48728">principal g-bundles</a> and $\varphi: E \rightarrow E'$ a <a href="20241113-morphism_of_principle_bundles.html#ID-2ce0c275-a17f-48b3-96b1-5edd015611a7">morphism of principal bundles</a>
+Then $\varphi$ is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="varphi-as-bijection">$\varphi$ as bijection</h3>
+
+<h4 id="surjective">surjective</h4>
+<p>
+Let $e' \in E'$.
+Then consider $p'(e') \in B$.
+As $p: E \rightarrow B$ is surjective (cf. <a href="20241113-principal_g_bundle_as_quotient_map.html#ID-fa0ad1bc-371b-491f-8b9e-795b80916c8e">principal g-bundle as quotient map</a>), we may choose an element $e \in E$ such that $p(e) = p'(e')$
+As $G$ acts transitively on fibres (cf. <a href="20241113-fiber_of_a_principal_g_bundle_as_g_torsor.html#ID-766daead-5894-4941-815b-50c6edabdce8">fiber of a principal g-bundle as g-torsor</a>), there exists an $g \in G$ such that
+</p>
+
+<div class="math-block">\begin{align*}
+ \varphi(e) g  = e'
+\end{align*}</div>
+<p>
+As $\varphi$ is \(G\)-equivariant, it follows that $e \cdot g$ suffices as preimage.
+</p>
+
+<h4 id="injective">injective</h4>
+<p>
+Assume that $e_0,e_1 \in E$ such that $\varphi(e_0) = \varphi(e_1)$.
+Then by commutativity of the diagram we conclude that
+</p>
+
+<div class="math-block">\begin{align*}
+p'(\varphi(e_0)) =&amp; p'(\varphi(e_1)) \\
+p(e_0) =&amp; p(e_1) 
+\end{align*}</div>
+
+<p>
+But it follows that $\varphi_{p^{-1}(b)}$ is \(G\)-equivariant between $p^{-1}(p(e_0)), p'^{-1}(p(e_0)) \cong G$
+Thus it is also injective, as for $g,g' \in G$ with $g \neq g'$ (under the identification of the fibres with $G$) it holds
+</p>
+
+<div class="math-block">\begin{align*}
+\varphi(g') = g' \cdot g^{-1} \cdot \varphi(g)
+\end{align*}</div>
+<p>
+where $g' \cdot g^{-1} \neq 1$
+</p>
+
+
+
+<h3 id="varphi-as-homeo">$\varphi$ as homeo</h3>
+<ul>
+<li><a href="20231208-glueing_lemma_for_open_maps.html#ID-aa7699ad-d90d-4ff4-a90e-3c18a65c7ed1">glueing lemma for an open map</a></li>
+</ul>
+<p>
+Pick a trivializing cover $U_i$ of $B$, such that $p,p'$ are trivial over $U_i$ (e.g. the intersection of a trivializing cover of $p$ with a trivializing cover of $p'$).
+Then
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/7b54c732eed9c2bb0027.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+where $\varphi_{\vert p^{-1}[U_i])$ is (sloppily) identified with $U_i \times G \rightarrow p^{-1}[U_i] \rightarrow p'^{-1}[U_i] \rightarrow U_i \times G$
+</p>
+
+<p>
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+\varphi_{\vert p^{-1}(U_i)}: U_i \times G \rightarrow U_i \times G
+\end{align*}</div>
+<p>
+corresponds to a non-equivariant map
+</p>
+
+<div class="math-block">\begin{align*}
+q: U_i \rightarrow G
+\end{align*}</div>
+<p>
+as $\varphi$ is compatible with the projection of $U_i$ and equivariant.
+</p>
+
+<p>
+Thus the map $\varphi_{\vert p^{-1}[U_i]}$ is given by
+</p>
+
+<div class="math-block">\begin{align*}
+(u,g) \mapsto (u,q(u)g)
+\end{align*}</div>
+
+<p>
+This map has an inverse given by $(u,h) \mapsto (u,q(u)^{-1}h)$ where by
+Thus it is locally open onto its image.
+But $p'^{-1}[U_i]$ is open in $B'$, hence it follows that it is also locally open with respect to $B'$
+</p>
+
+<p>
+Hence by <a href="20230330152507-stetige_fortsetzung_von_abbildungen_einer_offenen_uberdeckung.html#ID-abdabede-ed97-4e05-9b53-a6c3184614e6">glueing lemma for an open covering</a> it is an <a href="20230227190111-offene_abbildung_topologie.html#ID-b42a4b40-0d77-444c-8385-4bfbb0e44c52">open map</a>
+</p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>atiyah-hirzebruch spectral sequence for cohomology</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-9e72b507-b822-4424-94bd-75dab935a24c"></span><h1 class="title">atiyah-hirzebruch spectral sequence for cohomology</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $E$ be a <a href="20230914-spectrum_of_a_ring.html#ID-80de2982-9ef9-4a53-8c68-1e9612ff2447">spectrum</a>, $X$ an <a href="20240404-infinity_groupoid.html#ID-b516d6fd-fec1-4d8a-8efa-b2ad1f1bb283">anima</a>
+Then there exists a &lt;convergent&gt; <a href="20250826-spectral_sequence.html#ID-37b89bcc-af64-4182-9e25-2a7ac65f9ec4">spectral sequence</a>
+</p>
+
+<div class="math-block">\begin{align*}
+E_{i,j}^2 = H^{-i}(X, \pi_j(E)) \Rightarrow E^{-(i+j)}(X)
+\end{align*}</div>
+
+<p>
+analog:
+</p>
+
+<div class="math-block">\begin{align*}
+E_{i,j}^2 = H_i(X, \pi_j(E)) \Rightarrow E_{i+j}(X)
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+consider
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{map}_{\mathrm{Sp}}(\mathbb{S}[X], \tau_{\leq *} E) 
+\end{align*}</div>
+<p>
+with
+</p>
+<ol>
+<li>$\mathrm{lim} \simeq \mathrm{map}_{\mathbb{S}}(\mathbb{S}[X], E)$, since mapping anima preserves limits</li>
+
+<li>$\mathrm{colim} \simeq 0$: connectivity argument: homotopy groups vanish in more and more degrees</li>
+</ol>
+<p>
+use
+</p>
+
+<div class="math-block">\begin{align*}
+\pi_i \mathrm{map}_{\mathrm{Sp}}(\mathbb{S}[X], \tau_{\leq n} E) \simeq&amp; \pi_0 \mathrm{map}_{\mathrm{Sp}}(\mathbb{S}[X], \Omega^i \tau_{\leq n} E) \\
+\simeq&amp; \pi_0(\mathrm{map}_{\mathrm{Sp}}(\tau_{\leq n-i} \mathbb{S}[X], \Omega^i \tau_{\leq n} E) \\
+\end{align*}</div>
+<p>
+where the sphere spectrum vasnihes for $i &gt; n$.
+hence for $n \rightarrow - \infty$ we get $0$
+</p>
+
+<ul>
+<li>check R1Lim condition</li>
+</ul>
+<p>
+Now we get
+</p>
+
+<div class="math-block">\begin{align*}
+E_{i,j}^2 = \pi_{i+j} \mathrm{gr}^j(\mathrm{map}(\mathbb{S}[X], \tau_{\leq *} E)) \Rightarrow \pi_{i+j} \mathrm{map}(\mathbb{S}[X], E) = E^{-(i+j)}(X)
+\end{align*}</div>
+<p>
+and the LHS is given by
+</p>
+
+<div class="math-block">\begin{align*}
+\pi_{i+j} \mathrm{gr}^j(\mathrm{map}(\mathbb{S}[X], \tau_{\leq *} E)) \simeq&amp; \pi_{i+j} \mathrm{map}(\mathbb{S}[X], \mathrm{gr}^j(\tau_{\leq *} E)) \\
+\simeq&amp; \pi_{i+j}(\mathrm{map}(\mathbb{S}[X], \Sigma^j \pi_j(E)) \\
+\simeq&amp; \pi_i(\mathrm{map}(\mathbb{S}[X], \pi_j(E)) \\
+\simeq H^{-i}(X, \pi_j(E))
+\end{align*}</div>
+
+
+</div>
+</body>
+</html>

@@ -1,502 +1,252 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2025-01-07 Di 16:54 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>LinAlg 1 - Tut9</title>
+<title>LinAlg 1 - Tut 9 (24/25)</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">LinAlg 1 - Tut9</h1>
-<div id="outline-container-org05defb8" class="outline-2">
-<h2 id="org05defb8">Erinnerung</h2>
-<div class="outline-text-2" id="text-org05defb8">
-</div>
-<div id="outline-container-org59162e2" class="outline-3">
-<h3 id="org59162e2">disclaimer</h3>
-<div class="outline-text-3" id="text-org59162e2">
+<span id="ID-b0880e63-9fac-4e24-97cf-62d328434365"></span><h1 class="title">LinAlg 1 - Tut 9 (24/25)</h1>
+
+<h2 id="erinnerung">Erinnerung</h2>
+
+<h3 id="disclaimer">disclaimer</h3>
 <p>
-Diese Erinnerung dient primär als Hilfe für die Tutoriumsaufgaben.<br />
+Diese Erinnerung dient primär als Hilfe für die Tutoriumsaufgaben.
 </p>
 
 <p>
-Insbesondere ist diese weder vollständig (ich habe leider als Tutor auch keine genauen Informationen zu den Vorlesungsinhalten) noch i.A. korrekt (ich habe viele Zettel selber während des ersten Semesters geschrieben und selten gegengelesen, d.h. jedes Buch wird um Größenordnungen weniger Fehler beinhalten)<br />
+Insbesondere ist diese weder vollständig (ich habe leider als Tutor auch keine genauen Informationen zu den Vorlesungsinhalten) noch i.A. korrekt (ich habe viele Zettel selber während des ersten Semesters geschrieben und selten gegengelesen, d.h. jedes Buch wird um Größenordnungen weniger Fehler beinhalten)
 </p>
-</div>
-</div>
-<div id="outline-container-org67cb620" class="outline-3">
-<h3 id="org67cb620">Erinnerung</h3>
-<div class="outline-text-3" id="text-org67cb620">
-</div>
-<div id="outline-container-orgebbaf1c" class="outline-4">
-<h4 id="orgebbaf1c">Vorbereitung</h4>
-<div class="outline-text-4" id="text-orgebbaf1c">
-<ul class="org-ul">
-<li><a href="20241217-elementare_zeilenumformung.html#ID-5fc822d4-f777-4107-b3db-d427c4423d3a">Elementare Zeilenumformung</a> <br /></li>
-<li><a href="20241217-elementare_spaltenumformung.html#ID-e0ab619c-32ce-4fb1-a63b-0e36479ebcd4">Elementare Spaltenumformung</a>   <br /></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org6abdfe9" class="outline-4">
-<h4 id="org6abdfe9">LGS</h4>
-<div class="outline-text-4" id="text-org6abdfe9">
-<ul class="org-ul">
-<li><a href="20231129-einfacher_gauß_algorithmus.html#ID-da8871b2-95c4-4c4a-918a-69a0bf8985cd">einfacher gauß algorithmus</a> <br /></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orge2491c3" class="outline-4">
-<h4 id="orge2491c3">duale Basis</h4>
-<div class="outline-text-4" id="text-orge2491c3">
-<ul class="org-ul">
-<li><a href="20230210112736-heuristik_zur_bestimmung_der_dualen_basis_fur_eine_andere_basis.html#ID-02258ddd-d527-4b67-a0ff-5f2705d3346f">Heuristik zur Bestimmung der dualen Basis für eine andere Basis</a>   <br /></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org704a5c1" class="outline-4">
-<h4 id="org704a5c1">Matrizen Invertieren</h4>
-<div class="outline-text-4" id="text-org704a5c1">
-<ul class="org-ul">
-<li><a href="20230116210435-algorithmus_zur_ermittlung_der_inversen_matrix.html#ID-b0b03ccb-0ecb-4ade-a4d3-5058a3eacc24">Algorithmus zur Ermittlung der Inversen Matrix</a>   <br /></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgf7ac072" class="outline-4">
-<h4 id="orgf7ac072">Basiswechsel</h4>
-<div class="outline-text-4" id="text-orgf7ac072">
-<ul class="org-ul">
-<li><a href="20241217-basiswechselmatrix.html#ID-1866d32b-d5f8-4fe7-92f8-0e540e3d6489">Basiswechselmatrix</a>   <br /></li>
-<li><a href="20241217-basiswechselmatrix_berechnen.html#ID-28ef274a-0d83-458c-9ef7-61e2837f8ea9">Basiswechselmatrix berechnen</a>   <br /></li>
-</ul>
 
-<ul class="org-ul">
+<h3 id="erinnerung">Erinnerung</h3>
+
+<h4 id="vorbereitung">Vorbereitung</h4>
+<ul>
+<li><a href="20241217-elementare_zeilenumformung.html#ID-5fc822d4-f777-4107-b3db-d427c4423d3a">Elementare Zeilenumformung</a> </li>
+
+<li><a href="20241217-elementare_spaltenumformung.html#ID-e0ab619c-32ce-4fb1-a63b-0e36479ebcd4">Elementare Spaltenumformung</a>   </li>
+</ul>
+<h4 id="lgs">LGS</h4>
+<ul>
+<li><a href="20231129-einfacher_gauß_algorithmus.html#ID-da8871b2-95c4-4c4a-918a-69a0bf8985cd">einfacher gauß algorithmus</a> </li>
+</ul>
+<h4 id="duale-basis">duale Basis</h4>
+<ul>
+<li><a href="20230210112736-heuristik_zur_bestimmung_der_dualen_basis_fur_eine_andere_basis.html#ID-02258ddd-d527-4b67-a0ff-5f2705d3346f">Heuristik zur Bestimmung der dualen Basis für eine andere Basis</a>   </li>
+</ul>
+<h4 id="matrizen-invertieren">Matrizen Invertieren</h4>
+<ul>
+<li><a href="20230116210435-algorithmus_zur_ermittlung_der_inversen_matrix.html#ID-b0b03ccb-0ecb-4ade-a4d3-5058a3eacc24">Algorithmus zur Ermittlung der Inversen Matrix</a>   </li>
+</ul>
+<h4 id="basiswechsel">Basiswechsel</h4>
+<ul>
+<li><a href="20241217-basiswechselmatrix.html#ID-1866d32b-d5f8-4fe7-92f8-0e540e3d6489">Basiswechselmatrix</a>   </li>
+
+<li><a href="20241217-basiswechselmatrix_berechnen.html#ID-28ef274a-0d83-458c-9ef7-61e2837f8ea9">Basiswechselmatrix berechnen</a>   </li>
+
 <li></li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-org914df0c" class="outline-2">
-<h2 id="org914df0c">Aufgaben</h2>
-<div class="outline-text-2" id="text-org914df0c">
-</div>
-<div id="outline-container-org699de48" class="outline-3">
-<h3 id="org699de48">1)</h3>
-<div class="outline-text-3" id="text-org699de48">
+<h2 id="aufgaben">Aufgaben</h2>
+
+<h3 id="1">1)</h3>
 <p>
-Betrachte <img src="ltximg/linalg-1-tut9_ad90b9ce494aca682798eb73407baf55fb108586.svg" alt="linalg-1-tut9_ad90b9ce494aca682798eb73407baf55fb108586.svg" class="org-svg" /> als <img src="ltximg/linalg-1-tut9_03e5aa02be4954b6ed525e430282e882163a4414.svg" alt="linalg-1-tut9_03e5aa02be4954b6ed525e430282e882163a4414.svg" class="org-svg" />-Vektorraum.<br />
-Sei<br />
+Betrachte $\mathbb{R}^3$ als \(\mathbb{R}\)-Vektorraum.
+Sei
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/linalg-1-tut9_2225bf070843df2999e9b0c9ca028da40bb44ff1.svg" alt="linalg-1-tut9_2225bf070843df2999e9b0c9ca028da40bb44ff1.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/9037d6d1608c7cd66dc9.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-Finde die duale Basis dazu.<br />
-</p>
-</div>
-</div>
-<div id="outline-container-org39e4afc" class="outline-3">
-<h3 id="org39e4afc">2)</h3>
-<div class="outline-text-3" id="text-org39e4afc">
-<p>
-Löse<br />
-</p>
-</div>
-<div id="outline-container-org4f26f03" class="outline-4">
-<h4 id="org4f26f03">a)</h4>
-<div class="outline-text-4" id="text-org4f26f03">
-<p>
-Gauß für<br />
+Finde die duale Basis dazu.
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/linalg-1-tut9_b6e8796ec1a514f0464c40c2588408b1704bf106.svg" alt="linalg-1-tut9_b6e8796ec1a514f0464c40c2588408b1704bf106.svg" class="org-svg" />
-</span>
-</div>
+<h3 id="2">2)</h3>
 <p>
-mit<br />
+Löse
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/linalg-1-tut9_2e3475eab174d073ed537fa215774c49edb7693f.svg" alt="linalg-1-tut9_2e3475eab174d073ed537fa215774c49edb7693f.svg" class="org-svg" />
-</span>
-</div>
-</div>
-</div>
-<div id="outline-container-orgb8a759b" class="outline-4">
-<h4 id="orgb8a759b">b)</h4>
-<div class="outline-text-4" id="text-orgb8a759b">
-
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/linalg-1-tut9_ae661d977d74585078c4d5f9cbbc94279da93dc9.svg" alt="linalg-1-tut9_ae661d977d74585078c4d5f9cbbc94279da93dc9.svg" class="org-svg" />
-</span>
-</div>
+<h4 id="a">a)</h4>
 <p>
-über <img src="ltximg/linalg-1-tut9_e291f22d695040d20634814b02db70fef4532bd4.svg" alt="linalg-1-tut9_e291f22d695040d20634814b02db70fef4532bd4.svg" class="org-svg" /><br />
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgffd6527" class="outline-3">
-<h3 id="orgffd6527">3)</h3>
-<div class="outline-text-3" id="text-orgffd6527">
-<p>
-Invertiere folgende Matrix<br />
+Gauß für
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/linalg-1-tut9_c715d9c88c8777396897101770644c338b0e3dd8.svg" alt="linalg-1-tut9_c715d9c88c8777396897101770644c338b0e3dd8.svg" class="org-svg" />
-</span>
-</div>
-</div>
-</div>
-<div id="outline-container-orge0d3dbe" class="outline-3">
-<h3 id="orge0d3dbe">4)</h3>
-<div class="outline-text-3" id="text-orge0d3dbe">
-</div>
-<div id="outline-container-org81ef30a" class="outline-4">
-<h4 id="org81ef30a">a)</h4>
-<div class="outline-text-4" id="text-org81ef30a">
+<div class="equation-container"><span class="equation"><img src="ltximg/7dc8a092ded7f23efc4e.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-Sei <img src="ltximg/linalg-1-tut9_9e6fe1c392974b69c1fbd77f522c6ab70e344d34.svg" alt="linalg-1-tut9_9e6fe1c392974b69c1fbd77f522c6ab70e344d34.svg" class="org-svg" /> ein Vektorraumhomomorphismus, zeige<br />
+mit
 </p>
-<ol class="org-ol">
-<li>falls <img src="ltximg/linalg-1-tut9_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" alt="linalg-1-tut9_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" class="org-svg" /> injektiv ist, so existiert ein VR-Homomorphismus<br /></li>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/209bd2943584e0491469.svg" class="org-svg" alt="diagram" /></span></div>
+
+<h4 id="b">b)</h4>
+
+<div class="math-block">\begin{align*}
+x_1 + 5x_2 + 10 x_3 =&amp; 1 \\
+20 x_1 + 6 x_2 - 15x_3 =&amp; 1 \\
+30 x_1 - 10 x_2 + 6 x_3 =&amp; 1 \\
+\end{align*}</div>
+<p>
+über $\mathbb{Z}/5 \mathbb{Z}$
+</p>
+
+<h3 id="3">3)</h3>
+<p>
+Invertiere folgende Matrix
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/4e66c1b2d61e3e1e84ce.svg" class="org-svg" alt="diagram" /></span></div>
+
+<h3 id="4">4)</h3>
+
+<h4 id="a">a)</h4>
+<p>
+Sei $f: U \rightarrow V$ ein Vektorraumhomomorphismus, zeige
+</p>
+<ol>
+<li>falls $f$ injektiv ist, so existiert ein VR-Homomorphismus </li>
 </ol>
-
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/linalg-1-tut9_5ccad40090662b15a58d60ac2e2b5bbe64a6322c.svg" alt="linalg-1-tut9_5ccad40090662b15a58d60ac2e2b5bbe64a6322c.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+g: V \rightarrow U
+\end{align*}</div>
 <p>
-mit<br />
+mit
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/linalg-1-tut9_76c870c138a055918a95814bb3490831b90c0885.svg" alt="linalg-1-tut9_76c870c138a055918a95814bb3490831b90c0885.svg" class="org-svg" />
-</span>
-</div>
-<ol class="org-ol">
-<li>falls <img src="ltximg/linalg-1-tut9_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" alt="linalg-1-tut9_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" class="org-svg" /> surjektiv ist, so existiert ein VR-Homomorphismus<br /></li>
+<div class="math-block">\begin{align*}
+g \circ f = \mathrm{id}_U
+\end{align*}</div>
+<ol>
+<li>falls $f$ surjektiv ist, so existiert ein VR-Homomorphismus</li>
 </ol>
-
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/linalg-1-tut9_5ccad40090662b15a58d60ac2e2b5bbe64a6322c.svg" alt="linalg-1-tut9_5ccad40090662b15a58d60ac2e2b5bbe64a6322c.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+g: V \rightarrow U
+\end{align*}</div>
 <p>
-mit<br />
+mit
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/linalg-1-tut9_c7ffb024bfc881b64c5e6e0b63975948e5c4f471.svg" alt="linalg-1-tut9_c7ffb024bfc881b64c5e6e0b63975948e5c4f471.svg" class="org-svg" />
-</span>
-</div>
-</div>
-</div>
-<div id="outline-container-orgd302e1f" class="outline-4">
-<h4 id="orgd302e1f">b)</h4>
-<div class="outline-text-4" id="text-orgd302e1f">
+<div class="math-block">\begin{align*}
+f \circ g = \mathrm{id}_V
+\end{align*}</div>
+
+<h4 id="b">b)</h4>
 <p>
-Sei <img src="ltximg/linalg-1-tut9_9e6fe1c392974b69c1fbd77f522c6ab70e344d34.svg" alt="linalg-1-tut9_9e6fe1c392974b69c1fbd77f522c6ab70e344d34.svg" class="org-svg" /> ein Vektorraumhomomorphismus, <img src="ltximg/linalg-1-tut9_99f4cfa5af525ef14c0e8d3c2a6a99fdd85db5cd.svg" alt="linalg-1-tut9_99f4cfa5af525ef14c0e8d3c2a6a99fdd85db5cd.svg" class="org-svg" /> die induzierte Abbildung auf den Dualräumen.<br />
-Zeige<br />
+Sei $f: U \rightarrow V$ ein Vektorraumhomomorphismus, $f^*: V^* \rightarrow U^*$ die induzierte Abbildung auf den Dualräumen.
+Zeige
 </p>
-<ol class="org-ol">
-<li>falls <img src="ltximg/linalg-1-tut9_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" alt="linalg-1-tut9_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" class="org-svg" /> injektiv ist, so ist <img src="ltximg/linalg-1-tut9_99f4cfa5af525ef14c0e8d3c2a6a99fdd85db5cd.svg" alt="linalg-1-tut9_99f4cfa5af525ef14c0e8d3c2a6a99fdd85db5cd.svg" class="org-svg" /> surjektiv<br /></li>
-<li>falls <img src="ltximg/linalg-1-tut9_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" alt="linalg-1-tut9_ad6a03aaa8d3a8bd22f0e7659be6109d78aaf52a.svg" class="org-svg" /> surjektiv ist, so ist <img src="ltximg/linalg-1-tut9_86494f696f64c48694f31ba28feefa9e626d824a.svg" alt="linalg-1-tut9_86494f696f64c48694f31ba28feefa9e626d824a.svg" class="org-svg" /> injektiv.<br /></li>
+<ol>
+<li>falls $f$ injektiv ist, so ist $f^*: V^* \rightarrow U^*$ surjektiv</li>
+
+<li>falls $f$ surjektiv ist, so ist $f^*$ injektiv.</li>
 </ol>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-org6e0e6f8" class="outline-2">
-<h2 id="org6e0e6f8">Kommentare</h2>
-<div class="outline-text-2" id="text-org6e0e6f8">
-</div>
-<div id="outline-container-orgc431d9a" class="outline-3">
-<h3 id="orgc431d9a">Feedbackbögen</h3>
-<div class="outline-text-3" id="text-orgc431d9a">
+<h2 id="kommentare">Kommentare</h2>
+
+<h3 id="feedbackbogen">Feedbackbögen</h3>
 <p>
-Ich hatte ziemlich spontan die Möglichkeit, diese Feedbackzettel zu verteilen (Danka @Lilly).<br />
-Vielleicht wäre es besser, beim nächsten Mal euch das mit einer Woche Vorlauf anzukündigen, damit ihr euch konkrete Sachen als Feedback überlegen könnt.<br />
+Ich hatte ziemlich spontan die Möglichkeit, diese Feedbackzettel zu verteilen (Danka @Lilly).
+Vielleicht wäre es besser, beim nächsten Mal euch das mit einer Woche Vorlauf anzukündigen, damit ihr euch konkrete Sachen als Feedback überlegen könnt.
 </p>
-</div>
-</div>
-<div id="outline-container-org74e8d20" class="outline-3">
-<h3 id="org74e8d20">Mittwochstutorium</h3>
-<div class="outline-text-3" id="text-org74e8d20">
+
+<h3 id="mittwochstutorium">Mittwochstutorium</h3>
 <p>
-Die Erklärung für Basiswechseltransformationen war etwas schlecht geplant.<br />
+Die Erklärung für Basiswechseltransformationen war etwas schlecht geplant.
 </p>
 
 <p>
-Ich bin überrascht, wie wenige von euch den Gauß Algorithmus verwendet haben.<br />
+Ich bin überrascht, wie wenige von euch den Gauß Algorithmus verwendet haben.
 </p>
-</div>
-</div>
-<div id="outline-container-org19c7dd9" class="outline-3">
-<h3 id="org19c7dd9">Donnerstagstutorium</h3>
-<div class="outline-text-3" id="text-org19c7dd9">
+
+<h3 id="donnerstagstutorium">Donnerstagstutorium</h3>
 <p>
-Ich hatte dieses mal etwas weniger Zeit, weil ich mich mit Prof. Land treffen musste.<br />
-Da war ich wohl etwas abweisend und konnte keine Zeit für Fragen nehmen.<br />
-Dafür möchte ich am nächsten Donnerstag etwas mehr Zeit als sonst nehmen.<br />
+Ich hatte dieses mal etwas weniger Zeit, weil ich mich mit Prof. Land treffen musste.
+Da war ich wohl etwas abweisend und konnte keine Zeit für Fragen nehmen.
+Dafür möchte ich am nächsten Donnerstag etwas mehr Zeit als sonst nehmen.
 </p>
 
 <p>
-Ich denke es war sinnvoll, den Gauß Algorithmus recht früh vorzurechnen.<br />
+Ich denke es war sinnvoll, den Gauß Algorithmus recht früh vorzurechnen.
 </p>
 
 <p>
-Ich habe an einem Punkt gesagt, dass das Lösungssystem sogar ein Linearer Unterraum ist.<br />
-Das ist i.A. falsch. Die Menge der Lösungen ist nur ein affiner Unterraum (d.h. Linearer Unterraum, der um einen Vektor verschoben wurde).<br />
-Das ist aber aktuell nicht allzu wichtig, d.h. falls es euch nichts sagt/ihr euch nicht daran erinnern könnt, vergesst es (es war tatsächlich bei meiner LinAlg1 eine Klausuraufgabe)<br />
+Ich habe an einem Punkt gesagt, dass das Lösungssystem sogar ein Linearer Unterraum ist.
+Das ist i.A. falsch. Die Menge der Lösungen ist nur ein affiner Unterraum (d.h. Linearer Unterraum, der um einen Vektor verschoben wurde).
+Das ist aber aktuell nicht allzu wichtig, d.h. falls es euch nichts sagt/ihr euch nicht daran erinnern könnt, vergesst es (es war tatsächlich bei meiner LinAlg1 eine Klausuraufgabe)
 </p>
-</div>
-</div>
-<div id="outline-container-orgde4326c" class="outline-3">
-<h3 id="orgde4326c">Allgemein</h3>
-<div class="outline-text-3" id="text-orgde4326c">
+
+<h3 id="allgemein">Allgemein</h3>
 <p>
-Ich sollte mir für das nächste Jahr vornehmen, am Anfang zusätzlich zur Wiederholung den/die Algorithmen an der Tafel vorzurechnen.<br />
-Ich wollte recht viele Algorithmen erklären, da man diese sehr gut für eine LinAlg Klausur vorbereiten/üben kann und auch sehr wichtig sein werden.<br />
+Ich sollte mir für das nächste Jahr vornehmen, am Anfang zusätzlich zur Wiederholung den/die Algorithmen an der Tafel vorzurechnen.
+Ich wollte recht viele Algorithmen erklären, da man diese sehr gut für eine LinAlg Klausur vorbereiten/üben kann und auch sehr wichtig sein werden.
 </p>
 
 <p>
-Ich denke ich werde im nächsten Tutorien die Algorithmen in irgendeiner Form wiederholen.<br />
+Ich denke ich werde im nächsten Tutorien die Algorithmen in irgendeiner Form wiederholen.
 </p>
 
 <p>
-Wir/Ich mussten irgendwo einen Tod sterben:<br />
+Wir/Ich mussten irgendwo einen Tod sterben:
 </p>
-<ol class="org-ol">
-<li>eine unrealistische Probeklausur stellen (indem wir wenige Algorithmen stellen)<br /></li>
-<li>etwas im Stoff vorgreifen<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup> <br /></li>
-<li>viel Inhalt schnell in der "Wiederholung" erklären und zeitlich nur etwas einüben können (was ich gewählt habe)<br /></li>
+<ol>
+<li>eine unrealistische Probeklausur stellen (indem wir wenige Algorithmen stellen)</li>
+
+<li>etwas im Stoff vorgreifen<sup id="fnref:1"><a href="#fn:1">1</a></sup> </li>
+
+<li>viel Inhalt schnell in der "Wiederholung" erklären und zeitlich nur etwas einüben können (was ich gewählt habe) </li>
 </ol>
-
 <p>
-Da habe ich unterschätzt, wie schwierig das ist.<br />
+Da habe ich unterschätzt, wie schwierig das ist.
 </p>
-</div>
-</div>
-</div>
-<div id="footnotes">
-<h2 class="footnotes">Footnotes: </h2>
-<div id="text-footnotes">
-
-<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
-in meiner LinAlg bei Prof. Rosenschon wurden wir bis Weihnachten mit Kapitel 9 Gruppen 2 fertig.<br />
-</p></div></div>
 
 
-</div>
-</div></div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2025-01-07 Di 16:54</p>
+
+
+
+<div class="footnotes"><h2>Footnotes</h2><ol><li id="fn:1">in meiner LinAlg bei Prof. Rosenschon wurden wir bis Weihnachten mit Kapitel 9 Gruppen 2 fertig. <a href="#fnref:1">&#8617;</a></li></ol></div>
 </div>
 </body>
 </html>

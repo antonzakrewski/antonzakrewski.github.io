@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 19:19 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>CW complex as normal space</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,98 +52,82 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">CW complex as normal space</h1>
-<div id="outline-container-orgbcb6696" class="outline-2">
-<h2 id="orgbcb6696"><span class="section-number-2">1.</span> Proposition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-c606adbd-53d5-4086-bed2-d1f1f3ea6ec7"></span><h1 class="title">CW complex as normal space</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let \((X, \emptyset, \mathrm{SK}_n(X))\) be a <a href="20230504195105-cw_komplex.html#ID-ee726694-2276-434b-8043-b02bf828177b">CW-Complex</a>.
+Let $(X, \emptyset, \mathrm{SK}_n(X))$ be a <a href="20230504195105-cw_komplex.html#ID-ee726694-2276-434b-8043-b02bf828177b">CW-Complex</a>.
 </p>
 
 <p>
-Then \(X\) is a <a href="20230227205526-normaler_raum_topologie.html#ID-8dac9b3a-6b0d-479c-b4c8-e6a022e96e12">normal space</a> 
+Then $X$ is a <a href="20230227205526-normaler_raum_topologie.html#ID-8dac9b3a-6b0d-479c-b4c8-e6a022e96e12">normal space</a>
 </p>
-</div>
-</div>
-<div id="outline-container-orgd352c18" class="outline-2">
-<h2 id="orgd352c18"><span class="section-number-2">2.</span> Proof</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org06f99f2" class="outline-3">
-<h3 id="org06f99f2"><span class="section-number-3">2.1.</span> a)</h3>
-<div class="outline-text-3" id="text-2-1">
-<ul class="org-ul">
-<li><a href="20231121-cw_complex_as_paracompact_space.html#ID-2bd5e5b7-73e8-42aa-84af-64d286e6cccf">CW complex as paracompact space</a></li>
-<li><a href="20231121-cw_complex_as_hausdorff_space.html#ID-2a0bdff5-3171-4bac-b43b-a3c4150026ee">CW complex as hausdorff space</a></li>
-<li><a href="20230620-parakompakte_raume_als_normale_raume.html#ID-ca12849c-ea14-45dc-83c6-273f2d57f97a">Parakompakte Hausdorff-Raum als normaler Raum</a></li>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="a">a)</h3>
+<ul>
+<li><a href="20231121-cw_complex_as_paracompact_space.html#ID-2bd5e5b7-73e8-42aa-84af-64d286e6cccf">CW complex as paracompact space</a> </li>
+
+<li><a href="20231121-cw_complex_as_hausdorff_space.html#ID-2a0bdff5-3171-4bac-b43b-a3c4150026ee">CW complex as hausdorff space</a> </li>
+
+<li><a href="20230620-parakompakte_raume_als_normale_raume.html#ID-ca12849c-ea14-45dc-83c6-273f2d57f97a">Parakompakte Hausdorff-Raum als normaler Raum</a>   </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org927e377" class="outline-3">
-<h3 id="org927e377"><span class="section-number-3">2.2.</span> b)</h3>
-<div class="outline-text-3" id="text-2-2">
+<h3 id="b">b)</h3>
 <p>
-Let \(A,B \subseteq X\) be <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">closed</a>.
+Let $A,B \subseteq X$ be <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">closed</a>.
 </p>
 
 <p>
-using the unviersal property of the <a href="20230725-colimit.html#ID-581b1561-25d0-479a-b0cc-063c894e10be">colimit</a> we will inductively construct a <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a> <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">map</a> 
+using the unviersal property of the <a href="20230725-colimit.html#ID-581b1561-25d0-479a-b0cc-063c894e10be">colimit</a> we will inductively construct a <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a> <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">map</a>
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 f: X \rightarrow [0,1]
-\end{align*}
+\end{align*}</div>
 <p>
-such that \(f^{-1}[0] = A, f^{-1}[1] = B\)
+such that $f^{-1}[0] = A, f^{-1}[1] = B$
 </p>
 
 <p>
-Then \(f^{-1}[(\frac{2}{3}, 1]), f^{-1}[[0,\frac{1}{3})]\) suffice as <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> <a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">neighbourhoods</a> 
+Then $f^{-1}[(\frac{2}{3}, 1]), f^{-1}[[0,\frac{1}{3})]$ suffice as <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> <a href="20221002201955-umgebung_topologie.html#ID-9c77942e-5bf5-407a-b958-6f1c7651c1ec">neighbourhoods</a>
 </p>
 
 
 <p>
-Let \(A_n \coloneqq \mathrm{Sk}_n(X) \cap A, B_n \coloneqq \mathrm{Sk}_n(X) \cap B\).
+Let $A_n \coloneqq \mathrm{Sk}_n(X) \cap A, B_n \coloneqq \mathrm{Sk}_n(X) \cap B$.
 </p>
-</div>
-<div id="outline-container-org9841179" class="outline-4">
-<h4 id="org9841179"><span class="section-number-4">2.2.1.</span> induction basis</h4>
-<div class="outline-text-4" id="text-2-2-1">
+
+<h4 id="induction-basis">induction basis</h4>
 <p>
-Then it follows that \(\mathrm{Sk}_0(X) = I^{\Delta}\) is T4 (and discrete), hence there exists a continuous map
+Then it follows that $\mathrm{Sk}_0(X) = I^{\Delta}$ is T4 (and discrete), hence there exists a continuous map
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 f_{0}: \mathrm{Sk}_0(X) \rightarrow [0,1]
-\end{align*}
+\end{align*}</div>
 <p>
-with \(f_0^{-1}[0] = A_0, f^{-1}[1] = B_0\).
+with $f_0^{-1}[0] = A_0, f^{-1}[1] = B_0$.
 </p>
-</div>
-</div>
-<div id="outline-container-orgf8446dc" class="outline-4">
-<h4 id="orgf8446dc"><span class="section-number-4">2.2.2.</span> induction step</h4>
-<div class="outline-text-4" id="text-2-2-2">
+
+<h4 id="induction-step">induction step</h4>
 <p>
-Suppose there already exists a map \(f_{n}\).
-Then for each $n+1$-cell we may use that \(D^{n+1}\) is a <a href="20221002145259-metrischer_raum.html#ID-6b95a0b5-83e0-43cc-830f-05b416769fe1">metric space</a>, hence <a href="20230601220526-einfaches_urysohnsches_lemma_fur_metrische_raume.html#ID-b44f4c0a-cb42-4765-858c-61f0ae8adc31">einfaches Urysohnsches Lemma für metrische Räume</a> / <a href="20230309100938-urysohnsches_lemma.html#ID-289a9c8b-1a5b-493a-bd59-936e07abd336">Urysohnsches Lemma</a> applies.
+Suppose there already exists a map $f_{n}$.
+Then for each $n+1$-cell we may use that $D^{n+1}$ is a <a href="20221002145259-metrischer_raum.html#ID-6b95a0b5-83e0-43cc-830f-05b416769fe1">metric space</a>, hence <a href="20230601220526-einfaches_urysohnsches_lemma_fur_metrische_raume.html#ID-b44f4c0a-cb42-4765-858c-61f0ae8adc31">einfaches Urysohnsches Lemma für metrische Räume</a> / <a href="20230309100938-urysohnsches_lemma.html#ID-289a9c8b-1a5b-493a-bd59-936e07abd336">Urysohnsches Lemma</a> applies.
 </p>
 
 <p>
-Furthermore \(\iota^{-1}[A_n] \subseteq D^{n+1}\) is closed by <a href="20231103-closed_sets_in_a_quotient_topology.html#ID-0008703f-20e8-4d1a-8b23-75b33e3190c2">closed sets in a quotient topology</a> 
+Furthermore $\iota^{-1}[A_n] \subseteq D^{n+1}$ is closed by <a href="20231103-closed_sets_in_a_quotient_topology.html#ID-0008703f-20e8-4d1a-8b23-75b33e3190c2">closed sets in a quotient topology</a>
 </p>
 
 <p>
 Thus we may extend the map on each cell, compatible with the n-skeleton.
-This induces a map on the \(n+1\) skeleton
+This induces a map on the $n+1$ skeleton
 </p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 19:19</p>
+
+
+
+
 </div>
 </body>
 </html>

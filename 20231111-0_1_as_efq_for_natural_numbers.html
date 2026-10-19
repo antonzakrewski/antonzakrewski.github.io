@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 19:09 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>0 = 1 as EfQ for Natural Numbers</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,31 +52,30 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">0 = 1 as EfQ for Natural Numbers</h1>
-<div id="outline-container-org80f5728" class="outline-2">
-<h2 id="org80f5728"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-84ff1043-846c-4507-834a-8620e4779a40"></span><h1 class="title">0 = 1 as EfQ for Natural Numbers</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
 Es gilt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 0 \equiv S(0) \rightarrow \forall_{x,y} x \equiv y
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgee30e79" class="outline-2">
-<h2 id="orgee30e79"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
 <p>
 Sei
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 P (x) \coloneqq 0 \equiv x
-\end{align*}
+\end{align*}</div>
 <p>
-Dann gilt \(P(0) = 0 \equiv 0\) wegen 
+Dann gilt $P(0) = 0 \equiv 0$ wegen
 </p>
-\begin{prooftree}
+
+<div class="equation-container"><pre class="render-failed">\begin{prooftree}
 \infer1[ $\mathrm{Refl}$ ]{$0 \equiv 0$}
 \infer1[ $\mathrm{def.}$]{P(0)}
 
@@ -83,12 +89,13 @@ Dann gilt \(P(0) = 0 \equiv 0\) wegen
 
 \infer2[ $\mathrm{Ind} (*)$]{$\forall_x P(x)$}
 \infer1[ $\rightarrow^+$]{$0 \equiv S(0) \rightarrow \forall_x P(x)$}
-\end{prooftree}
+\end{prooftree}</pre></div>
 
 <p>
 Damit folgt auch
 </p>
-\begin{prooftree}
+
+<div class="equation-container"><pre class="render-failed">\begin{prooftree}
 \hypo{v:[ $\forall_x P(x)$]}
 \hypo{t}
 \infer1[ $\forall^-$]{P(t)}
@@ -102,12 +109,13 @@ Damit folgt auch
 \infer1[ $\forall^+ \mathrm{var cond.}$]{$\forall_x x \equiv u$}
 \infer1[ $\forall^+ \mathrm{var cond.}$]{$\forall_{x,y} x \equiv y$}
 \infer1[ $\rightarrow^+$ v]{ $\forall_x P(x) \rightarrow \forall_{x,y} x \equiv y$}
-\end{prooftree}
+\end{prooftree}</pre></div>
 
 <p>
 zusammengesetzt ergibt sich
 </p>
-\begin{prooftree}
+
+<div class="equation-container"><pre class="render-failed">\begin{prooftree}
 \hypo{w: $0 \equiv S(0)$}
 \ellipsis{N}{$\forall_x P(x)$}
 \hypo{u: $\forall_x P(x)$}
@@ -115,14 +123,9 @@ zusammengesetzt ergibt sich
 \infer1[ $\rightarrow^+$ u]{$ \forall_x P(x) \rightarrow \forall_{x,y} x \equiv y$
 \infer2[ $\rightarrow^-$]{ $\forall_{x,y} x \equiv y$}
 \infer1[ $\rightarrow^+$ w]{ $0 \equiv S(0) \rightarrow \forall_{x,y} x \equiv y$}
-\end{prooftree}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 19:09</p>
+\end{prooftree}</pre></div>
+
+
 </div>
 </body>
 </html>

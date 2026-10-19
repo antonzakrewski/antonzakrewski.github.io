@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:26 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Cardinality of a powerset for a finite set</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,84 +52,59 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Cardinality of a powerset for a finite set</h1>
-<div id="outline-container-orgc7fc5b7" class="outline-2">
-<h2 id="orgc7fc5b7"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
-<ul class="org-ul">
-<li>zu einer Menge mit der <a href="20211227215415-machtigkeit_menge.html#ID-a53ec5a2-0adb-4575-bf21-e3ac15eff75f">Mächtigkeit</a> \(n\):
-<ul class="org-ul">
-<li>bestehen \(2^n\) <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">Teilmengen</a></li>
-</ul></li>
+<span id="ID-e6725964-ebfe-4c77-8f89-f2b441f3336e"></span><h1 class="title">Cardinality of a powerset for a finite set</h1>
+
+<h2 id="satz">Satz</h2>
+<ul>
+<li>zu einer Menge mit der <a href="20211227215415-machtigkeit_menge.html#ID-a53ec5a2-0adb-4575-bf21-e3ac15eff75f">Mächtigkeit</a> $n$:</li>
+<ul>
+<li>bestehen $2^n$ <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">Teilmengen</a> </li>
+</ul></ul>
+<h2 id="beweisskizzen">Beweisskizzen</h2>
+
+<h3 id="id89b0e19a-c480-407f-8939-1074be74e04dbinomialkoeffizient"><a href="20211216205729-binomialkoeffizient.html#ID-89b0e19a-c480-407f-8939-1074be74e04d">Binomialkoeffizient</a></h3>
+<ul>
+<li><a href="20230112091211-summenformel_uber_einem_festen_n_des_binomialkoeffizienten.html#ID-62472f2a-7ece-4aef-984b-79c98d684369">Summenformel über einem festen oberen Wert des Binomialkoeffizienten</a> </li>
+
+<li><a href="20220104211627-kombinatorische_bedeutung_binomialkoeffizient.html#ID-f23c84a5-bacd-4339-b9c9-d41c20fb14a1">Kombinatorische Bedeutung: Binomialkoeffizient</a>   </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgad6637a" class="outline-2">
-<h2 id="orgad6637a"><span class="section-number-2">2.</span> Beweisskizzen</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org880cc7c" class="outline-3">
-<h3 id="org880cc7c"><span class="section-number-3">2.1.</span> <a href="20211216205729-binomialkoeffizient.html#ID-89b0e19a-c480-407f-8939-1074be74e04d">Binomialkoeffizient</a></h3>
-<div class="outline-text-3" id="text-2-1">
-<ul class="org-ul">
-<li><a href="20230112091211-summenformel_uber_einem_festen_n_des_binomialkoeffizienten.html#ID-62472f2a-7ece-4aef-984b-79c98d684369">Summenformel über einem festen oberen Wert des Binomialkoeffizienten</a></li>
-<li><a href="20220104211627-kombinatorische_bedeutung_binomialkoeffizient.html#ID-f23c84a5-bacd-4339-b9c9-d41c20fb14a1">Kombinatorische Bedeutung: Binomialkoeffizient</a></li>
+<h3 id="bitbetrachtung">Bitbetrachtung</h3>
+<ul>
+<li>nummerierung von <a href="20211226213342-element_mengenlehre.html#ID-2ae7720e-1f94-4213-bbd8-76f8cec5e927">elementen</a> </li>
+
+<li>neuer  <a href="20210217215228-vektor.html#ID-be50263b-d29c-41c5-9909-2f5e106dc49c">Vektor</a>: $(a_0a_1a_2a_{n-1})$; 1 steht für "enthalten", 0 für "nicht enthalten" $\Rightarrow$ $2^n$ mögliche zahlen mit jeweils aeindeutig verschiedenen zugehörigen mengen</li>
+
+<li>über <a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">bijektive</a> <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a> </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org0f88196" class="outline-3">
-<h3 id="org0f88196"><span class="section-number-3">2.2.</span> Bitbetrachtung</h3>
-<div class="outline-text-3" id="text-2-2">
-<ul class="org-ul">
-<li>nummerierung von <a href="20211226213342-element_mengenlehre.html#ID-2ae7720e-1f94-4213-bbd8-76f8cec5e927">elementen</a></li>
-<li>neuer  <a href="20210217215228-vektor.html#ID-be50263b-d29c-41c5-9909-2f5e106dc49c">Vektor</a>: \((a_0a_1a_2a_{n-1})\); 1 steht für "enthalten", 0 für "nicht enthalten" \(\Rightarrow\) \(2^n\) mögliche zahlen mit jeweils aeindeutig verschiedenen zugehörigen mengen</li>
-<li>über <a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">bijektive</a> <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgaaf8308" class="outline-3">
-<h3 id="orgaaf8308"><span class="section-number-3">2.3.</span> <a href="20210305204948-beweis_durch_vollstandige_induktion.html#ID-c79953c3-855e-432d-9321-047dd5decac8">Beweis durch vollständige Induktion</a></h3>
-<div class="outline-text-3" id="text-2-3">
-</div>
-<div id="outline-container-org81c9f19" class="outline-4">
-<h4 id="org81c9f19"><span class="section-number-4">2.3.1.</span> Induktionsanfang</h4>
-<div class="outline-text-4" id="text-2-3-1">
-\begin{align*}
-\vert P(\emptyset) \vert =& 1 = 2^0 \\
-\vert P(\{x_1\})\vert =& 2 = 2^1
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org1611222" class="outline-4">
-<h4 id="org1611222"><span class="section-number-4">2.3.2.</span> Induktionsschritt</h4>
-<div class="outline-text-4" id="text-2-3-2">
-<ul class="org-ul">
-<li>beim Hinzufügen des Elements \(x_n\) 2 <a href="20211230201833-partition_mengenlehre.html#ID-8c4522dc-7da5-40f7-9ba7-54cc0e1a60a9">Partitionen</a>  an <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">Teilmengen</a>:
-<ul class="org-ul">
-<li>\(Y  \coloneqq \{ y\setminus\{x_n\} \in P(X_{n-1}) : x_n \in y \}\) = neue Teilmengen mit \(x_n\) 
-<ul class="org-ul">
-<li><a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">bijektive</a> <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a> möglich: \(f(y)  \coloneqq y\setminus\{x_n\}\) \(\Rightarrow\) \(\vert Y\vert = \vert Z\vert\)
-<ul class="org-ul">
-<li><a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injektiv</a>, da \(x \in y\) \(\Rightarrow\) wenn 2 teilmengen \(y\) auf das gleiche \(y\setminus\{x_n\}\) abbilden würden, so sind die teilmengen gleich</li>
-<li><a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjektiv</a>, da zu jeder Teilmenge \(z \not\ni x_n\) eine dazugehörige Teilmenge \(y = z \cup \{x_n\}\) konstruiert werden kann</li>
-</ul></li>
-</ul></li>
-<li>\(Z  \coloneqq \{ z \in P(X_{n-1}) \}\) = neue Teilmengen ohne \(x_n\) \(\widehat{=} P(X_{n-1})\) \(\Rightarrow\) \(\vert Z \vert = 2^{n-1}\) (nach Induktionsanfang)</li>
-</ul></li>
-</ul>
-\begin{align*}
-P(X) =& Y \cup Z && \land Y \cap Z = \emptyset \\
-\Rightarrow \vert P(X) \vert =& \vert Y \vert + \vert Z \vert = 2^{n-1} + 2^{n-1} = 2^n
-\end{align*}
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:26</p>
+<h3 id="idc79953c3-855e-432d-9321-047dd5decac8beweis-durch-vollstandige-induktion"><a href="20210305204948-beweis_durch_vollstandige_induktion.html#ID-c79953c3-855e-432d-9321-047dd5decac8">Beweis durch vollständige Induktion</a></h3>
+
+<h4 id="induktionsanfang">Induktionsanfang</h4>
+
+<div class="math-block">\begin{align*}
+\vert P(\emptyset) \vert =&amp; 1 = 2^0 \\
+\vert P(\{x_1\})\vert =&amp; 2 = 2^1
+\end{align*}</div>
+
+<h4 id="induktionsschritt">Induktionsschritt</h4>
+<ul>
+<li>beim Hinzufügen des Elements $x_n$ 2 <a href="20211230201833-partition_mengenlehre.html#ID-8c4522dc-7da5-40f7-9ba7-54cc0e1a60a9">Partitionen</a>  an <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">Teilmengen</a>:</li>
+<ul>
+<li>$Y  \coloneqq \{ y\setminus\{x_n\} \in P(X_{n-1}) : x_n \in y \}$ = neue Teilmengen mit $x_n$ </li>
+<ul>
+<li><a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">bijektive</a> <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a> möglich: $f(y)  \coloneqq y\setminus\{x_n\}$ $\Rightarrow$ $\vert Y\vert = \vert Z\vert$</li>
+<ul>
+<li><a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injektiv</a>, da $x \in y$ $\Rightarrow$ wenn 2 teilmengen $y$ auf das gleiche $y\setminus\{x_n\}$ abbilden würden, so sind die teilmengen gleich</li>
+
+<li><a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjektiv</a>, da zu jeder Teilmenge $z \not\ni x_n$ eine dazugehörige Teilmenge $y = z \cup \{x_n\}$ konstruiert werden kann</li>
+</ul></ul>
+<li>$Z  \coloneqq \{ z \in P(X_{n-1}) \}$ = neue Teilmengen ohne $x_n$ $\widehat{=} P(X_{n-1})$ $\Rightarrow$ $\vert Z \vert = 2^{n-1}$ (nach Induktionsanfang)</li>
+</ul></ul>
+<div class="math-block">\begin{align*}
+P(X) =&amp; Y \cup Z &amp;&amp; \land Y \cap Z = \emptyset \\
+\Rightarrow \vert P(X) \vert =&amp; \vert Y \vert + \vert Z \vert = 2^{n-1} + 2^{n-1} = 2^n
+\end{align*}</div>
+
+
 </div>
 </body>
 </html>

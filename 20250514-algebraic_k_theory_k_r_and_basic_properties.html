@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>algebraic k-theory - K(R) and basic properties</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-61f17adb-22ee-44d6-b6ac-aec0d8cf0a08"></span><h1 class="title">algebraic k-theory - K(R) and basic properties</h1>
+
+<h2 id="aspects">Aspects</h2>
+
+<h3 id="stuff">stuff</h3>
+<ul>
+<li><a href="20250418-connective_spectrum.html#ID-ba8a38c1-ccc3-409f-ba81-b52b89d5a3b2">connective spectrum</a> / <a href="20250810-coconnective_spectrum.html#ID-6cfcd439-1592-4ffd-aeb2-08a18876fe08">coconnective spectrum</a> </li>
+
+<li><a href="20250128-homotopy_group_of_a_spectra.html#ID-2e0ad321-a2a2-4122-b620-9454acd8fca2">homotopy group of a spectra</a>  </li>
+
+<li><a href="20250128-category_of_spectra.html#ID-78346c8a-2ddf-4ac3-b528-1a7117278c24">category of Spectra</a>   </li>
+
+<li><a href="20250519-spectra_as_sequential_limit_of_cartesian_commutative_groups.html#ID-a43cc6b5-56a9-47b9-bf81-764bce0a290c">spectra as sequential limit of cartesian commutative groups</a> </li>
+
+<li><a href="20250519-recognition_principle.html#ID-a9670214-a63c-404c-b341-632867746560">recognition principle for connective spectra and commutative groups</a>   </li>
+
+<li><a href="20250519-infinite_loop_functor_out_of_spectra.html#ID-8a22d0fa-bcc4-4257-a1c5-9720b04dbce4">infinite loop functor out of spectra</a>  </li>
+
+<li><a href="20241028-brown_representability_theorem_for_stable_infinity_categories.html#ID-eaba57a7-1106-4df8-a9cd-feb3096ad3ed">brown representability theorem for stable infinity categories</a>   </li>
+
+<li><a href="20250319-ring_spectrum_objects.html#ID-6b0db0a8-fea6-4bd2-bef4-5741965ddc31">category of O-ring spectra</a>   </li>
+
+<li><a href="20250519-category_of_ring_spectra.html#ID-50b20873-e4f7-4444-bf64-b127ab49831a">category of ring spectra</a>   </li>
+</ul>
+<h4 id="05">0.5</h4>
+<ul>
+<li><a href="20250519-lax_symmetric_monoidal_functor_from_ab_to_spectra.html#ID-dc130817-1678-4637-8b03-c9dc9f333f08">lax symmetric monoidal functor from Ab to Spectra</a> </li>
+
+<li><a href="20250519-spectra_as_module_over_the_sphere_spectrum.html#ID-1883ce69-ee3e-41d0-86b7-d81a28eb6502">spectra as module over the sphere spectrum</a> </li>
+
+<li><a href="20250519-map_from_sphere_spectrum_to_integers.html#ID-7a135027-6279-46f0-a000-518614dd1aaf">map from sphere spectrum to integers</a>   </li>
+
+<li><a href="20250318-free_spectrum_functor.html#ID-472856a1-51f3-4c22-8720-154a3bd3aa67">free spectrum functor</a>   (?)</li>
+
+<li><a href="20250318-spectrafication_functor_as_symmetric_monoidal_functor.html#ID-36c7df71-b32c-4c20-b1aa-3b3acde6981d">free spectrum functor as symmetric monoidal functor</a>    </li>
+
+<li><a href="20250325-category_of_prespectrum_objects.html#ID-4f2cf501-7da1-4062-9d06-397af3115105">category of prespectrum objects</a>   </li>
+
+<li></li>
+
+<li><a href="20250519-sphere_prespectrum.html#ID-c38e14a3-9d26-414c-aa8b-ae873fef6309">sphere prespectrum</a>   </li>
+
+<li><a href="20250519-spectrification_from_prespectra.html#ID-07142a39-104f-4356-b9ea-d1cb4b1dd4a1">spectrification from prespectra</a>   </li>
+
+<li><a href="20250519-suspension_prespectrum.html#ID-97150a62-94d4-4ba2-85fc-e7ca74db2064">suspension prespectrum</a> </li>
+
+<li><a href="20250519-sphere_spectrum_not_in_the_heart.html#ID-8446f9c6-82cf-4bd8-a74a-47852d6792cf">sphere spectrum not in the heart</a>   </li>
+
+<li><a href="20250519-homotopy_group_of_the_sphere_spectrum_as_stable_homotopy_group.html#ID-5ec8863b-d214-43ee-89e0-89f08b8d22ed">homotopy group of the sphere spectrum as stable homotopy group</a>   </li>
+</ul>
+<ul>
+<li>&lt;K-theory spectrum&gt;   </li>
+
+<li>&lt;thom spectra&gt;</li>
+
+<li></li>
+</ul>
+<p>
+„how some more "actual" math“.
+</p>
+
+<h3 id="41">4.1</h3>
+<ul>
+<li><a href="20250519-resk_nerve.html#ID-263ca43f-beb4-43a8-a293-c0115ac9787e">Rezk nerve</a>   </li>
+
+<li><a href="infinity-simplicial-object.html#ID-b1a0f968-42e1-4aaf-a6b2-957cefd2943b">infinity simplicial object</a> </li>
+
+<li><a href="20250519-simplicial_anima.html#ID-90ae978e-9029-4558-8b37-5de88d7e53ee">simplicial anima</a> </li>
+
+<li><a href="20250519-rezk_nerve_adjunction.html#ID-314448d8-888b-4616-92ec-43baaeb714a6">Rezk nerve adjunction</a> - todo</li>
+
+<li><a href="20250520-associated_category_functor.html#ID-b180d1b0-79d0-47d0-a4cb-f48d26e3ae82">associated category functor</a>    </li>
+
+<li><a href="20250519-segal_mapping_anima.html#ID-25b544e1-0feb-4270-bb45-9c6a6fc61c08">segal mapping anima</a>   </li>
+
+<li><a href="20241027-segal_condition.html#ID-471e572b-9937-465f-af98-5512218a750c">segal condition</a>   </li>
+
+<li><a href="20250519-resk_nerve.html#ID-263ca43f-beb4-43a8-a293-c0115ac9787e">Resk nerve</a>  </li>
+
+<li><a href="20250519-rezk_nerve_adjunction.html#ID-314448d8-888b-4616-92ec-43baaeb714a6">Rezk nerve adjunction</a></li>
+
+<li><a href="20250519-complete_segal_space.html#ID-f21d1c09-69c9-44df-b7ab-3cf9c5d2be27">complete segal space</a> </li>
+
+<li><a href="20250520-core_of_a_segal_anima.html#ID-aebd29c1-956a-4d9f-9343-01c163520d8c">core of a segal anima</a>   </li>
+</ul>
+<h3 id="42">4.2</h3>
+<ul>
+<li><a href="20250520-complete_segal_anima_and_constant_simplicial_anima.html#ID-260fab31-c692-42ea-b5bf-0d9129672446">complete segal anima and constant simplicial anima</a> </li>
+
+<li><a href="20250520-complete_segal_anima_and_pullback_diagram.html#ID-2ca3798e-5c49-40ea-82b7-fc02942219aa">complete segal anima and pullback diagram</a>   </li>
+
+<li><a href="20250520-complete_segal_anima_and_equivalence_for_j.html#ID-6700908b-cf5e-4720-8f23-34fa633c451b">complete segal anima and equivalence for J</a>   </li>
+
+<li><a href="20250519-segal_anima.html#ID-22cf359e-03fe-483f-8f78-4ad1c0b5d6cc">segal anima</a> </li>
+</ul>
+<h3 id="43">4.3</h3>
+<ul>
+<li><a href="20250519-rezk_nerve_functor_as_fully_faithful_fu6ctor.html#ID-0a6687a7-1f19-4460-8660-023796bc9b4e">rezk nerve functor as fully faithful functor</a> </li>
+
+<li><a href="20250519-essential_image_of_the_rezk_nerve_functor.html#ID-bf744390-9bf1-4065-aad0-df761d4ca5f6">essential image of the rezk nerve functor</a> </li>
+</ul>
+<ul>
+<li><a href="20250521-geometric_realization_of_simplicial_anima.html#ID-66b1f940-4061-4353-866d-3f9c1cc68d4b">geometric realization of simplicial Anima</a>   </li>
+
+<li><a href="20250521-completion_functor_of_simplicial_anima.html#ID-895e31bf-39a4-42c5-826b-6d2df1a93b93">completion functor of simplicial Anima</a>  </li>
+</ul>
+<ul>
+<li><a href="20250521-category_of_segal_anima.html#ID-9356e941-80a2-41b6-8bfc-ee19de72f72c">category of segal anima</a>   </li>
+
+<li><a href="20250521-category_of_complete_segal_anima.html#ID-91de589b-0408-4cb9-9fe2-7f7b7a663b4b">category of complete segal Anima</a>   </li>
+</ul>
+<ul>
+<li><a href="20250521-category_of_simplicial_anima.html#ID-8b81f72a-8c3b-41f4-995d-a287a40b489b">category of simplicial Anima</a> </li>
+
+<li><a href="20250521-category_of_simplicial_anima_as_presentable_category.html#ID-3b677411-090b-48c9-86ee-7fdcfc041951">category of simplicial Anima as presentable category</a> </li>
+
+<li><a href="20250521-category_of_simplicial_anima.html#ID-8b81f72a-8c3b-41f4-995d-a287a40b489b">category of simplicial Anima</a>  </li>
+</ul>
+<h3 id="44">4.4</h3>
+<ul>
+<li><a href="20250521-segal_mapping_anima_and_associated_category.html#ID-d5dd1c38-eb86-4366-b88f-b12be0498845">segal mapping anima and associated category</a> </li>
+
+<li><a href="20250521-associated_category_of_a_segal_anima_and_core.html#ID-4a655d31-4607-4530-aeaf-5f34406aacd5">associated category of a segal anima and core</a></li>
+</ul>
+<h3 id="45">4.5</h3>
+<ul>
+<li><a href="20250310-category_cartesian_monoids.html#ID-3cb55fb4-8f79-4f36-9a0f-b79d44ce659f">category of cartesian monoids</a> </li>
+
+<li><a href="20250521-multiplication_of_cartesian_monoids.html#ID-323479c7-eac8-4cd4-ad43-c7af999aec9b">multiplication of cartesian monoids</a> </li>
+
+<li><a href="20250521-cartesian_monoids_in_set.html#ID-87b40ec8-b321-478e-b10e-c871ca488f49">cartesian monoids in Set</a> </li>
+
+<li><a href="20250521-anima_monoid_and_complete_segal_space.html#ID-1cac0bbc-c584-435f-8dfb-fb6c80377d4f">anima monoid and complete segal space</a>   </li>
+</ul>
+<h3 id="46">4.6</h3>
+<ul>
+<li>something</li>
+</ul>
+<h3 id="47">4.7</h3>
+<ul>
+<li><a href="20241027-category_fin.html#ID-9caf9fe4-3996-4e94-86be-5e88db2df7db">category Fin partial</a> </li>
+
+<li><a href="20250315-category_fin_partial_equivalent_to_fin.html#ID-a99ef9ef-6254-4637-bd1a-4c7f0b6a89a0">category Fin partial equivalent to Fin*</a>   </li>
+
+<li><a href="20250306-category_of_cartesian_commutative_monoids.html#ID-f5107022-ac3f-42e6-843a-34b0cabadb43">category of cartesian commutative monoids</a> </li>
+</ul>
+<h3 id="48">4.8</h3>
+<ul>
+<li><a href="20241028-cut_functor_on_delta_and_fin.html#ID-eaa87ee8-65f9-4c09-8fa0-82b402b57707">Cut functor on Delta and Fin</a> </li>
+
+<li><a href="20250307-forgetful_functor_from_cartesian_commutative_monoids.html#ID-e0d135d7-7bed-4645-82e4-3555c73f5a10">forgetful functor from cartesian commutative monoids</a>   </li>
+
+<li><a href="20250307-forgetful_functor_from_cartesian_commutative_groups.html#ID-c059290e-96cb-4983-b197-c75d7317af66">forgetful functor from cartesian commutative groups</a>   </li>
+
+<li><a href="20250521-smash_product_of_fin_star.html#ID-dcec723c-8a4f-4a7a-848b-622d18683a14">smash product of fin*</a> </li>
+</ul>
+<h3 id="49">4.9</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="410">4.10</h3>
+<ul>
+<li><a href="20250526-smash_product_of_sets.html#ID-ecb3b31c-c4ab-40a9-84ca-95dd5037f1ce">smash product of pointed sets</a> </li>
+
+<li><a href="20250521-smash_product_of_fin_star.html#ID-dcec723c-8a4f-4a7a-848b-622d18683a14">smash product of fin* as closed symmetric monoidal structure</a> </li>
+
+<li><a href="20250529-smash_product_of_segal_maps.html#ID-f722bd15-1288-4b34-a38d-7e4b870abaeb">smash product of segal maps</a>   </li>
+
+<li><a href="20250529-diagram_of_commutative_monoids_in_commutative_monoids.html#ID-fe4ceaa0-376d-4773-9030-bc7ea2989aa4">diagram of commutative monoids in commutative monoids</a>   </li>
+
+<li><a href="20250529-currying_of_commutative_monoids_in_commutative_monoids.html#ID-0e458028-16b8-4e77-83bd-aae58ccc38e9">currying of commutative monoids in commutative monoids</a>   </li>
+
+<li><a href="20250521-cartesian_commutative_monoids_in_the_category_of_cartesian_commutative_monoids.html#ID-e0854985-7a21-4592-8bf7-5b51a4ca907f">cartesian commutative monoids in the category of cartesian commutative monoids</a> </li>
+
+<li><a href="20250529-cartesian_commutative_monoid_as_monoid_in_the_category_of_cartesian_commutative_monoid.html#ID-22ca4ec7-3327-4294-8ab4-949065cd24d1">cartesian commutative monoid as monoid in the category of cartesian commutative monoid</a>   </li>
+
+<li><a href="20250529-forgetful_functor_from_commutative_monoids_lifts_to_monoids_of_commutative_monoids.html#ID-fa246ff0-274d-4fde-9b76-3fae7075b980">forgetful functor from commutative monoids lifts to monoids of commutative monoids</a> </li>
+</ul>
+<h3 id="411">4.11</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="412">4.12</h3>
+<ul>
+<li><a href="20250310-category_of_cartesian_groups.html#ID-3fe78484-8bae-4cb1-a5d9-6ed486d17a7e">category of cartesian groups</a> </li>
+
+<li><a href="20250306-category_of_cartesian_commutative_groups.html#ID-38a1c02d-d394-4e8c-8ad4-0fede558408e">category of cartesian commutative groups</a>   </li>
+
+<li><a href="20250319-infinite_commutative_group_completion_for_a_presentable_infinity_category.html#ID-e9fd8a78-e1c8-4d50-91e9-c746bcf3e477">infinite commutative group completion for a presentable infinity category</a>   </li>
+
+<li><a href="20250322-algebraic_k_theory_functor.html#ID-430e5963-b444-4f3c-aa3c-ddb77e712bc9">direct sum algebraic k-theory functor from infinity SymMonCat</a> </li>
+
+<li><a href="20250521-direct_sum_algebraic_k_theory_of_a_ring.html#ID-c3041271-3b78-4b4b-a43b-ba1e3524842f">direct sum algebraic k-theory of a ring</a>   </li>
+</ul>
+<h3 id="413">4.13</h3>
+<ul>
+<li><a href="20250521-higher_k_groups_of_a_ring.html#ID-6f91ea3d-7579-4d3e-94fa-23401edba520">higher k-groups of a ring</a> </li>
+
+<li></li>
+
+<li><a href="20250521-ko_as_group_completion.html#ID-0a10ec57-b746-4d26-a071-bf8eb5ee631d">ko as group completion</a> </li>
+
+<li><a href="20250521-ku_as_group_completion.html#ID-48a3063c-0b4b-4e9e-8cd2-997c682c04e9">ku as group completion</a>   </li>
+
+<li><a href="20250521-ksp_as_group_completion.html#ID-695f757e-b843-4a4c-9377-f8c6d4e57283">ksp as group completion</a>   </li>
+
+<li><a href="20250521-ktop.html#ID-32743e6d-b375-43b6-aa84-6595f6232e4c">ktop</a>   </li>
+
+<li><a href="20250521-euc.html#ID-d6c05b76-60df-4892-88d4-866692bd2c2c">Euc</a>   </li>
+
+<li><a href="20250521-sph.html#ID-96a268b7-0ba9-484b-8477-36960dcf5424">Sph_</a>   </li>
+
+<li><a href="20250521-picard_of_the_sphere_spectrum.html#ID-d0587ae7-68bc-4ab7-a287-a6303331928d">Picard of the sphere spectrum</a>   </li>
+
+<li><a href="20250521-j_homomorphism.html#ID-118eda18-3d52-408b-b59a-2f3c19218b8a">J-homomorphism</a>   </li>
+
+<li><a href="20250521-list_of_j_homomorphisms.html#ID-8e52e867-e040-4d9f-9694-0284eaa5c93c">list of J-homomorphisms</a>   </li>
+
+<li></li>
+</ul>
+<h3 id="414">4.14</h3>
+<ul>
+<li><a href="20250905-topologically_enriched_vect_k.html#ID-c8eda9dd-878e-40e4-bc99-05af73833c35">topologically enriched Vect_K</a> / <a href="20250905-infinity_category_vect_k_fin.html#ID-41fdb2d5-188c-4d97-877d-e5536ac675ce">infinity category Vect_K^fin</a> / <a href="20250905-symmetric_monoidal_structure_of_vect_k_fin.html#ID-e6f095a5-a95f-44a6-8bde-715cbd867dc5">symmetric monoidal structure of Vect_K^fin</a> </li>
+
+<li><a href="20250905-topologically_enriched_euc.html#ID-bed90b50-4914-44b0-ac48-f08e54ea5fd8">topologically enriched Euc</a>  / <a href="20250905-infinity_category_euc.html#ID-759be4f4-1343-484f-9b05-2fc775c5f0c8">infinity category Euc</a> / <a href="20250905-symmetric_monoidal_structure_of_euc.html#ID-f082eb0a-934f-4042-b175-063323c52271">symmetric monoidal structure of Euc</a> </li>
+
+<li><a href="20250521-sph.html#ID-96a268b7-0ba9-484b-8477-36960dcf5424">Sph</a> / <a href="20250905-join_monoidal_structure_of_sph.html#ID-f6490c38-d27e-4b3d-bd1e-c57f9f3b197a">join monoidal structure of Sph</a> </li>
+</ul>
+<ul>
+<li><a href="20250905-underlying_j_homomorphisms_of_topologically_enriched_categories.html#ID-42bc6fc1-e3e3-4bbc-a18c-392323a8ddbe">underlying j-homomorphisms of topologically enriched categories</a> / <a href="20250905-underlying_j_homomorphisms_of_commutative_monoids.html#ID-ee045d43-8921-48bc-803e-e6d1a3aec502">underlying j-homomorphisms of commutative cartesian monoids</a>    </li>
+
+<li><a href="20250521-ktop.html#ID-32743e6d-b375-43b6-aa84-6595f6232e4c">ktop</a> / <a href="20250810-ku_spectrum.html#ID-c842a718-4085-430d-bd46-1b0a8a1f55a2">little ku spectrum</a> / <a href="20250905-ko_spectrum.html#ID-e933e7bd-6e99-4361-85a1-ca96e1c02ab7">ko spectrum</a> / <a href="20250521-ksp_as_group_completion.html#ID-695f757e-b843-4a4c-9377-f8c6d4e57283">ksp spectrum</a></li>
+
+<li><a href="20250905-forgetful_functor_from_topologically_enriched_categories_to_kan_enriched_categories.html#ID-d4527b92-b706-4518-bf63-ac20a68866cc">forgetful functor from topologically enriched categories to kan enriched categories</a> </li>
+</ul>
+<ul>
+<li><a href="20250521-j_homomorphism.html#ID-118eda18-3d52-408b-b59a-2f3c19218b8a">J-homomorphisms of spectra</a> </li>
+</ul>
+<h3 id="415">4.15</h3>
+<ul>
+<li><a href="20250512-determinant_functor_from_proj_to_z_picard_as_symmetric_monoidal_functor.html#ID-3e220e28-2cc0-432f-92c9-03e17ad9d75c">determinant functor from Proj to Z-Picard as symmetric monoidal functor</a> </li>
+</ul>
+<h3 id="416">4.16</h3>
+<ul>
+<li><a href="20250521-delooping_of_anima_valued_groups.html#ID-809d1267-1bdc-4af9-b9b1-c218615d014f">delooping of anima valued groups</a>  </li>
+</ul>
+<ul>
+<li><a href="20250521-infinite_group_completion_of_a_set_valued_commutative_monoid.html#ID-100be00c-23f2-49e7-b047-925cfe949ba8">infinite group completion of a set valued commutative monoid</a></li>
+
+<li><a href="20250521-infinite_group_completion_of_a_set_valued_non_commutative_monoid.html#ID-8c7208f5-d24e-415b-bc60-03d9bd4df237">infinite group completion of a set valuednon-commutative monoid</a></li>
+</ul>
+<ul>
+<li><a href="20250521-group_completion_of_anima_valued_commutative_monoids_as_loop_space_of_the_geometric_realization.html#ID-3565b7f6-bfb0-4ce2-b84a-da842f059559">group completion of anima valued commutative monoids as loop space of the geometric realization</a></li>
+
+<li><a href="20250521-group_completion_of_anima_valued_monoids.html#ID-163bf033-8015-4e5f-9dfc-b93b135284be">group completion of anima valued monoids as loop space of the geometric realization</a></li>
+</ul>
+<ul>
+<li><a href="20250521-delooping_of_anima_valued_monoids.html#ID-02b548a7-e666-48b2-b8cc-5c1a89e9aec2">delooping of anima valued monoids</a> </li>
+
+<li><a href="20250521-anima_valued_groups_and_connected_pointed_anima.html#ID-f1edabe9-870c-4106-be0a-ab1d044fe694">recognition principle for anima valued groups and connected pointed animas</a> </li>
+</ul>
+<h3 id="417">4.17</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="418">4.18</h3>
+<ul>
+<li>denote $\mathrm{Bar}(M)$ as functor, $M$ as underlying monoid</li>
+
+<li><a href="20250521-category_of_segal_anima.html#ID-9356e941-80a2-41b6-8bfc-ee19de72f72c">category of segal anima</a>   </li>
+
+<li><a href="20250521-completion_functor_of_simplicial_anima.html#ID-895e31bf-39a4-42c5-826b-6d2df1a93b93">completion functor of simplicial Anima</a>   </li>
+
+<li><a href="20250526-associated_category_of_a_monoid_as_segal_anima_as_bm.html#ID-f65b9acb-1d93-4b66-aa35-9ed94c4c32ee">associated category of a monoid as segal anima as BM</a>   </li>
+
+<li><a href="20250526-segal_mapping_anima_of_a_monoid.html#ID-1f74413d-ee49-4a33-aa82-6c3535048adc">segal mapping anima of a monoid</a>   </li>
+
+<li><a href="20250526-pointed_segal_anima.html#ID-e63ee2bb-f9e0-457d-8eb3-ab3f410c5137">pointed segal Anima</a>   </li>
+
+<li><a href="20250526-reduced_segal_anima_as_pointed_segal_anima.html#ID-892576a2-4c50-458c-8032-fdfdf7647018">reduced segal anima as pointed segal anima</a>   </li>
+
+<li><a href="20250526-rezk_and_geometric_realizatino.html#ID-43fe5573-a6bc-45ed-9595-7b25a806b315">rezk and geometric realization</a> </li>
+</ul>
+<h3 id="419">4.19</h3>
+<ul>
+<li></li>
+</ul>
+<p>
+Let $M \in $ be an <a href="20250526-anima_valued_commutative_monoid.html#ID-c5ae9751-fd90-45b6-b783-83da5f37d660">anima valued commutative monoid</a>.
+Then
+</p>
+<ul>
+<li><a href="20250526-anima_valued_commutative_monoid_as_kan_extension.html#ID-91a6a22d-d3cd-4912-82ad-eec499d13657">anima valued commutative monoid as kan extension of Delta leq 1 inj</a>   (?)</li>
+
+<li><a href="20250526-anima_valued_commutative_monoid_as_kan_extension_its_semisimplicial_object.html#ID-531015b2-afd2-4f8b-8426-44fc67c3796a">anima valued commutative monoid as kan extension its semisimplicial object</a>   </li>
+
+<li><a href="20250310-bar_construction.html#ID-3e9c61c8-9acf-44cf-ae1d-76f07ca2405e">bar construction on Anima</a> </li>
+
+<li><a href="20250310-bar_construction.html#ID-3e9c61c8-9acf-44cf-ae1d-76f07ca2405e">bar construction on Anima ?</a>   </li>
+
+<li></li>
+
+<li><a href="20250526-decalage_of_a_monoid.html#ID-c3278c60-03b0-405d-a19a-96a889b3febd">decalage of a commutative monoid</a> </li>
+
+<li><a href="20250526-addition_endofunctor_of_the_simplex_category.html#ID-1c13e137-1c7c-4f64-9453-a20c7644ab5c">addition endofunctor of the simplex category</a> </li>
+
+<li><a href="20250526-decalage_map_to.html#ID-69e6b6cd-19ac-46b4-9ab4-7799ec4bb628">decalage map to the original object</a>   </li>
+
+<li><a href="20250526-pullback_diagram_of_decalage_and_a_segal_object.html#ID-339c426a-3a84-4e76-908a-4a2886d40d76">pullback diagram of decalage and a segal object</a>   </li>
+
+<li><a href="20250526-decalage_fiber_sequence.html#ID-44d1388c-72e4-4acd-8e3d-367d419970fb">decalage fiber sequence</a>   </li>
+
+<li><a href="20250526-decalage_fiber_sequence_of_a_commutative_monoid.html#ID-a5a4d332-80e7-470e-86cc-13dd7f5df667">decalage fiber sequence of a commutative monoid</a> </li>
+
+<li><a href="20250526-decalage_fiber_sequence_of_a_monoid.html#ID-08d9605e-2e11-4384-a47e-b7ff5b6ff20e">decalage fiber sequence of a monoid_</a>  </li>
+
+<li><a href="20250526-geometric_realization_of_a_decalage.html#ID-5dfabe47-0c45-4332-a6bb-2d107258f1fa">geometric realization of a decalage</a>  </li>
+
+<li></li>
+</ul>
+<h3 id="420">4.20</h3>
+<ul>
+<li><a href="20250526-pi_0_of_the_k_theory_spectrum.html#ID-51f3ca29-48c8-45d4-b3e7-3c9d72d34a7e">pi_0 of the k-theory spectrum</a> </li>
+
+<li><a href="20250526-anti_equivalence_of_catl_and_catr.html#ID-ef1e9393-6bc1-4cd1-abc8-8c282d1c2212">anti-equivalence of CatL and CatR</a> </li>
+</ul>
+<h2 id="42">4.2</h2>
+<ul>
+<li><a href="20250526-pi_1_of_the_k_theory_spectrum_as_k1.html#ID-9eddbe94-08a3-4b11-9a49-2310614a67c0">pi_1 of the k-theory spectrum as K1</a> </li>
+
+<li><a href="20250526-pi_2_of_the_k_theory_spectrum_as_k2.html#ID-92cf565f-cdca-46c4-9054-4a0f8b7e34a9">pi_2 of the K-theory spectrum as K2</a>   </li>
+</ul>
+<h3 id="421">4.21</h3>
+<ul>
+<li></li>
+
+<li></li>
+</ul>
+<h3 id="422">4.22</h3>
+<ul>
+<li></li>
+
+<li><a href="20250526-group_completion_theorem.html#ID-c21bb46e-17b9-44fc-9fa8-e03c7760685b">group completion theorem</a> </li>
+
+<li><a href="20250526-group_completion_theorem_for_the_colimit.html#ID-b1091890-c116-424b-b75c-5178af8f6939">group completion theorem for the colimit</a>   </li>
+</ul>
+<h3 id="423">4.23</h3>
+<ul>
+<li><a href="20250824-homotopy_groups_of_the_group_completion.html#ID-b598985b-5981-4cff-b1b3-d6f6e1d4236f">homotopy groups of the group completion</a> </li>
+</ul>
+<h3 id="424">4.24</h3>
+
+<ul>
+<li><a href="20250419-spherical_group_ring_fuctor.html#ID-65b445d7-6552-4e7c-a3f3-65cced100195">spherical group ring functor</a> </li>
+
+<li><a href="20250521-infinite_group_completion_of_a_set_valued_commutative_monoid.html#ID-100be00c-23f2-49e7-b047-925cfe949ba8">infinite group completion of a set valued commutative monoid as set valued</a> </li>
+</ul>
+<h3 id="425">4.25</h3>
+<ul>
+<li><a href="20250601-m_infinity_in_general_not_the_group_completion.html#ID-baac04b6-8aec-4f60-8c91-cb03a2522f8b">M infinity in general not the group completion</a> </li>
+</ul>
+<h3 id="426">4.26</h3>
+<ul>
+<li>???</li>
+</ul>
+<h3 id="427">4.27</h3>
+<ul>
+<li><a href="20250526-pi_1_of_the_k_theory_spectrum_as_k1.html#ID-9eddbe94-08a3-4b11-9a49-2310614a67c0">pi_1 of the k-theory spectrum as K1</a> </li>
+</ul>
+<h3 id="428">4.28</h3>
+<ul>
+<li><a href="20250601-m_infinity_of_proj_r_not_an_equivalence.html#ID-7d2eb927-4320-4337-80b5-b5490ec9f06d">M infinity of Proj(R) not equivalent to group completion</a> </li>
+</ul>
+<p>
+Let $M = \mathrm{Proj}(R)$
+</p>
+<ul>
+<li><a href="20250528-m_infinity_of_proj_r.html#ID-b64ad929-f817-41e2-af99-674481fef03e">M infinity of Proj(R)</a></li>
+
+<li><a href="20250528-general_linear_group_never_abelian.html#ID-0ea43521-a3bf-4bcb-8876-705f26578f7d">general linear group never abelian</a> </li>
+</ul>
+<h3 id="429">4.29</h3>
+<ul>
+<li><a href="20250528-critereon_for_m_infinity_to_localization_as_equivalenc.html#ID-c6cda7c4-bacf-418e-9104-c517ed9ece7a">critereon for M infinity to localization as equivalence</a> </li>
+</ul>
+<h3 id="430">4.30</h3>
+<ul>
+<li><a href="20250602-quillen_plus_construction.html#ID-b3e16f9e-c80e-493e-89c1-cf0a8eb3d7cd">quillen plus construction</a> </li>
+</ul>
+<h3 id="431">4.31</h3>
+<ul>
+<li><a href="20250425-acyclic_map_between_spaces.html#ID-f4e36710-8925-4856-9968-b0ca0484121b">acyclic map between spaces</a> </li>
+
+<li><a href="20250425-acyclic_space.html#ID-c16c914a-c7ff-494a-bc99-e09fc9af2dd8">acyclic space</a>   </li>
+</ul>
+<ul>
+<li><a href="20250602-acyclic_map_and_local_coefficients.html#ID-f1d46f80-5c75-4862-b91b-3d03153d6128">acyclic map and local coefficients</a> </li>
+
+<li><a href="20250602-acyclic_map_and_universal_cover.html#ID-1c770b2d-5f26-4002-b97f-ccc41e042b08">acyclic map and universal cover</a>   </li>
+
+<li></li>
+</ul>
+<h3 id="432">4.32</h3>
+<ul>
+<li><a href="20250602-hypoabelianization_adjunction.html#ID-cd673c90-5b66-4925-8ca8-15bb062514a4">hypoabelianization adjunction</a>   </li>
+
+<li><a href="20250602-category_of_hypoabelian_anima.html#ID-0ac95d14-fbba-4296-acc6-7d87371132b0">category of hypoabelian anima</a>   </li>
+</ul>
+
+<h3 id="433">4.33</h3>
+<ul>
+<li></li>
+<ul>
+<li><a href="20250603-quillen_plus_construction_as_map_of_m_modules.html#ID-88553a4d-5c4b-4606-8b33-2a251ca80bd4">quillen plus construction as map of M-modules</a></li>
+</ul></ul>
+<h3 id="434">4.34</h3>
+<ul>
+<li><a href="20250604-baratt_priddy_quillen_theorem.html#ID-d744d895-daa4-4793-8a1b-91dc865d05d4">Baratt-Priddy Quillen Theorem</a> </li>
+
+<li><a href="20250604-k_theory_spectrum_as_product_of_k_0_and_quillen_plus_of_bgl_r.html#ID-ce6a3bf7-c0f5-4fd5-9bec-510122ad481f">K Theory Spectrum as product of K_0 and quillen plus of BGL(R)</a>   </li>
+</ul>
+<h3 id="435">4.35</h3>
+<ul>
+<li><a href="20250528-fundamental_group_of_a_group_as_abelian_group.html#ID-6b99fe47-ab3e-4ab4-9132-a2b6d0a12ab5">fundamental group of a group as abelian group</a> </li>
+</ul>
+<h3 id="436">4.36</h3>
+<ul>
+<li><a href="20250604-baratt_priddy_quillen_theorem.html#ID-d744d895-daa4-4793-8a1b-91dc865d05d4">Baratt-Priddy Quillen Theorem</a> </li>
+</ul>
+
+<h3 id="437">4.37</h3>
+
+<h3 id="438">4.38</h3>
+<ul>
+<li><a href="20250604-acyclic_map_and_isomorphism_on_pi_1_as_weak_equivalence.html#ID-d5aba40b-6e89-4579-a33f-8e595610dbc0">acyclic map and isomorphism on pi_1 as weak equivalence</a> </li>
+
+<li><a href="20250604-acyclic_map_as_surjection_on_pi_1_with_perfect_kernel.html#ID-7a6ae324-94fa-4750-8902-71544f9e6df9">acyclic map as surjection on pi_1 with perfect kernel</a>   </li>
+</ul>
+
+<h3 id="439">4.39</h3>
+<ul>
+<li><a href="20250604-hypoabelianization_preserves_fiber_sequence_with_hypoabelian_base_anima.html#ID-7b8772f7-4ae8-4e5c-9fb4-79ac5353c04a">hypoabelianization preserves fiber sequence with hypoabelian base anima</a> </li>
+</ul>
+<h3 id="440">4.40</h3>
+<ul>
+<li></li>
+</ul>
+<ul>
+<li><a href="20250526-pi_2_of_the_k_theory_spectrum_as_k2.html#ID-92cf565f-cdca-46c4-9054-4a0f8b7e34a9">pi_2 of the K-theory spectrum as K2</a> </li>
+
+<li></li>
+</ul>
+<h3 id="441">4.41</h3>
+
+<h3 id="442">4.42</h3>
+
+<h2 id="43">4.3</h2>
+<ul>
+<li><a href="20250424-milnor_patching.html#ID-e6a009e1-e306-43da-a266-5fd7a418d724">milnor patching</a> </li>
+
+<li><a href="20250604-short_exact_sequence_of_a_milnor_square.html#ID-58240711-85db-4b95-aa43-c729b3161dd1">short exact sequence of a milnor square</a>   </li>
+
+<li><a href="20250604-milnor_square_as_pullback_diagram_in_spectra.html#ID-26020aa5-d77d-4fc5-89c7-7c584300a103">milnor square as pullback diagram in spectra</a>   </li>
+
+<li><a href="20250604-criterion_of_a_pullback_diagram_of_abelian_groups_for_spectra.html#ID-1e27b1a0-b541-43d7-8c93-75fcb09471a8">criterion of a pullback diagram of abelian groups for spectra</a> - todo</li>
+
+<li></li>
+</ul>
+<h3 id="446">4.46</h3>
+<ul>
+<li><a href="20250604-milnor_square_of_coordinate_axes.html#ID-15f996aa-29c6-4a57-bbe6-94c62a2a6d5b">milnor square of coordinate axes</a> </li>
+
+<li><a href="20250604-milnor_square_of_a_modal_curve.html#ID-c6ca99e7-f440-451b-9a64-76ad1ee7191c">milnor square of a nodal curve</a>     </li>
+
+<li><a href="20250604-milnor_square_of_the_cuspodial_curve.html#ID-4936c0b8-5918-4ab0-b18f-8cef28b59339">milnor square of the cuspodial curve</a>   </li>
+
+<li><a href="20250604-milnor_square_of_the_group_ring_of_a_cyclic_group_with_a_prime.html#ID-4573be6e-d355-4f26-96cd-f2efa831e863">milnor square of the group ring of a cyclic group with a prime</a>   </li>
+
+<li><a href="20250604-milnor_square_of_a_group_ring_for_a_finite_group.html#ID-7b0e23d1-1dbf-4fd5-812a-c53610cad8fb">milnor square of a group ring for a finite group</a> - ?</li>
+</ul>
+<h3 id="section">?</h3>
+<ul>
+<li><a href="20250611-milnor_square_and_isomorphism_of_tensor_product.html#ID-7f2811dd-3740-40d9-9cdd-f56f292fb4ed">milnor square and isomorphism of tensor product</a> </li>
+</ul>
+<h3 id="-">-</h3>
+<ul>
+<li><a href="20231129-2_categorical_pullback.html#ID-360cf3dc-2746-40ac-85a2-42076cfde1f9">2-categorical pullback of a functor diagram</a>  </li>
+
+<li><a href="20250611-milnor_patching_theorem.html#ID-dc3f05e2-fa1c-49fd-830f-365e957a7961">milnor patching theorem</a>  </li>
+
+<li><a href="20250424-milnor_patching_functor_essentially_surjective.html#ID-c286e5d6-31f3-4a9d-9440-d5b02a0ae5ee">milnor patching functor essentially surjective</a>   </li>
+</ul>
+<h3 id="452">4.52</h3>
+<ul>
+<li></li>
+</ul>
+<p>
+Assume $S$ is the image under
+</p>
+<ul>
+<li><a href="20250611-milnor_patching_of_a_liftable_matrix_as_free_module.html#ID-1ef6020c-46c2-436b-9468-3bb2000ff73f">milnor patching of a liftable matrix as free module</a> </li>
+</ul>
+<h3 id="453">4.53</h3>
+<ul>
+<li><a href="20250604-short_exact_sequence_of_a_milnor_square.html#ID-58240711-85db-4b95-aa43-c729b3161dd1">short exact sequence of a milnor square</a> </li>
+
+<li><a href="20250611-mayer_vietoris_sequence_of_a_milnor_square.html#ID-e6c5b80a-d601-4394-adb6-4cbc13efc8a7">mayer-vietoris sequence of a milnor square</a>  </li>
+
+<li><a href="20241017-exact_sequence_of_k0_and_k1.html#ID-15b0ca7a-0593-42a0-8f55-303509c3ed80">exact sequence of k0 and k1</a> </li>
+</ul>
+
+<h3 id="462">4.62</h3>
+<ul>
+<li><a href="20250616-swan_theorem_about_non_existence_of_a_functor.html#ID-3cdf5007-5b5e-4044-999a-9a32d7fcdd28">swan theorem about non-existence of a functor</a> </li>
+</ul>
+<h2 id="stuff">stuff</h2>
+
+<ul>
+<li><a href="20250528-m_infinity_to_localization.html#ID-3ed3515b-7189-4b37-bc33-fa8a4ec5214e">M infinity to group completion</a> </li>
+
+<li><a href="20250528-m_infinity_to_group_completion_as_pi_0_isomorphism.html#ID-bd931cb5-e2a8-44ac-9ba4-dffc37bcb546">M infinity to group completion as pi 0 isomorphism</a>   </li>
+
+<li><a href="20250521-infinite_group_completion_of_a_set_valued_commutative_monoid.html#ID-100be00c-23f2-49e7-b047-925cfe949ba8">infinite group completion of a set valued commutative monoid as set valued</a>   </li>
+
+<li><a href="20250528-nilpotent_space_with_trivial_homology_as_contractible_space.html#ID-e6207ef8-9efd-43f5-86e0-8f0c29315541">nilpotent space with trivial homology as contractible space</a> </li>
+
+<li><a href="20250528-anima_valued_group_as_group_completion_of_a_set_valued_monoid.html#ID-846e186b-1660-4036-bc9a-d9fd2309d794">anima valued group as group completion of a set valued monoid</a>   </li>
+
+<li></li>
+</ul>
+
+<p>
+*
+</p>
+
+<ul>
+<li><a href="20250604-fundamental_group_in_general_not_abelian.html#ID-96731e9d-ecab-4342-8b65-50dc5b97cea2">fundamental group of a commutative monoid in general not abelian</a> - argument: eckmann hilton trick does not work, because our components are not homogeneous</li>
+
+<li></li>
+
+<li></li>
+</ul>
+</div>
+</body>
+</html>

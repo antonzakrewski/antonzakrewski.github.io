@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>bessels inequality</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-3a0f3973-f891-4d45-be21-145e3269eb95"></span><h1 class="title">bessels inequality</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X$ be a <a href="20230105092710-prahilbertraum.html#ID-c83705a9-fdd0-441f-b0a3-116c78ef7c7b">prehilbert space</a>, $x \in X$ and $\{e_{\alpha}\}_{\alpha \in J}$ an <a href="20230303172849-orthonormale_menge.html#ID-5e5ba861-ae74-444c-a8f9-e7dbf26e9690">orthonormal set</a>.
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+\| x \|^2 \geq \sum_{\alpha \in J} \| \langle e_{\alpha}, x\rangle \|^2
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $J_0 \subseteq J$ be a <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">finite</a> <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">subset</a>
+Then we can write
+</p>
+
+<div class="math-block">\begin{align*}
+x =&amp; \sum_{\alpha \in J_{0}} \langle e_{\alpha},x\rangle e_{\alpha} + (x - \sum_{\alpha \in J_{0}} \langle e_{\alpha}, x\rangle e_{\alpha}) 
+\end{align*}</div>
+<p>
+and define $u \coloneqq \sum_{\alpha \in J_{0}} \langle e_{\alpha},x\rangle e_{\alpha}, v \coloneqq (x - \sum_{\alpha \in J_{0}} \langle e_{\alpha}, x\rangle e_{\alpha})$.
+</p>
+
+<p>
+then $\{e_{\alpha}\}$ is an orthonormal set, so we get
+</p>
+
+<div class="math-block">\begin{align*}
+\langle u,u\rangle =&amp; \langle \sum_{\alpha \in J_{0}} \langle e_{\alpha}, \sum_{\beta \in J_{0}} \langle e_{\beta} \rangle \\
+=&amp; \sum_{\alpha, \beta \in J_0} \langle \overline{e_{\alpha}, x\rangle} \langle e_{\beta}, x\rangle \langle e_{\alpha}, e_{\beta}\rangle \\
+=&amp; \sum_{\alpha \in J_0} \langle \overline{e_{\alpha}, x\rangle} \langle e_{\alpha}, x\rangle \\
+=&amp; \sum_{\alpha \in J_0} \vert \langle e_{\alpha}, x\rangle \vert^2
+\end{align*}</div>
+<p>
+and
+</p>
+
+<div class="math-block">\begin{align*}
+\langle u,v\rangle =&amp; \langle u, x - u\rangle \\
+=&amp; \langle u,x\rangle - \langle u,u\rangle \\
+=&amp; \sum_{\alpha \in J_0} \overline{ \langle e_{\alpha}, x  \rangle} \langle e_{\alpha}, x\rangle - \langle u,u\rangle \\
+=&amp; 0
+\end{align*}</div>
+
+<p>
+Thererfore we can estimate $\| x \|^2$:
+</p>
+
+<div class="math-block">\begin{align*}
+\| x \|^2 = \langle u + v, u + v\rangle =&amp; \langle u,u\rangle + \langle v,v\rangle \\
+\geq&amp; \sum_{\alpha \in J_0} \vert \langle e_{\alpha}, x\rangle \vert^2
+\end{align*}</div>
+<p>
+for all finite subsets.
+</p>
+
+<p>
+Now taking the supremum preserves this $\geq$
+</p>
+
+
+</div>
+</body>
+</html>

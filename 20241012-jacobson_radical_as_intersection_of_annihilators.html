@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>jacobson radical as intersection of annihilators</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-4c24a9d7-fdeb-4626-b62c-71eb18b83ab2"></span><h1 class="title">jacobson radical as intersection of annihilators</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $R$ be a <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a>.
+Then the <a href="20230725-jacobson_radical.html#ID-7ee4f832-79a1-47c6-9602-c636a3ba8daa">Jacobson radical</a> is given by the <a href="20230317161158-allgemeiner_schnitt.html#ID-d7547939-8d3f-48f8-b2fd-cfb5734ae78f">intersection</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mathfrak{J} = \bigcap_{M \textrm{simple}} \mathrm{Ann}(M)
+\end{align*}</div>
+<p>
+of the <a href="20230522201427-annihilator.html#ID-63ba0a41-8f52-40ac-9128-ae29c17b8cf2">Annihilator</a>s of <a href="20230726-simple_module.html#ID-659c4f01-8fc4-44e2-a341-17690ba85449">simple modules</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="subseteq">$\subseteq$</h3>
+<p>
+Let $r \in \bigcap \mathrm{Ann}(M)$ and $\mathfrak{m}$ an arbitrary ideal.
+Then $R/\mathfrak{m}$ is a simple \(R\)-module (todo)
+Furthremore
+</p>
+
+<div class="math-block">\begin{align*}
+r \cdot (1 + \mathfrak{m}) = r + \mathfrak{m} = 0
+\end{align*}</div>
+<p>
+as $r \in \mathrm{Ann}(R/\mathfrak{m})$ showing that $r \in \mathfrak{m}$
+</p>
+
+<h3 id="supseteq">$\supseteq$</h3>
+<p>
+Assume that $\mathfrak{J} \cdot M \neq 0$, then choose an $m \in M$ with $\mathfrak{J} \cdot m \neq 0$.
+It follows that $\mathfrak{J} \cdot m = M$ as $M$ is a simple module.
+Thus there exists an $r \in \mathfrak{J}$ with $r \cdot m = m$ or $(r - 1) \cdot m = 0$.
+</p>
+
+<p>
+Hence $(r - 1) \in \mathrm{Ann}(M)$ but as the <a href="20230522201851-annihilator_als_ideal.html#ID-bd476ed4-8890-4eb6-9eab-8e2b8860e7ef">annihilator is a strict ideal</a> there exists some maximal ideal $\mathfrak{m}$ containing $\mathrm{Ann}(M)$ and thus especially $(r-1)$.
+But $r \in \mathfrak{m} \supseteq \mathfrak{J}$ and $r - (r - 1) = 1$, contradiction
+</p>
+
+
+</div>
+</body>
+</html>

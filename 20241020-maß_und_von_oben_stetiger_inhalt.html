@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Maß als von oben stetiger Inhalt</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-90789e3c-8050-4af6-a6b6-9697903b3dee"></span><h1 class="title">Maß als von oben stetiger Inhalt</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $X$ eine <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a>, $\mathcal{A} \subseteq \mathcal{P}(X)$ eine <a href="20220903142815-sigma_algebra.html#ID-54306c73-fba1-4737-a42e-adc9ce14a354">sigma-algebra</a>
+Dann ist ein <a href="20220902125238-maß.html#ID-456f3153-5baa-4fe5-b3dc-749133c2c8d7">Maß</a> $\mu$ auch ein <a href="20241019-von_oben_stetiges_maß.html#ID-fd8150d4-9ff1-4a70-829c-c50c55dbd15e">von oben stetiger Inhalt</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Sei $A_n \searrow A$ eine Folge mit $\mu(A_n) &lt; \infty$ für $n \geq n_0$
+Dann sei $B \coloneqq A_{n_0}$.
+Es folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\mu(B) = \mu(B \setminus A_n) \coprod \mu(A_n)
+\end{align*}</div>
+<p>
+Dabei gilt
+</p>
+
+<div class="math-block">\begin{align*}
+B \setminus A_n \nearrow B \setminus A
+\end{align*}</div>
+<p>
+wobei $B \setminus A \in \mathcal{A}$ liegt, da $\mathcal{A}$ eine Sigma Algebra ist
+</p>
+
+<p>
+Damit folgt für $n \geq n_0$.
+</p>
+
+<div class="math-block">\begin{align*}
+\mu(B) =&amp; \mathrm{lim} \mu(B) \\
+=&amp; \mathrm{lim}(\mu(B \setminus A_n) + \mu(A_n)) \\
+=&amp; \mathrm{lim}(\mu(B \setminus A_n) + \mathrm{lim}(\mu(A_n)) \\
+=&amp; \mu(B \setminus A) + \mathrm{lim}(\mu(A_n)) \\
+=&amp; \mu(B) - \mu(A) + \mathrm{lim}(\mu(A_n)) \\
+\end{align*}</div>
+<p>
+wobei die letzte Gleichung aus der <a href="20241015-subtraktivitat_eines_inhalts.html#ID-e768ef1b-bfd6-49c6-bb98-6cf549671de6">Subtraktivität eines Inhalts</a> folgt
+</p>
+
+<p>
+Damit gilt dann
+</p>
+
+<div class="math-block">\begin{align*}
+\mu(A) = \mathrm{lim}(\mu(A_n))
+\end{align*}</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>homotopy excision theorem</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-648d4b45-d724-43db-9cd4-7d32aedf8476"></span><h1 class="title">homotopy excision theorem</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $(X, \mathcal{T})$ be a <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological space</a>, $A,B$ an <a href="20221125072633-offene_uberdeckung.html#ID-f64293ce-3838-4f49-b45d-07666123c2c9">open cover</a> such that $A \cap B \neq \emptyset$ is <a href="20220902125304-nichtleere_menge.html#ID-119fa0d9-a2b3-4b46-bb61-a6e590282321">nonempty</a>
+</p>
+
+<p>
+Then the
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/d69d9d3ca4381d3bffe1.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+such that
+</p>
+<ol>
+<li>$\iota^A$ is <a href="20240708-d_connected_map.html#ID-b5746a29-4c15-4b74-aae6-b5482569e0f1">p-connected map</a></li>
+
+<li>$\iota^B$ is q-connected</li>
+</ol>
+<p>
+for $p,q \geq 1$
+</p>
+
+<p>
+Then for all $a \in A$ the map
+</p>
+
+
+<div class="math-block">\begin{align*}
+\mathrm{hofib}_a(\iota^A) \rightarrow \mathrm{hofib}_a(j^B)$
+\end{align*}</div>
+<p>
+is \(p+q-1\)-connected
+</p>
+
+<p>
+see:
+</p>
+<ul>
+<li><a href="20240702-homotopy_fibre.html#ID-54aeb20a-4a90-4f8e-b8f2-6110f73fe306">homotopy fibre</a></li>
+</ul>
+<h2 id="proof">Proof</h2>
+<p>
+factor $\iota^A$ and $j^B$ into <a href="20230330150414-homotopieaquivalenz.html#ID-0e303b14-738c-496f-ab77-bd62472d54f6">Homotopy equivalences</a> and <a href="20240702-serre_fibration.html#ID-b429be95-8451-46cb-8c4f-7e1be057a766">serre fibrations</a> to get a square
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/9cd41a06f49609b1f7f0.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+<p>
+observe that
+</p>
+
+<div class="math-block">\begin{align*}
+p(\iota^A)^{-1}(a) = \{\gamma: I \rightarrow A \vert \gamma(0) \in A \cap B, \gamma(1) = a\}
+\end{align*}</div>
+
+<p>
+Furthermore observe that
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{hofib}_{a}(\iota^A) = \{\gamma: I \rightarrow A \vert \gamma(0) = a, \gamma(1) \in A \cap B\}
+\end{align*}</div>
+
+<p>
+So there exists a standard homomorphism
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{hofib}_{a}(\iota^A) \simeq p(\iota^A)^{-1}(a)
+\end{align*}</div>
+
+
+<p>
+Therefore it suffices to show that
+</p>
+
+<div class="math-block">\begin{align*}
+p(\iota^A)^{-1}(a) \rightarrow p(j^b)^{-1}(a)
+\end{align*}</div>
+<p>
+is \(p+q-1\)- connected, as we get a diagram
+</p>
+
+
+<p>
+We want to show that for $k &lt; p + q$ that for every square
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/bdf5a960a7e50bf10825.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+there exists $\overline{g}: I^k \rightarrow p(\iota^A)^{-1}(a)$ such that
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{g} \mathrm{inc} = f
+\end{align*}</div>
+<p>
+and $c \overline{g} \simeq g$ relative to $\partial I^k$
+</p>
+
+<p>
+see:
+</p>
+<ul>
+<li>proof of 5.3.1; TODO</li>
+</ul>
+<p>
+Consider
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/20d011052d0e117980f5.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+<p>
+It suffices to show that
+</p>
+
+<div class="math-block">\begin{align*}
+E_{\iota^A} \rightarrow E_{j^B} \times_X A
+\end{align*}</div>
+<p>
+is \(p+q+-1\)-connected
+</p>
+
+<p>
+So consider
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/6f97907946141d3ee860.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+instead
+</p>
+
+<p>
+It is enough to find a homtoopy of maps of pairs $(g,f) \simeq (\tilde{g}, \tilde{f})$ such that $\tilde{g}$ maps to $E_{\iota^A}$:
+We can achieve this by precomposing with an appropriate  map $I^k \times [0,1] \rightarrow I^k \times [0,1]$ like
+</p>
+
+
+<p>
+Note that this
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/6f97907946141d3ee860.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+corresponds by adjunction to a square
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/79f8fcf4ab38370b2283.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+<p>
+such that
+</p>
+<ol>
+<li>$\partial I^k \times \{0\}$ gets mapped to $A \cap B$</li>
+
+<li>$I^k \times \{0\}$ gets mapped to $B$</li>
+
+<li>$I^k \times \{1\}$ gets mapped to $A$   </li>
+</ol>
+
+<p>
+Call maps $g$ with these 3 properties and the commutative square above "good maps"
+</p>
+
+<p>
+Our goal is to find a homotopy of $g$ through good maps to a map with image in $A$
+</p>
+
+<h3 id="main-claim">main claim</h3>
+<p>
+there exists a homotopy of $g$ through good maps to a map $\tilde{g}$ such that
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{pr}(\tilde{g}^{-1}(X \setminus A)) \cap \mathrm{pr}( \tilde{g}^{-1}(X \setminus B)) = \emptyset
+\end{align*}</div>
+
+<p>
+where
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{pr}: I^k \times [0,1] \rightarrow I^k
+\end{align*}</div>
+<p>
+is the projection
+</p>
+
+<p>
+Need to prove the claim
+using <a href="20231211-open_covering_of_the_disk_induces_closed_decomposition.html#ID-e274f6aa-f998-4665-a7f8-17636371f5ba">open covering of the disk induces closed decomposition</a> we can choose a subdivision
+</p>
+
+<div class="math-block">\begin{align*}
+0 = t_0 &lt; ... &lt; t_r = 1
+\end{align*}</div>
+<p>
+such that
+</p>
+
+<div class="math-block">\begin{align*}
+\prod_{i=1}^{k+1} [t_{s_i}, t_{s_i+1}]
+\end{align*}</div>
+<p>
+get mapped to $A$ or $B$
+</p>
+
+<p>
+Proceed by induction on the skeletal filtartion of this subdivision, to show the following
+</p>
+
+<p>
+There is a homotopy $h$ through good maps to a map $\tilde{g}$ such that
+</p>
+<ol>
+<li>if $g(C) \subseteq A$ or $g(C) \subseteq B$ for a cube $C \subseteq I^k$, then the homotopy $h(C \times [0,1]) \subseteq A$ or $h(C \times [0,1]) \subseteq B$</li>
+
+<li>if $g(C) \subseteq A \cap B$, then $h$ is constant</li>
+
+<li>if $g(C) \subseteq A$, then $\tilde{g}^{-1}(A \setminus (A \cap B)) \cap C \subseteq S_p^{\mathrm{dim} C}(C)$ (where $S_{p+1}^{\mathrm{dim} C}$ is the small cube)</li>
+
+<li>if $g(C) \subseteq B$, then $\tilde{g}^{-1}(B \setminus (A \cap B)) \cap C \subseteq B_{q+1}^{\mathrm{dim}(C)}(C)$</li>
+</ol>
+<p>
+<a href="20221024165350-beweis_durch_vollstandige_induktion_mit_starkerer_induktionsvoraussetzung.html#ID-1534f6c1-e094-4672-8e87-f36eb0e54b8b">Proof by induction</a>
+</p>
+
+<h4 id="induction-basis">induction basis</h4>
+<p>
+follows from taking $-1$
+</p>
+
+<h4 id="induction-step">induction step</h4>
+<p>
+assume that $g$ satisfies 3) and 4) for cubes of dimension $\leq l$ with $l \geq - 1$
+Let $C$ be an \(l+1\)-cube in the subdivision of $I^k \tiems [0,1]$
+</p>
+
+<p>
+If $g(C) \subseteq A \cap B$, choose the constant homotopy
+If $g(C) \subseteq A$
+</p>
+
+<h5 id="case-1">case 1)</h5>
+<p>
+$\mathrm{dim}(C) \leq p$, then the inclusion $\iota^A$ is \(p\)-connected, there exists a homotopy in $A$ from $g_{\vert C}$ relative to $\partial C$ to a map with values in $A \cap B$
+</p>
+
+<h5 id="case-2">case 2)</h5>
+<p>
+If $\mathrm{dim}(C) &gt; p$, then by the <a href="20240716-homotopy_big_cube_small_cube_lemma.html#ID-31c7156c-0d22-4a67-b6c1-9b8d42bd51df">homotopy big cube small cube lemma</a>  we get a homotopy on $C$
+</p>
+
+
+<p>
+Preceed analogously fro $g(C) \subseteq B$.
+</p>
+
+
+<p>
+Using the <a href="20231124-homotopy_extension_property.html#ID-706d40ab-d3b8-4568-a4ea-2f296a6a6755">Homotopy Extension Property</a> cube by cube defines a homotopy satisfying 1) and 2)
+</p>
+
+
+<h4 id="homotopy-satisfies-property">homotopy satisfies property</h4>
+<p>
+We want to show that
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{pr}(\tilde{g}^{-1}(X \setminus A)) \cap \mathrm{pr}( \tilde{g}^{-1}(X \setminus B)) = \emptyset
+\end{align*}</div>
+
+<p>
+Let $x \in \mathrm{pr} \tilde{g}^{-1}(X \setminus A) \cap \mathrm{pr} \tilde{g}^{-1}(X \setminus B)$
+</p>
+
+<p>
+Then there exists a $t_A,t_B \in [0,1]$ such that
+</p>
+
+<div class="math-block">\begin{align*}
+\tilde{g}(x,t_A) \in X \setminus A = B \setminus (B \cap A)
+ \tilde{g}(x,t_B \in X \setminus B = A \setminus (A \cap B)
+\end{align*}</div>
+
+<p>
+By definition (x,t_A)$ ahs at least p+1 small coordinates in the cube $C$ containing $(x,t_A)$
+</p>
+
+<p>
+Similarly by ii) $(x,t_B)$ has at least $+1$ small coordinates in the Cube $C'$ containing $(x,t_B)$
+</p>
+
+<p>
+now $x$ has at least $p$ small coordinates in a cube $\subseteq I$ and at least $q$ big coordinates in the same cube
+But we are only looking at cubes of dimenison less than $p + q$
+</p>
+
+<h3 id="end-of-the-proof">end of the proof</h3>
+<p>
+Pick a map $\sigma: I^k \rightarrow [0,1]$ such that
+</p>
+
+<div class="math-block">\begin{align*}
+\sigma_{\vert \partial I^k \cup \mathrm{pr}(\tilde{g}^{-1}(X \setminus B))} =&amp; 0 \\
+\sigma_{\vert \tilde{g}^{-1}(X \setminus A)} =&amp; 1
+\end{align*}</div>
+
+<p>
+note that $\partial^k \rightarrow A$ hence we can separate it
+</p>
+
+<p>
+Define
+</p>
+
+<div class="math-block">\begin{align*}
+H: I^k \times [0,1] \times [0,1] \rightarrow&amp; X \\
+(x,t,s) \mapsto&amp; \tilde{g}(x, t + s(1 - t) \sigma(x))
+\end{align*}</div>
+
+<p>
+this is a homotopy through good maps:
+</p>
+<ol>
+<li>given $x \in \partial I^k$ we get $h(x,t,s) = \tilde{g}(x,-) \in A$</li>
+
+<li>$h(x,0,s) = \tilde{g}(x,s \simga(x)$. if $\tilde{g}(x,u) \in B$, then we are fien. Else if htere exists an $u \in [0,1]$ such that $\tilde{g}(x,u) \not\in B$, then u \in $\mathrm{pr} \tilde{g}^{-1}(X \setminus B)$ and hence $\sigma(x) = 0$, so $h(x,0,s) = \tilde{g}(x,0) \in B$</li>
+
+<li>$h(x,1,s) = \tilde{g}(x,1) \in A$</li>
+</ol>
+<p>
+The endpoint of the homotopy $h(x,t,1) = \tilde{g}(x,t + (1-t) \sigma(x))$
+If $\tilde{g}(x,u) \in A$ for all $u$, then all is good.
+Else if there exists $u$ with $\tilde{g}(x,u) \not\in A$, then $x \in \mathrm{pr}(\tilde{g}^{-1}(X \setminus A)$.
+Therefore $\sigma(x) = 1$ or $h(x,1,s) = \tilde{g}(x,1) \in A$
+</p>
+
+
+
+<h2 id="remark">Remark</h2>
+<ul>
+<li>https://mathoverflow.net/questions/436730/alternate-proofs-of-homotopy-excision-theorem</li>
+
+<li>needs serre spectral sequence ~&gt; more work on derived categories # - needs relative hur</li>
+</ul>
+
+</div>
+</body>
+</html>

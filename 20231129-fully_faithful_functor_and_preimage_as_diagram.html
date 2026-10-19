@@ -1,96 +1,107 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 19:34 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>faithful functor and preimage as diagram</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">faithful functor and preimage as diagram</h1>
-<div id="outline-container-org69c515e" class="outline-2">
-<h2 id="org69c515e"><span class="section-number-2">1.</span> Proposition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-772de4b2-358b-4608-ba2b-3fa26b17164f"></span><h1 class="title">faithful functor and preimage as diagram</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let <img src="ltximg/20231129-fully_faithful_functor_and_preimage_as_diagram_2d5d1c2bfbb1a2fca757f722875cd0787290c048.svg" alt="20231129-fully_faithful_functor_and_preimage_as_diagram_2d5d1c2bfbb1a2fca757f722875cd0787290c048.svg" class="org-svg" /> be <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">categories</a> and <img src="ltximg/20231129-fully_faithful_functor_and_preimage_as_diagram_570624dc5b21d1f0a192cc0f7dad2a4f870badf0.svg" alt="20231129-fully_faithful_functor_and_preimage_as_diagram_570624dc5b21d1f0a192cc0f7dad2a4f870badf0.svg" class="org-svg" /> a <a href="20230301211921-treuer_funktor.html#ID-28e54961-a758-4c55-ba93-95268bcebd92">faithful</a> <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a>.
+Let $\mathcal{C}, \mathcal{D}$ be <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">categories</a> and $\mathcal{F}: \mathcal{C} \rightarrow \mathcal{D}$ a <a href="20230301211921-treuer_funktor.html#ID-28e54961-a758-4c55-ba93-95268bcebd92">faithful</a> <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a>.
 </p>
 
 <p>
-Suppose there exist <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">objects</a> <img src="ltximg/20231129-fully_faithful_functor_and_preimage_as_diagram_241be2f7b2e1ed205951d9f74bb29dd69f4888cd.svg" alt="20231129-fully_faithful_functor_and_preimage_as_diagram_241be2f7b2e1ed205951d9f74bb29dd69f4888cd.svg" class="org-svg" /> and <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphisms</a> <img src="ltximg/20231129-fully_faithful_functor_and_preimage_as_diagram_0381c401f24c1680053f614f2fb7674d716f6d56.svg" alt="20231129-fully_faithful_functor_and_preimage_as_diagram_0381c401f24c1680053f614f2fb7674d716f6d56.svg" class="org-svg" /> such that the following <a href="20220821183856-diagramm_kategorientheorie.html#ID-ad9d3642-913a-4374-8605-52121d00b349">diagram</a> commutes
+Suppose there exist <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">objects</a> $A,B,C \in \mathrm{Ob}(\mathcal{C})$ and <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphisms</a> $f,g,h$ such that the following <a href="20220821183856-diagramm_kategorientheorie.html#ID-ad9d3642-913a-4374-8605-52121d00b349">diagram</a> commutes
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231129-fully_faithful_functor_and_preimage_as_diagram_52fc02b16841b50994135df1945ba7b2ac14cc80.svg" alt="20231129-fully_faithful_functor_and_preimage_as_diagram_52fc02b16841b50994135df1945ba7b2ac14cc80.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/e7a15dc5f4b568f3ccca.svg" class="org-svg" alt="diagram" /></span></div>
 
 <p>
 Then
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231129-fully_faithful_functor_and_preimage_as_diagram_2fc875d0df7dce27cdc8fd8ce7c1f440e92ad051.svg" alt="20231129-fully_faithful_functor_and_preimage_as_diagram_2fc875d0df7dce27cdc8fd8ce7c1f440e92ad051.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/48f7b4d9928afd4e8062.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
 already commutes
 </p>
-</div>
-</div>
-<div id="outline-container-org9a11453" class="outline-2">
-<h2 id="org9a11453"><span class="section-number-2">2.</span> Proof</h2>
-<div class="outline-text-2" id="text-2">
+
+<h2 id="proof">Proof</h2>
 <p>
 By assumption
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231129-fully_faithful_functor_and_preimage_as_diagram_1bf8a69ea5ac7bbd978fbf0c82223c1fafcf7dd2.svg" alt="20231129-fully_faithful_functor_and_preimage_as_diagram_1bf8a69ea5ac7bbd978fbf0c82223c1fafcf7dd2.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+\mathcal{F}(h) \circ \mathcal{F}(f) = \mathcal{F}(g)
+\end{align*}</div>
 <p>
 by functorality, the LHS equals
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231129-fully_faithful_functor_and_preimage_as_diagram_aa719191281e8675b6471089564599c73b6b2b06.svg" alt="20231129-fully_faithful_functor_and_preimage_as_diagram_aa719191281e8675b6471089564599c73b6b2b06.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+\mathcal{F}(h \circ f) = \mathcal{F}(g)
+\end{align*}</div>
 <p>
-therefore, since <img src="ltximg/20231129-fully_faithful_functor_and_preimage_as_diagram_f1aeb1ac71cce52f443892bfa958e0fd4a349772.svg" alt="20231129-fully_faithful_functor_and_preimage_as_diagram_f1aeb1ac71cce52f443892bfa958e0fd4a349772.svg" class="org-svg" /> is faithful, we conclude, that
+therefore, since $\mathcal{F}$ is faithful, we conclude, that
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231129-fully_faithful_functor_and_preimage_as_diagram_ee4c3c436be97f7ecf3636454c7b2a05f15a5b1a.svg" alt="20231129-fully_faithful_functor_and_preimage_as_diagram_ee4c3c436be97f7ecf3636454c7b2a05f15a5b1a.svg" class="org-svg" />
-</span>
-</div>
+<div class="math-block">\begin{align*}
+g = h \circ f
+\end{align*}</div>
 <p>
 therfore, following commutes
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20231129-fully_faithful_functor_and_preimage_as_diagram_5d0c16b17038ef84ee6faea348b9c9c986f67ed1.svg" alt="20231129-fully_faithful_functor_and_preimage_as_diagram_5d0c16b17038ef84ee6faea348b9c9c986f67ed1.svg" class="org-svg" />
-</span>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 19:34</p>
+<div class="equation-container"><span class="equation"><img src="ltximg/6760d95250c22a267713.svg" class="org-svg" alt="diagram" /></span></div>
+
 </div>
 </body>
 </html>

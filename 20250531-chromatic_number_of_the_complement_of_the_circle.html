@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>chromatic number of the complement of the circle</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-3c9f3135-f443-4899-8922-791e8ec25762"></span><h1 class="title">chromatic number of the complement of the circle</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\overline{C_n}$ be the <a href="20250531-complement_of_a_graph.html#ID-f57db3fd-9e72-4b80-98d3-b5bdbbac0fd0">complement of</a> the <a href="20250425-circle_graph.html#ID-c9282a38-4c3a-4a8a-a16c-ea9000398c38">circle graph</a>.
+Then its <a href="20250527-chromatic_number_of_a_graph.html#ID-cbaa42bb-fc17-4114-a5c2-270351a4b1f2">chromatic number</a> is given by
+</p>
+
+<div class="math-block">\begin{align*}
+\Chi(\overline{C}_n) = \mathrm{min}(1,\mathrm{floor}(\frac{n}{2}))
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="n-leq-3">$n \leq 3$</h3>
+<p>
+then the circle graphs are complete, hence the complement is totally disconnected.
+Thus it has chromatic number $1$
+</p>
+
+<h3 id="chioverlinec-n-geq-mathrmfloorfracn2-n-geq-4">$\Chi(\overline{C}_n) \geq \mathrm{floor}(\frac{n}{2})$, $n \geq 4$</h3>
+<p>
+We claim that its <a href="20250527-independence_number_of_a_graph.html#ID-1f76fdfe-a9c8-4ba4-b142-de2eb0f80e49">independence number</a> is at most $2$ (even $2$).
+then use <a href="20250528-chromatic_number_and_independence_number.html#ID-68d6f3ef-ff5e-40eb-bf66-1ba53b5d03cb">chromatic number and independence number</a> to get the inequality
+suppose we have $3$ vertices and assume that one - namely the vertex $i$ - is not connected to the other.
+Then by construction the other vertices are necessarily $i-1,i+1$.
+since we assume $n \geq 4$ there has to be a fourth vertex $l$ with $l &lt; i - 1$ or $i+1&lt;l$.
+Hence $i-1,i+1$ are connected
+</p>
+
+<h3 id="chioverlinec-n-leq-mathrmfloorfracn2">$\Chi(\overline{C}_n) \leq \mathrm{floor}(\frac{n}{2})$</h3>
+<p>
+consider the coloring
+</p>
+
+<div class="math-block">\begin{align*}
+i \mapsto \mathrm{floor}(\frac{i}{2} + 1)
+\end{align*}</div>
+<p>
+which is a coloring since $i$ is not connected to $i+1$
+</p>
+
+
+</div>
+</body>
+</html>

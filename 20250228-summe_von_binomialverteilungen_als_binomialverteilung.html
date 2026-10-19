@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Summe von Binomialverteilungen als Binomialverteilung</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-19a6a432-ae46-45d5-b1c6-845ac7c54eb3"></span><h1 class="title">Summe von Binomialverteilungen als Binomialverteilung</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Seien $X_1,X_2$ <a href="unabhangige-zufallsvariablen.html#ID-152c420c-ac1d-45ea-ac35-510acca4cf46">unabhängige</a> <a href="20241118-binomialverteilung.html#ID-8ba78c92-f92f-40cc-8d5d-562e4df6ecac">Binomialverteilungen</a> zu gleichem $p$ aber i.A. unterschiedlichen $n_1,n_2$.
+Dann ist
+</p>
+
+<div class="math-block">\begin{align*}
+X_1 + X_2
+\end{align*}</div>
+<p>
+binomialverteilt zu $n_1 + n_2$
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Es gilt für $k$
+</p>
+
+<div class="math-block">\begin{align*}
+\rho(k) =&amp; \rho_1(k) \star \rho_2(k) \\
+=&amp; \sum_{i=0}^k \rho_1(i) \cdot \rho_2(k-i) \\
+=&amp; \sum_{i=0}^k \binom{n_1}{i} p^{i} \cdot (1 - p)^{n_1-i}  \cdot \binom{n_2}{k-i} p^{k-i} \cdot (1 - p)^{n_2 -k+i} \\
+=&amp; p^{k} \cdot (1 - p)^{n_1+n_2-k} \cdot \sum_{i=0}^k \binom{n_1}{i} \binom{n_2}{k-i} \\
+=&amp; p^{k} \cdot (1 - p)^{n_1+n_2-k} \cdot \sum_{i=0}^k \binom{n_1 + n_2}{k} 
+\end{align*}</div>
+<p>
+wobei die letzte identität aus der kombinatorischen Interpretation folgt (todo).
+</p>
+
+</div>
+</body>
+</html>

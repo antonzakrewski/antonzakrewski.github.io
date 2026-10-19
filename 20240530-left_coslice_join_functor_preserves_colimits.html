@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>left coslice join functor preserves colimits</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-1e93c6cc-ffbd-4295-9419-9f8c5e73636c"></span><h1 class="title">left coslice join functor preserves colimits</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathrm{sSet}$ be the <a href="20240128-category_sset.html#ID-e9c2723a-dd7e-48df-84af-05e865106a54">category sSet</a>, $S$ a <a href="20240128-simplicial_set.html#ID-43a75466-c729-429a-a459-56f226b81262">simplicial set</a> and
+</p>
+
+<div class="math-block">\begin{align*}
+- \star S: \mathrm{sSet} \rightarrow S / \mathrm{sSet} 
+\end{align*}</div>
+<p>
+the <a href="20240405-slice_join_functor.html#ID-581e37be-4884-4cd2-8ae0-55285b16e057">left coslice join functor</a>
+</p>
+
+<p>
+Then $- \star S$ <a href="20231014-functor_preserving_colimits.html#ID-3d77cdc9-e177-40d9-b57d-dc17d897d8a7">preserves colimits</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+using <a href="20240404-functor_preserving_colimits_and_coproducts_plus_coequalizers.html#ID-715e4edb-e7e1-4808-9370-7f03b3db78c6">functor preserving colimits and coproducts plus coequalizers</a> it suffices to show that $- \star S$ preserves <a href="20230404161607-categorical_coproduct.html#ID-25822c41-825b-480b-b8a6-eeb904ca5649">coproducts</a> and <a href="20230804-coequalizer.html#ID-d3115a7d-90e1-453f-a6c2-3209ee1f5be7">coequalizers</a>
+</p>
+
+<h3 id="coproduct">coproduct</h3>
+<p>
+note that a <a href="20240414-coproduct_in_a_coslice_category.html#ID-7c0aa991-09d3-4b35-b141-c4457e00578b">coproduct in a coslice category</a> is given by the colimit of a diagram of the form
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/078c2113d45fc3448ec9.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+This is given objectwise by
+</p>
+
+<div class="math-block">\begin{align*}
+((X_j \star S) \coprod_{S} (X_i \star S))[n] =&amp; (X_j \star S)[n] \coprod_S (X_i \star S)[n] \\
+=&amp; (\coprod X_i[n] \coprod S_n \coprod \prod_{1 \leq k \leq n-1} X_i[n-k] \times S_{k-1}) \coprod_S (\coprod X_j[n] \coprod S_n \coprod \prod_{1 \leq k \leq n-1} X_j[n-k] \times S_{k-1})
+\end{align*}</div>
+
+<p>
+Here $\coprod_S$ identifies both $S_n$.
+</p>
+
+
+<p>
+and analogously for infinite coproducts
+</p>
+
+<h3 id="coequalizer">coequalizer</h3>
+<p>
+Let
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/235f5ebef27bdc5e4419.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+be a diagram
+</p>
+
+<p>
+then a coequalizer is given by
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/0be42506fc2aad4c19d9.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+An explicit description is given by
+</p>
+
+<div class="math-block">\begin{align*}
+X_j/\sim
+\end{align*}</div>
+<p>
+where $x_i \sim x_j$ if there exists a zigzag $x_i = f(y_1) = g(y_2) = ... = f(y_n) = x_j$
+</p>
+
+<p>
+Applying $- \star S$ results in
+</p>
+
+<div class="math-block">\begin{align*}
+\coprod_{l + k = n -1} (X_l/\sim) \times S_{k}
+\end{align*}</div>
+
+
+<div class="equation-container"><span class="equation"><img src="ltximg/a2762e90928ddfcdad32.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+<p>
+Taking the colimit after applying $- \star S$ gives
+</p>
+
+<div class="math-block">\begin{align*}
+(\coprod_{k + l = n -1} X_l \times S_k)/\sim
+\end{align*}</div>
+<p>
+where
+</p>
+
+<div class="math-block">\begin{align*}
+(x_l,s_k) \sim (x_l',s_k')
+\end{align*}</div>
+<p>
+if there exists a zigzag
+</p>
+
+<div class="math-block">\begin{align*}
+(x_l,s_k) =&amp; (f(y_1),\mathrm{id}(s_1)) \\ 
+=&amp; (g(y_1), \mathrm{id}_{s_1}) \\
+=&amp; ... \\
+=&amp; (g(y_n), \mathrm{id}_{s_n}) \\
+=&amp; (x_l',s_k')
+\end{align*}</div>
+<p>
+since $\mathrm{id}$ is well understood, we conclude that two elements are identified <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> $x_l$ and $x_l'$ are identified
+</p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>general linear group as subspace of the mapping space</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-bfe6137a-74c3-4b9c-a24e-9a221a7afbc6"></span><h1 class="title">general linear group as subspace of the mapping space</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+The <a href="20221125172149-general_linear_group.html#ID-4ccb8f16-ca9c-4ec3-ba63-d1950d5bec89">general linear group</a> $\mathrm{Gl}_n(\mathbb{R})$ (cf. <a href="20231024-real_general_linear_group_as_manifold.html#ID-d8a51271-0847-4317-8d73-1b92c67f9251">real general linear group as manifold</a>) is a <a href="20230211132940-unterraumtopologie.html#ID-e38ab938-b4e6-4094-98a1-4a8dec808b54">subspace</a> of the <a href="20231103-mapping_space.html#ID-233d712d-03e8-4415-b86e-25bc8b6c3cef">mapping space</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{GL}_n(\mathbb{R}) \hookrightarrow \mathrm{Map}(\mathbb{R}^n, \mathbb{R}^n)
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+Consider the map
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{R}^n \times \mathrm{GL}_n(\mathbb{R}) \rightarrow&amp; \mathbb{R}^n \\
+(v,A) \mapsto&amp; A \circ v \\
+\end{align*}</div>
+<p>
+it is continuous, as it is the restriction of the multiplication of $\mathbb{R}^n$ and $\mathrm{GL}_n(\mathbb{R}^n) \hookrightarrow \mathbb{R}^{n \times n}$.
+</p>
+
+<p>
+by adjunction - $\mathbb{R}$ is locally compact (cf. <a href="20240720-mapping_space_product_adjunction.html#ID-790ee1cf-1b6e-4f4b-9d35-70e21dbb5ab3">mapping space product adjunction for topological spaces</a>) - this induces a map
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{GL}_n(\mathbb{R}) \rightarrow&amp; \mathrm{Map}(\mathbb{R}^n, \mathbb{R}^n) \\
+A \mapsto&amp; A
+\end{align*}</div>
+<p>
+which is injective as can be seen by element chasing.
+</p>
+
+
+<p>
+by <a href="20231015-right_adjoint_preserves_products.html#ID-74e961e4-ded4-4952-a0f6-ae16f135b63e">right adjoint preserves products</a> we get
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{GL}_n(\mathbb{R}) \rightarrow \mathrm{Map}(\mathbb{R}^n, \mathbb{R}^n) \cong \mathrm{Map}(\mathbb{R}^n, \mathbb{R})^n
+\end{align*}</div>
+
+<p>
+using <a href="20230519221206-offenheit_des_endlichen_produkts_offener_abbildungen.html#ID-6bfe3ba6-4e4d-495f-a51f-4a6b553d0f79">openness of a finite product of open maps</a> it suffices to show that
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{GL}_n(\mathbb{R}) \rightarrow \mathrm{Map}(\mathbb{R}^n, \mathbb{R})
+\end{align*}</div>
+<p>
+is an open map.
+</p>
+
+<p>
+By <a href="20231228-open_injective_map_and_subbasis.html#ID-54ad5cd7-8833-46c2-8af7-55c89695903e">open injective map and subbasis</a> we may look at the set of <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">subsets</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\{B \in \mathrm{Gl}_n(\mathbb{R}) \vert \vert A e_i - B e_i \vert &lt; \varepsilon\}
+\end{align*}</div>
+<p>
+for $\varepsilon \in (0,1)$ as subbasis around $A$.
+</p>
+
+
+<p>
+see:
+</p>
+<ul>
+<li>https://ncatlab.org/nlab/show/general+linear+group#AsSubspaceOfTheMappingSpace</li>
+</ul>
+</div>
+</body>
+</html>

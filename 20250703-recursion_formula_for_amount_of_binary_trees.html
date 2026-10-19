@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>recursion formula for the catalan number</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-ed08d031-27d5-4b34-81cb-2eb0e5aaea63"></span><h1 class="title">recursion formula for the catalan number</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $B_n = \vert \mathcal{B}_{n} \vert$ be the <a href="20211227215415-machtigkeit_menge.html#ID-a53ec5a2-0adb-4575-bf21-e3ac15eff75f">cardinality</a> of the set of <a href="20250703-binary_tree.html#ID-6eb4a5f3-89ab-46bb-8f02-bc5d4a23a259">binary trees</a>.
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+B_0 =&amp; 1\\
+B_{n} =&amp; \sum_{k=1}^n B_{k-1} \cdot B_{n-k}
+\end{align*}</div>
+
+<p>
+note that we consider the order.
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="b-0">$B_0$</h3>
+<p>
+follows from the empty binary tree
+</p>
+
+<h3 id="b-n">$B_n$</h3>
+<p>
+then we get a partition of $\mathcal{B}_n$ into $\mathcal{B}_{k-1} \times \mathcal{B}_{n-k}$ where the first factor is the binary tree on the left and the second on the right.
+Thus
+</p>
+
+<div class="math-block">\begin{align*}
+B_n =&amp; \vert \mathcal{B}_n \vert \\
+=&amp; \vert \coprod_{k=1}^n B_{k-1} \times \mathcal{B}_{n-k} \vert \\
+=&amp; \sum_{k=1}^n B_{k-1} \cdot B_{n-k}
+\end{align*}</div>
+
+
+</div>
+</body>
+</html>

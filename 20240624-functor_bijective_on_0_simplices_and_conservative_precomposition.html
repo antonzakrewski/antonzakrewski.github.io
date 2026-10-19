@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>functor bijective on 0-simplices and conservative precomposition</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-95db3801-beb5-4941-8919-116e0600fc4e"></span><h1 class="title">functor bijective on 0-simplices and conservative precomposition</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $K_0,K',\mathcal{C}$ be <a href="20240404-simplicial_set_as_infinity_category.html#ID-4635a6ee-1ad5-44cb-8e36-4a934f5ae4bf">infinity categories</a> and $f: K_0 \rightarrow K'$ be a
+Suppose $f$ is <a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">bijective</a> on \(0\)-simplices
+</p>
+
+<p>
+Then the precomposition on the <a href="20240506-inner_hom_of_a_monoidal_category.html#ID-51259d89-25c3-4295-a9da-d1b1e7232780">internal hom</a>
+</p>
+
+<div class="math-block">\begin{align*}
+f^*: \underline{\mathrm{Hom}}(K',\mathcal{C}) \rightarrow \underline{\mathrm{Hom}}(K_0,\mathcal{C})
+\end{align*}</div>
+<p>
+is <a href="20240331-conservative_functor_between_infinity_categories.html#ID-37cd5c52-6d86-4178-9721-6908bb0a3087">conservative functor</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="reduction-1">reduction 1)</h3>
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> we may assume that
+</p>
+
+<div class="math-block">\begin{align*}
+K_0 = \mathrm{sk}_0(K)
+\end{align*}</div>
+<p>
+by considering the factorization
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/a017e22c05a5a4a22c27.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Using the inner hom functor gives
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/5ec7898b77da9501a7d8.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+since &lt;functor preserves equivalence&gt; and the composition is an equivalence,
+TODO
+</p>
+
+<h3 id="reduction-2">reduction 2)</h3>
+<p>
+It suffices to check that
+</p>
+
+<div class="math-block">\begin{align*}
+(\mathrm{sk}_n(K) \hookrightarrow \mathrm{sk}_{n+1}(K))
+\end{align*}</div>
+<p>
+induces a conservative functor, as
+</p>
+
+<div class="math-block">\begin{align*}
+K = \mathrm{colim} \mathrm{sk}_n(K) 
+\end{align*}</div>
+<p>
+and by adjointness of the inner hom &lt;&gt;
+</p>
+
+<div class="math-block">\begin{align*}
+\underline{\mathrm{Hom}}(K, \mathcal{C}) =&amp; \underline{\mathrm{Hom}}(\mathrm{colim} K_n, \mathcal{C}) \\
+=&amp; \mathrm{lim}( \underline{\mathrm{Hom}}(\mathrm{sk}_n(K),\mathcal{C})
+\end{align*}</div>
+
+<p>
+using the <a href="20240617-joyal_lifting_critereon.html#ID-9d7c98e9-f6bd-465d-9ea3-b67eb926eebd">joyal lifting critereon</a>
+</p>
+
+
+<div class="equation-container"><span class="equation"><img src="ltximg/fd3f6f35bad82644adeb.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+using the universal property of the limit and induction, we may assume that
+</p>
+<ol>
+<li>there exists a lift</li>
+
+<li>the map $\underline{\mathrm{Hom}}(\mathrm{sk}<span class="underline">n(K), \mathcal{C}) \rightarrow \underline{\mathrm{Hom}}(\mathrm{sk}</span>{n-1}(K), \mathcal{C})</li>
+</ol>
+<h4 id="base-case">base case</h4>
+<p>
+follows for $n = 0$ by bijectivity
+</p>
+
+<h4 id="step">step</h4>
+
+<p>
+TODO
+</p>
+
+<h3 id="reduction-3">reduction 3)</h3>
+<p>
+it suffices to show that
+</p>
+
+<div class="math-block">\begin{align*}
+\underline{\mathrm{Hom}}(\Delta^n, \mathcal{C}) \rightarrow \underline{\mathrm{Hom}}(\partial \Delta^n, cacl)
+\end{align*}</div>
+<p>
+is conservative
+</p>
+
+<p>
+Use the <a href="20230806-pushforward.html#ID-a4141d87-68ee-4337-8f80-997a6d4b4091">pushout</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/5d626723313ba511945e.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+applying the inner hom gives the <a href="20230806-pullback.html#ID-730c4312-492d-4b9c-a347-9281309d3e6f">pullback</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/0a8bc1da52feb65d265b.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+as
+</p>
+<ul>
+<li>todo: <a href="20240624-inner_fibration_preserved_under_products.html#ID-18ffffad-b65b-4843-b0d5-625539c48d7c">inner fibration preserved under products</a> </li>
+
+<li>conservative ?  </li>
+
+<li>+    <a href="20240624-conservative_inner_fibrations_closed_under_pullback.html#ID-cf5929db-5569-4a59-901c-2b17286dfdfa">conservative inner fibrations closed under pullbacks</a> - OTOD</li>
+
+<li><a href="20240609-inner_horn_inclusion_as_inner_anodyne.html#ID-d1b1cc4d-b879-42a3-a810-622f22ec77e8">inner horn inclusion as inner anodyne</a> - TODO</li>
+</ul>
+<ul>
+<li></li>
+</ul>
+<p>
+using the <a href="20230225172453-faktorisierung_eines_morphismus.html#ID-03fc6d28-e9bd-4fa3-8093-a113eaf06a6e">factorization</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/f791de622e3a032146e6.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+we may reduce it to
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/25f7ebc1fe9d4697f794.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Here the composite map is given by restriction along an inner anodyne
+Thus by <a href="20240603-quasicategory_and_trivial_fibration_of_inner_hom.html#ID-d872fb39-9227-4055-b9c7-b54b44bd76db">quasicategory and trivial fibration of inner hom</a> it is a <a href="20240603-trivial_fibration.html#ID-e6f29863-7f0d-4ac3-aa0b-f3d104146c24">trivial fibration</a>, hence admitting the <a href="20240608-trivial_fibration_and_right_lifting_property_against_monomorphisms.html#ID-d248568f-3d93-4343-8527-287fda1451f9">right lifting property against monomorphisms</a>
+</p>
+
+<p>
+As trivial fibrations are isofbirations (cf. <a href="20240624-trivial_fibration_as_isofibration.html#ID-61fe7307-d454-4ce7-bae1-08cc70df0a8d">trivial fibration as isofibration</a>)
+</p>
+
+
+<h3 id="case-n-1">case $n = 1$</h3>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/457d8aec19ebd7ff819c.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+where
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{equiv}: \Delta^{ \{0,1\}} \rightarrow \mathcal{C} \times \mathcal{C}
+\end{align*}</div>
+<p>
+is an equivalence
+</p>
+
+
+<p>
+using the <a href="20240617-joyal_lifting_critereon.html#ID-9d7c98e9-f6bd-465d-9ea3-b67eb926eebd">joyal lifting critereon</a> this reduces to a
+</p>
+
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+\Delta^{ \{0,1\}} \coprod \Delta^{ \{0,1\}} \arrow[]{r}{\cong} &amp; \Delta^{ \{0,1\}} \times \partial \Delta^ \arrow[]{r}{} \arrow[bend left]{rr}{}1&amp; \Delta^2  \partial \Delta^1 \cup \Lambda_0^2 \times \Delta^1 \arrow[hookrightarrow, ]{d}{} \arrow[]{r}{} \arrow[]{d}{}&amp; \mathcal{C} \arrow[]{d}{}\\
+&amp; &amp; \Delta^2 \times \Delta^1 \arrow[dashed]{ru}{}\arrow[]{r}{} &amp; * \\
+\end{tikzcd}
+\end{displaymath}</pre></div>
+
+
+</div>
+</body>
+</html>

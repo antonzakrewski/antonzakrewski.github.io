@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>scalar product is continuous</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-2ac66690-d5f3-480c-91aa-1f09604cdf83"></span><h1 class="title">scalar product is continuous</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $V$ be a <a href="20230105092710-prahilbertraum.html#ID-c83705a9-fdd0-441f-b0a3-116c78ef7c7b">Prähilbertraum</a>, then the scalar product
+</p>
+
+<div class="math-block">\begin{align*}
+\langle -,-\rangle \colon V \times V \rightarrow \mathbb{K}
+\end{align*}</div>
+<p>
+is a <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a> <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">map</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+observe that $V$ is a <a href="20221002145259-metrischer_raum.html#ID-6b95a0b5-83e0-43cc-830f-05b416769fe1">metric space</a>, so we show that $\langle -,-\rangle$ is <a href="20221208094811-folgenstetigkeit.html#ID-934a1a9a-3464-4876-babd-3ece8651719e">sequentially continuous</a>.
+Let $(x_n,y_n) \xrightarrow{n \rightarrow \infty} x,y$ be a <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">convergent</a> sequence, i.e., $\| x - x_n \|, \| y - y_n \| \xrightarrow{n \rightarrow \infty} 0$.
+Then we may estimate
+</p>
+
+<div class="math-block">\begin{align*}
+\vert \langle x_n,y_n\rangle - \langle x,y\rangle \vert =&amp; \vert \langle x_n,y_n\rangle - \langle x,y\rangle + \langle x_n,y\rangle - \langle x_n,y\rangle \vert \\
+ =&amp; \langle x_n,y - y_n\rangle - \langle x-x_n,y\rangle \\
+\leq&amp; \vert \langle x_n,y - y_n\rangle \vert + \vert \langle x-x_n,y\rangle \vert 
+\end{align*}</div>
+<p>
+so it suffices to show that $\langle x_n,y - y_n\rangle, \langle x-x_n,y\rangle \xrightarrow{n \rightarrow \infty} 0$.
+This follows from the <a href="20230223222633-cauchy_schwarz_ungleichung.html#ID-fa0b3dd9-8f8a-48e6-8cb1-f71fad800e37">Cauchy-Schwarz Ungleichung</a>:
+</p>
+
+<div class="math-block">\begin{align*}
+\vert \langle x_n, y - y_n \rangle \vert \leq&amp; \| x_n \| \cdot \| y - y_n \| 
+\end{align*}</div>
+<p>
+where $\| x_n \|$ is constant and $\| y - y_n \| \xrightarrow{n \rightarrow \infty} 0$ by assumption (and similarly for $\langle x-x_n,y\rangle$).
+</p>
+
+
+
+
+
+</div>
+</body>
+</html>

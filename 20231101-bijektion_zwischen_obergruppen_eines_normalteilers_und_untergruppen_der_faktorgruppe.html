@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 18:58 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>correspondence theorem for subgroups and quotient groups</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,106 +52,78 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">correspondence theorem for subgroups and quotient groups</h1>
-<div id="outline-container-orgae04623" class="outline-2">
-<h2 id="orgae04623"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-4ed40dfd-1de8-4f2e-ac42-47ac225d5e5e"></span><h1 class="title">correspondence theorem for subgroups and quotient groups</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(G\) eine <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">Gruppe</a>, \(N \trianglelefteq G\) ein <a href="20221210192900-normalteiler.html#ID-f971f946-d0ca-444a-a450-efbef237a278">Normalteiler</a> und \(\pi: G \rightarrow G/N\) der kanonische <a href="20230227150008-gruppenepimorphismus.html#ID-9ec8e70b-1e87-4e63-8903-0573d1fa57a5">gruppenepimorphism</a> auf die <a href="20221210201536-faktorgruppe.html#ID-37068c77-35dd-45c0-8051-01704f97222c">Faktorgruppe</a> 
-Dann ist 
+Sei $G$ eine <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">Gruppe</a>, $N \trianglelefteq G$ ein <a href="20221210192900-normalteiler.html#ID-f971f946-d0ca-444a-a450-efbef237a278">Normalteiler</a> und $\pi: G \rightarrow G/N$ der kanonische <a href="20230227150008-gruppenepimorphismus.html#ID-9ec8e70b-1e87-4e63-8903-0573d1fa57a5">gruppenepimorphism</a> auf die <a href="20221210201536-faktorgruppe.html#ID-37068c77-35dd-45c0-8051-01704f97222c">Faktorgruppe</a>
+Dann ist
 </p>
-\begin{align*}
-\Psi: \{H \subseteq G \text{ Subgroup} \vert N \subseteq H\} \rightarrow& \{H' \subseteq G/N \text{ Subgroup}\}
-H \mapsto& H/N = \pi(H)
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\Psi: \{H \subseteq G \text{ Subgroup} \vert N \subseteq H\} \rightarrow&amp; \{H' \subseteq G/N \text{ Subgroup}\}
+H \mapsto&amp; H/N = \pi(H)
+\end{align*}</div>
 <p>
-inklusionserhaltend und <a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">bijektiv</a> 
+inklusionserhaltend und <a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">bijektiv</a>
 </p>
-</div>
-</div>
-<div id="outline-container-orgaae71f3" class="outline-2">
-<h2 id="orgaae71f3"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org29a8ab2" class="outline-3">
-<h3 id="org29a8ab2"><span class="section-number-3">2.1.</span> bijektion</h3>
-<div class="outline-text-3" id="text-2-1">
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="bijektion">bijektion</h3>
 <p>
 Die evidente umkehrabbildung ist
 </p>
-\begin{align*}
-\Psi^{-1}: \{H' \subseteq G/N\} \rightarrow& \{H \subseteq G \vert N \subseteq H\} \\
-H' \mapsto& \pi^{-1}[H]
-\end{align*}
-</div>
-<div id="outline-container-orgb4204c7" class="outline-4">
-<h4 id="orgb4204c7"><span class="section-number-4">2.1.1.</span> <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">welldefined</a></h4>
-<div class="outline-text-4" id="text-2-1-1">
-<ul class="org-ul">
-<li><a href="20230110082239-urbild_eines_normalteilers_fur_einen_gruppenhomomorphismus_als_normalteilers.html#ID-e9b8fc30-9235-442a-9895-6c7d2c4fb107">Urbild eines Normalteilers für einen Gruppenhomomorphismus als Normalteilers</a></li>
+
+<div class="math-block">\begin{align*}
+\Psi^{-1}: \{H' \subseteq G/N\} \rightarrow&amp; \{H \subseteq G \vert N \subseteq H\} \\
+H' \mapsto&amp; \pi^{-1}[H]
+\end{align*}</div>
+
+<h4 id="id81e35048-a75d-47ae-ada1-99f600ac072fwelldefined"><a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">welldefined</a></h4>
+<ul>
+<li><a href="20230110082239-urbild_eines_normalteilers_fur_einen_gruppenhomomorphismus_als_normalteilers.html#ID-e9b8fc30-9235-442a-9895-6c7d2c4fb107">Urbild eines Normalteilers für einen Gruppenhomomorphismus als Normalteilers</a> </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org60ffb89" class="outline-4">
-<h4 id="org60ffb89"><span class="section-number-4">2.1.2.</span> rechtsinvers</h4>
-<div class="outline-text-4" id="text-2-1-2">
+<h4 id="rechtsinvers">rechtsinvers</h4>
 <p>
 folgt mengentheoretisch aus
 <a href="20230810-surjective_image_of_a_preimage.html#ID-e7134637-f0a8-40cd-96f5-2bb3ca25fb0b">surjective image of a preimage</a>
 </p>
-</div>
-</div>
-<div id="outline-container-org1b5134f" class="outline-4">
-<h4 id="org1b5134f"><span class="section-number-4">2.1.3.</span> linksinvers</h4>
-<div class="outline-text-4" id="text-2-1-3">
-</div>
-<div id="outline-container-orgb7e0dfd" class="outline-5">
-<h5 id="orgb7e0dfd"><span class="section-number-5">2.1.3.1.</span> \(H \subseteq \pi^{-1}[\pi(H)]\)</h5>
-<div class="outline-text-5" id="text-2-1-3-1">
+
+<h4 id="linksinvers">linksinvers</h4>
+
+<h5 id="h-subseteq-pi-1pih">$H \subseteq \pi^{-1}[\pi(H)]$</h5>
 <p>
 folgt aus <a href="20231106-preimage_of_an_image.html#ID-2c62291d-9101-4d87-99b3-05b6bbce5c8b">preimage of an image</a>
 </p>
-</div>
-</div>
-<div id="outline-container-org08d4323" class="outline-5">
-<h5 id="org08d4323"><span class="section-number-5">2.1.3.2.</span> \(H \supseteq \pi^{-1}[\pi(H)]\)</h5>
-<div class="outline-text-5" id="text-2-1-3-2">
+
+<h5 id="h-supseteq-pi-1pih">$H \supseteq \pi^{-1}[\pi(H)]$</h5>
 <p>
-Sei \(h_1 \in H\) und \(h_2 \in G\) so dass gilt
+Sei $h_1 \in H$ und $h_2 \in G$ so dass gilt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \pi(h) = \pi(h_1)
-\end{align*}
+\end{align*}</div>
 <p>
-dann folgt \(h_2 \cdot h_1^{-1} \in \mathrm{ker}(\pi) = N\) und wegen \(N \subseteq H\) bzw. der abgeschlossenheit  auch
+dann folgt $h_2 \cdot h_1^{-1} \in \mathrm{ker}(\pi) = N$ und wegen $N \subseteq H$ bzw. der abgeschlossenheit  auch
 </p>
-\begin{align*}
-h_2 \cdot h_1^{-1} \cdot h_1 =& h_2 \in H
-\end{align*}
-</div>
-</div>
-</div>
-</div>
+
+<div class="math-block">\begin{align*}
+h_2 \cdot h_1^{-1} \cdot h_1 =&amp; h_2 \in H
+\end{align*}</div>
 
 
-<div id="outline-container-orgfffc896" class="outline-3">
-<h3 id="orgfffc896"><span class="section-number-3">2.2.</span> inklusionserhaltend</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<h3 id="inklusionserhaltend">inklusionserhaltend</h3>
 <p>
 folgt aus:
 </p>
-<ul class="org-ul">
-<li><a href="20231106-perimage_and_subsets.html#ID-24ef0798-ff70-4c90-be3a-79ee2b8c9649">preimage and subsets</a></li>
-<li><a href="20231106-image_and_subsets.html#ID-c7990b50-d952-4e4f-b372-41d4a76da3bb">image and subsets</a></li>
+<ul>
+<li><a href="20231106-perimage_and_subsets.html#ID-24ef0798-ff70-4c90-be3a-79ee2b8c9649">preimage and subsets</a> </li>
+
+<li><a href="20231106-image_and_subsets.html#ID-c7990b50-d952-4e4f-b372-41d4a76da3bb">image and subsets</a>   </li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 18:58</p>
 </div>
 </body>
 </html>

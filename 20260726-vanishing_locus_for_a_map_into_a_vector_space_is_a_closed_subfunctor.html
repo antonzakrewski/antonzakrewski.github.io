@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>vanishing locus for a map into a vector space is a closed subfunctor</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-bc718d86-75d7-432b-a816-74a186e4d958"></span><h1 class="title">vanishing locus for a map into a vector space is a closed subfunctor</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $A$ be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a> and $f: M \rightarrow N$ a map of \(A\)-<a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">modules</a>.
+Suppose that $N$ is a <a href="20260612-vector_bundle_over_a_ring.html#ID-12c6e13e-440a-4d54-b689-c17c1850f0fc">vector bundle</a>, then the <a href="20260719-vanishing_locus_of_a_map_of_a_modules.html#ID-e88288d1-17d1-4983-8896-c37c1c47b5b6">vanishing locus</a> $V(f) \subseteq \mathrm{Spec}(A)$ is a <a href="20260713-closed_subfunctor.html#ID-d952d35b-1a92-4447-97b0-37c5363be496">closed subfunctor</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+For all $x \in M$ let $f(x): R \xrightarrow{x} M \xrightarrow{f} N$.
+Then $V(f) = \bigcap_{x \in M} V(f(x))$ and hence it suffices to assume that $M = R$ since arbitrary intersections of closed subfunctors are <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">closed</a> (cf. <a href="20260724-intersection_of_vanishing_loci.html#ID-bd3b0954-fa55-4a93-9023-9812d3ec1406">intersection of vanishing loci</a>).
+</p>
+
+<p>
+Now let $\varphi: R \rightarrow S$ be a <a href="20221226010233-ringhomomorphismus.html#ID-136298f7-3132-4bd7-934f-0eefaa48fcf9">ring-homomorphism</a>
+</p>
+
+<p>
+Then since $N$ is a <a href="20260612-vector_bundle_over_a_ring.html#ID-12c6e13e-440a-4d54-b689-c17c1850f0fc">vector bundle</a>, we can use that the <a href="20260718-dual_object_functor.html#ID-305eba88-144b-4262-af90-4682a306851f">dual object functor</a> is an antiequivalence (cf. <a href="20260718-subcategory_of_dualizable_objects_is_equivalent_to_the_opposite_category.html#ID-58e2fc93-1d46-449c-8b59-f5698d4afb0e">subcategory of dualizable objects is equivalent to the opposite category</a>) when restricted to <a href="20250604-dualizable_object.html#ID-d7ce66ea-0546-4473-8c08-89abdaf29e7a">dualizable objects</a> .
+Hence $f: R \rightarrow N$ is the zero map <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> $f^{\vee}: N^{\vee} \rightarrow R$ is the zero map.
+Moreover, the <a href="20241109-infinity_unit_transformation.html#ID-2938f9f8-5823-47ef-b80a-c23e2dd61aea">unit</a> transformation
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/6e76e1557c8329143f6b.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Here the image of $N^{\vee} \rightarrow N^{\vee} \otimes_{R} S$ generates $N^{\vee} \otimes_{R} S$ as \(S\)-module and hence the top map is zero <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> the composite is zero (as \(R\)-linear map) and hence <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> the composite $N^{\vee} \rightarrow R \rightarrow S$ is zero.
+This shows that $V(f) = V(\mathrm{im}(f^{\vee))$, which is closed.
+</p>
+
+</div>
+</body>
+</html>

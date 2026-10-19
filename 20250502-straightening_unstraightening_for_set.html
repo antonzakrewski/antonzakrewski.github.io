@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>straightening-unstraightening for set</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-229b15ca-1c13-4d63-a5fd-ee6e68e172a2"></span><h1 class="title">straightening-unstraightening for set</h1>
+
+<h2 id="motivation">Motivation</h2>
+
+<h3 id="objectwise">objectwise</h3>
+<p>
+Suppose you want to describe functors
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Fun}(Y,\mathrm{Set})
+\end{align*}</div>
+<p>
+for a <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">set</a> $Y$.
+Here we can consider $Y$ as 1-category with no nontrivial morphisms outside of the identity.
+</p>
+
+<p>
+Here we consider $\mathrm{Fun}(Y,\mathrm{Set})$ as <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">(1,1)-category</a>, so we will be fine to also consider the (natural) isomorphism between the functors.
+Secretly we already know, that
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Fun}(Y,\mathrm{Set}) \cong \prod_{y \in Y} \mathrm{Set}
+\end{align*}</div>
+<p>
+since such a functor is precisely given by indexing sets with $Y$.
+</p>
+
+<p>
+So let $\mathcal{F}: Y \rightarrow \mathrm{Set}$ be a <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a>.
+Then define $\mathcal{O}_\mathcal{F}$ as category containing
+</p>
+<ol>
+<li>pairs $(\mathcal{F}(y), y)$ as objects, where $\mathcal{F}(y)$ is the set.</li>
+
+<li>no nontrivial morphisms.    </li>
+</ol>
+<p>
+Then functor
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{F}: Y \rightarrow \mathrm{Set}
+\end{align*}</div>
+<p>
+contains the same datum as the map
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Un}(\mathcal{F}): \mathcal{O}_{\mathcal{F}} \rightarrow&amp; Y \\
+(\mathcal{F}(y),y) \mapsto&amp; y
+\end{align*}</div>
+
+<p>
+In other words, to define a map we can map each element in the target to its fibre.
+</p>
+
+<h3 id="natural-transformation">natural transformation</h3>
+<p>
+But we also want to describe (natural) transformations betwen two functors.
+Assume we have two functors
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{F},\mathcal{G}: Y \rightarrow \mathrm{Set}
+\end{align*}</div>
+<p>
+We know/expect that a natural transformation is given by maps $\eta(y): \mathcal{F}(y) \rightarrow \mathcal{G}(y)$.
+</p>
+
+<p>
+So we want to define a morphism
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Un}(\mathcal{F}) \rightarrow \mathrm{Un}(\mathcal{G})
+\end{align*}</div>
+<p>
+which we will define as certain map over $Y$
+</p>
+
+
+<div class="equation-container"><span class="equation"><img src="ltximg/62d749554ae275616bda.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Here one natural way is to define $\mathrm{Un}(\eta)$ as morphism encoding
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Un}(\eta): \mathcal{O}_{\mathcal{F}} \rightarrow&amp; \mathcal{O}_{\mathcal{G}} \\
+(\mathcal{F}(y),y) \mapsto&amp; (\mathcal{G}(y),y) \\
+\mathcal{F}(y) \ni x \mapsto&amp; f(x) \in \mathcal{G}(y)
+\end{align*}</div>
+
+
+<h3 id="precomposition">precomposition</h3>
+<p>
+Suppose we have a map $g: X \rightarrow Y$.
+Then for any functor $\mathcal{F}: Y \rightarrow \mathrm{Set}$ we can consider the composition
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/4ed20a3207fe004c1d0c.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Then this functor is of course given by
+</p>
+
+<div class="math-block">\begin{align*}
+x \mapsto \mathcal{F}(g(x))
+\end{align*}</div>
+
+<p>
+Hence using the unstraightening construction we get
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{O}_{\mathcal{F} \circ g} = \{(\mathcal{F}(g(x)), x) \vert x \in X\}
+\end{align*}</div>
+
+<p>
+But this is also given by
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{O}_{\mathcal{F} \circ g} = \{(\mathcal{F}(y), y,x) \vert g(x) = y\}
+\end{align*}</div>
+
+<p>
+and an explicit calculation shows, that this is precisely the <a href="20230806-pullback.html#ID-730c4312-492d-4b9c-a347-9281309d3e6f">pullback</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/cdcf62aee51daf21cf66.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+
+
+
+</div>
+</body>
+</html>

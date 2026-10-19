@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:45 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Riemannscher Umordnungssatz</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,55 +52,50 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Riemannscher Umordnungssatz</h1>
-<div id="outline-container-org7091dfc" class="outline-2">
-<h2 id="org7091dfc"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-0a500364-542d-443a-8ea5-7350c292a523"></span><h1 class="title">Riemannscher Umordnungssatz</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(\sum_{n=1}^{\infty} a_n\) eine <a href="20211222222904-reihe_mathe.html#ID-ae236532-f177-4c70-806b-a1be965ef5e4">Reihe</a>, welche <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergiert</a>, aber nicht <a href="20220718130957-absolute_reihe.html#ID-96128527-4a42-424c-b629-68bce48ddccb">absolut</a>.
-Dann folgt, dass diese <a href="20211222222904-reihe_mathe.html#ID-ae236532-f177-4c70-806b-a1be965ef5e4">Reihe</a> <a href="20221216220937-bedingte_konvergenz_einer_reihe.html#ID-b10b92ad-0fce-4403-b5df-08897574eac3">bedingt konvergiert</a> 
+Sei $\sum_{n=1}^{\infty} a_n$ eine <a href="20211222222904-reihe_mathe.html#ID-ae236532-f177-4c70-806b-a1be965ef5e4">Reihe</a>, welche <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergiert</a>, aber nicht <a href="20220718130957-absolute_reihe.html#ID-96128527-4a42-424c-b629-68bce48ddccb">absolut</a>.
+Dann folgt, dass diese <a href="20211222222904-reihe_mathe.html#ID-ae236532-f177-4c70-806b-a1be965ef5e4">Reihe</a> <a href="20221216220937-bedingte_konvergenz_einer_reihe.html#ID-b10b92ad-0fce-4403-b5df-08897574eac3">bedingt konvergiert</a>
 </p>
-</div>
-</div>
-<div id="outline-container-org9e65cde" class="outline-2">
-<h2 id="org9e65cde"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<h2 id="beweis">Beweis</h2>
 <p>
-Da \(\sum_{n=1}^{\infty} a_n\) nicht <a href="20220718130957-absolute_reihe.html#ID-96128527-4a42-424c-b629-68bce48ddccb">absolut konvergiert</a>, folgt:
+Da $\sum_{n=1}^{\infty} a_n$ nicht <a href="20220718130957-absolute_reihe.html#ID-96128527-4a42-424c-b629-68bce48ddccb">absolut konvergiert</a>, folgt:
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \sum_{n=1}^{\infty} \vert a_n \vert = + \infty
-\end{align*}
+\end{align*}</div>
 <p>
 Zudem gilt, dass die Teilfolgen bestehend aus den positiven und negativen summanden <a href="20220123204533-betsimmte_divergenz.html#ID-bb9c233f-4de3-4e2f-85b0-9423df2bb2f7">bestimmte Divergieren</a> müssen, weil es sonst ein Widerspruch zur Konvergenz wäre.
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \sum_{n=1}^{\infty} \mathrm{max}(a_n,0) = + \infty \\
 \sum_{n=1}^{\infty} \mathrm{min}(a_n,0) = - \infty
-\end{align*}
+\end{align*}</div>
 
 <p>
-Sei \(\overline{a_n}\) die <a href="20220717191708-teilfogle.html#ID-133bb3cb-5829-417d-a264-b95b6e343f41">Teilfolge</a> negativer zahlen und \(a_n'\) die <a href="20220717191708-teilfogle.html#ID-133bb3cb-5829-417d-a264-b95b6e343f41">Teilfolge</a> nichtnegativer Zahlen, $ \overline{n(a<sub>&sigma;</sub>)}}$ bzw. \(n(a_{\sigma})'\) eine <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a>, welche auf das nächste, noch unverwendete Folgenglied von $ \overline{a}<sub>n</sub>$ bzw. \(a_n'\) abbildet  und sei \(a \in \mathbb{R}\) ein beliebiger Grenzwert
+Sei $\overline{a_n}$ die <a href="20220717191708-teilfogle.html#ID-133bb3cb-5829-417d-a264-b95b6e343f41">Teilfolge</a> negativer zahlen und $a_n'$ die <a href="20220717191708-teilfogle.html#ID-133bb3cb-5829-417d-a264-b95b6e343f41">Teilfolge</a> nichtnegativer Zahlen, $ \overline{n(a_{\sigma})}}$ bzw. $n(a_{\sigma})'$ eine <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a>, welche auf das nächste, noch unverwendete Folgenglied von $ \overline{a}_n$ bzw. $a_n'$ abbildet  und sei $a \in \mathbb{R}$ ein beliebiger Grenzwert
 dann konstruiere man die Umordnung folgendermaßen
 </p>
-\begin{align*}
-a_{\sigma(k)} =& 
+
+<div class="math-block">\begin{align*}
+a_{\sigma(k)} =&amp; 
 \begin{cases}
-\overline{n(a_{\sigma(k)})} & \mbox{if } \sum_{n=1}^{k-1} a_{\sigma(n)} \geq a \\
-n'(a_{\sigma(k)}) & \mbox{else } \\ 
+\overline{n(a_{\sigma(k)})} &amp; \mbox{if } \sum_{n=1}^{k-1} a_{\sigma(n)} \geq a \\
+n'(a_{\sigma(k)}) &amp; \mbox{else } \\ 
 \end{cases}
-\end{align*}
+\end{align*}</div>
 
 <p>
-Ebenso lässt sich eine <a href="20221216220908-umordnung_einer_reihe.html#ID-a28ce676-e2d8-4d30-831a-4ad906b92b37">Umordnung</a> konstruieren, welche <a href="20220123204533-betsimmte_divergenz.html#ID-bb9c233f-4de3-4e2f-85b0-9423df2bb2f7">bestimmt divergiert</a>: 
+Ebenso lässt sich eine <a href="20221216220908-umordnung_einer_reihe.html#ID-a28ce676-e2d8-4d30-831a-4ad906b92b37">Umordnung</a> konstruieren, welche <a href="20220123204533-betsimmte_divergenz.html#ID-bb9c233f-4de3-4e2f-85b0-9423df2bb2f7">bestimmt divergiert</a>:
 </p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:45</p>
+
+
+
 </div>
 </body>
 </html>

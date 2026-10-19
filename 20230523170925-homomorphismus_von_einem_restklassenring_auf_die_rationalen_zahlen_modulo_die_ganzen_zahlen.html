@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 22:40 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Homomorphismus von einem Restklassenring auf die Rationalen Zahlen modulo die ganzen Zahlen</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,96 +52,77 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Homomorphismus von einem Restklassenring auf die Rationalen Zahlen modulo die ganzen Zahlen</h1>
-<div id="outline-container-orgce0818f" class="outline-2">
-<h2 id="orgce0818f"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-6a6bc556-054a-4a61-b7a6-8902cac5fa09"></span><h1 class="title">Homomorphismus von einem Restklassenring auf die Rationalen Zahlen modulo die ganzen Zahlen</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Seien \(n,m \in \mathbb{N}\) und \(\mathbb{Z} / n \mathbb{Z}\) gegeben, so ist die <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a>
+Seien $n,m \in \mathbb{N}$ und $\mathbb{Z} / n \mathbb{Z}$ gegeben, so ist die <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a>
 </p>
-\begin{align*}
-\phi_m: \mathbb{Z} / n \mathbb{Z} \rightarrow& \mathbb{Q} / \mathbb{Z} \\
-k + n \mathbb{Z} \mapsto& \frac{mk}{n} + \mathbb{Z} 
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\phi_m: \mathbb{Z} / n \mathbb{Z} \rightarrow&amp; \mathbb{Q} / \mathbb{Z} \\
+k + n \mathbb{Z} \mapsto&amp; \frac{mk}{n} + \mathbb{Z} 
+\end{align*}</div>
 <p>
-ein <a href="20230222204703-modulhomomorphismus.html#ID-bb388d52-298a-4714-b290-80d9ab79eb2e">Modulhomomorphismus</a> über dem <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">Ring</a> \(\mathbb{Z}  / n \mathbb{Z}\)
+ein <a href="20230222204703-modulhomomorphismus.html#ID-bb388d52-298a-4714-b290-80d9ab79eb2e">Modulhomomorphismus</a> über dem <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">Ring</a> $\mathbb{Z}  / n \mathbb{Z}$
 </p>
-</div>
-</div>
-<div id="outline-container-org50281f5" class="outline-2">
-<h2 id="org50281f5"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orgc1ed920" class="outline-3">
-<h3 id="orgc1ed920"><span class="section-number-3">2.1.</span> <a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">welldefined</a></h3>
-<div class="outline-text-3" id="text-2-1">
-</div>
-<div id="outline-container-org1454279" class="outline-4">
-<h4 id="org1454279"><span class="section-number-4">2.1.1.</span> addition</h4>
-<div class="outline-text-4" id="text-2-1-1">
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="id81e35048-a75d-47ae-ada1-99f600ac072fwelldefined"><a href="20220304105106-wohldefiniert_mathe.html#ID-81e35048-a75d-47ae-ada1-99f600ac072f">welldefined</a></h3>
+
+<h4 id="addition">addition</h4>
 <p>
-Seien \(k, k' \in  \mathbb{Z}\) mit \(k + n \mathbb{Z} = k' + n \mathbb{Z}\) so gilt \(k = k' + n \cdot s\) für ein \(s \in \mathbb{Z}\).
+Seien $k, k' \in  \mathbb{Z}$ mit $k + n \mathbb{Z} = k' + n \mathbb{Z}$ so gilt $k = k' + n \cdot s$ für ein $s \in \mathbb{Z}$.
 Damit gilt dann
 </p>
-\begin{align*}
-\phi_m(k' + n \mathbb{Z}) =& \phi_m(k + n \cdot s + n \mathbb{Z}) \\
-=& \frac{m \cdot (k + n \cdot s)}{n} + \mathbb{Z} \\
-=& \frac{mk}{n} + s \cdot k + \mathbb{Z}  \\
-=& \frac{mk}{n} +  \mathbb{Z}  \\
-=& \phi_m(k + n\mathbb{Z})
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgb266d24" class="outline-4">
-<h4 id="orgb266d24"><span class="section-number-4">2.1.2.</span> multiplikation</h4>
-<div class="outline-text-4" id="text-2-1-2">
+
+<div class="math-block">\begin{align*}
+\phi_m(k' + n \mathbb{Z}) =&amp; \phi_m(k + n \cdot s + n \mathbb{Z}) \\
+=&amp; \frac{m \cdot (k + n \cdot s)}{n} + \mathbb{Z} \\
+=&amp; \frac{mk}{n} + s \cdot k + \mathbb{Z}  \\
+=&amp; \frac{mk}{n} +  \mathbb{Z}  \\
+=&amp; \phi_m(k + n\mathbb{Z})
+\end{align*}</div>
+
+<h4 id="multiplikation">multiplikation</h4>
 <p>
-Seien \(r,r' \in \mathbb{Z}\) mit \(r + n \mathbb{Z} = r' + n \mathbb{Z}\).
-Dann gilt \(r = r + n \cdot s\) für ein \(s \in \mathbb{Z}\)
-Daraus folgt dann für \(k \in \mathbb{Z} / n \mathbb{Z}\) und \(m \in \mathbb{Z}\)
+Seien $r,r' \in \mathbb{Z}$ mit $r + n \mathbb{Z} = r' + n \mathbb{Z}$.
+Dann gilt $r = r + n \cdot s$ für ein $s \in \mathbb{Z}$
+Daraus folgt dann für $k \in \mathbb{Z} / n \mathbb{Z}$ und $m \in \mathbb{Z}$
 </p>
-\begin{align*}
-\phi_m((r + n \cdot s) \cdot k) =& \frac{m \cdot (r + n \cdot s) \cdot k}{n} + \mathbb{Z} \\
-=& \frac{mrk}{n} + m \cdot s \cdot k + \mathbb{Z} \\
-=& \frac{mrk}{n} \\
-=& \phi_m(r \cdot s)
-\end{align*}
-</div>
-</div>
-</div>
-<div id="outline-container-orgb65f55a" class="outline-3">
-<h3 id="orgb65f55a"><span class="section-number-3">2.2.</span> additiv</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<div class="math-block">\begin{align*}
+\phi_m((r + n \cdot s) \cdot k) =&amp; \frac{m \cdot (r + n \cdot s) \cdot k}{n} + \mathbb{Z} \\
+=&amp; \frac{mrk}{n} + m \cdot s \cdot k + \mathbb{Z} \\
+=&amp; \frac{mrk}{n} \\
+=&amp; \phi_m(r \cdot s)
+\end{align*}</div>
+
+<h3 id="additiv">additiv</h3>
 <p>
-Seien \(k,k' \in \mathbb{Z}\) so gilt
+Seien $k,k' \in \mathbb{Z}$ so gilt
 </p>
-\begin{align*}
-\phi_m(k) + \phi_m(k') =& \frac{mk}{n} + \mathbb{Z}  + \frac{mk'}{n} + \mathbb{Z} \\
-=& \frac{m \cdot (k + k')}{n} + \mathbb{Z} \\
-=& \phi_m(k + k')
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org3a7c84d" class="outline-3">
-<h3 id="org3a7c84d"><span class="section-number-3">2.3.</span> multiplikativ</h3>
-<div class="outline-text-3" id="text-2-3">
+
+<div class="math-block">\begin{align*}
+\phi_m(k) + \phi_m(k') =&amp; \frac{mk}{n} + \mathbb{Z}  + \frac{mk'}{n} + \mathbb{Z} \\
+=&amp; \frac{m \cdot (k + k')}{n} + \mathbb{Z} \\
+=&amp; \phi_m(k + k')
+\end{align*}</div>
+
+<h3 id="multiplikativ">multiplikativ</h3>
 <p>
-Sei \(k \in \mathbb{Z}\) und \(r \in \mathbb{Z} / n \mathbb{Z}\), so gilt:
+Sei $k \in \mathbb{Z}$ und $r \in \mathbb{Z} / n \mathbb{Z}$, so gilt:
 </p>
-\begin{align*}
-\phi_m(r \cdot k) =& \frac{mrk}{n} + \mathbb{Z} \\
-=& r \cdot \frac{mk}{n} + \mathbb{Z} \\
-=& r \cdot (\frac{mk}{n} + \mathbb{Z}) \\
-=& r \cdot \phi_m(k)
-\end{align*}
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 22:40</p>
+
+<div class="math-block">\begin{align*}
+\phi_m(r \cdot k) =&amp; \frac{mrk}{n} + \mathbb{Z} \\
+=&amp; r \cdot \frac{mk}{n} + \mathbb{Z} \\
+=&amp; r \cdot (\frac{mk}{n} + \mathbb{Z}) \\
+=&amp; r \cdot \phi_m(k)
+\end{align*}</div>
+
+
 </div>
 </body>
 </html>

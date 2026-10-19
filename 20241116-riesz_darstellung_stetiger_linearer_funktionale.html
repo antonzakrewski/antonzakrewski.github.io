@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Riesz-representation for hilbert spaces</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-743c17bc-e4c0-467d-b1c2-a8750638ecd2"></span><h1 class="title">Riesz-representation for hilbert spaces</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $\mathcal{H}$ ein <a href="20241116-hilbertraum.html#ID-c884ff07-da92-448d-a745-6f23fee0c6e3">Hilbertraum</a> und $l: \mathcal{H} \rightarrow \mathbb{K}$ ein <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">stetig</a>es und <a href="20221208105610-lineares_funktional.html#ID-66171102-935e-4045-9e21-6faba42e09d2">lineares Funktional</a>
+Dann existiert ein eindeutiges $x_l \in \mathcal{H}$ mit
+</p>
+
+<div class="math-block">\begin{align*}
+l(-) = \langle x_l, -\rangle
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+Sei
+</p>
+
+<div class="math-block">\begin{align*}
+U \coloneqq \mathrm{ker}(l) = l^{-1}[ \{0\}]
+\end{align*}</div>
+<p>
+der <a href="20230827-kernel_category_theory.html#ID-1f1c40b0-77e0-4949-8893-3cb7b0166eba">Kern</a>.
+</p>
+
+<p>
+dann ist $U$ ein <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossener</a> Unterraum von $\mathcal{H}$ (cf. <a href="20230312160645-abgeschlossene_mengen_unter_stetigen_abbildungen.html#ID-db9a2c4c-d4bc-404c-96dd-b58235803cac">preimage of a closed set and continuous map</a>)
+</p>
+
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> sei $l \neq 0$, sonst ist $0 = x_l$ das eindeutige $x_l$
+</p>
+
+<p>
+Dann ist $U \subsetneq \mathcal{H}$ ein ecther unterraum und es existiert ein $y \in \mathcal{H} \setminus U$.
+Nach <a href="20241116-darstellung_eines_vektors_als_summe_von_einem_abgeschlossenen_unterraum_und_dem_orthogonalen_komplement.html#ID-485912da-04e6-44d0-bea5-7024673a60fa">Hilbertraum als direkte Summe von einem abgeschlossenen Unterraum und dem orthogonalen Komplement</a> existieren $u \in U, v \in U^{\bot}$ mit $v \neq 0$ und
+</p>
+
+<div class="math-block">\begin{align*}
+y = u + v
+\end{align*}</div>
+
+<p>
+Sei
+</p>
+
+<div class="math-block">\begin{align*}
+v_1 \coloneqq \frac{v}{\| v\|}
+\end{align*}</div>
+<p>
+Dann gilt
+</p>
+
+<div class="math-block">\begin{align*}
+l(v_1) = \frac{1}{\| v \|} l(v) 
+\end{align*}</div>
+<p>
+mit $l(v) \neq 0$ wegen $v \not\in U$
+</p>
+
+<p>
+Für beliebiges $x \in \mathcal{H}$ gilt
+</p>
+
+<div class="math-block">\begin{align*}
+x - \frac{l(x)}{l(v_1)} v_1 \in \mathcal{U}
+\end{align*}</div>
+<p>
+da gilt
+</p>
+
+<div class="math-block">\begin{align*}
+l(x - \frac{l(x)}{l(v_1)} v_1) =&amp; l(x) - \frac{l(x)}{l(v_1)}l(v_1) \\
+=&amp; 0
+\end{align*}</div>
+
+
+
+<h3 id="eindeutigeit">eindeutigeit</h3>
+<p>
+sei
+</p>
+
+<div class="math-block">\begin{align*}
+l(-) = \langle x_1, -\rangle = \langle x_2, -\rangle
+\end{align*}</div>
+<p>
+so folgt
+</p>
+
+<div class="math-block">\begin{align*}
+0 =&amp; l - l \\
+=&amp; \langle x_1 - x_2, - \rangle
+\end{align*}</div>
+<p>
+und wegen <a href="20230624-skalarprodukt_und_nulleintrag.html#ID-5019b9bd-6c4e-4eb8-9858-4b9bc161ae41">Skalarprodukt und Nulleintrag</a> folgt $x_1 - x_2 = 0$
+</p>
+
+</div>
+</body>
+</html>

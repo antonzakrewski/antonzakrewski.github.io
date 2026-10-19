@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 15:28 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>free module as projective module</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,55 +52,48 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">free module as projective module</h1>
-<div id="outline-container-orgba63222" class="outline-2">
-<h2 id="orgba63222"><span class="section-number-2">1.</span> Proposition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-dc5e5a8e-fab5-4f2d-b555-f560b1ec7b4a"></span><h1 class="title">free module as projective module</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let \(R\) be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a> and \(P\) be a <a href="20230222205257-freier_modul.html#ID-f31e26dc-9f62-4ff2-81db-88cd88c22229">free module</a> over \(R\).
-Then \(P\) is a <a href="20230727-projective_module.html#ID-d7827fce-3372-4b89-bd57-fafc2c16e937">projective module</a> 
+Let $R$ be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a> and $P$ be a <a href="20230222205257-freier_modul.html#ID-f31e26dc-9f62-4ff2-81db-88cd88c22229">free module</a> over $R$.
+Then $P$ is a <a href="20230727-projective_module.html#ID-d7827fce-3372-4b89-bd57-fafc2c16e937">projective module</a>
 </p>
-</div>
-</div>
-<div id="outline-container-org8d3aee7" class="outline-2">
-<h2 id="org8d3aee7"><span class="section-number-2">2.</span> Proof</h2>
-<div class="outline-text-2" id="text-2">
+
+<h2 id="proof">Proof</h2>
 <p>
-Suppose \(M,N\) are \(R\)-<a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">modules</a>, \(\varphi: M \twoheadrightarrow N\) an <a href="20230303170514-modulepimorphismus.html#ID-8658ea5e-6f26-4544-a083-aec8a247284f">epimorphism</a>, \(f: P \rightarrow N\) a <a href="20230222204703-modulhomomorphismus.html#ID-bb388d52-298a-4714-b290-80d9ab79eb2e">homomorphism</a> and \((e_i)_{i \in I}\) a <a href="20230303171607-basis_eines_moduls.html#ID-4d94d36c-5d43-4344-a837-6c9705d279a1">basis</a> of \(P\).
-Then \(f\) is uniquely determined by 
+Suppose $M,N$ are \(R\)-<a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">modules</a>, $\varphi: M \twoheadrightarrow N$ an <a href="20230303170514-modulepimorphismus.html#ID-8658ea5e-6f26-4544-a083-aec8a247284f">epimorphism</a>, $f: P \rightarrow N$ a <a href="20230222204703-modulhomomorphismus.html#ID-bb388d52-298a-4714-b290-80d9ab79eb2e">homomorphism</a> and $(e_i)_{i \in I}$ a <a href="20230303171607-basis_eines_moduls.html#ID-4d94d36c-5d43-4344-a837-6c9705d279a1">basis</a> of $P$.
+Then $f$ is uniquely determined by
 </p>
-\begin{align*}
-f: P \rightarrow& N \\
-e_i \mapsto& f(e_i)
-\end{align*}
+
+<div class="math-block">\begin{align*}
+f: P \rightarrow&amp; N \\
+e_i \mapsto&amp; f(e_i)
+\end{align*}</div>
 <p>
-Since \(\varphi\) is a <a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjection</a>, for each \(f(e_i)\), there exists an \(m_i\) such that \(\varphi(m_i) = f(e_i)\)
+Since $\varphi$ is a <a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjection</a>, for each $f(e_i)$, there exists an $m_i$ such that $\varphi(m_i) = f(e_i)$
 Therefore, using <a href="20220817142613-auswahlaxiom.html#ID-0fac098f-bed6-4f86-a90b-7a269c9fd21e">Axiom of choice</a>,  we define
 </p>
-\begin{align*}
-g: P \rightarrow& M \\
+
+<div class="math-block">\begin{align*}
+g: P \rightarrow&amp; M \\
 e_i \mapsto m_i
-\end{align*}
+\end{align*}</div>
 
 <p>
 Then
 </p>
-\begin{align*}
-(\varphi \circ g)(e_i) =& \varphi(m_i) \\
+
+<div class="math-block">\begin{align*}
+(\varphi \circ g)(e_i) =&amp; \varphi(m_i) \\
 = f(e_i)
-\end{align*}
+\end{align*}</div>
 
 
 <p>
 <a href="20231007-uses_ac.html#ID-7265220a-8d13-431b-996e-7862faa0124c">Uses AC</a>
 </p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 15:28</p>
+
 </div>
 </body>
 </html>

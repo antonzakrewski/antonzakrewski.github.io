@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:57 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Multiplikation einer Matrix mit der Adjunkte</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,42 +52,37 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Multiplikation einer Matrix mit der Adjunkte</h1>
-<div id="outline-container-org870dca9" class="outline-2">
-<h2 id="org870dca9"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-c9ff3ca9-2ea4-44d9-b05d-308524d47dc7"></span><h1 class="title">Multiplikation einer Matrix mit der Adjunkte</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(A = (\alpha_{ij}) \in R^{n \times n}\) eine <a href="20220303181007-matrix.html#ID-3234cd94-0d93-470b-a319-75288f97326e">Matrix</a> über dem <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a> \(R\), dann ist
+Sei $A = (\alpha_{ij}) \in R^{n \times n}$ eine <a href="20220303181007-matrix.html#ID-3234cd94-0d93-470b-a319-75288f97326e">Matrix</a> über dem <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a> $R$, dann ist
 </p>
-\begin{align*}
-A \cdot \tilde{A} =& \mathrm{det}(A)E_n \\
-=& \tilde{A} \cdot A
-\end{align*}
+
+<div class="math-block">\begin{align*}
+A \cdot \tilde{A} =&amp; \mathrm{det}(A)E_n \\
+=&amp; \tilde{A} \cdot A
+\end{align*}</div>
 <p>
-für die <a href="20230118135322-adjunkte_matrix.html#ID-6d0c6d49-b018-49cf-991a-465d7dfe17a1">Adjunkte</a> \(\tilde{A}\)
+für die <a href="20230118135322-adjunkte_matrix.html#ID-6d0c6d49-b018-49cf-991a-465d7dfe17a1">Adjunkte</a> $\tilde{A}$
 </p>
-</div>
-</div>
-<div id="outline-container-org4ce504e" class="outline-2">
-<h2 id="org4ce504e"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<h2 id="beweis">Beweis</h2>
 <p>
-Es gilt für den Eintrag 
+Es gilt für den Eintrag
 </p>
-\begin{align*}
-(A \cdot \tilde{A})_{ij} =& \sum_{l=1}^{n} \alpha_{ij} \cdot (-1)^{} \det{A \setminus \{i,j\}} \\
-=& \delta_{ik} \mathrm{det}(A)
-\end{align*}
+
+<div class="math-block">\begin{align*}
+(A \cdot \tilde{A})_{ij} =&amp; \sum_{l=1}^{n} \alpha_{ij} \cdot (-1)^{} \det{A \setminus \{i,j\}} \\
+=&amp; \delta_{ik} \mathrm{det}(A)
+\end{align*}</div>
 <p>
-und wegen der <a href="20221126201331-determinante.html#ID-eb5c60bd-2e36-4d02-aa16-f58c8e846d07">Determinant</a> als <a href="20221224174816-abstrakte_volumenfunktion.html#ID-2fb7bc59-c528-4fe5-87d0-a64b484262fc">Abstrakte Volumenfunktion</a> mit der &lt;linear abhängige zeilen&gt; 
+und wegen der <a href="20221126201331-determinante.html#ID-eb5c60bd-2e36-4d02-aa16-f58c8e846d07">Determinant</a> als <a href="20221224174816-abstrakte_volumenfunktion.html#ID-2fb7bc59-c528-4fe5-87d0-a64b484262fc">Abstrakte Volumenfunktion</a> mit der &lt;linear abhängige zeilen&gt;
 </p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:57</p>
+
+
+
+
 </div>
 </body>
 </html>

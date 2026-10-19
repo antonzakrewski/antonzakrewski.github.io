@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:58 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Näherungswert für die 2. Ableitung</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,63 +52,69 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Näherungswert für die 2. Ableitung</h1>
-<div id="outline-container-org5bbfeb1" class="outline-2">
-<h2 id="org5bbfeb1"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-d7f69280-84e2-49bd-b64a-c4c7dd3ccfb2"></span><h1 class="title">Näherungswert für die 2. Ableitung</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(f: I \rightarrow \mathbb{R}\) eine <a href="20230116163008-differenzierbarkeit.html#ID-dd7eef4e-04f7-4614-a343-a1f16a7fd0f7">differenzierbare</a> <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktion</a> mit \(x \in I\), so folgt:
+Sei $f: I \rightarrow \mathbb{R}$ eine <a href="20230116163008-differenzierbarkeit.html#ID-dd7eef4e-04f7-4614-a343-a1f16a7fd0f7">differenzierbare</a> <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktion</a> mit $x \in I$, so folgt:
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 f''(x) = \lim_{h \to 0}\left(\frac{f(x+h) - f(x) + f(x-h) - f(x)}{h^2}\right) 
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org7998bcf" class="outline-2">
-<h2 id="org7998bcf"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
 <p>
 Es gilt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \lim_{h \to 0}\left(f(x \pm h) - f(x)\right) = 0
-\end{align*}
+\end{align*}</div>
 <p>
-und damit folgt nach der <a href="20230123234634-regel_von_de_l_hospital.html#ID-560abc96-bb09-48d6-9066-68ef79e76f1f">Regel von de L'Hospital für \(0\)</a>
+und damit folgt nach der <a href="20230123234634-regel_von_de_l_hospital.html#ID-560abc96-bb09-48d6-9066-68ef79e76f1f">Regel von de L'Hospital für $0$</a>
 </p>
-\begin{align*}
-\lim_{h \to 0}\left(\frac{f(x + h) - f(x) + f(x-h) - f(x)}{h^2}\right) =& \lim_{h \to 0} \left(\frac{f'(x + h) - f'(x - h)}{2h}\right) \\
-=& \lim_{h \to 0}\left(\frac{f''(x+h) + f''(x-h)}{2}\right) =& f''(x)
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\lim_{h \to 0}\left(\frac{f(x + h) - f(x) + f(x-h) - f(x)}{h^2}\right) =&amp; \lim_{h \to 0} \left(\frac{f'(x + h) - f'(x - h)}{2h}\right) \\
+=&amp; \lim_{h \to 0}\left(\frac{f''(x+h) + f''(x-h)}{2}\right) =&amp; f''(x)
+\end{align*}</div>
 <p>
 Alternativ durch eine <a href="20230126143830-qualitative_taylor_approximation.html#ID-d5560d03-7b53-41e2-961f-a60b0a56cbb4">Qualitative Taylor-Approximation</a>:
 Es gilt:
 </p>
-\begin{align*}
-f(x + h) =& f(x) + hf'(x) + \frac{h^2}{2!}f''(x_0) \\
-f(x - h) =& f(x) - hf'(x) + \frac{h^2}{2!}f''(x_0')
-f(x + h) + f(x - h) - 2f(x) =& \frac{h^2}{2}(f''(x_0) + f''(x_0')) \\
-\frac{f(x + h) + f(x - h) - 2f(x)}{h^2} =& \frac{1}{2} (f''(x_0) + f''(x_0') \\
+
+<div class="math-block">\begin{align*}
+f(x + h) =&amp; f(x) + hf'(x) + \frac{h^2}{2!}f''(x_0) \\
+f(x - h) =&amp; f(x) - hf'(x) + \frac{h^2}{2!}f''(x_0')
+f(x + h) + f(x - h) - 2f(x) =&amp; \frac{h^2}{2}(f''(x_0) + f''(x_0')) \\
+\frac{f(x + h) + f(x - h) - 2f(x)}{h^2} =&amp; \frac{1}{2} (f''(x_0) + f''(x_0') \\
 \lim_{h \to 0}\left(\frac{f(x + h) + f(x - h) - 2f(x)}{h^2}\right)
-=& \lim_{h \to 0}\left(\frac{1}{2} f''(x_0) + f''(x_0')\right) = f''(x)
-\end{align*}
+=&amp; \lim_{h \to 0}\left(\frac{1}{2} f''(x_0) + f''(x_0')\right) = f''(x)
+\end{align*}</div>
 <p>
-wegen \(x_0,x_0' \in (x - h, x + h)\) gilt auch \(\lim_{h \to 0}\left(\frac{1}{2} f''(x_0) + f''(x_0')\right) = f''(x)\) und damit aucwa
+wegen $x_0,x_0' \in (x - h, x + h)$ gilt auch $\lim_{h \to 0}\left(\frac{1}{2} f''(x_0) + f''(x_0')\right) = f''(x)$ und damit aucwa
 </p>
 
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \lim_{h \to 0}\left(\frac{f(x + h) + f(x - h) - 2f(x)}{h^2}\right) 
-\end{align*}
+\end{align*}</div>
 <p>
 = 2f(x)
 </p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:58</p>
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 </body>
 </html>

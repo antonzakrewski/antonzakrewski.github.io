@@ -1,208 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2026-02-02 Mo 09:55 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>LinAlg 1 - Extra Rechenaufgaben</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -229,216 +52,198 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">LinAlg 1 - Extra Rechenaufgaben</h1>
-<div id="outline-container-orgc9b52a9" class="outline-2">
-<h2 id="orgc9b52a9">Disclaimer</h2>
-<div class="outline-text-2" id="text-orgc9b52a9">
+<span id="ID-ec644e59-cd53-4203-b7a5-52dda6cfdee5"></span><h1 class="title">LinAlg 1 - Extra Rechenaufgaben</h1>
+
+<h2 id="disclaimer">Disclaimer</h2>
 <p>
-ich habe bloß paar random Zahlen (in \(\mathbb{Z}\)) erfunden.<br />
-Euer Ergebnis könnt ihr z.B. mit Sage / Wolframalpha überprüfen<br />
+ich habe bloß paar random Zahlen (in $\mathbb{Z}$) erfunden.
+Euer Ergebnis könnt ihr z.B. mit Sage / Wolframalpha überprüfen
 </p>
-</div>
-</div>
-<div id="outline-container-org366579e" class="outline-2">
-<h2 id="org366579e">Liste</h2>
-<div class="outline-text-2" id="text-org366579e">
-</div>
-<div id="outline-container-org13aef6a" class="outline-3">
-<h3 id="org13aef6a">Determinante</h3>
-<div class="outline-text-3" id="text-org13aef6a">
-</div>
-<div id="outline-container-orga1c2aad" class="outline-4">
-<h4 id="orga1c2aad">a)</h4>
-<div class="outline-text-4" id="text-orga1c2aad">
+
+<h2 id="liste">Liste</h2>
+
+<h3 id="determinante">Determinante</h3>
+
+<h4 id="a">a)</h4>
 <p>
-Berechne die Determinanten von<br />
+Berechne die Determinanten von
 </p>
-\begin{align*}
-B =& \begin{pmatrix} 
-1 & 2 & 3 \\ 
-0 & 4 & 5 \\ 
-1 & 0 & 6 
+
+<div class="math-block">\begin{align*}
+B =&amp; \begin{pmatrix} 
+1 &amp; 2 &amp; 3 \\ 
+0 &amp; 4 &amp; 5 \\ 
+1 &amp; 0 &amp; 6 
 \end{pmatrix} \\
-G =& \begin{pmatrix} 
-2 & 1 & 0 & 3 \\ 
-0 & 3 & 1 & 2 \\ 
-1 & 0 & 2 & 1 \\ 
-0 & 2 & 0 & 4 
+G =&amp; \begin{pmatrix} 
+2 &amp; 1 &amp; 0 &amp; 3 \\ 
+0 &amp; 3 &amp; 1 &amp; 2 \\ 
+1 &amp; 0 &amp; 2 &amp; 1 \\ 
+0 &amp; 2 &amp; 0 &amp; 4 
 \end{pmatrix} \\
-H =& \begin{pmatrix} 
-1 & 2 & 3 \\ 
-2 & 3 & 4 \\ 
-3 & 4 & 0 
+H =&amp; \begin{pmatrix} 
+1 &amp; 2 &amp; 3 \\ 
+2 &amp; 3 &amp; 4 \\ 
+3 &amp; 4 &amp; 0 
 \end{pmatrix}
-\end{align*}
-<ul class="org-ul">
-<li>über \(\mathbb{Q}\)<br /></li>
-<li>über \(\mathbb{R}\)  <br /></li>
-<li>über \(\mathbb{Z}/2 \mathbb{Z}\)<br /></li>
-<li>über \(\mathbb{Z}/3 \mathbb{Z}\)<br /></li>
-<li>über \(\mathbb{Z}/5 \mathbb{Z}\)<br /></li>
-<li>über \(\mathbb{Z}/7 \mathbb{Z}\)    <br /></li>
+\end{align*}</div>
+<ul>
+<li>über $\mathbb{Q}$</li>
+
+<li>über $\mathbb{R}$  </li>
+
+<li>über $\mathbb{Z}/2 \mathbb{Z}$</li>
+
+<li>über $\mathbb{Z}/3 \mathbb{Z}$</li>
+
+<li>über $\mathbb{Z}/5 \mathbb{Z}$</li>
+
+<li>über $\mathbb{Z}/7 \mathbb{Z}$    </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgb67ce04" class="outline-4">
-<h4 id="orgb67ce04">a)</h4>
-</div>
-</div>
-<div id="outline-container-org21e30a1" class="outline-3">
-<h3 id="org21e30a1">Inverse</h3>
-<div class="outline-text-3" id="text-org21e30a1">
+<h4 id="a">a)</h4>
+
+<h3 id="inverse">Inverse</h3>
 <p>
-Bestimme Rang, bestimme ob die Inverse Matrix existiert bzw. berechne diese<br />
+Bestimme Rang, bestimme ob die Inverse Matrix existiert bzw. berechne diese
 </p>
-\begin{align*}
-B =& \begin{pmatrix} 
-1 & 2 & 0 \\ 
-0 & 1 & 3 \\ 
-1 & 0 & 2 
+
+<div class="math-block">\begin{align*}
+B =&amp; \begin{pmatrix} 
+1 &amp; 2 &amp; 0 \\ 
+0 &amp; 1 &amp; 3 \\ 
+1 &amp; 0 &amp; 2 
 \end{pmatrix} \\
-C =& \begin{pmatrix} 
-2 & 1 & 3 \\ 
-1 & 2 & 1 \\ 
-3 & 1 & 2 
+C =&amp; \begin{pmatrix} 
+2 &amp; 1 &amp; 3 \\ 
+1 &amp; 2 &amp; 1 \\ 
+3 &amp; 1 &amp; 2 
 \end{pmatrix} \\
-E =& \begin{pmatrix} 
-1 & 0 & 2 \\ 
-2 & 1 & 0 \\ 
-1 & 1 & 1 
+E =&amp; \begin{pmatrix} 
+1 &amp; 0 &amp; 2 \\ 
+2 &amp; 1 &amp; 0 \\ 
+1 &amp; 1 &amp; 1 
 \end{pmatrix} \\
-F =& \begin{pmatrix} 
-3 & 1 & 2 \\ 
-1 & 4 & 5 \\ 
-2 & 3 & 1 
+F =&amp; \begin{pmatrix} 
+3 &amp; 1 &amp; 2 \\ 
+1 &amp; 4 &amp; 5 \\ 
+2 &amp; 3 &amp; 1 
 \end{pmatrix}  \\
-G =& \begin{pmatrix} 
-2 & 1 & 0 & 3 \\ 
-1 & 3 & 2 & 0 \\ 
-0 & 1 & 2 & 1 \\ 
-1 & 0 & 1 & 2 
+G =&amp; \begin{pmatrix} 
+2 &amp; 1 &amp; 0 &amp; 3 \\ 
+1 &amp; 3 &amp; 2 &amp; 0 \\ 
+0 &amp; 1 &amp; 2 &amp; 1 \\ 
+1 &amp; 0 &amp; 1 &amp; 2 
 \end{pmatrix} \\
-H =& \begin{pmatrix} 
-1 & 2 & 1 & 0 \\ 
-3 & 1 & 2 & 1 \\ 
-0 & 3 & 1 & 2 \\ 
-2 & 0 & 3 & 1 
+H =&amp; \begin{pmatrix} 
+1 &amp; 2 &amp; 1 &amp; 0 \\ 
+3 &amp; 1 &amp; 2 &amp; 1 \\ 
+0 &amp; 3 &amp; 1 &amp; 2 \\ 
+2 &amp; 0 &amp; 3 &amp; 1 
 \end{pmatrix}
-\end{align*}
+\end{align*}</div>
 
-<ul class="org-ul">
-<li>über \(\mathbb{Q}\)<br /></li>
-<li>über \(\mathbb{R}\)  <br /></li>
-<li>über \(\mathbb{Z}/2 \mathbb{Z}\)<br /></li>
-<li>über \(\mathbb{Z}/3 \mathbb{Z}\)<br /></li>
-<li>über \(\mathbb{Z}/5 \mathbb{Z}\)<br /></li>
-<li>über \(\mathbb{Z}/7 \mathbb{Z}\)    <br /></li>
+<ul>
+<li>über $\mathbb{Q}$</li>
+
+<li>über $\mathbb{R}$  </li>
+
+<li>über $\mathbb{Z}/2 \mathbb{Z}$</li>
+
+<li>über $\mathbb{Z}/3 \mathbb{Z}$</li>
+
+<li>über $\mathbb{Z}/5 \mathbb{Z}$</li>
+
+<li>über $\mathbb{Z}/7 \mathbb{Z}$    </li>
 </ul>
-</div>
-<div id="outline-container-orgb767810" class="outline-4">
-<h4 id="orgb767810">b)</h4>
-<div class="outline-text-4" id="text-orgb767810">
+<h4 id="b">b)</h4>
 <p>
-Sei \(A(t) = \begin{pmatrix} t & 1 & 1 & 1 \\ 1 & t & 1 & 1 \\ 1 & 1 & t & 1 \\ 1 & 1 & 1 & t \end{pmatrix}\)<br />
+Sei \(A(t) = \begin{pmatrix} t &amp; 1 &amp; 1 &amp; 1 \\ 1 &amp; t &amp; 1 &amp; 1 \\ 1 &amp; 1 &amp; t &amp; 1 \\ 1 &amp; 1 &amp; 1 &amp; t \end{pmatrix}\)
 </p>
 
 <p>
-a) Berechne det(A(t)) als Funktion von t<br />
-b) Für welche Werte von t ist A(t) singulär?<br />
-c) bestimme \(A(t)^{-1}\)<br />
+a) Berechne det(A(t)) als Funktion von t
+b) Für welche Werte von t ist A(t) singulär?
+c) bestimme $A(t)^{-1}$
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-org558d302" class="outline-3">
-<h3 id="org558d302">LGS</h3>
-<div class="outline-text-3" id="text-org558d302">
+
+<h3 id="lgs">LGS</h3>
 <p>
-Finde alle Lösungen von den folgenden LGS<br />
+Finde alle Lösungen von den folgenden LGS
 </p>
-<ul class="org-ul">
-<li>über \(\mathbb{Q}\)<br /></li>
-<li>über \(\mathbb{R}\)  <br /></li>
-<li>über \(\mathbb{Z}/2 \mathbb{Z}\)<br /></li>
-<li>über \(\mathbb{Z}/3 \mathbb{Z}\)<br /></li>
-<li>über \(\mathbb{Z}/5 \mathbb{Z}\)<br /></li>
-<li>über \(\mathbb{Z}/7 \mathbb{Z}\)    <br /></li>
+<ul>
+<li>über $\mathbb{Q}$</li>
+
+<li>über $\mathbb{R}$  </li>
+
+<li>über $\mathbb{Z}/2 \mathbb{Z}$</li>
+
+<li>über $\mathbb{Z}/3 \mathbb{Z}$</li>
+
+<li>über $\mathbb{Z}/5 \mathbb{Z}$</li>
+
+<li>über $\mathbb{Z}/7 \mathbb{Z}$    </li>
 </ul>
-
 <p>
-Falls es mehrere Lösungen gibt, dann gib die Lösungsmenge in Form von \(v + \langle u_1,u_2,...,u_n\rangle\) an, wobei \(\{u_1,...,u_n\}\) linear unabhängig ist.<br />
+Falls es mehrere Lösungen gibt, dann gib die Lösungsmenge in Form von $v + \langle u_1,u_2,...,u_n\rangle$ an, wobei $\{u_1,...,u_n\}$ linear unabhängig ist.
 </p>
-</div>
-<div id="outline-container-org49eb643" class="outline-4">
-<h4 id="org49eb643">a)</h4>
-<div class="outline-text-4" id="text-org49eb643">
-\begin{align}
-2x + 3y - z &= 5 \\
-x - y + 2z &= 3 \\
-3x + 2y + z &= 8
-\end{align}
-</div>
-</div>
-<div id="outline-container-org4816d55" class="outline-4">
-<h4 id="org4816d55">b)</h4>
-<div class="outline-text-4" id="text-org4816d55">
-\begin{align}
-7x + 4y + 2z &= 5 \\
-1x - 9y + 12z &= 3 \\
-x - 5y + 8z &= 7 \\
-5x + 2y + 6z &= 8
-\end{align}
-</div>
-</div>
-<div id="outline-container-orgb7bedb2" class="outline-4">
-<h4 id="orgb7bedb2">c)</h4>
-<div class="outline-text-4" id="text-orgb7bedb2">
-\begin{align}
-7x + 4y + 2z &= 5 \\
-1x - 9y + 12z &= 3 \\
-\end{align}
-</div>
-</div>
-<div id="outline-container-orgc5f05ee" class="outline-4">
-<h4 id="orgc5f05ee">d)</h4>
-<div class="outline-text-4" id="text-orgc5f05ee">
-\begin{align}
-x + 2y + 3z + w + 2v &= 4 \\
-2x + 4y + 7z + 3w + 5v &= 9 \\
-x + 2y + 4z + 2w + 3v &= 5
-\end{align}
-</div>
-</div>
-</div>
-<div id="outline-container-org2d35804" class="outline-3">
-<h3 id="org2d35804">Basis bestimmen</h3>
-<div class="outline-text-3" id="text-org2d35804">
-<p>
-Bestimme eine Basis vom Kern und Bild der Abbildungen korrespondierend zu folgenden Matrizen<br />
-</p>
-\begin{align*}
-A =& \begin{pmatrix} 1 & 2 & 3 & 4 & 5 \\ 2 & 4 & 7 & 8 & 11 \\ 3 & 6 & 10 & 12 & 16 \\ 1 & 2 & 4 & 5 & 7 \\ 2 & 4 & 6 & 7 & 9 \end{pmatrix} \\
-B =& \begin{pmatrix} 2 & 1 & 3 & 1 & 2 \\ 4 & 2 & 7 & 3 & 5 \\ 1 & 3 & 2 & 4 & 1 \\ 3 & 4 & 5 & 5 & 3 \\ 2 & 6 & 1 & 7 & 0 \end{pmatrix} \\
-C =& \begin{pmatrix} 1 & 1 & 2 & 3 & 1 \\ 2 & 2 & 4 & 7 & 3 \\ 1 & 1 & 2 & 4 & 2 \\ 3 & 3 & 6 & 10 & 4 \\ 1 & 1 & 2 & 3 & 1 \end{pmatrix} \\
-D =& \begin{pmatrix} 1 & 2 & 0 & 1 & 3 \\ 0 & 1 & 1 & 2 & 1 \\ 1 & 3 & 1 & 3 & 4 \\ 2 & 5 & 1 & 4 & 7 \\ 1 & 4 & 2 & 5 & 5 \end{pmatrix}
-\end{align*}
 
-<ul class="org-ul">
-<li>über \(\mathbb{Q}\)<br /></li>
-<li>über \(\mathbb{R}\)  <br /></li>
-<li>über \(\mathbb{Z}/2 \mathbb{Z}\)<br /></li>
-<li>über \(\mathbb{Z}/3 \mathbb{Z}\)<br /></li>
-<li>über \(\mathbb{Z}/5 \mathbb{Z}\)<br /></li>
-<li>über \(\mathbb{Z}/7 \mathbb{Z}\)    <br /></li>
+<h4 id="a">a)</h4>
+
+<div class="math-block">\begin{align}
+2x + 3y - z &amp;= 5 \\
+x - y + 2z &amp;= 3 \\
+3x + 2y + z &amp;= 8
+\end{align}</div>
+
+<h4 id="b">b)</h4>
+
+<div class="math-block">\begin{align}
+7x + 4y + 2z &amp;= 5 \\
+1x - 9y + 12z &amp;= 3 \\
+x - 5y + 8z &amp;= 7 \\
+5x + 2y + 6z &amp;= 8
+\end{align}</div>
+
+<h4 id="c">c)</h4>
+
+<div class="math-block">\begin{align}
+7x + 4y + 2z &amp;= 5 \\
+1x - 9y + 12z &amp;= 3 \\
+\end{align}</div>
+
+<h4 id="d">d)</h4>
+
+<div class="math-block">\begin{align}
+x + 2y + 3z + w + 2v &amp;= 4 \\
+2x + 4y + 7z + 3w + 5v &amp;= 9 \\
+x + 2y + 4z + 2w + 3v &amp;= 5
+\end{align}</div>
+
+<h3 id="basis-bestimmen">Basis bestimmen</h3>
+<p>
+Bestimme eine Basis vom Kern und Bild der Abbildungen korrespondierend zu folgenden Matrizen
+</p>
+
+<div class="math-block">\begin{align*}
+A =&amp; \begin{pmatrix} 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \\ 2 &amp; 4 &amp; 7 &amp; 8 &amp; 11 \\ 3 &amp; 6 &amp; 10 &amp; 12 &amp; 16 \\ 1 &amp; 2 &amp; 4 &amp; 5 &amp; 7 \\ 2 &amp; 4 &amp; 6 &amp; 7 &amp; 9 \end{pmatrix} \\
+B =&amp; \begin{pmatrix} 2 &amp; 1 &amp; 3 &amp; 1 &amp; 2 \\ 4 &amp; 2 &amp; 7 &amp; 3 &amp; 5 \\ 1 &amp; 3 &amp; 2 &amp; 4 &amp; 1 \\ 3 &amp; 4 &amp; 5 &amp; 5 &amp; 3 \\ 2 &amp; 6 &amp; 1 &amp; 7 &amp; 0 \end{pmatrix} \\
+C =&amp; \begin{pmatrix} 1 &amp; 1 &amp; 2 &amp; 3 &amp; 1 \\ 2 &amp; 2 &amp; 4 &amp; 7 &amp; 3 \\ 1 &amp; 1 &amp; 2 &amp; 4 &amp; 2 \\ 3 &amp; 3 &amp; 6 &amp; 10 &amp; 4 \\ 1 &amp; 1 &amp; 2 &amp; 3 &amp; 1 \end{pmatrix} \\
+D =&amp; \begin{pmatrix} 1 &amp; 2 &amp; 0 &amp; 1 &amp; 3 \\ 0 &amp; 1 &amp; 1 &amp; 2 &amp; 1 \\ 1 &amp; 3 &amp; 1 &amp; 3 &amp; 4 \\ 2 &amp; 5 &amp; 1 &amp; 4 &amp; 7 \\ 1 &amp; 4 &amp; 2 &amp; 5 &amp; 5 \end{pmatrix}
+\end{align*}</div>
+
+<ul>
+<li>über $\mathbb{Q}$</li>
+
+<li>über $\mathbb{R}$  </li>
+
+<li>über $\mathbb{Z}/2 \mathbb{Z}$</li>
+
+<li>über $\mathbb{Z}/3 \mathbb{Z}$</li>
+
+<li>über $\mathbb{Z}/5 \mathbb{Z}$</li>
+
+<li>über $\mathbb{Z}/7 \mathbb{Z}$    </li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2026-02-02 Mo 09:55</p>
 </div>
 </body>
 </html>

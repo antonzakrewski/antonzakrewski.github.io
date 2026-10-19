@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>unabhängige zufallsvariablen und erzeugende Funktion</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-98f6bb1d-ce91-4323-b050-9334f3d12eda"></span><h1 class="title">unabhängige zufallsvariablen und erzeugende Funktion</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $(X, \mathcal{A}, \mu)$ ein <a href="20241019-maßraum.html#ID-2135bec8-c3bb-4fca-a24a-21334f66d7ae">Maßraum</a>, $X_1,...,X_n: X \rightarrow \mathbb{N}_0$ <a href="unabhangige-zufallsvariablen.html#ID-152c420c-ac1d-45ea-ac35-510acca4cf46">unabhängige zufallsvariablen</a>.
+Dann gilt für die <a href="20241121-erzeugende_funktion_einer_diskreten_zufallsvariable.html#ID-92d9dffd-32bd-4f53-bfab-18403b1733dc">erzeugende Funktion</a>
+</p>
+
+<div class="math-block">\begin{align*}
+G_{X_1 + ... + X_n] = G_{X_1} + ... + G_{X_n}
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> sei $n = 2$.
+Dann gilt
+</p>
+
+<div class="math-block">\begin{align*}
+G_{X_1  + X_2}(s) =&amp; \sum_{n=0}^{\infty} s^n \mathbb{P}(X_1 + X_2 = n) \\
+\end{align*}</div>
+<p>
+Wegen unabhängigkeit gilt dann
+</p>
+
+<div class="math-block">\begin{align*}
+ \sum_{n=0}^{\infty} s^n \mathbb{P}(X_1 + X_2 = n)  =&amp; \sum_{n=0}^{\infty} ( \sum_{k=0}^{\infty} \mathbb{P}(X_1 = k) \cdot \mathbb{P}(X_2 = n -k)) \\
+\end{align*}</div>
+<p>
+Was als <a href="20221216221137-cauchy_produkt.html#ID-fbec730c-5e96-4cde-9d0c-4783e1ff9ee3">Cauchy product</a> geschrieben werden kann als
+</p>
+
+<div class="math-block">\begin{align*}
+\sum_{n=0}^{\infty} ( \sum_{k=0}^{\infty} \mathbb{P}(X_1 = k) \cdot \mathbb{P}(X_2 = n -k)) =&amp;  (\sum_{k=0}^{\infty} s^k \mathbb{P}(X_1 = k)) ( \sum_{l=0}^\infty s^l \mathbb{P}(X_2 = l)) \\
+=&amp; G_{X_1}(s) \cdot G_{X_2}(s)
+\end{align*}</div>
+<p>
+(cf. <a href="20221216221151-konvergenzsatz_fur_cauchy_produkte.html#ID-4f10d8d3-d2c9-4c96-b124-0c7fd84210c5">Konvergenzsatz für Cauchy-Produkte</a>)
+</p>
+
+</div>
+</body>
+</html>

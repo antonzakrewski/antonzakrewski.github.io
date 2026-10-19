@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>F2 cohomology of BO(d)</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-18ac4dc3-af1d-4539-b0fe-c0c82610b493"></span><h1 class="title">F2 cohomology of BO(d)</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{F}_2[w_1,...,w_d] \cong H^*(\mathrm{BO}(d); \mathbb{F}_2)
+\end{align*}</div>
+<p>
+is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+<a href="20221024165350-beweis_durch_vollstandige_induktion_mit_starkerer_induktionsvoraussetzung.html#ID-1534f6c1-e094-4672-8e87-f36eb0e54b8b">Proof by induction</a>
+</p>
+
+<h3 id="induction-basis">induction basis</h3>
+<p>
+follows as
+</p>
+
+<div class="math-block">\begin{align*}
+BO(1) = \mathbb{R}\mathbb{P}^{\infty}
+\end{align*}</div>
+<p>
+which shows
+</p>
+
+<div class="math-block">\begin{align*}
+H^*(\mathbb{R}\mathbb{P}^{\infty}, \mathbb{F}_2) = \mathbb{F}_2[t]
+\end{align*}</div>
+
+<p>
+where &lt;&gt; is maps a generator to a generator
+</p>
+
+<h3 id="induction-step">induction step</h3>
+<p>
+consider the &lt;fiber sequence&gt;
+</p>
+
+<div class="math-block">\begin{align*}
+S^{d-1} \rightarrow \mathrm{BO}(d-1) \rightarrow \mathrm{BO}(d)
+\end{align*}</div>
+<p>
+Then this is the fibration underlying to $\gamma_d$ of the &lt;universal&gt; <a href="20230905-topological_vector_bundle.html#ID-821f2fea-f858-4555-ae30-90ea23209a2e">real vector bundle</a> over $\mathrm{BO}(d)$.
+</p>
+
+<p>
+then the <a href="20250513-euler_formula_for_stiefel_whitney_classes.html#ID-1bdb29f9-5720-4f56-8615-528a0f9fdbde">euler formula for stiefel whitney classes</a> shows
+</p>
+
+<div class="math-block">\begin{align*}
+e(\pi) = w_{d}
+\end{align*}</div>
+<p>
+and applying the <a href="20250513-cysin_sequence.html#ID-ed86aa04-2650-4142-a7b6-3b5ae6fb9b5e">Gysin sequence with F2 coefficients</a> (suppressing \(\mathbb{F}_2\)-coefficients)
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/7cb3109bfdc1b4f44957.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+now inductively we know that
+</p>
+
+<div class="math-block">\begin{align*}
+H^n(\mathrm{BO}(d-1)) = \mathbb{F}_2[w_1,...,w_{d-1}]
+\end{align*}</div>
+<p>
+and by <a href="20250513-stability_of_the_the_stiefel_whitney_class.html#ID-0371f9d6-59f1-4e31-8c61-252aa53aa673">stability of the the stiefel-whitney class</a> we know that
+</p>
+
+<div class="math-block">\begin{align*}
+H^n(\mathrm{BO}(d)) \rightarrow H^{n}(\mathrm{BO}(d-1))
+\end{align*}</div>
+<p>
+is a surjection.
+</p>
+
+<p>
+Thus we get <a href="20230722-short_exact_sequence.html#ID-7b01038e-f4c1-4e1e-ad52-a0c6a18008f3">short exact sequences</a>
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+0 \rar &amp; H^*(\mathrm{BO}(d))[d] \rar{\cdot w_d} &amp; H^*(\mathrm{BO}(d)) \rar{\pi^*} &amp; H^*(\mathrm{BO}(d-1)) \rar \lar{s} &amp; 0 \\
+0 \rar &amp; \mathbb{F}[w_1,...,w_d][d] \rar \uar &amp; \mathbb{F}[w_1,...,w_d] \rar \uar{ &amp; \mathbb{F}[w_1,...,w_{d-1}]\rar \uar{\cong} \lar{s}&amp; 0
+\end{tikzcd}
+\end{displaymath}</pre></div>
+<p>
+where by induction the right map is an isomorphism and $s$ is defined as splitting given by
+</p>
+
+<div class="math-block">\begin{align*}
+w_i \mapsto w_i
+\end{align*}</div>
+
+<p>
+now pick $x \in H^*(\mathrm{BO}(d))$, then $x = s \pi^*(*) + w_d \gamma$
+</p>
+
+
+<p>
+-missing
+</p>
+
+<p>
+now the middle vertical map is degreewise surjective.
+</p>
+
+
+<p>
+Now by similar argument we may argue that the middle vertical map is injective
+</p>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>yoneda n-extension is a special k-invariant</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-bd13a174-67d1-474a-9e81-5a2829f4e426"></span><h1 class="title">yoneda n-extension is a special k-invariant</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathcal{C}$ be an <a href="20230827-abelian_category.html#ID-9003af72-f684-4897-b096-c1d8a681c624">abelian category</a>, $\mathcal{D}^b(\mathcal{C})$ the <a href="20250811-bounded_derived_category.html#ID-c0c5cc16-d74e-4d22-a089-70ed6f367aa2">bounded derived category</a> with <a href="20250810-bounded_t_structure_of_the_derived_category_of_an_abelian_category.html#ID-40ccd9b3-01ff-43c7-91f2-255b20f1dab4">t-structure</a> .
+Then there exists a <a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">bijection</a> between
+</p>
+<ol>
+<li><a href="20240508-n_extension_in_an_abelian_category.html#ID-a38fcebc-3ec9-41c5-8089-c51b14d5ad98">n extensions</a> of $N$ by $M$ up to equivalence </li>
+
+<li><span class="broken-link" title="unresolved id:5ee76318-ae03-4cb3-877f-6b6ff88ad6fa">equivalence classes</span> of object $X$ with exactly two nontrivial homotopy/homology groups in degree $1,n$: $\pi_1(X) \cong N$ and $\pi_{n}(X) = M$.</li>
+
+<li>$\mathrm{Ext}_{\mathcal{C}}^n(N,M) = \pi_0(\mathrm{Hom}_{\mathcal{C}}(N,M[n])$</li>
+</ol>
+<h2 id="proof">Proof</h2>
+
+<h3 id="1-implies-2-2-implies-1">1) $\implies$ 2), 2) $\implies$ 1)</h3>
+<p>
+Recall that two n extensions -- i.e. exact sequences $0 \rightarrow M \rightarrow E_n \rightarrow ... \rightarrow E_1 \rightarrow N \rightarrow 0$ -- are equivalent if and only if there exists a zig-zag of morphisms of morphisms, which induce an isomorphism (resp. equality after identifying with the isomorphism) on $M$ and $N$.
+Now we may regard $C \coloneqq 0 \rightarrow ... \rightarrow E_n \rightarrow ... \rightarrow E_1 \rightarrow 0 \rightarrow 0 \rightarrow ...$ as chain complex and then exactness above implies that this chain complex has nontrivial homology exactly in degrees $n$ and $1$: $H_n(C) \cong M, H_1(C) \cong N$.
+Moreover, a morphism between such chain complexes -- which induces an isomorphism on the kernel / cokernel -- is a quasi-isomorphism, since every other homology is trivial.
+</p>
+
+<h3 id="3-implies-2-2-implies-3">3) $\implies$ 2), 2) $\implies$ 3)</h3>
+<p>
+Let $f: N \rightarrow M[n]$ be an element in $\mathrm{Ext}_{\mathcal{C}}^{n}(N,M)$, then we may take the <a href="20241022-cofiber_of_an_infinity_morphis3.html#ID-c9321dad-6e04-418b-a0a5-ad8546205938">cofiber</a> and get a cofiber sequence $N \rightarrow M[n] \rightarrow \mathrm{cofib}(f)$.
+then the <a href="20260525-long_exact_sequence_in_the_heart_for_a_t_structure.html#ID-bd543474-60cc-4db0-b271-a318ba1938e9">long exact sequence in the heart for a t-structure</a> shows that $\pi_1(\mathrm{cofib}(f)) \cong \pi_1(N[1]) \cong N, \pi_n(\mathrm{cofib}(f)) \cong \pi_n(M[n)) \cong M$ since $N$ and $M[n]$ have heavily concentrated homology (in fact - only homology in one degree)
+</p>
+
+<p>
+If we have an object $X$, then we may consider
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/78b842fc015fe5e873f8.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+which we may rotate to get a morphism $N \rightarrow M[n]$.
+</p>
+
+<p>
+We claim that these operations are inverse to each other:
+for that it suffices to note that the <a href="20260525-category_of_fiber_sequences_is_equivalent_to_arrow_category.html#ID-97e22436-f68b-451a-bb66-94f8db9da7d4">category of fiber sequences is equivalent to arrow category</a> / <a href="20260525-category_of_cofiber_sequences_is_equivalent_to_arrow_category.html#ID-37c71374-faa9-40d5-aa82-16751950b96b">category of cofiber sequences is equivalent to arrow category</a>
+</p>
+
+<p>
+see also:
+</p>
+<ul>
+<li><a href="20251025-spectra_with_two_homotopy_groups_classified_by_k_invariant.html#ID-2dea8cc6-8e3c-4a78-bf94-7029b946cfae">spectrum with two homotopy groups classified by k-invariant</a> </li>
+
+<li><a href="20260525-ext_and_extensions_in_a_stable_category.html#ID-055a28f9-3abc-46b2-855b-915425549d7a">Ext1 and extensions in the heart of a stable category</a></li>
+</ul>
+<h2 id="todo">todo</h2>
+<ul>
+<li>I don't understand the group structure of n-extensions (yet ?)</li>
+</ul>
+<h2 id="remark">Remark</h2>
+<p>
+This only works in $\mathcal{D}^b(\mathcal{A})$ of <a href="20211008174655-abelsche_gruppe.html#ID-7281c9cf-564f-4c4c-8c3f-fc1424ac85f8">abelian</a> categories $\mathcal{A}$ (maybe other 1-categories ?):
+The reason is, that an n-extension only sees morphisms in the <a href="20241031-heart_of_a_t_structure.html#ID-6cea50da-b823-4b1a-b388-f03c30ce512e">heart</a> and e.g. <a href="20260530-spectra_has_more_objects_and_morphisms_than_d_z.html#ID-b87cda0c-f834-4521-aa18-f8977a264d43">spectra has more objects and morphisms than D(Z)</a>.
+</p>
+
+</div>
+</body>
+</html>

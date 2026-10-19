@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>open subfunctor of a zariski sheaf is a zariski sheaf</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-30459370-90e2-4d7f-8ae8-51bd3a2c60f1"></span><h1 class="title">open subfunctor of a zariski sheaf is a zariski sheaf</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X: \mathrm{CAlg} \rightarrow \mathrm{Set}$ be a <a href="20260720-sheaf_on_a_grothendieck_topology.html#ID-6aa8bbd3-b259-4c58-b9e6-7c22333ad318">sheaf</a> for the <a href="20260716-zariski_topology_on_calg.html#ID-a16e1f5f-0ed5-403e-a004-d6960f0dc98b">Zariski topology on CAlg</a> and $O \subseteq X$ an <a href="20260713-open_subfunctor_of_an_algebraic_functor.html#ID-3591ec98-a7a9-4668-a975-fdf935c815e8">open subfunctor</a>.
+Then $O$ is also a zariski sheaf.
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+using <a href="20260807-sheaves_on_the_zariski_topology.html#ID-6c51e563-43bb-4d74-a3c2-e50f2bb84dad">sheaves on the zariski topology</a>:
+Let $(R \rightarrow R_f)_{f \in I}$ be a <a href="20260819-zariski_cover.html#ID-0700034b-9a2c-463a-b157-7d48afdff50b">zariski cover</a>, such that $(f)$ generates the unit ideal.
+</p>
+
+<p>
+Then we have a diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/49b39f8fac13d05629fb.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+and we need to show that $O(R) \rightarrow \lim O(R_f)$ is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a>
+Here it is a <a href="20220819135911-monomorphismus.html#ID-60b63797-32fa-4d4e-a577-7616faa010ba">monomorphism</a> as the composition $O(R) \rightarrow \lim O(R_f) \rightarrow \lim X(R_f)$ is a monomorphism.
+</p>
+
+<p>
+Therefore it remains to show that it is surjective:
+Let $x \in \lim O(R_f) \subseteq \lim X(R_f) \cong X(R)$ be an element.
+</p>
+
+<p>
+Then we need to show that there exists a pullback digaram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/6b6b9b7c4718fe846227.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+(cf. <a href="20260819-element_criterion_for_subfunctors.html#ID-eed3fa91-1ee4-4822-807c-c80413730f31">element criterion for subfunctors</a>).
+</p>
+
+<p>
+Furthermore we have a pullback diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/ca3519a5c670ca51008b.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+is a pullback diagram, since $x_{\vert R_f} \in O(R_f)$
+</p>
+
+<p>
+Now $O$ is classified by some quasi-coherent radical ideal (cf. <a href="20260721-classification_of_open_subfunctors_of_an_algebraic_functor.html#ID-53476a2c-91d9-4025-ab21-b4b7e792fb34">classification of open subfunctors of an algebraic functor</a>) $I$ and this quasi-coherent radical ideal $I$ restricts to $R_f$ when evaluated at $R_f$ (since $x_{\vert R_f}$ lies in $O(R_f)$.
+We want to show that $O \times_{X} \mathrm{Spec}(R) \hookrightarrow \mathrm{Spec}(R)$ is an isomorphism, i.e. $I$ evaluated at $R$ is the ideal $R$.
+Let $J$ be the image of $I$ in $\mathrm{Rad}(R)$, then we have that $\sqrt{(J \otimes_{R} R_f)} = J \otimes_{R} R_f$ (cf. <a href="20260819-localization_of_a_radical_ideal_is_radical.html#ID-88a3a1e7-fdda-43e7-a748-81b1e8277443">localization of a radical ideal is radical</a>).
+In particular, we  may apply <a href="20260717-zariski_descent_for_modules.html#ID-62ec0f99-fb56-4beb-ad2f-0b63cf3541bf">zariski descent for modules</a> to see that $J = R$ is the only possibility.
+</p>
+
+</div>
+</body>
+</html>

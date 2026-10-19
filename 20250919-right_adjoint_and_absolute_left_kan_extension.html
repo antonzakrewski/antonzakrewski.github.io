@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>right adjoint and absolute left kan extension</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-b96771bc-700f-4fdf-a514-279748b0037e"></span><h1 class="title">right adjoint and absolute left kan extension</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathcal{F}: \mathcal{C} \rightarrow \mathcal{D}$ be a <a href="20240404-functor_between_infinity_categories.html#ID-7428dc84-9acd-49bc-8e93-b1541326a6b9">functor</a>
+</p>
+
+<p>
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol>
+<li>$\mathcal{F}$ admits a <a href="20241017-infinity_right_adjoint.html#ID-1ed94fd7-42a4-4328-a280-17e516d76e3d">right adjoint</a></li>
+
+<li>the <a href="20250129-infinity_identity_functor.html#ID-1acc2c3f-4f7c-4b84-bb77-11f60abf05ea">identity functor</a> $\mathrm{id}_{\mathcal{C}}: \mathcal{C} \rightarrow \mathcal{C}$ admits an <a href="20250919-absolute_left_kan_extensino.html#ID-3ff03866-fdc7-455d-b35d-f016e230e2ec">absolute left kan extension</a> along $\mathcal{F}: \mathcal{C} \rightarrow \mathcal{D}$.</li>
+
+<li>the identity functor $\mathrm{id}_{\mathcal{C}}: \mathcal{C} \rightarrow \mathcal{C}$ admits a <a href="20241203-infinity_left_kan_extension.html#ID-61e0ecf3-2202-48fc-8af5-3ea0ae73581e">left kan extension</a> along $\mathcal{F}: \mathcal{C} \rightarrow \mathcal{D}$ and this is preserved under postcomposition with $\mathcal{F}$, i.e.</li>
+</ol>
+<div class="math-block">\begin{align*}
+\mathrm{Lan}_{\mathcal{F}}(\mathcal{F}) = \mathcal{F}\mathrm{Lan}_{\mathcal{F}}(\mathrm{id}_{\mathcal{C}})
+\end{align*}</div>
+
+<p>
+see also
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/9ba8ebbae346773387ca.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+<p>
+follows from:
+</p>
+<ul>
+<li><a href="20250323-precomposition_with_an_infinity_adjoint_as_adjoint_on_functor_categories.html#ID-a5be1a65-a77d-48e7-94d1-47691678b41d">precomposition with an infinity adjoint as adjoint on functor categories</a> </li>
+</ul>
+<p>
+where we note that for any $\mathcal{G}: \mathcal{D} \rightarrow \mathcal{E}$ the following diagram commutes
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/d2f865b46a936ba95226.svg" class="org-svg" alt="diagram" /></span></div>
+
+<h3 id="2-implies-3">2) $\implies$ 3)</h3>
+<p>
+special case
+</p>
+
+<h3 id="3-implies-1">3) $\implies$ 1)</h3>
+<p>
+Let $\mathcal{G} \coloneqq \mathrm{Lan}_{\mathcal{F}}(\mathrm{id}_{\mathcal{C}})$.
+Then we get
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{map}_{\mathrm{Fun}(\mathcal{C}, \mathcal{C})}(\mathrm{id},\mathcal{F}^*(-)) \simeq&amp; \mathrm{map}_{\mathrm{Fun}(\mathcal{D}, \mathcal{C})}(\mathrm{Lan}_{\mathcal{F}}(\mathrm{id}), -) \\
+\mathrm{map}_{\mathrm{Fun}(\mathcal{C}, \mathcal{D})}(\mathcal{F},\mathcal{F}^*(-)) \simeq&amp; \mathrm{map}_{\mathrm{Fun}(\mathcal{D}, \mathcal{C})}(\mathrm{Lan}_{\mathcal{F}}(\mathcal{F}), -)
+\end{align*}</div>
+<p>
+which specifies to
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{map}_{\mathrm{Fun}(\mathcal{C}, \mathcal{C})}(\mathrm{id},\mathcal{F}^*(-)) \simeq&amp; \mathrm{map}_{\mathrm{Fun}(\mathcal{D}, \mathcal{C})}(\mathcal{G}, -) \\
+\mathrm{map}_{\mathrm{Fun}(\mathcal{C}, \mathcal{D})}(\mathcal{F},\mathcal{F}^*(-)) \simeq&amp; \mathrm{map}_{\mathrm{Fun}(\mathcal{D}, \mathcal{C})}(\mathcal{F}\mathcal{G}, -)
+\end{align*}</div>
+<p>
+and then to
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{map}_{\mathrm{Fun}(\mathcal{C}, \mathcal{C})}(\mathrm{id},\mathcal{GF}) \simeq&amp; \mathrm{map}_{\mathrm{Fun}(\mathcal{D}, \mathcal{C})}(\mathcal{G}, \mathcal{G}) \\
+\mathrm{map}_{\mathrm{Fun}(\mathcal{C}, \mathcal{D})}(\mathcal{F},\mathcal{F}) \simeq&amp; \mathrm{map}_{\mathrm{Fun}(\mathcal{D}, \mathcal{C})}(\mathcal{F}\mathcal{G}, \mathrm{id})
+\end{align*}</div>
+
+<p>
+hence plugging the identity will provide the <a href="20241109-infinity_unit_transformation.html#ID-2938f9f8-5823-47ef-b80a-c23e2dd61aea">unit</a> and <a href="20241203-infinity_counit_transformation.html#ID-93de1a23-d556-45a8-bf28-514f6b142bcb">counit</a>:
+</p>
+
+<p>
+It remains to show that those <a href="20240624-natural_transformation_between_functors_of_infinity_categories.html#ID-1bf3c0ae-aa9c-4c2f-99b2-984072543d82">natural transformations</a> satisfy the <a href="20241017-infinity_adjunction_and_triangle_identities.html#ID-f13b04a3-8123-408a-9959-54e87ccdcd73">triangle identities</a>
+</p>
+
+<p>
+TODO
+</p>
+
+</div>
+</body>
+</html>

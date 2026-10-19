@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:45 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Verhältnis: Wurzelkriterium und Quotientenkriterium</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,71 +52,68 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Verhältnis: Wurzelkriterium und Quotientenkriterium</h1>
-<div id="outline-container-orgb9251c0" class="outline-2">
-<h2 id="orgb9251c0"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-d71302f7-bcc5-443b-bf93-c184d064e2c2"></span><h1 class="title">Verhältnis: Wurzelkriterium und Quotientenkriterium</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
 Das <a href="20221212101600-wurzel_kriterium_fur_konvergenz.html#ID-be8fc800-6b74-4819-9b7d-92f1234956e5">Wurzel-Kriterium für Konvergenz</a> ist impliziert das <a href="20221212103532-quotientenkriterium_fur_konvergenz_in_abhangigkeit_vom_limes_superior.html#ID-0d4e7ad0-7da7-40cf-831f-e8106bdc5ed0">Quotientenkriterium für Konvergenz in Abhängigkeit vom Limes Superior</a>, aber nicht umgekehrt.
 Dabei ist das Wurzelkriterium oft einfacher anwendbar.
 </p>
-</div>
-</div>
-<div id="outline-container-org828a741" class="outline-2">
-<h2 id="org828a741"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<h2 id="beweis">Beweis</h2>
 <p>
-Es sei \((a_n)_{n \in \mathbb{N}}\) eine <a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">Folge</a> positiver reeller Zahlen.
+Es sei $(a_n)_{n \in \mathbb{N}}$ eine <a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">Folge</a> positiver reeller Zahlen.
 Dann folgt:
 </p>
 
-\begin{align*}
-\lim_{n \to \infty}\left(\sup \sqrt[n]{a_n} \right) \leq  \lim_{n \to \infty}\left(\sup \frac{a_{n+1}}{a_n}\right) 
-\end{align*}
-<p>
-<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> sei \(\lim_{n \to \infty}\left(\sup \frac{a_{n+1}}{a_n}\right) =: C < \infty\)
-Sei \(\varepsilon > 0\) beliebig, dann folgt, dass ein \(n_{\varepsilon} \in \mathbb{N}\) existiert, sodass für \(\forall n > n_{ \varepsilon}\) gilt:
-</p>
-\begin{align*}
-\frac{a_{n+1}}{a_{n}} < C + \varepsilon
-\end{align*}
-<p>
-Sei \(n_{\varepsilon} < n\), dann folgt
-</p>
-\begin{align*}
-a_n < a_{n-1}(C + \varepsilon) < a_{n-2} (C + \varepsilon)^2 < ... < a_{n_{\varepsilon}} (C + \varepsilon)^{n - n_{\varepsilon}}
-\end{align*}
 
-\begin{align*}
-\sqrt[n]{a_{n}} < \sqrt[n]{a_{n_{\varepsilon}}} (C + \varepsilon)^{1 - \frac{n_{\varepsilon}}{n}}
-\end{align*}
+<div class="math-block">\begin{align*}
+\lim_{n \to \infty}\left(\sup \sqrt[n]{a_n} \right) \leq  \lim_{n \to \infty}\left(\sup \frac{a_{n+1}}{a_n}\right) 
+\end{align*}</div>
+<p>
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> sei $\lim_{n \to \infty}\left(\sup \frac{a_{n+1}}{a_n}\right) =: C &lt; \infty$
+Sei $\varepsilon &gt; 0$ beliebig, dann folgt, dass ein $n_{\varepsilon} \in \mathbb{N}$ existiert, sodass für $\forall n &gt; n_{ \varepsilon}$ gilt:
+</p>
+
+<div class="math-block">\begin{align*}
+\frac{a_{n+1}}{a_{n}} &lt; C + \varepsilon
+\end{align*}</div>
+<p>
+Sei $n_{\varepsilon} &lt; n$, dann folgt
+</p>
+
+<div class="math-block">\begin{align*}
+a_n &lt; a_{n-1}(C + \varepsilon) &lt; a_{n-2} (C + \varepsilon)^2 &lt; ... &lt; a_{n_{\varepsilon}} (C + \varepsilon)^{n - n_{\varepsilon}}
+\end{align*}</div>
+
+
+<div class="math-block">\begin{align*}
+\sqrt[n]{a_{n}} &lt; \sqrt[n]{a_{n_{\varepsilon}}} (C + \varepsilon)^{1 - \frac{n_{\varepsilon}}{n}}
+\end{align*}</div>
 <p>
 Es folgt:
 </p>
-\begin{align*}
- \lim_{n \to \infty}\left(\sqrt[n]{a_{n_{\varepsilon}}}\right) =& 1 \\
- \lim_{n \to \infty}\left((C + \varepsilon)^{1 - \frac{n_{\varepsilon}}{n}}\right) =& C + \varepsilon
-\end{align*}
+
+<div class="math-block">\begin{align*}
+ \lim_{n \to \infty}\left(\sqrt[n]{a_{n_{\varepsilon}}}\right) =&amp; 1 \\
+ \lim_{n \to \infty}\left((C + \varepsilon)^{1 - \frac{n_{\varepsilon}}{n}}\right) =&amp; C + \varepsilon
+\end{align*}</div>
 
 <p>
 Daraus folgt:
 </p>
-\begin{align*}
-\exists n'_{\varepsilon} > n_{\varepsilon} : \sqrt[n]{a_n} < C + 2 \varepsilon \forall n > n'_{\varepsilon}
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\exists n'_{\varepsilon} &gt; n_{\varepsilon} : \sqrt[n]{a_n} &lt; C + 2 \varepsilon \forall n &gt; n'_{\varepsilon}
+\end{align*}</div>
 <p>
 Daraus folgt:
 </p>
-\begin{align*}
- \lim_{n \to \infty}\left( \sup \sqrt[n]{a_n}\right)  \leq C + 2 \varepsilon \forall \varepsilon > 0 \Rightarrow lim_{n \rightarrow \infty} \sup \sqrt[n]{a_n} \leq C
-\end{align*}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:45</p>
+
+<div class="math-block">\begin{align*}
+ \lim_{n \to \infty}\left( \sup \sqrt[n]{a_n}\right)  \leq C + 2 \varepsilon \forall \varepsilon &gt; 0 \Rightarrow lim_{n \rightarrow \infty} \sup \sqrt[n]{a_n} \leq C
+\end{align*}</div>
+
 </div>
 </body>
 </html>

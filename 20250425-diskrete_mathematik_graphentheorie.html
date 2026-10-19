@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>dm - graph</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-e8caefbd-e038-411b-a896-eb4312685988"></span><h1 class="title">dm - graph</h1>
+
+<h2 id="aspects">Aspects</h2>
+
+<h3 id="grundbegriffe">Grundbegriffe</h3>
+<ul>
+<li><a href="20211216205729-binomialkoeffizient.html#ID-89b0e19a-c480-407f-8939-1074be74e04d">Binomial coefficient</a> </li>
+
+<li><a href="20220104212653-beweis_kombinatorische_bedeutung_binomialkoeffizent.html#ID-49075170-19e6-4307-b34d-3374eced6f78">Beweis: Kombinatorische Bedeutung Binomialkoeffizent</a>   </li>
+</ul>
+<ul>
+<li><a href="20220904165445-graph.html#ID-2de260cf-41c4-4dec-9ae9-450c507fda60">Graph</a> </li>
+
+<li><a href="20230327230707-vollstandiger_graph.html#ID-05e6ef66-0c7e-410d-a7d3-69e197a4f896">complete graph</a> </li>
+
+<li><a href="20250425-path_graph.html#ID-f63c7a56-4983-464c-bee6-d1d8a6df0dd8">path graph_</a> </li>
+
+<li><a href="20250425-complete_bipartit_graph.html#ID-29638e20-8c0c-4100-b503-9184997c33fd">complete bipartit graph</a> </li>
+
+<li><a href="20250425-circle_graph.html#ID-c9282a38-4c3a-4a8a-a16c-ea9000398c38">circle graph</a> </li>
+
+<li><a href="20250502-amount_of_graphs_with_fixed_vertices.html#ID-e4633a59-c7be-468d-b514-84a06e28003b">amount of graphs with fixed vertices</a> </li>
+</ul>
+<ul>
+<li><a href="20250427-category_of_graphs.html#ID-b5ada3a2-fbfd-4097-82a0-3444dee1083b">category of graphs</a> </li>
+
+<li><a href="20230327231036-graphhomomorphismus.html#ID-465fc14d-c687-4b6f-8131-07dd7a87f977">graph homomorphism</a> </li>
+</ul>
+<ul>
+<li><a href="20250426-neighbourhood_of_a_vertex.html#ID-4e8ab9f9-2e35-4e32-99ae-4c17d5fcd0d1">neighbourhood of a vertex</a>   </li>
+
+<li><a href="20221024152000-grad_eines_knoten.html#ID-16f65dc5-0c38-41e7-b7df-2a2d8989f84b">degree</a></li>
+</ul>
+<ul>
+<li><a href="20250426-minimal_degree_of_a_graph.html#ID-7e86ee9c-e5e1-4480-83d1-05a2e55d6202">minimal degree of a graph</a> </li>
+
+<li><a href="20250426-maximal_degree_of_a_graph.html#ID-5e93f034-a1e6-4225-997b-80f0a6ad7ed8">maximal degree of a graph</a>   </li>
+
+<li><a href="20250426-average_degree_of_a_graph.html#ID-3fe45e95-a86a-4515-b7ec-328517aab234">average degree of a graph</a> </li>
+</ul>
+<ul>
+<li><a href="20230327231133-blatt_graph.html#ID-71b73961-4304-4a0a-a379-14f1cb91fac3">Blatt (Graph)</a> </li>
+
+<li><a href="20230327231139-isolierter_knoten.html#ID-ce9871c6-019f-47e8-8b68-e3e0bb51270c">isolierter Knoten</a> </li>
+
+<li><a href="20250426-sum_of_degrees_of_a_graph.html#ID-9c48eadb-2611-4985-8565-7e3b1a5fbb72">sum of degrees of a graph</a>     </li>
+
+<li><a href="20231206-subgraph.html#ID-191bebce-741d-4771-bd78-eb39c0ef6837">subgraph</a>   </li>
+
+<li><a href="20250426-bipartit_graph.html#ID-a2f92440-01b7-42a5-9529-fad127a7e9ea">bipartit graph</a> </li>
+
+<li><a href="20250425-complete_bipartit_graph.html#ID-29638e20-8c0c-4100-b503-9184997c33fd">complete bipartite graph</a>   </li>
+
+<li><a href="20250503-full_subgraph.html#ID-0b3af9a6-0590-4490-a18c-15c7de502d72">full subgraph</a>   </li>
+</ul>
+<h3 id="zusammenhang">Zusammenhang</h3>
+<ul>
+<li><a href="20250429-weg_in_einem_graph.html#ID-59873f55-cb18-408e-a651-3a69893fd5a3">weg in einem graph</a> </li>
+
+<li><a href="20230327231733-pfad_graph.html#ID-c96c7b83-8e70-4f6c-bcbc-fb3e126bd9fe">path (graph)</a> </li>
+
+<li><a href="20221024152649-zusammenhangender_graph.html#ID-5c0f8ef4-52f7-4762-a4dd-8772c7ea392c">zusammenhängender Graph</a> </li>
+
+<li><a href="20250426-connected_component_of_a_graph.html#ID-a24433b2-bbc8-477b-8010-7f8646882a73">connected component of a graph</a> </li>
+</ul>
+<ul>
+<li><a href="20250427-lower_bound_of_connected_components_for_a_graph.html#ID-3b62f525-32c5-4ff7-97fa-567cf177e4b1">lower bound of connected components for a graph</a>   </li>
+
+<li><a href="20250426-connected_graph_and_minimal_degere.html#ID-74307856-c73d-4546-bdcd-6807d09d1efb">connected graph and minimal degree</a></li>
+</ul>
+
+
+<h3 id="baume-walder">bäume &amp; wälder</h3>
+
+<h4 id="112">1.12</h4>
+<ul>
+<li><a href="20221024152607-baum.html#ID-b2969a00-e313-42e8-afe1-62a33cb45013">tree</a> </li>
+
+<li><a href="20230327231315-wald.html#ID-2e7a3140-00f8-441d-b3c1-2e290b7e51e4">Wald</a> </li>
+
+<li><a href="20230327231424-aquivalente_charakterisierungen_eines_baums.html#ID-4d7adcd3-bb2b-4a35-b77a-76b44c5db681">Äquivalente Charakterisierungen eines Baums</a> </li>
+
+<li><a href="20250429-tree_contains_two_leafs.html#ID-401bcb37-3e26-4434-9744-b5232e8869a6">tree contains two leafs</a> </li>
+
+<li><a href="20250429-tree_minus_leaf_as_tree.html#ID-c4cb2fb2-5d52-4534-9601-037242d0bc4a">tree minus leaf as tree</a> </li>
+
+<li><a href="20250429-tree_and_connected_graph_and_edges.html#ID-3cd80a67-1b6a-4f66-9659-7f3f6b6347d2">tree and connected graph and edges</a> </li>
+
+<li><a href="20250429-cayley_theorem_about_the_amount_of_trees.html#ID-2cf38dea-5ced-44c0-84a3-39747f4a23ed">cayley theorem about the amount of trees</a>  </li>
+
+<li><a href="20250429-prufer_code.html#ID-9735abf7-4685-466e-a027-19a737696b68">prüfer code</a> </li>
+
+<li><a href="20250429-prufer_code_as_bijection.html#ID-1a21690a-bfc2-4eba-81e6-d5a8fe6fde28">prüfer code as bijection</a> - todo</li>
+
+<li><a href="20250429-degree_of_a_vertex_and_prufer_code_for_a_tree.html#ID-ceeac942-1084-4c64-992c-7f824e3259c5">degree of a vertex and prüfer code for a tree</a> - todo</li>
+
+<li><a href="20250507-amount_of_trees_with_certain_degrees.html#ID-a1320ecc-79cc-4285-8795-544f4f854589">amount of trees with certain degrees</a> </li>
+
+<li><a href="20221217211259-spannbaum.html#ID-a9c913ae-a223-4c78-9565-d14f7c4fb71c">Spanning Tree</a>   </li>
+
+<li><a href="20231127-existence_of_a_spanning_tree.html#ID-8963ca38-001e-4671-8fec-fba7aa27adf1">existence of a spanning tree</a>   </li>
+
+<li><a href="20250508-amount_of_spanning_trees.html#ID-c13456a0-a178-4f7f-ba20-1ec4a0ee5f14">amount of spanning trees for a multigraph</a>   </li>
+
+<li><a href="20250507-multigraph.html#ID-1ab5682d-709a-431b-ba4c-64fffe10adbe">undirected multigraph</a>   </li>
+
+<li><a href="20210427104430-adjacency_matrix.html#ID-e228d7a4-0f06-403c-8387-cf4893ba7123">Adjacency Matrix</a>   </li>
+
+<li><a href="20250508-degree_matrix.html#ID-6366ad16-40e4-4083-a171-a26543758175">degree matrix of a graph</a>   </li>
+
+<li><a href="20250508-matrix_tree_theorem.html#ID-ad4c4bb1-dd9d-4074-9725-025d304752f0">Matrix Tree theorem</a> </li>
+
+<li><a href="20221126201331-determinante.html#ID-eb5c60bd-2e36-4d02-aa16-f58c8e846d07">determinant</a>    </li>
+
+<li><a href="20230118135508-invertierbarkeit_einer_matrix_in_abhangigkeit_von_der_determinante.html#ID-cb336931-40a0-4039-8acd-c96b61a32468">Invertierbarkeit einer Matrix in Abhängigkeit von der Determinante</a>   </li>
+
+<li><a href="20221224180415-laplace_entwicklung.html#ID-569e3b41-3b14-4775-922c-5a02533fbfdd">Laplace Entwicklung</a> </li>
+</ul>
+<h3 id="14">1.4</h3>
+<ul>
+<li><a href="20220904170921-gerichteter_graph.html#ID-c6373682-0c45-41b0-a678-325e5ba177c6">directed graph</a> </li>
+
+<li><a href="20250508-network_graph.html#ID-b0096be3-39ac-43e4-bf2c-900b52d5f5de">network (graph)</a>   </li>
+
+<li>denote</li>
+
+<li>$N_{\sigma}^+(v) = \{u: vu \in E\}$</li>
+
+<li>$N_{\sigma}^-(v) = \{u: uv \in E\}$</li>
+
+<li>$E(X,Y) = \{xy \in E, x \in X, y \in Y}$ for $X,Y \subseteq V$</li>
+
+<li>for $g: E \rightarrow Y$ define $g(X,Y) = \sum_{e \in E(x,y)} g(e)$</li>
+
+<li><a href="20250508-flow.html#ID-b184cddc-3ff2-4fed-99ce-eceb63fe54e0">flow</a>  </li>
+
+<li><a href="20250508-flow_network.html#ID-6ef6ea0b-e005-4ec7-ad12-18d9ad66ee31">flow network</a> </li>
+
+<li><a href="20250508-value_of_a_flow.html#ID-311079b3-680d-460a-8882-b5bf354e1d0a">value of a flow</a>   </li>
+
+<li><a href="20250508-max_flow.html#ID-7db95404-a1ad-4fae-8c3f-43b3ce018002">max flow</a> </li>
+
+<li><a href="20250508-existence_of_a_max_flow.html#ID-a31e299d-556a-4bcb-9a73-3796f2a4e89b">existence of a max flow</a> </li>
+
+<li><a href="20250508-directed_multigraph.html#ID-94c3f788-9b3e-4aac-b5ff-26b0c5063c2a">directed multigraph</a>   </li>
+
+<li><a href="20250508-cut_of_a_network.html#ID-5767be65-41d4-48da-bb1d-e767247d8b07">cut of a network</a> </li>
+
+<li><a href="20250508-cut_as_upper_bound_of_a_flow.html#ID-f3fd7dd6-6ac9-4bde-b04f-6cff7ecc73f9">cut as upper bound of a flow</a>   </li>
+
+<li><a href="20250513-min_cut.html#ID-7521183a-12fe-4111-910e-d02d81768ac3">min cut_</a>   </li>
+
+<li><a href="20250513-existence_of_a_min_cut.html#ID-3f759ad0-4947-4670-8cd4-a62d31f5c308">existence of a min cut</a>   </li>
+
+<li><a href="20250508-min_cut_max_flow_theorem.html#ID-2b776ae7-9e18-4da7-9cdd-953e11814fb1">min cut max flow theorem</a> </li>
+
+<li><a href="20250513-vertex_cut.html#ID-a0d280dc-29dd-4a0f-8167-141bf9ae0a07">vertex cut</a>    </li>
+
+<li><a href="20250513-max_flow_min_vertex_cut.html#ID-b79b1e06-fa8c-453d-a120-442f5d2efa2a">max flow min vertex cut</a>   </li>
+
+<li></li>
+</ul>
+<h3 id="15-connectivity">1.5 Connectivity</h3>
+<ul>
+<li><a href="20250515-bridge_in_a_graph.html#ID-f4dd379d-5286-44dd-a8f5-ee0797e4aae9">bridge in a graph</a> </li>
+
+<li><a href="20250515-cut_vertex.html#ID-5b76985a-23c0-449b-a4bc-29489216a767">cut vertex</a>     </li>
+
+<li><a href="20250515-seperator_in_a_graph.html#ID-00a6b2a3-f2b6-4d37-bdd6-6cd2a50d0447">separator in a graph</a></li>
+
+<li><a href="20250515-k_knot_connected_graph.html#ID-f02e009b-685b-4bc2-a3a3-5dc909c00280">k knot-connected graph</a> </li>
+</ul>
+<ul>
+<li><a href="20250515-knot_connectivity_of_a_graph.html#ID-a24e8caa-84d4-43b2-8f1e-44a286bed550">knot connectivity of a graph</a> </li>
+
+<li><a href="20250515-knot_connectivity_of_the_circle_graph.html#ID-80dbc1dc-fceb-4a29-9680-6f2bf31a85f8">knot connectivity of the circle graph</a>  </li>
+
+<li><a href="20250515-knot_connectivity_of_the_complete_graph.html#ID-04470571-e4a2-49fc-9804-4602fba58963">knot connectivity of the complete graph</a> </li>
+</ul>
+<ul>
+<li><a href="20250515-bound_of_knot_connectivity_by_minimal_degree.html#ID-79d03a43-172d-4d82-b4ca-6972ad6ade4c">upper bound of knot connectivity by minimal degree</a>   </li>
+</ul>
+<ul>
+<li><a href="20250515-connected_graph_and_1_knot_connectivity.html#ID-ecccf75a-2d47-47b7-a895-037399226b7e">connected graph and 1 knot connectivity</a>   </li>
+
+<li><a href="20250515-k_vertex_connected_graph.html#ID-7cc98352-fc61-4f5e-b951-29fb22854a9d">k vertex-connected graph</a>   </li>
+
+<li><a href="20250515-vertex_connectivity_of_a_graph.html#ID-baf6aa14-5817-4f9c-9233-6b0136162846">vertex connectivity of a graph</a> </li>
+</ul>
+<ul>
+<li><a href="20250515-vertex_connectivity_of_the_circle_graph.html#ID-4ae8fda1-04a4-437e-b980-e5ce8a670e17">vertex connectivity of the circle graph</a></li>
+
+<li><a href="20250515-vertex_connectivity_of_the_complete_graph.html#ID-94fbd1ae-63bd-4ba1-9913-240ae8632dc5">vertex connectivity of the complete graph</a></li>
+</ul>
+<ul>
+<li><a href="20250515-upper_bound_of_vertex_connectivity_by_minimal_degree.html#ID-0a099d2e-e5c0-4c67-9fec-9ec637fd74fa">upper bound of vertex connectivity by minimal degree</a>   </li>
+
+<li><a href="20250515-vertex_connectivity_in_general_different_from_knot_connectivity_of_a_graph.html#ID-2303b531-b430-4c65-8b89-a06aafc0aab6">vertex connectivity in general different from knot connectivity of a graph</a> </li>
+
+<li><a href="20250515-knot_connectivity_smaller_than_vertex_connectivity.html#ID-0fbd9604-b000-451c-9a2b-d9d02741c668">knot connectivity smaller than vertex connectivity</a>   </li>
+</ul>
+<ul>
+<li></li>
+
+<li><a href="20250515-deleting_edges_for_a_graph.html#ID-a8176e8f-d333-440b-bf34-814934176cd9">deleting edges for a graph and</a> </li>
+</ul>
+<p>
+Let $G = (V,E)$ be a <a href="20220904165445-graph.html#ID-2de260cf-41c4-4dec-9ae9-450c507fda60">graph</a> and $a,b \in V$ disjoint vertices.
+Then the minimal number of edges, such that $a$ and $b$ lie in a different connected component is given by the maximal number of <a href="20250515-kantendisjunkter_pfad.html#ID-0c402630-b0be-404c-84a8-642a97df4944">kantendisjunkter pfade</a>
+</p>
+
+<h3 id="16-matchings">1.6 Matchings</h3>
+<ul>
+<li><a href="20250521-matching.html#ID-cf8a30fa-4ffa-475e-8620-ba2765330472">matching</a> </li>
+
+<li><a href="20221217211447-perfect_matching.html#ID-d31de333-46f8-4f16-a996-cc5ce4fd794e">perfect matching</a> </li>
+
+<li><a href="20250521-maximum_matching.html#ID-f3db4ae5-f553-4428-8b63-c6814d3f14c9">maximal matching</a> </li>
+
+<li><a href="20250521-cardinality_of_a_maximal_matching_for_a_bipartit_graph.html#ID-6a445bb5-819a-4c64-b151-c5194c4d54ae">cardinality of a maximal matching for a bipartit graph</a>   </li>
+
+<li><a href="20250521-d_regular_graph.html#ID-f3974e00-0dbe-4ff9-ae56-449d752e0d81">d-regular graph</a>  </li>
+
+<li><a href="20250521-regular_graph.html#ID-5b8b591f-0bc9-4344-914d-24b2ab5c9408">regular graph</a></li>
+
+<li><a href="20250522-existence_of_a_perfect_matching_for_a_d_regular_graph.html#ID-1d3ffb28-6395-431d-98ca-b7f1605138fc">existence of a perfect matching for a d-regular graph</a>   </li>
+
+<li><a href="20250522-hall_marriage_theorem.html#ID-a516cb54-19ac-45dc-ba5d-b32f90faa059">hall marriage theorem</a>   </li>
+
+<li><a href="20250522-perfect_matching_and_even_amount_of_vertices_in_a_component.html#ID-7916d8b3-4e0b-4e57-aa00-502025337ded">perfect matching and even amount of vertices in a component</a> </li>
+</ul>
+<h4 id="144">1.44</h4>
+<ul>
+<li><a href="20250522-tutte_theorem.html#ID-7e567279-8a78-4046-8640-1402fa62589f">tutte theorem</a> </li>
+</ul>
+<h4 id="145">1.45</h4>
+<ul>
+<li><a href="20250522-perfect_matching_and_cirlce.html#ID-0705004c-6dce-4ede-8ddc-3051e19a8f7f">perfect matching and circle</a> </li>
+</ul>
+<h4 id="146">1.46</h4>
+<ul>
+<li></li>
+</ul>
+<h3 id="17-colouring">1.7 colouring</h3>
+
+<h4 id="147">1.47</h4>
+<ul>
+<li><a href="20250527-coloring_of_a_graph.html#ID-666d729e-5330-4935-bd34-6e39d1bced72">coloring of a graph</a> </li>
+</ul>
+<h4 id="148">1.48</h4>
+<ul>
+<li><a href="20250527-chromatic_number_of_a_graph.html#ID-cbaa42bb-fc17-4114-a5c2-270351a4b1f2">chromatic number of a graph</a> </li>
+</ul>
+<h4 id="149">1.49</h4>
+<ul>
+<li><a href="20250527-independence_number_of_a_graph.html#ID-1f76fdfe-a9c8-4ba4-b142-de2eb0f80e49">independence number of a graph</a> </li>
+
+<li><a href="20250527-independent_set_of_vertices.html#ID-544200ae-c9a6-4469-8cdb-40745c19493f">independent set of vertices</a> </li>
+
+<li><a href="20250527-clique_in_a_graph.html#ID-3b02ced6-bbd7-45eb-b554-67cc1c7e0890">clique in a graph</a>   </li>
+
+<li><a href="20250527-clique_number_in_a_graph.html#ID-f8d3479d-2750-42f2-827e-450544ae21c5">clique number in a graph</a>   </li>
+</ul>
+<ul>
+<li><a href="20250527-chromatic_number_of_a_subgraph.html#ID-ce12345d-85ac-409e-aef3-0ddd3137d32b">chromatic number of a subgraph</a>    </li>
+
+<li><a href="20250527-chromatic_number_and_clique_number.html#ID-24649ed0-9275-4c36-b25e-43d7cc753424">chromatic number and clique number</a>   </li>
+
+<li><a href="20250527-independence_number_of_a_graph.html#ID-1f76fdfe-a9c8-4ba4-b142-de2eb0f80e49">independence number of a graph</a>   </li>
+
+<li><a href="20250528-chromatic_number_and_independence_number.html#ID-68d6f3ef-ff5e-40eb-bf66-1ba53b5d03cb">chromatic number and independence number</a>   </li>
+
+<li><span class="broken-link" title="unresolved id:e8337ff5-33eb-4798-90c4-fb5369ec1d91">chromatic number of a bipartite graph</span>   </li>
+</ul>
+<ul>
+<li></li>
+</ul>
+<h4 id="150">1.50</h4>
+<ul>
+<li><a href="20250527-greedy_coloring_of_a_permutation.html#ID-84b7a6ea-dcb7-42da-930a-2777c966e900">greedy coloring of graph and a permutation</a> </li>
+
+<li><a href="20250527-greedy_chromatic_number_for_a_permutation.html#ID-aa9c4b03-254d-4292-96c0-f7039b3dbff9">greedy chromatic number for a permutation</a>   </li>
+
+<li><a href="20250528-chromatic_number_and_maximal_degree.html#ID-0888702b-a3c2-44b4-ab0b-53d94069bdd7">chromatic number and maximal degree</a>   </li>
+</ul>
+<h4 id="151">1.51</h4>
+<ul>
+<li><a href="20250527-k_degenerate_graph.html#ID-e21de5b8-71b2-4ba5-af0c-bb04b79ff70a">k degenerate graph</a>   </li>
+
+<li><a href="20250528-degeneracy_number_of_a_graph.html#ID-518d9e16-14f9-4f5d-9ed4-88b4d8ce88fb">degeneracy number of a graph</a> </li>
+</ul>
+<h4 id="152">1.52</h4>
+<ul>
+<li><a href="20250528-degenarte_graph_and_greedy_coloring.html#ID-1eb02911-768d-4d23-8fd9-832cb5c453df">degenerate graph and greedy coloring</a> </li>
+
+<li><a href="20250528-degeneracy_number_and_greedy_coloring_for_a_permutation.html#ID-3c603d37-e6f8-4de3-ba72-0a951728cab5">degeneracy number and greedy coloring for a permutation</a>   </li>
+</ul>
+<h4 id="153">1.53</h4>
+<ul>
+<li><a href="20250528-chromatic_number_and_degeneracy_number.html#ID-3ec86e2e-6a4b-40f0-81a4-6547d8c9edc8">chromatic number and degeneracy number</a> </li>
+</ul>
+<h4 id="154">1.54</h4>
+<ul>
+<li><a href="20250604-brooks_theorem_for_chromatic_number.html#ID-301f9112-2489-48fc-a663-0c80413856d0">brooks theorem for chromatic number</a> </li>
+</ul>
+<h4 id="155">1.55</h4>
+<ul>
+<li></li>
+</ul>
+
+<h4 id="156">1.56</h4>
+<ul>
+<li><a href="20250604-mycielski_graph.html#ID-63493382-c1aa-456f-ba37-69a1bab976ed">mycielski-graph construction</a> </li>
+</ul>
+<h4 id="157">1.57</h4>
+<ul>
+<li><a href="20250604-chromatic_number_of_a_mycielskian_for_a_clique_number_2.html#ID-f22490a2-1429-49f3-a776-7d9c3ff76196">chromatic number of a mycielskian for a clique number 2</a> </li>
+
+<li><a href="20250604-chromatic_number_of_a_mycielskian_for_a_clique_number_2.html#ID-f22490a2-1429-49f3-a776-7d9c3ff76196">chromatic number of a mycielskian for a clique number 2</a>   </li>
+</ul>
+<h4 id="158">1.58</h4>
+<ul>
+<li><a href="20250604-k_edge_coloring_of_a_graph.html#ID-a5735745-e016-4636-bc09-f59672d1c8bc">k-edge-coloring of a graph</a> </li>
+
+<li><a href="20250604-chromatic_index.html#ID-27173734-de76-4065-a793-531b5d0a6ab1">chromatic index</a>   </li>
+</ul>
+<h4 id="159">1.59</h4>
+<ul>
+<li><a href="20250604-chromatic_index_of_a_bipartite_graph.html#ID-2afc1f9e-3952-4543-8609-9c38da361f08">chromatic index of a bipartite graph</a>  </li>
+</ul>
+<h4 id="160">1.60</h4>
+<ul>
+<li><a href="20250604-vizing_theorem.html#ID-7f640c48-2935-49e2-8c90-f3db58334e6a">vizing theorem</a> </li>
+</ul>
+<h3 id="extremale-graphentheorie">Extremale Graphentheorie</h3>
+<p>
+Motivation:
+</p>
+<ul>
+<li>für eine feste eigenschaft</li>
+
+<li>für einen festen Parameter (z.B. Kanten)</li>
+
+<li>finde graph mit eigenschaft &amp; max/min parameter    </li>
+
+<li><a href="20250427-upper_bound_of_edges_for_a_disconnected_graph.html#ID-b1d23f1c-49c6-45e2-82df-dfd57c3a1ad8">upper bound of edges for a disconnected graph</a>   </li>
+
+<li><a href="20250515-upper_bound_of_vertex_connectivity_by_minimal_degree.html#ID-0a099d2e-e5c0-4c67-9fec-9ec637fd74fa">upper bound of edge connectivity by minimal degree</a> ?- K1</li>
+
+<li>$n-2 + \frac{k}{2}$  ??</li>
+</ul>
+<h4 id="162">1.62</h4>
+<ul>
+<li><a href="20250612-hamiltonian_cycle.html#ID-45af3867-37eb-4cd4-aeb3-37d02f8edb1d">hamiltonian cycle</a> </li>
+
+<li><a href="20250612-hamiltonian_graph.html#ID-5cca655a-0f22-4096-ae9e-083d42db4c48">hamiltonian graph</a> </li>
+</ul>
+<h4 id="163">1.63</h4>
+<ul>
+<li><a href="20250612-dirac_theorem_about_hamilton_cycles.html#ID-bd84a03a-95f6-431e-8235-9e5a2c312f98">dirac theorem about hamilton cycles</a> </li>
+</ul>
+<h4 id="164">1.64</h4>
+<ul>
+<li><a href="20250612-ore_theorem_about_hamiltonian_cycles.html#ID-6a26ad84-f161-4e4f-8e24-390d0dc877ef">ore theorem about hamiltonian cycles</a> </li>
+</ul>
+<h4 id="165">1.65</h4>
+<ul>
+<li><a href="20250612-mantel_theorem_about_graphs.html#ID-cb71aac5-a072-4f5f-b66d-c09fac5984bc">mantel theorem about graphs without triangle</a> </li>
+</ul>
+<h4 id="166">1.66</h4>
+<ul>
+<li><a href="20250612-r_bipartite_graph.html#ID-7f492f3c-d9be-484c-a976-bccb4baf4ec1">r-bipartite graph</a> - todo</li>
+
+<li><a href="20250612-complete_r_bipartite_graph.html#ID-55f79a64-3b4e-4095-95a7-2f1b654b8d7e">complete r-bipartite graph</a> - todo</li>
+
+<li><a href="20250612-r_th_turan_graph.html#ID-923be137-0caa-4e75-8eac-3179d5ee518f">r-th turan graph</a>   </li>
+</ul>
+<h4 id="167">1.67</h4>
+<ul>
+<li><a href="20250612-satz_von_turan.html#ID-e2abc3ef-adc1-4ad4-b6f4-cd86d36240a5">turan's theorem</a> </li>
+
+<li><a href="20250612-maximal_k_r_free_graph_and_transitivity_of_missing_edges.html#ID-83923eea-6cd7-4525-9ddc-6c5236a64ac1">maximal K_r free graph and transitivity of missing edges</a>   </li>
+</ul>
+<h4 id="168">1.68</h4>
+<ul>
+<li><a href="20250621-ex_number_of_a_graph_and_number.html#ID-8e43ac93-6656-4bd9-9ab8-ee9300a27358">Ex number of a graph and number of vertices</a> </li>
+
+<li><a href="20250612-maximal_k_r_free_graph_and_transitivity_of_missing_edges.html#ID-83923eea-6cd7-4525-9ddc-6c5236a64ac1">maximal K_r free graph and transitivity of missing edges</a> </li>
+</ul>
+<h4 id="169">1.69</h4>
+<ul>
+<li><a href="20250621-erdos_stone_simonovits.html#ID-268f7c1a-6c42-445d-a808-a93d52d3535c">erdos-stone-simonovits</a> </li>
+</ul>
+<h4 id="170">1.70</h4>
+
+</div>
+</body>
+</html>

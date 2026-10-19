@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>forgetful functor from Grp to Set preserves sifted colimits</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-793c1833-7b80-48e7-855c-2fce1d2145c4"></span><h1 class="title">forgetful functor from Grp to Set preserves sifted colimits</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+The <a href="20240209-forgetful_functor_from_grp_to_set.html#ID-942a3aa3-4ef7-4805-8a53-085ff0e40327">forgetful functor from Grp to Set</a> <a href="20250401-functor_preserving_1_sifted_colimits.html#ID-7ad522a2-f20d-4bcb-8eb9-ac3ff8ee74b1">preserves 1-sifted colimits</a>.
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+using:
+</p>
+<ul>
+<li><a href="20250403-functor_preserving_1_sifted_colimits_and_preserving_filtered_colimits_and_reflexive_coequalizers.html#ID-4831dde6-f1a0-4b87-afcc-77467e6718c1">1-functor preserving 1-sifted colimits and preserving filtered colimits and reflexive coequalizers</a> </li>
+
+<li><a href="20250331-reflexive_coequalizer.html#ID-497816f7-27da-4786-8840-88517ceca32f">reflexive coequalizer</a>   </li>
+</ul>
+<h3 id="fitlered-colimits">fitlered colimits</h3>
+<ul>
+<li><a href="20250406-forgetful_functor_from_grp_to_set_preserves_filtered_colimits.html#ID-3e0ce120-f62c-41b0-bec5-26904f400948">forgetful functor from Grp to Set preserves filtered colimits</a> </li>
+</ul>
+<h3 id="reflexive-coequalizer">reflexive coequalizer</h3>
+<p>
+Let
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+A \arrow[shift right=1, swap]{r}{f_2} \arrow[shift left=1]{r}{f_1}&amp; \rar B &amp; B/\sim
+\end{tikzcd}
+\end{displymath}
+be a reflexive coequalizer.
+
+Using the description of [[id:34d24f31-a0d5-41bc-9075-f7b2a863c18f][colimit in set]], it remains to show that $B/\sim$ is equipped with a canonical group structure via
+\begin{align*}
+[b] \cdot [b'] \coloneqq [b \cdot b'] 
+\end{align*}
+It remains to show that this is welldefined:
+Assume that $b_1 \sim b_2$, then we have to show that
+\begin{align*}
+[b_1 \cdot b'] = [b_2 \cdot b']
+\end{align*}
+and 
+\begin{align*}
+[b' \cdot b_1] = [b \cdot b_2]
+\end{align*}
+
+The second case can be done analogously (or apply probably apply the [[id:220d333b-7315-484a-878f-a3b75dd8a4e5][opposite group functor]]) 
+
+
+Note that $b_1 \sim b_2$ [[id:a1245369-4879-458c-aec3-e2905bfa6306][if and only if]] there exist $a_1,...,a_n$ such that
+\begin{align*}
+f_1(a_1) =&amp; b_1 \\
+f_1(a_i) =&amp; f_2(a_{i-1}) \\
+f_2(a_n) =&amp; b_{2}
+\end{align*}
+
+[[id:e58125c9-5f34-4043-bf52-23ecb4c20f2e][w.l.o.g.]] assume that $n = 1$, the general case follows by induction over the zigzag.
+Choose a common section $s$
+Then 
+\begin{align*}
+b_1 \cdot b' =&amp; f_1(a_1) \cdot f_1(s(b')) \\
+=&amp; f_1(a_1 \cdot s(b')) 
+b_2 \cdot b' =&amp; f_2(a_1) \cdot f_2(s(b')) \\
+=&amp; f_2(a_1 + s(b'))
+\end{align*}
+
+Hence $b_1 \cdot b' \sim b_2 \cdot b'$
+</pre></div>
+
+</div>
+</body>
+</html>

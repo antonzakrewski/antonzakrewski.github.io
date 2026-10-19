@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>tensor product with a finite type spectrum preserves arbitrary products of n-connective spectra</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-2d3eff44-3781-452a-aa82-919916042ad8"></span><h1 class="title">tensor product with a finite type spectrum preserves arbitrary products of n-connective spectra</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X$ be a <a href="20260312-finite_type_spectrum.html#ID-f48148f3-a462-44d8-be5d-408bd743a86f">finite type spectrum</a>, then the functor
+</p>
+
+<div class="math-block">\begin{align*}
+X \otimes_{\mathbb{S}} -: \mathrm{Sp} \rightarrow \mathrm{Sp}
+\end{align*}</div>
+<p>
+<a href="20241017-infinity_functor_preserving_limits_of_a_shape.html#ID-e13812db-b82b-43ed-8ab6-2913dcaf81a6">preserves</a> <a href="20241017-infinity_product.html#ID-07afb527-f81d-470f-946f-dfcac235ce22">products</a> of $n$ <a href="20250418-connective_spectrum.html#ID-ba8a38c1-ccc3-409f-ba81-b52b89d5a3b2">connective spectra</a>.
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+I dont think this is a good written proof :/
+</p>
+
+<p>
+Let $X_i$ be $n$ connective spectra and $\prod Y_i$ the <a href="20230404141718-categorical_product.html#ID-c6b25f4e-7486-4399-bea3-ace8da2a18c9">product</a>.
+Then $\prod Y_i$ is also $n$ connective, since the category of $n$ connective spectra is closed under arbitrary (co-)products (cf. <a href="20260825-product_of_connective_spectra_is_connective.html#ID-6cbb6a93-b913-4ef4-a1b2-2b38b13f50d6">product of connective spectra is connective</a>, <a href="20260825-product_of_connective_maps_of_spectra_is_connective.html#ID-858b5669-34df-43d1-845e-7b87b7244940">product of connective maps of spectra is connective</a>).
+</p>
+
+<p>
+We need to show that there exists an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a> $X \otimes_{\mathbb{S}} (\prod Y_i) \simeq \prod_{i \in I} X \otimes_{\mathbb{S}} \prod Y_i$
+</p>
+
+<p>
+let $X_{\leq n}$ be the <a href="20250614-finite_spectrum.html#ID-a2a400a0-1f79-4abc-b8a1-6fde43764a91">finite spectra</a> consisting of cells of dimension $\leq n$ such that $X \simeq \mathrm{colim}_{n \in \mathbb{N}} X_n$.
+In particular $X_n \rightarrow \mathrm{colim}_{n \in \mathbb{N}} X_n$ is (roughly) n connective.
+</p>
+
+<p>
+Moreover, we have a diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/061047a8cb4e9b1e4cb8.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+where we may <a href="20241017-coinitial_infinity_functor.html#ID-7c2e8e73-1566-48ed-a481-8ddc45412c3a">coinitially approximate</a> by forgetting all $X_{\leq m}$ for $m &lt; n$.
+Then all vertical morphisms are roughly n connective.
+Using <a href="20251229-colimit_of_spectra_with_eventually_constant_homotopy_groups.html#ID-4d5b00a3-ab24-453d-98e2-af93d25f460e">colimit of spectra with eventually constant homotopy groups</a> shows that the map $\prod X_{\leq n} \otimes_{\mathbb{S}} Y_i \rightarrow \prod X \otimes_{\mathbb{S}} Y_i$ is roughly n connective (cf. <a href="20260825-product_of_connective_maps_of_spectra_is_connective.html#ID-858b5669-34df-43d1-845e-7b87b7244940">product of connective maps of spectra is connective</a>).
+This shows that the map $X \otimes_{\mathbb{S}} \prod Y_i \rightarrow \prod X \otimes_{\mathbb{S}} Y_i$ is roughly n connective for all $n$ or an <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a>
+</p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>triangle identity for a left adjoint object</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-fc7dc301-b69b-466c-9d18-a0e9a69e2c18"></span><h1 class="title">triangle identity for a left adjoint object</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathcal{C}, \mathcal{D}$ be <a href="20240404-simplicial_set_as_infinity_category.html#ID-4635a6ee-1ad5-44cb-8e36-4a934f5ae4bf">categories</a> and $\mathcal{R}: \mathcal{D} \rightarrow \mathcal{C}$ be a <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a> and $c \in \mathcal{C}$ an object.
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol>
+<li>there exists a <a href="20250725-left_adjoint_object.html#ID-17be8944-66db-48d1-8e3d-c1fb11f26b8b">left adjoint object</a> $\mathrm{Hom}_{\mathcal{C}}(c, \mathcal{R}(-)) \cong \mathrm{Hom}_{\mathcal{D}}(\mathcal{L}(c),-)$</li>
+
+<li>there exists an object $\mathcal{L}(c)$ together with a <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphism</a> (called unit) $\eta(c): c \rightarrow \mathcal{R}(\mathcal{L}(c))$ such that for every object $d \in \mathcal{D}$ and every morphism $h: c \rightarrow \mathcal{R}(d)$ in $\mathcal{C}$ there exists a unique morphism $f: \mathcal{L}(c) \rightarrow d$ making the left diagram commute</li>
+</ol>
+<div class="equation-container"><span class="equation"><img src="ltximg/134b0811e860901bd446.svg" class="org-svg" alt="diagram" /></span></div>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+<p>
+By assumption
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Hom}_{\mathcal{C}}(c, \mathcal{R}(-)) \cong&amp; \mathrm{Hom}_{\mathcal{D}}(\mathcal{L}(c),-)
+\end{align*}</div>
+<p>
+so insert $\mathcal{L}(c)$ to get
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Hom}_{\mathcal{C}}(c, \mathcal{R}(\mathcal{L}(c))) \cong&amp; \mathrm{Hom}_{\mathcal{D}}(\mathcal{L}(c),\mathcal{L}(c))
+\end{align*}</div>
+<p>
+In particular let $\eta(c): c \rightarrow \mathcal{R}(\mathcal{L}(c))$ be the morphism corresponding to $\mathrm{id}_c$ under this isomorphism.
+</p>
+
+<p>
+So given any map $c \rightarrow \mathcal{R}(d)$ it remains to show that there exists a unique map $f$ such that
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/134b0811e860901bd446.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+commutes.
+</p>
+
+<p>
+Now insert $d$ to get
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Hom}_{\mathcal{C}}(c, \mathcal{R}(d)) \cong&amp; \mathrm{Hom}_{\mathcal{D}}(\mathcal{L}(c),d)
+\end{align*}</div>
+<p>
+so there exists a unique map $f: \mathcal{L}(c) \rightarrow d$ corresponding to $h$.
+</p>
+
+<p>
+Then we may use naturality of the isomorphism
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/db33724027479c696119.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+to trace the identity morphism
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/f2ab0329cbf95abe7bcb.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+which shows that $\mathcal{R}(f) \circ \eta(c) = h$ since $f = f \circ \mathrm{id}$ maps to $h$ and the diagram above has to commute.
+</p>
+
+<h3 id="2-implies-1">2) $\implies$ 1)</h3>
+<p>
+we define for $d \in \mathcal{D}$ the map
+</p>
+
+<div class="math-block">\begin{align*}
+\Psi(d): \mathrm{Hom}_{\mathcal{D}}(\mathcal{L}(c), d) \rightarrow&amp; \mathrm{Hom}_{\mathcal{C}}(c, \mathcal{R}(d)) \\
+f \mapsto&amp; \mathcal{R}(f) \circ \eta(c) 
+\end{align*}</div>
+<p>
+we show
+</p>
+
+<h4 id="naturality">naturality</h4>
+<p>
+Let $g: d \rightarrow d'$.
+Then we want to show that
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/78adfd0dc9ac2766d9a1.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+commutes.
+So let $f \in \mathrm{Hom}_{\mathcal{C}}(\mathcal{L}(c), d)$ be any <a href="20220817164827-morphismus.html#ID-7e72e390-edd9-4dec-a7cc-f04d2c37dcbc">morphism</a>.
+</p>
+
+<p>
+Then
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/2b33d6e9d9cc262f6ccf.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+where by functorality of $\mathcal{R}(-)$
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{R}(g) \circ \mathcal{R}(f) =&amp; \mathcal{R}(g \circ f) \\
+\mathcal{R}(g) \circ \mathcal{R}(f)\circ \eta(c) =&amp; \mathcal{R}(g \circ f) \circ \eta(c)\\
+\end{align*}</div>
+
+<p>
+which shows
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/57a1eb7ace4092cc6610.svg" class="org-svg" alt="diagram" /></span></div>
+
+<h4 id="bijection-isomorphism-in-iddc78356f-1fcf-41e8-b05a-47cdd731513ccategory-set">bijection (isomorphism in <a href="20221216142701-kategorie_set.html#ID-dc78356f-1fcf-41e8-b05a-47cdd731513c">category set</a>)</h4>
+
+<h5 id="injective">injective</h5>
+<p>
+If $f,g \in \mathrm{Hom}_{\mathcal{D}}(\mathcal{L}(c), d)$ map to some $h = \mathcal{R}(f) \circ \eta(c), h = \mathcal{R}(g) \circ \eta(c)$, then by uniqueness $f = g$.
+</p>
+
+<h5 id="surjective">surjective</h5>
+<p>
+for any map $h: c \rightarrow \mathcal{R}(d)$ there exists an $f$ making the diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/b8c2d9982008c90e2faf.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+commute.
+hence $f \mapsto \mathcal{R}(f) \circ \eta(c) = h$
+</p>
+
+<h4 id="natural-iso">natural iso</h4>
+<ul>
+<li>invoke: <a href="20231111-natural_isomorphism_and_isomorphism_on_the_objects.html#ID-db7bc60d-3b95-402f-9606-c66ec355e9df">natural isomorphism and pointwise isomorphism</a> </li>
+</ul>
+</div>
+</body>
+</html>

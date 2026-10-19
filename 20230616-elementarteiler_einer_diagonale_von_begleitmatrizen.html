@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 15:05 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Elementarteiler einer Diagonale von Begleitmatrizen</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,68 +52,63 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Elementarteiler einer Diagonale von Begleitmatrizen</h1>
-<div id="outline-container-org5ff2643" class="outline-2">
-<h2 id="org5ff2643"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-99f00598-9971-4a91-979f-4a29c5a05eec"></span><h1 class="title">Elementarteiler einer Diagonale von Begleitmatrizen</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(K\) ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a> und \(g_i \in K[X]\) für \(i \in \{1,...,r\}\) <a href="20221226010524-normiertes_polynom.html#ID-f17a0f11-0953-4728-91a6-9a81df943813">normierte Polynome</a> mit \(g_i \mid g_{i+1}\).
-Dann gilt für die <a href="20220303181007-matrix.html#ID-3234cd94-0d93-470b-a319-75288f97326e">matrix</a> 
+Sei $K$ ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a> und $g_i \in K[X]$ für $i \in \{1,...,r\}$ <a href="20221226010524-normiertes_polynom.html#ID-f17a0f11-0953-4728-91a6-9a81df943813">normierte Polynome</a> mit $g_i \mid g_{i+1}$.
+Dann gilt für die <a href="20220303181007-matrix.html#ID-3234cd94-0d93-470b-a319-75288f97326e">matrix</a>
 </p>
-\begin{align*}
-B =& B_{g_1,...,g_r} \\
-=& \begin{pmatrix} B_{g_1} & & \\
-& \vdots & \\
-& & B_{g_r} \end{pmatrix}  
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgc897e87" class="outline-2">
-<h2 id="orgc897e87"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<div class="math-block">\begin{align*}
+B =&amp; B_{g_1,...,g_r} \\
+=&amp; \begin{pmatrix} B_{g_1} &amp; &amp; \\
+&amp; \vdots &amp; \\
+&amp; &amp; B_{g_r} \end{pmatrix}  
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
 <p>
-Nach der Aussage über die <a href="20230619-elementarteiler_einer_begleitmatrix.html#ID-1286c23e-3290-46a0-ad9d-412ea10925dd">Elementarteiler einer</a> <a href="20230609-begleitmatrix.html#ID-66139441-0ee0-4b85-b825-cc1f24a59622">Begleitmatrix</a> existieren <a href="20230227153105-vektorraumisomorphismus.html#ID-27b6dd7a-30ae-4eb8-b5c4-e1a268344d2e">Vektorraumisomorphismen</a> $A<sub>i,B</sub>$<sub>i</sub>, so dass gilt
+Nach der Aussage über die <a href="20230619-elementarteiler_einer_begleitmatrix.html#ID-1286c23e-3290-46a0-ad9d-412ea10925dd">Elementarteiler einer</a> <a href="20230609-begleitmatrix.html#ID-66139441-0ee0-4b85-b825-cc1f24a59622">Begleitmatrix</a> existieren <a href="20230227153105-vektorraumisomorphismus.html#ID-27b6dd7a-30ae-4eb8-b5c4-e1a268344d2e">Vektorraumisomorphismen</a> $A_i,B$_i, so dass gilt
 </p>
-\begin{align*}
-A \cdot M_{B_{g_i}} \cdot B = \begin{pmatrix} 1 & & & \\
-& \vdots & & \\
-& & 1 & \\
-& & & g_i
+
+<div class="math-block">\begin{align*}
+A \cdot M_{B_{g_i}} \cdot B = \begin{pmatrix} 1 &amp; &amp; &amp; \\
+&amp; \vdots &amp; &amp; \\
+&amp; &amp; 1 &amp; \\
+&amp; &amp; &amp; g_i
 \end{pmatrix} 
-\end{align*}
+\end{align*}</div>
 <p>
-Diese <a href="20220303181007-matrix.html#ID-3234cd94-0d93-470b-a319-75288f97326e">Matrizen</a> \(A\) lassen sich natürlich erweitern durch
+Diese <a href="20220303181007-matrix.html#ID-3234cd94-0d93-470b-a319-75288f97326e">Matrizen</a> $A$ lassen sich natürlich erweitern durch
 </p>
-\begin{align*}
-\begin{pmatrix} A & \\
-& E_n \\ \end{pmatrix} 
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\begin{pmatrix} A &amp; \\
+&amp; E_n \\ \end{pmatrix} 
+\end{align*}</div>
 <p>
 so dass folgt
 </p>
-\begin{align*}
-M_B(x) =& \begin{pmatrix} xE - B_{g_1} & & \\
-& \vdots & \\
-& & xE - B
+
+<div class="math-block">\begin{align*}
+M_B(x) =&amp; \begin{pmatrix} xE - B_{g_1} &amp; &amp; \\
+&amp; \vdots &amp; \\
+&amp; &amp; xE - B
 
 # * Satz
 # Sei $K$ ein [[id:a602197a-6116-40b3-ae33-b421251bbb1e][Körper]] und $g \in K[X]$ ein [[id:f17a0f11-0953-4728-91a6-9a81df943813][normiertes]] [[id:a2f108fc-4631-45ea-bf8c-70182b7714f9][Polynom]] sowie $B_g$ die dazugehörige [[id:66139441-0ee0-4b85-b825-cc1f24a59622][Begleitmatrix]].
 # Dann gilt für die [[id:62d08ada-fc7a-43eb-8029-8794d9d03e52][charakteristische Matrix]] von $B_g$
 # \begin{align*}
 # M_{B_g} \sim \begin{pmatrix}
-# 1 & & & \\
-#   & \vdots & & \\
-#   & & 1 & \\
-#   & & & g \\
+# 1 &amp; &amp; &amp; \\
+#   &amp; \vdots &amp; &amp; \\
+#   &amp; &amp; 1 &amp; \\
+#   &amp; &amp; &amp; g \\
 # \end{pmatrix} 
 # \end{align*}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 15:05</p>
+# * Beweis</div>
+
 </div>
 </body>
 </html>

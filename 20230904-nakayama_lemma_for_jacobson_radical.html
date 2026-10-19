@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 18:11 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Nakayama Lemma for Jacobson Radical</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,86 +52,73 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Nakayama Lemma for Jacobson Radical</h1>
-<div id="outline-container-orgd46e411" class="outline-2">
-<h2 id="orgd46e411"><span class="section-number-2">1.</span> Proposition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-eaaaa7fb-8744-4bc9-ba53-baf1ac56370d"></span><h1 class="title">Nakayama Lemma for Jacobson Radical</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let \(A\) be a <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a> with <a href="20230725-jacobson_radical.html#ID-7ee4f832-79a1-47c6-9602-c636a3ba8daa">Jacobson radical</a> \(J(A)\) and an <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a> \(\mathfrak{a} \subseteq J(A)\) and \(M\) a <a href="20230531104455-endlich_erzeugter_modul.html#ID-b8bbecb1-a067-40a2-a8c8-3c4119252b18">finitely generated</a> \(A\)-<a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">module</a>.
-Then if for the <a href="20230523163356-ideal_mal_modul_als_modul.html#ID-bb06dd64-8633-45dc-8966-7650e0835ec4">Modulideal</a> 
+Let \(A\) be a <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a> with <a href="20230725-jacobson_radical.html#ID-7ee4f832-79a1-47c6-9602-c636a3ba8daa">Jacobson radical</a> $J(A)$ and an <a href="20221130163324-ideal_algebra.html#ID-f2c82320-35f7-47b4-8f53-0daa904668b2">ideal</a> $\mathfrak{a} \subseteq J(A)$ and $M$ a <a href="20230531104455-endlich_erzeugter_modul.html#ID-b8bbecb1-a067-40a2-a8c8-3c4119252b18">finitely generated</a> \(A\)-<a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">module</a>.
+Then if
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \mathfrak{a}M = M
-\end{align*}
-<p>
+\end{align*},
 we conclude, that
-</p>
 \begin{align*}
 M = 0
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org2750ef4" class="outline-2">
-<h2 id="org2750ef4"><span class="section-number-2">2.</span> Proof</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orgc52b65a" class="outline-3">
-<h3 id="orgc52b65a"><span class="section-number-3">2.1.</span> a)</h3>
-<div class="outline-text-3" id="text-2-1">
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="a">a)</h3>
 <p>
-Suppose \(m_1,...,m_n\) is a <a href="20230519124649-erzeugendensystem_eines_moduls.html#ID-af862bb4-5917-409d-a426-3d3e918d1ac1">generator</a> of \(M\) with minimal \(n\).
-if \(n = 0\), then \(\langle \emptyset\rangle = 0\).
-Otherwise, for \(m_1 \in M = \mathfrak{a}M\) we get by Assumption a <a href="20220107122959-linearkombination.html#ID-5c5d77fa-325c-4762-9327-9000a960ed88">linear combination</a>
+Suppose $m_1,...,m_n$ is a <a href="20230519124649-erzeugendensystem_eines_moduls.html#ID-af862bb4-5917-409d-a426-3d3e918d1ac1">generator</a> of $M$ with minimal $n$.
+if $n = 0$, then $\langle \emptyset\rangle = 0$.
+Otherwise, for $m_1 \in M = \mathfrak{a}M$ we get by Assumption a <a href="20220107122959-linearkombination.html#ID-5c5d77fa-325c-4762-9327-9000a960ed88">linear combination</a>
 </p>
-\begin{align*}
-m_1 = \sum_{i=1}^{n} a_im_i && a_i \in \mathfrak{m}
-\end{align*}
+
+<div class="math-block">\begin{align*}
+m_1 = \sum_{i=1}^{n} a_im_i &amp;&amp; a_i \in \mathfrak{m}
+\end{align*}</div>
 <p>
-But since \(a_1 \in \mathfrak{m}\), we conclude, that \(a_1 - 1\) is a <a href="20221226125808-einheit_ring.html#ID-a3b1e1af-c3e3-433c-a4dd-2ee2c6e1d69a">unit</a> (cf. <a href="20230725-jacobson_radical_and_unit.html#ID-28204f4f-4d91-47fc-8f23-c64eb381aa0f">Jacobson radical and unit</a>)
+But since $a_1 \in \mathfrak{m}$, we conclude, that $a_1 - 1$ is a <a href="20221226125808-einheit_ring.html#ID-a3b1e1af-c3e3-433c-a4dd-2ee2c6e1d69a">unit</a> (cf. <a href="20230725-jacobson_radical_and_unit.html#ID-28204f4f-4d91-47fc-8f23-c64eb381aa0f">Jacobson radical and unit</a>)
 </p>
-\begin{align*}
-m_1 =& \sum_{i=1}^{n} a_im_i && \vert a_i \in \mathfrak{m} \\
-m_1 (1 - a_1) =& \sum_{i=2}^{n} a_i m_i && \vert \cdot (1 - a_1)^{-1} \\
-m_1 =& (1 - a_1)^{-1} \sum_{i=2}^{n} a_i m_i
-\end{align*}
+
+<div class="math-block">\begin{align*}
+m_1 =&amp; \sum_{i=1}^{n} a_im_i &amp;&amp; \vert a_i \in \mathfrak{m} \\
+m_1 (1 - a_1) =&amp; \sum_{i=2}^{n} a_i m_i &amp;&amp; \vert \cdot (1 - a_1)^{-1} \\
+m_1 =&amp; (1 - a_1)^{-1} \sum_{i=2}^{n} a_i m_i
+\end{align*}</div>
 <p>
-Hence \(m_2,...,m_n\) is a smaller generator of \(M\).
-Thus by induction, \(\emptyset\) is a generator and hence \(M = 0\)
+Hence $m_2,...,m_n$ is a smaller generator of $M$.
+Thus by induction, $\emptyset$ is a generator and hence $M = 0$
 </p>
-</div>
-</div>
-<div id="outline-container-orgb584652" class="outline-3">
-<h3 id="orgb584652"><span class="section-number-3">2.2.</span> b)</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<h3 id="b">b)</h3>
 <p>
 corollary of
 </p>
-<ol class="org-ol">
-<li><a href="20240528-general_nakayama_s_lemma.html#ID-c17f7b54-4b8b-4a8f-a3bf-2d7ecd7c0398">general Nakayama's lemma</a></li>
-<li><a href="20230725-jacobson_radical_and_unit.html#ID-28204f4f-4d91-47fc-8f23-c64eb381aa0f">Jacobson radical and unit</a></li>
-</ol>
+<ol>
+<li><a href="20240528-general_nakayama_s_lemma.html#ID-c17f7b54-4b8b-4a8f-a3bf-2d7ecd7c0398">general Nakayama's lemma</a> </li>
 
+<li><a href="20230725-jacobson_radical_and_unit.html#ID-28204f4f-4d91-47fc-8f23-c64eb381aa0f">Jacobson radical and unit</a> </li>
+</ol>
 <p>
-where by assumption there exists an \(a \in \mathfrak{a}\) such that
+where by assumption there exists an $a \in \mathfrak{a}$ such that
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 (1 - a) \cdot M = 0
-\end{align*}
+\end{align*}</div>
 <p>
-and \(1 - a \in A^{\times}\) is a unit showing
+and $1 - a \in A^{\times}$ is a unit showing
 </p>
-\begin{align*}
-0 =& (1 - a) \cdot m \\
-=& m \forall m \in M
-\end{align*}
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 18:11</p>
+
+<div class="math-block">\begin{align*}
+0 =&amp; (1 - a) \cdot m \\
+=&amp; m \forall m \in M
+\end{align*}</div>
+
 </div>
 </body>
 </html>

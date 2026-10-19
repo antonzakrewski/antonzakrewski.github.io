@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:56 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Determinante mit kommutativen Matrizen</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,49 +52,40 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Determinante mit kommutativen Matrizen</h1>
-<div id="outline-container-orgf5480ec" class="outline-2">
-<h2 id="orgf5480ec"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-Sei \(K\) ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a> und \(A,B,C,D \in K^{n \times n}\), so dass gilt \(AC = CA\)
-</p>
+<span id="ID-b81b10f5-f3ac-4a63-91e5-7bdf0b75678c"></span><h1 class="title">Determinante mit kommutativen Matrizen</h1>
 
+<h2 id="satz">Satz</h2>
 <p>
+Sei $K$ ein <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a> und $A,B,C,D \in K^{n \times n}$, so dass gilt $AC = CA$
 Dann gilt
 </p>
-\begin{align*}
-\det \begin{pmatrix} A & B \\ C & D \end{pmatrix} =& \det(AD - CB)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orge0d70be" class="outline-2">
-<h2 id="orge0d70be"><span class="section-number-2">2.</span> Bewesi</h2>
-<div class="outline-text-2" id="text-2">
-\begin{align*}
-\begin{pmatrix} E_n & 0 \\ -C & A \end{pmatrix} \begin{pmatrix} A & B \\ C & D \end{pmatrix} =& \begin{pmatrix} A & B \\ 0 & AD - CB \end{pmatrix} 
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\det \begin{pmatrix} A &amp; B \\ C &amp; D \end{pmatrix} =&amp; \det(AD - CB)
+\end{align*}</div>
+
+<h2 id="bewesi">Bewesi</h2>
+
+<div class="math-block">\begin{align*}
+\begin{pmatrix} E_n &amp; 0 \\ -C &amp; A \end{pmatrix} \begin{pmatrix} A &amp; B \\ C &amp; D \end{pmatrix} =&amp; \begin{pmatrix} A &amp; B \\ 0 &amp; AD - CB \end{pmatrix} 
+\end{align*}</div>
 <p>
 nach dem <a href="20221224175800-kastchensatz.html#ID-9d14c88c-6228-4ff0-a9fa-15695508ca09">Kästchensatz</a> und <a href="20221224180209-multiplikativitat_der_determinante.html#ID-3755c9f1-a210-4ed2-981d-efabc6596635">Determinantenproduktsatz</a>, <a href="20230121224355-erweiterte_matrix_und_determinante.html#ID-a1ad0b22-e357-4579-8124-533584c529b8">mit Einheitsmatrix erweiterte Matrix und deren Determinante</a>  folgt:
 </p>
-\begin{align*}
-\det(A) \cdot \det \begin{pmatrix} A & B \\ C & D \end{pmatrix} =& \det(A) \cdot \det(AD - CB) 
-\end{align*}
 
+<div class="math-block">\begin{align*}
+\det(A) \cdot \det \begin{pmatrix} A &amp; B \\ C &amp; D \end{pmatrix} =&amp; \det(A) \cdot \det(AD - CB) 
+\end{align*}</div>
 <p>
-Falls \(\det(A) = 0\) gilt, so ist die Gleichung erfüllt
-Sonst folgt aus der Mutliplikation mit $det(A)<sup>-1</sup>"a
+Falls $\det(A) = 0$ gilt, so ist die Gleichung erfüllt
+Sonst folgt aus der Mutliplikation mit $\det(A)^{-1}"a
 </p>
-\begin{align*}
-\det \begin{pmatrix} A & B \\ C & D \end{pmatrix} =& \det(AD - CB)
-\end{align*}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:56</p>
+
+<div class="math-block">\begin{align*}
+\det \begin{pmatrix} A &amp; B \\ C &amp; D \end{pmatrix} =&amp; \det(AD - CB)
+\end{align*}</div>
+
+
 </div>
 </body>
 </html>

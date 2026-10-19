@@ -1,388 +1,197 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2025-02-13 Do 14:05 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>LinAlg 1 - Tut14</title>
+<title>LinAlg 1 - Tut 14 (24/25)</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">LinAlg 1 - Tut14</h1>
-<div id="outline-container-orgaca0044" class="outline-2">
-<h2 id="orgaca0044">Aspekte</h2>
-<div class="outline-text-2" id="text-orgaca0044">
-</div>
-<div id="outline-container-orgf9e3d57" class="outline-3">
-<h3 id="orgf9e3d57">Erinnerung</h3>
-<div class="outline-text-3" id="text-orgf9e3d57">
-<ul class="org-ul">
-<li><a href="20250121-algorithm_determine_eigenvalues.html#ID-47861fe9-31ff-4a09-9322-778a8bb6d976">Algorithm: determine eigenvalues</a> <br /></li>
-<li><a href="20250121-algorithm_determine_eigenvectors.html#ID-199972d4-3f92-4014-9e2d-8daf3f20e488">Algorithm: determine eigenvectors</a>   <br /></li>
+<span id="ID-706b7050-2066-435e-9ab4-911503ec5c8e"></span><h1 class="title">LinAlg 1 - Tut 14 (24/25)</h1>
 
-<li><a href="20230124183844-spur_einer_matrix.html#ID-43d339ec-a7cf-4a00-b934-0efaf54090f7">trace of a matrix</a> <br /></li>
-<li><a href="20230428164635-charakteristische_polynom_und_spur.html#ID-0b0a017e-9546-4107-987e-6bbc5ec91427">Charakteristische Polynom und Spur</a> <br /></li>
-<li><a href="20230124184424-kommutativitat_der_spur_matrix.html#ID-4c648f4d-9564-4fcd-82bd-4382a6ee97be">Kommutativität der Spur (Matrix)</a>   <br /></li>
+<h2 id="aspekte">Aspekte</h2>
 
-<li><a href="20230303214443-geometrische_vielfachheit_eines_eigenwerts.html#ID-5e8b27fb-6a6b-473d-a512-543f4f13aa74">geometrische Vielfachheit eines Eigenwerts</a>    <br /></li>
-<li><a href="20230303165754-vielfachheit_eines_eigenwerts.html#ID-be59473d-7ec4-4fe1-a83e-3f00c1bda553">algebraische Vielfachheit eines Eigenwerts</a>   <br /></li>
-<li><a href="20250121-sufficient_criterias_diagonalizable.html#ID-5472a0ad-6e69-4507-8d34-f6b120f67d21">criterias: diagonalizable Matrix</a>   <br /></li>
+<h3 id="erinnerung">Erinnerung</h3>
+<ul>
+<li><a href="20250121-algorithm_determine_eigenvalues.html#ID-47861fe9-31ff-4a09-9322-778a8bb6d976">Algorithm: determine eigenvalues</a> </li>
+
+<li><a href="20250121-algorithm_determine_eigenvectors.html#ID-199972d4-3f92-4014-9e2d-8daf3f20e488">Algorithm: determine eigenvectors</a>   </li>
 </ul>
-</div>
-</div>
-</div>
-<div id="outline-container-org73c70af" class="outline-2">
-<h2 id="org73c70af">Aufgabe</h2>
-<div class="outline-text-2" id="text-org73c70af">
-</div>
-<div id="outline-container-org4235b96" class="outline-3">
-<h3 id="org4235b96">1)</h3>
-<div class="outline-text-3" id="text-org4235b96">
+<ul>
+<li><a href="20230124183844-spur_einer_matrix.html#ID-43d339ec-a7cf-4a00-b934-0efaf54090f7">trace of a matrix</a> </li>
+
+<li><a href="20230428164635-charakteristische_polynom_und_spur.html#ID-0b0a017e-9546-4107-987e-6bbc5ec91427">Charakteristische Polynom und Spur</a> </li>
+
+<li><a href="20230124184424-kommutativitat_der_spur_matrix.html#ID-4c648f4d-9564-4fcd-82bd-4382a6ee97be">Kommutativität der Spur (Matrix)</a>   </li>
+</ul>
+<ul>
+<li><a href="20230303214443-geometrische_vielfachheit_eines_eigenwerts.html#ID-5e8b27fb-6a6b-473d-a512-543f4f13aa74">geometrische Vielfachheit eines Eigenwerts</a>    </li>
+
+<li><a href="20230303165754-vielfachheit_eines_eigenwerts.html#ID-be59473d-7ec4-4fe1-a83e-3f00c1bda553">algebraische Vielfachheit eines Eigenwerts</a>   </li>
+
+<li><a href="20250121-sufficient_criterias_diagonalizable.html#ID-5472a0ad-6e69-4507-8d34-f6b120f67d21">criterias: diagonalizable Matrix</a>   </li>
+</ul>
+<h2 id="aufgabe">Aufgabe</h2>
+
+<h3 id="1">1)</h3>
 <p>
-Finde die Eigenwerte von<br />
+Finde die Eigenwerte von
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250130-linalg_tut14_b4d3fe414dee96ea565ab41996c4775669cf0455.svg" alt="20250130-linalg_tut14_b4d3fe414dee96ea565ab41996c4775669cf0455.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/6515856f3a72ee4b18f3.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-bzw. in <img src="ltximg/20250130-linalg_tut14_f64c399f15d7efcc2672c70ddff6d8bc411fcd52.svg" alt="20250130-linalg_tut14_f64c399f15d7efcc2672c70ddff6d8bc411fcd52.svg" class="org-svg" /> <br />
+bzw. in $\mathbb{C}$
 </p>
 
 <p>
-und berechne die Eigenräume, geometrische sowie algebraische Vielfachheit<br />
+und berechne die Eigenräume, geometrische sowie algebraische Vielfachheit
 </p>
-</div>
-<div id="outline-container-orgc50b819" class="outline-4">
-<h4 id="orgc50b819">Lösung</h4>
-<div class="outline-text-4" id="text-orgc50b819">
+
+<h4 id="losung">Lösung</h4>
 <p>
-ich erhalte:<br />
+ich erhalte:
 </p>
-<ol class="org-ol">
-<li>Charakteristisches Polynom <img src="ltximg/20250130-linalg_tut14_4a087e00268e23d916dbeae865be93361ad22a70.svg" alt="20250130-linalg_tut14_4a087e00268e23d916dbeae865be93361ad22a70.svg" class="org-svg" /><br /></li>
-<li>Eigenwerte: <img src="ltximg/20250130-linalg_tut14_a047a0fa92d41f108947ddec064b68775208dd01.svg" alt="20250130-linalg_tut14_a047a0fa92d41f108947ddec064b68775208dd01.svg" class="org-svg" />, bzw. die dritten Einheitswurzeln (wobei nur <img src="ltximg/20250130-linalg_tut14_563677139024adcf70225f939292e485136f4013.svg" alt="20250130-linalg_tut14_563677139024adcf70225f939292e485136f4013.svg" class="org-svg" /> liegt)<br /></li>
-<li>die algebraische Vielfachheit &amp; geometrische Vielfachheit ist jeweils <img src="ltximg/20250130-linalg_tut14_fb8599e75e4949ebbeac98a6abf5c72f2a8f18e5.svg" alt="20250130-linalg_tut14_fb8599e75e4949ebbeac98a6abf5c72f2a8f18e5.svg" class="org-svg" /> <br /></li>
+<ol>
+<li>Charakteristisches Polynom $x^3 - 1$</li>
+
+<li>Eigenwerte: $1, - \frac{1}{2} \pm \frac{\mathrm{i}}{2} \sqrt{3}$, bzw. die dritten Einheitswurzeln (wobei nur $1 \in \mathbb{R}$ liegt)</li>
+
+<li>die algebraische Vielfachheit &amp; geometrische Vielfachheit ist jeweils $1$ </li>
 </ol>
-</div>
-</div>
-</div>
-<div id="outline-container-org5734492" class="outline-3">
-<h3 id="org5734492">2)</h3>
-<div class="outline-text-3" id="text-org5734492">
+<h3 id="2">2)</h3>
 <p>
-Finde die Eigenwerte und Eigenräume von<br />
+Finde die Eigenwerte und Eigenräume von
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250130-linalg_tut14_c779580dd5fc14d1aaea45898c5dbfbb42976ee7.svg" alt="20250130-linalg_tut14_c779580dd5fc14d1aaea45898c5dbfbb42976ee7.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/3aa43cb34f2e59b1885b.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-Ist diese Matrix diagonalisierbar ?<br />
+Ist diese Matrix diagonalisierbar ?
 </p>
-</div>
-<div id="outline-container-orgb6b1efc" class="outline-4">
-<h4 id="orgb6b1efc">Lösung</h4>
-<div class="outline-text-4" id="text-orgb6b1efc">
+
+<h4 id="losung">Lösung</h4>
 <p>
-ich erhalte <img src="ltximg/20250130-linalg_tut14_67f6a89d0e2d9ad277d063e0f4d422d5b4fd0faa.svg" alt="20250130-linalg_tut14_67f6a89d0e2d9ad277d063e0f4d422d5b4fd0faa.svg" class="org-svg" /> als Eigenwerte<br />
+ich erhalte $0,1$ als Eigenwerte
 </p>
-<ul class="org-ul">
-<li>die algebraische bzw. geometrische Vielfachheit von <img src="ltximg/20250130-linalg_tut14_46213a69cc0fd8e7646d063f18a2b1b9e029e7db.svg" alt="20250130-linalg_tut14_46213a69cc0fd8e7646d063f18a2b1b9e029e7db.svg" class="org-svg" /> ist <img src="ltximg/20250130-linalg_tut14_fb8599e75e4949ebbeac98a6abf5c72f2a8f18e5.svg" alt="20250130-linalg_tut14_fb8599e75e4949ebbeac98a6abf5c72f2a8f18e5.svg" class="org-svg" /><br /></li>
-<li>die algebraische vielfachheit von <img src="ltximg/20250130-linalg_tut14_fb8599e75e4949ebbeac98a6abf5c72f2a8f18e5.svg" alt="20250130-linalg_tut14_fb8599e75e4949ebbeac98a6abf5c72f2a8f18e5.svg" class="org-svg" /> ist <img src="ltximg/20250130-linalg_tut14_c71c3e4c630ee26cdc07a485f439e89a01bce90a.svg" alt="20250130-linalg_tut14_c71c3e4c630ee26cdc07a485f439e89a01bce90a.svg" class="org-svg" />, die geometrische dagegen nur <img src="ltximg/20250130-linalg_tut14_7c9087604fecfa49bec456cd9e6c1bc754cc8718.svg" alt="20250130-linalg_tut14_7c9087604fecfa49bec456cd9e6c1bc754cc8718.svg" class="org-svg" /><br /></li>
+<ul>
+<li>die algebraische bzw. geometrische Vielfachheit von $0$ ist $1$</li>
+
+<li>die algebraische vielfachheit von $1$ ist $4$, die geometrische dagegen nur $3$</li>
 </ul>
 <p>
-eine mögliche Basis von Eigenvektoren besteht aus<br />
+eine mögliche Basis von Eigenvektoren besteht aus
 </p>
-<ol class="org-ol">
-<li>für <img src="ltximg/20250130-linalg_tut14_46213a69cc0fd8e7646d063f18a2b1b9e029e7db.svg" alt="20250130-linalg_tut14_46213a69cc0fd8e7646d063f18a2b1b9e029e7db.svg" class="org-svg" />: <img src="ltximg/20250130-linalg_tut14_841451dff027d774a7b195054b39d5be96f5b787.svg" alt="20250130-linalg_tut14_841451dff027d774a7b195054b39d5be96f5b787.svg" class="org-svg" /><br /></li>
-<li>für <img src="ltximg/20250130-linalg_tut14_fb8599e75e4949ebbeac98a6abf5c72f2a8f18e5.svg" alt="20250130-linalg_tut14_fb8599e75e4949ebbeac98a6abf5c72f2a8f18e5.svg" class="org-svg" />: <img src="ltximg/20250130-linalg_tut14_6e5380870d66c7ce49b0d768e46ae37149805eeb.svg" alt="20250130-linalg_tut14_6e5380870d66c7ce49b0d768e46ae37149805eeb.svg" class="org-svg" /> <br /></li>
+<ol>
+<li>für $0$: $e_5$</li>
+
+<li>für $1$: $e_1, e_3,e_4 + e_5$ </li>
 </ol>
-
 <p>
-Dabei ist <img src="ltximg/20250130-linalg_tut14_c37eab9ba023bec7c9a2c92bd283a7ee1c70b515.svg" alt="20250130-linalg_tut14_c37eab9ba023bec7c9a2c92bd283a7ee1c70b515.svg" class="org-svg" /> die Standardbasis<br />
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgce4f980" class="outline-3">
-<h3 id="orgce4f980">3)</h3>
-<div class="outline-text-3" id="text-orgce4f980">
-<p>
-Sei<br />
-</p>
-
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250130-linalg_tut14_0985acb85f932c66f15bea493848c08477a9a705.svg" alt="20250130-linalg_tut14_0985acb85f932c66f15bea493848c08477a9a705.svg" class="org-svg" />
-</span>
-</div>
-
-<p>
-Berechne <img src="ltximg/20250130-linalg_tut14_a7d1d9fbbfbc46642fd78952594095a7ac16ed71.svg" alt="20250130-linalg_tut14_a7d1d9fbbfbc46642fd78952594095a7ac16ed71.svg" class="org-svg" /><br />
-</p>
-
-<p>
-Tipp: diagonalisiere<br />
-</p>
-</div>
-<div id="outline-container-orga8847b6" class="outline-4">
-<h4 id="orga8847b6">Lösung</h4>
-<div class="outline-text-4" id="text-orga8847b6">
-<p>
-ich erhalte<br />
-</p>
-
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250130-linalg_tut14_3129358e3a788baf5ff76a053c91430f317ab31d.svg" alt="20250130-linalg_tut14_3129358e3a788baf5ff76a053c91430f317ab31d.svg" class="org-svg" />
-</span>
-</div>
-
-<p>
-und<br />
+Dabei ist $e_i$ die Standardbasis
 </p>
 
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250130-linalg_tut14_1362830b2b21b7a411c37c771fef277f4f278c76.svg" alt="20250130-linalg_tut14_1362830b2b21b7a411c37c771fef277f4f278c76.svg" class="org-svg" />
-</span>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-orgef67174" class="outline-3">
-<h3 id="orgef67174">4)</h3>
-<div class="outline-text-3" id="text-orgef67174">
+<h3 id="3">3)</h3>
 <p>
-finde die Spur von <img src="ltximg/20250130-linalg_tut14_a7d1d9fbbfbc46642fd78952594095a7ac16ed71.svg" alt="20250130-linalg_tut14_a7d1d9fbbfbc46642fd78952594095a7ac16ed71.svg" class="org-svg" /><br />
+Sei
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250130-linalg_tut14_962cd1ffc1ead3064a78e7da45468c26f2b40d84.svg" alt="20250130-linalg_tut14_962cd1ffc1ead3064a78e7da45468c26f2b40d84.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/8ec195615b7a30f9d8a5.svg" class="org-svg" alt="diagram" /></span></div>
 
 <p>
-Tipp: diagonalisiere<br />
-</p>
-</div>
-<div id="outline-container-org5919bf4" class="outline-4">
-<h4 id="org5919bf4">Lösung</h4>
-<div class="outline-text-4" id="text-org5919bf4">
-<p>
-ich erhalte<br />
+Berechne $A^n$
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20250130-linalg_tut14_355baed0cc0a0bb0341f2bcad903423cb6880890.svg" alt="20250130-linalg_tut14_355baed0cc0a0bb0341f2bcad903423cb6880890.svg" class="org-svg" />
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2025-02-13 Do 14:05</p>
+<p>
+Tipp: diagonalisiere
+</p>
+
+
+<h4 id="losung">Lösung</h4>
+<p>
+ich erhalte
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/53ceb1ba2c209ffe17a9.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+und
+</p>
+
+
+<div class="equation-container"><span class="equation"><img src="ltximg/2f59834a867632e44284.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+<h3 id="4">4)</h3>
+<p>
+finde die Spur von $A^n$
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/444f19114e5da1579d39.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Tipp: diagonalisiere
+</p>
+
+<h4 id="losung">Lösung</h4>
+<p>
+ich erhalte
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Tr}(A^n) =&amp; ( \mathrm{i} \cdot \sqrt{14})^n + (- \mathrm{i} \sqrt{14})^n \\
+=&amp; 
+    \begin{cases}
+    0 &amp; \mbox{if } n \mathrm{even} \\
+    2 \cdot (- 14)^{\frac{n}{2}}  &amp; \mbox{else } \\ 
+    \end{cases}
+\end{align*}</div>
+
+
 </div>
 </body>
 </html>

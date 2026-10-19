@@ -1,348 +1,159 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2025-12-13 Sa 11:55 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Kriterien zum Nachweisen einer Basis</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Kriterien zum Nachweisen einer Basis</h1>
-<div id="outline-container-org2975cb6" class="outline-2">
-<h2 id="org2975cb6">List</h2>
-<div class="outline-text-2" id="text-org2975cb6">
+<span id="ID-107c4e54-e15a-4c45-8919-fbd7dde17fdd"></span><h1 class="title">Kriterien zum Nachweisen einer Basis</h1>
+
+<h2 id="list">List</h2>
 <p>
-Sei <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_71f3c871e6f005eb103abef281f091ca48e2cd2a.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_71f3c871e6f005eb103abef281f091ca48e2cd2a.svg" class="org-svg" /> ein <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">endlich</a> <a href="20220102135318-dimension.html#ID-3e484fb0-c9a8-485a-999b-4f0052bd13e4">dimensionaler</a> <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">K-Vektorraum</a> und <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_192cdf864e55d036492d6fb6f28968dbb46b46cb.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_192cdf864e55d036492d6fb6f28968dbb46b46cb.svg" class="org-svg" /> eine Menge von Vektoren.<br />
-</p>
-</div>
-<div id="outline-container-orgb61ebd0" class="outline-3">
-<h3 id="orgb61ebd0">a) Nachrechnen: Erzeugendensystem + Dimension</h3>
-<div class="outline-text-3" id="text-orgb61ebd0">
-<p>
-Man kann zeigen:<br />
-a) die Dimension von <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_71f3c871e6f005eb103abef281f091ca48e2cd2a.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_71f3c871e6f005eb103abef281f091ca48e2cd2a.svg" class="org-svg" /> ist gegeben durch <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_1ae49c9153574e242329c4cbcca36f4035b33af7.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_1ae49c9153574e242329c4cbcca36f4035b33af7.svg" class="org-svg" /> (im wohl häufigsten Fall <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_d2fabf4238e57c1c1802a90380dce6460050f784.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_d2fabf4238e57c1c1802a90380dce6460050f784.svg" class="org-svg" /> kann man das wohl ablesen)<br />
-b) <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_192cdf864e55d036492d6fb6f28968dbb46b46cb.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_192cdf864e55d036492d6fb6f28968dbb46b46cb.svg" class="org-svg" /> ist ein <a href="20221106152549-erzeugendensystem.html#ID-f76ea8a6-1176-46cf-a300-c2312e60e6d8">Erzeugendensystem eines Vektorraums</a> <br />
-Nach der <a href="20221211171225-satz_uber_die_aquivalenz_von_basis_minimales_erzeugendensystem_und_maximal_linear_unabhangige_teilmenge.html#ID-c340bcf8-acfa-464f-a3d5-ad947a2d1efd">Äquivalenz von Basis, minimales Erzeugendensystem und maximal linear unabhängige Teilmenge</a> <br />
-</p>
-</div>
-</div>
-<div id="outline-container-org4d4b623" class="outline-3">
-<h3 id="org4d4b623">b) Nachrechnen: Linear Unabhängig + Dimension</h3>
-<div class="outline-text-3" id="text-org4d4b623">
-<p>
-Man kann zeigen:<br />
-a) die Dimension von <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_71f3c871e6f005eb103abef281f091ca48e2cd2a.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_71f3c871e6f005eb103abef281f091ca48e2cd2a.svg" class="org-svg" /> ist gegeben durch <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_1ae49c9153574e242329c4cbcca36f4035b33af7.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_1ae49c9153574e242329c4cbcca36f4035b33af7.svg" class="org-svg" /> (im wohl häufigsten Fall <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_d2fabf4238e57c1c1802a90380dce6460050f784.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_d2fabf4238e57c1c1802a90380dce6460050f784.svg" class="org-svg" /> kann man das wohl ablesen)<br />
-b) <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_192cdf864e55d036492d6fb6f28968dbb46b46cb.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_192cdf864e55d036492d6fb6f28968dbb46b46cb.svg" class="org-svg" /> ist <a href="20220207224644-lineare_unabhangigkeit.html#ID-c4d1496f-6012-4ade-8b98-3e29dad89ded">lineare unabhängig</a> <br />
-Nach der <a href="20221211171225-satz_uber_die_aquivalenz_von_basis_minimales_erzeugendensystem_und_maximal_linear_unabhangige_teilmenge.html#ID-c340bcf8-acfa-464f-a3d5-ad947a2d1efd">Äquivalenz von Basis, minimales Erzeugendensystem und maximal linear unabhängige Teilmenge</a> <br />
-</p>
-</div>
-</div>
-<div id="outline-container-orgc7ffb27" class="outline-3">
-<h3 id="orgc7ffb27">c) invertierbare Abbildung: <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_3b49cb53ba6edfddbd9988f32140025ecddab118.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_3b49cb53ba6edfddbd9988f32140025ecddab118.svg" class="org-svg" /> als Spalten</h3>
-<div class="outline-text-3" id="text-orgc7ffb27">
-<p>
-Man kann zeigen dass der induzierte <a href="20221119162741-vektorraumhomomorphismus.html#ID-863f0f55-054c-413e-9cf4-2c2704ea5b14">VR-Homomorphismus</a><br />
+Sei $V$ ein <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">endlich</a> <a href="20220102135318-dimension.html#ID-3e484fb0-c9a8-485a-999b-4f0052bd13e4">dimensionaler</a> <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">K-Vektorraum</a> und $(v_1,...,v_n)$ eine Menge von Vektoren.
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_d44a1e153b2d67d6a73c4a4e999c196396d07254.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_d44a1e153b2d67d6a73c4a4e999c196396d07254.svg" class="org-svg" />
-</span>
-</div>
+<h3 id="a-nachrechnen-erzeugendensystem-dimension">a) Nachrechnen: Erzeugendensystem + Dimension</h3>
 <p>
-ein VR-Iso ist.<br />
+Man kann zeigen:
+a) die Dimension von $V$ ist gegeben durch $n$ (im wohl häufigsten Fall $V = K^n$ kann man das wohl ablesen)
+b) $(v_1,...,v_n)$ ist ein <a href="20221106152549-erzeugendensystem.html#ID-f76ea8a6-1176-46cf-a300-c2312e60e6d8">Erzeugendensystem eines Vektorraums</a>
+Nach der <a href="20221211171225-satz_uber_die_aquivalenz_von_basis_minimales_erzeugendensystem_und_maximal_linear_unabhangige_teilmenge.html#ID-c340bcf8-acfa-464f-a3d5-ad947a2d1efd">Äquivalenz von Basis, minimales Erzeugendensystem und maximal linear unabhängige Teilmenge</a>
+</p>
+
+<h3 id="b-nachrechnen-linear-unabhangig-dimension">b) Nachrechnen: Linear Unabhängig + Dimension</h3>
+<p>
+Man kann zeigen:
+a) die Dimension von $V$ ist gegeben durch $n$ (im wohl häufigsten Fall $V = K^n$ kann man das wohl ablesen)
+b) $(v_1,...,v_n)$ ist <a href="20220207224644-lineare_unabhangigkeit.html#ID-c4d1496f-6012-4ade-8b98-3e29dad89ded">lineare unabhängig</a>
+Nach der <a href="20221211171225-satz_uber_die_aquivalenz_von_basis_minimales_erzeugendensystem_und_maximal_linear_unabhangige_teilmenge.html#ID-c340bcf8-acfa-464f-a3d5-ad947a2d1efd">Äquivalenz von Basis, minimales Erzeugendensystem und maximal linear unabhängige Teilmenge</a>
+</p>
+
+<h3 id="c-invertierbare-abbildung-v-i-als-spalten">c) invertierbare Abbildung: $v_i$ als Spalten</h3>
+<p>
+Man kann zeigen dass der induzierte <a href="20221119162741-vektorraumhomomorphismus.html#ID-863f0f55-054c-413e-9cf4-2c2704ea5b14">VR-Homomorphismus</a>
+</p>
+
+<div class="math-block">\begin{align*}
+f: K^n \rightarrow&amp; V \\
+e_i \mapsto&amp; v_i
+\end{align*}</div>
+<p>
+ein VR-Iso ist.
 </p>
 
 <p>
-Das gilt, weil<br />
+Das gilt, weil
 </p>
-<ol class="org-ol">
-<li><a href="20230629-vektorraumepimorphismus_erhalt_erzeugendensysteme.html#ID-3f1ca98e-85f2-465a-bca6-8102b78a3b5f">Vektorraumepimorphismen erhalten Erzeugendensysteme</a><br /></li>
-<li><a href="20230629-vektorraummonomorphismus_erhalt_lineare_unabhangigkeit.html#ID-4a10163e-d34c-4abe-9675-860bf7f3c75e">Vektorraummonomorphismus erhält lineare Unabhängigkeit</a> <br /></li>
-<li><img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_2a55e5de8dc6d039fbd41861b4bf741929d6e754.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_2a55e5de8dc6d039fbd41861b4bf741929d6e754.svg" class="org-svg" /> eine Basis von <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_bad6923189ec2638e8c4a80922ed8ad4e581bd31.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_bad6923189ec2638e8c4a80922ed8ad4e581bd31.svg" class="org-svg" /> ist<br /></li>
+<ol>
+<li><a href="20230629-vektorraumepimorphismus_erhalt_erzeugendensysteme.html#ID-3f1ca98e-85f2-465a-bca6-8102b78a3b5f">Vektorraumepimorphismen erhalten Erzeugendensysteme</a></li>
+
+<li><a href="20230629-vektorraummonomorphismus_erhalt_lineare_unabhangigkeit.html#ID-4a10163e-d34c-4abe-9675-860bf7f3c75e">Vektorraummonomorphismus erhält lineare Unabhängigkeit</a> </li>
+
+<li>$e_1,...,e_n$ eine Basis von $K^n$ ist</li>
 </ol>
-</div>
-</div>
-<div id="outline-container-org9fe7e75" class="outline-3">
-<h3 id="org9fe7e75">d) Determinantenkriterium für Matrix mit <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_3b49cb53ba6edfddbd9988f32140025ecddab118.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_3b49cb53ba6edfddbd9988f32140025ecddab118.svg" class="org-svg" /> als Spalten</h3>
-<div class="outline-text-3" id="text-org9fe7e75">
+
+<h3 id="d-determinantenkriterium-fur-matrix-mit-v-i-als-spalten">d) Determinantenkriterium für Matrix mit $v_i$ als Spalten</h3>
 <p>
-Für den Fall <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_d2fabf4238e57c1c1802a90380dce6460050f784.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_d2fabf4238e57c1c1802a90380dce6460050f784.svg" class="org-svg" /> kann man die Matrix<br />
+Für den Fall $V = K^n$ kann man die Matrix
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_07d795c0257fcbff5cc9df6b717b4d82ef6609dc.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_07d795c0257fcbff5cc9df6b717b4d82ef6609dc.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/da92e4b0a75d03c79934.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-ausschreiben und die Determinante ausrechnen.<br />
-Dann ist <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_192cdf864e55d036492d6fb6f28968dbb46b46cb.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_192cdf864e55d036492d6fb6f28968dbb46b46cb.svg" class="org-svg" /> eine Basis <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">g.d.w.</a> <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_6ebe1f96d622bd67c272edb6d9044e6a69e4a5c4.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_6ebe1f96d622bd67c272edb6d9044e6a69e4a5c4.svg" class="org-svg" /> da <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_1d420ecfc3afeb24d74b9348f983f84f5c003dfc.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_1d420ecfc3afeb24d74b9348f983f84f5c003dfc.svg" class="org-svg" /> zu der Abbildung <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_9fb7e36fad8f5dbe5968127b3e7802f531984b40.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_9fb7e36fad8f5dbe5968127b3e7802f531984b40.svg" class="org-svg" /> aus der c) korrespondiert und ein VR-Hom. <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_5879b0e7ca55080f5b14240e313cda9d9d478b88.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_5879b0e7ca55080f5b14240e313cda9d9d478b88.svg" class="org-svg" /> invertierbar ist gdw die korrespondierende Matrix nichtnull determinante hat <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_6ebe1f96d622bd67c272edb6d9044e6a69e4a5c4.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_6ebe1f96d622bd67c272edb6d9044e6a69e4a5c4.svg" class="org-svg" />.<br />
-</p>
-</div>
-</div>
-<div id="outline-container-orgce468f2" class="outline-3">
-<h3 id="orgce468f2">e) Determinantenkriterium für Matrix mit <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_3b49cb53ba6edfddbd9988f32140025ecddab118.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_3b49cb53ba6edfddbd9988f32140025ecddab118.svg" class="org-svg" /> als Zeilen</h3>
-<div class="outline-text-3" id="text-orgce468f2">
-<p>
-Für den Fall <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_d2fabf4238e57c1c1802a90380dce6460050f784.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_d2fabf4238e57c1c1802a90380dce6460050f784.svg" class="org-svg" /> kann man die Matrix<br />
+ausschreiben und die Determinante ausrechnen.
+Dann ist $(v_1,...,v_n)$ eine Basis <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">g.d.w.</a> $\mathrm{det}(A) \neq 0$ da $A$ zu der Abbildung $f$ aus der c) korrespondiert und ein VR-Hom. $f: K^n \rightarrow K^n$ invertierbar ist gdw die korrespondierende Matrix nichtnull determinante hat $\mathrm{det}(A) \neq 0$.
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_a49d4ee1b37d80fbe41b8b782138b6f82844e0dc.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_a49d4ee1b37d80fbe41b8b782138b6f82844e0dc.svg" class="org-svg" />
-</span>
-</div>
+<h3 id="e-determinantenkriterium-fur-matrix-mit-v-i-als-zeilen">e) Determinantenkriterium für Matrix mit $v_i$ als Zeilen</h3>
 <p>
-ausschreiben und die Determinante ausrechnen.<br />
-Dann ist wegen <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_d8cf898fc2c514ec85de05475c1cc1d6a70bc0f7.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_d8cf898fc2c514ec85de05475c1cc1d6a70bc0f7.svg" class="org-svg" /> und der d) das Tupel <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_192cdf864e55d036492d6fb6f28968dbb46b46cb.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_192cdf864e55d036492d6fb6f28968dbb46b46cb.svg" class="org-svg" /> eine Basis gdw <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_d05bf869c1b1b2aa69268e2fbb2d7cd0a685161d.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_d05bf869c1b1b2aa69268e2fbb2d7cd0a685161d.svg" class="org-svg" /><br />
+Für den Fall $V = K^n$ kann man die Matrix
 </p>
-</div>
-</div>
-<div id="outline-container-orgb6add49" class="outline-3">
-<h3 id="orgb6add49">f) Nachrechnen: Linear Unabhängig und Erzeugendensystem</h3>
-<div class="outline-text-3" id="text-orgb6add49">
+
+<div class="equation-container"><pre class="render-failed">\begin{align*}
+A^t =: \begin{pNiceMatrix} v_1 \\ \vdot \\ v_n \end{pNiceMatrix} 
+\end{align*}</pre></div>
 <p>
-man kann natürlich auch die Definition nachrechnen.<br />
+ausschreiben und die Determinante ausrechnen.
+Dann ist wegen $\mathrm{det}(A^t) = \mathrm{det}(A)$ und der d) das Tupel $(v_1,...,v_n)$ eine Basis gdw $\mathrm{det}(A^t) \neq 0$
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-org9ba2993" class="outline-2">
-<h2 id="org9ba2993">Negation</h2>
-<div class="outline-text-2" id="text-org9ba2993">
+
+
+<h3 id="f-nachrechnen-linear-unabhangig-und-erzeugendensystem">f) Nachrechnen: Linear Unabhängig und Erzeugendensystem</h3>
 <p>
-Das "funktioniert" bezieht sich im folgenden auf den Fall, dass <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_192cdf864e55d036492d6fb6f28968dbb46b46cb.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_192cdf864e55d036492d6fb6f28968dbb46b46cb.svg" class="org-svg" /> keine Basis ist.<br />
+man kann natürlich auch die Definition nachrechnen.
 </p>
-</div>
-<div id="outline-container-org839e986" class="outline-3">
-<h3 id="org839e986">a) Dimensionsgründe (funktioniert manchmal)</h3>
-<div class="outline-text-3" id="text-org839e986">
+
+<h2 id="negation">Negation</h2>
 <p>
-Falls <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_ae00c28d0c37627f49bd158212f4e535d5d14229.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_ae00c28d0c37627f49bd158212f4e535d5d14229.svg" class="org-svg" /> kann <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_192cdf864e55d036492d6fb6f28968dbb46b46cb.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_192cdf864e55d036492d6fb6f28968dbb46b46cb.svg" class="org-svg" /> keine Basis sein.<br />
+Das "funktioniert" bezieht sich im folgenden auf den Fall, dass $(v_1,...,v_n)$ keine Basis ist.
 </p>
-</div>
-</div>
-<div id="outline-container-org0d64d0f" class="outline-3">
-<h3 id="org0d64d0f">b) nicht linear unabhängig (funktioniert oft)</h3>
-<div class="outline-text-3" id="text-org0d64d0f">
+
+<h3 id="a-dimensionsgrunde-funktioniert-manchmal">a) Dimensionsgründe (funktioniert manchmal)</h3>
 <p>
-selbsterklärend<br />
+Falls $\mathrm{dim}(V) \neq n$ kann $(v_1,...,v_n)$ keine Basis sein.
 </p>
-</div>
-</div>
-<div id="outline-container-org80a96bd" class="outline-3">
-<h3 id="org80a96bd">c) kein erzeugendensystem (funktioniert oft)</h3>
-<div class="outline-text-3" id="text-org80a96bd">
+
+<h3 id="b-nicht-linear-unabhangig-funktioniert-oft">b) nicht linear unabhängig (funktioniert oft)</h3>
 <p>
-selbsterklärend<br />
+selbsterklärend
 </p>
-</div>
-</div>
-<div id="outline-container-orgd4d8ecb" class="outline-3">
-<h3 id="orgd4d8ecb">d) Determinante (funktioniert im Fall <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_d2fabf4238e57c1c1802a90380dce6460050f784.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_d2fabf4238e57c1c1802a90380dce6460050f784.svg" class="org-svg" /> immer)</h3>
-<div class="outline-text-3" id="text-orgd4d8ecb">
+
+<h3 id="c-kein-erzeugendensystem-funktioniert-oft">c) kein erzeugendensystem (funktioniert oft)</h3>
 <p>
-Falls <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_d2fabf4238e57c1c1802a90380dce6460050f784.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_d2fabf4238e57c1c1802a90380dce6460050f784.svg" class="org-svg" /> kann man auch nachrechnen dass die Matrix <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_1d420ecfc3afeb24d74b9348f983f84f5c003dfc.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_1d420ecfc3afeb24d74b9348f983f84f5c003dfc.svg" class="org-svg" /> bzw. <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_08d6daee3a39e3928c755535c9636d77c9caedcb.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_08d6daee3a39e3928c755535c9636d77c9caedcb.svg" class="org-svg" /> aus der d) bzw. e) <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_ef98ee34127b4574edda85844aafab73872043ca.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_ef98ee34127b4574edda85844aafab73872043ca.svg" class="org-svg" /> bzw. äquivalent <img src="ltximg/20251208-kriterien_zum_nachweisen_einer_basis_bf95af593aa2f624d36d1ddc30e2b53c6989cfc7.svg" alt="20251208-kriterien_zum_nachweisen_einer_basis_bf95af593aa2f624d36d1ddc30e2b53c6989cfc7.svg" class="org-svg" /> erfüllt.<br />
+selbsterklärend
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2025-12-13 Sa 11:55</p>
+
+<h3 id="d-determinante-funktioniert-im-fall-v-kn-immer">d) Determinante (funktioniert im Fall $V = K^n$ immer)</h3>
+<p>
+Falls $V = K^n$ kann man auch nachrechnen dass die Matrix $A$ bzw. $A^t$ aus der d) bzw. e) $\mathrm{det}(A) = 0$ bzw. äquivalent $\mathrm{det}(A^t) = 0$ erfüllt.
+</p>
+
 </div>
 </body>
 </html>

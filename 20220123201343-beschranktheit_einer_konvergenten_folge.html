@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:26 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Beschränktheit einer konvergenten Folge</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,44 +52,42 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Beschränktheit einer konvergenten Folge</h1>
-<div id="outline-container-org1398c61" class="outline-2">
-<h2 id="org1398c61"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-c372f1ac-3f24-497b-bea2-7693b6f38bbd"></span><h1 class="title">Beschränktheit einer konvergenten Folge</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Jede <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergente</a> <a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">Folge</a> ist <a href="20220123200843-beschranktheit_einer_folge.html#ID-77f6a16a-9a94-40d9-aca9-919bb4f8998f">beschränkt</a> 
+Jede <a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">konvergente</a> <a href="20211222222916-folge_mathe.html#ID-dcb01772-a373-427f-99a6-5bd48bf9e042">Folge</a> ist <a href="20220123200843-beschranktheit_einer_folge.html#ID-77f6a16a-9a94-40d9-aca9-919bb4f8998f">beschränkt</a>
 </p>
-</div>
-</div>
-<div id="outline-container-orgd5f3edd" class="outline-2">
-<h2 id="orgd5f3edd"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<h2 id="beweis">Beweis</h2>
 <p>
-Sei \((a_n) \rightarrow a\).
-Dann existiert für beliebiges \(\epsilon > 0\) ein \(n \in \mathbb{N}\) so dass für \(n \leq n_0 \in \mathbb{N}\) gilt
+Sei $(a_n) \rightarrow a$.
+Dann existiert für beliebiges $\epsilon &gt; 0$ ein $n \in \mathbb{N}$ so dass für $n \leq n_0 \in \mathbb{N}$ gilt
 </p>
-\begin{align*}
-\vert a_{n_0} - a \vert < \epsilon
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\vert a_{n_0} - a \vert &lt; \epsilon
+\end{align*}</div>
 <p>
-Aus der <a href="20220716173747-dreiecksungleichung_metrik.html#ID-e5ef5ef6-266f-4486-aa97-9ba2093531fe">Dreiecksungleichung</a> folgt für \(\vert a_n \vert = \vert (a_{n_0} - a) + a \vert\) 
+Aus der <a href="20220716173747-dreiecksungleichung_metrik.html#ID-e5ef5ef6-266f-4486-aa97-9ba2093531fe">Dreiecksungleichung</a> folgt für $\vert a_n \vert = \vert (a_{n_0} - a) + a \vert$
 </p>
-\begin{align*}
-\vert a_n \vert \leq \vert a_{n_0} - a \vert + \vert a \vert < \epsilon + \vert a \vertd
-\end{align*}
+
+<div class="math-block">\begin{align*}
+\vert a_n \vert \leq \vert a_{n_0} - a \vert + \vert a \vert &lt; \epsilon + \vert a \vertd
+\end{align*}</div>
 <p>
-Daraus folgt für alle \(n \in \mathbb{N}\)
+Daraus folgt für alle $n \in \mathbb{N}$
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 a_n \leq \mathrm{max}(\vert a_1 \vert, \vert a_2 \vert,...,\vert a_{n_0-1}\vert ,\vert a \vert +\epsilon)
-\end{align*}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:26</p>
+\end{align*}</div>
+
+
+
+
+
+
 </div>
 </body>
 </html>

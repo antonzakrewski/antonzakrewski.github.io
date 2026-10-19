@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 22:41 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Potenzmenge als Ring</title>
+<title>ring structure on the power set</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,104 +52,134 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Potenzmenge als Ring</h1>
-<div id="outline-container-orgdfba32a" class="outline-2">
-<h2 id="orgdfba32a"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-e078d694-03eb-484e-bf2a-a2491dd6a6ca"></span><h1 class="title">ring structure on the power set</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(X\) eine <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a>, dann ist \((\mathcal{P}(X), \Delta, \cap)\) ein <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">Ring</a> mit 
+Sei $X$ eine <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a>, dann ist $(\mathcal{P}(X), \Delta, \cap)$ ein <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">Ring</a> mit
 </p>
-</div>
-</div>
-<div id="outline-container-org28dff9a" class="outline-2">
-<h2 id="org28dff9a"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org4a0324d" class="outline-3">
-<h3 id="org4a0324d"><span class="section-number-3">2.1.</span> abgeschlossen</h3>
-<div class="outline-text-3" id="text-2-1">
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="good-proof">good proof</h3>
+<p>
+Consider $\mathbb{F}_2$ as <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a>, in particular as <span class="broken-link" title="unresolved id:5d446490-35aa-4d0b-a6a1-d1093f82b34a">Ring Object</span> in <a href="20221216142701-kategorie_set.html#ID-dc78356f-1fcf-41e8-b05a-47cdd731513c">category set</a>.
+Then $\mathrm{Hom}_{\mathrm{Set}}(X,\mathbb{F}_2)$ inherits a ring structure (cf. <a href="20241212-functor_preserving_limits_preserves_ring_objects.html#ID-c8fb6a8d-619a-4e9c-8e97-ba2f15b11cef">functor preserving limits preserves ring objects</a>) as $\mathrm{Hom}_{\mathrm{Set}}(X,-)$ preserves limits (cf. <a href="20231017-hom_functor_preserves_limits.html#ID-ce491494-9921-4e52-9745-a80f36ec7b61">covariant hom-functor preserves small limits</a>).
+Furthermore there exists a canonical <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Hom}_{\mathrm{Set}}(X,\mathbb{F}_2) \cong&amp; \mathcal{P}(X) \\
+f \mapsto&amp; f^{-1}[1]
+\end{align*}</div>
+<p>
+where one can check that
+</p>
+<ol>
+<li>$\cap$ corresponds to addition in $\mathbb{F}_2$</li>
+
+<li>the <a href="20220922095603-symmetrische_differenz.html#ID-24c1eab0-fb11-465e-a750-cd5a6ea752ad">symmetric difference</a> corresponds to multiplication </li>
+</ol>
+
+<h4 id="1">1)</h4>
+<p>
+here we multiply pointwise, i.e. for $f_1,f_2 \in \mathrm{Hom}_{\mathrm{Set}}(X,\mathbb{F}_2)$
+</p>
+
+<div class="math-block">\begin{align*}
+(f_1 \cdot f_2)(x) =&amp; f_1(x) \cdot f_2(x) \\
+=&amp; 
+    \begin{cases}
+    1 &amp; \mbox{if } f_1(x), f_2(x) = 1 \\
+    0  &amp; \mbox{else } \\  
+    \end{cases}
+\end{align*}</div>
+
+<p>
+Hence we get $x \in (f_1 \cdot f_2)^{-1}[1]$ <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> $x \in f_1^{-1}[1], x \in f_1^{-1}[1]$ which corresponds to the intersection.
+</p>
+
+<h4 id="2">2)</h4>
+<p>
+Addition is again pointwise, i.e.
+</p>
+
+<div class="math-block">\begin{align*}
+(f_1 + f_2)(x) =&amp; f_1(x) + f_2(x) \\
+=&amp; 
+    \begin{cases}
+    1 &amp; \mbox{if } f_1(x) \neq f_2(x) \\
+    0  &amp; \mbox{else } \\  
+    \end{cases}
+\end{align*}</div>
+<p>
+which is precisely the symmetric difference.
+</p>
+
+
+<h4 id="coherences">coherences</h4>
+<p>
+In particular we get all coherences (associativity, commutativity, distributivity) for free
+</p>
+
+
+<h3 id="dogshit">dogshit</h3>
+
+<h4 id="abgeschlossen">abgeschlossen</h4>
 <p>
 folgt aus der der Konstruktion
 </p>
-</div>
-</div>
-<div id="outline-container-org99180ca" class="outline-3">
-<h3 id="org99180ca"><span class="section-number-3">2.2.</span> <a href="20211008174655-abelsche_gruppe.html#ID-7281c9cf-564f-4c4c-8c3f-fc1424ac85f8">abelsche</a> <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">Gruppe</a></h3>
-<div class="outline-text-3" id="text-2-2">
-</div>
-<div id="outline-container-org023c072" class="outline-4">
-<h4 id="org023c072"><span class="section-number-4">2.2.1.</span> <a href="20210702074906-neutrales_element_mathe.html#ID-2a95aac8-42e6-4724-9f37-15f6143a35ca">neutrales Element</a></h4>
-<div class="outline-text-4" id="text-2-2-1">
+
+<h4 id="id7281c9cf-564f-4c4c-8c3f-fc1424ac85f8abelsche-idb6023bc8-458a-44e4-982a-6623378f4b4fgruppe"><a href="20211008174655-abelsche_gruppe.html#ID-7281c9cf-564f-4c4c-8c3f-fc1424ac85f8">abelsche</a> <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">Gruppe</a></h4>
+
+<h5 id="id2a95aac8-42e6-4724-9f37-15f6143a35caneutrales-element"><a href="20210702074906-neutrales_element_mathe.html#ID-2a95aac8-42e6-4724-9f37-15f6143a35ca">neutrales Element</a></h5>
 <p>
-Es gilt, dass \(\emptyset\) das neutrale Element ist.
-Sei \(A \subseteq X\), so folgt:
+Es gilt, dass $\emptyset$ das neutrale Element ist.
+Sei $A \subseteq X$, so folgt:
 </p>
-\begin{align*}
-A \Delta \emptyset =& (A \cup \emptyset) \setminus (A \cap \emptyset) \\
-=& A \setminus \emptyset \\
-=& A
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org3b2059e" class="outline-4">
-<h4 id="org3b2059e"><span class="section-number-4">2.2.2.</span> <a href="20211218210712-inverses_element.html#ID-f9edb7bd-9975-4606-9f12-698118b3d992">inverses Element</a></h4>
-<div class="outline-text-4" id="text-2-2-2">
+
+<div class="math-block">\begin{align*}
+A \Delta \emptyset =&amp; (A \cup \emptyset) \setminus (A \cap \emptyset) \\
+=&amp; A \setminus \emptyset \\
+=&amp; A
+\end{align*}</div>
+
+<h5 id="idf9edb7bd-9975-4606-9f12-698118b3d992inverses-element"><a href="20211218210712-inverses_element.html#ID-f9edb7bd-9975-4606-9f12-698118b3d992">inverses Element</a></h5>
 <p>
-Sei \(A \subseteq X\), so ist \(A\) das inverse Element, da gilt:
+Sei $A \subseteq X$, so ist $A$ das inverse Element, da gilt:
 </p>
-\begin{align*}
-(A \cup A) \setminus (A \cap A) =& A \setminus A \\
-=& \emptyset
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgd702f05" class="outline-4">
-<h4 id="orgd702f05"><span class="section-number-4">2.2.3.</span> <a href="20211008171532-assoziativgesetz.html#ID-124778f2-ef98-469b-8664-7777bb4bff01">assoziativ</a></h4>
-<div class="outline-text-4" id="text-2-2-3">
+
+<div class="math-block">\begin{align*}
+(A \cup A) \setminus (A \cap A) =&amp; A \setminus A \\
+=&amp; \emptyset
+\end{align*}</div>
+
+<h5 id="id124778f2-ef98-469b-8664-7777bb4bff01assoziativ"><a href="20211008171532-assoziativgesetz.html#ID-124778f2-ef98-469b-8664-7777bb4bff01">assoziativ</a></h5>
 <p>
 folgt aus der <a href="20230526081118-assoziativitat_von_der_symmetrischen_differenz.html#ID-f1fe9786-aebd-4bdd-a40a-8a51d750f511">Assoziativität von der symmetrischen Differenz</a> (todo)
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-org4c2149c" class="outline-3">
-<h3 id="org4c2149c"><span class="section-number-3">2.3.</span> multiplikativer monoid</h3>
-<div class="outline-text-3" id="text-2-3">
-</div>
-<div id="outline-container-orgecea258" class="outline-4">
-<h4 id="orgecea258"><span class="section-number-4">2.3.1.</span> Einselement</h4>
-<div class="outline-text-4" id="text-2-3-1">
+
+<h4 id="multiplikativer-monoid">multiplikativer monoid</h4>
+
+<h5 id="einselement">Einselement</h5>
 <p>
-Sei \(A \subseteq X\), so gilt:
+Sei $A \subseteq X$, so gilt:
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 A \cap X = A
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgd318d7f" class="outline-4">
-<h4 id="orgd318d7f"><span class="section-number-4">2.3.2.</span> <a href="20211008171532-assoziativgesetz.html#ID-124778f2-ef98-469b-8664-7777bb4bff01">assoziativ</a></h4>
-<div class="outline-text-4" id="text-2-3-2">
+\end{align*}</div>
+
+<h5 id="id124778f2-ef98-469b-8664-7777bb4bff01assoziativ"><a href="20211008171532-assoziativgesetz.html#ID-124778f2-ef98-469b-8664-7777bb4bff01">assoziativ</a></h5>
 <p>
 folgt aus der <a href="20221209102252-assoziativitat_von_vereinigungen.html#ID-dd91fa12-a801-47eb-86d8-8cbd2ca33161">Assoziativität von Schnitten</a>
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgd7ab976" class="outline-3">
-<h3 id="orgd7ab976"><span class="section-number-3">2.4.</span> distributiv</h3>
-<div class="outline-text-3" id="text-2-4">
+
+<h4 id="distributiv">distributiv</h4>
 <p>
 folgt aus <a href="20230526075130-distributivitat_von_schnitt_und_symmetrischer_differenz.html#ID-0a62b434-4a4a-4dea-9380-07526fe4b400">Distributivität von Schnitt und symmetrischer Differenz</a> (otdo)
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 22:41</p>
+
 </div>
 </body>
 </html>

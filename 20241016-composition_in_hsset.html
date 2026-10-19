@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>composition in hsSet</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-da8f0025-9164-42a2-9f8e-2c9972680087"></span><h1 class="title">composition in hsSet</h1>
+
+<h2 id="definition-propositios">Definition / Propositios</h2>
+<p>
+Let $X,Y,Z$ be <a href="20240128-simplicial_set.html#ID-43a75466-c729-429a-a459-56f226b81262">simplicial sets</a>.
+Then there exists a welldefined composition map
+</p>
+
+<div class="math-block">\begin{align*}
+[Y,Z] \times [X,Y] \rightarrow&amp; [X,Z] \\
+([f],[g]) \mapsto&amp; [f \circ g]
+\end{align*}</div>
+
+<p>
+where $[-,-]$ is the <a href="20230403133054-hom_set.html#ID-1d0f0263-2498-4c3b-b9d1-e79b1fad0167">hom-set</a> in <a href="20241016-category_hsset.html#ID-9161f4f8-a9ae-4187-bcee-ce11ff7f44c3">category hsSet</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+using <a href="simplicial-maps-up-to-homotopy-as-equalizer.html#ID-0c2e97ad-e590-4515-8358-f936aae92a69">simplicial maps up to homotopy as coequalizer</a>
+</p>
+
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+\mathrm{Hom}_{}(Y \times \Delta^1, Z) \arrow[shift right=1, swap]{r}{\pi_1^*} \arrow[shift left=1]{r}{\pi_0^*} \dar{(f^* \times \mathrm{id})} &amp; \mathrm{Hom}_{}(Y, Z) \dar{f^*} &amp; [Y,Z] \\
+\mathrm{Hom}_{}(X \times \Delta^1, Z) \arrow[shift right=1, swap]{r}{\pi_1^*} \arrow[shift left=1]{r}{\pi_0^*}&amp; \mathrm{Hom}_{}(X, Z) &amp; [X,Z]
+\end{tikzcd}
+\end{displaymath}</pre></div>
+<p>
+which commutes, i.e. induces a welldefined map.
+</p>
+
+
+<h3 id="identity">identity</h3>
+<p>
+follows from
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{id} = [\mathrm{id}]
+\end{align*}</div>
+<p>
+and
+</p>
+
+<div class="math-block">\begin{align*}
+[f] \circ [\mathrm{id}] =&amp; [f \circ \mathrm{id} ] \\
+=&amp; [f]
+\end{align*}</div>
+
+<p>
+analagously for the other side
+</p>
+
+
+</div>
+</body>
+</html>

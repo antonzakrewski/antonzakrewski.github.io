@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Monotone Konvergenz nach Beppo Levi</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-1e30c517-bdfc-4450-b455-3171447d4a55"></span><h1 class="title">Monotone Konvergenz nach Beppo Levi</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $(X, \mathcal{A}, \mu)$ ein <a href="20241019-maßraum.html#ID-2135bec8-c3bb-4fca-a24a-21334f66d7ae">Maßraum</a>, $f_n \in E^*$ eine folge von <a href="20241102-integrierbare_funktion.html#ID-8c8fabb6-55df-47dc-a47a-fa4e3f1b25c4">lebesgue integrierbaren Funktionen</a> mit $0 \leq f_n \leq f_{n+1}$ für alle $n \in \mathbb{N}$
+Dann gilt für den Grenzwert $f \coloneqq \mathrm{lim}_{n \rightarrow \infty} f_n$ und das <a href="20220819220445-lebesgue_integral.html#ID-9fb9a7da-c458-4b34-9848-9f5ee072ce7b">Lebesgue Integral</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{lim}_{n \rightarrow \infty} \int_X f_n \mathrm{d} \mu = \int_{X} f \mathrm{d} \mu
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+für $f_n \in E^*$ wähle eine konvergente folge $f_n^m \nearrow $f_n$ (siehe: <a href="20241028-messbare_numerische_abbildung_als_treppenapproximierbare_abbildung.html#ID-38f99614-5fef-4910-b678-582184281eb8">messbare numerische Abbildung als treppenapproximierbare Abbildung</a>)
+</p>
+
+<p>
+Setze
+</p>
+
+<div class="math-block">\begin{align*}
+h_m \coloneqq \mathrm{max}\{f_1^m, ...,f_m^m\} \in E
+\end{align*}</div>
+<p>
+(cf. <a href="20241118-maximum_von_treppenapproximierbaren_funktionen_als_treppenapproximierbare_funktion.html#ID-91fe23dc-2e54-48cb-9b23-d8504231ce19">maximum von treppenapproximierbaren Funktionen als treppenapproximierbare Funktion</a>)
+</p>
+
+<p>
+Dann gilt
+</p>
+
+<div class="math-block">\begin{align*}
+h_{m} \leq \mathrm{max}(f_1,...,f_m) = f_m \leq f
+\end{align*}</div>
+<p>
+und $h_m \leq h_{m+1}$
+</p>
+
+<p>
+Somit folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{lim}_{m \rightarrow \infty} h_m \leq f
+\end{align*}</div>
+<p>
+insbesondere existiert der Limes.
+</p>
+
+<p>
+Andererseits gilt $f_n^m \leq h_m$ für $n \leq m$.
+Damit folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{lim}_{m \rightarrow \infty} h_m \geq \mathrm{lim}_{m \rightarrow \infty} f_n^m = f_n
+\end{align*}</div>
+<p>
+und somit für anwendung von $\mathrm{lim}_{n \rightarrow \infty}$ folgt dann
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{lim}_{n \rightarrow \infty} \mathrm{lim}_{m \rightarrow \infty} h_m \geq \mathrm{lim}_{n \rightarrow \infty} f_n = f
+\end{align*}</div>
+
+<p>
+Somit ist $h_m \in E$ eine Folge mit $h_m \nearrow f$ und
+</p>
+
+<div class="math-block">\begin{align*}
+\int_{X} f \mathrm{d} \mu = \mathrm{lim}_{m \rightarrow \infty} \int_X h_m \mathrm{d} \mu
+\end{align*}</div>
+<p>
+Damit folgt wegen $f_n \leq f$ auch
+</p>
+
+<div class="math-block">\begin{align*}
+\int_X f_n \mathrm{d} \mu \leq \mathrm{lim}_{m \rightarrow \infty} h_m \mathrm{d} \mu
+\end{align*}</div>
+<p>
+und anwendung von $\mathrm{lim}_{n \rightarrow \infty}$ auch
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{lim}_{n \rightarrow \infty} \int_X f_n \mathrm{d} \mu \leq \mathrm{lim}_{m \rightarrow \infty} h_m \mathrm{d} \mu
+\end{align*}</div>
+
+<p>
+zudem gilt wegen $h_m \leq f_n$ auch
+</p>
+
+<div class="math-block">\begin{align*}
+\int_X h_m \mathrm{d} \mu \leq \int_X f_m \mathrm{d} \mud
+\end{align*}</div>
+<p>
+bzw. durch anwenden von $\mathrm{lim}_{m \rightarrow \infty}$
+</p>
+
+
+<div class="math-block">\begin{align*}
+\mathrm{lim}_{m \rightarrow \infty} \int_X h_m \mathrm{d} \mu \leq \mathrm{lim}_{m \rightarrow \infty} \int_X f_m \mathrm{d} \mud
+\end{align*}</div>
+
+<p>
+Somit gilt gleichheit
+</p>
+
+
+
+</div>
+</body>
+</html>

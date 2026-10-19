@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>F-descendable topology</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-ed23e673-77e1-4228-9518-82a5281c894c"></span><h1 class="title">F-descendable topology</h1>
+
+<h2 id="definition-proposition">Definition / Proposition</h2>
+<p>
+Let $\mathcal{C}$ be a <a href="20220819181004-kleine_kategorie.html#ID-3c3f1c0d-53ad-476e-810a-756acd885263">small</a> <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a>, $\mathcal{F}$ a collection of <a href="20220821183047-pragarbe.html#ID-6aa2a293-0ff3-4cba-b6c3-61d8eabf0871">presheaves</a> on $\mathcal{C}$.
+For an object $X \in \mathcal{C}$ define
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Cov}_{\mathcal{F}}(X) = \{S \in \mathrm{Sieve}(Xr \vert \forall f: y \rightarrow X, f^*(S) \mathrm{is } \mathcal{F} \mathrm{-descendable}\}
+\end{align*}</div>
+
+<p>
+Then $\mathrm{Cov}_{\mathcal{F}}(X)$ forms a <a href="20240905-topology_on_a_category.html#ID-1d3088ed-8349-4321-bc74-474deaece4b1">topology</a> on $\mathcal{C}$.
+</p>
+
+<p>
+Furthermore each element of $\mathcal{F}$ is a <a href="20240903-sheaf_on_a_sitee.html#ID-921b4a33-6f53-4f2f-8bbf-a4374438a6b9">sheaf</a> with respect to the topology.
+see:
+</p>
+<ul>
+<li><a href="20250831-f_descendable_sieve.html#ID-d6224a0a-12f1-4fec-9ec4-cfd0c84444e1">F-descendable sieve</a> </li>
+</ul>
+<h2 id="proof">Proof</h2>
+
+<h3 id="contains-representables">contains representables</h3>
+<p>
+So let $X \rightarrow X$ be the representable <a href="20230923-sieve.html#ID-4682cea8-3c62-49f6-ae4c-3deb9dd4dec6">sieve</a>.
+Then note that the pullback along any $f: Y \rightarrow X$ is given by
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/7cd3d22f08a0eeb82e7b.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+(cf. <a href="square-with-parallel-isos-as-pullback.html#ID-77a6d44d-7e62-41fe-8bc1-97028b905741">square with parallel isos as pullback</a>)
+so we need to show that each element in $\mathcal{F}$ satisfies descent with respect to the sieve $Y \rightarrow Y \in \mathrm{Sieve}(Y)$.
+</p>
+
+<p>
+This follows trivially.
+</p>
+
+<h3 id="pullback-condition">pullback condition</h3>
+<p>
+Lte $S \in \mathrm{Cov}_{\mathcal{F}}(X)$ and $f: Y \rightarrow X$, then we need to show that $f^*(S) \in \mathrm{Cov}_{\mathcal{F}}(Y)$.
+So let $g: Z \rightarrow Y$ be another map in $\mathcal{C}$, then we can <a href="20231102-glueing_lemma_for_pullbacks.html#ID-8b78cffe-57d4-4b06-aad9-52f08bcaa0e4">glue</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/b6a033365c370db07ba1.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+and conclude that $g^* f^*(S) = (fg)^*(S)$.
+by assumption each element in $\mathcal{F}$ satisfies descent with respect to $(fg)^*(S)$, so in particular also wrt to $g^*f^*(S)$
+</p>
+
+<h3 id="section"></h3>
+<p>
+Let $S \in \mathrm{Cov}_{\mathcal{F}}(X)$ and $R \in \mathrm{Sieve}(X)$ such that for all $g \in S(Z)$ we have $g^*(R) \in \mathrm{Cov}_{\mathcal{F}}(Z)$, then $R\in \mathrm{Cov}_{\mathcal{F}}(X)$.
+This means that for all $f: Y \rightarrow X$ need to show that $f^*(R)$ is $\mathcal{F}$ descendable.
+</p>
+
+<p>
+Let us consider the objects $f^*(S)\in \mathrm{Cov}_{\mathcal{F}}(Z)$ by assumption.
+</p>
+
+<h3 id="sheaf">sheaf</h3>
+<ul>
+<li>follows by construction</li>
+</ul>
+
+</div>
+</body>
+</html>

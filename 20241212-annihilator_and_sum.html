@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>annihilator and sum</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-5281339e-8049-41c2-b01d-31adda8ec7aa"></span><h1 class="title">annihilator and sum</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $W$ ein <a href="20220305210813-vektorraum.html#ID-ba2cd4b5-75e3-43c3-8ccb-d6ede91fab65">K-Vektorraum</a>, $U,V \subseteq W$ <a href="20221009092955-unterraum.html#ID-854e21c6-b2ac-4d8c-b859-7797b3ddb35e">Untervektorräume</a>.
+Dann gilt für den <a href="20241212-annihilator_of_a_subspace_of_a_dual_space.html#ID-eee21cbf-7a25-4858-ba25-d424e1b11b37">Annihilator</a>, <a href="20230317161158-allgemeiner_schnitt.html#ID-d7547939-8d3f-48f8-b2fd-cfb5734ae78f">Durchschnitt</a> und <a href="20230314222131-externe_direkte_summe.html#ID-a02f57d8-ada1-499a-aefb-ae12ffe2ec71">direkte Summe</a>
+</p>
+
+<div class="math-block">\begin{align*}
+U^{\circ} + V^{\circ} = (U \cap V)^{\circ}
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="subseteq">$\subseteq</h3>
+<p>
+Sei $f \in U^{\circ} + V^{\circ}$.
+Dann gilt $f = f_{U} + f_{V}$ für $f_{U} \in U^{\circ}, f_{V} \in V^{\circ}$.
+</p>
+
+<p>
+Es folgt für $x \in U \cap V$ auch
+</p>
+
+<div class="math-block">\begin{align*}
+f(x) =&amp; f_U(x) + f_V(x) \\
+=&amp; 0 + 0 \\
+=&amp; 0
+\end{align*}</div>
+
+<h3 id="supseteq">$\supseteq$</h3>
+<p>
+(cf. <a href="20241213-erweiterung_einer_linear_unabhangigen_menge_zu_einer_basis.html#ID-18dc4aee-a357-4f65-8aab-4a02f8e1d1a6">erweiterung einer linear unabhängigen Menge zu einer Basis</a>)
+Man wähle eine Basis von $U \cap V$, vervollständige sie mit $U$, dann mit $U + V$ und zuletzt mit $W$.
+Damit erhalten wir eine Basis $\{b_i\}$ bestehend aus Elementen aus
+</p>
+<ol>
+<li>$U \cap V$</li>
+
+<li>$U \setminus V$</li>
+
+<li>$U + V$, wobei wir <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">o.B.d.A.</a> wählen können, dass diese Elemente in $V \setminus U$ liegen (indem wir sie als $u + v$ mit $u + v \not\in U$ für ein $u \in U$, $v \in V$ aufschreiben, dann können wir nur $v$ wählen (todo))</li>
+
+<li>weder $U$ noch $V$   </li>
+</ol>
+
+<p>
+Dann definieren wir
+</p>
+
+<div class="math-block">\begin{align*}
+f_{\vert U}: W \rightarrow&amp; K \\
+b_i \mapsto&amp; 
+    \begin{cases}
+    0  &amp; \mbox{if } b_i \in U  \\ 
+    f(u_i) &amp; \mbox{if } b_i \not\in U \\
+    \end{cases} \\
+f_{\vert V}: W \rightarrow&amp; K \\
+b_i \mapsto&amp; 
+    \begin{cases}
+    0 &amp; \mbox{if } b_i \in V_i \\
+    f(b_i) - f_{\vert U}(b_i)  &amp; \mbox{if } b_i \not\in V \\ 
+    \end{cases}
+\end{align*}</div>
+
+<p>
+Dies sind wohldefinierte Abbildungen, da wir von Basen aus Erweitern dürfen.
+</p>
+
+<p>
+Es folgt
+</p>
+<ol>
+<li>$f_{\vert U} \in U^{\circ}$</li>
+
+<li>$f_{\vert V} \in V^{\circ}$</li>
+</ol>
+<p>
+Es bleibt zu zeigen, dass
+</p>
+
+<div class="math-block">\begin{align*}
+f = f_{\vert U} + f_{\vert V}
+\end{align*}</div>
+<p>
+gilt.
+</p>
+
+<p>
+Dafür reicht es, dies für Basiselemente (cf. <a href="20221117110351-lemma_uber_die_eindeutigkeit_eines_homomorphismus_durch_die_abbildungen_der_basen.html#ID-4c9a6f67-fffe-4044-aa13-3200e9b83f86">Existenz und Eindeutigkeit eines Homomorphismus durch die Abbildungen der Basis</a>) nachzuweisen:
+Sei $b_i$ ein Element in der Basis.
+</p>
+
+<p>
+Dann können wir eine Fallunterscheidung treffen
+</p>
+
+<h4 id="1-b-i-in-u-cap-v">1) $b_i \in U \cap V$</h4>
+<p>
+Dann folgt wegen $f \in (U \cap V)^{\circ}$ auch
+</p>
+
+<div class="math-block">\begin{align*}
+f(b_i) =&amp; 0 \\
+=&amp; 0 + 0 \\
+=&amp; f_{\vert U}(b_i) + f_{\vert V}(b_i) \\
+\end{align*}</div>
+
+
+<h4 id="2-b-i-notin-v-also-b-i-notin-v-b-i-in-u-und-b-i-notin-v-b-i-notin-u">2) $b_i \not\in V$ (also $b_i \not\in V, b_i \in U$ und $b_i \not\in V, b_i \not\in U$)</h4>
+<p>
+Dann folgt
+</p>
+
+<div class="math-block">\begin{align*}
+f(b_i) =&amp; f(b_i) - f_{\vert V}(b_i) + f_{\vert V}(b_i) \\
+=&amp; f_{\vert V}(b_i) + f_{\vert U}(b_i)
+\end{align*}</div>
+
+<h4 id="3-b-i-in-v-b-i-notin-u">3) $b_i \in V$, $b_i \not\in U$</h4>
+
+<div class="math-block">\begin{align*}
+f(b_i) =&amp; 0 + f(b_i) \\
+=&amp; f_{\vert V}(b_i) + f_{\vert U}(b_i)
+\end{align*}</div>
+
+
+</div>
+</body>
+</html>

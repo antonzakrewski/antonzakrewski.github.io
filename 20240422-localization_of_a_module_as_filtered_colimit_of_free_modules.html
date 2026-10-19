@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>localization of a module as filtered colimit of modules</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-05991ffb-b14a-4af3-b9f9-2330e049eac6"></span><h1 class="title">localization of a module as filtered colimit of modules</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $R$ be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a>, $S \subseteq R$ a <a href="20230724-multiplicatively_closed_set.html#ID-d3df0441-9f2f-476f-b18e-d513ae149906">multiplicatively closed</a> <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">subset</a> and $M$ an \(R\)-<a href="20221228203055-modul.html#ID-ac8be9d7-cfe7-4c79-b3b1-7e35780c8f57">module</a>
+Then the localization $S^{-1}M$ is a <a href="20230804-filtered_limit.html#ID-35b9e3f0-b5d0-41c4-94ac-6bd183d66ee3">filtered colimit</a> for
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/901a5eff7d3b762e2a18.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+with $M_{i,n} \coloneqq M$ and $i,n$ are only used for indexing
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+using
+</p>
+<ul>
+<li><a href="20240625-composition_of_filtered_colimits_as_filtered_colimit.html#ID-a1caeb83-15a4-44bb-8a94-ebc6e3f6248c">composition of filtered colimits as filtered colimit</a> </li>
+</ul>
+
+<h3 id="sloppy">sloppy</h3>
+<p>
+for a <a href="20230726-localization_along_an_element.html#ID-922baf31-c324-4ca2-adf9-0d96c6436e33">localization along an element</a> $f$ we claim that $f^{-1}M$ is the <a href="20231105-sequential_colimit.html#ID-16ff2225-6ea8-421d-83cc-f3f3cd9832ef">sequential colimit</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/98762f0c61ff4b80a587.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+with $M_i \coloneqq M$ and
+</p>
+
+<div class="math-block">\begin{align*}
+\iota_i: M_i = M \rightarrow&amp; f^{-1}M \\
+m \mapsto&amp; \frac{m}{f^i}
+\end{align*}</div>
+
+<p>
+This diagram evidently commutes.
+</p>
+
+
+<p>
+Suppose there exists an natural transformation
+</p>
+
+<div class="math-block">\begin{align*}
+\tau: M_i \Rightarrow \underline{N}
+\end{align*}</div>
+<p>
+to the <a href="20220830195220-constant_functor.html#ID-4ff6affe-14a3-4ed7-a0e3-1837838e8409">constant functor</a> for some module $N$.
+</p>
+
+<p>
+Then define
+</p>
+
+<div class="math-block">\begin{align*}
+t: f^{-1}M \rightarrow&amp; N \\
+\frac{m}{f^n} \mapsto&amp; \iota_n(m)
+\end{align*}</div>
+
+<p>
+It is welldefined as
+</p>
+
+<div class="math-block">\begin{align*}
+t(\frac{m f^k}{f^{n+k}}) =&amp; \iota_{n+k}(f^k m} \\
+=&amp; \iota_{n+k}(\cdot f^k m} \\
+=&amp; \iota_n(m)
+\end{align*}</div>
+
+<p>
+It is furthermore the unique map making the whole diagram commute, as each element $\frac{m}{f^n}$ has a preimage $m$ under $\iota_n$, hence $t( \frac{m}{f^n}) = \iota_n(m)$
+</p>
+
+</div>
+</body>
+</html>

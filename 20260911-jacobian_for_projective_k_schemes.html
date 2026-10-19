@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>jacobian for projective k-schemes</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-bbb8ff83-3d3d-42bb-bf26-c3185664829a"></span><h1 class="title">jacobian for projective k-schemes</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $V(f_1,...,f_r) \subseteq \mathbb{P}_k^n$ be a <a href="20260713-closed_subfunctor.html#ID-d952d35b-1a92-4447-97b0-37c5363be496">closed subfunctor</a> of the <a href="20260715-projective_space_algebraic_functor.html#ID-e92f7968-a772-4231-81c0-3fc063fc06c3">projective space</a>.
+Then the jacobian corank function of $X$ is given by
+</p>
+
+<div class="math-block">\begin{align*}
+JC(\mathfrak{p}) = \mathrm{corank} \left(\frac{\partial f_i}{\partial x_j}(\mathfrak{p})\right)_{j \in \{0,...,n\}} - 1
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+first we use that the jacobian is defined on <a href="20260714-affine_scheme.html#ID-cf016ac0-38e9-410b-86e4-837df6983335">affine</a> <a href="20230909-open_subscheme.html#ID-d5d26a4c-5f81-4c3f-9588-11fa4e53330f">open subschemes</a>
+Then for the zeroth standard affine chart (or equivalently any standard affine chart after renumbering) $\mathbb{A}_k^n \subseteq \mathbb{P}_k^n$  we have a <a href="20241017-infinity_pullback.html#ID-7aaac468-a0bb-4e73-bfd3-d4c591c10e4f">pullback</a> diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/d0e989c0e9ec1941363a.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+So we have to compute the corank of $(f_1,...,f_r)$.
+</p>
+
+<p>
+For this let $d_i = \mathrm{deg}(f_i)$, then there exists a relation
+</p>
+
+<div class="math-block">\begin{align*}
+d_i f_i =&amp; \sum_{j=0}^n x_j \frac{\partial f_i}{\partial x_j} \\
+=&amp; \mathrm{deg}_{f_i}(x_j) f_i
+\end{align*}</div>
+<p>
+where $\mathrm{deg}_{f_i}(x_j)$ is the monomial degree of $x_j$ in $f_i$.
+</p>
+
+<p>
+Moreover, for any point $\mathfrak{p} \in V(f_1,...,f_r)$ we have $f_i(p) = 0$, so inserting the point $p$ gives
+</p>
+
+<div class="math-block">\begin{align*}
+0 =&amp; d_i f_i(p) \\
+=&amp; \sum_{j=0}^n x_j \frac{\partial f_i}{\partial x_j}(p)
+\end{align*}</div>
+<p>
+which shows that the vector $(\frac{\partial f_i}{\partial x_0}(p), ..., \frac{\partial f_i}{\partial x_0}(p))$ lies in the span of $\frac{\partial f_i}{\partial x_1}(p))_{i},...,\frac{\partial f_i}{\partial x_n}(p))_{i}$.
+</p>
+
+<p>
+This implies the corank equality
+</p>
+
+
+</div>
+</body>
+</html>

@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 15:11 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>unitäre Abbildung und Abbildung einer orthonormalen Basis</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,79 +52,65 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">unitäre Abbildung und Abbildung einer orthonormalen Basis</h1>
-<div id="outline-container-orge3c0f19" class="outline-2">
-<h2 id="orge3c0f19"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-8038f742-ad15-4c57-8e60-44c0cc095a40"></span><h1 class="title">unitäre Abbildung und Abbildung einer orthonormalen Basis</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Seien \(V,W\) <a href="20230105092710-prahilbertraum.html#ID-c83705a9-fdd0-441f-b0a3-116c78ef7c7b">Prähilberträume</a> und \(A: V \rightarrow W\) ein <a href="20221119162741-vektorraumhomomorphismus.html#ID-863f0f55-054c-413e-9cf4-2c2704ea5b14">Vektorraumhomomorphismus</a>
+Seien $V,W$ <a href="20230105092710-prahilbertraum.html#ID-c83705a9-fdd0-441f-b0a3-116c78ef7c7b">Prähilberträume</a> und $A: V \rightarrow W$ ein <a href="20221119162741-vektorraumhomomorphismus.html#ID-863f0f55-054c-413e-9cf4-2c2704ea5b14">Vektorraumhomomorphismus</a>
 <a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
 </p>
-<ol class="org-ol">
-<li>\(A\) ist eine <a href="20230628-unitare_abbildung.html#ID-cf245337-af79-469e-b2eb-16f58d3c9f70">unitäre Abbildung</a></li>
-<li>Das <a href="20221224140013-bildmenge.html#ID-def6ffac-1c21-427b-bacf-7b8580f5d7dd">Bild</a> jeder <a href="20221113213002-orthonormalbasis.html#ID-0b12dce4-b595-4efc-9eec-157043948f68">Orthonormalbasis</a> von \(V\) ist eine Orthonormalbasis von \(W\)</li>
-<li>Das <a href="20221224140013-bildmenge.html#ID-def6ffac-1c21-427b-bacf-7b8580f5d7dd">Bild</a> einer <a href="20221113213002-orthonormalbasis.html#ID-0b12dce4-b595-4efc-9eec-157043948f68">Orthonormalbasis</a> von \(V\) ist eine Orthonormalbasis von \(W\)</li>
+<ol>
+<li>$A$ ist eine <a href="20230628-unitare_abbildung.html#ID-cf245337-af79-469e-b2eb-16f58d3c9f70">unitäre Abbildung</a> </li>
+
+<li>Das <a href="20221224140013-bildmenge.html#ID-def6ffac-1c21-427b-bacf-7b8580f5d7dd">Bild</a> jeder <a href="20221113213002-orthonormalbasis.html#ID-0b12dce4-b595-4efc-9eec-157043948f68">Orthonormalbasis</a> von $V$ ist eine Orthonormalbasis von $W$</li>
+
+<li>Das <a href="20221224140013-bildmenge.html#ID-def6ffac-1c21-427b-bacf-7b8580f5d7dd">Bild</a> einer <a href="20221113213002-orthonormalbasis.html#ID-0b12dce4-b595-4efc-9eec-157043948f68">Orthonormalbasis</a> von $V$ ist eine Orthonormalbasis von $W$</li>
 </ol>
-</div>
-</div>
-<div id="outline-container-org527397e" class="outline-2">
-<h2 id="org527397e"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org9ae33f3" class="outline-3">
-<h3 id="org9ae33f3"><span class="section-number-3">2.1.</span> 1) \(\implies\) 2)</h3>
-<div class="outline-text-3" id="text-2-1">
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
 <p>
-Sei \(\{\alpha_i\}\) eine <a href="20221113213002-orthonormalbasis.html#ID-0b12dce4-b595-4efc-9eec-157043948f68">Orthonormalbasis</a>, so gilt
+Sei $\{\alpha_i\}$ eine <a href="20221113213002-orthonormalbasis.html#ID-0b12dce4-b595-4efc-9eec-157043948f68">Orthonormalbasis</a>, so gilt
 </p>
-\begin{align*}
-(a_i, a_j)  =& \delta_{i,j}
-\end{align*}
+
+<div class="math-block">\begin{align*}
+(a_i, a_j)  =&amp; \delta_{i,j}
+\end{align*}</div>
 <p>
 Nach Annhme folgt:
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 (Aa_i, Aa_j) = \delta_{i,j}
-\end{align*}
+\end{align*}</div>
 <p>
 Ferner ist das <a href="20230628-bild_einer_basis_eines_isomorphismus_als_basis.html#ID-d191d534-9238-4f7f-8c4a-cb32f49e281a">Bild einer Basis eines Isomorphismus als Basis</a>
 </p>
-</div>
-</div>
-<div id="outline-container-orgba0546c" class="outline-3">
-<h3 id="orgba0546c"><span class="section-number-3">2.2.</span> 2) \(\implies\) 3)</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<h3 id="2-implies-3">2) $\implies$ 3)</h3>
 <p>
 trivial
 </p>
-</div>
-</div>
-<div id="outline-container-orge691c54" class="outline-3">
-<h3 id="orge691c54"><span class="section-number-3">2.3.</span> 3) \(\implies\) 1)</h3>
-<div class="outline-text-3" id="text-2-3">
+
+<h3 id="3-implies-1">3) $\implies$ 1)</h3>
 <p>
-Sei \(\{a_i\}\) eine orthonormale Basis von \(V\), welche auf eine orthonormale Basis \(\{A a_i\}\) abgebildet wird.
-Für <a href="20210217215228-vektor.html#ID-be50263b-d29c-41c5-9909-2f5e106dc49c">Vektoren</a> \(v_1 = \sum_{j=1}^{n} \alpha_{j_i} a_{j_i}\) und \(v_2 = \sum_{j'=1}^{k} \alpha_{j'_i} a_{j'_i}\), so folgt
+Sei $\{a_i\}$ eine orthonormale Basis von $V$, welche auf eine orthonormale Basis $\{A a_i\}$ abgebildet wird.
+Für <a href="20210217215228-vektor.html#ID-be50263b-d29c-41c5-9909-2f5e106dc49c">Vektoren</a> $v_1 = \sum_{j=1}^{n} \alpha_{j_i} a_{j_i}$ und $v_2 = \sum_{j'=1}^{k} \alpha_{j'_i} a_{j'_i}$, so folgt
 </p>
-\begin{align*}
-(Av_1,Av_2) =& (\sum_{j=1}^{n} \alpha_{j_i} a_{j_i}, A\sum_{j'=1}^{k} \alpha_{j'_i} a_{j'_i}) \\
-=& (\sum_{j=1}^{n} \alpha_{j_i} A a_{j_i}, \sum_{j'=1}^{k} \alpha_{j'_i} A a_{j'_i}) \\
-=& \sum_{j=1}^{n} \sum_{j'=1}^{k} (\alpha_{j_i} A a_{j_i}, \alpha_{j'_i} A a_{j_i}) \\
-=& \sum_{j=1}^{n} \sum_{j'=1}^{k} \alpha_{j_i} \alpha_{j'_i} ( A a_{j_i}, A a_{j_i}) \\
-=& \sum_{j=1}^{n} \sum_{j'=1}^{k} \alpha_{j_i} \alpha_{j'_i} \delta_{j_i, j'_i} \\
-=& \sum_{j=1}^{n} \sum_{j'=1}^{k} \alpha_{j_i} \alpha_{j'_i} (a_{j_i}, a_{j_i}) \\
-=& \sum_{j=1}^{n} \sum_{j'=1}^{k} (\alpha_{j_i}  a_{j_i}, \alpha_{j'_i} a_{j_i}) \\
-=& (\sum_{j=1}^{n} \alpha_{j_i} a_{j_i}, \sum_{j'=1}^{k} \alpha_{j'_i} a_{j'_i}) \\
-=& (v_1,v_2)
-\end{align*}
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 15:11</p>
+
+<div class="math-block">\begin{align*}
+(Av_1,Av_2) =&amp; (\sum_{j=1}^{n} \alpha_{j_i} a_{j_i}, A\sum_{j'=1}^{k} \alpha_{j'_i} a_{j'_i}) \\
+=&amp; (\sum_{j=1}^{n} \alpha_{j_i} A a_{j_i}, \sum_{j'=1}^{k} \alpha_{j'_i} A a_{j'_i}) \\
+=&amp; \sum_{j=1}^{n} \sum_{j'=1}^{k} (\alpha_{j_i} A a_{j_i}, \alpha_{j'_i} A a_{j_i}) \\
+=&amp; \sum_{j=1}^{n} \sum_{j'=1}^{k} \alpha_{j_i} \alpha_{j'_i} ( A a_{j_i}, A a_{j_i}) \\
+=&amp; \sum_{j=1}^{n} \sum_{j'=1}^{k} \alpha_{j_i} \alpha_{j'_i} \delta_{j_i, j'_i} \\
+=&amp; \sum_{j=1}^{n} \sum_{j'=1}^{k} \alpha_{j_i} \alpha_{j'_i} (a_{j_i}, a_{j_i}) \\
+=&amp; \sum_{j=1}^{n} \sum_{j'=1}^{k} (\alpha_{j_i}  a_{j_i}, \alpha_{j'_i} a_{j_i}) \\
+=&amp; (\sum_{j=1}^{n} \alpha_{j_i} a_{j_i}, \sum_{j'=1}^{k} \alpha_{j'_i} a_{j'_i}) \\
+=&amp; (v_1,v_2)
+\end{align*}</div>
+
+
 </div>
 </body>
 </html>

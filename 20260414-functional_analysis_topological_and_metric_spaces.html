@@ -1,253 +1,356 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2026-04-14 Di 12:33 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>functional analysis - topological and metric spaces</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">functional analysis - topological and metric spaces</h1>
-<div id="outline-container-org42a59c8" class="outline-2">
-<h2 id="org42a59c8">List</h2>
-<div class="outline-text-2" id="text-org42a59c8">
-</div>
-<div id="outline-container-org935163e" class="outline-3">
-<h3 id="org935163e">1.1</h3>
-<div class="outline-text-3" id="text-org935163e">
-<ul class="org-ul">
-<li><a href="20230307213929-seperabler_raum.html#ID-6e659d10-83a5-4a03-88b7-119feee141fa">separabler Raum</a> <br /></li>
-<li><a href="20230211132406-erste_abzahlbarkeitsaxiom.html#ID-8ec08cf5-0668-49c6-a8f3-7ec959f31636">first-countable</a>   <br /></li>
-<li><a href="20230211132410-zweite_abzahlbarkeitsaxiom.html#ID-155a3f29-5e48-4647-a11e-5bc32b501755">secondcountable</a>  <br /></li>
-<li><a href="20221002152517-basis_einer_topologie.html#ID-1a5a6999-876a-4b54-b786-acafe4968fd6">Basis (topology)</a>   <br /></li>
-<li><a href="20230211131537-subbasis_einer_topologie.html#ID-9d1f4366-7535-41ca-bb72-967675fb06ab">subbasis</a>   <br /></li>
-<li><a href="20240612-abzahlbare_subbasis_und_zweitabzahlbarer_raum.html#ID-3e6760b2-c13b-40ef-adc8-b505fd75f279">countable subbasis and second countable space</a>   <br /></li>
+<span id="ID-35760021-2fb6-461f-9558-42a8e099f498"></span><h1 class="title">functional analysis - topological and metric spaces</h1>
+
+<h2 id="list">List</h2>
+
+<h3 id="11">1.1</h3>
+<ul>
+<li><a href="20230307213929-seperabler_raum.html#ID-6e659d10-83a5-4a03-88b7-119feee141fa">separabler Raum</a> </li>
+
+<li><a href="20230211132406-erste_abzahlbarkeitsaxiom.html#ID-8ec08cf5-0668-49c6-a8f3-7ec959f31636">first-countable</a>   </li>
+
+<li><a href="20230211132410-zweite_abzahlbarkeitsaxiom.html#ID-155a3f29-5e48-4647-a11e-5bc32b501755">secondcountable</a>  </li>
+
+<li><a href="20221002152517-basis_einer_topologie.html#ID-1a5a6999-876a-4b54-b786-acafe4968fd6">Basis (topology)</a>   </li>
+
+<li><a href="20230211131537-subbasis_einer_topologie.html#ID-9d1f4366-7535-41ca-bb72-967675fb06ab">subbasis</a>   </li>
+
+<li><a href="20240612-abzahlbare_subbasis_und_zweitabzahlbarer_raum.html#ID-3e6760b2-c13b-40ef-adc8-b505fd75f279">countable subbasis and second countable space</a>   </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgb065639" class="outline-3">
-<h3 id="orgb065639">1.2</h3>
-<div class="outline-text-3" id="text-orgb065639">
-<ul class="org-ul">
-<li><a href="20230222171916-erste_abzahlbarkeitsaxiom_als_folgerung_des_zweiten.html#ID-a01a9241-a3ed-48f9-91bc-1db2fc308fa4">Zweitabzählbarkeit impliziert Erstabzählbarkeit</a> <br /></li>
+<h3 id="12">1.2</h3>
+<ul>
+<li><a href="20230222171916-erste_abzahlbarkeitsaxiom_als_folgerung_des_zweiten.html#ID-a01a9241-a3ed-48f9-91bc-1db2fc308fa4">Zweitabzählbarkeit impliziert Erstabzählbarkeit</a> </li>
+
+<li><a href="20230715-erstabzahlbarer_separabler_raum_i_a_nicht_zweitabzahlbar.html#ID-405da7cd-f19c-4e65-ad38-8155de5f7cf0">erstabzählbarer, separabler Raum i.A. nicht zweitabzählbar</a>   </li>
+
+<li><a href="20260414-secondcountable_space_is_separable.html#ID-5999069f-46f8-4f43-aaa3-fbf7d56a0b50">secondcountable space is separable</a>   </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgbb5dfbf" class="outline-3">
-<h3 id="orgbb5dfbf">1.3</h3>
-<div class="outline-text-3" id="text-orgbb5dfbf">
-<ul class="org-ul">
-<li><a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">Convergent Sequence</a> <br /></li>
+<h3 id="13">1.3</h3>
+<ul>
+<li><a href="20220105153330-konvergenz_einer_folge.html#ID-63fa4879-51cf-4ad6-8be5-0e9e10d29726">Convergent Sequence</a> </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgc91314b" class="outline-3">
-<h3 id="orgc91314b">1.4</h3>
-<div class="outline-text-3" id="text-orgc91314b">
-<ul class="org-ul">
-<li><a href="20230224170936-eindeutigkeit_des_limes_in_hausdorffraumen.html#ID-794d59ad-bbce-41e5-9646-8e5c119e077a">Eindeutigkeit des Grenzwert einer Folge in Hausdorffräumen</a> <br /></li>
+<h3 id="14">1.4</h3>
+<ul>
+<li><a href="20230224170936-eindeutigkeit_des_limes_in_hausdorffraumen.html#ID-794d59ad-bbce-41e5-9646-8e5c119e077a">Eindeutigkeit des Grenzwert einer Folge in Hausdorffräumen</a> </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-orgdb96b77" class="outline-3">
-<h3 id="orgdb96b77"></h3>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2026-04-14 Di 12:33</p>
+<h3 id="15">1.5</h3>
+<ul>
+<li><a href="20230224175911-folgenstetigkeit_in_topologischen_raumen.html#ID-cd35cb72-6a6c-4944-b774-a795150c9214">Folgenstetigkeit in topologischen Räumen</a> </li>
+
+<li><a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a>   </li>
+
+<li><a href="20230227190111-offene_abbildung_topologie.html#ID-b42a4b40-0d77-444c-8385-4bfbb0e44c52">open map</a>   </li>
+
+<li><a href="20230127080110-homeomorphismus.html#ID-9f615f4b-b7b4-4dd6-a222-b9ec170e4390">homeomorphism</a> / <a href="20230210160229-homeomorphismus_als_isomorphismus_von_topologischen_raumen.html#ID-8cd39f51-9a4b-42d3-b062-284d92deabe9">Homeomorphismus als Isomorphismus von Topologischen Räumen</a> / <a href="20231020-homeomorphism_as_isomorphism_in_top.html#ID-1e088f69-4161-461c-9ca0-6d4b50fc5032">homeomorphism as isomorphism in Top</a> </li>
+</ul>
+<h3 id="16">1.6</h3>
+<ul>
+<li><a href="20230509103203-stetigkeit_impliziert_folgenstetigkeit.html#ID-14711eaa-8c20-4d4e-a8b1-667bbbd5d824">Stetigkeit impliziert Folgenstetigkeit</a> </li>
+
+<li><a href="20230224175758-nichtaquivalenz_von_stetigkeit_und_folgenstetigkeit_in_allgemeinen_topologischen_raumen.html#ID-140302cc-7a48-4758-890c-4884f388261e">Nichtäquivalenz von Stetigkeit und Folgenstetigkeit in allgemeinen Topologischen Räumen</a>   </li>
+
+<li><a href="20230307213658-folgenstetigkeit_in_erstabzahlbaren_raumen.html#ID-6206de02-e83b-4430-ad43-5f59b7cffe35">Folgenstetigkeit in erstabzählbaren Räumen</a> </li>
+</ul>
+<h2 id="metric-space">Metric space</h2>
+<ul>
+<li><a href="20221002145259-metrischer_raum.html#ID-6b95a0b5-83e0-43cc-830f-05b416769fe1">metric space</a>  </li>
+
+<li><a href="20221122074811-hausdorff_raum.html#ID-f49f9b47-9f16-456f-837f-7b9656c46aba">hausdorff</a>    </li>
+
+<li></li>
+</ul>
+<h3 id="18">1.8</h3>
+<ul>
+<li><a href="20230312221725-charakterisierung_einer_abgeschlossene_menge_durch_konvergente_folgen_in_einem_metrischen_raum.html#ID-a9367a62-48cf-43e9-b4ca-ea264fb789ed">Charakterisierung einer abgeschlossene Menge durch konvergente Folgen in einem metrischen Raum</a> </li>
+
+<li><a href="20230614-konvergente_folge_und_abschluss_in_erstabzahlbaren_raumen.html#ID-9991be66-ab35-4daf-8b5b-d68e67882d20">konvergente Folge und Abschluss in erstabzählbaren Räumen</a> </li>
+</ul>
+<h3 id="19">1.9</h3>
+<ul>
+<li><a href="20260414-metric_separable_space_is_second_countable.html#ID-58dffec3-c256-4152-8eff-08a2fe9ba984">metric separable space is second countable</a> </li>
+</ul>
+<h3 id="110">1.10</h3>
+<ul>
+<li><a href="20230420122606-r_n_mit_der_standardtopologie_erfullt_das_zweite_abzahlbarkeitsaxiom.html#ID-ff9769c7-8380-4e1d-8a07-adf287565e6e">R^n als zweitabzählbarer Raum</a> </li>
+</ul>
+<h3 id="111">1.11</h3>
+<ul>
+<li><a href="20230223230431-supremumsmetrik.html#ID-49a9f965-52ab-4401-b776-1ebc3b6def67">Supremumsmetrik</a> </li>
+
+<li></li>
+
+<li><a href="20230514195850-p_metrik.html#ID-8d8a2588-0578-49c3-b0de-e70bce64c90c">p-Metrik</a>   </li>
+
+<li></li>
+</ul>
+<h3 id="112">1.12</h3>
+<ul>
+<li><a href="20221209134652-isometrie_metrischer_raum.html#ID-897a11a6-874c-4734-9d2b-7bf717ba7867">isometry</a> </li>
+
+<li><a href="20260414-isometric_space.html#ID-a0dfa258-7cca-4aa7-b588-a5d4db550366">isometric space</a>   </li>
+</ul>
+<h3 id="113">1.13</h3>
+<ul>
+<li><a href="20260414-isometry_is_injective.html#ID-d6ab1c8c-4800-49af-873d-d93b8cebd6f5">isometry is injective</a> </li>
+
+<li><a href="20260414-isometry_induces_isomorphism_to_image.html#ID-e8f4ce72-ee94-4d29-bd5d-8c1ed01c7e12">isometry induces isomorphism to image</a>   </li>
+</ul>
+<h3 id="114">1.14</h3>
+<ul>
+<li><a href="20260415-uniqueness_of_a_completion.html#ID-1c6b79d6-45e5-435d-943d-761d4ce0b159">uniqueness of a completion of a metric space</a> / exsitence of a completion </li>
+</ul>
+<h3 id="115">1.15</h3>
+<ul>
+<li><a href="20241116-lp_raum.html#ID-71341a95-9e48-4c08-9eb6-e8d5a5f0f22c">Lp Raum</a> </li>
+
+<li><a href="20260421-lp_raum_von_folgen.html#ID-acd1975d-e81d-4725-81e6-0090f78abefb">Lp Raum von Folgen</a> </li>
+</ul>
+<h3 id="116">1.16</h3>
+<ul>
+<li><a href="20241116-lp_als_normierter_vektorraum.html#ID-4ff61056-7895-4a7a-b4d4-ac9421a6b1aa">Lp bis auf Äquivalenz als normierter Vektorraum</a> </li>
+</ul>
+<h3 id="117">1.17</h3>
+<ul>
+<li><a href="20230228170409-holder_ungleichung.html#ID-e1569ceb-c30b-4417-920e-e89d1fcf7ed4">Hölder-Ungleichung</a> - todo</li>
+
+<li><a href="20241117-minkowskische_ungleichung_fur_eine_p_norm.html#ID-f53c0cc9-303e-4cc8-8cd5-3ba017423174">Minkowskische Ungleichung für eine p-Norm</a>   </li>
+</ul>
+<h3 id="118">1.18</h3>
+<ul>
+<li>auch für $p \in (0,1)$ definierbar, dann baer nur quasi-norm ~&gt; kein metrischer raum</li>
+</ul>
+<h3 id="119">1.19</h3>
+<ul>
+<li><a href="20260414-lp_is_seperable.html#ID-28723a4e-f6c1-4372-a6fe-75c6be497855">Lp is seperable</a>  </li>
+
+<li><a href="20241116-lp_raum.html#ID-71341a95-9e48-4c08-9eb6-e8d5a5f0f22c">Lp Raum</a> </li>
+
+<li><a href="20260414-lp_is_seperable.html#ID-28723a4e-f6c1-4372-a6fe-75c6be497855">Lp is separable</a> / <a href="20241117-lp_als_separabler_raum.html#ID-10d0291a-d5e1-4bf2-9856-99209f222446">Lp als separabler Raum</a>   </li>
+
+<li><a href="20260420-l_infinity_is_not_seperable.html#ID-d209dc23-04f9-479e-acd3-0e1a4f0d885b">l infinity is not seperable</a> </li>
+</ul>
+<h3 id="120">1.20</h3>
+<ul>
+<li><a href="20260414-lp_is_complete.html#ID-8ee655f0-1c91-4a3a-9c77-5dfeb7f115a0">lp is complete</a> </li>
+</ul>
+<h2 id="14">1.4</h2>
+
+<h3 id="121">1.21</h3>
+<ul>
+<li><a href="20230412003456-compact_set.html#ID-d09ae6d2-2b5c-41c1-a54d-3259d3e2f0f0">compact</a> </li>
+
+<li><a href="20230416212931-sequentially_compact.html#ID-68800746-06e2-4793-9c60-53922ee89eae">sequentially compact</a></li>
+
+<li><a href="20230703-relativ_kompakt.html#ID-d391211b-72f2-4209-9324-b88974799018">relatively compact</a>   </li>
+</ul>
+<h3 id="122">1.22</h3>
+<ul>
+<li>quasicompact </li>
+
+<li>compact in  </li>
+</ul>
+<h3 id="123">1.23</h3>
+<ul>
+<li><a href="20230416212630-first_countable_compact_space_as_sequentially_compact_space.html#ID-bd068d83-9e7f-4b96-a528-9d36ba513db4">first countable, compact space as sequentially compact space</a> </li>
+
+<li><a href="20260420-second_countable_sequentially_compact_space_is_compact.html#ID-5a9c71e2-1204-4821-9a9b-b0f545e67c84">second countable, sequentially compact space is compact</a>   </li>
+</ul>
+<h3 id="124">1.24</h3>
+<ul>
+<li><a href="20260420-lindelof_theorem.html#ID-7e2ea3f6-68cb-4681-a84f-8948fa84232e">second countable space is countably compact.</a> </li>
+</ul>
+<h3 id="125">1.25</h3>
+<ul>
+<li><a href="20260421-closed_subset_of_a_sequentially_compact_space_is_sequentially_compact.html#ID-56861eb5-6c70-4937-8e46-ccbdef21f3fe">closed subset of a sequentially compact space is sequentially compact</a> - todo</li>
+
+<li><a href="20230511112904-abgeschlossenheit_von_kompakten_mengen.html#ID-77b86d0c-e901-449a-9147-602be657eae5">closedness of compact sets in Hausdorff spaces</a> </li>
+
+<li><a href="20230511112853-abgeschlossene_mengen_kompakter_raume_sind_kompakt.html#ID-2b714bee-6153-4623-8e5a-6c46e87e3474">closed subset of a compact space is compact set</a> </li>
+</ul>
+<h3 id="126">1.26</h3>
+<ul>
+<li><a href="20260415-bounded_closed_subset_in_general_not_compact.html#ID-cf70177e-eb8f-48ba-9c4b-85fd78a0b6ff">bounded closed subset in general not compact</a> </li>
+</ul>
+<h3 id="127">1.27</h3>
+<ul>
+<li><a href="20230514221110-kompaktheit_und_folgenkompaktheit_in_metrischen_raumen.html#ID-c46e8b32-db22-4a90-83d0-98e71a6e81c7">Kompaktheit und Folgenkompaktheit in metrischen Räumen</a> </li>
+
+<li><a href="20230715-zweitabzahlbarer_raum_als_separabler_raum.html#ID-d2725bbb-0cbd-4264-a007-605fc95d06d5">second countable space is separable</a>   </li>
+
+<li><a href="20260414-metric_separable_space_is_second_countable.html#ID-58dffec3-c256-4152-8eff-08a2fe9ba984">metric separable space is second countable</a>   </li>
+
+<li><a href="20250702-compact_metric_space_as_separable_space.html#ID-3029eb35-86cc-4533-b0cc-f432e73489f3">compact metric space is separable space</a></li>
+</ul>
+<ul>
+<li><a href="20231025-euklidischer_raum_als_eigentlicher_raum.html#ID-4a9304dd-aa25-42be-8c7b-427df70257d9">euklidischer raum als eigentlicher Raum</a> </li>
+
+<li><a href="20250702-compact_metric_space_as_separable_space.html#ID-3029eb35-86cc-4533-b0cc-f432e73489f3">compact metric space as separable space</a> </li>
+
+<li></li>
+</ul>
+<h3 id="128">1.28</h3>
+<ul>
+<li>$C(X,Y)$ </li>
+
+<li>$C_b(X)$ are bounded real/complex function</li>
+</ul>
+<h3 id="129">1.29</h3>
+<ul>
+<li><a href="20230112110346-kompaktheit_des_bildes_einer_kompakten_menge_einer_stetigen_funktion.html#ID-a2b585a8-d9b6-4663-be20-3eea36a6495a">image of compact space is compact</a> </li>
+
+<li><a href="20230615-stetige_bijiktion_von_einem_kompakten_raum_auf_einen_hausdorff_raum_als_homeomorphismus.html#ID-4c26d15c-6c1e-4e12-b8f0-fc48603ce0aa">continuous bijection from a compact space to a hausdorff space as homeomorphism</a>   </li>
+
+<li><a href="20230112113712-gleichmaßige_konvergenz_einer_stetigen_funktion_von_einer_folgenkompakten_menge.html#ID-d7a09c8b-99f9-49fb-802b-b92c186afc15">Gleichmäßige Stetigkeit einer stetigen Funktion von einer Kompakten Menge</a>   </li>
+
+<li><a href="20230521021923-allgemeiner_satz_vom_minimum_und_maximum.html#ID-3121256b-40c2-48ce-b563-e646bd50fda6">allgemeiner Satz vom Minimum und Maximum</a> </li>
+</ul>
+<h3 id="130">1.30</h3>
+<ul>
+<li><a href="20230519090021-satz_von_tychonoff.html#ID-30c83690-820b-4f4f-ac1b-5019fde136a9">Tychonoff's Theorem</a> </li>
+</ul>
+<h3 id="131">1.31</h3>
+<ul>
+<li><a href="20230223230431-supremumsmetrik.html#ID-49a9f965-52ab-4401-b776-1ebc3b6def67">Supremumsmetrik</a> </li>
+
+<li><a href="20260503-diagonal_convergence_in_the_supremum_norm.html#ID-58f0cf91-44e9-4d4b-abba-05b38c18910d">diagonal convergence in the supremum norm</a>   </li>
+
+<li><a href="20260421-continuous_maps_with_supremumsmetric_is_complete.html#ID-ebccaebd-c359-4346-8808-517b2121cf04">continuous maps with supremumsmetric is complete</a> - todo</li>
+</ul>
+<h3 id="132">1.32</h3>
+<ul>
+<li><a href="20260421-metrizable_space_and_separable_c_x.html#ID-6f3a6904-99fb-43a0-b312-32671df8e5da">metrizable space and separable C(X)</a> </li>
+</ul>
+<h3 id="133">1.33</h3>
+<ul>
+<li><a href="20221125133249-k_algebra.html#ID-74ada59f-7a40-49a2-b525-be8af0628fe9">K-Algebra</a> </li>
+
+<li>subalgebra</li>
+
+<li></li>
+</ul>
+<h3 id="134">1.34</h3>
+<ul>
+<li><a href="20241117-approximationssatz_von_weierstraß.html#ID-f500834c-90b8-4984-b63a-a6a4733fb20f">Approximationssatz von Stone-Weierstraß</a> </li>
+</ul>
+<h3 id="135">1.35</h3>
+<ul>
+<li><a href="20260503-stone_weierstraß_for_polynomials_with_rational_coefficients.html#ID-ae373f1e-cc41-4a8b-923a-9b3b4d186c83">stone-weierstraß for polynomials with rational coefficients</a> </li>
+
+<li><a href="20260503-algebra_of_continuous_functions_from_a_compact_euclidean_subset_is_separable.html#ID-6fb5e2fa-a7b2-470b-923d-4bc0072faa3f">algebra of continuous functions from a compact euclidean subset is separable</a>   </li>
+</ul>
+<h3 id="136">1.36</h3>
+<ul>
+<li><a href="20260421-uniformly_equicontinuous_maps.html#ID-c9452d6b-2cb8-49fb-9cc2-eccd1c88cb35">uniformly equicontinuous maps</a>   </li>
+
+<li><a href="20260421-equicontinuous_collection_of_maps.html#ID-120d7ac9-ca1d-4ea6-b965-07f4c136b02f">equicontinuous collection of maps</a>   </li>
+</ul>
+<h3 id="137">1.37</h3>
+<ul>
+<li><a href="20260503-equicontinuous_collection_of_maps_is_uniformly_equicontinuous_for_a_compact_space.html#ID-bea77a56-1051-456d-9288-be0e5ba5d5ec">equicontinuous collection of maps is uniformly equicontinuous for a compact space</a> - todo </li>
+</ul>
+<h2 id="16">1.6</h2>
+
+<h3 id="141">1.41</h3>
+<ul>
+<li><a href="20240902-intersection_of_dense_sets_in_general_not_dense.html#ID-4e72cecb-2bc0-4255-b6be-f8e8f79570d8">intersection of dense sets in general not dense</a> </li>
+</ul>
+<h3 id="142">1.42</h3>
+<ul>
+<li><a href="20230704-satz_von_baire.html#ID-f98facdd-ce99-488e-a996-6339e810ef1c">Satz von Baire über vollständige Räume</a> </li>
+
+<li><a href="20230704-satz_von_baire_uber_lokalkompakte_raume.html#ID-47a44096-f5ef-4d00-bbd2-78c62259e29b">Satz von Baire über lokalkompakte Räume</a>   </li>
+</ul>
+<h3 id="143">1.43</h3>
+<ul>
+<li><a href="20260422-intersection_of_open_dense_sets_in_general_not_dense_in_a_non_complete_metric_space.html#ID-e3da2bf6-036d-4447-bb47-86d464059c59">intersection of open dense sets in general not dense in a non complete metric space</a> </li>
+
+<li>intersection of countably open many in general not opne</li>
+</ul>
+<h3 id="144">1.44</h3>
+<ul>
+<li><a href="20230601132902-g_delta_menge.html#ID-6df4b467-3c98-44c3-a261-42d8185498a1">G-Delta Menge</a> </li>
+
+<li><a href="20230222172146-nirgends_dicht_topologie.html#ID-022a1587-f478-44ec-a8c6-3ecb6fcc6ad8">nowhere dense</a>   </li>
+
+<li><a href="20230515105247-magere_menge.html#ID-f3b1cf25-7fb5-4c42-b59d-0acbb0f1db57">meagre set</a>   </li>
+
+<li>non-meagre  </li>
+</ul>
+<h3 id="145">1.45</h3>
+<ul>
+<li><a href="20260503-rational_numbers_is_a_meager_subset_space.html#ID-78ee7306-6fc2-4167-9265-88d7a8366178">rational numbers is a meager subset/space</a> </li>
+</ul>
+<h3 id="146">1.46</h3>
+<ul>
+<li><a href="20230313220506-nirgends_dicht_und_uberall_dicht_des_komplements.html#ID-b65902e6-22f7-4a04-885f-f993d1684e85">nirgends dicht und Komplement enthält offene dichte Menge</a> </li>
+
+<li><a href="20260503-subset_of_a_nowhere_dense_set_is_nowhere_dense.html#ID-89112971-1969-4b64-8e51-cabdc3b70ef8">subset of a nowhere dense set is nowhere dense</a> </li>
+
+<li><a href="20260503-subset_of_a_meagre_set_is_meagre.html#ID-14292fda-bb1d-45f1-9eed-f555ec62fd45">subset of a meagre set is meagre</a>    </li>
+
+<li><a href="20260503-countable_union_of_meager_sets_is_meager.html#ID-0af41d11-4bc8-4a68-bb80-d016e2699c1f">countable union of meager sets is meager</a>   </li>
+</ul>
+<h3 id="147">1.47</h3>
+<ul>
+<li><a href="20230704-aquivalente_charakterisierung_eines_baire_raumes.html#ID-0947737d-a642-43a2-ab9e-bbff3eb28076">Äquivalente Charakterisierung eines Baire-Raumes</a> </li>
+</ul>
+<h3 id="148">1.48</h3>
+<ul>
+<li><a href="20230704-satz_von_baire.html#ID-f98facdd-ce99-488e-a996-6339e810ef1c">Satz von Baire über vollständige Räume</a> </li>
+</ul>
 </div>
 </body>
 </html>

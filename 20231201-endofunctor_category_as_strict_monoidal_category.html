@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-13 So 19:49 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>endofunctor category as strict monoidal category</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,46 +52,36 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">endofunctor category as strict monoidal category</h1>
-<div id="outline-container-org9bb97a1" class="outline-2">
-<h2 id="org9bb97a1"><span class="section-number-2">1.</span> Proposition</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-5d6aaf94-b08c-48ae-b293-7a99d2a9106d"></span><h1 class="title">endofunctor category as strict monoidal category</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let \(\mathcal{C}\) be a <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a>.
+Let $\mathcal{C}$ be a <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a>.
 </p>
 
 <p>
-Then the <a href="20231020-endofunctor_category.html#ID-bd9d3f24-6bba-4666-9bb5-f95613dbf7aa">endofunctor category</a> \(\mathrm{End}(\mathcal{C}\) is a <a href="20231201-strict_monoidal_category.html#ID-0bb6c5b2-6788-4e28-9e2c-7e2d7492b57a">strict monoidal category</a> 
+Then the <a href="20231020-endofunctor_category.html#ID-bd9d3f24-6bba-4666-9bb5-f95613dbf7aa">endofunctor category</a> $\mathrm{End}(\mathcal{C}$ is a <a href="20231201-strict_monoidal_category.html#ID-0bb6c5b2-6788-4e28-9e2c-7e2d7492b57a">strict monoidal category</a>
 </p>
-</div>
-</div>
-<div id="outline-container-org022bc1e" class="outline-2">
-<h2 id="org022bc1e"><span class="section-number-2">2.</span> Proof</h2>
-<div class="outline-text-2" id="text-2">
+
+<h2 id="proof">Proof</h2>
 <p>
 Let
 </p>
-<ol class="org-ol">
+<ol>
 <li><a href="20230301211128-komposition_von_funktoren.html#ID-5ee8a050-4131-40f2-b848-aefb92e03228">composition of functors</a> as <a href="20231110-tensor_functor_of_a_monoidal_category.html#ID-beccdd56-1629-4484-b2ea-36e115686584">tensor functor</a></li>
 </ol>
-\begin{align*}
-(\circ): \mathrm{End}(\mathcal{C}) \times \mathrm{End}(\mathcal{C}) \rightarrow& \mathrm{End}(\mathcal{C}) \\
-(\mathcal{F}, \mathcal{G}) \mapsto& \mathcal{F} \circ \mathcal{G}
-\end{align*}
+<div class="math-block">\begin{align*}
+(\circ): \mathrm{End}(\mathcal{C}) \times \mathrm{End}(\mathcal{C}) \rightarrow&amp; \mathrm{End}(\mathcal{C}) \\
+(\mathcal{F}, \mathcal{G}) \mapsto&amp; \mathcal{F} \circ \mathcal{G}
+\end{align*}</div>
 <p>
 be the <a href="20231110-tensor_functor_of_a_monoidal_category.html#ID-beccdd56-1629-4484-b2ea-36e115686584">tensor functor</a>.
 </p>
-<ol class="org-ol">
-<li>\(\mathrm{id}_{\mathcal{C}}\) be the <a href="20231104-tensor_unit.html#ID-9e5e4518-074c-49b7-b6f1-e76c728f891c">tensor unit</a></li>
-<li><a href="20231104-left_unitor_of_a_monoidal_category.html#ID-10eeeae4-fc39-4e87-9eca-334b22f7e11f">left unitor</a>, <a href="20231104-right_unitor_in_a_monoidal_category.html#ID-a870861e-71d8-4391-85e7-0bf31f5a8a9e">right unitor</a> and <a href="20231104-associator_of_a_monoidal_category.html#ID-5b2b4f1c-5bd9-481b-8da3-a228a23d9b8b">associator</a> as identity</li>
+<ol>
+<li>$\mathrm{id}_{\mathcal{C}}$ be the <a href="20231104-tensor_unit.html#ID-9e5e4518-074c-49b7-b6f1-e76c728f891c">tensor unit</a></li>
+
+<li><a href="20231104-left_unitor_of_a_monoidal_category.html#ID-10eeeae4-fc39-4e87-9eca-334b22f7e11f">left unitor</a>, <a href="20231104-right_unitor_in_a_monoidal_category.html#ID-a870861e-71d8-4391-85e7-0bf31f5a8a9e">right unitor</a> and <a href="20231104-associator_of_a_monoidal_category.html#ID-5b2b4f1c-5bd9-481b-8da3-a228a23d9b8b">associator</a> as identity   </li>
 </ol>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-13 So 19:49</p>
 </div>
 </body>
 </html>

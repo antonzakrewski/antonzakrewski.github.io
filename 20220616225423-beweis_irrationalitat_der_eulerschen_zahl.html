@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:28 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Irrationalität der eulerschen Zahl</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,143 +52,122 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Irrationalität der eulerschen Zahl</h1>
-<div id="outline-container-org911539d" class="outline-2">
-<h2 id="org911539d"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-Die <a href="20220318184444-eulersche_zahl.html#ID-6c51847c-d7cb-4197-bbe3-b9d98680db54">Eulersche Zahl</a> ist <a href="20220923104945-irrationale_zahlen.html#ID-1ec88c0e-0b1b-4a94-a80a-206e4e896ddf">irrational</a> 
-</p>
-</div>
-</div>
-<div id="outline-container-orgd20f728" class="outline-2">
-<h2 id="orgd20f728"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orgcbb6cbe" class="outline-3">
-<h3 id="orgcbb6cbe"><span class="section-number-3">2.1.</span> a)</h3>
-<div class="outline-text-3" id="text-2-1">
-</div>
-<div id="outline-container-orgf9aac75" class="outline-4">
-<h4 id="orgf9aac75"><span class="section-number-4">2.1.1.</span> Annahmen</h4>
-<div class="outline-text-4" id="text-2-1-1">
-\begin{align*}
-e  \coloneqq \sum_{i=0}^{\infty} \frac{1}{n!}
-\end{align*}
+<span id="ID-c6e87ac5-a40e-4451-94e5-492673eafe9f"></span><h1 class="title">Irrationalität der eulerschen Zahl</h1>
 
+<h2 id="satz">Satz</h2>
+<p>
+Die <a href="20220318184444-eulersche_zahl.html#ID-6c51847c-d7cb-4197-bbe3-b9d98680db54">Eulersche Zahl</a> ist <a href="20220923104945-irrationale_zahlen.html#ID-1ec88c0e-0b1b-4a94-a80a-206e4e896ddf">irrational</a>
+</p>
+
+<h2 id="beweis">Beweis</h2>
+
+<h3 id="a">a)</h3>
+
+<h4 id="annahmen">Annahmen</h4>
+
+<div class="math-block">\begin{align*}
+e  \coloneqq \sum_{i=0}^{\infty} \frac{1}{n!}
+\end{align*}</div>
 <p>
 Sei
 </p>
-\begin{align*}
-e = \frac{p}{q} && p \in \mathbb{Z}, q \in \mathbb{N}\setminus\{0\}
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgd6652d9" class="outline-4">
-<h4 id="orgd6652d9"><span class="section-number-4">2.1.2.</span> Lemma</h4>
-<div class="outline-text-4" id="text-2-1-2">
-\begin{align*}
-\nexists x\left(x \in \mathbb{Z} \land 0 < x < 1 \right)
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org90f1338" class="outline-4">
-<h4 id="org90f1338"><span class="section-number-4">2.1.3.</span> Umformung</h4>
-<div class="outline-text-4" id="text-2-1-3">
-\begin{align*}
-\frac{p}{q} =& \frac{1}{1!} + \frac{1}{2!} + … + \frac{1}{q!} + \frac{1}{(q+1)!} + … && \vert - \sum_{n=0}^{q} \frac{1}{n!}\\
-\frac{p}{q} - \frac{1}{1!} - \frac{1}{2!} - … - \frac{1}{q!} =& \frac{1}{(q+1)!} + \frac{1}{(q+2)!} + … && \vert \cdot q! \\
-\frac{p \cdot q!}{q} - \frac{q!}{1!} - \frac{q!}{2!} - … - \frac{q!}{q!} =& \frac{q!}{(q+1)!} + \frac{q!}{(q+2)!} + … \\
- =& \frac{1}{q+1} + \frac{1}{(q+1)(q+2)} + \frac{1}{(q+1)(q+2)(q+3)} …
-\end{align*}
-</div>
-<div id="outline-container-org4181e61" class="outline-5">
-<h5 id="org4181e61"><span class="section-number-5">2.1.3.1.</span> a)</h5>
-<div class="outline-text-5" id="text-2-1-3-1">
-\begin{align*}
-n =& \frac{p \cdot q!}{q} - \frac{q!}{1!} - \frac{q!}{2!} - … - \frac{q!}{q!} \\
-=& p \cdot (q-1)! - q \cdot (q-1) \cdot … \cdot 2 - q \cdot (q-1) \cdot … \cdot 2 - q \cdot (q-1) \cdot … \cdot 3 - … - q - 1 \\
+
+<div class="math-block">\begin{align*}
+e = \frac{p}{q} &amp;&amp; p \in \mathbb{Z}, q \in \mathbb{N}\setminus\{0\}
+\end{align*}</div>
+
+<h4 id="lemma">Lemma</h4>
+
+<div class="math-block">\begin{align*}
+\nexists x\left(x \in \mathbb{Z} \land 0 &lt; x &lt; 1 \right)
+\end{align*}</div>
+
+<h4 id="umformung">Umformung</h4>
+
+<div class="math-block">\begin{align*}
+\frac{p}{q} =&amp; \frac{1}{1!} + \frac{1}{2!} + … + \frac{1}{q!} + \frac{1}{(q+1)!} + … &amp;&amp; \vert - \sum_{n=0}^{q} \frac{1}{n!}\\
+\frac{p}{q} - \frac{1}{1!} - \frac{1}{2!} - … - \frac{1}{q!} =&amp; \frac{1}{(q+1)!} + \frac{1}{(q+2)!} + … &amp;&amp; \vert \cdot q! \\
+\frac{p \cdot q!}{q} - \frac{q!}{1!} - \frac{q!}{2!} - … - \frac{q!}{q!} =&amp; \frac{q!}{(q+1)!} + \frac{q!}{(q+2)!} + … \\
+ =&amp; \frac{1}{q+1} + \frac{1}{(q+1)(q+2)} + \frac{1}{(q+1)(q+2)(q+3)} …
+\end{align*}</div>
+
+<h5 id="a">a)</h5>
+
+<div class="math-block">\begin{align*}
+n =&amp; \frac{p \cdot q!}{q} - \frac{q!}{1!} - \frac{q!}{2!} - … - \frac{q!}{q!} \\
+=&amp; p \cdot (q-1)! - q \cdot (q-1) \cdot … \cdot 2 - q \cdot (q-1) \cdot … \cdot 2 - q \cdot (q-1) \cdot … \cdot 3 - … - q - 1 \\
 \Rightarrow n \in \mathbb{Z}
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgd78cffd" class="outline-5">
-<h5 id="orgd78cffd"><span class="section-number-5">2.1.3.2.</span> b)</h5>
-<div class="outline-text-5" id="text-2-1-3-2">
-\begin{align*}
+\end{align*}</div>
+
+<h5 id="b">b)</h5>
+
+<div class="math-block">\begin{align*}
 q \in \mathbb{N}\setminus\{0\} \Rightarrow q \geq 1 \\
-\frac{1}{(q+1)} + \frac{1}{(q+1)^2} + \frac{1}{(q+1)^3} + … >& \frac{1}{q+1} + \frac{1}{(q+1)(q+2)} + \frac{1}{(q+1)(q+2)(q+3)} + … \\ 
- \frac{1}{1+1} + \frac{1}{(1+1)^2} + \frac{1}{(1+1)^3} \geq&  \frac{1}{(q+1)} + \frac{1}{(q+1)^2} + \frac{1}{(q+1)^3} + …  \\
-\frac{1}{1+1} + \frac{1}{(1+1)^2} + \frac{1}{(1+1)^3} … =& \frac{1}{2} + \frac{1}{4} + \frac{1}{8} \\
-\frac{1}{2} + \frac{1}{4} + \frac{1}{8} … =& 1 \\
-\Rightarrow 1 \geq& \frac{1}{(q+1)} + \frac{1}{(q+1)^2} + \frac{1}{(q+1)^3} + …  \\
-\Rightarrow 1 >& \frac{1}{q+1} + \frac{1}{(q+1)(q+2)} + \frac{1}{(q+1)(q+2)(q+3)} + … 
-\end{align*}
+\frac{1}{(q+1)} + \frac{1}{(q+1)^2} + \frac{1}{(q+1)^3} + … &gt;&amp; \frac{1}{q+1} + \frac{1}{(q+1)(q+2)} + \frac{1}{(q+1)(q+2)(q+3)} + … \\ 
+ \frac{1}{1+1} + \frac{1}{(1+1)^2} + \frac{1}{(1+1)^3} \geq&amp;  \frac{1}{(q+1)} + \frac{1}{(q+1)^2} + \frac{1}{(q+1)^3} + …  \\
+\frac{1}{1+1} + \frac{1}{(1+1)^2} + \frac{1}{(1+1)^3} … =&amp; \frac{1}{2} + \frac{1}{4} + \frac{1}{8} \\
+\frac{1}{2} + \frac{1}{4} + \frac{1}{8} … =&amp; 1 \\
+\Rightarrow 1 \geq&amp; \frac{1}{(q+1)} + \frac{1}{(q+1)^2} + \frac{1}{(q+1)^3} + …  \\
+\Rightarrow 1 &gt;&amp; \frac{1}{q+1} + \frac{1}{(q+1)(q+2)} + \frac{1}{(q+1)(q+2)(q+3)} + … 
+\end{align*}</div>
 
-\begin{align*}
-q \in \mathbb{N}\setminus\{0\} \Rightarrow& q > 0 \\
-\Rightarrow& q + n > 0 && n \in \mathbb{N}\\
-\Rightarrow& \frac{1}{q+1} > 0 \\
-\Rightarrow& \frac{1}{(q+1)(q+2)…} > 0 \\
-\Rightarrow& \frac{1}{q+1} + \frac{1}{(q+1)(q+2)} + … > 0
-\end{align*}
-
-\begin{align*}
-0 < \frac{1}{q+1} + \frac{1}{(q+1)(q+2)} … < 1 \Rightarrow \frac{1}{q+1} + \frac{1}{(q+1)(q+2)} \not\in \mathbb{Z}
-\end{align*}
-</div>
-</div>
+<div class="math-block">\begin{align*}
+q \in \mathbb{N}\setminus\{0\} \Rightarrow&amp; q &gt; 0 \\
+\Rightarrow&amp; q + n &gt; 0 &amp;&amp; n \in \mathbb{N}\\
+\Rightarrow&amp; \frac{1}{q+1} &gt; 0 \\
+\Rightarrow&amp; \frac{1}{(q+1)(q+2)…} &gt; 0 \\
+\Rightarrow&amp; \frac{1}{q+1} + \frac{1}{(q+1)(q+2)} + … &gt; 0
+\end{align*}</div>
 
 
-<div id="outline-container-org9e2745a" class="outline-5">
-<h5 id="org9e2745a"><span class="section-number-5">2.1.3.3.</span> Widerspruch</h5>
-</div>
-</div>
-</div>
+<div class="math-block">\begin{align*}
+0 &lt; \frac{1}{q+1} + \frac{1}{(q+1)(q+2)} … &lt; 1 \Rightarrow \frac{1}{q+1} + \frac{1}{(q+1)(q+2)} \not\in \mathbb{Z}
+\end{align*}</div>
+
+
+
+<h5 id="widerspruch">Widerspruch</h5>
 
 
 
 
-<div id="outline-container-org5e48222" class="outline-3">
-<h3 id="org5e48222"><span class="section-number-3">2.2.</span> b)</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<h3 id="b">b)</h3>
 <p>
-Für alle \(n \in \mathbb{N}\) ist \(e \cdot n! \not\in \mathbb{Z}\) 
+Für alle $n \in \mathbb{N}$ ist $e \cdot n! \not\in \mathbb{Z}$
 Wegen der <a href="20220105231353-exponentialreihe.html#ID-109164a3-9e81-4355-b041-802cd24efd33">Exponentialreihe</a> gilt:
 </p>
-\begin{align*}
-e \cdot n! =& n! \cdot \sum_{i=0}^{\infty} \frac{1}{i!} \\
+
+<div class="math-block">\begin{align*}
+e \cdot n! =&amp; n! \cdot \sum_{i=0}^{\infty} \frac{1}{i!} \\
 \sum_{i=0}^{n} \frac{n!}{i!} + \sum_{i=0}^{\infty} \frac{n!}{(n+i+1)!}
-\end{align*}
+\end{align*}</div>
 <p>
-Es gilt \(\sum_{i=0}^{n} \frac{n!}{i!} \in \mathbb{N}\) und für \(n \geq 3\) gilt:
+Es gilt $\sum_{i=0}^{n} \frac{n!}{i!} \in \mathbb{N}$ und für $n \geq 3$ gilt:
 </p>
-\begin{align*}
-0 < \sum_{i=0}^{\infty} \frac{n!}{(n+1)!} \leq \sum_{i=0}^{\infty} \frac{1}{3^{i+1}} = \frac{3}{2} - 1 = 0.5 < 1 
-\end{align*}
+
+<div class="math-block">\begin{align*}
+0 &lt; \sum_{i=0}^{\infty} \frac{n!}{(n+1)!} \leq \sum_{i=0}^{\infty} \frac{1}{3^{i+1}} = \frac{3}{2} - 1 = 0.5 &lt; 1 
+\end{align*}</div>
 <p>
 Dabei folgt: &lt;TODO&gt;
-Für \(n = 2\) oder \(n! = 1\) folgt die Aussage aus z.B. \(3! e = 3 \cdot 2! \cdot e\)  und der <a href="20220814141200-abgeschlossenheit_einer_algebraischen_struktur.html#ID-8d0963bb-1256-4adb-9fb2-dad2e261f500">Abgeschlossenheit</a> von \(\mathbb{N}\)
+Für $n = 2$ oder $n! = 1$ folgt die Aussage aus z.B. $3! e = 3 \cdot 2! \cdot e$  und der <a href="20220814141200-abgeschlossenheit_einer_algebraischen_struktur.html#ID-8d0963bb-1256-4adb-9fb2-dad2e261f500">Abgeschlossenheit</a> von $\mathbb{N}$
 </p>
 
 
 <p>
-Angenommen es existiere ein \(\frac{p}{q} \in \mathbb{Q}\) mit \(p \in \mathbb{Z}\) und \(q \in \mathbb{N}\), so folgt für
+Angenommen es existiere ein $\frac{p}{q} \in \mathbb{Q}$ mit $p \in \mathbb{Z}$ und $q \in \mathbb{N}$, so folgt für
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 e \cdot q! = p \cdot (q-1)! \in \mathbb{Z} 
-\end{align*}
+\end{align*}</div>
 <p>
 Dies ist ein Widerpsruch zur obigen Aussage
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:28</p>
+
+
+
 </div>
 </body>
 </html>

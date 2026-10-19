@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bildmaß einer Verteilungsfunktion</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-23cd22c6-0bed-4ab2-98da-2d594943317e"></span><h1 class="title">Bildmaß einer Verteilungsfunktion</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $(\Omega, \mathcal{F}, \mathbb{P})$ ein <a href="20220903151423-wahrscheinlichkeitsraum.html#ID-0a7fdeda-13a2-44be-bc7e-d6ab02447255">Wahrscheinlichkeitsraum</a>, $X: \Omega \rightarrow \mathbb{R}$ eine reellwertige <a href="20241028-zufallsvariable.html#ID-6798db97-4391-4eed-acb0-86d90bc1ec7f">Zufallsvariable</a> mit <a href="20241116-verteilungsfunktion_einer_zufallsvariable.html#ID-8001e85e-7869-4ee3-83d6-3a148226c8d5">Verteilungsfunktion</a> $F_X$.
+Dann ist das <a href="20241031-zufallsvariable_und_maß.html#ID-963976ee-6ed5-45c8-9350-ac4b83650811">Bildmaß</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mu: \mathcal{B}([0,1]) \rightarrow \mathbb{R}
+\end{align*}</div>
+<p>
+die <a href="20241031-kontinuierliche_gleichverteilung.html#ID-d34f72e6-82a5-4375-8ed8-6af93356857b">kontinuierliche Gleichverteilung</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Es gilt auf $[0,c)$ für $c &gt; 0$
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{P}_{F_X(X)}([0,c]) =&amp; \mathbb{P}[(F_X \circ X)^{-1}[0,c]] \\
+=&amp; \mathbb{P}(X^{-1} \circ F_X^{-1}[0,c]) \\
+=&amp; \mathbb{P}[X^{-1}(-\infty,d]] \\
+=&amp; \mathbb{P}_X((-\infty,d]) \\
+=&amp; F_X(d) \\
+=&amp; c
+\end{align*}</div>
+<p>
+wobei $d := \mathrm{sup} \{y \vert F_X \leq c\}$ ist.
+Dabei existiert $d$ wegen dem <a href="20220719233717-zwischenwertsatz.html#ID-f17f7890-df11-47cf-81d3-ab463e3219ff">Zwischenwertsatz</a> (und <a href="20241022-grenzwerte_einer_verteilungsfunktion.html#ID-df89d91a-be79-43f9-9ae4-841df12bcc0c">Grenzwerte einer Verteilungsfunktion</a> - $c \in (0,1)$)  und $X^{-1}([0,c]) = [-\infty,d]$ wegen Monotonie.
+</p>
+
+<p>
+Für $c = 0$ ist $X^{-1}(- \infty, d]$ gegebenfalls die leere Menge, falls $\{y \vert F_X \leq c\} = \emptyset$ und dementsprechend $\mathrm{sup}(\emptyset) = - \infty = d$
+</p>
+
+</div>
+</body>
+</html>

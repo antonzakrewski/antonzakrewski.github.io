@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>riesz-representation for L^p</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-3c7e5875-3975-4745-abd2-f64c63312287"></span><h1 class="title">riesz-representation for L^p</h1>
+
+<h2 id="proposition">Proposition</h2>
+
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="x-mathcala-id0755b55c-cb40-4e38-964a-dd44d1061a6asigma-endlich">$(X, \mathcal{A})$ <a href="20241103-sigma_endliches_maß.html#ID-0755b55c-cb40-4e38-964a-dd44d1061a6a">sigma endlich</a></h3>
+<p>
+Let $l \in (L^{1}(X))^*$.
+Assume that $X = \bigcup_{n \in \mathbb{N}} X_n$ with $\mu(X_n) &lt; \infty$.
+In particular, we get $l_{\vert X_n} \in (L^1(X_n))^*$ by defining $l_{\vert X_n}(g) = l(g')$ after defining
+</p>
+
+<div class="math-block">\begin{align*}
+g': x \mapsto 
+    \begin{cases}
+    g(x)  &amp; \mbox{if } x \in X_n \\ 
+    0  &amp; \mbox{else } \\ 
+    \end{cases}
+\end{align*}</div>
+<p>
+Now for each $X_n$, there exists an $f_n \in L^{\infty}(X_n)$ such that $l_{f_n}(g) = \int_{X_n} \mathrm{d} \mu g f_n$ for any  $g \in L^{1}(X_n)$.
+</p>
+
+<p>
+We define
+</p>
+
+<div class="math-block">\begin{align*}
+f: X \rightarrow&amp;  \overline{\mathbb{K}} \\
+x \mapsto&amp; f_n(x_n) &amp; \mbox{if } x \in X_n \setminus X_{n-1}
+\end{align*}</div>
+<p>
+and claim that it is essentially bounded:
+Suppose not, then for each $n &gt;&gt; 0$, there exists an $Y_{n} \subseteq X$ with $\mu(Y_n) &gt; 0$ and $\vert f_{\vert Y_n} \vert  &gt; n$.
+Moreover, we may assume without loss of generality that $Y_n \subseteq X_m$ for some $m$, as otherwise $\mu(Y_n) = \mu(Y_n \cap X) = \sum_{m \in \mathbb{N}} \mu(Y_n \cap X_{m} \setminus X_{m-1})$.
+Then we would get
+</p>
+
+<div class="math-block">\begin{align*}
+\| l(\chi_{Y_n}) \| =&amp; \| l_{\vert X_m}(\chi_{Y_n}) \| \\
+=&amp; \int_{X_m} \mathrm{d}\mu \vert f \cdot \chi_{Y_n} \vert \\
+=&amp; \int_{Y_n} \mathrm{d}\mu \vert f \vert \\
+\leq&amp; \mu(Y_m) \cdot n \\
+\leq&amp; \| \chi_{Y_m} \|_1 \cdot n \\
+\end{align*}</div>
+<p>
+for all $n$ and hence $\| l \| \geq \frac{\| l(\chi_{Y_m})}{\| \chi_{Y_m} \|_1} \geq n$ for all $n$, contradiction to $\| l \| &lt; \infty$.
+</p>
+
+<p>
+Let $g \in L^1(X)$, then define $g_n = g \cdot \chi_{X_n \setminus X_{n-1}}$ and observe that $g = \sum_{n \in \mathbb{N}} g_n$.
+Hence as $l$ is continuous, we can write
+</p>
+
+<div class="math-block">\begin{align*}
+l(g) =&amp; l(\sum_{n \in \mathbb{N}} g_n) \\
+=&amp; \sum_{n \in \mathbb{N}} l(g_n) \\
+=&amp; \sum_{n \in \mathbb{N}} l_{\vert X_n} (g_n) \\
+=&amp; \sum_{n \in \mathbb{N}} \int_{X_n} \mathrm{d}\mu \vert f_n \cdot g \cdot \chi_{X_n \setminus X_{n-1}} \vert \\
+=&amp; \int_{X} \mathrm{d}\mu  \vert f \cdot g \vert \\
+\end{align*}</div>
+<p>
+where the last step uses Beppo-Levi.
+</p>
+
+</div>
+</body>
+</html>

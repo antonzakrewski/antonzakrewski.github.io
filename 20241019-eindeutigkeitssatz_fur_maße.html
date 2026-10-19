@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Eindeutigkeitssatz für Maße</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-a818e23e-2f9d-4939-a574-ba8311035a05"></span><h1 class="title">Eindeutigkeitssatz für Maße</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $\mathcal{E} \subseteq \mathcal{P}(X)$ ein <a href="20220903220209-durchschnittsstabiles_mengensystem.html#ID-a906d84c-c195-4e55-be6d-90250dd84272">schnittstabiles</a> <a href="20241015-generated_borel_algebra.html#ID-d1f1ee03-ae6b-461c-ab1c-32880a8d6520">Erzeuger</a> einer <a href="20220903142815-sigma_algebra.html#ID-54306c73-fba1-4737-a42e-adc9ce14a354">sigma-algebra</a> $\mathcal{A} = \sigma(\mathcal{E})$.
+Seien $X_n \in \mathcal{E}$ folgen mit $X_n \nearrow X$ und $\mu_1,\mu_2$ <a href="20241014-measure.html#ID-fad27267-4c6a-4159-831f-36ae94e4012e">maße</a> auf $\mathcal{A}$ mith
+</p>
+
+<div class="math-block">\begin{align*}
+\mu_1(A) =&amp; \mu_2(A) &amp;&amp; \forall A \in \mathcal{E} \\
+\mu_1(X_n) &lt;&amp; \infty &amp;&amp; \forall n \in \mathbb{N}
+\end{align*}</div>
+
+<p>
+Dann gilt $\mu_1 = \mu_2$
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Sei $E \in \mathcal{E}$ mit $\mu_1(E) = \mu_2(E) &lt; \infty$.
+</p>
+
+
+<div class="math-block">\begin{align*}
+\mathcal{D}_{E} \coloneqq \{A \in \mathcal{A} \vert \mu_1(A \cap E) = \mu_2(A \cap E)\}
+\end{align*}</div>
+
+<p>
+Es folgt, dass $\mathcal{D}_E$ ein <a href="20220902125304-nichtleere_menge.html#ID-119fa0d9-a2b3-4b46-bb61-a6e590282321">nichtleeres</a> <a href="20221127174202-dynkin_system.html#ID-bcb5094a-c8e2-441c-aedf-7532987cbf50">Dynkin-System</a> ist:
+</p>
+
+<h3 id="x-in-mathcald-e">$X \in \mathcal{D}_E$</h3>
+<p>
+folgt aus $\mu_1(X \cap A) = \mu_1(A) = \mu_2(A) = \mu_2(X \cap A)$
+</p>
+
+<h3 id="id41deed43-10bc-45f3-aa39-2423505a5da3teilmengen-differenzstabiles-mengensystem"><a href="20241014-teilmengen_differenzstabiles_mengensystem.html#ID-41deed43-10bc-45f3-aa39-2423505a5da3">teilmengen differenzstabiles Mengensystem</a></h3>
+<p>
+Seien $A_1,A_2 \in \mathcal{D}_E$ mit $A_2 \subseteq A_1$.
+Dann folgt
+</p>
+
+<div class="math-block">\begin{align*}
+E \cap (A_1 \setminus A_2 ) =&amp; (E \cap A_1) \setminus (E \cap A_2) 
+\end{align*}</div>
+<p>
+und da $\mu(E \cap A_1) \leq \mu(E) &lt; \infty$ gilt auch wegen der <a href="20241015-subtraktivitat_eines_inhalts.html#ID-e768ef1b-bfd6-49c6-bb98-6cf549671de6">Subtraktivität eines Inhalts</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mu_1(E \cap (A_1 \setminus A_2)) =&amp; \mu_1(E \cap A_1) - \mu_1(E \setminus A_2) \\
+=&amp;  \mu_2(E \cap A_1) - \mu_2(E \setminus A_2) \\
+=&amp; \mu_2(E \cap (A_1 \setminus A_2))
+\end{align*}</div>
+
+<h3 id="id53e2afaa-1e8c-4327-8bc5-ccd93f3ec2e7disjunkt-sigma-vereinigunsstabiles-mengensystem"><a href="20241014-disjunkt_sigma_vereinigunsstabiles_mengensytsem.html#ID-53e2afaa-1e8c-4327-8bc5-ccd93f3ec2e7">disjunkt sigma vereinigunsstabiles mengensystem</a></h3>
+<p>
+Seien $A_n \in \mathcal{D}_E$ paarweise disjunkt.
+So folgt, dass $A_n \cap E$ paarweise disjunkt sind.
+</p>
+
+<p>
+Damit gilt, da $\mu$ ein maß ist auch
+</p>
+
+<div class="math-block">\begin{align*}
+\mu_1(\coprod A_n \cap E) =&amp; \sum \mu_1(A_n \cap E) \\
+=&amp; \sum \mu_2(A_n \cap E) \\
+=&amp; \mu_2(\coprod A_n \cap E)
+\end{align*}</div>
+
+<p>
+Ferner gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{E} \in \mathcal{D}_{E}
+\end{align*}</div>
+<p>
+da $\mathcal{E}$ schnittstabil ist und für $E' \in \mathcal{E}$ auch $E' \cap E \in \mathcal{E}$ gilt.
+</p>
+
+<p>
+Damit folgt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{dyn}(\mathcal{E}) \subseteq \mathcal{D}_E
+\end{align*}</div>
+
+<p>
+nach <a href="20241015-generated_dykin_algebra_of_a_family_closed_under_intersections_as_borel_algebra.html#ID-925bcaac-5bdf-4563-b602-9dfefdd36f36">generated dynkin algebra of a family closed under intersections as sigma algebra</a> gilt ferner
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{A} \coloneqq \sigma(\mathcal{E}) = \mathrm{dyn}(\mathcal{E}) \subseteq \mathrm{dyn}(\mathcal{E})
+\end{align*}</div>
+
+
+
+<p>
+Man wähle $X_n$ mit $X_n \in \mathcal{E}$, $\mu(X_n) &lt; \infty$ und $X_n \nearrow X$
+</p>
+
+<p>
+Dann folgt $X_n \cap A \nearrow A$ und aus der stetigkeit
+</p>
+
+<div class="math-block">\begin{align*}
+\mu_1(A) =&amp; \mathrm{lim} \mu_1(A \cap X_n) \\
+=&amp; \mathrm{lim}\mu_2(A \cap X_n) \\
+=&amp; \mu_2(A)
+\end{align*}</div>
+
+<p>
+wobei $\mu_1(A \cap X_n) = \mu_2(A \cap X_n)$ folgt da aus $A \in \mathcal{A}$ auch $A \in \mathcal{D}_{X_n} \supseteq \mathcal{A}$ folgt.
+</p>
+
+</div>
+</body>
+</html>

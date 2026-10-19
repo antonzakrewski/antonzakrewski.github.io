@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>maximal graph without matching</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-5bc2714d-c2cd-4a56-8a3c-a8b881e8e8e7"></span><h1 class="title">maximal graph without matching</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $G = (V,E)$ be a <a href="20220904165445-graph.html#ID-2de260cf-41c4-4dec-9ae9-450c507fda60">graph</a> without <a href="20221217211447-perfect_matching.html#ID-d31de333-46f8-4f16-a996-cc5ce4fd794e">perfect matching</a> and maximal with respect to this property.
+then
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $C \subseteq G \setminus S$ be a <a href="20250426-connected_component_of_a_graph.html#ID-a24433b2-bbc8-477b-8010-7f8646882a73">connected component</a> which is not a <a href="20230327230707-vollstandiger_graph.html#ID-05e6ef66-0c7e-410d-a7d3-69e197a4f896">complete graph</a>.
+Let $a,a' \in V(C)$ be different <a href="20220904171138-knoten.html#ID-68ae441c-5aec-4100-8cfc-e31884ff6842">vertices</a> such that $aa' \not\in E$.
+Now choose a <a href="20250522-minimal_path_in_a_graph.html#ID-1ad85768-2b46-4f10-becf-b65dcfa0ba9a">minimal path</a> $\gamma: a \leadsto a'$.
+By assumption $\gamma$ traveses through at least one other vertex $b \in V(C)$, let $b \neq a'$ denote the neighbour of $a$.
+Let $b'$ be the neighbour of $b$ (possibly $a'$)
+</p>
+
+<p>
+Then $ab'\not\in E$ since $\gamma$ is minimal.
+</p>
+
+<p>
+Now $G$ is maximal, i.e. $G \cup ab'$ contains a perfect matching $M_1$ with necessarily $ab' \in M_1$.
+</p>
+
+<p>
+Furthermore there exists a vertex $v \in V$ with $bv \not\in E$.
+otherwise $b$ would be connected to each other vertex in $V$ and hence $b \in S, b \not\in C \subseteq V \setminus S$.
+</p>
+
+<p>
+Now we may add the vertex $bv$ which provides another perfect matching $M_2$ with $bv \in M_2$.
+</p>
+
+<p>
+Now consider a maximal  path $Q \in G$ with $Q = e_1,...,e_l$ with $v \in e_1$ which is alternating $e_{2n+ 1} \in  M_1, e_{2n} \in M_2$
+</p>
+
+<p>
+Let $u = e_l$ be the last edge.
+Now do a case distinction
+</p>
+
+<h4 id="u-in-m-1">$u \in M_1$</h4>
+<p>
+Then there does not exist a matching $u$ to something in $M_2$.
+Thus $u = b$ or $u = v$, where we can exclude the possibility $u = v$ since the path is by assumption disjoint.
+</p>
+
+<p>
+Now consider $C = Q \cup \{bv\}$
+</p>
+
+<h4 id="u-in-m-2">$u \in M_2$</h4>
+<p>
+Then there does not exist a matching $u$ to something in $M_1$.
+Then $u \in \{a,b'\}$
+</p>
+
+<p>
+Now consider $C = Q \cup \{ub, bv\}$
+</p>
+
+
+<h3 id="section"></h3>
+<p>
+In both cases we have an even amount of vertices in our circles..
+Then apply the <a href="20250522-perfect_matching_and_cirlce.html#ID-0705004c-6dce-4ede-8ddc-3051e19a8f7f">perfect matching and circle</a> which provides a perfect matching
+</p>
+
+<div class="math-block">\begin{align*}
+M = M_i \Delta C
+\end{align*}</div>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>realization / sing adjunction</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-469f840f-02fb-40bb-b802-88cc6ac37942"></span><h1 class="title">realization / sing adjunction</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathcal{A}, \mathcal{B}$ be <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">categories</a>, where $\mathcal{A}$ is a <a href="20220819181004-kleine_kategorie.html#ID-3c3f1c0d-53ad-476e-810a-756acd885263">small category</a> and $\mathcal{B}$ is <a href="20230923-cocomplete_category.html#ID-89cedbd1-199b-47a8-bc3f-574dd3accda9">cocomplete</a>.
+Then for a <a href="20220821181056-funktor_kategorie.html#ID-31c2e5e6-98c4-4ed8-be83-5d7dafaa12d2">functor</a> $\mathcal{F}: \mathcal{A} \rightarrow \mathcal{B}$ the <a href="20240708-realization_functor.html#ID-4480dc3f-aa23-4044-94ed-2fec4c675aa6">realization functor</a> is a <a href="20220831221344-linksadjungierte.html#ID-1e87e6b9-24df-41fb-bc1b-d35cfd2eaa7f">left adjoint</a>  to the <a href="20240708-sing_functor.html#ID-6e653969-120d-4ef0-8c06-e4985f8d58b1">sing functor</a>
+Then the realization functor is defined as
+</p>
+
+<div class="math-block">\begin{align*}
+\vert \cdot \vert_{\mathcal{F}}: \mathcal{P}(\mathcal{A}) \rightarrow \mathcal{B}
+X \mapsto&amp; \mathrm{colim}_{a \in A/X} \mathcal{F}(a)
+\end{align*}</div>
+
+<p>
+Then the sing functor is defined as
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Sing}_{\mathcal{F}}(-): \mathcal{B} \rightarrow&amp; \mathcal{P}(\mathcal{A}) \\
+b \mapsto&amp; \mathrm{Hom}_{\mathcal{B}}(\mathcal{F}(-), b)
+\end{align*}</div>
+
+
+<h2 id="proof">Proof</h2>
+
+
+
+
+<div class="math-block">\begin{align*}
+\mathrm{Hom}_{\mathcal{B}}(\vert x \vert_{\mathcal{F}}, y) \cong&amp; \mathrm{Hom}_{\mathcal{P}(\mathcal{A})}(x, \mathrm{Sing}_{\mathcal{F}}(y)) \\
+\cong&amp; \mathrm{Hom}_{\mathcal{B}}(\mathrm{colim}_{a \in A/x} \mathcal{F}(a), y) \\
+\cong&amp; \mathrm{lim}_{a \in A/x} \mathrm{Hom}_{\mathcal{B}}(\mathcal{F}(a), y) \\
+=&amp; \mathrm{lim}_{a \in A/x} \mathrm{Sing}_{\mathcal{F}}(y)(a)
+\end{align*}</div>
+<p>
+where the first isomorphism is given by the <a href="20240128-presheaf_as_colimit_of_representables.html#ID-712129fd-4e4d-4cd0-a2f8-2cf69862f577">contravariant co-Yoneda Lemma</a> and the second isomorphism is given by <a href="20231017-hom_functor_preserves_colimits.html#ID-5ff9ae3e-1b7d-4f39-99df-dab65b127f6a">contravariant hom-functor dualizes small colimits to limits</a>
+</p>
+
+<p>
+The second part
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Hom}_{\mathcal{P}(\mathcal{A})}(x,\mathrm{Sing}_{\mathcal{F}}(y)) \cong&amp; \mathrm{Hom}_{\mathcal{P}(\mathcal{A})}(\mathrm{colim}_{a \in A/x} a, \mathrm{Sing}_{\mathcal{F}}) \\
+\cong&amp; \mathrm{lim}_{a \in A/x} \mathrm{Hom}_{\mathcal{A}}(a, \mathrm{Sing}_{\mathcal{F}}(y)) \\
+\cong&amp; \mathrm{lim}_{a \in A/x} \mathrm{Sing}_{\mathcal{F}}(y)(a)
+\end{align*}</div>
+
+<p>
+where the first isomorphism is given by the contravariant yoneda lemma, the second isomorphism by the contravariant yoneda lemma
+</p>
+
+</div>
+</body>
+</html>

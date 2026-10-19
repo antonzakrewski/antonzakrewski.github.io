@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Markovkette und Multiplikation</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-f91c788f-dea7-4123-ba92-9a911680e4dd"></span><h1 class="title">Markovkette und Multiplikation</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $X_n$ eine <a href="20220904101519-markow_kette.html#ID-7ed34770-d827-4d65-806c-4590f95b642b">homogene Markovkette</a> mit Anfangsverteilung $\alpha$.
+Dann gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{P}(X_{n+k} = y \vert X_n = x) = \Pi^k(x,y)
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+<a href="20221024165350-beweis_durch_vollstandige_induktion_mit_starkerer_induktionsvoraussetzung.html#ID-1534f6c1-e094-4672-8e87-f36eb0e54b8b">Proof by induction</a>
+</p>
+
+<h3 id="induction-basis">induction basis</h3>
+<p>
+folgt für $\Pi^0$ als Einheitsmatrix $E_{n}$ für $n \in \overline{\mathbb{N}}$
+</p>
+
+<h3 id="induction-step">induction step</h3>
+<p>
+Dann gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{P}(X_{n+k} =&amp; y \vert X_n = x) =&amp; \sum_{z \in E} \mathbb{P}(X_{n+k} = y, X_{n+k-1} = z \vert X_n = x) \\
+=&amp; \sum_{z \in E} \mathbb{P}(X_{n+k} = y \vert X_{n+k-1} = z, X_n = x) \cdot \mathbb{P}(X_{n+k-1} = z, X_n = x) \\
+=&amp; \sum_{z \in E} \Pi(z,y) \cdot \mathbb{P}^{k-1}(x,z)  \\
+=&amp; \Pi^k(x,y)
+\end{align*}</div>
+
+
+<p>
+<a href="20210621220549-bedingte_wahrscheinlichkeit.html#ID-15afcb8e-c70f-416c-a34b-50f5e7a2fe78">Bedingte Wahrscheinlichkeit</a>
+<a href="20241105-fallunterscheidungsformel_der_bedingten_wahrscheinlichkeit.html#ID-0f0dfcc0-40b9-486d-b1c3-e0a88148a049">Fallunterscheidungsformel der bedingten Wahrscheinlichkeit</a>
+</p>
+
+</div>
+</body>
+</html>

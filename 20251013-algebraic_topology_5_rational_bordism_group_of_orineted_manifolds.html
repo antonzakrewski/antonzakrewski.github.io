@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>algebraic topology 5 - rational bordism group of oriented manifolds</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-0dd83640-6a79-4e25-bcf7-feaf2d554370"></span><h1 class="title">algebraic topology 5 - rational bordism group of oriented manifolds</h1>
+
+<h2 id="aspects">Aspects</h2>
+<ul>
+<li><a href="20240625-oriented_bordism.html#ID-3769b588-8861-4b5e-b2f7-82519b7ce0d5">oriented bordism</a> / <a href="20260112-smooth_oriented_bordism.html#ID-6f94eb2f-e686-48b1-8430-647fdb7e9e78">smooth oriented bordism</a> </li>
+
+<li><a href="20250430-cobordism.html#ID-abdc73af-e646-4a3e-b3d7-110fe36147b2">topological bordism</a> / <a href="20260112-smooth_bordism.html#ID-d6022d0e-3dd0-4f31-821c-d2b80ed2f8cd">smooth bordism</a> </li>
+
+<li></li>
+
+<li><a href="20260112-category_of_manifolds_is_small.html#ID-0046a869-c90a-4134-bf5f-f853775073bb">category of manifolds is small</a> </li>
+
+<li><a href="20260112-isomorphic_manifolds_are_bordant.html#ID-6860ac8a-c017-4eb8-ad6a-cb16a49b4d7b">isomorphic manifolds are bordant</a>   </li>
+
+<li><a href="20260112-1_category_bord.html#ID-79f5aeaa-82d6-432d-87e8-58e7ff4181c4">1-category Bord</a>   / <a href="20240904-1_category_bord.html#ID-e0359376-c3a2-4203-acf5-16466cd2e70e">1-category bord</a> </li>
+
+<li><a href="20240625-abelian_group_structure_on_bordism_classes_of_closed_oriented_n_manifolds.html#ID-a6a1c8e1-89b6-4b59-930c-b37b97479a8a">abelian group structure on bordism classes of closed oriented n-manifolds</a> </li>
+</ul>
+<ul>
+<li><a href="20260113-bordant_manifolds.html#ID-f20b97e7-2786-416a-8d3a-fdfa082a4f52">bordant manifolds</a>   </li>
+</ul>
+<ul>
+<li><a href="20260112-bordism_ring_omega.html#ID-b2d8b364-e30a-4467-8ecc-f8ae94b2d9bb">bordism ring omega</a> </li>
+
+<li><a href="20260112-bordism_ring_omega_so.html#ID-b9bd5a2a-16c7-49cc-8700-c04a6c48fb03">bordism ring omega so</a>   </li>
+
+<li><a href="20260112-bordism_ring_o.html#ID-76bb0e87-837e-4797-8bf0-c5440be3783b">bordism ring omega o</a> </li>
+
+<li><a href="20260112-bordism_ring_omega_s.html#ID-0b093459-732b-479b-aa42-61454da07f3c">bordism ring omega s_</a>  </li>
+</ul>
+<ul>
+<li><a href="20260113-theta_structure_of_a_closed_manifold.html#ID-44a883d6-a801-4edc-966a-dc0931194207">theta-structure of a closed manifold</a> </li>
+
+<li></li>
+
+<li><a href="20260113-opposite_manifold_of_a_theta_strutcure.html#ID-78ae72cc-0cee-4689-9664-74d7470cd324">opposite manifold of a theta structure</a>  </li>
+
+<li><a href="20260113-opposite_manifold_of_a_theta_structure_and_orientation.html#ID-fc2bde75-1cca-4268-aa0e-da9a1da772a7">opposite manifold of a theta structure and orientation</a> </li>
+</ul>
+<ul>
+<li><a href="20260113-bordism_group_omega_theta.html#ID-b3ea3f70-7eef-4efa-8b31-1950e789354c">bordism group omega theta</a> </li>
+
+<li><a href="20251013-mso_spectrum.html#ID-d78f6b93-3b1d-460d-9e26-8221d194c620">MSO spectrum</a> &amp; <a href="20251013-mo_spectrum.html#ID-5861c279-4efd-4558-9cbd-f41eecf131ed">MO spectrum</a> </li>
+
+<li><a href="20260114-smooth_theta_structure_on_a_manifold.html#ID-9f15fb29-1df8-4d9d-a567-8282f62c03b6">smooth theta-structure on a Manifold</a> &amp; TODO  </li>
+</ul>
+<h3 id="61">6.1</h3>
+
+<h3 id="62">6.2</h3>
+<ul>
+<li><a href="20260113-theta_structure_of_a_closed_manifold.html#ID-44a883d6-a801-4edc-966a-dc0931194207">theta-structure of a closed manifold</a> </li>
+
+<li><a href="20250905-normal_bundle.html#ID-812276be-7788-424b-8dc7-7666d58b13b0">normal bundle</a> / <a href="20260113-stable_normal_bundle.html#ID-cd11a3f0-c98a-4085-a72d-53187e023607">stable normal bundle</a>   </li>
+
+<li><a href="20260113-stable_tangent_bundle.html#ID-f081ca80-f92f-4466-932f-d85eaef4828a">stable tangent bundle</a>   </li>
+
+<li><a href="20260113-self_homotopies_in_an_anima_valued_group.html#ID-5eb3909b-2357-4243-8a9b-ebeb6b22d360">self homotopies in an anima valued group</a>   </li>
+
+<li><a href="20260113-opposite_manifold_of_a_theta_strutcure.html#ID-78ae72cc-0cee-4689-9664-74d7470cd324">opposite manifold of a theta structure</a>   </li>
+
+<li><a href="20260113-opposite_manifold_of_a_theta_structure_and_orientation.html#ID-fc2bde75-1cca-4268-aa0e-da9a1da772a7">opposite manifold of a theta structure and orientation</a>   </li>
+</ul>
+<ul>
+<li><a href="20260113-category_of_theta_manifolds.html#ID-c13f6604-eb30-4b64-bd1c-e538c23dfe7c">category of theta manifolds</a>   </li>
+
+<li><a href="20260114-category_of_smooth_theta_manifolds.html#ID-96628189-5686-40f0-ac3a-e0fa3c9933ef">category of smooth theta manifolds</a> </li>
+</ul>
+<h3 id="63">6.3</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="64">6.4</h3>
+<ul>
+<li><a href="20260113-theta_structure_bo.html#ID-9a6381ae-54b2-4361-8d60-b40ba4b8b10c">theta-structure BO</a> </li>
+
+<li><a href="20260113-theta_structure_bo_and_bordism.html#ID-b84d9b72-c312-4298-b7b4-401023bb3fc0">theta-structure BO and bordism</a>   </li>
+</ul>
+<h3 id="65">6.5</h3>
+<ul>
+<li><a href="20260113-theta_structure_bso.html#ID-a5945334-7655-4223-ba33-af779b909846">theta-structure BSO</a> </li>
+
+<li><a href="20260113-theta_structure_bso_and_oriented_bordism.html#ID-8bde460e-ea2e-4dea-88ed-742ff29415c3">theta-structure BSO and oriented bordism</a>   </li>
+</ul>
+<h3 id="66">6.6</h3>
+<ul>
+<li><a href="20250920-thom_space_functor.html#ID-bb63b52e-faa1-472e-8174-01ef43ebbb82">thom spectrum functor</a> </li>
+
+<li><a href="20260113-pontryagin_thom_construction.html#ID-b65d19ba-1839-4b08-b6f8-40dbdfadbe47">Pontryagin-Thom construction</a> </li>
+
+<li><a href="20260113-pontryagin_thom_collapse_map.html#ID-63ac2e29-52c2-469c-b8b8-5d653e8c9891">Pontryagin-Thom collapse map</a>   </li>
+
+<li></li>
+
+<li><a href="20260113-low_homotopy_groups_of_mso.html#ID-5895d240-d9ad-4cf0-bd33-2519f42f170b">low homotopy groups of MSO</a> &amp; <a href="20260113-low_homotopy_group_of_mo.html#ID-ddd3e2d5-0982-4799-957e-4d62af6ace91">low homotopy group of MO</a></li>
+</ul>
+<h3 id="67">6.7</h3>
+<ul>
+<li><a href="20260113-pontryagin_thom_isomorphism.html#ID-eca9916c-be6d-424b-afc4-38632e963757">pontryagin-thom Isomorphism</a> </li>
+
+<li><a href="20260113-pontryagin_thom_construction_and_products.html#ID-e69f4690-5caa-4547-99d4-8f64fea22d99">Pontryagin-Thom construction and products</a>   </li>
+
+<li><a href="20260113-pontryagin_thom_for_e_n_groups.html#ID-e7af2ada-bf1d-4b4a-918a-c814bee62d40">Pontryagin-Thom for E_n-groups</a>   </li>
+
+<li>frage: liftet pontr   </li>
+</ul>
+<h3 id="68">6.8</h3>
+<ul>
+<li><a href="20260113-characteristic_number.html#ID-fede9aff-4c53-4a55-8f53-35dbde94ab5b">characteristic number for a cohomology class</a> </li>
+
+<li><a href="20260113-oriented_map_theta.html#ID-40f7537d-eff9-444b-935c-4886471b6851">oriented map theta</a>   </li>
+
+<li><a href="20260113-r_oriented_map_theta.html#ID-37669c2b-2d5c-4c31-92e7-99bb1f3e009a">R-oriented map theta</a>   </li>
+</ul>
+<h3 id="69">6.9</h3>
+<ul>
+<li><a href="20260113-characteristic_number_morphism.html#ID-3fe4b31d-0bed-4bd8-a17c-a57b72b70bb7">characteristic number morphism</a>   </li>
+
+<li></li>
+</ul>
+<h3 id="614">6.14</h3>
+<ul>
+<li>$\Omega_{*}^{\mathrm{SO}}$</li>
+
+<li>$\Omega_k^\mathrm{so}$ is finite if $k \neq 0 \mathrm{mod} 4$  </li>
+
+<li><a href="20260119-omega_so_is_degreewise_finitely_generated.html#ID-15334ebb-2f50-41e7-b72a-7244b975fe8b">Omega so is degreewise finitely generated</a>  </li>
+
+<li><a href="20260119-omega_so_is_finite_for_elements_mod_t.html#ID-2458ad8c-835a-4f71-94c2-794b22b58b37">omega^so is finite for elements mod 4</a>   </li>
+
+<li><a href="20260119-fundamental_theorem_of_serre_class_theory_for_spectra.html#ID-b62395db-9959-42ed-9e3e-87f5fa88defb">fundamental theorem of serre class theory for spectra</a> </li>
+
+<li><a href="20260119-homology_of_bso_is_finitely_generated.html#ID-3dc8a2a0-7be3-4188-abec-12d2beb93590">homology of BSO is finitely generated</a> </li>
+
+<li><a href="20260119-homotopy_of_mso_is_finitely_generated.html#ID-2e593ccd-0bda-471a-b1f9-9a393121ede4">homotopy of MSO is finitely generated</a>   </li>
+
+<li><a href="20260119-integral_homology_of_an_eilenberg_maclane_spectrum_for_a_finitely_generated_group.html#ID-0192600e-5211-44b6-a3f7-f5cdb9f2bea6">integral homology of an eilenberg maclane spectrum for a finitely generated group</a>   </li>
+
+<li></li>
+</ul>
+<h3 id="614-b-recall">6.14 b) recall:</h3>
+<ul>
+<li><a href="20240625-signature_of_a_oriented_4n_manifold.html#ID-acc5728c-b18c-421a-b8b7-aef53f43eb18">signature of a oriented 4n manifold</a>   </li>
+
+<li><a href="20240701-signature_of_a_bilinear_form.html#ID-5ee60395-bf05-46b7-9daa-8fcbd4174ee3">signature of a bilinear form</a>  </li>
+
+<li><a href="20240625-signature_of_a_boundary.html#ID-77b3ca22-c33e-44c6-9f02-7b7521b25ef7">signature of a boundary</a> </li>
+
+<li><a href="20240625-signature_as_group_homomorphism_from_bordism_clases_to_z.html#ID-fd469a5c-6eea-4b5c-a726-48db0ceb0c2f">signature as group homomorphism from bordism classes to Z</a>   </li>
+
+<li><a href="20240625-signature_as_group_homomorphism_from_bordism_clases_to_z.html#ID-fd469a5c-6eea-4b5c-a726-48db0ceb0c2f">signature as group homomorphism from bordism classes to Z</a>  </li>
+
+<li>$(V,b)$ is symmertic unimodular bileanre</li>
+
+<li><a href="20240625-signature_of_a_bilinear_form_admitting_a_lagrangian.html#ID-3be6f93d-4a90-47f9-bf68-34a964a1726d">signature of a bilinear form admitting a lagrangian</a>      </li>
+
+<li>for $W$ as above find such an $L \in H^{2n} ( \partial W, \mathbb{R})$</li>
+</ul>
+<h3 id="615">6.15</h3>
+<ul>
+<li><a href="20260119-signature_theorem.html#ID-b2458011-cee6-45ce-909e-95be61096a94">signature theorem</a> </li>
+
+<li></li>
+</ul>
+<h3 id="616">6.16</h3>
+<ul>
+<li><a href="20260119-rational_smooth_oriented_bordism_group.html#ID-e7eb45e1-7985-46ce-a590-9d2536cdd6a1">rational smooth oriented bordism group</a> </li>
+
+<li><a href="20260119-inclusion_of_integral_smooth_oriented_bordism_group.html#ID-b8d03798-0c9c-4811-84fc-5a0d46896c10">inclusion of integral smooth oriented bordism group</a>    </li>
+</ul>
+
+<p>
+in particular
+</p>
+
+
+<h2 id="exercise">exercise</h2>
+<ul>
+<li><a href="20260122-orientation_reversing_diffeomorphism_and_torsion.html#ID-933aafa7-6acd-4290-a4bf-282d83159f9b">orientation reversing diffeomorphism and torsion in omega so</a> </li>
+
+<li><a href="20260122-n_fold_covering_and_omega_so.html#ID-d866eb8e-d523-417a-b06e-d19c0436e909">n-fold covering and omega so</a>   </li>
+</ul>
+</div>
+</body>
+</html>

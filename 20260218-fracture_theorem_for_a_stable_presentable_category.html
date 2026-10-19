@@ -1,258 +1,131 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2026-02-18 Mi 20:19 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>fracture theorem for a stable presentable category</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">fracture theorem for a stable presentable category</h1>
-<div id="outline-container-orge3a7fe4" class="outline-2">
-<h2 id="orge3a7fe4">Proposition</h2>
-<div class="outline-text-2" id="text-orge3a7fe4">
+<span id="ID-eee37dd8-41cc-4cd9-8000-54c383745f6d"></span><h1 class="title">fracture theorem for a stable presentable category</h1>
+
+<h2 id="proposition">Proposition</h2>
 <p>
-Let <img src="ltximg/20260218-fracture_theorem_for_a_stable_presentable_category_96df588f7ba1112401477398ba73cc7f2e69ec05.svg" alt="20260218-fracture_theorem_for_a_stable_presentable_category_96df588f7ba1112401477398ba73cc7f2e69ec05.svg" class="org-svg" /> be a <a href="20241017-stable_infinity_category.html#ID-baac6abf-7cfd-4eb9-9764-dfc1933edba4">stable</a> <a href="20241016-presentable_infinity_category.html#ID-346bd670-f443-4290-83e6-015d1801ed20">presentable</a> <a href="20240404-simplicial_set_as_infinity_category.html#ID-4635a6ee-1ad5-44cb-8e36-4a934f5ae4bf">category</a>, <img src="ltximg/20260218-fracture_theorem_for_a_stable_presentable_category_a78e4896bf000cefe63920fba67192a894912ecf.svg" alt="20260218-fracture_theorem_for_a_stable_presentable_category_a78e4896bf000cefe63920fba67192a894912ecf.svg" class="org-svg" /> a small set and for every <img src="ltximg/20260218-fracture_theorem_for_a_stable_presentable_category_777a5c37ad5924a9cdc30f1e633e06cd8d2d35bb.svg" alt="20260218-fracture_theorem_for_a_stable_presentable_category_777a5c37ad5924a9cdc30f1e633e06cd8d2d35bb.svg" class="org-svg" /> let <img src="ltximg/20260218-fracture_theorem_for_a_stable_presentable_category_12cfa0cd907d8dce697d07e234b9ae22561fb129.svg" alt="20260218-fracture_theorem_for_a_stable_presentable_category_12cfa0cd907d8dce697d07e234b9ae22561fb129.svg" class="org-svg" /> an <a href="20260218-exact_localization_of_an_exact_category.html#ID-5027343f-e852-4fb4-b481-2374861ca363">exact localization of an exact category</a>.<br />
-Assume that <img src="ltximg/20260218-fracture_theorem_for_a_stable_presentable_category_eba98c99df12530ce9724761904489cd200e596a.svg" alt="20260218-fracture_theorem_for_a_stable_presentable_category_eba98c99df12530ce9724761904489cd200e596a.svg" class="org-svg" /> is another exact localization functor and <img src="ltximg/20260218-fracture_theorem_for_a_stable_presentable_category_5b8e2ea609895e9f5bfba7ba6afffa466b18add3.svg" alt="20260218-fracture_theorem_for_a_stable_presentable_category_5b8e2ea609895e9f5bfba7ba6afffa466b18add3.svg" class="org-svg" /> <a href="20240624-natural_transformation_between_functors_of_infinity_categories.html#ID-1bf3c0ae-aa9c-4c2f-99b2-984072543d82">natural transformations</a> such that<br />
+Let $\mathcal{D}$ be a <a href="20241017-stable_infinity_category.html#ID-baac6abf-7cfd-4eb9-9764-dfc1933edba4">stable</a> <a href="20241016-presentable_infinity_category.html#ID-346bd670-f443-4290-83e6-015d1801ed20">presentable</a> <a href="20240404-simplicial_set_as_infinity_category.html#ID-4635a6ee-1ad5-44cb-8e36-4a934f5ae4bf">category</a>, $I$ a small set and for every $i \in I$ let $\mathcal{L}_i: \mathcal{D} \rightarrow \mathcal{D}$ an <a href="20260218-exact_localization_of_an_exact_category.html#ID-5027343f-e852-4fb4-b481-2374861ca363">exact localization of an exact category</a>.
+Let that $\mathcal{L}': \mathcal{D} \rightarrow \mathcal{D}$ is another exact localization functor and $\alpha_i: \mathrm{id}_{\mathcal{D}} \rightarrow \mathcal{L}_i, \alpha': \mathrm{id}_{\mathcal{D}} \rightarrow \mathcal{L}'$ be the <a href="20241109-infinity_unit_transformation.html#ID-2938f9f8-5823-47ef-b80a-c23e2dd61aea">unit</a> transformations.
+Assume that
 </p>
-<ol class="org-ol">
-<li><img src="ltximg/20260218-fracture_theorem_for_a_stable_presentable_category_0f6e15f6ba1a0e7522311528284c99e7535a1e7b.svg" alt="20260218-fracture_theorem_for_a_stable_presentable_category_0f6e15f6ba1a0e7522311528284c99e7535a1e7b.svg" class="org-svg" /> for all <img src="ltximg/20260218-fracture_theorem_for_a_stable_presentable_category_b2d9a29585f6dd2634fcd2d7da50d2f24cfe23e4.svg" alt="20260218-fracture_theorem_for_a_stable_presentable_category_b2d9a29585f6dd2634fcd2d7da50d2f24cfe23e4.svg" class="org-svg" /><br /></li>
-<li>the <img src="ltximg/20260218-fracture_theorem_for_a_stable_presentable_category_6d649611bbd3029713799b0ea1a1508caff3a8a0.svg" alt="20260218-fracture_theorem_for_a_stable_presentable_category_6d649611bbd3029713799b0ea1a1508caff3a8a0.svg" class="org-svg" /> is an equivalence<br /></li>
-<li>the functor <img src="ltximg/20260218-fracture_theorem_for_a_stable_presentable_category_46139d03c34be7e94e30b62154db14c6d161c978.svg" alt="20260218-fracture_theorem_for_a_stable_presentable_category_46139d03c34be7e94e30b62154db14c6d161c978.svg" class="org-svg" /> is <a href="20240331-conservative_functor_between_infinity_categories.html#ID-37cd5c52-6d86-4178-9721-6908bb0a3087">conservative</a><br /></li>
+<ol>
+<li>$\mathcal{L}_j \mathcal{L}' \simeq 0$ for all $j \in I$</li>
+
+<li>the $\mathcal{L}_j(\prod_{i} \alpha_i): \mathcal{L}_j(\mathrm{id}(-)) \rightarrow \mathcal{L}_j(\prod_{i} \mathcal{L}_i)$ is an equivalence   </li>
+
+<li>the functor $(\prod_{i \in I} \mathcal{L}) \times \mathcal{L}'$ is <a href="20240331-conservative_functor_between_infinity_categories.html#ID-37cd5c52-6d86-4178-9721-6908bb0a3087">conservative</a></li>
 </ol>
-
 <p>
-Then<br />
+Then
 </p>
 
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20260218-fracture_theorem_for_a_stable_presentable_category_44fd6346de59a015856e5dec6036921c43d52c73.svg" alt="20260218-fracture_theorem_for_a_stable_presentable_category_44fd6346de59a015856e5dec6036921c43d52c73.svg" class="org-svg" />
-</span>
-</div>
+<div class="equation-container"><span class="equation"><img src="ltximg/496eaa3a3cbd146dc525.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-is a <a href="20241017-infinity_pullback.html#ID-7aaac468-a0bb-4e73-bfd3-d4c591c10e4f">pullback</a>   <br />
+is a <a href="20241017-infinity_pullback.html#ID-7aaac468-a0bb-4e73-bfd3-d4c591c10e4f">pullback</a>
 </p>
-</div>
-</div>
-<div id="outline-container-org2801c1a" class="outline-2">
-<h2 id="org2801c1a">Proof</h2>
-<div class="outline-text-2" id="text-org2801c1a">
+
+<h2 id="proof">Proof</h2>
 <p>
-Let <img src="ltximg/20260218-fracture_theorem_for_a_stable_presentable_category_ffa368a2ea7481de8f1a1712151caf3e49c64dea.svg" alt="20260218-fracture_theorem_for_a_stable_presentable_category_ffa368a2ea7481de8f1a1712151caf3e49c64dea.svg" class="org-svg" /> be the <a href="20241017-infinity_pullback.html#ID-7aaac468-a0bb-4e73-bfd3-d4c591c10e4f">pullback</a> of the span above, then there exists a canonical map <img src="ltximg/20260218-fracture_theorem_for_a_stable_presentable_category_edf6a019e57eddf26df3864ca57e4df5d475e9e0.svg" alt="20260218-fracture_theorem_for_a_stable_presentable_category_edf6a019e57eddf26df3864ca57e4df5d475e9e0.svg" class="org-svg" />.<br />
-using the <a href="20241029-natural_isomorphism_between_infinity_functors_and_objectwise_isomorphism.html#ID-ab56d28a-a361-436c-91c0-ab97bba85e89">pointwise criterion</a> and condition 3 it suffices to show that <img src="ltximg/20260218-fracture_theorem_for_a_stable_presentable_category_438133b350255724a2ede513e2ee083b742e9473.svg" alt="20260218-fracture_theorem_for_a_stable_presentable_category_438133b350255724a2ede513e2ee083b742e9473.svg" class="org-svg" /> are equivalences.<br />
+First note that the square above commutes.
+Let $\mathcal{G} \in \mathrm{Fun}(\mathcal{D}, \mathcal{D})$ be the <a href="20241017-infinity_pullback.html#ID-7aaac468-a0bb-4e73-bfd3-d4c591c10e4f">pullback</a> of the span above, then there exists a canonical map $f: \mathrm{id}_{\mathcal{D}} \rightarrow \mathcal{G}$.
+</p>
+
+
+<div class="equation-container"><span class="equation"><img src="ltximg/d13a406c465ecfb6d522.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+<p>
+using the <a href="20241029-natural_isomorphism_between_infinity_functors_and_objectwise_isomorphism.html#ID-ab56d28a-a361-436c-91c0-ab97bba85e89">pointwise criterion</a> and condition 3 it suffices to show that $\mathcal{L}(f), \mathcal{L}_i(f)$ are equivalences.
+</p>
+
+
+<h3 id="mathcallf">$\mathcal{L}(f)$</h3>
+
+<p>
+Then we may apply $\mathcal{L}'$ and get the diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/d935467962bf5045ab9e.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+where we use that $\mathcal{L}'$ is exact.
 </p>
 
 <p>
-Then we may apply <img src="ltximg/20260218-fracture_theorem_for_a_stable_presentable_category_50fb707eb712821d6787d85f0e4de92f769d1fac.svg" alt="20260218-fracture_theorem_for_a_stable_presentable_category_50fb707eb712821d6787d85f0e4de92f769d1fac.svg" class="org-svg" /> and get the diagram<br />
+Then the functor $\mathcal{L}'$ is a localization, so in particular $\mathcal{L}'(\alpha')$ is an equivalence.
+Moreover the right vertical map $\mathcal{L}'(\alpha'(\prod_{i} \mathcal{L}_i))$ is an equivalence since it is of the form $\mathcal{L}'(\alpha)$.
 </p>
-
-<div class="equation-container">
-<span class="equation">
-<img src="ltximg/20260218-fracture_theorem_for_a_stable_presentable_category_33e3c0009a3666f0608370da0d563c9d06e4f76d.svg" alt="20260218-fracture_theorem_for_a_stable_presentable_category_33e3c0009a3666f0608370da0d563c9d06e4f76d.svg" class="org-svg" />
-</span>
-</div>
 
 <p>
-Then since <img src="ltximg/20260218-fracture_theorem_for_a_stable_presentable_category_50fb707eb712821d6787d85f0e4de92f769d1fac.svg" alt="20260218-fracture_theorem_for_a_stable_presentable_category_50fb707eb712821d6787d85f0e4de92f769d1fac.svg" class="org-svg" /> is a localization<br />
+But since the square is a pullback, we get that the left vertical map is an equivalence (cf. <a href="20250330-infinity_pullback_and_parallel_equivalences.html#ID-d4d9a656-9e09-4fd3-aedf-18311ed8438c">square with parallel equivalences as infinity pullback</a>) .
+Hence by a <a href="20250619-two_out_of_three_for_equivalences.html#ID-aab7d176-840a-4dfc-93f0-43eee68f8ec2">two out of three for equivalences</a> we may finally conclude that $\mathcal{L}' \rightarrow \mathcal{L}'(\mathcal{G})$ is an equivalence.
 </p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2026-02-18 Mi 20:19</p>
+
+
+<h3 id="mathcallf">$\mathcal{L}(f)$</h3>
+<p>
+Similarly we can apply $\mathcal{L}_j$ and get
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/b60f489b4d8728608e13.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Now both bottom corners are given by $0$ (using assumption c) and hence the map $\mathcal{L}_j \mathcal{G} \rightarrow \mathcal{L}_j(\prod_{i} \mathcal{L}_i$ is an equivalence.
+Moreover the morphism $\mathcal{L}_j(\prod_i \alpha_i)$ is an equivalence by assumption 2).
+</p>
+
+
 </div>
 </body>
 </html>

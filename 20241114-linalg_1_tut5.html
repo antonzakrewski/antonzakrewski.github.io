@@ -1,208 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-11-20 Mi 10:52 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>LinAlg 1 - Tut5</title>
+<title>LinAlg 1 - Tut 5 (24/25)</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -229,205 +52,191 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">LinAlg 1 - Tut5</h1>
-<div id="outline-container-orgc8273a3" class="outline-2">
-<h2 id="orgc8273a3">Erinnerung</h2>
-<div class="outline-text-2" id="text-orgc8273a3">
-</div>
-<div id="outline-container-orgaa76fdd" class="outline-3">
-<h3 id="orgaa76fdd">disclaimer</h3>
-<div class="outline-text-3" id="text-orgaa76fdd">
+<span id="ID-feb15aaa-494c-4040-bdc4-1462b24b6016"></span><h1 class="title">LinAlg 1 - Tut 5 (24/25)</h1>
+
+<h2 id="erinnerung">Erinnerung</h2>
+
+<h3 id="disclaimer">disclaimer</h3>
 <p>
-Diese Erinnerung dient primär als Hilfe für die Tutoriumsaufgaben.<br />
+Diese Erinnerung dient primär als Hilfe für die Tutoriumsaufgaben.
 </p>
 
 <p>
-Insbesondere ist diese weder vollständig (ich habe leider als Tutor auch keine genauen Informationen zu den Vorlesungsinhalten) noch i.A. korrekt (ich habe viele Zettel selber während des ersten Semesters geschrieben und selten gegengelesen, d.h. jedes Buch wird um Größenordnungen weniger Fehler beinhalten)<br />
+Insbesondere ist diese weder vollständig (ich habe leider als Tutor auch keine genauen Informationen zu den Vorlesungsinhalten) noch i.A. korrekt (ich habe viele Zettel selber während des ersten Semesters geschrieben und selten gegengelesen, d.h. jedes Buch wird um Größenordnungen weniger Fehler beinhalten)
 </p>
-</div>
-</div>
-<div id="outline-container-orgbc04bb5" class="outline-3">
-<h3 id="orgbc04bb5">Liste</h3>
-<div class="outline-text-3" id="text-orgbc04bb5">
-<ul class="org-ul">
-<li><a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a>  <br /></li>
-<li><a href="20230227130935-unterring.html#ID-157d533b-1650-499e-be1d-341b1fa8fa15">Unterring</a> <br /></li>
-<li><a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a> <br /></li>
-<li><a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a> <br /></li>
-<li><a href="20220104220747-binomischer_lehrsatz.html#ID-93572b6e-6e51-486b-bf69-476329e57614">Binomial theorem for a commutative ring</a>   <br /></li>
-<li><a href="20220303184021-division_mit_rest.html#ID-b3888b42-f451-4d20-aaf3-c3f318362b24">Division mit Rest</a>   <br /></li>
-<li><a href="20220906095223-großter_gemeinsamer_teiler.html#ID-d299c206-515e-44af-8ff5-e332312a896a">greatest common divisor</a> <br /></li>
+
+<h3 id="liste">Liste</h3>
+<ul>
+<li><a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a>  </li>
+
+<li><a href="20230227130935-unterring.html#ID-157d533b-1650-499e-be1d-341b1fa8fa15">Unterring</a> </li>
+
+<li><a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a> </li>
+
+<li><a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">Körper</a> </li>
+
+<li><a href="20220104220747-binomischer_lehrsatz.html#ID-93572b6e-6e51-486b-bf69-476329e57614">Binomial theorem for a commutative ring</a>   </li>
+
+<li><a href="20220303184021-division_mit_rest.html#ID-b3888b42-f451-4d20-aaf3-c3f318362b24">Division mit Rest</a>   </li>
+
+<li><a href="20220906095223-großter_gemeinsamer_teiler.html#ID-d299c206-515e-44af-8ff5-e332312a896a">greatest common divisor</a> </li>
 </ul>
-</div>
-</div>
-</div>
-<div id="outline-container-org894173b" class="outline-2">
-<h2 id="org894173b">Aufgaben</h2>
-<div class="outline-text-2" id="text-org894173b">
-</div>
-<div id="outline-container-org15353c1" class="outline-3">
-<h3 id="org15353c1">0) Binomialkoeffizient</h3>
-<div class="outline-text-3" id="text-org15353c1">
+<h2 id="aufgaben">Aufgaben</h2>
+
+<h3 id="0-binomialkoeffizient">0) Binomialkoeffizient</h3>
 <p>
-Seien \(n,k \in \mathbb{N}_0\).<br />
+Seien $n,k \in \mathbb{N}_0$.
 </p>
-</div>
-<div id="outline-container-org057170b" class="outline-4">
-<h4 id="org057170b">a) alternierende Summe</h4>
-<div class="outline-text-4" id="text-org057170b">
+
+<h4 id="a-alternierende-summe">a) alternierende Summe</h4>
 <p>
-Zeige<br />
+Zeige
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \sum_{k=0}^n (-1)^k \binom{n}{k} = 0
-\end{align*}
-</div>
-</div>
-<div id="outline-container-orgcaff5dd" class="outline-4">
-<h4 id="orgcaff5dd">b) summe über die Binomialkoeffizienten</h4>
-<div class="outline-text-4" id="text-orgcaff5dd">
+\end{align*}</div>
+
+<h4 id="b-summe-uber-die-binomialkoeffizienten">b) summe über die Binomialkoeffizienten</h4>
 <p>
-Finde<br />
+Finde
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \sum_{k=0}^n \binom{n}{k} 
-\end{align*}
-</div>
-</div>
-</div>
-<div id="outline-container-org61135b2" class="outline-3">
-<h3 id="org61135b2">1) diverse Fingerübungen</h3>
-<div class="outline-text-3" id="text-org61135b2">
-</div>
-<div id="outline-container-orgf1a6477" class="outline-4">
-<h4 id="orgf1a6477">a)</h4>
-<div class="outline-text-4" id="text-orgf1a6477">
+\end{align*}</div>
+
+<h3 id="1-diverse-fingerubungen">1) diverse Fingerübungen</h3>
+
+<h4 id="a">a)</h4>
 <p>
-Seien \(a,b \in \mathbb{Z}\) mit <a href="20220906095223-großter_gemeinsamer_teiler.html#ID-d299c206-515e-44af-8ff5-e332312a896a">größtem gemeinsamen Teiler</a> \(d = \mathrm{ggT}(a,b)\).<br />
-Dann existieren \(x,y\) so dass<br />
+Seien $a,b \in \mathbb{Z}$ mit <a href="20220906095223-großter_gemeinsamer_teiler.html#ID-d299c206-515e-44af-8ff5-e332312a896a">größtem gemeinsamen Teiler</a> $d = \mathrm{ggT}(a,b)$.
+Dann existieren $x,y$ so dass
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 d = ax + by 
-\end{align*}
+\end{align*}</div>
 
 <p>
-Tipp:<br />
-Betrachte die Menge \(\{ax + by \vert x,y \in \mathbb{Z}\} \cap ( \mathbb{N} \setminus \{0\})\).<br />
-Diese enthält ein kleinstes Element \(d'\).<br />
+Tipp:
+Betrachte die Menge $\{ax + by \vert x,y \in \mathbb{Z}\} \cap ( \mathbb{N} \setminus \{0\})$.
+Diese enthält ein kleinstes Element $d'$.
 </p>
 
 <p>
-Teile dann \(a\) durch \(d'\) (mit Rest).<br />
+Teile dann $a$ durch $d'$ (mit Rest).
 </p>
-</div>
-</div>
-<div id="outline-container-org73ae95a" class="outline-4">
-<h4 id="org73ae95a">b)</h4>
-<div class="outline-text-4" id="text-org73ae95a">
+
+<h4 id="b">b)</h4>
 <p>
-Sei der Ring \((\mathbb{Z}/n \mathbb{Z},+,\cdot)\) gegeben.<br />
-Zeige, dass ein element \([m] \in \mathbb{Z}/n \mathbb{Z}\) eine einheit ist wenn<br />
+Sei der Ring $(\mathbb{Z}/n \mathbb{Z},+,\cdot)$ gegeben.
+Zeige, dass ein element $[m] \in \mathbb{Z}/n \mathbb{Z}$ eine einheit ist wenn
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \mathrm{ggT}(m,n) = 1
-\end{align*}
+\end{align*}</div>
 <p>
-gilt.<br />
+gilt.
 </p>
-</div>
-</div>
-<div id="outline-container-org540f4e2" class="outline-4">
-<h4 id="org540f4e2">c) Nullteilerfreiheit eines Körpers</h4>
-<div class="outline-text-4" id="text-org540f4e2">
+
+<h4 id="c-nullteilerfreiheit-eines-korpers">c) Nullteilerfreiheit eines Körpers</h4>
 <p>
-Sei \((R, \cdot, +)\) ein Ring (verschieden vom Nullring), \(\alpha \in R^{\times}\) eine Einheit.<br />
+Sei $(R, \cdot, +)$ ein Ring (verschieden vom Nullring), $\alpha \in R^{\times}$ eine Einheit.
 </p>
 
 <p>
-Zeige dass \(\alpha\) kein <a href="20221226125328-nullteiler.html#ID-dc985755-3df5-4b03-929e-659ee65ad000">Nullteiler</a> ist.<br />
+Zeige dass $\alpha$ kein <a href="20221226125328-nullteiler.html#ID-dc985755-3df5-4b03-929e-659ee65ad000">Nullteiler</a> ist.
 </p>
-</div>
-</div>
-<div id="outline-container-org745839f" class="outline-4">
-<h4 id="org745839f">d)</h4>
-<div class="outline-text-4" id="text-org745839f">
+
+<h4 id="d">d)</h4>
 <p>
-folgere dass ein Körper keinen Nullteiler ungleich \(0\) besitzt.<br />
+folgere dass ein Körper keinen Nullteiler ungleich $0$ besitzt.
 </p>
-</div>
-</div>
-<div id="outline-container-orgc74bcee" class="outline-4">
-<h4 id="orgc74bcee">e)</h4>
-<div class="outline-text-4" id="text-orgc74bcee">
+
+<h4 id="e">e)</h4>
 <p>
-Zeige, dass \(\mathbb{Z}/n \mathbb{Z}\) ein Körper ist genau dann wenn \(n\) eine Primzahl ist.<br />
+Zeige, dass $\mathbb{Z}/n \mathbb{Z}$ ein Körper ist genau dann wenn $n$ eine Primzahl ist.
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-org2ca5105" class="outline-3">
-<h3 id="org2ca5105">2) gaußsche ganze zahlen</h3>
-<div class="outline-text-3" id="text-org2ca5105">
-</div>
-<div id="outline-container-org6d6a77a" class="outline-4">
-<h4 id="org6d6a77a">a) gaußsche ganze zahlen als ring</h4>
-<div class="outline-text-4" id="text-org6d6a77a">
+
+<h3 id="2-gausche-ganze-zahlen">2) gaußsche ganze zahlen</h3>
+
+<h4 id="a-gausche-ganze-zahlen-als-ring">a) gaußsche ganze zahlen als ring</h4>
 <p>
-Seien \(\mathbb{Z}[\mathrm{i}] = \{a + b \mathrm{i} \vert a,b \in \mathbb{Z}\} \subseteq \mathbb{C}\) die ganzen gaußschen Zahlen.<br />
-Zeige, dass \(\mathbb{Z}[ \mathrm{i}]\) ein Unterring von \(\mathbb{C}\) ist.<br />
+Seien $\mathbb{Z}[\mathrm{i}] = \{a + b \mathrm{i} \vert a,b \in \mathbb{Z}\} \subseteq \mathbb{C}$ die ganzen gaußschen Zahlen.
+Zeige, dass $\mathbb{Z}[ \mathrm{i}]$ ein Unterring von $\mathbb{C}$ ist.
 </p>
-</div>
-</div>
-<div id="outline-container-org383a499" class="outline-4">
-<h4 id="org383a499">b) Einheiten der gaußschen ganzen Zahlen</h4>
-<div class="outline-text-4" id="text-org383a499">
+
+<h4 id="b-einheiten-der-gauschen-ganzen-zahlen">b) Einheiten der gaußschen ganzen Zahlen</h4>
 <p>
-Bestimme die Menge der Einheiten der gaußschen ganzen Zahlen.<br />
+Bestimme die Menge der Einheiten der gaußschen ganzen Zahlen.
 </p>
 
 <p>
-Tipp. betrachte den <a href="20210702105843-betrag_komplexe_zahlen.html#ID-38183aff-ed06-49d9-ab85-e95ff3730ddb">komplexen Absolutbetrags</a><br />
+Tipp. betrachte den <a href="20210702105843-betrag_komplexe_zahlen.html#ID-38183aff-ed06-49d9-ab85-e95ff3730ddb">komplexen Absolutbetrags</a>
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \vert a + b \mathrm{i} \vert \coloneqq \sqrt{a^2 + b^2}
-\end{align*}
+\end{align*}</div>
 <p>
-für \(a, b \in \mathbb{R}\).<br />
+für $a, b \in \mathbb{R}$.
 </p>
 
 <p>
-Nimm als gegeben an, dass der komplexe Absolutbetrag multiplikativ ist, d.h. für \(z_1,z_2 \in \mathbb{C}\) gilt<br />
+Nimm als gegeben an, dass der komplexe Absolutbetrag multiplikativ ist, d.h. für $z_1,z_2 \in \mathbb{C}$ gilt
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 \vert z_1 \cdot z_2 \vert = \vert z_1 \vert \cdot \vert z_2 \vert
-\end{align*}
-</div>
-</div>
-</div>
-<div id="outline-container-org816c8dc" class="outline-3">
-<h3 id="org816c8dc">3)</h3>
-<div class="outline-text-3" id="text-org816c8dc">
-</div>
-</div>
-</div>
-<div id="outline-container-orgeff6531" class="outline-2">
-<h2 id="orgeff6531">Kommentare</h2>
-<div class="outline-text-2" id="text-orgeff6531">
-</div>
-<div id="outline-container-orga48d284" class="outline-3">
-<h3 id="orga48d284">Mittwoch</h3>
-</div>
-<div id="outline-container-orgeffc009" class="outline-3">
-<h3 id="orgeffc009">Donnerstag</h3>
-<div class="outline-text-3" id="text-orgeffc009">
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-11-20 Mi 10:52</p>
+\end{align*}</div>
+
+<h3 id="3">3)</h3>
+
+
+
+
+
+
+
+
+
+<h2 id="kommentare">Kommentare</h2>
+
+<h3 id="mittwoch">Mittwoch</h3>
+<p>
+Ich habe mir dieses mal etwas mehr Zeit genommen, paar Fragen zu beantworten.
+Ich bin mir nicht so richtig sicher, ob / wie groß der Mehrwert ist.
+Ich möchte das aber am nächsten Mittwoch noch mal ausprobieren, dieses mal hoffentlich mit paar Fragen davor (und etwas Vorbereitung).
+</p>
+
+<p>
+Bei der Aufgabe 1a) (ggT aufgabe) habe ich mich nicht genug vorbereitet, so dass ich beim Ersten Versuch
+</p>
+
+<p>
+Ich hatte den lustigen Vorfall, am Ende aus meinem eigenen Tutorium geworfen zu werden.
+</p>
+
+<h3 id="donnerstag">Donnerstag</h3>
+<p>
+Ich habe leider mit 5 Minuten Verspätung angefangen, nachdem ich noch die Erinnerung an die Tafel bringen wollte und der Raum davor noch etwas länger als sonst besetzt war.
+Ich bin mir etwas unsicher, ob ich nicht einfach hätte anfangen sollen und dann die Aussagen während des Erklären an die Tafel schreiben sollte.
+Beim Nächsten mal (mit zu wenig Vorbereitungszeit) möchte ich das mal ausprobieren
+</p>
+
+
+<p>
+Im Tutorium habe ich recht viel zeit für die Aufgabe 1a) gegeben.
+Ich war mir bei den früheren Tutorien unsicher, ob ich genug Zeit für die Aufgaben gebe.
+</p>
+
+<p>
+Speziell hier musste ich für die Aufgaben aber auch paar Definitionen (v.a. ggT) und paar Lemmata (v.a. Division mit Rest) anbringen.
+</p>
+
+
 </div>
 </body>
 </html>

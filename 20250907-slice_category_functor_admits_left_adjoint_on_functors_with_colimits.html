@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>slice category functor admits left adjoint on functors with colimits</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-2c837cfd-7465-4a13-aa1d-051163a3e5db"></span><h1 class="title">slice category functor admits left adjoint on functors with colimits</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathcal{D}$ be a <a href="20240404-simplicial_set_as_infinity_category.html#ID-4635a6ee-1ad5-44cb-8e36-4a934f5ae4bf">category</a> and $\mathrm{Cat}_{\infty}/\mathcal{D}$ the <a href="20240924-infinity_slice_category.html#ID-62e46e6b-dcf7-4ba7-8e8a-92bc1476d165">slice category</a>.
+Let $\mathcal{T} \subseteq \mathrm{Cat}_{\infty}/\mathcal{D}$ be the <a href="20240920-full_sub_infinity_category.html#ID-9e204c6a-f799-4623-ae56-89de8ef5a212">full subcategory</a> containing <a href="20240404-functor_between_infinity_categories.html#ID-7428dc84-9acd-49bc-8e93-b1541326a6b9">functors</a> which admit <a href="20241016-colimit_in_an_infinity_category.html#ID-de45d65c-0326-401d-93b3-f10a929be459">colimits</a>
+</p>
+
+<p>
+Then the <a href="20250906-slice_category_functor.html#ID-7360f544-ae8e-4f7c-a607-48d00d4a422e">slice category functor</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{D}_{/(-)}: \mathcal{D} \rightarrow&amp; \mathrm{Cat}_{\infty}/\mathcal{D} \\
+y \mapsto&amp; ( \mathcal{D}_{/y} \rightarrow \mathcal{D})
+\end{align*}</div>
+
+<p>
+restricts to $\mathcal{T}$ and admits a <a href="20241017-infinity_left_adjoint.html#ID-2ba0e3a5-7a57-4093-837c-b1f0feabd7c2">left adjoint</a>
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{align*}
+\begin{tikzcd} \mathcal{T} \arrow[r, shift left=1ex, "\mathrm{colim}"{name=F}] &amp; \mathcal{D}\arrow[l, shift left=.5ex, "\mathcal{D}_{/(-)}"{name=G}] \arrow[phantom, from=G, to=F, , "\scriptscriptstyle\boldsymbol{\bot}"] \end{tikzcd}
+\end{align*}</pre></div>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="restriction">restriction</h3>
+<p>
+follows from <a href="20241017-coinitial_infinity_functor.html#ID-7c2e8e73-1566-48ed-a481-8ddc45412c3a">coinitial</a>
+</p>
+<ul>
+<li><a href="20250907-inclusion_of_a_terminal_object_is_coinitial.html#ID-1e3cf4f4-47c4-44cb-b24d-15155c88bba0">inclusion of a terminal object is coinitial</a> </li>
+</ul>
+<h3 id="adjoint">adjoint</h3>
+<p>
+using <a href="20241126-infinity_left_adjoint_and_objectwise_representable.html#ID-ba787352-72b5-46ff-b3df-37298a50301b">pointwise construction of left adjoints</a>:
+We want to show
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{map}_{\mathrm{Cat}/\mathcal{D}}(I \xrightarrow{\alpha} \mathcal{D}, \mathcal{D}_{/y} \rightarrow \mathcal{D}) \simeq&amp; \mathrm{Hom}_{\mathcal{D}}(\mathrm{colim} \alpha, y)
+\end{align*}</div>
+
+
+<p>
+For that
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{map}_{\mathrm{Cat}/\mathcal{D}}(I \xrightarrow{\alpha} \mathcal{D}, \mathcal{D}_{/y} \rightarrow \mathcal{D}) \simeq&amp; 
+\{\alpha\} \times_{\mathrm{map}_{\mathrm{Cat}}(I, \mathcal{D}}(I, \mathrm{Ar}(\mathcal{D}) \times_{f,\mathcal{D}} \{y\}) \\
+\simeq&amp;
+\{\alpha\} \times_{\mathrm{map}_{\mathrm{Cat}}(I, \mathcal{D})} \mathrm{map}_{\mathrm{Cat}}(I \times \Delta^1, \mathcal{D}) \times_{\mathrm{map}_{\mathrm{Cat}}(I, \mathcal{D})} \{\mathrm{const}(y)\}\\
+\simeq&amp;
+\mathrm{map}_{\mathrm{Fun}(I, \mathcal{D})}(\alpha, \mathrm{const}(y)) \\
+\simeq&amp;
+\mathrm{map}_{\mathcal{D}}(\mathrm{colim} \alpha, y)
+\end{align*}</div>
+
+</div>
+</body>
+</html>

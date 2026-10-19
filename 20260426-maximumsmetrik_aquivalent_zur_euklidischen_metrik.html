@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>maximumsmetrik äquivalent zur euklidischen Metrik</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-9dd2026d-29b1-400a-9f48-b7b625581472"></span><h1 class="title">maximumsmetrik äquivalent zur euklidischen Metrik</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Die <a href="20230312222925-maximum_von_metriken_als_metrik.html#ID-e0d3d5f4-ad3e-4d2f-8edc-0fb5e5fc712e">Maximumsmetrik</a> $d_{\mathrm{max}}$ auf $\mathbb{R}^n$ is <a href="20230418205307-aquivalente_metrik.html#ID-ab145629-f0c2-4e6d-b7dc-a5462cd470af">topologisch äquivalent</a> zur <a href="20230227170033-euklidische_metrik.html#ID-4572dba0-1140-48ba-be8e-10f35edff2bc">euklidische Metrik</a> $d_{2}$.
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="a">a)</h3>
+<ul>
+<li><a href="20230426105030-aquivalenz_aller_normen_auf_einem_reellen_komplexen_vektorraum.html#ID-1ee5e29f-63a3-4f93-9318-19d455ed4d67">Äquivalenz aller Normen auf endlichen reellen Vektorraum</a> </li>
+
+<li>nachrechnen zeigt, dass beides eine norm ist</li>
+</ul>
+<h3 id="b-universelle-eigenschaft">b) universelle eigenschaft</h3>
+
+<h3 id="c-elementar">c) elementar</h3>
+<p>
+Man betrachte, dass die abbildung
+</p>
+
+<div class="math-block">\begin{align*}
+f: (\mathbb{R}^n, d_{\mathrm{max}}) \rightarrow&amp; (\mathbb{R}^n, d_{2}) \\
+x \mapsto x
+\end{align*}</div>
+<p>
+eine 1-<a href="20221125175541-lipschitzstetig.html#ID-53d30a09-5724-4c59-9495-2ffa2f053707">lipschitzstetige</a> abbildung ist:
+für $x,y \in \mathbb{R}^n$ gilt $d_{\mathrm{max}}(x,y) = \vert x_m - y_m \vert \leq \sqrt{\sum_{i=1}^n (x_n - y_m)^2} = d_{2}(x,y)$ for geeignetes $m \in \{1,...,n\}$.
+</p>
+
+<p>
+Damit folgt $\mathcal{T}_{2} \subseteq \mathcal{T}_{\mathrm{max}}$ für die induzierten metriken.
+Sei nun $U$ <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">offen</a> in $\mathcal{T}_{\mathrm{max}}$ und $x \in U$ beliebig.
+Wir wollen zeigen, dass $U$ offen in $\mathcal{T}_{\mathrm{max}}$ ist.
+Nach dem <a href="20231110-lands_self_indexing_trick.html#ID-5ea87d82-3211-46ad-8c58-8104bf45e830">self indexing trick</a> reicht es aus, zu zeigen, dass ein $V_x \in \mathcal{T}_{\mathrm{max}}$ existiert mit $x \in V$.
+Dann folgt nämlich $\bigcup_{x \in X} V_x = U$, was zeigt, dass $U$ offen in $\mathcal{T}_{\mathrm{max}}$ ist.
+</p>
+
+<p>
+da $U$ offen ist, existiert ein $\varepsilon &gt; 0$ so dass $B_{\varepsilon, d_2}(x) \subseteq U$.
+Folglich betrachte man $B_{\frac{\varepsilon}{n},d_{\mathrm{max}}}(x)$, welches offen in $\mathcal{T}_{\mathrm{max}}$ ist.
+Es bleibt zu zeigen, dass $B_{\frac{\varepsilon}{n},d_{\mathrm{max}}}(x) \subseteq B_{\varepsilon, d_2}(x)$ gilt.
+Sei also $y = (y_1,...,y_n) \in B_{\frac{\varepsilon}{n},d_{\mathrm{max}}}(x)$, dann folgt $\vert x_i - y_i \vert &lt; \frac{\varepsilon}{n}$ und wir können abschätzen:
+</p>
+
+<div class="math-block">\begin{align*}
+d_2(x,y) =&amp; \sqrt{\sum_{i=1}^n \vert x_i - y_i \vert^2} \\
+&lt;&amp; \sqrt{\sum_{i=1}^n \frac{\varepsilon}{n}^2} \\
+\leq&amp; \sqrt{\frac{\varepsilon^2}{n}} \\
+\leq&amp; \varepsilon
+\end{align*}</div>
+<p>
+also $y \in B_{\varepsilon, d_2}(x)$.
+</p>
+
+
+</div>
+</body>
+</html>

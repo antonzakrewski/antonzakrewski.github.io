@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>weak convergence criterion</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-9a989131-e57c-4a41-9a21-be47b03a9b3a"></span><h1 class="title">weak convergence criterion</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X$ be a <a href="20221005101046-normierter_vektorraum.html#ID-2ba5953b-83c1-4e4f-8a82-198c6bbbd76a">normed vector space</a>and $x_n$ a sequence.
+Then $x_n$ <a href="20260626-weak_convergence.html#ID-85a7527f-c55a-42c6-8c67-6f53b16d3479">converges weakly</a> to some $x$ <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> the following two statements hold:
+</p>
+<ol>
+<li>$\mathrm{sup}_{n \in \mathbb{N}} \| x_n \| &lt; \infty$</li>
+
+<li>there exists an $F \subseteq X^*$ such that $\mathrm{span}(F)$ is <a href="20221124232157-dichte_menge_topologie.html#ID-921fe319-4945-4303-a9a5-3723804e0737">dense</a> with respect to the <a href="20230509085032-weak_topology.html#ID-495d843f-21ce-4207-b511-b6233cbb1a97">weak-topology</a> and such that for every $f \in F$</li>
+</ol>
+<div class="math-block">\begin{align*}
+\lim_{n \rightarrow \infty} f(x_n) = f(x)
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="rightarrow">$\Rightarrow$</h3>
+<p>
+follows from:
+</p>
+<ul>
+<li><a href="20260626-norm_of_a_weakly_convergent_sequence.html#ID-2c109774-d881-4d82-8856-9c698e205107">supremum of norms of a weakly convergent sequence</a> </li>
+</ul>
+<p>
+and $F = X^*$
+</p>
+
+<h3 id="leftarrow">$\Leftarrow$</h3>
+<p>
+Let $\varepsilon &gt; 0$ and $g \in X^*$.
+Then we need to show that $\vert g(x) - g(x_n) \vert &lt; \varepsilon$ for <a href="20221013222501-fast_alle.html#ID-a3da14cb-05c1-4f9e-a68a-a693980f5ede">almost all</a> $n \in \mathbb{N}$.
+</p>
+
+<p>
+Obserev that $\lim_{n \rightarrow \infty} f(x_n) = f(x)$ for $f \in \mathrm{span}(F)$ as taking linear combinations behaves well with converrgent sequences.
+</p>
+
+<p>
+Let $K \coloneqq \frac{(\| x \| + \mathrm{sup}_{n \in \mathbb{N}})}{2} &lt; \infty$.
+</p>
+
+<p>
+Then as $\mathrm{span}(F)$ is dense in $X^*$, there exists an $f$ in $\mathrm{span}(F)$ such that $\|f - g \|_* &lt; \frac{\varepsilon}{3 K}$.
+</p>
+
+<p>
+For $f \in \mathrm{span}(F)$ there exists an $n_0$ such that for every $n \geq N$ $\vert f(x_n) - f(x) \vert &lt; \frac{\varepsilon}{3}$.
+</p>
+
+<p>
+Now for all $n \geq N$ we may estimate
+</p>
+
+<div class="math-block">\begin{align*}
+\vert g(x) - g(x_n) \vert \leq&amp; \vert g(x) - f(x) \vert + \vert f(x) - f(x_n) \vert + \vert f(x_n) - g(x_n) \vert \\
+\leq&amp; \| g - f \|_* (\| x \| + \| x_n \|) + \vert f(x) - f(x_n) \vert \\
+&lt;&amp; \frac{\varepsilon}{3 K} \cdot 2 K + \frac{\varepsilon}{3} \\
+\leq&amp; \varepsilon
+\end{align*}</div>
+
+
+</div>
+</body>
+</html>

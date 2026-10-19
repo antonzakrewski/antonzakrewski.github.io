@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>filtered colimit of stable categories and exact functors is stable</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-4ab153dd-b934-43fd-a3d3-c809a6fa87e4"></span><h1 class="title">filtered colimit of stable categories and exact functors is stable</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathcal{C}_i$ be <a href="kappa-filtered-infinity-category.html#ID-b0e18bee-b030-4a19-9891-4053dd98931d">filtered</a> diagram of <a href="20241017-stable_infinity_category.html#ID-baac6abf-7cfd-4eb9-9764-dfc1933edba4">stable categories</a> and <a href="20230726-exact_functor.html#ID-9541d8fb-ddba-43d6-941a-32b3b3bd7086">exact functors</a>
+Then the <a href="20241016-colimit_in_an_infinity_category.html#ID-de45d65c-0326-401d-93b3-f10a929be459">colimit</a> is also a <a href="20241017-stable_infinity_category.html#ID-baac6abf-7cfd-4eb9-9764-dfc1933edba4">stable category</a> and in particular also the <a href="20241016-colimit_in_an_infinity_category.html#ID-de45d65c-0326-401d-93b3-f10a929be459">colimit</a> in $\mathrm{Cat}_{\mathrm{st}}$.
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $I$ be a <a href="20250910-finite_category.html#ID-191f86ad-78fe-4b61-beee-67fe98553a7e">finite</a> category, hence a <a href="20241016-kappa_compact_object.html#ID-4a8967b2-7c84-4c8b-b590-aadea095f9fd">compact object</a> in <a href="20240331-category_of_infinity_categories.html#ID-32071eab-bd49-4ebf-a9d6-8748f98c28e1">category Cat.</a>
+Let $I \rightarrow \mathrm{colim} \mathcal{C}_i$ be a diagram in the <a href="20241016-colimit_in_an_infinity_category.html#ID-de45d65c-0326-401d-93b3-f10a929be459">colimit</a>, then it lifts to some $\mathcal{C}_i$ by compactness of $I$.
+We can take the <a href="infinity-limit.html#ID-a8bcf958-5282-4984-8415-7a64cca74613">limit</a> / <a href="20241016-colimit_in_an_infinity_category.html#ID-de45d65c-0326-401d-93b3-f10a929be459">colimit</a> there and we claim that it its image is the limit / colimit in the colimit category.
+</p>
+
+<p>
+we show the case of the limit, so let $y \in \mathrm{colim}_i \mathcal{C}_i$ be an object, which lifts to some $\mathcal{C}_j$.
+Now we may <a href="20241017-coinitial_infinity_functor.html#ID-7c2e8e73-1566-48ed-a481-8ddc45412c3a">coinitially</a> replace $I$ by the full subcategory containing objects $l \in I$ with $\mathrm{Hom}_{I}(l,i), \mathrm{Hom}_{I}(l,j) \neq \emptyset$.
+</p>
+
+<p>
+Then we have using <a href="20250708-mapping_space_of_a_filtered_colimit.html#ID-ba7a6ba2-2949-4d9f-95f6-959bb6ef6896">Hom in a filtered colimit of categories</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Hom}_{\mathrm{colim} \mathcal{C}_i}(y, \lim_I x_i) \simeq&amp; \mathrm{colim} \lim_I \mathrm{Hom}_{\mathcal{C}_i}(y, x_i) \\
+\simeq&amp; \lim_I \mathrm{colim}  \mathrm{Hom}_{\mathcal{C}_i}(y, x_i) \\
+\simeq&amp; \lim_I  \mathrm{Hom}_{\mathrm{colim} \mathcal{C}_i}(y, x_i) 
+\end{align*}</div>
+<p>
+where we have used that <a href="20241203-kappa_filtered_colimits_and_kappa_small_limits_commute_in_anima.html#ID-75fae2f2-050c-48e5-9636-6a73c33fd5f4">kappa filtered colimits and kappa small limits commute in Anima</a>
+</p>
+
+<p>
+Now as being stable is a property about limits and colimits, so $\mathrm{colim} \mathcal{C}_i$ is stable and by construction $\mathcal{C}_i \rightarrow \mathrm{colim}_i \mathcal{C}_i$ is also exact.
+</p>
+
+<p>
+For the last claim about being the filtered colimit in $\mathrm{Cat}_{\mathrm{st}}$,
+it suffices to observe that $\mathrm{Hom}_{\mathrm{Cat}_{\mathrm{st}}}(\mathcal{C}, \mathcal{D}) \hookrightarrow \mathrm{Hom}_{\mathrm{Cat}}(\mathcal{C}, \mathcal{D})$ is the collection of connected components containing <a href="20230726-exact_functor.html#ID-9541d8fb-ddba-43d6-941a-32b3b3bd7086">exact functors</a>.
+Here any functor $\mathcal{F}: \mathrm{colim}_i \mathcal{C}_i \rightarrow  \mathcal{D}$ is an exact functor, if it preserves finite limits (/colimits) and there it suffices to see that for any finite diagram $I \rightarrow \mathrm{colim} \mathcal{C}_i$ we can lift it to some $\mathcal{C}_i$ and then $\mathcal{C}_i \rightarrow \mathcal{D}$ preserves the limit (/colimit).
+</p>
+
+</div>
+</body>
+</html>

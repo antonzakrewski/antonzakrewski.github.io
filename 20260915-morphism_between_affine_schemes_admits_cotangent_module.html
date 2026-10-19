@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>morphism between affine schemes admits cotangent module</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-3a61dec3-7a79-4aa7-b344-ce25d0037d14"></span><h1 class="title">morphism between affine schemes admits cotangent module</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $f: \mathrm{Spec}(A) \rightarrow \mathrm{Spec}(B)$ be a morphism of <a href="20260714-affine_scheme.html#ID-cf016ac0-38e9-410b-86e4-837df6983335">affine schemes</a>
+Then $f$ admits a <a href="20260901-cotangent_module_of_a_map_of_algebraic_functors.html#ID-4dce3d88-5271-4d77-8647-882b34a12e9a">cotangent module.</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $R$ be a <a href="20221210204906-kommutativer_ring.html#ID-b92b4078-28f6-4371-87ba-aa9b950ff823">commutative ring</a> and $y: \mathrm{Spec}(T) \rightarrow \mathrm{Spec}(A)$
+Then we claim that
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/85da67de5ee7febdcadc.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+is a <a href="20241017-infinity_pullback.html#ID-7aaac468-a0bb-4e73-bfd3-d4c591c10e4f">pullback</a> digaram in <a href="20230225170140-kategorie_cring.html#ID-bc232c14-ca9c-476c-8b94-67f3d8781a26">category CRing</a>:
+Here we may use that <a href="20241017-infinity_pullback.html#ID-7aaac468-a0bb-4e73-bfd3-d4c591c10e4f">pullbacks</a> in <a href="20230225170140-kategorie_cring.html#ID-bc232c14-ca9c-476c-8b94-67f3d8781a26">category CRing</a> are computed in <a href="20221216142701-kategorie_set.html#ID-dc78356f-1fcf-41e8-b05a-47cdd731513c">category set</a> and the set theoretic description is given by tuples $(t,m,a)$ such that $t = y(a)$ and the action is given by restriction of scalars.
+</p>
+
+<p>
+Therefore
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/0af47e6be432165963e0.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+is a <a href="20241017-infinity_pushout.html#ID-91244ae5-b853-45df-bbe0-af6ae9a8da47">pushout</a> diagram in the category of affine schemes.
+</p>
+
+<p>
+Then any lift of
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/2fc3f84b1a6d0f59f3d4.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+is in biection with a morphism
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+\mathrm{Spec}(T) \rar \dar &amp; \mathrm{Spec}(A) \arrow[equal, bend left]{rdd}{} \dar &amp; \\
+\mathrm{Spec}(T \oplus M) \arrow[bend right, dashed]{rd}{} \rar &amp; \mathrm{Spec}(A \oplus M) \arrow[dashed]{rd}{}&amp; 
+&amp; &amp; \mathrm{Spec}(A) 
+\end{tikzcd}
+\end{displaymath}</pre></div>
+
+<p>
+and hence the functor mapping $M$ to the set of lifts is <a href="20241206-equivalent_objects_in_an_infinity_category.html#ID-cbb1ac2c-2755-4d4a-9a75-56978060b40f">equivalent</a> to $\mathrm{Der}_{R}(A, y^*(-))$ (cf. <a href="20260807-derivations_are_sections_of_square_zero_extensions.html#ID-96950b25-7972-47c4-bd5e-77e1c2cd9ebb">derivations are sections of square-zero extensions</a>) and hence
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{Der}_R(S, y^*(-)) \cong \mathrm{Hom}(\Omega_{S/R}, y^*(-)) \\
+\cong \mathrm{Hom}(\Omega_{S/R} \otimes_{B} T, -)
+\end{align*}</div>
+<p>
+which shows that the functor is represented.
+</p>
+
+</div>
+</body>
+</html>

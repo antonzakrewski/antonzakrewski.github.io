@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ferdi - Kurs: infinity categories in topology 2</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-d22ab812-0b4d-4d58-80fb-da07ddf2d8e0"></span><h1 class="title">Ferdi - Kurs: infinity categories in topology 2</h1>
+
+<h2 id="list">List</h2>
+<ul>
+<li><a href="20250906-left_fibration_and_each_lift_a_p_cocarteisan_morphism.html#ID-1228eeeb-59e5-4ccc-bf69-5d17aff4f3af">left fibration and each lift is p-cocarteisan</a> / <a href="20250906-fibration_and_each_lift_is_p_cartesian.html#ID-b4dfe24e-16dd-4538-a024-a46ec7aabbe7">right fibration and each lift is p-cartesian</a> </li>
+
+<li><a href="20250906-projection_is_bicartesian.html#ID-426930f5-398a-46b4-b453-67712d0e9ca6">projection is bicartesian</a> / <a href="20250906-unstraightening_of_projection_is_constant_functor.html#ID-552b1fe0-618e-4165-b79e-837febaa0d4d">unstraightening of projection is constant functor</a> </li>
+
+<li><a href="20240916-covariant_infinity_hom_functor.html#ID-9ad3d463-3713-49ed-8821-e9dbeabc2485">covariant infinity hom functor</a> / <a href="20240916-contravariant_infinity_hom_functor.html#ID-308771aa-f9c1-4189-be95-f9f21a2c6d99">contravariant infinity hom functor</a>  &amp;  </li>
+
+<li>use $\mathcal{C}_{x/} \rightarrow \mathcal{C}$ is left fibration, fiber is mapping anima $x,y$ </li>
+
+<li><a href="20250509-target_map_from_rsl_as_universal_cocartesian_fibration.html#ID-d23f8471-a763-4f5a-ae09-4476783b7a43">target map from RSL as universal cocartesian fibration</a> </li>
+
+<li><a href="20250813-target_map_of_arr_as_cocartesian_fibration.html#ID-6a5fb18f-f0d6-450c-aa32-dff6ac9c79ad">target map of ArR as cocartesian fibration</a> / <a href="20250906-source_map_of_arrow_category_is_a_cartesian_fibration.html#ID-7adddaf8-7c99-452a-a9e8-5bf7e2eda36f">source map of Arrow category is a cartesian fibration</a> / <a href="20250906-unstraightening_of_the_target_map.html#ID-e11bc108-a847-4224-b290-1ed70b9c4ece">unstraightening of the target map</a> / <a href="20250906-unstraightening_of_the_source_map.html#ID-b919a2d3-8e0e-4697-be18-7f168788f01d">unstraightening of the source map</a> </li>
+
+<li><a href="20250906-slice_category_functor.html#ID-7360f544-ae8e-4f7c-a607-48d00d4a422e">slice category functor</a>  / <a href="20250906-coslice_category_functor.html#ID-51b9b708-5aaf-402d-a04c-492a0479a522">coslice category functor</a>   </li>
+</ul>
+<h3 id="yoneda">yoneda</h3>
+<ul>
+<li><a href="20241017-infinity_yoneda_lemma.html#ID-4941e6c7-72ea-47ae-a7ba-310e1ed582f9">yoneda type arguments</a> </li>
+
+<li></li>
+</ul>
+
+<h2 id="todo">todo</h2>
+<ul>
+<li>durchgehen: yoneda</li>
+
+<li><a href="20241017-infinity_adjunction_and_triangle_identities.html#ID-f13b04a3-8123-408a-9959-54e87ccdcd73">triangle identities</a></li>
+
+<li><a href="20241126-infinity_left_adjoint_and_objectwise_representable.html#ID-ba787352-72b5-46ff-b3df-37298a50301b">pointwise construction of left adjoints</a> / <a href="20241126-infinity_right_adjoint_and_objectwise_representable.html#ID-3aa68e00-8737-401b-a250-49faff83e0e3">pointwise construction of right adjoints</a></li>
+
+<li><a href="20241017-infinity_right_adjoint.html#ID-1ed94fd7-42a4-4328-a280-17e516d76e3d">right adjoint</a> / <a href="20241017-infinity_left_adjoint.html#ID-2ba0e3a5-7a57-4093-837c-b1f0feabd7c2">left adjoint</a> / <a href="20241017-infinity_adjunction.html#ID-cb1237b5-7275-4001-a47a-3d146d4664e4">adjunction</a></li>
+
+<li><a href="20250907-right_adjoint_object.html#ID-e8587ce1-9c52-4d9e-8d12-7c3a2d15c259">right adjoint object</a> / <a href="20250907-left_adjoint_object.html#ID-9b87cb02-bf64-4338-9c2e-99dd6bc58d0f">left adjoint object</a> </li>
+</ul>
+<ul>
+<li><a href="20250907-mapping_anima_in_the_coslice_category.html#ID-68167e32-e5e3-41ec-8e74-9eea740f7731">mapping anima in the coslice category</a> / <a href="20250907-mapping_anima_in_the_slice_category.html#ID-ad013844-ac17-4bcf-9b62-909cdf5bc1fd">mapping anima in the slice category</a> </li>
+</ul>
+<ul>
+<li><a href="20241126-lurie_theorem_about_colimits_in_anima.html#ID-f415dd21-9969-45bb-a513-9e8a97701537">Lurie theorem about colimits in Anima</a> / <a href="20250315-lurie_theorem_about_limits_in_anima.html#ID-f6107ab4-457d-444f-bd7b-e6b54c1d261a">Lurie theorem about limits in Anima</a> </li>
+
+<li><a href="20250315-lurie_theorem_about_colimits_in_cat_infinity.html#ID-75a41be4-0399-437f-932f-4055b6e050d6">Lurie theorem about colimits in Cat infinity</a> / <a href="20250315-lurie_theorem_about_limits_in_cat_infinity.html#ID-0d20bd27-cb31-442d-97fb-4cc7b293b98a">Lurie theorem about limits in Cat infinity</a> </li>
+</ul>
+<ul>
+<li><a href="20250907-joyals_theorem_of_cofinal_functors.html#ID-27c9bba2-8423-4b07-ae73-433ff7bd4601">joyals theorem about cofinal functors</a>   </li>
+
+<li><a href="20250907-joyals_theorem_about_coinitial_functors.html#ID-4c030b3c-f82f-4c05-aec5-e4c2aa4ae383">joyals theorem about coinitial functors</a>   </li>
+</ul>
+<ul>
+<li><a href="20250107-infinity_right_adjoint_as_cofinal_functor.html#ID-a2effd40-03bc-48f8-886e-c5c0c588f445">right adjoint is coinitial</a></li>
+
+<li><a href="20250907-left_adjoint_is_cofinal.html#ID-fb979029-2b34-4a11-8b6c-b787d94d8352">left adjoint is cofinal</a></li>
+</ul>
+<ul>
+<li><a href="20250715-localization_as_cofinal_map.html#ID-319971ef-5df9-4ec1-86e6-180d56c70215">localization as cofinal map</a>   </li>
+</ul>
+<ul>
+<li>remark: kan extension auf anima</li>
+</ul>
+<ul>
+<li><a href="20250907-left_kan_extension_formula_for_presheaves.html#ID-c2b95e72-e586-4c49-9106-5bb596b31c2d">left kan extension formula for presheaves</a>   </li>
+
+<li><a href="20250907-commutative_square_of_left_kan_extensions.html#ID-ddeac21f-1f5b-4018-acaf-3c541b6cbad8">commutative square of left kan extension and yoneda</a>   </li>
+</ul>
+<ul>
+<li><a href="20250620-left_kan_extension_formula.html#ID-beff797b-a218-49f2-806d-93a286599113">left kan extension formula</a>  </li>
+
+<li><a href="20250620-infinity_right_kan_extension_formula.html#ID-1d63bb09-0aee-40ec-81a9-73bfb45f2dc4">right kan extension formula</a></li>
+</ul>
+<ul>
+<li><a href="20250907-coslice_category_functor_admits_left_adjoint_on_functors_with_colimits.html#ID-0cc9231a-e64c-4424-b639-ecded786a7d4">coslice category functor admits left adjoint on functors with colimits</a> idk true ??</li>
+
+<li><a href="20250907-slice_category_functor_admits_left_adjoint_on_functors_with_colimits.html#ID-2c837cfd-7465-4a13-aa1d-051163a3e5db">slice category functor admits left adjoint on functors with colimits</a> </li>
+</ul>
+<h2 id="neu">neu</h2>
+<ul>
+<li><a href="20241126-infinity_limit_in_a_functor_category.html#ID-f232eb9b-0a7f-4546-bdba-530165292b0b">pointwise calculation of limits</a> / <a href="20241126-infinity_colimit_in_a_functor_category.html#ID-58ad0856-95b7-420d-bcde-3feb4746c5a2">pointwise calculation of colimits</a></li>
+
+<li><a href="20250907-commutative_square_of_left_kan_extensions.html#ID-ddeac21f-1f5b-4018-acaf-3c541b6cbad8">commutative square of left kan extensions</a> </li>
+</ul>
+
+<h2 id="todo">todo</h2>
+<ul>
+<li>unstraightening nacharbeiten;</li>
+
+<li>yoneda nacharbeiten</li>
+
+<li></li>
+</ul>
+<ul>
+<li><a href="20250322-injective_model_structure.html#ID-f7d06a8b-7183-450b-affb-589d36fa41eb">injective model structure</a> / <a href="20240716-kernel_model_structure_on_cha.html#ID-82a44f85-d30e-436c-b2f4-19fa7de65df7">kernel model structure on ChA</a>     </li>
+
+<li><a href="20240715-projective_model_structure.html#ID-c79d2185-c401-4f30-a0af-6c7cf745a8ea">projective model structure</a>  / <a href="20240716-cokernel_model_structure_on_cha.html#ID-e1955144-cc12-4b14-93d7-de4303bba445">cokernel model structure on ChA</a> </li>
+
+<li><a href="20250909-model_structure_of_the_derived_category.html#ID-e9ac23a6-ebaf-4d3a-ae5b-bfa8326ad8c8">model structure of the derived category</a>   </li>
+
+<li><a href="20250329-finitely_cocomplete_infinity_category_and_pushouts_and_finite_coproducts.html#ID-17a35c21-0547-4992-8339-59a4135fdd1f">finitely cocomplete infinity category and pushouts and finite coproducts</a> </li>
+
+<li><a href="20250909-cocomplete_category_and_arbitrary_coproducts_and_pushout.html#ID-75299a5e-4195-4097-a465-1687ad102b01">cocomplete category and arbitrary coproducts and pushout</a>  </li>
+
+<li></li>
+</ul>
+
+<h2 id="stuff">stuff</h2>
+<ul>
+<li>group d für endliche limiten &amp; terminale objecte</li>
+</ul>
+<p>
+~&gt; dann faktorisiert
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/4af5a9b388adff652785.svg" class="org-svg" alt="diagram" /></span></div>
+<ul>
+<li></li>
+</ul>
+
+<ul>
+<li></li>
+</ul>
+<h2 id="list">list</h2>
+<ul>
+<li><a href="20250912-coproduct_from_graded_objects_is_symmetric_monoidal.html#ID-c6a30c32-b626-4c2b-b650-911c0c63018c">coproduct from graded objects is symmetric monoidal</a> </li>
+
+<li><a href="20250912-colimit_from_filtered_objects_is_symmetric_monoidal.html#ID-cf512fb2-4aa3-430c-be35-753e82e6ece4">colimit from filtered objects is symmetric monoidal</a>   </li>
+
+<li><a href="20250911-underlying_graded_object_of_a_filtered_object.html#ID-8c6edeec-1c74-4a3b-9f28-f6be684d1265">underlying graded object functor of a filtered object</a>   </li>
+
+<li><a href="20250912-underlying_graded_object_functor_is_symmetric_monoidal.html#ID-91c9aeb2-1e64-49f0-a7bb-08ba1f87fb76">underlying graded object functor is symmetric monoidal</a>   </li>
+</ul>
+<ul>
+<li><a href="20250912-day_convolution_of_graded_objects.html#ID-412ddbbd-bbc4-448f-86ab-e42ba5f01446">day convolution of graded objects</a>   </li>
+
+<li><a href="20250912-day_convolution_of_filtered_objects.html#ID-27ccae7d-85a7-4505-96af-762f2bd4302c">day convolution of filtered objects</a>   </li>
+</ul>
+<ul>
+<li>integers  </li>
+
+<li><a href="20250912-forgetful_functor_from_filtered_to_graded_objects.html#ID-89e16d50-732a-4b48-b495-7a299b567d82">forgetful functor from filtered to graded objects_</a> </li>
+
+<li><a href="20250912-forgetful_functor_from_filtered_to_graded_objects_is_lax_monoidal.html#ID-e6822c9c-08c0-47c3-b299-700892de3fc2">forgetful functor from filtered to graded objects is lax monoidal</a>   </li>
+</ul>
+<ul>
+<li><a href="20250912-underlying_graded_object_of_the_monoidal_unit_of_filtered_objects.html#ID-cb6eaaed-b536-41a1-9cde-b83be3baeff4">underlying graded object of the monoidal unit of filtered objects</a>   </li>
+
+<li><a href="20250912-underlying_graded_object_functor_is_symmetric_monoidal.html#ID-91c9aeb2-1e64-49f0-a7bb-08ba1f87fb76">underlying graded object functor is symmetric monoidal</a>   </li>
+
+<li><a href="20250912-filtered_objects_is_modules_in_graded_objects.html#ID-ef0e4075-9855-4588-9deb-7d20fbd90fd3">filtered objects is modules in graded objects</a>   </li>
+</ul>
+<ul>
+<li><a href="20250912-symmetric_monoidal_category_is_module_over_the_tensor_unit.html#ID-e2e7d202-799d-48db-8643-847995d5f0e8">symmetric monoidal category is module over the tensor unit</a> </li>
+
+<li><a href="20250912-symmetric_monoidal_equivalence_between_modules_of_filtered_graded_objects.html#ID-9e4f1b5c-48b9-495b-ac81-b36e87b14654">symmetric monoidal equivalence between modules of filtered / graded objects</a>   </li>
+
+<li></li>
+
+<li><a href="20250912-base_change_is_symmetric_monoidal.html#ID-fd2d3d62-8ae2-43c6-9782-39133a52032d">base change is symmetric monoidal</a> </li>
+</ul>
+<ul>
+<li><a href="20250912-graded_objects_and_lurie_tensor_product.html#ID-f5ccc4c3-842f-4fd4-a11a-f2c4d087e6fb">graded objects and lurie tensor product</a>   </li>
+
+<li><a href="20250912-filtered_objects_and_lurie_tensor_product.html#ID-f56ea4ca-b3d8-4d26-9cf2-591061a59781">filtered objects and lurie tensor product</a>   </li>
+</ul>
+<ul>
+<li><a href="20250912-forgetful_functor_from_modules_is_conservative.html#ID-066ccc7e-bffe-4049-8b1d-9b23280cdf94">forgetful functor from modules is conservative</a>   </li>
+
+<li><a href="20250912-forgetful_functor_from_module_is_conservative.html#ID-6d66f834-4ece-469b-a7da-6028440efd9f">forgetful functor from module is conservative_</a>  </li>
+</ul>
+<ul>
+<li><a href="20250912-lurie_tensor_product_of_derived_categories.html#ID-6f7f6bcf-3497-4051-93a2-dd0c61d0a16e">lurie tensor product of two derived categories</a> </li>
+
+<li><a href="20250912-lurie_tensor_product_of_two_module_categories.html#ID-d564825d-0429-4e70-83b6-293f570c47fd">lurie tensor product of two module categories</a> </li>
+</ul>
+<ul>
+<li></li>
+</ul>
+<ul>
+<li><a href="20250912-whitehead_filtered_objects.html#ID-052609f5-969e-4fd1-9969-f64911ff740d">whitehead filtered objects</a> </li>
+
+<li><a href="20250912-inclusion_of_whithead_filtered_spectra_admits_right_adjoint.html#ID-b4da50a9-d33f-4839-b7e4-464d63e0315b">inclusion of whithead filtered spectra admits right adjoint</a>   </li>
+
+<li><a href="20250912-tensor_product_of_spectra_restricts_to_whitehead_filtered_objects.html#ID-10d5fcb6-30a3-4053-8a57-163901bcca9b">tensor product of spectra restricts to whitehead filtered objects</a>   </li>
+
+<li></li>
+</ul>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/c7a4b3d6c13475125e9d.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+where the first two are <a href="20250820-lax_monoidal_infinity_functor.html#ID-422e7d20-03e7-430e-a5aa-6365377b389f">lax</a>, the other two are strict monoidal
+</p>
+
+
+<h2 id="coole-spektralsequenzen">coole spektralsequenzen</h2>
+<p>
+Let $\mathrm{fil}^* X$ be a <a href="20250826-filtered_object.html#ID-9d95ab2d-1409-4ed0-9389-26c91fb4a79f">filtered object</a> where
+</p>
+<ol>
+<li>$X \simeq \mathrm{colim} \mathrm{fil}^* X$</li>
+
+<li>$0 \simeq \mathrm{lim} \mathrm{fil}^* X$   </li>
+</ol>
+<p>
+or
+</p>
+<ol>
+<li>$X \simeq \mathrm{lim} \mathrm{fil}^* X$</li>
+
+<li>$0 \simeq \mathrm{colim} \mathrm{fil}^* X$   </li>
+</ol>
+<p>
+how can we calculate $\pi_*(X)$ ?
+Suppose we can calculate the homotopy groups of the graded stuff
+</p>
+
+
+<div class="equation-container"><span class="equation"><img src="ltximg/19fbf6533b5958cf03b6.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+where each triangle fits into a <a href="20241222-long_exact_sequence.html#ID-e3fbc2e4-7c9f-4d19-9391-c118cb77f08f">long exact sequence</a>
+</p>
+
+
+<ul>
+<li></li>
+</ul>
+
+<h2 id="adams-spectral-seq">adams spectral seq</h2>
+<p>
+angenomemn: topologischer raum:
+</p>
+<ul>
+<li>auf $U_i$ open cover + sheaf</li>
+<ul>
+<li>wann kann ich verkleben ?</li>
+</ul></ul>
+<ul>
+<li>faithfully flat descend</li>
+</ul>
+<h3 id="a">a</h3>
+<ul>
+<li><a href="20260529-p_completion_of_a_connective_spectrum_is_limit_of_total.html#ID-508b8436-4394-4c31-aac1-54fc60019ccb">p-completion of a connective spectrum is limit of total</a> </li>
+
+<li><a href="20260529-connective_spectrum_is_limit_of_total_complex_with_mu.html#ID-d21ccd97-233c-4671-ba5a-b53d4303033a">connective spectrum is limit of total complex with MU</a> </li>
+
+<li></li>
+</ul>
+</div>
+</body>
+</html>

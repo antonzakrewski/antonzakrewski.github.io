@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 21:55 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Differenzierbarkeit der Umkehrfunktion</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,32 +52,23 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Differenzierbarkeit der Umkehrfunktion</h1>
-<div id="outline-container-org6d6234f" class="outline-2">
-<h2 id="org6d6234f"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-570b3e5e-e6cc-4fd5-8f14-a4dbfda34284"></span><h1 class="title">Differenzierbarkeit der Umkehrfunktion</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \(f: D \rightarrow C\) mit \(D, C \subseteq \mathbb{R}\) eine in \(x \in D\) <a href="20230116163008-differenzierbarkeit.html#ID-dd7eef4e-04f7-4614-a343-a1f16a7fd0f7">differenzierbare</a>, <a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">bijektive</a> <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktion</a>.
-Dann ist \(f^{-}:C \rightarrow D\) <a href="20230116163008-differenzierbarkeit.html#ID-dd7eef4e-04f7-4614-a343-a1f16a7fd0f7">differenzierbar</a> in \(f(x) = y \in C\), sofern \(f'(x) \neq 0\) gilt
+Sei $f: D \rightarrow C$ mit $D, C \subseteq \mathbb{R}$ eine in $x \in D$ <a href="20230116163008-differenzierbarkeit.html#ID-dd7eef4e-04f7-4614-a343-a1f16a7fd0f7">differenzierbare</a>, <a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">bijektive</a> <a href="20220102212818-funktion.html#ID-795be04e-ea83-444e-8bb2-638ed125c97e">Funktion</a>.
+Dann ist $f^{-}:C \rightarrow D$ <a href="20230116163008-differenzierbarkeit.html#ID-dd7eef4e-04f7-4614-a343-a1f16a7fd0f7">differenzierbar</a> in $f(x) = y \in C$, sofern $f'(x) \neq 0$ gilt
 </p>
-</div>
-</div>
-<div id="outline-container-orgfaa0868" class="outline-2">
-<h2 id="orgfaa0868"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
-\begin{align*}
-f'(x) =& \lim_{\delta \to 0}\left(\frac{f(x+\delta) - f(x)}{\delta}\right)  \\
-=& \lim_{\delta \to 0}\left(\frac{1}{\frac{f^{-1}(f(x + \delta)) - f^{-1}(f(x))}{f(x + \delta) - f(x)}}\right) \\
-=& \frac{1}{f^{-1}'(f(x))} \\
-\Rightarrow f^{-1}'(y) =& \frac{1}{f'(x)}
-\end{align*}
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 21:55</p>
+
+<h2 id="beweis">Beweis</h2>
+
+<div class="math-block">\begin{align*}
+f'(x) =&amp; \lim_{\delta \to 0}\left(\frac{f(x+\delta) - f(x)}{\delta}\right)  \\
+=&amp; \lim_{\delta \to 0}\left(\frac{1}{\frac{f^{-1}(f(x + \delta)) - f^{-1}(f(x))}{f(x + \delta) - f(x)}}\right) \\
+=&amp; \frac{1}{f^{-1}'(f(x))} \\
+\Rightarrow f^{-1}'(y) =&amp; \frac{1}{f'(x)}
+\end{align*}</div>
+
 </div>
 </body>
 </html>

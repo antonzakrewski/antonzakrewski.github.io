@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>homological serre spectral sequence is multiplicative for monoids</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-b7386ab3-aa49-43a1-8618-9347486ddc3d"></span><h1 class="title">homological serre spectral sequence is multiplicative for monoids</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+The <a href="20250826-homology_serre_spectral_sequence.html#ID-d8f619c6-c31a-4152-9894-753ef7f2cfed">homological serre spectral sequence</a> lifts to a <a href="20240404-functor_between_infinity_categories.html#ID-7428dc84-9acd-49bc-8e93-b1541326a6b9">functor</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{fib}(\mathrm{Mon}(\mathrm{An})) \rightarrow \mathrm{Alg}(\mathrm{SpecSeq}
+\end{align*}</div>
+<p>
+i.e. a <a href="20241022-fiber_of_an_infinity_morphism.html#ID-315c0bce-7cf8-468b-9149-1e254debcf95">fiber</a> sequence of <a href="20250521-anima_valued_monoid.html#ID-d742bf5a-7976-47f7-bee9-f51a7a9e6da2">anima valued monoids</a> yields a <a href="20251013-multiplicative_spectral_sequence.html#ID-818470d4-163b-493e-acc3-bb9c708b951b">multiplicative spectral sequence</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+We follow the construction of the <a href="20250826-homology_serre_spectral_sequence.html#ID-d8f619c6-c31a-4152-9894-753ef7f2cfed">homological serre spectral sequence</a>, but upgrade it to a multiplicative spectral sequence:
+Let $F \rightarrow N \rightarrow M$ be a <a href="20241022-fiber_of_an_infinity_morphism.html#ID-315c0bce-7cf8-468b-9149-1e254debcf95">fiber</a> sequence with $N \rightarrow M$ a map of monoids.
+Then in particular it upgrades to a fiber sequence in $\mathrm{Mon}(\mathrm{An})$.
+</p>
+
+<p>
+Now using <a href="20251212-map_of_anima_valued_monoids_is_a_monoidal_functor.html#ID-49fe80b2-2ae9-4123-9d38-b13b967cf61d">map of anima valued monoids is a monoidal functor</a> we get that the functor
+</p>
+
+<div class="math-block">\begin{align*}
+M \rightarrow \mathrm{An}
+\end{align*}</div>
+<p>
+admits canonically a monoidal structure.
+Then we may postcompose with <a href="20250820-lax_monoidal_infinity_functor.html#ID-422e7d20-03e7-430e-a5aa-6365377b389f">lax monoidal functors</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/52ba36bd30222f1aaf63.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+where we use that <a href="20251013-whitehead_filtration_functor_is_lax_symmetric_monoidal.html#ID-8e6a456f-3357-43f3-bfe9-3ec1019a7d2e">whitehead filtration functor is lax symmetric monoidal</a> &amp; <a href="20250824-suspension_spectrum_functor_is_symmetric_monoidal.html#ID-171d8bcb-72b1-4a4d-8cd2-8da17411d04a">suspension spectrum functor is symmetric monoidal</a> in order to get a functor $\mathrm{Alg}(\mathrm{Fun}(M,\mathrm{An})) \rightarrow \mathrm{Alg}(\mathrm{Fun}(M, \mathrm{Fil}(\mathrm{Sp})$
+</p>
+
+<p>
+Now by <a href="20251212-colimit_over_a_monoid_is_monoidal_with_respect_to_the_day_convolution.html#ID-13d14874-bd86-4d93-bc2c-f575314c26c9">colimit over an E_n anima valued monoid is E_n monoidal with respect to the E_n day convolution</a> we get an induced functor
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{colim}_{M} \mathrm{Alg}(\mathrm{Fun}(M, \mathrm{Fil}(\mathrm{Sp}) \rightarrow \mathrm{Alg}(\mathrm{Fil}(\mathrm{Sp}))$
+\end{align*}</div>
+<p>
+whose underlying spectrum gives rise to the homological serre spectral sequence.
+</p>
+
+
+<p>
+using:
+</p>
+<ul>
+<li><a href="20250813-universal_property_of_the_day_convolution.html#ID-cb3ec706-6c62-49bd-bad2-c186fd63b0f8">commutative algebra for the day convolution product as lax symmetric monoidal functor</a></li>
+</ul>
+</div>
+</body>
+</html>

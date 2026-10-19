@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>majorisierte Konvergenz nach Lebesgue</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-80c9d163-33a1-4331-b029-fffacd341fb6"></span><h1 class="title">majorisierte Konvergenz nach Lebesgue</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $(X, \mathcal{A}, \mu)$ ein <a href="20241019-maßraum.html#ID-2135bec8-c3bb-4fca-a24a-21334f66d7ae">Maßraum</a>, $(f_n) \in \overline{\mathcal{L}^1}$ und $f: X \rightarrow \overline{\mathbb{R}}$ und $h \in \overline{\mathcal{L}^1}$ mit $f_n \rightarrow f$ <a href="20241102-fast_uberall.html#ID-9d225c6c-ef25-44c8-9cb2-4d677ed59727">fast überall</a>.
+Angenommen für alle $n \in \mathbb{N}$ gilt $\vert f_n \vert \leq h$ fast überall
+Dann existiert ein $\tilde{f} \in \mathcal{L}^1$ mit
+</p>
+
+<div class="math-block">\begin{align*}
+\tilde{f} = f
+\end{align*}</div>
+<p>
+fast überall und
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{lim}_{n \rightarrow \infty} \int f_n \mathrm{d} \mu = \int \tilde{f} \mathrm{d} \mu
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+Sei
+</p>
+
+<div class="math-block">\begin{align*}
+A \coloneqq \{\mathrm{lim} \mathrm{sup}_{n \rightarrow \infty} f_n = \mathrm{lim} \mathrm{inf}_{n \rightarrow \infty} f_n  \} \in \mathcal{A}
+\end{align*}</div>
+<p>
+da jedes $f_n$ <a href="20241028-messbare_abbildung.html#ID-5ff4140d-12c6-47ae-bcca-fbfaf4a56018">messbar</a> ist. (cf. <a href="20241030-limes_superior_von_numerisch_messbarer_abbildungen.html#ID-85fff1ce-377c-45e0-9658-8f1bbcfb4552">limes superior von numerisch messbarer Abbildungen</a>, <a href="20241030-limes_inferior_von_numerisch_messbaren_funktionen.html#ID-dd5b1605-4100-47a4-bb8e-c460d042894a">limes inferior von numerisch messbaren Funktionen</a> ???)
+Ferner ist $A$ genau die Meneg, auf der $f_n$ konvergiert, d.h. nach Annahme $f_n \rightarrow f$ fast überall folgt $\mu(A^c) = 0$
+</p>
+
+<p>
+Setze $\tilde{h} \in \mathcal{L}^1$ als $\tilde{h} = h$ fast überall mit $\vert f_n \vert \leq \tilde{h}$ überall für bel. $n \in \mathbb{N}$
+</p>
+
+<p>
+Setze
+</p>
+
+<div class="math-block">\begin{align*}
+\varphi \coloneqq \mathrm{lim}_{n \rightarrow \infty} f_n \cdot \chi_A
+\end{align*}</div>
+
+<p>
+Dann ist $\varphi$ messbar und $\vert \varphi \vert \leq \tilde{h}$ (?)
+d.h. $\varphi \in \overline{\mathcal{L}^1}$
+</p>
+
+<p>
+Damit existiert ein $\tilde{f} \in \mathcal{L}^1$ mit $\varphi = \tilde{f}$ fast überall
+</p>
+
+<p>
+Nun gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{lim}_{n \rightarrow \infty} \mathrm{sup} \int f_n \mathrm{d} \mu \leq&amp; \int \mathrm{lim} \mathrm{sup}_{n \rightarrow \infty} f_n \mathrm{d} \mu \\
+=&amp; \nit \mathrm{lim} \sup_{n \rightarrow \infty} f_n \chi_{A} \mathrm{d} \mu \\
+=&amp; \int \varphi \mathrm{d} \mu \\
+=&amp; \int \mathrm{lim} \mathrm{inf}_{n \rightarrow \infty} f_6 \chi_A \\
+=&amp; \int \mathrm{lim}_{n \rightarrow \infty} f_n \mathrm{d} \mu \\
+\leq \mathrm{lim} \mathrm{inf}_{n \rightarrow \infty} \int f_n \mathrm{d} \mu
+\end{align*}</div>
+
+
+<p>
+Damit gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{lim}_{n \rightarrow \infty} \int f_n \mathrm{d} \mu = \int \tilde{f} \mathrm{d} \mu
+\end{align*}</div>
+
+</div>
+</body>
+</html>

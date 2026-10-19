@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>sigma endliches Maß und fast überall positive integrierbare Abbildung</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-3185d7c5-b148-46d2-95ae-24018f630123"></span><h1 class="title">sigma endliches Maß und fast überall positive integrierbare Abbildung</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Sei $(X, \mathcal{A}, \mu)$ ein <a href="20241019-maßraum.html#ID-2135bec8-c3bb-4fca-a24a-21334f66d7ae">Maßraum</a>,
+</p>
+
+<p>
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol>
+<li>$\mu$ ist <a href="20241103-sigma_endliches_maß.html#ID-0755b55c-cb40-4e38-964a-dd44d1061a6a">sigma endlich</a> </li>
+
+<li>es existiert eine <a href="20221014122223-lebesgue_integrierbar.html#ID-256bdd18-94ed-434b-9847-bee1c2965eaf">lebesgue integrierbare</a> <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a> $f: X \rightarrow (0,\infty)$, d.h. $f(x) &gt; 0$ für alle $x \in X$ </li>
+
+<li>es existiert eine <a href="20221014122223-lebesgue_integrierbar.html#ID-256bdd18-94ed-434b-9847-bee1c2965eaf">lebesgue integrierbare</a> <a href="20211230205349-abbildung_mengenlehre.html#ID-5b676c12-559b-4196-9d8d-eac358db0884">Abbildung</a> $f: X \rightarrow [0,\infty)$, mit $f(x) &gt; 0$ <a href="20241102-fast_uberall.html#ID-9d225c6c-ef25-44c8-9cb2-4d677ed59727">fast überall</a></li>
+</ol>
+<h2 id="proof">Proof</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+<p>
+Wähle $X_n$ mit $\bigcup_{n \in \mathbb{N}^+} X_n = X$ und $\mu(X_n) &lt; \infty$.
+Setze
+</p>
+
+<div class="math-block">\begin{align*}
+f_n = \frac{1}{2^n} \chi_{X_n} \frac{1}{\mathrm{max}(1,\mu(X_n))} 
+\end{align*}</div>
+<p>
+und
+</p>
+
+<div class="math-block">\begin{align*}
+f \coloneqq \sum_{n=1}^{\infty} f_n
+\end{align*}</div>
+
+<p>
+Es ist eine wohldefinierte Abbildung, da $f_n \leq \frac{1}{2^n}$ gilt und somit $\sum f_n \leq 1$
+Es gilt zudem wegen $f_n \geq 0$ auch $f \geq 0$, d.h. nach <a href="20241102-reihe_von_positiven_messbaren_funktionen.html#ID-13fbbc0b-1721-4647-ba10-280266808123">Integral der Reihe von positiven messbaren Funktionen</a> gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\int_{X} f \mathrm{d} \mu =&amp; \int_{X} \sum f_n \mathrm{d} \mu \\
+=&amp; \sum \int_{X} f_n \mathrm{d} \mu
+\end{align*}</div>
+<p>
+wobei
+</p>
+
+<div class="math-block">\begin{align*}
+\int_{X} f_n \mathrm{d} \mu =&amp; 
+    \begin{cases}
+  \frac{1}{2^n}    &amp; \mbox{if } \mu(X_n) \neq 0  \\
+  0  &amp; \mbox{if } \mu(X_n) = 0 \\      
+    \end{cases}
+\end{align*}</div>
+
+<p>
+D.h.
+</p>
+
+<div class="math-block">\begin{align*}
+\sum \int_{X} f_n \mathrm{d} \mu \leq&amp; \sum_{n=1}^{\infty} \frac{1}{2^n} = 1
+\end{align*}</div>
+<p>
+(cf. <a href="20241102-monotonie_des_integrals.html#ID-f1f54453-7243-4847-bc75-79df4f5afda7">monotonie des Integrals</a>)
+</p>
+
+<h3 id="2-implies-3">2) $\implies$ 3)</h3>
+<p>
+spezialfall
+</p>
+
+<h3 id="3-implies-1">3) $\implies$ 1)</h3>
+<p>
+Sei $f$ eine integrierbare funktion.
+Dann gilt insbesondere
+</p>
+
+<div class="math-block">\begin{align*}
+c \coloneqq \int_{X} f \mathrm{d} \mu &lt; \infty
+\end{align*}</div>
+<p>
+Betrachte
+</p>
+
+<div class="math-block">\begin{align*}
+A_n = \{f \geq \frac{1}{n}\}
+\end{align*}</div>
+<p>
+für $n \in \mathbb{N}^+$ und $A_0 = \{f = 0\}$.
+Dann ist $A_0$ eine Nullmenge nach Annahme (insbesondere endlich)
+</p>
+
+<p>
+Zudem gilt
+</p>
+
+<div class="math-block">\begin{align*}
+\bigcup_{n=0}^{\infty} A_n = X
+\end{align*}</div>
+<p>
+da $f \geq 0$ gilt.
+</p>
+
+<p>
+Es bleibt zu zeigen, dass $\mu(A_n) &lt; \infty$ gilt.
+</p>
+
+<p>
+Nach der <a href="20241102-tschebyscheff_ungleichung.html#ID-530add57-f856-4393-930d-57f58347b075">Tschebyscheff Ungleichung</a> gilt dabei
+</p>
+
+<div class="math-block">\begin{align*}
+\mu( \{f \geq \frac{1}{n}\}) \leq n \cdot \int f \mathrm{d} \mu &lt; \infty
+\end{align*}</div>
+
+</div>
+</body>
+</html>

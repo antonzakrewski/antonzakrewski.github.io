@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>generator and coproduct implies epimorphism</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-a253ff62-0ae1-45e9-b1fb-b8d35d2bc5db"></span><h1 class="title">generator and coproduct implies epimorphism</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathcal{C}$ be a <a href="20220816130308-kategorie_mathe.html#ID-3d36aefb-cedf-48b8-8031-adac2a4f2d3d">category</a>, $P$ a <a href="20240210-generator_of_a_category.html#ID-7849a7fb-3def-4dbb-b31a-444da1b86df1">generator</a>, $A \in \mathrm{Ob}(\mathcal{C})$ an <a href="20220818170642-objekt_kategorie.html#ID-69e99ef2-fd8e-4268-a03a-b4a4f2c3cd74">object</a> such that
+</p>
+
+<div class="math-block">\begin{align*}
+\coprod_{f \in \mathrm{Hom}_{\mathcal{C}}(P,A)} P
+\end{align*}</div>
+<p>
+exists.
+</p>
+
+<p>
+Then there exists a canonical <a href="20220819135905-epimorphismus.html#ID-ad206194-a416-4910-a5c4-d72528ae5ba0">epimorphism</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\coprod_{f \in \mathrm{Hom}_{\mathcal{C}}(P,A)} P \rightarrow A
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+Consider
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/c2438cd3f9b6d77654ce.svg" class="org-svg" alt="diagram" /></span></div>
+
+
+<p>
+Let $f,g: A \rightarrow B$ be morphisms with $f \neq g$.
+Then by assumption there exists a morphism
+</p>
+
+<div class="math-block">\begin{align*}
+h: P \rightarrow A 
+\end{align*}</div>
+<p>
+such that $f \circ h \neq g \circ h$
+</p>
+
+<p>
+Thus
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+P_f \arrow[shift right=1, swap]{rrrd}{f \circ h} \arrow[shift left=1]{rrrrd}{g \circ h} \arrow[]{rrd}{f}&amp; &amp;  \\
+ &amp; \coprod P \arrow[]{r}{}&amp; A \arrow[shift right=1, swap]{r}{f} \arrow[shift left=1]{r}{g}&amp; B
+\end{tikzcd}
+\end{displaymath}</pre></div>
+<p>
+does not commute
+</p>
+
+<p>
+Hence the induced mophsim
+</p>
+
+<div class="math-block">\begin{align*}
+\coprod_{f \in \mathrm{Hom}_{\mathcal{C}}(P,A)} P \rightarrow A
+\end{align*}</div>
+<p>
+is an epi
+</p>
+
+</div>
+</body>
+</html>

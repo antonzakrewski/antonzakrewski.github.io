@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>mollifier lemma for convolution</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-dc72d79d-3d8d-4165-858b-5ad899fdda3e"></span><h1 class="title">mollifier lemma for convolution</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $p \in [1, \infty]$, $\Omega \subseteq \mathbb{R}^d$ <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> and $f \in L_c^p(\Omega)$ be a compactly supported function.
+Let $j \in C_c^{\infty}(\Omega)$ with $\int_{\Omega} \mathrm{d}x \vert j \vert = \| j \|_1 = 1, j \geq 0$.
+Then there exists an $\varepsilon_0$ such that for all $\varepsilon \in (0, \varepsilon_0)$, $f_{\varepsilon} \coloneqq j_{\varepsilon} \star f$ lies in $C_{c}^{\infty}(\Omega)$ and
+</p>
+
+<div class="math-block">\begin{align*}
+\| f_{\varepsilon} \|_p \leq \| f \|_p
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+Recall that $f_{\varepsilon}(x) = \int_{\Omega} \mathrm{d} y j_{\varepsilon}(x - y) f(y)$
+Now write $f_{\varepsilon} = f \star j_{\varepsilon}$ (cf. <a href="20260609-convolution_is_commutative.html#ID-a98a2291-7cd3-469a-8486-19a40065730a">convolution is commutative</a>) and let $r = p, q = 1$.
+</p>
+
+<p>
+The <a href="20260609-convolution_estimate.html#ID-cdafdd1f-85f4-43f1-a7e0-bbec324d0805">convolution estimate in L^p</a> says that $\| f_{\varepsilon} \|_p = \| f \star j_{\varepsilon} \|_p \leq \|f \|_{p} \cdot \| j_{\varepsilon} \|_q = \| f \star j_{\varepsilon} \|_p \leq \|f \|_{p} \cdot 1 = \| f \star j_{\varepsilon} \|_p \leq \|f \|_{p}$.
+</p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>l^p is isometrically isomorphic to dual of l^q</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-e8caf992-9310-4986-96d2-463c9b6bc655"></span><h1 class="title">l^p is isometrically isomorphic to dual of l^q</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $p \in [1,\infty)$ and $q$ the respective <a href="20260514-holder_conjugate.html#ID-b6aae059-7e96-47db-9d07-da045e144713">hölder conjugate</a>
+Then $(l^p)^* \cong l^q$ are (isometrically, linear) <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphic</a>
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="estimate">estimate</h3>
+
+<h4 id="p-in-1infty">$p \in (1,\infty)$</h4>
+<p>
+Let $x = (x_n) \in l^p$ and $f \in (l^p)^*$.
+Then consider the <a href="20260510-schauder_basis_of_lp_of_sequnces.html#ID-bdbd3138-8fae-49dc-8ca9-63d95cbcc44c">schauder basis of lp of sequences</a> $e_n$.
+In particular $x = \sum_{n \in \mathbb{N}} x_n e_n$.
+Now $f$ is continuous and linear, so
+</p>
+
+<div class="math-block">\begin{align*}
+f(x) =&amp; f(\lim_{n \rightarrow \infty} \sum_{n=1}^N x_n e_n) \\
+=&amp; \sum_{n \in \mathbb{N}} x_n f(e_n)
+\end{align*}</div>
+
+
+<p>
+Now for fixed $N \in \mathbb{N}$ define $\tilde{x} \coloneqq (\tilde{x}_n) \in l^p$ by
+</p>
+
+<div class="math-block">\begin{align*}
+\tilde{x}_n \coloneqq 
+    \begin{cases}
+   \frac{ \vert f(e_n) \vert^q }{f(e_n)} &amp; \mbox{if } n \leq N \text{ and} f(e_n) \neq 0 \\
+   0  &amp; \mbox{else } \\   
+    \end{cases}
+\end{align*}</div>
+<p>
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+f(\tilde{x}) = \sum_{n=1}^N \vert f(e_n) \vert^q
+\end{align*}</div>
+<p>
+so that $0 \leq f(\tilde{x}) \leq \| f \|_{(l^p)^*} \| \tilde{x} \|_p$ where
+</p>
+
+<div class="math-block">\begin{align*}
+\| \tilde{x} \|_p = (\sum_{n=p}^N \vert f(e_n) \vert^{(q -1)p})^{\frac{1}{p}}$
+\end{align*}</div>
+<p>
+Now $p,q$ are hölder conjugate, i.e., $p = $\frac{q}{q-1}$ and hence we obtain $p(q-1) = q$ and therefore
+</p>
+
+<div class="math-block">\begin{align*}
+\sum_{n=1}^N \vert f(e_n) \vert^q \leq \| f \|_{(l^p)^*} \cdot (\sum_{n=1}^N \vert f(e_n) \vert^q)^{\frac{1}{p}}
+\end{align*}</div>
+<p>
+which shows
+</p>
+
+<div class="math-block">\begin{align*}
+(\sum_{n=1}^N \vert f(e_n) \vert^q)^{\frac{1}{q}} \leq \| f \|_{(l^p)^*}
+\end{align*}</div>
+
+
+<h4 id="p-1">$p = 1$</h4>
+
+<h3 id="map">map</h3>
+<p>
+Thus for every $p \in [1,\infty)$, the map
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{F} \colon (l^p)^* \rightarrow&amp; l^q \\
+f \mapsto&amp; (f(e_n))_{n \in \mathbb{N}}
+\end{align*}</div>
+<p>
+is well defined and also
+</p>
+<ol>
+<li>linear (cf. )</li>
+
+<li>isometric (hence injective):  see estimate  </li>
+
+<li>surjective: for y = (y_n) \in l^q$, we define</li>
+</ol>
+<div class="math-block">\begin{align*}
+f_y \colon l^p \rightarrow&amp; \mathbb{K} \\
+(x_n) \mapsto&amp; \sum_{n \in \mathbb{N}} x_n y_n
+\end{align*}</div>
+<p>
+Then $f_y$ is linear and it is well-defined by <a href="20230228170409-holder_ungleichung.html#ID-e1569ceb-c30b-4417-920e-e89d1fcf7ed4">Hölders inequality</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\sum_{n \in \mathbb{N}} \vert x_n y_n \vert \leq \| x \|_p \cdot \|y \|_q
+\end{align*}</div>
+<p>
+and hence $\| f_y \|_{(l^p)^*} \leq \| y \|_q$
+</p>
+
+</div>
+</body>
+</html>

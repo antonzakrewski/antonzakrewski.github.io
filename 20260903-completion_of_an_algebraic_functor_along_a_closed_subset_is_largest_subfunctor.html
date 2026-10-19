@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>completion of an algebraic functor along a closed subset is largest subfunctor</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-34d7a0aa-dd2b-43f0-bfca-755a9654cccc"></span><h1 class="title">completion of an algebraic functor along a closed subset is largest subfunctor</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X$ be an <a href="20260611-algebraic_functor.html#ID-316f0157-24c4-446a-b8a5-d7eb82359ddd">algebraic functor</a> and $K \susbeteq \vert X \vert$ a <a href="20260713-closed_subfunctor.html#ID-d952d35b-1a92-4447-97b0-37c5363be496">closed subfunctor</a>.
+Then the <a href="20260901-completion_of_an_algebraic_functor.html#ID-73938e7d-bb5f-49a7-ad62-2cb7029ad3a3">completion of an algebraic functor</a>  $X_{K}^{\wedge}$ of $X$ along $K$ is the largest <a href="20230922-subfunctor.html#ID-e3017b76-a5ac-43b3-a458-b3ede2132fec">subfunctor</a> of $X$ whose <a href="20260721-underlying_space_functor_from_algebraic_functors.html#ID-b14d9467-5141-4162-b38a-8278e51860b0">underlying space</a> is $K$.
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Recall that an <a href="20260921-r_point_induces_map_from_spec_r.html#ID-b28d468b-e086-4a65-b321-165e6c9f3c5b">R-point induces map from Spec(R)</a>, so let $Y$ be the <a href="20260611-algebraic_functor.html#ID-316f0157-24c4-446a-b8a5-d7eb82359ddd">algebraic functor</a> with $Y(R) = \{x \in X(R) \vert \vert x \vert: \vert \mathrm{Spec}(R) \vert \rightarrow \vert X \vert \textrm{ restricts to } K \}$.
+Then $Y(R)$ is a <a href="20230922-subfunctor.html#ID-e3017b76-a5ac-43b3-a458-b3ede2132fec">Subfunctor</a>, since any map $\varphi: R \rightarrow S$ gives a commutative diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/59398cf414e30b113314.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+hence for any $x \in Y(R)$ and any $\varphi: R \rightarrow S$, the element $\varphi(x)$ lies in $Y(S)$.
+</p>
+
+<p>
+Now the underlying space of $Y$ maps to $K$:
+In fact any element $k \in K$ is represented by a map $\mathrm{Spec}(\kappa) \rightarrow X$ which then by assumption restricts to $K$ on underlying spaces, i.e. $\vert Y \vert \supseteq \vert K \vert$; similarly any element $y$ in $\vert Y \vert$ maps to $K$.
+</p>
+
+<p>
+Let $Y'$ be any functor such that $\vert Y' \vert \subseteq K$.
+Then for any $y' \in Y'(R)$, we have construction $y' \in Y(R)$.
+</p>
+
+<p>
+Now it remains to show that
+</p>
+
+<div class="math-block">\begin{align*}
+X^{\wedge}_{K}(R) =&amp; \{x \in X(R) \vert I(x) = \sqrt{0}\} \\
+\overset{!}{=}&amp; Y(R)
+\end{align*}</div>
+<p>
+for the <a href="20260715-poset_of_quasi_coherent_ideals_over_an_algebraic_functor.html#ID-59ad07e0-9fa7-4bec-9caf-0dc5fcee3a8b">quasi-coherent ideal</a> classifying the <a href="20260713-open_subfunctor_of_an_algebraic_functor.html#ID-3591ec98-a7a9-4668-a975-fdf935c815e8">open subfunctor</a> corresponding to $O = \vert X \vert \setminus K$.
+</p>
+
+<p>
+Now we have the following equivalent conditions
+</p>
+<ol>
+<li>$x \in Y(R)$</li>
+
+<li>$\mathrm{spec}(R) \rightarrow \vert X \vert$ restricts to $K$ </li>
+
+<li>$x^{-1}[U] = \emptyset$</li>
+
+<li>the underlying space of $D(I(x))$ is the $\emptyset$ (cf. <a href="20260721-underlying_space_preserves_pullbacks_with_a_monomorphism.html#ID-1466154c-81f0-4fb0-80f7-09bb76b3fff2">underlying space for a pullback with a monomorphism</a>). </li>
+</ol>
+<div class="equation-container"><span class="equation"><img src="ltximg/5f1d8caf205158b9f592.svg" class="org-svg" alt="diagram" /></span></div>
+<ol>
+<li>$D(I(x))$ is the <a href="20260713-open_subfunctor_of_an_algebraic_functor.html#ID-3591ec98-a7a9-4668-a975-fdf935c815e8">open subfunctor</a> classified by the emptyset / <a href="20230531075602-menge_der_nilpotenten_element_als_ideal.html#ID-603c79c1-6511-45a3-898a-83df20df86ea">nilradical</a> </li>
+</ol>
+
+</div>
+</body>
+</html>

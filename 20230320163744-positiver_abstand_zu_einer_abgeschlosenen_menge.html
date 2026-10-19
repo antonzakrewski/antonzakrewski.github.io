@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2024-10-11 Fr 22:16 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>positiver Abstand zu einer Abgeschlosenen Menge</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -45,40 +52,32 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">positiver Abstand zu einer Abgeschlosenen Menge</h1>
-<div id="outline-container-orge8781a2" class="outline-2">
-<h2 id="orge8781a2"><span class="section-number-2">1.</span> Satz</h2>
-<div class="outline-text-2" id="text-1">
+<span id="ID-4cec4a2b-75eb-431a-ac92-9c4fe3e8619c"></span><h1 class="title">positiver Abstand zu einer Abgeschlosenen Menge</h1>
+
+<h2 id="satz">Satz</h2>
 <p>
-Sei \((M,d)\) ein <a href="20221002145259-metrischer_raum.html#ID-6b95a0b5-83e0-43cc-830f-05b416769fe1">metrischer Raum</a> und \((M,\mathcal{T})\) die <a href="20230222171645-von_einer_metrik_induzierte_topologie.html#ID-69ce8957-4373-4cbd-ae36-9da730675f0d">von der Metrik induzierte</a> <a href="20221204190836-topologie.html#ID-17beb370-71a1-47e9-b9e3-7c53dd7c5684">Topologie</a> und \(A \subseteq M\) eine <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossene</a> <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a>.
-Dann gilt für \(m \in M\)
+Sei $(M,d)$ ein <a href="20221002145259-metrischer_raum.html#ID-6b95a0b5-83e0-43cc-830f-05b416769fe1">metrischer Raum</a> und $(M,\mathcal{T})$ die <a href="20230222171645-von_einer_metrik_induzierte_topologie.html#ID-69ce8957-4373-4cbd-ae36-9da730675f0d">von der Metrik induzierte</a> <a href="20221204190836-topologie.html#ID-17beb370-71a1-47e9-b9e3-7c53dd7c5684">Topologie</a> und $A \subseteq M$ eine <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">abgeschlossene</a> <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">Menge</a>.
+Dann gilt für $m \in M$
 </p>
-\begin{align*}
+
+<div class="math-block">\begin{align*}
 m \in A \Leftrightarrow d(m,A) = 0
-\end{align*}
+\end{align*}</div>
 <p>
 bzw. die Negation
 </p>
-\begin{align*}
-m \not\in A \Leftrightarrow d(m,A) > 0
-\end{align*}
-</div>
-</div>
-<div id="outline-container-org462b803" class="outline-2">
-<h2 id="org462b803"><span class="section-number-2">2.</span> Beweis</h2>
-<div class="outline-text-2" id="text-2">
+
+<div class="math-block">\begin{align*}
+m \not\in A \Leftrightarrow d(m,A) &gt; 0
+\end{align*}</div>
+
+<h2 id="beweis">Beweis</h2>
 <p>
-Nach dem <a href="20230320164315-abschluss_einer_abgeschlossenen_menge.html#ID-275ba11a-1a8d-4765-aff0-7e0f96e085a2">Abschluss einer abgeschlossenen Menge</a> gilt \(\overline{A} = A\) und für \(d(m,A)\) gilt für beliebiges \(\varepsilon > 0: U_{\varepsilon}(m) \cap A \neq \emptyset\).
-Daraus folgt dann \(m \in \overline{A}\) und auch \(m \in A\)
-Die Rückrichtung folgt aus der <a href="20220716173729-positive_definiertheit_metrik.html#ID-e43ab828-0a7a-459b-90b8-a07e717b8ab1">Positive Definitheit</a> durch \(0 \leq d(m,A) \leq d(m,m) = 0\)
+Nach dem <a href="20230320164315-abschluss_einer_abgeschlossenen_menge.html#ID-275ba11a-1a8d-4765-aff0-7e0f96e085a2">Abschluss einer abgeschlossenen Menge</a> gilt $\overline{A} = A$ und für $d(m,A)$ gilt für beliebiges $\varepsilon &gt; 0: U_{\varepsilon}(m) \cap A \neq \emptyset$.
+Daraus folgt dann $m \in \overline{A}$ und auch $m \in A$
+Die Rückrichtung folgt aus der <a href="20220716173729-positive_definiertheit_metrik.html#ID-e43ab828-0a7a-459b-90b8-a07e717b8ab1">Positive Definitheit</a> durch $0 \leq d(m,A) \leq d(m,m) = 0$
 </p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2024-10-11 Fr 22:16</p>
+
 </div>
 </body>
 </html>

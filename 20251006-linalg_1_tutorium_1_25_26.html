@@ -1,208 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2025-11-11 Di 10:19 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>LinAlg 1 - Tut 1 (25/26)</title>
 <meta name="author" content="Anton Zakrewski" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
     tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       ams: {
         multlineWidth: '85%'
       },
       tags: 'ams',
       tagSide: 'right',
-      tagIndent: '.8em'
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
     },
     chtml: {
       scale: 1.0,
@@ -229,177 +52,105 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">LinAlg 1 - Tut 1 (25/26)</h1>
-<div id="outline-container-orga6ad711" class="outline-2">
-<h2 id="orga6ad711">Erinnerung</h2>
-<div class="outline-text-2" id="text-orga6ad711">
-</div>
-<div id="outline-container-orgc3afd94" class="outline-3">
-<h3 id="orgc3afd94">Disclaimer</h3>
-<div class="outline-text-3" id="text-orgc3afd94">
+<span id="ID-1594200a-9066-4b31-aab3-4ff1eca0af8d"></span><h1 class="title">LinAlg 1 - Tut 1 (25/26)</h1>
+
+<h2 id="erinnerung">Erinnerung</h2>
+
+<h3 id="disclaimer">Disclaimer</h3>
 <p>
-Diese Erinnerung dient primär als Hilfe für die Tutoriumsaufgaben.<br />
+Diese Erinnerung dient primär als Hilfe für die Tutoriumsaufgaben.
 </p>
 
 <p>
-Insbesondere ist diese weder vollständig (~15 min. Wiederholung können 3h Vorlesung nicht ersetzen) noch i.A. korrekt (ich habe viele Zettel selber während des ersten Semesters geschrieben und selten gegengelesen, d.h. Prof. Rosenschons Skript und auch jedes Buch wird um Größenordnungen weniger Fehler beinhalten)<br />
+Insbesondere ist diese weder vollständig (~15 min. Wiederholung können 3h Vorlesung nicht ersetzen) noch i.A. korrekt (ich habe viele Zettel selber während des ersten Semesters geschrieben und selten gegengelesen, d.h. Prof. Rosenschons Skript und auch jedes Buch wird um Größenordnungen weniger Fehler beinhalten)
 </p>
-</div>
-</div>
-<div id="outline-container-org5bafbae" class="outline-3">
-<h3 id="org5bafbae">Liste</h3>
-<div class="outline-text-3" id="text-org5bafbae">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+<h3 id="liste">Liste</h3>
 
 
-<colgroup>
-<col  class="org-left" />
 
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">Logisches Symbol</th>
-<th scope="col" class="org-left">Natursprachliche Bedeutung</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">\(\lor\)</td>
-<td class="org-left">oder (Lateinisch: vel)</td>
-</tr>
 
-<tr>
-<td class="org-left">\(\land\)</td>
-<td class="org-left">und</td>
-</tr>
 
-<tr>
-<td class="org-left">\(\implies\)</td>
-<td class="org-left">impliziert</td>
-</tr>
 
-<tr>
-<td class="org-left">\(\iff\)</td>
-<td class="org-left">ist äquivalent</td>
-</tr>
 
-<tr>
-<td class="org-left">\(\forall\)</td>
-<td class="org-left">für alle</td>
-</tr>
 
-<tr>
-<td class="org-left">\(\exists\)</td>
-<td class="org-left">es existiert</td>
-</tr>
 
-<tr>
-<td class="org-left">\(\exists!\)</td>
-<td class="org-left">es existiert ein eindeutiges</td>
-</tr>
-</tbody>
-</table>
-<ul class="org-ul">
-<li><a href="20251015-definition_genau_dann_wenn.html#ID-116e8eb0-044b-48d9-903c-d101058f5346">Definition - genau dann wenn</a> <br /></li>
-<li><a href="20230317161158-allgemeiner_schnitt.html#ID-d7547939-8d3f-48f8-b2fd-cfb5734ae78f">intersection</a> <br /></li>
-<li><a href="20230317161154-allgemeine_vereinigung.html#ID-69c0d505-311b-4ea6-a337-8450d6529d02">union</a>   <br /></li>
-<li><a href="20220904090342-relative_komplement.html#ID-461367c3-49c6-48bc-9d97-7e6cbe9d096a">relative complement</a>  <br /></li>
-<li><a href="20251018-abbildung_zwischen_mengen.html#ID-92889a6d-f765-49c8-902e-69f633be9a0f">Abbildung zwischen Mengen</a> <br /></li>
-<li><a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjektiv</a>  <br /></li>
-<li><a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injektiv</a>    <br /></li>
-<li><a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">bijektiv</a> <br /></li>
+
+<table><thead><tr><th>Logisches Symbol</th><th>Natursprachliche Bedeutung</th></tr></thead><tbody><tr><td>$\lor$</td><td>oder (Lateinisch: vel)</td></tr><tr><td>$\land$</td><td>und</td></tr><tr><td>$\implies$</td><td>impliziert</td></tr><tr><td>$\iff$</td><td>ist äquivalent</td></tr><tr><td>$\forall$</td><td>für alle</td></tr><tr><td>$\exists$</td><td>es existiert</td></tr><tr><td>$\exists!$</td><td>es existiert ein eindeutiges</td></tr></tbody></table>
+<ul>
+<li><a href="20251015-definition_genau_dann_wenn.html#ID-116e8eb0-044b-48d9-903c-d101058f5346">Definition - genau dann wenn</a> </li>
+
+<li><a href="20230317161158-allgemeiner_schnitt.html#ID-d7547939-8d3f-48f8-b2fd-cfb5734ae78f">intersection</a> </li>
+
+<li><a href="20230317161154-allgemeine_vereinigung.html#ID-69c0d505-311b-4ea6-a337-8450d6529d02">union</a>   </li>
+
+<li><a href="20220904090342-relative_komplement.html#ID-461367c3-49c6-48bc-9d97-7e6cbe9d096a">relative complement</a>  </li>
+
+<li><a href="20251018-abbildung_zwischen_mengen.html#ID-92889a6d-f765-49c8-902e-69f633be9a0f">Abbildung zwischen Mengen</a> </li>
+
+<li><a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjektiv</a>  </li>
+
+<li><a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injektiv</a>    </li>
+
+<li><a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">bijektiv</a> </li>
+
+<li><a href="20220104114031-satz_uber_die_invertierbarkeit_bijektiver_abbildungen.html#ID-103a1e68-fab8-4c82-846c-f2aca167fadc">Invertierbarkeit bijektiver Abbildungen</a> </li>
 </ul>
+<h2 id="kommentare-zum-tutorium">Kommentare zum Tutorium</h2>
 
-<ul class="org-ul">
-<li><a href="20220104114031-satz_uber_die_invertierbarkeit_bijektiver_abbildungen.html#ID-103a1e68-fab8-4c82-846c-f2aca167fadc">Invertierbarkeit bijektiver Abbildungen</a> <br /></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-orgb4303e0" class="outline-2">
-<h2 id="orgb4303e0">Kommentare zum Tutorium</h2>
-<div class="outline-text-2" id="text-orgb4303e0">
-</div>
-<div id="outline-container-orgdee418e" class="outline-3">
-<h3 id="orgdee418e">Wiederholung</h3>
-<div class="outline-text-3" id="text-orgdee418e">
+<h3 id="wiederholung">Wiederholung</h3>
 <p>
-In hindsight bin ich mir nicht so sicher, ob ich die richtige Widerholung an die Tafel geschrieben habe.<br />
-Ich hätte gerne auch noch die Definition der Vereinigung, des Schnitts und des Komplements aufgeschrieben.<br />
-Ich hatte aber auch jetzt schon zu wenig Platz an der Tafel und zu wenig Zeit im Tutorium.<br />
-Ich glaube ich werde im Freitagstutorium Logische Symbole auslassen (auch weil ihr die zusätzlich in Ana hattet).<br />
+In hindsight bin ich mir nicht so sicher, ob ich die richtige Widerholung an die Tafel geschrieben habe.
+Ich hätte gerne auch noch die Definition der Vereinigung, des Schnitts und des Komplements aufgeschrieben.
+Ich hatte aber auch jetzt schon zu wenig Platz an der Tafel und zu wenig Zeit im Tutorium.
+Ich glaube ich werde im Freitagstutorium Logische Symbole auslassen (auch weil ihr die zusätzlich in Ana hattet).
 </p>
 
 <p>
-Die Abbildungen möchte ich die Präsenzaufgaben 2) und die Aufgaben 2 &amp; 3 im Tutoriumsblatt haben (auch wenn wir nicht die Zeit für die Aufgaben hatten)<br />
+Die Abbildungen möchte ich die Präsenzaufgaben 2) und die Aufgaben 2 &amp; 3 im Tutoriumsblatt haben (auch wenn wir nicht die Zeit für die Aufgaben hatten)
 </p>
-</div>
-</div>
-<div id="outline-container-orgb26d29f" class="outline-3">
-<h3 id="orgb26d29f">Übungsaufgabe</h3>
-<div class="outline-text-3" id="text-orgb26d29f">
+
+
+<h3 id="ubungsaufgabe">Übungsaufgabe</h3>
 <p>
-bei der Aufgabe 6b) soll gezeigt werden, dass die Definition von den rationalen Zahlen mathematisch sauber über äquivalenzklassen erfolgen kann (das wird z.B. in allgemeinerer Form in Kommutativer Algebra wiederkehren).<br />
-hier soll \(\mathbb{Q}\) naiv aufgefasst werden als Menge aller rationalen Zahlen \(\frac{p}{q}\) für \(p,q \in \mathbb{Z}, q \neq 0\), wobei man schon davon ausgeht, dass man wie üblich kürzen kann, also z.B. \(\frac{1}{1} = \frac{2}{2}\) gilt.<br />
-Ich finde es aber auch vertretbar, wenn man z.B. für „\(\mathbb{Q}\)“ die Definition von teilerfremden Brüchen hernimmt.<br />
+bei der Aufgabe 6b) soll gezeigt werden, dass die Definition von den rationalen Zahlen mathematisch sauber über äquivalenzklassen erfolgen kann (das wird z.B. in allgemeinerer Form in Kommutativer Algebra wiederkehren).
+hier soll $\mathbb{Q}$ naiv aufgefasst werden als Menge aller rationalen Zahlen $\frac{p}{q}$ für $p,q \in \mathbb{Z}, q \neq 0$, wobei man schon davon ausgeht, dass man wie üblich kürzen kann, also z.B. $\frac{1}{1} = \frac{2}{2}$ gilt.
+Ich finde es aber auch vertretbar, wenn man z.B. für „$\mathbb{Q}$“ die Definition von teilerfremden Brüchen hernimmt.
 </p>
-</div>
-</div>
-<div id="outline-container-org856c863" class="outline-3">
-<h3 id="org856c863">Tutoriumsaufgaben</h3>
-<div class="outline-text-3" id="text-org856c863">
+
+<h3 id="tutoriumsaufgaben">Tutoriumsaufgaben</h3>
 <p>
-ich halte die Tutoriumsaufgaben 2 &amp; 3 tatsächlich für ziemlich schwer für das erste Tutorium.<br />
-ich halte die Aufgabe 1b) für am lehrreichsten.<br />
+ich halte die Tutoriumsaufgaben 2 &amp; 3 tatsächlich für ziemlich schwer für das erste Tutorium.
+ich halte die Aufgabe 1b) für am lehrreichsten.
 </p>
-</div>
-</div>
-<div id="outline-container-orgf60d134" class="outline-3">
-<h3 id="orgf60d134">meine Präsenzaufgaben</h3>
-<div class="outline-text-3" id="text-orgf60d134">
-</div>
-<div id="outline-container-org400e552" class="outline-4">
-<h4 id="org400e552">montag</h4>
-<div class="outline-text-4" id="text-org400e552">
+
+<h3 id="meine-prasenzaufgaben">meine Präsenzaufgaben</h3>
+
+<h4 id="montag">montag</h4>
 <p>
-ich habe für die Präsenzaufgaben 1b) und 2a) andere Beweise als in der Musterlösung gezeigt<br />
-ich wollte dabei explizit paar weitere Beweistechniken vorstellen.<br />
-zudem ist der Beweis von der 1b) (und 2a) + 2b)) eher so, wie man später tatsächlich Beweise aufschreiben würde (mehr Natursprachlich und nicht 100% Formal) , während die 1a) noch sehr formal gehalten ist<br />
-im Beweis von der 1b) habe ich implizit in einem Schritt schon die andere de morgansche Regel verwendet<br />
-das ist auch ok, mit der Zeit wird man solche kleinen Schritte nicht formal aufschreiben.<br />
-es ist für den Anfang sinnvoll, diese Schritte sich mal explizit zu überlegen<br />
+ich habe für die Präsenzaufgaben 1b) und 2a) andere Beweise als in der Musterlösung gezeigt
+ich wollte dabei explizit paar weitere Beweistechniken vorstellen.
+zudem ist der Beweis von der 1b) (und 2a) + 2b)) eher so, wie man später tatsächlich Beweise aufschreiben würde (mehr Natursprachlich und nicht 100% Formal) , während die 1a) noch sehr formal gehalten ist
+im Beweis von der 1b) habe ich implizit in einem Schritt schon die andere de morgansche Regel verwendet
+das ist auch ok, mit der Zeit wird man solche kleinen Schritte nicht formal aufschreiben.
+es ist für den Anfang sinnvoll, diese Schritte sich mal explizit zu überlegen
 </p>
-</div>
-</div>
-<div id="outline-container-orgaacb14f" class="outline-4">
-<h4 id="orgaacb14f">Freitag</h4>
-<div class="outline-text-4" id="text-orgaacb14f">
+
+<h4 id="freitag">Freitag</h4>
 <p>
-ich habe heute nur die 1a &amp; 1b) vorgestellt, um mehr Zeit für die anderen Aufgaben zu haben<br />
+ich habe heute nur die 1a &amp; 1b) vorgestellt, um mehr Zeit für die anderen Aufgaben zu haben
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-orga240042" class="outline-3">
-<h3 id="orga240042">Montagstutorium</h3>
-<div class="outline-text-3" id="text-orga240042">
+
+<h3 id="montagstutorium">Montagstutorium</h3>
 <p>
-ich hatte mich 3 mal bei der Aufgabe 2b) verschrieben, man muss bei der Komposition von \(g\) und \(f\) aufpassen :/<br />
-Ich hatte mich bei der Wahrheitstafel von der 1a) ganz unten bei der vorletzten Aussage (?) verschrieben.<br />
+ich hatte mich 3 mal bei der Aufgabe 2b) verschrieben, man muss bei der Komposition von $g$ und $f$ aufpassen :/
+Ich hatte mich bei der Wahrheitstafel von der 1a) ganz unten bei der vorletzten Aussage (?) verschrieben.
 </p>
 
 <p>
-Es war eine dumme Idee, die Tür zu schließen, da der Raum doch sehr stickig ist (Freitags 8 Uhr ist das einzige Tutorium mit Fenstern)<br />
+Es war eine dumme Idee, die Tür zu schließen, da der Raum doch sehr stickig ist (Freitags 8 Uhr ist das einzige Tutorium mit Fenstern)
 </p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: nil</p>
-<p class="author">Author: Anton Zakrewski</p>
-<p class="date">Created: 2025-11-11 Di 10:19</p>
+
 </div>
 </body>
 </html>

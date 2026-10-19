@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>maximal matching for a general graph</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-40ce7f6e-2df5-4df5-949a-63836455cb98"></span><h1 class="title">maximal matching for a general graph</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $G = (V,E)$ be a <a href="20220904165445-graph.html#ID-2de260cf-41c4-4dec-9ae9-450c507fda60">graph</a> and $d \in \mathbb{N}_0$
+</p>
+
+<p>
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+2 m(G) =&amp; v(G) - \mathrm{max}_{S \subseteq V} \{q(G \setminus S) - \vert S \vert \} - \vert S \vert
+=&amp; v(G) - \Delta
+\end{align*}</div>
+
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="delta-geq-0">$\Delta \geq 0$</h3>
+<p>
+choose $S = \emptyset$, then
+</p>
+
+<div class="math-block">\begin{align*}
+q(G \setminus S) - \vert S \vert = 0
+\end{align*}</div>
+
+<h3 id="vg-delta-even">$v(G) + \Delta$ even</h3>
+<p>
+Let $S^* \subseteq V$ with $\Delta = q(G \setminus S^*) - \vert S^* \vert$ and $c_1,...,c_l$ the components of $G \setminus S^*$.
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+v(G) + \Delta =&amp; \sum_{V(C_i) \mathrm{ even}} v(C_i) + \sum_{v(C_i) \mathrm{ odd}} v(C_i) + \vert S^* \vert + \Delta
+=&amp; \sum_{V(C_i) \mathrm{ even}} v(C_i) + \sum_{v(C_i) \mathrm{ odd}} v(C_i) + q(G \setminus S^*)
+=&amp; \sum_{V(C_i) \mathrm{ even}} v(C_i) + \sum_{v(C_i) \mathrm{ odd}} (v(C_i) + 1) 
+\end{align*}</div>
+<p>
+where $q(-)$ denotes (?).
+</p>
+
+<p>
+The last term is clearly even.
+</p>
+
+<p>
+Now consider
+</p>
+
+<div class="math-block">\begin{align*}
+G' \coloneqq K_{\Delta} \cup G
+\end{align*}</div>
+<p>
+where $K_{\Delta}$ is the <a href="20230327230707-vollstandiger_graph.html#ID-05e6ef66-0c7e-410d-a7d3-69e197a4f896">complete graph</a> and all edges from $K_{\Delta}$ to $G$.
+</p>
+
+<p>
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+E(G') = \binom{\Delta}{2} \cup \{vd : v \}n V, d \in K_{\Delta}\}
+\end{align*}</div>
+
+
+<h4 id="a-s-emptyset">a) $S = \emptyset$</h4>
+<p>
+then
+</p>
+
+<div class="math-block">\begin{align*}
+q(G' \setminus S) = 0 \leq \vert S \vert
+\end{align*}</div>
+
+
+<h4 id="b-s-neq-empytset-s-cap-d-neq-d">b) $S \neq \empytset$, $S \cap D \neq D$</h4>
+<p>
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+q(G' \setminus S) \leq 1 \leq \vert S \vert
+\end{align*}</div>
+<p>
+since $G' \setminus S$ is still connected.
+</p>
+
+<h4 id="c-s-cap-d-d">c) $S \cap D = D$</h4>
+<p>
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+q(G' \setminus S) =&amp; q(G \setminus (S \setminus D)) \\
+\leq&amp; \vert S \vert - \Delta + \Delta
+=&amp; \vert S \vert
+\end{align*}</div>
+
+<p>
+Now by <a href="20250522-tutte_theorem.html#ID-7e567279-8a78-4046-8640-1402fa62589f">tutte theorem</a> $G'$ contains a perfect matching which shows
+</p>
+
+<div class="math-block">\begin{align*}
+m(G) \geq&amp; m(G') - \Delta \\
+=&amp; \frac{v(G) + \Delta}{2} - \Delta
+\end{align*}</div>
+
+
+<h3 id="2mg-leq">$2m(G) \leq ...$</h3>
+
+</div>
+</body>
+</html>
