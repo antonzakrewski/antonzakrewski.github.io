@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>subobject of a semi-simple object is semi-simple</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-734ab17d-e1d7-4a8d-9acf-32663ec82507"></span><h1 class="title">subobject of a semi-simple object is semi-simple</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $V_i$ be a pairwise non <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphic</a> <a href="20250708-simple_object.html#ID-a275a20e-9384-4354-99f8-39ee827e2d7d">simple objects</a>.
+Let $V = \bigoplus (\bigoplus_{n_i} V_i)$ be the <a href="20250708-semi_simple_object.html#ID-095667fa-cb09-43aa-a667-641000fde1fa">semi-simple object</a> (for a <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">finite</a> <a href="20250708-sum_in_an_additive_infinity_category.html#ID-b8713cf0-ee6d-4ad2-8206-b843246bc715">sum</a>).
+</p>
+
+<p>
+Then any <a href="20230911-subobject.html#ID-287d81f7-a81b-441c-947e-ba707aa4555b">subobject</a> $W$ of $V$ is up to <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a> the direct sum inclusion.
+</p>
+
+<p>
+Alternatively, then any <a href="20230911-subobject.html#ID-287d81f7-a81b-441c-947e-ba707aa4555b">subobject</a> $W$ of $V$ is of the form $W = \bigoplus (\bigoplus_{r_i} V_i)$ and the inclusion identifies up to permutation of copies of $V_i$ by a diagonal matrix where the diagonal entries are <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphisms</a>.
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="proof-1">proof 1</h3>
+<p>
+<a href="20221024165350-beweis_durch_vollstandige_induktion_mit_starkerer_induktionsvoraussetzung.html#ID-1534f6c1-e094-4672-8e87-f36eb0e54b8b">Proof by induction</a>
+we argue by induction on $n = \sum_i n_i$.
+</p>
+
+<h4 id="induction-basis">induction basis</h4>
+<p>
+If $n \leq 1$ then we are done.
+</p>
+
+<h4 id="induction-step">induction step</h4>
+<p>
+First we would like to find a simple subrepresentation.
+Consider $V \rightarrow V_i$ projection onto any summand, then either $W \rightarrow V \rightarrow V_i$ has a kernel or not
+If it doesnt, then $W \cong V_i$. so we are done.
+If it does have a kernel, then $W \cap \bigoplus_{n}  V_{n_i}$ is nonzero and we can find a simple subrepresentaiton by induction.
+<a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> we assume that $P \cong V_i$
+Then $\varphi_{\vert p}: P \rightarrow V$ factors thorugh $n_i V_}$ by <a href="20260103-schur_lemma.html#ID-f1203290-48a6-4b75-9841-49369a51ecfe">schurs lemma</a> and identifying $P \cong V_1$ it is given by $\{d_i\}_{n_i} \d_i$ via
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/41a6d9dded63eb983a63.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+where not all $d_i = 0$.
+</p>
+
+<p>
+Now consdire the group $\mathrm{GL}_1(D_i) \simeq D_i^{\simeq}$ acting on $\bigoplus_{n_i} V_i$ on the left.
+This extends to an action on $V$ by acting on each $n_i$ by zero for $i \neq 1$.
+</p>
+
+<p>
+Therefore it acts on the set of subrepresentations and preserves the property we have to establish.
+So pick $g_1 \in \mathrm{GL}_1(D)$ such that $g(d_1,...,d_n) = (1,0,...,0)$.
+Then $g P \subseteq gW$ is the inclusion of the first copy.
+</p>
+
+<p>
+So $g W \subseteq V$ where $V_1 \oplus W' \subseteq V_1 \oplus \bigoplus_{n_1 - 1} V_i \oplus \bigoplus_{i \neq 1} \bigoplus_{n_i} V_i$
+Apply the inductive hypothesis to $W'$ to conclude.
+</p>
+
+<h3 id="proof-2">proof 2</h3>
+
+
+</div>
+</body>
+</html>
