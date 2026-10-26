@@ -8,16 +8,101 @@
 <meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
 <script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
 <span id="ID-6331fe49-930a-49a7-bfb8-ae7dc8906f40"></span><h1 class="title">completion of pre c star algebras</h1>
 
 <h2 id="proposition">Proposition</h2>
+<p>
+The  inclusion fo <a href="20251019-category_of_c_star_algebras.html#ID-004efa34-d379-4849-8893-91390ee0a564">category of nonunital C-star algebras</a> into the <a href="20261019-category_of_nonunital_pre_c_star_algebras.html#ID-f7f65d32-0ebe-4325-b44e-4e0cfa591c01">category of nonunital pre C star algebras</a> admits a <a href="20241017-infinity_left_adjoint.html#ID-2ba0e3a5-7a57-4093-837c-b1f0feabd7c2">left adjoint</a>, the completion functor
+</p>
 
+<div class="math-block">\begin{align*}
+\mathrm{comp}: C^*_{\mathrm{pre}}\mathrm{Alg} \rightarrow C^* \mathrm{Alg}
+\end{align*}</div>
 
 <h2 id="proof">Proof</h2>
 
+<h3 id="pointwise-constructuion">pointwise constructuion</h3>
+<p>
+Let $A$ be a <a href="20261022-pre_c_star_algebra.html#ID-c7385c77-8d2f-41a8-925f-87f673d34ac3">pre C star algebra</a>.
+Then let $\mathcal{N}_{A} = \{a \in A \vert \| a \|_{\mathrm{max}, A} = 0\}$ be the <a href="20261019-star_ideal_of_a_nonunital_star_algebra.html#ID-66212e68-59c2-46a8-8ee9-68e872918294">star ideal</a> of
+</p>
+
+<p>
+Then $A/N_{A}$ is a <a href="20261019-nonunital_star_algebra.html#ID-0e4fad4a-8cf9-4d8a-965a-59c8a1c5171d">nonunital star algebra</a> and we claim that $\pi: A \rightarrow A/\mathcal{N}_{A}$ is an <a href="20221209134652-isometrie_metrischer_raum.html#ID-897a11a6-874c-4734-9d2b-7bf717ba7867">isometry</a> (up to injectivity).
+It is <a href="20261019-maps_of_star_algebras_are_contractive_for_the_maximal_norm.html#ID-fe6a0a7e-286e-4394-b033-a6cd9bf21865">contractive for</a> formal reasons and for any <a href="20261019-representation_of_a_star_algebra.html#ID-05cfc1cc-077c-4460-91df-a6801f1bfddb">representation of a nonunital star algebra</a>
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/185007942d4dcf07d82e.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+where we use that $\mathcal{B}(H)$ is canonically equipped with the <a href="20261019-maximal_norm_of_a_star_algebra.html#ID-0181d76a-2bc8-4f1e-ae09-29a31a393131">maximal seminorm</a>, hence $\| a \|_{\mathrm{max}} \leq \| \pi(a)\|_{\mathrm{max}}$.
+</p>
+
+<p>
+Therefore $\| - \|_{\mathrm{max}, A/N_{A}}$ is a norm and we can <a href="20261026-completion_pre_c_star_algebras.html#ID-6331fe49-930a-49a7-bfb8-ae7dc8906f40">complete</a>, i.e. consider $\overline{A/\mathcal{N}_{A}}$ with the maximal norm.
+Now any representation $A/\mathcal{N}_{A} \rightarrow B(H)$ is a <a href="20260509-bounded_operator.html#ID-c9aa0020-0a75-4250-9116-0d18e171bb90">bounded operator</a> by construction of the maximum norm.
+Hence by <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuity</a> and <a href="20221124122659-vollstandiger_metrischer_raum.html#ID-d68e391c-415a-49a8-93ce-0b1de559796d">completeness</a>, we can lift any representation
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/774e14685a6ed6e1bb50.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+This implies that both the maximum norm and the induced norm from the completion agree (todo)
+</p>
+
+<h3 id="hom-id8f539991-82c2-4cb3-a303-965a60282db5isomorphism">Hom <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a></h3>
+<p>
+For any C-star algebra $B$ and pre c star algebra $A$, we have that any map $A \rightarrow B$ must map $\mathcal{N}_{A}$ to $\mathcal{N}_{B} = 0$, hence it factorizes through the quotient.
+Now $B$ is complete, so there exists an extension to the completion, which gives a homomorphim.
+This shows that it is surjective.
+</p>
+
+<p>
+Now let $f,g: \mathrm{compl}(A) \rightarrow B$ be two homomorphisms, such that they restrict
+</p>
 
 </div>
 </body>
