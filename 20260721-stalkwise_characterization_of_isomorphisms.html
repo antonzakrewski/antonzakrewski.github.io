@@ -63,11 +63,38 @@ Let $X$ be a <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45
 <a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
 </p>
 <ol>
-<li>$\varphi_{X}: \mathcal{F}_{x} \rightarrow \mathcal{G}_{x}$ is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a> on all stalks</li>
+<li>$\varphi_{x}: \mathcal{F}_{x} \rightarrow \mathcal{G}_{x}$ is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a> on all stalks</li>
+
+<li>$\varphi_{U}: \mathcal{F}(U) \rightarrow \mathcal{G}(U)$ is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a> for all $U \in \mathrm{Open}(X)^{\mathrm{op}}$.</li>
 
 <li>$\mathcal{F} \Rightarrow \mathcal{G}$ is an <a href="20230404122456-natural_isomorphism.html#ID-0977f626-bc15-4197-93bd-092d014c8270">natural isomorphism</a> </li>
 </ol>
 <h2 id="proof">Proof</h2>
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+<p>
+using <a href="20260721-stalkwise_characterization_of_monomorphisms.html#ID-83dbccdb-0686-4e30-8a93-64c268a4622b">stalkwise characterization of monomorphisms</a> it suffices to show that $\varphi_{U}$ is <a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjective.</a>
+By <a href="20260721-stalkwise_characterization_of_epimorphisms.html#ID-06bb46d8-0c76-48ba-a257-95528975dddd">stalkwise characterization of epimorphisms</a> we may assume that for each $t \in \mathcal{G}(U)$, there exists an open cover $U = \bigcup U_i$ and $s_i \in \mathcal{F}(U_i)$ such that $\varphi_{\vert U_i} = t_{\vert U_i}$.
+We claim that $(s_{i})_{\vert U_i \cap U_j} = (s_{j})_{\vert U_i \cap U_j}$:
+Here by naturality, we have that $\varphi((s_{i})_{\vert U_i \cap U_j}) = t_{\vert U_i \cap U_j} = \varphi((s_{i})_{\vert U_i \cap U_j})$ and since $\varphi_{\vert -}$ is injective by the stalkwise criterion before, we get $(s_{i})_{\vert U_i \cap U_j} = (s_{j})_{\vert U_i \cap U_j}$.
+</p>
+
+<p>
+By the equalizer-sheaf condition, we get a section $s$ which restricts to $(s_{j})$ and this maps to a section $\varphi(s)$ with the property that $\varphi(s)_{\vert U_i} = t_{\vert U_i}$.
+Now the sections $\varphi(s)$ and $t$ agree on an open cover in $U$, hence by the sheaf condition, they are the same elements and we have shown injectivity.
+</p>
+
+
+<h3 id="2-implies-3">2) $\implies$ 3)</h3>
+<p>
+<a href="20241029-natural_isomorphism_between_infinity_functors_and_objectwise_isomorphism.html#ID-ab56d28a-a361-436c-91c0-ab97bba85e89">natural equivalence between functors and pointwise equivalence</a>
+</p>
+
+<h3 id="3-implies-1">3) $\implies$ 1)</h3>
+<p>
+follows as taking the <a href="20241016-colimit_in_an_infinity_category.html#ID-de45d65c-0326-401d-93b3-f10a929be459">colimit</a> is a <a href="20240404-functor_between_infinity_categories.html#ID-7428dc84-9acd-49bc-8e93-b1541326a6b9">functor</a> (cf. <a href="20241126-infinity_colimit_functor.html#ID-8e9aa8a6-edf0-413b-af3e-e888de9ce443">colimit functor</a>).
+</p>
+
 
 
 </div>

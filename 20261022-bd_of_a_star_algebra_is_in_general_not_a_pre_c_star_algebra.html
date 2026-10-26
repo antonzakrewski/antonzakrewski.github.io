@@ -67,8 +67,92 @@ Then $\mathrm{Bd}(A) = \mathbb{C}[x]$
 </p>
 
 <p>
-For this it suffices to show that there exist
+Now let $f \in \mathrm{Bd}(A) \subseteq A$.
+Now apply $t^2 = z^2 + 1$ as often as necessary so that each instance of $z$ appears with multiplicity $1$.
+Then we have a polynomial of the form
 </p>
+
+<div class="math-block">\begin{align*}
+f = t^n( \alpha_1 z + \alpha_2 t) + g
+\end{align*}</div>
+<p>
+for $g \in \mathbb{C}[z,t]$.
+</p>
+
+<p>
+Then we claim that $t^n( \alpha_1 z + \alpha_2 t) = 0$:
+For this we can use write down for $r \in \mathbb{R}^+$ the representation $\rho_r: A \rightarrow \mathrm{End}(\mathbb{C})$
+</p>
+
+<div class="math-block">\begin{align*}
+ x,y \mapsto&amp; 0 \\
+ t \mapsto&amp; \mathrm{sgn}_t \sqrt{r^2 + 1} \\
+ z \mapsto&amp;  r
+\end{align*}</div>
+<p>
+where $\mathrm{sgn}_t \in \{\pm 1\}$ is choosen such that $\| \alpha_1 z + \alpha_2 t \| \geq \mathrm{max}(\alpha_1,\alpha_2) \vert z \vert$ which exists by handwaving and elementary geometry (choose a sign such that the smallest angle between $\alpha_1,\alpha_2$ is at most $90$ degree).
+Then we get $\| \rho_r(f) \| \geq \mathrm{max}(\vert \alpha_1 \vert, \vert \alpha_2 \vert) \| r^{n+1} \| - \| g(0,0,0,0) \|$ which implies $\alpha_1 = \alpha_2 = 0$
+</p>
+
+<p>
+So we may now assumet that $f \in \mathbb{C}[x,y]$.
+But here we can write down the representation $\rho_{r}'$
+</p>
+
+<div class="math-block">\begin{align*}
+x \mapsto&amp; 0.25 \\
+t \mapsto&amp; 2r \\
+y \mapsto&amp; r \\
+z \mapsto&amp; \sqrt{4r - 1}
+\end{align*}</div>
+<p>
+which then implies that $f$ can not have any $z$ term, as otherwise the norm of the polynomial would grow to infinity.
+</p>
+
+<p>
+Hence $f \in \mathbb{C}[x]$
+</p>
+
+<p>
+Now we want to show that $x \in \mathbb{C}[x]$.
+So let $\rho$ be any representation.
+We first claim that $\rho(t^2)$ is invertible:
+It is self adjoint and we claim that it is also bounded below:
+It is bonuded below because it is of the form $1 + \rho(z^2)$ (cf. <span class="broken-link" title="unresolved id:140687a5-e35c-4ea5-a298-ba43db6d22a1">1 plus square of a self adjoint operator is bounded below</span>) and self adjoint since $z$ is self-adjoint.
+</p>
+
+<p>
+Hence <span class="broken-link" title="unresolved id:4bba65aa-d984-43e9-93c9-a18162887233">bounded below, self adjoint operator is invertible</span> implies that it is invertible.
+</p>
+
+<p>
+Now for any representation, we have
+</p>
+
+<div class="math-block">\begin{align*}
+0 =&amp; \langle (\frac{\rho(y)}{\rho(t)})^2 - \rho(x) (\rho(1) - \rho(x)) v, v\rangle \\
+=&amp; \| \frac{\rho(y)}{\rho(t)}^2 v \| - \langle \rho(x) v, v\rangle + \langle \rho(x) \rho(1) v, \rho(x) \rho(1) v \rangle \\
+\geq&amp; \| \frac{\rho(y)}{\rho(t)}^2 v \|^2 + \| \rho(x) \rho(1) v \|^2 - \| \rho(x)  \| \| \rho(1) v \|^2 \\
+\end{align*}</div>
+
+<p>
+where we have used $1^2 = 1 = 1^*$ and hence $\rho(1)^2 = \rho(1) = \rho(1)^*$
+</p>
+
+<p>
+now for any $v$ which maximizes $\| \rho(x) \rho(1) v \|$ up to an $\varepsilon$ implies, this implies that $\| \rho(x) \|$ is bounded by $1$
+todo
+</p>
+
+<p>
+Now $\mathrm{Bd}(\mathbb{C}[x]) = \mathbb{C}$ follows from the representation given by $x \mapsto r$.
+</p>
+
+
+
+
+
+
 
 </div>
 </body>
