@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>index is homotopy invariant</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-b7317bc0-ff7f-4522-bf55-13f7bb2914bd"></span><h1 class="title">index is homotopy invariant</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X,Y$ be <a href="20221124132702-banachraum.html#ID-43ef125e-d9bb-454f-9427-4d3d8426893a">banach spaces</a> and $\mathrm{fred}(X,Y) \subseteq \mathcal{B}(X,Y)$ the subspace of <a href="20261023-fredholm_operator.html#ID-577f72a4-4ebc-4e99-9b21-b3251dbe515b">fredholm operators</a>.
+Then the <a href="20261026-index_of_a_fredholm_operator.html#ID-ba925230-97d6-40f2-9d23-5e04d6ffbae3">index</a> map $\mathrm{ind}: \mathrm{fred}(X,Y) \rightarrow \mathbb{Z}$ factors over the <a href="20230525114518-pfadkomponente.html#ID-3295510f-254c-4af2-a40d-2374ef5c9929">path components</a>, i.e.
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/5a816451da56c3568b3a.svg" class="org-svg" alt="diagram" /></span></div>
+
+<h2 id="proof">Proof</h2>
+<p>
+We show that the index map is locally constant.
+So let $T$ be fredholm, then write $X = \mathrm{ker}(T) \oplus X_0, Y = \mathrm{im}(T) \oplus Y_0$ for some $X_0 \subseteq X,Y_0 \subseteq Y$ <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">closed</a> (cf. <a href="20261026-topological_decomposition_for_a_finite_dimensional_subspace_in_a_banach_space.html#ID-0bb30c77-c589-4d88-ab83-9654addd6ee7">topological decomposition for a finite dimensional subspace in a banach space</a>).
+then $T$ is of the form
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/12dc11c72ebf6119207f.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+for this decomposition.
+</p>
+
+<p>
+Let $E = \begin{pNiceMatrix} E_{1,1} &amp; E_{2,1} \\ E_{1,2} &amp; E_{2,2} \end{pNiceMatrix}$ be any operator with $\| E \| &lt; \varepsilon$ be small enough, such that $T + E_{1,1}$ is invertible (cf. <a href="20260708-neumann_series_of_a_bounded_linear_operator.html#ID-9b1b65cc-346c-4c7e-ab40-6da03d300981">neumann series of a bounded linear operator</a>).
+Then after appropriately applying gaussian elimination (using that $T + E_{1,1}$ is invertible) we get a matrix of the form
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/a559bbd9ccb2afbc2ba0.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+in particular, this gaussian elimination is given by pre/postcomposition with an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a>, hence does not change the index.
+This matrix is in diagonal form, so $\mathrm{ind}(B) = \mathrm{ind}(T + E_{1,1}) + \mathrm{ind}(D) = 0 + \mathrm{ind}(D)$
+But <a href="20261026-index_is_constant_for_operators_between_finite_dimensional_spaces.html#ID-592f60e2-12cc-444b-a0f8-d328e0eb7498">index is constant for operators between finite dimensional spaces</a> shows that $\mathrm{ind}(D: \mathrm{ker}(T) \rightarrow Y_0) = \mathrm{ind}(0)$ which implies $\mathrm{ind}(T) = \mathrm{ind}(D) = \mathrm{ind}(B)$
+</p>
+
+<p>
+This together with <a href="20261026-locally_constant_map_factors_through_connected_componenst.html#ID-1e2bdd20-0028-40f4-a778-b8782cf68ffd">locally constant map factors through connected components</a> implies the claim.
+</p>
+
+</div>
+</body>
+</html>

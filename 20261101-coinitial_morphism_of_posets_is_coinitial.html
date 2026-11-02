@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>coinitial morphism of directed posets is coinitial</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-d7b2bae9-6112-4595-a278-abf6cdb09e33"></span><h1 class="title">coinitial morphism of directed posets is coinitial</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $P,Q$ be filtered partially ordered <a href="20211008171333-menge.html#ID-30e3fc7a-7374-41d5-80da-a1dae2add239">sets</a> and $g: P \rightarrow Q$ a <a href="20240620-cofinal_morpihsm_of_posets.html#ID-d49e17e3-a9d7-45d6-864f-8d6206227556">coinitial morphism of posets</a>.
+Then for any functor $\mathcal{F}: Q \rightarrow \mathrm{Set}$, there exists a canonical <a href="20240422-equivalence_in_a_quasi_category.html#ID-2ee106db-9acf-4158-ab9c-f56a41e2312b">equivalence</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{colim}_{P} \mathcal{F} \circ g \rightarrow \mathrm{colim}_{Q} \mathcal{F}
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+First observe that there exists a canonical map $h: \mathrm{colim}_{P} \mathcal{F} \circ g \rightarrow \mathrm{colim}_{Q} \mathcal{F}$:
+It is induced by the universal porperty of $\mathrm{colim}_{P} \mathcal{F}$ by the maps $(\mathcal{F} \circ g)(p) \rightarrow \mathcal{F}(g(p)) \rightarrow \mathrm{colim}_{Q} \mathcal{F}$.
+</p>
+
+<p>
+todo: draw picture
+</p>
+
+<p>
+We show that this map is a <a href="20211230211412-bijektivitat.html#ID-3d1c4c92-bf37-4557-980b-787589b9c3f6">Bijection</a>.
+For this we use the explicit description of the filtered colimit in $\mathrm{Set}$:
+It is given by $(\coprod_{q \in Q} \mathcal{F}(q))/\sim$ where two elements $(x,q), (x',q')$ are equivalent <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> there exists a $\tilde{q}$ and maps $f: q \rightarrow \tilde{q}, f': q' \rightarrow \tilde{q}$ such that $\mathcal{F}(f)(x) = \mathcal{F}(f')(x')$.
+</p>
+
+<p>
+Let $[x] \in \mathrm{colim}_{Q} \mathcal{F}$ be an element, then it is represented by an element $(x_q,q)$.
+In particular, we can find an $p \in P$ such that $q \leq g(p)$ or there exists an $\tilde{f}: q \rightarrow g(p)$.
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/3f2017d994ed356c8ca0.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Hence the equivalence class of $x_p$ is also represented by $\mathcal{F}(f)(x_p) =: (x_{g(p)}, g(p))$, which lies in $\mathcal{F}(g(p)) = (\mathcal{F} \circ g)(p)$.
+This shows that $(x_{g(p)}, g(p))$ lifts to $\mathrm{colim}_{P} (\mathcal{F} \circ g)$ and maps to the equivalence class of $[x] \in \mathrm{colim}_{Q} (\mathcal{F} \circ g)$.
+</p>
+
+<p>
+Now suppose there exist $[(y_1,p_1)], [(y_2,p_2)]$ such that $h([(y_1,p_1)]) = h([(y_2,p_2)])$.
+Then there exists an $q \in Q$ and morphisms $f_1: g(p_1) \rightarrow q, f_2: g(p_2) \rightarrow q$ such that $f_1(y_1) = f_2(y_2)$.
+We may then find an $\tilde{p}$ and a morphism $\tilde{f}: q \rightarrow g(\tilde{p})$.
+</p>
+
+
+<div class="equation-container"><span class="equation"><img src="ltximg/c7796e37a2ad4d8cab75.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+In particular, since every diagram commutes here, we have for $\tilde{f}_1: p_1 \rightarrow \tilde{p}, \tilde{f}_2: p_2 \rightarrow \tilde{p}$ that
+</p>
+
+<div class="math-block">\begin{align*}
+\tilde{f}_2(y_2) =&amp; (\tilde{f}) (f_1(y_1)) \\
+=&amp; \tilde{f} (f_2(y_2)) \\
+=&amp; \tilde{f}_2(y_2)
+\end{align*}</div>
+
+<p>
+This shows that $[(y_1,p_1)] = [(y_2,p_2)]$ or that the map was injective.
+</p>
+
+<h3 id="remark">remark:</h3>
+<ul>
+<li>one can use the yoneda embedding of $\mathcal{C}^{\mathrm{op}}$ shows this for every 1-category.</li>
+</ul>
+</div>
+</body>
+</html>

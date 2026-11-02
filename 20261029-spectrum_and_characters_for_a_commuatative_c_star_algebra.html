@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>spectrum and characters for a commuatative c star algebra</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-3f0f71ac-3573-468f-b378-7b1d22130bf0"></span><h1 class="title">spectrum and characters for a commuatative c star algebra</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $A \neq 0$ be be in $\mathrm{C}^*\mathrm{Alg}_{\mathrm{comm}}$ t.and $a \in A$.
+Then $\chi_{A}(a) = \{\chi(a) \vert \chi \in \mathrm{Char}(A)\}$
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $\mu = \chi(a)$, then $\mu \in \sigma_{A}(ar$.
+Assume that $\mu \not\in \chi_{A}(a)$, then there exists an inverse $(\mu - a)^{-1}$ and then $(\chi(\mu) - \chi(a))^{-1}$ exists, which is a contradiction since $\chi(\mu) - \chi(a) = 0$.
+</p>
+
+<p>
+now $\lambda \in \chi_{A}(a)$, then consider the generated ideal (usual ideal ??) $(\lambda - a)$ which is a proper ideal since $\lambda - a$ is not invertible by assumption.
+Then choose a <a href="20230314223428-maximales_ideal.html#ID-9d76bba3-11a8-42c9-9bdb-f774da2bb06a">maximal ideal</a> $\mathfrak{m}$ containig $( \lambda - a)$.
+Then $\mathfrak{m}$ is <a href="20221125122314-abgeschlossene_menge_topologie.html#ID-16e941fe-25c3-4e8b-9417-03ca5616c1df">closed</a> by maximality: $\overline{\mathfrak{m}}$ is a proper dieal (ideal: todo) since $\mathfrak{m} \subseteq A \setminus A^{\times}$ where $A \setminus A^{\times}$ is closed.
+</p>
+
+<p>
+Then $A/\mathfrak{m}$i sa field and a nonzero banach algebra.
+for $b \in A/M$, we have that $\sigma_{A/M}(b) \in \mu$, $\mu - b$ is not invertible which implies $\mu = b$.
+Now define
+</p>
+
+<div class="math-block">\begin{align*}
+\mathbb{C} \rightarrow&amp; M/A \\ 
+\lambda \mapsto \frac{\lambda}{\mu} b
+\end{align*}</div>
+<p>
+which is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a>.
+</p>
+
+<p>
+Now consider
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+A \rar &amp; A/M \rar &amp; \mathbb{C} \\ 
+a \arrow[mapsto, ]{rr}{} &amp; \lambda
+\end{tikzcd}
+\end{displaymath}</pre></div>
+<p>
+because $\lambda - a$ maps to zero.
+and we claim that this is a star homomorphism:
+for this it suffices to show that $\chi(a^*) = \overline{\chi(b)}$
+</p>
+
+<p>
+We first show that it is <a href="20230112104451-stetigkeit_topologie.html#ID-f46120aa-e40b-4c09-9296-23b0783092a2">continuous</a>: here $\chi(x) \subseteq \sigma_{A}(x)$ and <a href="20261022-spectrum_in_a_banach_space_is_bounded.html#ID-ccdd1b1a-0d90-4280-be04-a8acf69af2fd">spectrum is bounded</a> implies that $\| \&gt;hi(x) \| \leq c \| x \|.
+</p>
+
+
+<p>
+So let $h = h^* \in A$ self-adjoint and let
+</p>
+
+<div class="math-block">\begin{align*}
+e^{i th} = \sum_{n=0}^{\infty} \frac{(ith)^n}{n!}
+\end{align*}</div>
+<p>
+which is absolutely converges
+</p>
+
+<p>
+Now apply the character, which is $\mathbb{C}$-linear , continuous and multiplicative:
+hence
+</p>
+
+<div class="math-block">\begin{align*}
+\chi(e^{\mathrm{ith}}) = e^{it \chi(h)}
+\end{align*}</div>
+
+<p>
+We now want to show that for $t \in \mathbb{R}$, we have $\| \chi(e^{\mathrm{ith}}) \|| = 1$ but since star is continuous, we have
+</p>
+
+<div class="math-block">\begin{align*}
+(e^{\mathrm{ith}})^* =&amp; e^{-\mathrm{ith}} \\
+e^{a} e^{b} =&amp; e^{a+b}
+\end{align*}</div>
+
+<p>
+from this we get
+</p>
+
+<div class="math-block">\begin{align*}
+e^{\mathrm{ith}} (e^{\mathrm{ith}})^* = 1
+\end{align*}</div>
+<p>
+and therefore $\vert e^{\mathrm{it}\chi(h)} \vert = 1$ for all $t \in \mathbb{R}$ which shows $\chi(h) \in \mathbb{R}$.
+</p>
+
+<p>
+Now let $a$ be arbitrary, then write
+</p>
+
+<div class="math-block">\begin{align*}
+a = \frac{a + a^*}{2} + \mathrm{i} \frac{a-a^*}{2i}
+\end{align*}</div>
+<p>
+as sum of ?
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+a^* = \frac{a + a^*}{2} - i \frac{a-a^*}{2i}
+\end{align*}</div>
+
+<p>
+and applying $\chi(a^*)$ gives
+</p>
+
+<div class="math-block">\begin{align*}
+\chi(\frac{a+a^*}{2}) - \mathrm{i} \chi(\frac{a - a^*}{2i}) \\
+=&amp; \overline{\frac{a+ a^*}{2} + \mathrm{i} \chi( \frac{a - a^* }{2 \mathrm{i}}}
+\end{align*}</div>
+
+</div>
+</body>
+</html>

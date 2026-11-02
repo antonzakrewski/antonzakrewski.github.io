@@ -8,12 +8,97 @@
 <meta name="generator" content="zk2html" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
 <script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
 <span id="ID-5b1d496f-8a77-4741-9b9e-e43625e132eb"></span><h1 class="title">Jordan-Hölder theorem</h1>
 
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $A$ be a <a href="20221125133249-k_algebra.html#ID-74ada59f-7a40-49a2-b525-be8af0628fe9">K-Algebra</a> and $V$ a <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">finite</a> <a href="20220102135318-dimension.html#ID-3e484fb0-c9a8-485a-999b-4f0052bd13e4">dimensional</a> <a href="20261013-representation_of_an_algebra.html#ID-2382e24c-8a21-4f51-94be-8f7cc7321c83">representation</a>
+Let $0 = V_0 \subseteq V_1 \subseteq ... \subseteq v_n = V$ and $0 = V_0' \subseteq V_1' \subseteq ... \subseteq V_m' = V$ be two <a href="20261021-filtration_of_a_representation.html#ID-36d4955e-8f90-4fdb-a676-6e43c942859b">filtrations</a> of $V$.
+</p>
 
+<p>
+Thne $n = m$ and there exists a <a href="20221026161747-permutation_abbildung.html#ID-af424eae-548d-4d43-8ff0-3c2930186d7c">Permutation</a> $\sigma$ such that
+</p>
+
+<div class="math-block">\begin{align*}
+W_i \cong W_{\sigma(i)}'
+\end{align*}</div>
+<p>
+for $W_i \cong V_{i}/V_{i-1}, W_i' = V_{i}'/V_{i-1}'$
+</p>
+
+<h2 id="proof">Proof</h2>
+<p>
+we argue by induction on $\mathrm{dim}(V) = d &lt; \infty$.
+The case of $n = 0$ or $n = 1$ is clear, since every 1 dimensional representation is <a href="20261013-irreducible_representation_of_an_algebra.html#ID-d63374c8-6c64-4ee3-bc2b-bd75c8272d12">simple</a>.
+</p>
+
+
+<p>
+If $W_1 = W_1'$ then we are done by induction (take $V/V_{1}$ and apply some <a href="20230813-isomorphism_theorems.html#ID-12309854-b890-4505-b2bf-64162355c43a">isomorphism theorem</a>).
+So assume that $W_1 \neq W_1'$, then $W_1 \cap W_1' = 0$ so we find an <a href="20211230211328-injektivitat.html#ID-717f77ad-8b6e-47b2-a15d-f47a0b5a1237">injection</a> $W_1 \oplus W_1' \rightarrow V$.
+Consider the quotient $U = V/W_1 \oplus W_1'$ and pick a filtration of $U$ and call it $U_i$ with simple quotient $Z_i = U_i/U_{i-1}$.
+Then we observe that $V/W_1$ has a filtaritons with quotients $(W_2,Z_p,...,Z_p) and $(W_2,...,W_n)$.
+So there exists by induction hypothesis a $\tau$ mathcing the permutations.
+Similarly $V/W_2$ has two filtartions $(W_1,.Z_1,...,Z_p)$ and $(W_2',...,W_n')$
+</p>
+
+<p>
+Therefore, up to permutation $(W_1,W_1',Z_1,...,Z_p)$ and $(W_1,...,W_n)$ agree up to permutation.
+Similarly $(W_1,W_1',Z_1,...,Z_p)$ and $(W_1',...,W_n')$ agree up to permutation.
+Hence $(W_1',...,W_n')$ and $(W_1,...,W_n)$.
+</p>
+
+
+
+<h2 id="remark">Remark</h2>
+<ul>
+<li><span class="broken-link" title="unresolved id:0f732c1e-4164-4597-a9e9-55df83067a19">jordan-hölder theorem for finite lenght representations</span> </li>
+</ul>
 </div>
 </body>
 </html>
