@@ -68,46 +68,56 @@ is a <a href="20261022-sheaf_on_a_grothendieck_topology.html#ID-48e53950-f2e9-4b
 </p>
 
 <h2 id="proof">Proof</h2>
-
-<h3 id="elementary-proof">elementary proof</h3>
-
-<h4 id="presheaf">presheaf</h4>
 <p>
-We need to show functoriality:
-Let $U \subseteq X$ be an <a href="20221002145641-offene_menge_in_einem_topologischen_raum.html#ID-7828c2e9-b794-4807-acdf-4663517c6c16">open</a> <a href="20211226213416-teilmenge.html#ID-6a977d06-68e6-4711-b15a-ce63378d53a8">subset</a>
-Then this induces a functor $\mathrm{Open}(U)^{\mathrm{op}} \hookrightarrow \mathrm{Open}(X)^{\mathrm{op}}$ given by inclusion.
-In particular, we may precompose on the <a href="20241020-infinity_category_of_presheaves.html#ID-aec2b71f-20b0-4c66-9a4f-73ae7add1b0e">presheaf category</a> $\mathcal{P}(\mathrm{Open}(X)) \rightarrow \mathcal{P}(\mathrm{Open}(U))$.
-Furthremore, the restriction of a sheaf is a sheaf (coverings of $U \subseteq O$ in $O$ are coverings of $U$ in $X$), hence this restricts as a functor $\mathrm{Shv}(X) \rightarrow \mathrm{Shv}(O)$.
+Here $\mathcal{F}_{\vert U}$ is by definition the <a href="20230909-direct_image_sheaf.html#ID-55ca5edd-b09e-4e33-9dc5-95afde50db97">direct image sheaf</a> for the open inclusion $U \hookrightarrow X$.
+First observe that $\mathrm{Hom}_{X}(\mathcal{F}, \mathcal{G})$ is a functor $\mathrm{Open}(X)^{\mathrm{op}} \rightarrow \mathrm{Set}$:
+We have for open inclusions $U_1 \hookrightarrow{\iota_1} U_2 \xhookrightarrow{\iota_2} U_3$ that $(\iota_2 \iota_1)_* = (\iota_2)_* \circ (\iota_1)*$ which implies that
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/24cc5821824182f57c75.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Moreover, $(\mathrm{id}_{U})_* = \mathrm{id}_{\mathrm{Sh}(U)}$, so it remains to show that it is a sheaf.
 </p>
 
 <p>
-This restriction is also functorial since restricting to $U' \subseteq X$ and then restricting to $U \subseteq U'$ is the same as restricting to $U \subseteq X$.
-</p>
-
-<h4 id="sheaf">sheaf</h4>
-<p>
-We need to show the equalizer condition:
-So suppose there exists a covering $U_i$ of some $O$ and $\eta_{U_i}: \mathcal{F}_{U_i} \rightarrow \mathcal{G}_{U_i}$ such that $\eta_{U_i}(U_i \cap U_j) \eqqcolon \eta_{U_i \cap U_j}(U_i \cap U_j) = \eta_{U_j}(U_i \cap U_j)$.
+Let $\eta_{U_i}: \mathcal{F}_{\vert U_i} \rightarrow \mathcal{G}_{\vert U_i}$ be a family of <a href="20240624-natural_transformation_between_functors_of_infinity_categories.html#ID-1bf3c0ae-aa9c-4c2f-99b2-984072543d82">natural transformations</a> such that $(\epsilon_{U_i})_{\vert U_j \cap U_i} = (\epsilon_{U_j})_{\vert U_i \cap U_j}$ for an open covering $U_i$ of $U = \bigcup U_i$.
+In particular, $\eta_{\vert U_i}(U_j \cap U_i) = \epsilon_{\vert U_j}(U_j \cap U_i)$ and by abuse of notation we write $\epsilon(V)$ for $V \substeq U_i$ for some $i$.
 </p>
 
 <p>
-Then we can use that taking limits is a <a href="20240404-functor_between_infinity_categories.html#ID-7428dc84-9acd-49bc-8e93-b1541326a6b9">functor</a> (cf. <a href="20241126-infinity_limit_functor.html#ID-20748b8d-5ed7-4846-be62-75ab9afcdbdd">limit functor</a>), i.e. there exists a unique induced map
+Then we need to define a natural transformation $\eta: \mathcal{F}_{\vert U} \rightarrow \mathcal{G}_{\vert U}$.
+For any $V \subseteq U$, observe that $V \cap U_i$ is a covering of $V$ and the diagram in the bottom commutes, since $\eta$ is a natural transformation
 </p>
 
-<div class="equation-container"><pre class="render-failed">\begin{displaymath}
-\begin{tikzcd}
-\mathcal{F}(O) \dar \rar[dashed]{r}{\eta_{(U_i)}&amp; \mathcal{G}(O)\dar{\simeq} \\
-\mathrm{Eq}_{U_i} \mathcal{F} \dar \rar &amp; \mathrm{Eq}_{U_i} \mathcal{G} \dar  \\
-\prod_{U_i} \mathcal{F}(U_i) \rar{\prod \eta_{U_i}(U_i)} &amp; \prod_{U_i} \mathcal{G}(U_i) \\
-\prod_{U_i \cap U_j} \mathcal{F}(U_i \cap U_j) \rar{\prod \eta_{U_i}(U_i)} &amp; \prod_{U_i \cap U_j} \mathcal{G}(U_i \cap U_j)
-\end{tikzcd}
-\end{displaymath}</pre></div>
+<div class="equation-container"><span class="equation"><img src="ltximg/c5bf4e778a10edcc0f0e.svg" class="org-svg" alt="diagram" /></span></div>
 
 <p>
-We need to show that this is a well-defined natural transformation.
-So let $U_i, V_j'$ be a covering of some open $O$.
-Then we proceed by showing that $\eta_{U_i} = \eta_{U_i, V_j}$ which then implies that the map is independent of the covering.
+therefore there exists -- by the universal property of the equalizer -- a unique map $\mathcal{F}_{\vert U}(V) \rightarrow \mathcal{G}_{\vert U}(V)$ which makes the diagram commute:
+In particular, if there exists a natural transformation defined on $\mathcal{F}_{\vert U} \rightarrow \mathcal{G}_{\vert U}$, which restricts to $\eta_{U_i}$, then $\mathcal{F}_{\vert U}(V) \rightarrow \mathcal{G}_{\vert U}(V)$ must make the diagram above commute, i.e. must be the now defined $\epsilon(V)$.
+Therefore any glueing/lift -- if it exists -- must be unique.
 </p>
+
+<p>
+Now we need to show that $\eta$ as defined is a natural transformation, so let $V' \subseteq V$, ten we have a commutative diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/5f3a081befda824bb1a5.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+We want to show that the top face commutes.
+For this it suffices to show that the bottom cube commutes:
+Here the the top edges are the equalizers, hence by <a href="20241126-infinity_limit_functor.html#ID-20748b8d-5ed7-4846-be62-75ab9afcdbdd">functoriality of the limit</a> it suffices to show that the bottom cube commutes:
+The outer sides commute since restrictions are compatible with each other and the front and bottom faces commute because $\eta$ is a natural transformation.
+(todo: universal property)
+</p>
+
+
+
+
+
+
+
 
 
 
