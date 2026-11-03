@@ -71,7 +71,7 @@ is a <a href="20261022-sheaf_on_a_grothendieck_topology.html#ID-48e53950-f2e9-4b
 <p>
 Here $\mathcal{F}_{\vert U}$ is by definition the <a href="20230909-direct_image_sheaf.html#ID-55ca5edd-b09e-4e33-9dc5-95afde50db97">direct image sheaf</a> for the open inclusion $U \hookrightarrow X$.
 First observe that $\mathrm{Hom}_{X}(\mathcal{F}, \mathcal{G})$ is a functor $\mathrm{Open}(X)^{\mathrm{op}} \rightarrow \mathrm{Set}$:
-We have for open inclusions $U_1 \hookrightarrow{\iota_1} U_2 \xhookrightarrow{\iota_2} U_3$ that $(\iota_2 \iota_1)_* = (\iota_2)_* \circ (\iota_1)*$ which implies that
+We have for open inclusions $U_1 \xhookrightarrow{\iota_1} U_2 \xhookrightarrow{\iota_2} U_3$ that $(\iota_2 \iota_1)_* = (\iota_2)_* \circ (\iota_1)_*$ which implies that
 </p>
 
 <div class="equation-container"><span class="equation"><img src="ltximg/24cc5821824182f57c75.svg" class="org-svg" alt="diagram" /></span></div>
@@ -81,8 +81,8 @@ Moreover, $(\mathrm{id}_{U})_* = \mathrm{id}_{\mathrm{Sh}(U)}$, so it remains to
 </p>
 
 <p>
-Let $\eta_{U_i}: \mathcal{F}_{\vert U_i} \rightarrow \mathcal{G}_{\vert U_i}$ be a family of <a href="20240624-natural_transformation_between_functors_of_infinity_categories.html#ID-1bf3c0ae-aa9c-4c2f-99b2-984072543d82">natural transformations</a> such that $(\epsilon_{U_i})_{\vert U_j \cap U_i} = (\epsilon_{U_j})_{\vert U_i \cap U_j}$ for an open covering $U_i$ of $U = \bigcup U_i$.
-In particular, $\eta_{\vert U_i}(U_j \cap U_i) = \epsilon_{\vert U_j}(U_j \cap U_i)$ and by abuse of notation we write $\epsilon(V)$ for $V \substeq U_i$ for some $i$.
+Let $\eta_{U_i}: \mathcal{F}_{\vert U_i} \rightarrow \mathcal{G}_{\vert U_i}$ be a family of <a href="20240624-natural_transformation_between_functors_of_infinity_categories.html#ID-1bf3c0ae-aa9c-4c2f-99b2-984072543d82">natural transformations</a> such that $(\eta_{U_i})_{\vert U_j \cap U_i} = (\eta_{U_j})_{\vert U_i \cap U_j}$ for an open covering $U_i$ of $U = \bigcup U_i$.
+In particular, $\eta_{\vert U_i}(U_j \cap U_i) = \eta_{\vert U_j}(U_j \cap U_i)$ and by abuse of notation we write $\eta(V)$ for $V \subseteq U_i$ for some $i$.
 </p>
 
 <p>
@@ -93,23 +93,31 @@ For any $V \subseteq U$, observe that $V \cap U_i$ is a covering of $V$ and the 
 <div class="equation-container"><span class="equation"><img src="ltximg/c5bf4e778a10edcc0f0e.svg" class="org-svg" alt="diagram" /></span></div>
 
 <p>
-therefore there exists -- by the universal property of the equalizer -- a unique map $\mathcal{F}_{\vert U}(V) \rightarrow \mathcal{G}_{\vert U}(V)$ which makes the diagram commute:
-In particular, if there exists a natural transformation defined on $\mathcal{F}_{\vert U} \rightarrow \mathcal{G}_{\vert U}$, which restricts to $\eta_{U_i}$, then $\mathcal{F}_{\vert U}(V) \rightarrow \mathcal{G}_{\vert U}(V)$ must make the diagram above commute, i.e. must be the now defined $\epsilon(V)$.
-Therefore any glueing/lift -- if it exists -- must be unique.
+therefore there exists - by the universal property of the equalizer - a unique morphism (this morphism is also e.g. \(R\)-linear if we have a $\mathrm{Mod}_R$ valued sheaves) $\mathcal{F}_{\vert U}(V) \rightarrow \mathcal{G}_{\vert U}(V)$ which makes the diagram commute:
+In particular, if there exists a natural transformation defined on $\mathcal{F}_{\vert U} \rightarrow \mathcal{G}_{\vert U}$, which restricts to $\eta_{U_i}$, then $\mathcal{F}_{\vert U}(V) \rightarrow \mathcal{G}_{\vert U}(V)$ must make the diagram above commute, i.e. must be the now defined $\eta(V)$.
+Therefore any glueing/lift - if it exists - must be unique.
 </p>
 
 <p>
 Now we need to show that $\eta$ as defined is a natural transformation, so let $V' \subseteq V$, ten we have a commutative diagram
 </p>
 
-<div class="equation-container"><span class="equation"><img src="ltximg/5f3a081befda824bb1a5.svg" class="org-svg" alt="diagram" /></span></div>
+<div class="equation-container"><span class="equation"><img src="ltximg/fa867accb639844386a1.svg" class="org-svg" alt="diagram" /></span></div>
 
 <p>
 We want to show that the top face commutes.
 For this it suffices to show that the bottom cube commutes:
-Here the the top edges are the equalizers, hence by <a href="20241126-infinity_limit_functor.html#ID-20748b8d-5ed7-4846-be62-75ab9afcdbdd">functoriality of the limit</a> it suffices to show that the bottom cube commutes:
+The map $\mathcal{F}(V) \rightarrow \mathcal{G}(V) \rightarrow \mathcal{G}(V')$ is the <strong>unique</strong> map which makes the following diagram commute
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/82d812d2ec94d505a181.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+similarly for $\mathcal{F}(V) \rightarrow \mathcal{F}(V') \rightarrow \mathcal{G}(V')$
+</p>
+
+<p>
 The outer sides commute since restrictions are compatible with each other and the front and bottom faces commute because $\eta$ is a natural transformation.
-(todo: universal property)
+Hence $\eta$ is a natural transformation.
 </p>
 
 
