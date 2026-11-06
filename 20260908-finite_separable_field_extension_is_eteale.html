@@ -68,21 +68,155 @@ Let $k$ be a <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae3
 </ol>
 <h2 id="proof">Proof</h2>
 <p>
-Observe that $k'$ is of the form $k[x]/f$ for an <a href="20221226125836-irreduzibles_element.html#ID-0cc3140d-cb4c-48a2-8cb6-2d9801e34db0">irreducible</a> <a href="20220102212857-definition_polynom.html#ID-a2f108fc-4631-45ea-bf8c-70182b7714f9">polynomial</a> $f$.
+observe that it is <a href="20260714-algebraic_functor_locally_of_finite_presentation.html#ID-6f5ba542-2ad9-41e0-9e2b-e89f2032ee4e">locally of finite presentation.</a>
+Let $l = k'$.
 </p>
 
-<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+<h3 id="id7e9c5ae1-4d20-4fc3-8be3-50bda268f627formally-smooth-map"><a href="20260807-formally_smooth_map.html#ID-7e9c5ae1-4d20-4fc3-8be3-50bda268f627">formally smooth map</a></h3>
+
+<h4 id="a">a)</h4>
 <p>
-Let $\mathrm{Spec}(\tilde{k}) \rightarrow \mathrm{Spec}(k)$ be a <a href="20260714-k_point.html#ID-bb642fda-6531-4a7d-8608-25e09155f6b6">geometric point.</a>
-Then the jacobian is given by $(\frac{\partial f}{\partial x})$
+Let
 </p>
 
-<h3 id="2-implies-3">2) $\implies$ 3)</h3>
+<div class="equation-container"><span class="equation"><img src="ltximg/1e7bc2c5712798ec4127.svg" class="org-svg" alt="diagram" /></span></div>
 <p>
-special case
+Let $l \cong k[x]/f \rightarrow A/I$ be classified by $x \mapsto \overline{\alpha}$.
 </p>
 
-<h3 id="3-implies-1">3) $\implies$ 1)</h3>
+<p>
+Suppose $l/k$ i sseparable.
+We seek an $a \in A$ lifting $\overline{a}$ s.t. $f(a) = 0$.
+</p>
+
+<p>
+Choose a lift $a$ of $\overline{a}$.
+An arbitrary lift is then of the form $a + h$ for $h \in I$.
+Now the <a href="20221113211059-taylor_entwicklung.html#ID-7b85a0ab-5403-47a3-9bb5-d419697bb4a6">taylor series</a> shows
+</p>
+
+<div class="math-block">\begin{align*}
+f(a + t) = f(a) + f'(a) t + t^2 (...)
+\end{align*}</div>
+
+<p>
+where for $ t \in I$ we have $t^2 = 0$ and therefore
+</p>
+
+<div class="math-block">\begin{align*}
+f(a + h) = f(a) + f'(a) h
+\end{align*}</div>
+
+<p>
+Then if $f'(/) \neq 0$ in $l$, then $f'(\overline{\alpha}) \in (A / I)^{\times}$.
+Since $I^2 = 0$, we have a <a href="20241017-infinity_pullback.html#ID-7aaac468-a0bb-4e73-bfd3-d4c591c10e4f">pullback</a> square
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/2ce9fbb303289eb9c88d.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+(cf. <a href="20261104-pullback_of_nilradical_and_units.html#ID-a367c054-740f-4a97-9791-f7d6412a2efd">pullback of nilradical and units</a>).
+Hence $f'(a) \in A^{\times}$.
+Thus let $h = -f(a) \cdot f'(a)^{-1}$
+</p>
+
+<p>
+lift must also be unique (some computation shows)
+</p>
+
+<h4 id="b">b)</h4>
+<p>
+Let $l$ be the square
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/6719660ab0c4561769b6.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+Then
+</p>
+
+
+<h3 id="cotangent-complex">cotangent complex</h3>
+<p>
+We can compute
+</p>
+
+<div class="math-block">\begin{align*}
+\Omega_{l/k} = l \mathrm{d}x/ \mathrm{d}f
+\end{align*}</div>
+<p>
+which is given by
+</p>
+
+<div class="math-block">\begin{align*}
+\Omega_{l/k} = 
+    \begin{cases}
+    0 &amp; \mbox{if } l/k \textrm{separable} \\
+    l \mathrm{d}f   &amp; \mbox{else } \\ 
+    \end{cases}
+\end{align*}</div>
+
+
+<p>
+To compute the conormal module, we have a diagram
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/b15263966a4192c7eb9c.svg" class="org-svg" alt="diagram" /></span></div>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+\mathcal{N}_{l/k} \rar &amp; \mathcal{N}_{l/\mathbb{A}^1} \rar &amp; \Omega_{\mathbb{A}^1_k/k} \otimes_{k[x] l \rar &amp; \Omega_{l/k} \rar &amp; \Omega_{l/\mathbb{A}_k^1} \rar &amp; 0
+\end{tikzcd}
+\end{displaymath}</pre></div>
+
+<p>
+and the <a href="20241222-long_exact_sequence.html#ID-e3fbc2e4-7c9f-4d19-9391-c118cb77f08f">long exact sequence</a> of the  conormal module gives
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+0 \rar &amp; \mathcal{N}_{l/k} \rar &amp; \mathcal{N}_{l/\mathbb{A}^1} \rar &amp; \Omega_{\mathbb{A}^1_k/k} \otimes_{k[x] l \rar &amp; \Omega_{l/k} \rar &amp; \Omega_{l/\mathbb{A}_k^1} \rar &amp; 0
+\end{tikzcd}
+\end{displaymath}</pre></div>
+<p>
+here $\mathcal{L}_{\mathbb{A}^1_k/k} = \Omega_{\mathbb{A}_k^1/k} = k[x] \mathrm{d}x$ hence the sequence becomes
+</p>
+
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+0 \rar &amp; \mathcal{N}_{l/k} \rar &amp; \mathcal{N}_{l/\mathbb{A}^1} \rar &amp; \Omega_{\mathbb{A}^1_k/k} \otimes_{k[x] l \rar &amp; \Omega_{l/k} \rar &amp; \Omega_{l/\mathbb{A}_k^1} \rar &amp; 0 \\
+&amp; &amp; (f)/(f^2) &amp; &amp; &amp; 
+\end{tikzcd}
+\end{displaymath}</pre></div>
+
+<p>
+then the map
+</p>
+
+<div class="math-block">\begin{align*}
+f \mapsto f'(\alpha) \mathrm{d}x
+\end{align*}</div>
+<p>
+is an <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a>  <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> $l/k$ is seperable.
+If $l/k$ is not seperable, then it is the zero map.
+</p>
+
+<p>
+Therefore
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{N}_{l/k} = 
+    \begin{cases}
+    0 &amp; \mbox{if } l/k \textrm{ separable} \\
+    (f)/(f^2) \cong l  &amp; \mbox{else } \\  
+    \end{cases}
+    
+\end{align*}</div>
+
+
+
+
 
 </div>
 </body>

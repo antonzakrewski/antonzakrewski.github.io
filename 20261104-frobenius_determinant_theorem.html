@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>frobenius determinant theorem</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-31cca8fc-afd2-45fa-a65b-594ef42197b3"></span><h1 class="title">frobenius determinant theorem</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $G$ be a <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">finite</a> <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a>
+Then for the <a href="20261104-frobenius_determinant_of_a_finite_group.html#ID-dc3937c4-1f12-4dd7-8d23-bd70ef448816">frobenius determinant</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{det}(X_G) = \prod_{j=1}^r P_j(x)^{\mathrm{deg} P_j}
+\end{align*}</div>
+
+
+
+<h2 id="proof">Proof</h2>
+<p>
+Let $V = \mathbb{C}[G]$ be the0regular representation.
+Let $L(x) = \sum_{g \in G} x_{g} p(g)$.
+Now
+</p>
+
+<div class="math-block">\begin{align*}
+L(x) h =&amp; \sum_g \in G} x_g p(g) h \\
+=&amp;  \sum_{g \in G} x_g g h \\
+=&amp; \sum_z \in G X_{zh^{-1}} z \\
+\end{align*}</div>
+<p>
+So the matrix of $L$ agrees with $X_G$ up to permuting columns.
+</p>
+
+<p>
+Hence
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{det}(X_G) = \pm \mathrm{det}(L)
+\end{align*}</div>
+
+<p>
+Here one of these will always be the one dimensional, constant representation, so we can put the sign in there.
+</p>
+
+<p>
+Then, by Maschke, $\mathrm{det}(L(x)) = \prod_{i=1}^r (\mathrm{det}(L_i)(x))^{\mathrm{dim}(V_i)$ for $L_i = L_{\vert V_i}$
+</p>
+
+<p>
+Let $\{e_m^i\}$ be a absis of $V_i$ and write $E_{j,k}^i$ to be the basis of $\mathrm{End}_{k}(V_i)$ coming from $e_{i,m}$.
+Then $\{E_{j,k}^i\}$ is a basis of $\mathbb{C}[G]$ and $L_{i}(x) = \sum y_{i,j,k} E_{j,k}^i$
+</p>
+
+<p>
+Now we note that $y_{j,k}^i$ are a linear isomorphism of the standard generators.
+So $\mathrm{det}(L_i(x)) = \mathrm{det}(y_{j,k}^i)$ is irreducible by the next lemma and nonproportianal, since each involves different $y_{j,k}^i$.
+</p>
+
+<p>
+<a href="20261104-irreducibility_lemma_for_the_frobenius_determinant.html#ID-7161af4d-bcda-4d8a-acd3-66aa911b1750">irreducibility lemma for the frobenius determinant</a>
+</p>
+
+</div>
+</body>
+</html>
