@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>representation theory of the F_p Heisenberg group</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-9cf79238-4e9a-45b8-a2b1-5849a992eda7"></span><h1 class="title">representation theory of the F_p Heisenberg group</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $G$ be the $\mathbb{F}_p$ <a href="20261113-heisenberg_group.html#ID-15b53ec0-0b31-442f-9ce3-c68ba70e5565">heisenberg group</a>.
+Then
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="let">let</h3>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/09331e780e0a6a6e5027.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+Then $w = [x,y] = xyx^{-1}y^{-1}$ is the commutator.
+We also get the presentaiton
+</p>
+
+<div class="math-block">\begin{align*}
+G = \langle x,y,w \vert w = [x,y], x^p = y^p = w^p = 1\rangle
+\end{align*}</div>
+<p>
+which is a group of order $p^3$.
+</p>
+
+<p>
+Let $z \in \mathbb{C}$ with $z^p = 1$.
+Then we define a representation $R_z$ on $\mathbb{C}^{\mathbb{F}_p} = \mathrm{Hom}_{\mathrm{Set}}(\mathbb{F}_p, \mathbb{C} )$ where
+</p>
+
+<div class="math-block">\begin{align*}
+x \cdot f(t) =&amp; f(t-1) \\
+y \cdot f(t) =&amp; z^t \cdot f(t)
+\end{align*}</div>
+
+<p>
+We can compute it is a representation
+</p>
+
+<div class="math-block">\begin{align*}
+x^p \cdot f(t) =&amp; f(t - p) \\
+=&amp; f(t) \\
+y^p f(t) =&amp; z^p f(t) \\
+=&amp; f(t) \\
+w f(t) =&amp; xyx^{-1} y^{-1} f(t) \\
+=&amp; x y x^{-1} z^{-t} f(t) \\
+=&amp; x y (z^{-(t+1)} f(t + 1)) \\
+=&amp; x z^{t} z^{-t-1} f(t+1) \\
+=&amp; x z f(t+1) \\
+=&amp; z f(t)
+\end{align*}</div>
+<p>
+so $w^p f(t) = f(t)$.
+</p>
+
+<p>
+So there exists a unique representation $R_{z}$ with
+</p>
+
+<p>
+We claim that $R_z$ is simple <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> $z \neq 1$.
+</p>
+
+<h3 id="proof">proof</h3>
+
+<h4 id="z-1">$z = 1$</h4>
+<p>
+In this case, $y f(t) = f(t)$ so it factors through the quotient, which is given by $\mathbb{Z}/ p \mathbb{Z}$.
+Here $x f(t) = f(t-1)$ identifies the lift to a $\mathbb{Z}/p \mathbb{Z}$ regular representation.
+Therefore the constant functions form a subrepresentation.
+</p>
+
+<h4 id="z-neq-1">$z \neq 1$</h4>
+<p>
+Suppose $z \neq 1$.
+Then we want to show that any nonzero element $f$ is cyclic.
+Pick a basis $b_i$ for $R_z$ and prove that $b_i$ is in $\mathrm{span}(g f)$.
+We pick the indicator functions $\delta_i$.
+</p>
+
+<p>
+Since $x \delta_i = \delta_{i-1}$ it suffices to show that $\delta_i \in \mathrm{span}(gf)$ for some $i$.
+Pick an $a$ such that $f(a) \neq 0$, <a href="20220306182550-o_b_d_a.html#ID-e58125c9-5f34-4043-bf52-23ecb4c20f2e">w.l.o.g.</a> $a = 0$ after acting by $x^{-a}$.
+Now consider
+</p>
+
+<div class="math-block">\begin{align*}
+\sum_{i=0}^{p-i} y^i f(t) =&amp; \sum z^{ti} f(t) \\
+=&amp; \begin{cases}
+    p \cdot f(0) &amp; \mbox{if } t = 0 \\
+    0  &amp; \mbox{else } \\  
+    \end{cases}
+\end{align*}</div>
+<p>
+since <a href="20261113-sum_of_roots_of_unities_is_zero.html#ID-45912513-2d90-4848-b3e0-d468ba9716b6">sum of roots of unities is zero</a> - todo
+</p>
+
+
+<h3 id="r-1">$R_1$</h3>
+<p>
+We can decompose it as the $\mathbb{Z}/ p \mathbb{Z}$ repessentaiton, which decomposes as sum of all characters.
+</p>
+
+<div class="math-block">\begin{align*}
+R_i = \bigoplus_{i=0}^{p-1} \mathbb{C} z^i 
+\end{align*}</div>
+
+
+<h3 id="1-dimensional-representations">1-dimensional representations</h3>
+<p>
+We can compute $G / \langle w\rangle = C_p \times C_p$ where there exists a map
+</p>
+
+<div class="math-block">\begin{align*}
+G \rightarrow&amp; \mathbb{Z}/ p \mathbb{Z} \times \mathbb{Z}/p \mathbb{Z} \\
+x \mapsto&amp; (1,0) \\
+y \mapsto&amp; (0,1) 
+\end{align*}</div>
+
+<p>
+hence there exists $p^2$ many $1$ dimensional representations.
+</p>
+
+<h3 id="all-simple-representations">all simple representations</h3>
+<p>
+We have $(p - 1)$ many $p$ dimensional representations and one $p^2$ dimensional representation.
+Hence we have found all simple representations by the <a href="20261030-sum_of_squares_formula_for_a_group.html#ID-8ac2a480-8779-4c11-8553-6af54c7c25f7">sum of squares formula for a group</a>.
+</p>
+
+
+</div>
+</body>
+</html>

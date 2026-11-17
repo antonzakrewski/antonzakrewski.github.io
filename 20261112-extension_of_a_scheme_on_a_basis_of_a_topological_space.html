@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>extension of a sheaf on a basis of a topological space (bad proof)</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-2b155047-0153-4e19-9a62-d928cb890096"></span><h1 class="title">extension of a sheaf on a basis of a topological space (bad proof)</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $\mathcal{B} \subseteq \mathcal{T}$ a <a href="20221002152517-basis_einer_topologie.html#ID-1a5a6999-876a-4b54-b786-acafe4968fd6">basis</a> of a <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological space</a> $X$.
+Let $\mathcal{F}: \mathcal{B}^{\mathrm{op}} \rightarrow \mathrm{Set}$ be a <a href="20240404-functor_between_infinity_categories.html#ID-7428dc84-9acd-49bc-8e93-b1541326a6b9">functor</a>, which satisfies the sheaf condition.
+</p>
+
+<p>
+Then the <a href="20241203-infinity_right_kan_extension.html#ID-9ae00ebb-3ef3-4c76-ab4c-1559fd215af2">right kan extension</a>, pointwise given by
+</p>
+
+<div class="math-block">\begin{align*}
+\overline{\mathcal{F}}(V) \cong \lim_{U \subseteq V, U \in \mathcal{B}} \mathcal{F}(U)
+\end{align*}</div>
+
+<p>
+where
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="agrees">agrees</h3>
+<ul>
+<li><a href="20250706-right_kan_extension_along_a_fully_faithful_functor_as_fully_faithful_functor.html#ID-768e02b6-af8b-4bdd-afc2-a2cb80395365">right kan extension along a fully faithful functor is fully faithful</a> / alternatively: <a href="20240609-cofinal_functor.html#ID-2d204c70-07e5-43ee-8f8f-643168a20cf6">initial functor</a>  </li>
+</ul>
+<h3 id="uniqueness">Uniqueness:</h3>
+<p>
+Let $s,t$ be two sections in $\overline{\mathcal{F}}(V)$, which are of the form $(s_{U})_{\vert U}$ and $(t_{U})_{\vert U}$ for $U \subseteq V, U \in \mathcal{B}$.
+Assume that they agree on a cover $V_i$ of $V$, i.e. for all $U_{i,j} \subseteq V_i$ and $U_{i,j} \in \mathcal{B}$, we have $(s_{U}_{\vert U_{i,j}}) = (t_{U}_{\vert U_{i,j}})$.
+Now for any $U \subseteq V, U \in \mathcal{B}$ we need to show that $s$ and $t$ agree on $U$ (by the formula of the limit).
+We get that $U \cap V_{i,j}$ is an open cover of $U$.
+In particular, after refining to an $W_{i,j,k} \subseteq U \cap V_{i,j}, W_{i,j,k} \in \mathcal{B}$ we may assume that $W_{i,j,k} \in \mathcal{B}$ is an open cover of $U$.
+Then $s$ and $t$ agree on $W_{i,j,k}$, so as $\mathcal{F}$ is a sheaf, we get that $s$ and $t$ agree on $U$.
+</p>
+
+<p>
+Hence $s$ and $t$ agree on all $U$ or agree in $\overline{\mathcal{F}}(V)$.
+</p>
+
+
+
+<h3 id="existence-of-lifts">existence of lifts</h3>
+<p>
+Let $V$ be an open and $V_i \subseteq V$ an open covering.
+Assume that we have $s_{V_i} \in \overline{\mathcal{F}}(V)$ which agree on intersections:
+Then for each $U \subseteq V$ we have that $U \cap V_i$ is an open covering of $U$.
+Passing to $V_{i,j} \subseteq U \cap V_i$ for $V_{i,j} \in \mathcal{B}$ we may assume that the covering consists of elements in $\mathcal{B}$.
+</p>
+
+<p>
+Then the sheaf condition gives a unique element $s_{\vert U}$ such that $s_{\vert U}$ restricts to $V_{i,j}$.
+In particular, by handwaving (or a similar argument as in uniqueness) those elements $s_{\vert U}$ are compatible:
+</p>
+
+
+</div>
+</body>
+</html>
