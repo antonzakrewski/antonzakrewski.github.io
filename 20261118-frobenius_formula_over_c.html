@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>frobenius formula over C</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-d4e6978a-3186-4ea0-8e1b-2193debc7def"></span><h1 class="title">frobenius formula over C</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Pick a representative $x_{\sigma} \in G$ for every right coset $\sigma \in H \ G$
+Let $H \subseteq G$ be a <a href="20220911122242-untergruppe.html#ID-ded4020a-b34f-4433-9d64-2afa33a552d8">subgroup</a> of a <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">finite</a> <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a>
+Let $V$ be an \(H\)-<a href="20230929-representation_of_a_group.html#ID-ae7655f7-ebe1-4030-90cd-00517d11e15f">representation</a>.
+Let $\chi_{\mathrm{Ind}}$ be the character of $\mathrm{Ind}_{H}^G(V)$.
+</p>
+
+<p>
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+\chi(g) = \sum_{\sigma \vert x_{\sigma} g x_{\sigma}^{-1} \in H } \chi_{V}(x_{\sigma} g x_{\sigma}^{-1})
+\end{align*}</div>
+
+<h2 id="proof">Proof</h2>
+<p>
+First note that $\chi$ is characterized via the relation
+</p>
+
+<div class="math-block">\begin{align*}
+\langle \chi_{\mathrm{Ind}}, \psi\rangle = \langle \chi_{V}, \psi_{H}\rangle 
+\end{align*}</div>
+<p>
+for any character class function $\psi: G \rightarrow \mathbb{C}$.
+This is true because $\mathbb{C}$ is <a href="20221017154133-algebraischer_abschluss.html#ID-ec785259-c20d-4d7a-af35-a0904d20d7b6">algebraically closed</a> <a href="20211218210351-korper_mathe.html#ID-a602197a-6116-40b3-ae33-b421251bbb1e">field</a> (cf. ) and <a href="20261104-orthogonality_of_simple_characters.html#ID-045bf65d-5aa5-4dc4-877e-8165d75e4eec">orthogonality of simple characters</a>.
+</p>
+
+<p>
+Take $\chi_{V}$ extend it to a function $F$ by zero outside of $H$.
+</p>
+
+<p>
+Note $F$ is not generally a class function.
+We make it a class function via "averaging" procedure.
+</p>
+
+
+<div class="math-block">\begin{align*}
+p_{G}: \mathbb{C}^G \rightarrow&amp; \mathrm{Cl}(G, \mathbb{C}) \\
+F \mapsto&amp; (x \mapsto \frac{1}{\vert G \vert} \sum_{g \in G} F(g x g^{-1}))
+\end{align*}</div>
+
+<p>
+Note that$P_gF$ is a class function, since conjugating is equivalent to reindexing the sum.
+</p>
+
+<p>
+Moreover
+</p>
+
+<div class="math-block">\begin{align*}
+\langle P_{G}F, \psi\rangle = \langle F, \psi\rangle = \frac{1}{\vert G \vert} \sum_{g \in G} F(g) \overline{\psi(g)}
+\end{align*}</div>
+<p>
+where we use again that we may pull out the sum and reindex.
+</p>
+
+<p>
+In particular, if $F$ is a class function, then $P_gF = F$.
+</p>
+
+<p>
+Finally, let $\theta = [G : H] P_G F$.
+</p>
+
+<p>
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+\langle \theta, \psi\rangle =&amp; [G:h] \langle P_G F, \psi\rangle \\
+=&amp; [G:H] \langle F, \psi\rangle \\
+=&amp; [G: H] \frac{1}{\vert G \vert} \sum_{g \in G} F(g) \overline{\psi(g)} \\
+=&amp; \frac{1}{\vert H \vert} \sum_{h \in H} \chi_{V}(h) \overline{\psi_{V}(h) } \\
+=&amp; \langle \chi_{V}, \psi_{\vert H} \rangle
+\end{align*}</div>
+
+<p>
+So $\chi = [G : H] P_{G} F$.
+Now we compute that
+</p>
+
+<div class="math-block">\begin{align*}
+[G : H] P_G F(g) =&amp; \frac{1}{\vert H \vert } \sum_{x \in G} F(x g x^{-1}) \\
+=&amp; \frac{1}{\vert H \vert} \sum_{x \in G, xgx^{-1} \in H} \chi_{V}(x gx^-1) \\
+=&amp; \sum_{x_{\sigma}, x_{\sigma} g x_{\sigma^{-1} \in H} \chi_{V} (x_{\sigma} g x_{\sigma}^{-1})
+\end{align*}</div>
+
+<p>
+here the equalities are:
+</p>
+<ol>
+<li>first is definition of $P_G$, the </li>
+
+<li>second is cancellation of $F$ where it is extension by zero</li>
+
+<li>third is grouping the cosets together </li>
+</ol>
+
+</div>
+</body>
+</html>

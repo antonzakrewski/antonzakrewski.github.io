@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>character idempotents in C[G]</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-6540f96f-6b3e-41ec-be3f-d53aec4fcd50"></span><h1 class="title">character idempotents in C[G]</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $G$ be a <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">finite</a> <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a> and $V_i$ an enumeration of the <a href="20230925-isomorphism_class.html#ID-5a95a369-9a4b-46c6-a1e9-eb382f2be1ef">isomorphism classes</a> of <a href="20261013-irreducible_representation_of_an_algebra.html#ID-d63374c8-6c64-4ee3-bc2b-bd75c8272d12">simple C-representations</a> of $G$.
+Let
+</p>
+
+<div class="math-block">\begin{align*}
+\psi_{i} = \frac{\mathrm{dim}(V_i)}{\vert G \vert} \sum_{g \in G} \chi_{V_i}(g) \cdot g^{-1} \in \mathbb{C}[G] 
+\end{align*}</div>
+
+<p>
+then
+</p>
+<ol>
+<li>$\psi_i^2 = \psi_i$</li>
+
+<li>$\psi_i \psi_j = 0$   </li>
+</ol>
+<h2 id="proof">Proof</h2>
+
+<h3 id="psi-i-central">$\psi_i$ central</h3>
+<p>
+We can calculate (ignoring scalars)
+</p>
+
+<div class="math-block">\begin{align*}
+h \cdot (\sum_{g \in G} \chi_{V_i}(g) \cdot g^{-1}) (h)^{-1} =&amp; \sum_{g \in G} \chi_{V_i}(g) \cdot h g^{-1} (h)^{-1} \\
+=&amp; \sum_{g' = h g h^{-1} \in G} \chi_{V_i}(g') (g')^{-1} 
+\end{align*}</div>
+<p>
+where we use that $\chi_{V}$ is a class function.
+</p>
+
+<h4 id="action">action</h4>
+<p>
+now by schurs lemma it acts by a scalar $\alpha$.
+We can calculate on $V_j$ using $\chi_{V_j}(g^{-1}) = \overline{\chi_{V_j}(g)}$:
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{tr}(\rho_{V_j}(\psi_i)) =&amp; \frac{\mathrm{dim}(V_i)}{\vert G \vert}  \sum_{g \in G} \chi_{V_i}(g) \cdot \chi_{V_j}(g^{-1}) \\
+=&amp; \mathrm{dim}(V_i) \cdot \langle \chi_{V_i}, \chi_{V_j}\rangle
+\end{align*}</div>
+<p>
+which shows that $\psi_i$ acst on $V_j$ by $1$ if $V_i = V_j$ and by zero else.
+</p>
+
+<h4 id="multiplication">multiplication</h4>
+<p>
+Consider the <a href="20261030-maschkes_theorem.html#ID-376f7d3e-eb34-45ed-80e4-5ce9bce80754">isomorphism from maschkes</a> theorem
+</p>
+
+<div class="math-block">\begin{align*}
+f: \mathbb{C}[G] \rightarrow&amp; \bigoplus_{i} \bigoplus_{j} V_i  \\
+1 \mapsto&amp; (e_{i,j})
+\end{align*}</div>
+<p>
+as $\mathbb{C}[G]$ modules.
+</p>
+
+<p>
+It is $\mathbb{C}[G]$ linear so we may compute
+</p>
+
+<div class="math-block">\begin{align*}
+f(\phi_k) =&amp; \phi_k (e_{i,j}) \\
+=&amp; (\partial_{i,k} e_{i,j}) \\
+=&amp; f(\phi_k^2)
+\end{align*}</div>
+<p>
+which shows that - as $f$ is an injection - that $\phi_k^2 = \phi_k$ and similarly
+</p>
+
+<div class="math-block">\begin{align*}
+\phi_l f(\phi_k) =&amp; (\partial_{l,i} \partial_{k,i} e_{i,j}) \\
+\end{align*}</div>
+<p>
+which implies that $\phi_l \phi_k = 0$ for $l \neq k$.
+</p>
+
+
+</div>
+</body>
+</html>

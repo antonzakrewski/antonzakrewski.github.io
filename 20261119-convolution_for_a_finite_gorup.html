@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>convolution for a finite group</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-bd0d8a3a-c9e5-4eaa-934f-9ea49f77a302"></span><h1 class="title">convolution for a finite group</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $G$ be a <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">finite</a> <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a> and $R$ a <a href="20220920130524-ring_algebra.html#ID-ac7d56fc-0f56-4037-9010-38c358f79490">ring</a>
+Then $\mathrm{Fun}(G,R)$ admits a convolution product, given by
+</p>
+
+<div class="math-block">\begin{align*}
+(f \star h)(g) = \sum_{g' \in G} f(g') \cdot h((g')^{-1} g)
+\end{align*}</div>
+
+<p>
+This endows $\mathrm{Fun}(G,R)$ with a ring structure.
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="neutral-element-for-multiplication">neutral element for multiplication</h3>
+<p>
+consider $\partial_{e}$.
+Then $(\partial_{e} \star h)(g) = \sum_{g' \in G} \partial_{e}(g') h((g')^{-1} g) = \partial_{e}(e) h(e^{-1} g) = h(g)$.
+similarly $(h \star \partial_{e})(g) = h(g)$
+</p>
+
+<h3 id="distributivity">distributivity</h3>
+<p>
+follows from the distributivity:
+We show left distributivity, right follows analogously
+</p>
+
+<div class="math-block">\begin{align*}
+((f_1 + f_2) \star h)(g) =&amp; \sum_{g' \in G} (f_1 + f_2)(g') \cdot h((g')^{-1} g) \\
+=&amp; \sum_{g' \in G} f_1(g') h((g')^{-1} g) + f_2(g') h((g')^{-1} g) \\
+=&amp; \sum_{g' \in G} f_1(g') h((g')^{-1} g) + \sum_{g' \in G} f_2(g') h((g')^{-1} g) \\
+=&amp; (f_1 \star h)(g) + (f_2 \star h)(g)
+\end{align*}</div>
+
+
+<h3 id="associativity">associativity</h3>
+
+<div class="math-block">\begin{align*}
+((f_1 \star f_2) \star f_3)(g) =&amp; \sum_{g_1 \in G} (f_1 \star f_2)(g_1) \cdot f_3(g_1^{-1} g) \\
+=&amp; \sum_{g_1 \in G} \sum_{g_2 \in G} (f_1(g_2) \cdot f_2(g_2^{-1} g_1) \cdot f_3(g_1^{-1} g) \\
+=&amp; \sum_{g_2 \in G}  f_1(g_2) \cdot (\sum_{g_1 \in G} f_2(g_2^{-1} g_1) \cdot f_3(g_1^{-1} g) \\
+=&amp; \sum_{g_2 \in G} f_1(g_2) \cdot (f_2 \star f_3)(g_2^{-1} g) \\
+=&amp; f_1 \star (f_2 \star f_3)(g)
+\end{align*}</div>
+
+</div>
+</body>
+</html>

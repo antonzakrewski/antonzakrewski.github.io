@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>algebra isomorphism of class functions and center of the group algebra</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-5fe7a45e-e84a-4080-acbc-d94687bae3d2"></span><h1 class="title">algebra isomorphism of class functions and center of the group algebra</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $G$ be a <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">finite</a> <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a>, $\mathbb{C}[G]$ the <a href="20230226184405-gruppenring.html#ID-2c9cf75a-3151-48a9-b3f7-4b0239f4a068">group ring</a> and $\mathrm{Fun}(G, \mathbb{C})$ the <span class="broken-link" title="unresolved id:641b71f3-feb9-4fa5-bd33-738a470ea917">complex valued functions</span>.
+Then there exists an algebra <a href="20220817230532-isomorphismus_kategorientheorie.html#ID-8f539991-82c2-4cb3-a303-965a60282db5">isomorphism</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\varphi: \mathrm{CL}(G, \mathbb{C}) \rightarrow Z(\mathbb{C}[G]) 
+f \mapsto \sum_{ g \in G} f(g) g^{-1}
+\end{align*}</div>
+<p>
+where $\mathrm{CL}(G, \mathbb{C}) \subseteq  \mathrm{Fun}(G, \mathbb{C})$.
+</p>
+
+<p>
+I think:
+</p>
+<ul>
+<li><a href="20261113-discrete_fourier_transformation.html#ID-893a2f06-daf6-438f-bf93-a50668b7b8d6">discrete fourier transformation</a> </li>
+
+<li>identify the center ad  </li>
+</ul>
+<h2 id="proof">Proof</h2>
+
+<h3 id="additive">additive</h3>
+<ul>
+<li>clear</li>
+</ul>
+<h3 id="multiplicative">multiplicative</h3>
+<p>
+We can calculate the \(g^{-1}\) component
+</p>
+
+<div class="math-block">\begin{align*}
+\varphi(f_1 \star f_2)) =&amp; \sum_{g \in G} (f_1 \star f_2)(g) g^{-1} \\
+=&amp; \sum_{g \in G} (\sum_{xy =g} f_1(x) f_2(y) )g^{-1} \\
+=&amp; (\sum_{g_1 \in G} f_1(g_1) g_1^{-1} ) \cdot (\sum_{g_2 \in G} f_2(g_2) g_2^{-1}) \\
+=&amp; \varphi(f_1) \cdot \varphi(f_2)
+\end{align*}</div>
+
+<h3 id="unit-preserving">unit preserving</h3>
+<p>
+follows as the unit $\partial_e$ gets mapped to $1$
+</p>
+
+<h3 id="restricts-to-center">restricts to center</h3>
+<p>
+for an $f \in \mathrm{Fun}(G,\mathbb{C})$ we have that $\varphi(f)$ lies in the center <a href="20221208111336-g_d_w.html#ID-a1245369-4879-458c-aec3-e2905bfa6306">if and only if</a> it is a fixed point under conjugation.
+Then we may compute
+</p>
+
+<div class="math-block">\begin{align*}
+g_1 \varphi(f) g_1^{-1} =&amp; g_1 \sum_{g \in G} f(g) g^{-1} g_1^{-1} \\
+=&amp; \sum_{g \in G} g_1 f(g) g^{-1} g_1^{-1} 
+\end{align*}</div>
+<p>
+if $f$ is a class function, then
+</p>
+
+<div class="math-block">\begin{align*}
+\sum_{g \in G} g_1 f(g) g^{-1} g_1^{-1}  =&amp; \sum_{g \in G} f(g) g_1 g^{-1} g_1^{-1} \\
+=&amp; \sum_{g \in G} f(g_1 g g_1^{-1}) g_1 g^{-1} g_1^{-1} \\
+=&amp; \sum_{h = g_1 g g_1^{-1} \in G} f(h) h^{-1}
+\end{align*}</div>
+
+<p>
+If $f$ is not a class function, then there exist  $g_1,g \in G$ with $f(g_1 g g_1^{-1}) \neq f(g)$.
+In particular, the $g_1 g g_1^{-1}$ compoonents of
+</p>
+
+<div class="math-block">\begin{align*}
+g_1 \varphi(f) g_1^{-1} &amp;= \sum_{g \in G} f(g) g_1 g^{-1} g_1^{-1} \\
+\varphi(f) &amp;= \sum_{g_1 g g_1^{-1} \in G} f(g_1 g g_1^{-1}) g_1 g^{-1} g_1^{-1}
+\end{align*}</div>
+<p>
+dont agree.
+</p>
+
+<h3 id="monomorphism">monomorphism</h3>
+<p>
+Let $f_1 \neq f_2$, then there exists an $g$ such that $f_1(g) \neq f_2(g)$$.
+In paritcular, th $g^{-1}$ copmonent of $\varphi(f_1)$ and $\varphi(f_2)$ dont coincide.
+</p>
+
+
+<h3 id="surjective">surjective</h3>
+<p>
+The assignment
+</p>
+
+<div class="math-block">\begin{align*}
+Z(\mathbb{C}[G]) \rightarrow \mathrm{Cl}(G, \mathbb{C})  
+\sum \alpha_g g \mapsto (f: g \mapsto \alpha_g g^{-1})
+\end{align*}</div>
+<p>
+is well-defined by the argument of the center and provides a set theoretic inverse.
+</p>
+
+
+</div>
+</body>
+</html>
