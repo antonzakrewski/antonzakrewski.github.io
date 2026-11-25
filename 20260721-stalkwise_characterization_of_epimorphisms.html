@@ -56,7 +56,7 @@
 
 <h2 id="proposition">Proposition</h2>
 <p>
-Let $X$ be a <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological space</a> and $\eta: \mathcal{F} \Rightarrow \mathcal{G}$ a <a href="20240624-natural_transformation_between_functors_of_infinity_categories.html#ID-1bf3c0ae-aa9c-4c2f-99b2-984072543d82">natural transformation</a> between <a href="20251104-sheaf_on_a_topological_space.html#ID-afbb00d3-48c7-44b0-8b0a-fd4401f54cba">sheaves</a> on $X$.
+Let $X$ be a <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45cd-bb85-553fdd7415f4">topological space</a> and $\varphi: \mathcal{F} \Rightarrow \mathcal{G}$ a <a href="20240624-natural_transformation_between_functors_of_infinity_categories.html#ID-1bf3c0ae-aa9c-4c2f-99b2-984072543d82">natural transformation</a> between <a href="20251104-sheaf_on_a_topological_space.html#ID-afbb00d3-48c7-44b0-8b0a-fd4401f54cba">sheaves</a> on $X$.
 </p>
 
 <p>
@@ -66,6 +66,8 @@ Let $X$ be a <a href="20220930231339-topologischer_raum.html#ID-86282c25-e748-45
 <li>$\varphi_{X}: \mathcal{F}_{x} \rightarrow \mathcal{G}_{x}$ is <a href="20211230211341-surjektivitat.html#ID-f5a216d1-718b-43fa-89a8-01783cf1a290">surjective</a></li>
 
 <li>for all $U$ open and $t \in \mathcal{G}(U)$, there exists an open cover $U = \bigcup U_i$ and $s_i \in \mathcal{F}(U_i)$ such that $\varphi_{\vert U_i} = t_{\vert U_i}$</li>
+
+<li>$\varphi$ is an <a href="20220819135905-epimorphismus.html#ID-ad206194-a416-4910-a5c4-d72528ae5ba0">epimorphism</a> in the category of sheaves   </li>
 </ol>
 <h2 id="proof">Proof</h2>
 
@@ -82,6 +84,21 @@ In particular, we may take $U_{x} \subseteq V_x \subseteq X$ for $x \in U$ as op
 Let $t_x \in \mathcal{G}_x$ be represented by a germ $(t_{V},V) \in \mathcal{G}(V)$ for $V \subseteq X$ open.
 Then choose an open cover $V_i$ of $U$ with germs $s_i$ such that $\varphi_{\vert U_i}(s_{\vert V_i}) = t_{\vert V_i}$ and let $x \in V_j$, which exists, since it is an open cover of $V \ni x$.
 Then the germ of $(s_{\vert V_i})_x$ maps to $t_x$, by naturality of the <a href="20241109-infinity_unit_transformation.html#ID-2938f9f8-5823-47ef-b80a-c23e2dd61aea">unit</a> transformation
+</p>
+
+
+
+<h3 id="2-implies-3">2) $\implies$ 3)</h3>
+<p>
+Let $f,g: \mathcal{G} \rightarrow \mathcal{H}$ be two morphisms, such that $\varphi(f) \circ \varphi(g)$.
+Then let $t \in \mathcal{G}(U)$ be arbitrary, then we need to show that $f(t) = g(t)$.
+Thne we can find an open cover $u$ and $s_i \in \mathcal{F}(U_i)$ such that $\varphi_{\vert U_i}(s_i) = t_{\vert U_i}$.
+In particular, $f(t_{\vert U_i}) = f(\varphi_{\vert U_i}(s_i)) = g (\varphi_{\vert U_i}(s_i)) = g(t_{\vert U_i})$ which shows that $f(t)$ and $g(t)$ agree on an open cover, hence on all of $U$ by the sheaf condition.
+</p>
+
+<h3 id="3-implies-1">3) $\implies$ 1)</h3>
+<p>
+use that the <a href="20240210-stalk_functor_as_left_adjoint_to_the_skyscraper_functor.html#ID-bdd15f77-c6c4-43f7-a723-70b2e7cec406">stalk functor as left adjoint to the skyscraper functor</a> &amp; <a href="20240109-left_adjoint_preserves_epimorphisms.html#ID-ffc5da9c-b335-44d3-bd6b-1f41fa12cf0e">left adjoint preserves epimorphisms</a>
 </p>
 
 </div>

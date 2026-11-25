@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>algebraic tensor product lemma for c star algebras</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-496e356c-f46e-4506-b9cd-71a4e8b5efaa"></span><h1 class="title">algebraic tensor product lemma for c star algebras</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $A,B,C \in \mathrm{C}^*-\mathrm{Alg}^{\mathrm{nu}}$.
+Assume that there exists a map
+</p>
+
+<div class="math-block">\begin{align*}
+\rho: A \otimes^{\mathrm{alg}} B \rightarrow C
+\end{align*}</div>
+<p>
+such that it has dense <a href="20211230205458-bild_mengenlehre.html#ID-e7c4bebe-0c9a-4999-bd38-f1ceec101025">image</a>.
+</p>
+
+<ol>
+<li>Then there exist homomorphism $\alpha: A \rightarrow M(C)$, $\beta: B \rightarrow M(c)$ such that</li>
+</ol>
+<div class="math-block">\begin{align*}
+\rho(a \otmies b) = \alpha(a) \beta(b)
+\end{align*}</div>
+<ol>
+<li>In particular, $\| \rho(a \otimes b) \| \leq \| a \| \| b \|$.</li>
+
+<li>Moreover, $[\alpha(a), \beta(b)] = 0$</li>
+
+<li>Furthermore, $\alpha,\beta$ are nondegenerate</li>
+</ol>
+<h2 id="proof">Proof</h2>
+
+<h3 id="uniqueness">uniqueness</h3>
+<p>
+assume $\alpha, \beta$ exist.
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+\alpha(a) \cdot \rho(a' \otimes \beta) =&amp; \alpha(a) \alpha(a') \beta(b) \\
+=&amp; \alpha(a a') \beta(b) \\
+=&amp; \rho(a a' \otimes b)
+\end{align*}</div>
+
+<p>
+Therefore define $\alpha(a) = (L_a,R_a)$ for $L_{\alpha}(\rho(\sum_i \alpha_i \otimes b_i)) = \sum_{i} \rho(a \alpha_i \otimes b_i)$.
+</p>
+
+<p>
+We need to show that this is well-defined, so let $v_{\nu}$ be an  <a href="20261116-approximate_units.html#ID-61a30cfe-c995-4373-9162-991fe3af3b8c">approximate unit</a> for $B$
+</p>
+
+<div class="math-block">\begin{align*}
+\sum_{i} \rho(a a_i \otimes b_i) =&amp; \lim_{\nu} \sum \rho( a a_i \otimes v_{\nu} b_i) \\
+=&amp; \lim_{}
+\end{align*}</div>
+
+<p>
+Here we use that $b \mapsto \rho(a \otimes b)$ is continuous:
+If $a$ is <a href="20261105-self_adjoint_element.html#ID-2dbd7512-bffe-41b1-a49e-325675ef3211">self-adjoint</a>, then it preserves $*$ homomorphisms.
+If $a \&lt;eq 0$, then the function is <a href="20261105-positive_function_and_positive_element.html#ID-7deed16e-4cff-4ebf-925c-74f8d1837995">positive function</a>, hence also continuous (cf. <a href="20261123-linear_positive_function_is_continuous.html#ID-4f2aba8f-8a7b-41f5-b7fa-ce8baeeb9c6b">linear, positive function is continuous</a>).
+</p>
+
+
+
+
+
+<h3 id="commute">commute</h3>
+
+<p>
+Consider
+</p>
+
+<p>
+Consider
+</p>
+
+<div class="math-block">\begin{align*}
+\alpha(a) \beta(b) \rho(c \otimes d) =&amp; \alpha(a) \cdot \rho(ac \otimes d) \\
+=&amp; \rho(ac \otimes bd) \\
+=&amp; \rho(a \otimes b) \rho(c \otimes d)
+\end{align*}</div>
+<p>
+which shows $\alpha(a) \beta(b) = \rho(a \otimes b)$
+</p>
+
+<p>
+But we also have
+</p>
+
+<div class="math-block">\begin{align*}
+\rho(ac \otimes bd) =&amp; \beta(b) \rho(ac \otimes d) \\
+=&amp; \beta(b) \alpha(a) \rho(c \otimes d)
+\end{align*}</div>
+<p>
+which shows the claim, as the image is dense.
+</p>
+
+<h3 id="non-degenerate">non degenerate</h3>
+<p>
+Ltet $\beta(v_{\nu})$ for an <a href="20261116-approximate_units.html#ID-61a30cfe-c995-4373-9162-991fe3af3b8c">approximate unit</a> $v_{\nu}$, then consider
+</p>
+
+<div class="math-block">\begin{align*}
+\beta(v_{\nu}) \rho(c \otimes d) =&amp; \rho(c \otimes v_{\nu} d) \rightarrow \rho(c \otimes d)
+\end{align*}</div>
+
+<p>
+which shows that every $\rho(c \otimes d)$ can be approximated.
+But the span of $\rho(c \otimes d)$ is dense by assumption.
+</p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>multiplier algebra of C_0</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-6078d953-d77f-4ecc-ac9a-ca7837ea7e2d"></span><h1 class="title">multiplier algebra of C_0</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $X$ be in <a href="20261122-cat_ch.html#ID-42ae5229-2a53-4c62-bddb-c74bc986b159">CH_*</a>.
+Then the <a href="20261119-multiplir_algebra.html#ID-66198701-18d7-4655-9621-99064b8ac5f9">multiplier algebra</a> of the <a href="20251019-c_0_of_a_locally_compact_hausdorff_spacee.html#ID-a90a01c3-e4a4-45eb-80f8-0f0e548ad768">C_0</a> of $X$ is given by $C_b(X)$
+</p>
+
+<h2 id="proof">Proof</h2>
+
+<h3 id="c-0x-subseteq-c-bx-id5090ef4b-11b9-465c-b805-13c049fb15ddessential-ideal">$C_0(X) \subseteq C_b(X)$ <a href="20261122-essential_ideal.html#ID-5090ef4b-11b9-465c-b805-13c049fb15dd">essential ideal</a></h3>
+<p>
+Let $f \in C_0(X)$ with $f \neq 0$.
+Then choose an $x \in X$ such that $f(x) \neq 0$ and then use <a href="20230606-fortsetzungssatz_von_tietze.html#ID-72fcd39b-5d51-46d3-b342-e285e55e7a54">Tietze</a> to get a function $h: X \rightarrow [0,1]$ with $h(x) = 1$_
+Thne $(f \cdot h)(x) \neq 0$ which shows that $C_0(X)$ is essential.
+</p>
+
+<h3 id="surjective">surjective</h3>
+<p>
+so it suffices to show that the canonical map $C_b(X) \rightarrow C_0(X)$ is surjective.
+Let $(L,R) \in M(C_0(X))$ be arbitrary, then $L = R$ (cf. <a href="20261122-multiplier_algebra_of_a_commutative_algebra.html#ID-891e22e8-cc86-4e85-b3bc-47801e9faacb">multiplier algebra of a commutative algebra</a>).
+Let $\mathcal{K}$ be the collection of compact subsets of $X \setminus \{\infty\}$, ordered by inclusion and filtered.
+</p>
+
+<p>
+For $K \in \mathcal{K}$ let $1_{K}$ be a function with $(1_{K}_{\vert K} = \mathrm{const}_1$ when restricted to $K$ and vanishing elsewhere.
+</p>
+
+<p>
+Then consider $f \coloneqq \lim_{\mathcal{K}} L(1_{K})$ which exists:
+</p>
+
+<p>
+First we show that for $K \subseteq K'$, we have $L(1_{K}) = L(1_{K'})$ when restricted to $K$.
+So let $k \in K$, then choose a function $h$ with $h(k) = 1$ and $\mathrm{supp}(h) \subseteq K$, which exists by some nesting of closed subsets and <a href="20230606-fortsetzungssatz_von_tietze.html#ID-72fcd39b-5d51-46d3-b342-e285e55e7a54">Tietze</a>.
+</p>
+
+<p>
+Then $(L(1_{K}) \cdot h)(x)= L(1_{K} \cdot h )(x) = L(1_{K'} \cdot h )(x) = (L(1_{K'}) \cdot h)(x)$ which shows the claim.
+</p>
+
+<p>
+It is a continuous function: let $U \subseteq \mathbb{C}$ be open, then $f^{-1}[U] = \bigcup_{O \subseteq K} O \cap 1_{K}[U^{-1}]$ is the union of opens.
+Moreover, $\lim_{\mathcal{K}} L(1_{K})$ is bounded by $\| L \|$ where $L$ is bounded.
+</p>
+
+<p>
+Now for any $g \in C_0(X)$, we have that multiplication with $g$ is continuous.
+Hence
+</p>
+
+<div class="math-block">\begin{align*}
+\lim_{\mathcal{K}} (L(1_{K})) \cdot g =&amp; \lim_{\mathcal{K}} (L(1_{K}) \cdot g)  \\
+=&amp; \lim_{\mathcal{K}} L(1_{K} \cdot g) \\
+=&amp; L(g)
+\end{align*}</div>
+
+<p>
+where we use that $1_{K}$ is an approximate unit, which can be shown by some $\frac{\varepsilon}{n}$ estimate.
+</p>
+
+</div>
+</body>
+</html>
