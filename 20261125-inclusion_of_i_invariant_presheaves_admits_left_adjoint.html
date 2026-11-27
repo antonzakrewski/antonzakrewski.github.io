@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>inclusion of I-invariant presheaves admits left adjoint</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-bcab624a-0a20-48e3-abb2-a2db8f955b80"></span><h1 class="title">inclusion of I-invariant presheaves admits left adjoint</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $I \in \mathcal{C}$ be an <span class="broken-link" title="unresolved id:703c25a4-a1cd-4ef2-8ffa-b420235f3f33">interval object</span>.
+Then the inclusion $\mathcal{P}_{I}(\mathcal{C}) \rightarrow \mathcal{P}(\mathcal{C})$ admits a <a href="20241017-infinity_left_adjoint.html#ID-2ba0e3a5-7a57-4093-837c-b1f0feabd7c2">left adjoint</a> $\mathcal{L}_I$ given by
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{L}_I(\mathcal{F})(X) = \mathrm{colim}_{[n] \in \Delta^{\mathrm{op}}} \mathcal{F}(X \times I^n)
+\end{align*}</div>
+<p>
+where
+</p>
+
+<div class="math-block">\begin{align*}
+\Delta \rightarrow \mathcal{C}
+[n] \mapsto I^n
+\end{align*}</div>
+<p>
+is the <a href="20241203-infinity_right_kan_extension.html#ID-9ae00ebb-3ef3-4c76-ab4c-1559fd215af2">right kan extension</a> of $(I,0,1): \Delta_{\leq 1} \rightarrow \mathcal{C}$ is the functor
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/9bf4304d16cd35384654.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+see:
+</p>
+<ul>
+<li><span class="broken-link" title="unresolved id:35d552f3-e14c-4139-8028-518654f7c86b">right kan extension formula along \Delta_{\leq 1}</span> </li>
+</ul>
+<h2 id="proof">Proof</h2>
+
+
+
+<h3 id="lemma">lemma</h3>
+<p>
+Let $X,Y \colon \Delta^{\mathrm{op}} \rightarrow \mathcal{C}$ and suppose
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+\mathrm{colim}_{\Delta^{\mathrm{op}}} X &amp; \lar{\simeq} \mathrm{colim}_{\Delta_{/[1]}^{\mathrm{op}}} \pi^*(X) \dar{h} &amp;  \arrow[shift right=1, swap]{l}{} \arrow[shift left=1]{l}{} \mathrm{colim}_{\Delta^{\mathrm{op}}} X \arrow[shift right=1, swap]{d}{f} \arrow[shift left=1]{d}{g} \arrow[bend left]{ddl}{\mathrm{id} }\\
+\mathrm{colim}_{\Delta^{\mathrm{op}}} Y &amp; \lar{\simeq} \mathrm{colim}_{\Delta_{/[1]}^{\mathrm{op}}} \pi^*(Y) &amp; \arrow[shift right=1, swap]{l}{} \arrow[shift left=1]{l}{} \mathrm{colim}_{\Delta^{\mathrm{op}}} Y \arrow[bend right]{ddl}{\mathrm{id} }
+\end{tikzcd}
+\end{displaymath}</pre></div>
+
+<p>
+where the isomorphism $\mathrm{colim}_{\Delta^{\mathrm{op}}} X \xleftarrow{\simeq} \mathrm{colim}_{\Delta_{/[1]}^{\mathrm{op}}}$ follows from <span class="broken-link" title="unresolved id:2a3c39ae-3e8e-4ccd-ac7c-681d6acc49dc">projection from \delta slice to \Delta is coinitial</span>.
+</p>
+
+<p>
+Hence $f = g: \mathrm{colim}_{\Delta^{\mathrm{op}}} X \rightarrow \mathrm{colim}_{\Delta^{\mathrm{op}}} Y$.
+</p>
+
+
+<h3 id="proof">proof</h3>
+
+<p>
+Let $\mathcal{F} \in \mathcal{P}(\mathcal{C})$.
+Then consider
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{F} \xrightarrow{[0] \in \Delta^{\mathrm{op}}} \tilde{\mathcal{F}} = \mathrm{colim}_{\Delta^{\mathrm{op}}} \mathcal{F}( - \times I^*)
+\end{align*}</div>
+<p>
+We want to show that
+</p>
+
+<ol>
+<li>$\widehat{\mathcal{F}}$ is an \(I\)ninavriant presheaf</li>
+
+<li>$\mathcal{F} \rightarrow \tilde{\mathcal{F}}$ is an \(I\)-inavriant presheaf.</li>
+</ol>
+<p>
+so consider
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/55c8d18ebeae727b1bfb.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+and $X \xrightarrow{\iota_0} X \times I \xrightarrow{\pi_0} X$.
+</p>
+
+<p>
+We claim that $(\iota_0 \pi)^* = \mathrm{id}_{\tilde{\mathcal{F}}(X \times I)$.
+</p>
+
+<p>
+Then
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/db1682005f17b9a84631.svg" class="org-svg" alt="diagram" /></span></div>
+
+<p>
+These are simpzlicially homotopic by the lemma.
+</p>
+
+
+<h3 id="2">2)</h3>
+<p>
+We want to show that $\mathcal{F} \rightarrow \mathcal{F}(- \times I^n)$ is an \(I\)-homotopy equivalence.
+</p>
+
+<div class="equation-container"><pre class="render-failed">\begin{displaymath}
+\begin{tikzcd}
+\mathcal{F} \rar{\pi^*} \arrow[]{rd}{\mathrm{id}}&amp; \mathcal{F}(- \times I^n) \dar{\iota^*_{(0,...,0)} \\
+&amp;  \mathcal{F}
+\end{tikzcd}
+\end{displaymath}</pre></div>
+
+<p>
+Let $h_1,...,h_k: I \times I \rightarrow I$ be homotopise between $\mathrm{id}_{I}$ and $0$.
+Then
+</p>
+
+<div class="equation-container"><span class="equation"><img src="ltximg/822e86a1ec0ce8c5d857.svg" class="org-svg" alt="diagram" /></span></div>
+<p>
+is a homotopy between $\mathrm{id}_n$ and $(0,0,...,0)$.
+</p>
+
+<p>
+A map $\mathcal{F}(- \times I^n) \times I \rightarrow \mathcal{F}(- \times I^n)$ corresponds by adjunction and \(I\)-homotopy equivalence to a map
+</p>
+
+<div class="math-block">\begin{align*}
+\mathcal{F}(- \times I^n) \rightarrow \mathcal{F}(- \times I^n \times I)
+\end{align*}</div>
+<p>
+and $I$ homotopies between $\mathrm{id}$ and $(\iota_{(0,...,0)} \pi)^*$.
+</p>
+
+<p>
+therefore $\mathcal{F} \rightarrow \mathcal{F}(- \times I^n)$ is an \(I\)-homotopy equivalence and hence an \(I\)-equivalence.
+</p>
+
+<p>
+Thus
+</p>
+
+<div class="math-block">\begin{align*}
+\mathrm{colim}_{[n] \in \Delta^{\mathrm{op}}} \mathcal{F} \rightarrow \mathrm{colim}_{[n] \in \Delta^{\mathrm{op}}} \mathcal{F}(- \times I^n) = \tilde{F}
+\end{align*}</div>
+<p>
+is an \(I\)-equivalence.
+</p>
+
+<p>
+MOreover, $\mathrm{colim}_{[-] \in \Delta^{\mathrm{op}} \mathcal{F} = ( \mathrm{colim}_{[n] \in \Delta^{\mathrm{op}}} * ) \times \mathcal{F}$
+</p>
+
+<p>
+where $\mathrm{colim}_{[n] \in \Delta^{\mathrm{op}}} *  =\vert \Delta^{\mathrm{op}} \vert = *$.
+</p>
+
+</div>
+</body>
+</html>

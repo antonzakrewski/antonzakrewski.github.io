@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>artins theorem</title>
+<meta name="author" content="Anton Zakrewski" />
+<meta name="generator" content="zk2html" />
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script>(function(){try{document.documentElement.setAttribute('data-theme',localStorage.getItem('zk-theme')==='dark'?'dark':'light');}catch(e){}})();</script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools']
+    },
+    tex: {
+      packages: {'[+]': ['mathtools']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      macros: {
+        mathbbm: ['{\\mathbb{#1}}', 1],
+        mathds: ['{\\mathbb{#1}}', 1]
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<span id="ID-a5d1ef63-4607-4d9e-ba9c-5b6158933a8f"></span><h1 class="title">artins theorem</h1>
+
+<h2 id="proposition">Proposition</h2>
+<p>
+Let $G$ be a <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">finite</a> <a href="20220723085230-gruppe_mathe.html#ID-b6023bc8-458a-44e4-982a-6623378f4b4f">group</a> and $\mathcal{X}$ a set of subgroups of $G$ closed under conjugation, i.e. for $H \in \mathcal{X}$ and $g \in G$, we have $g H g^{-1} \in \mathcal{X}$.
+<a href="20230509170507-tfae.html#ID-d57bdf4a-ea91-4793-bfd9-931877d57b57">TFAE</a>:
+</p>
+<ol>
+<li>any element $g \in G$ is an element of some $H \in \mathcal{X}$</li>
+
+<li>for every finite dimensional $\mathbb{C}[G]$ representation,    $\chi_{V}$ is a linear sum with rational coefficients of characters $\chi_{\mathrm{Ind}_{H}^{G}(W)}$ where $H \in X$ and $W$ is simple.</li>
+</ol>
+<p>
+2') for every finite dimensional $\mathbb{C}[G]$ representation,    $\chi_{V}$ is a linear sum with  $\mathbb{C}$ coefficients of characters $\chi_{\mathrm{Ind}_{H}^{G}(W)}$ where $H \in X$ and $W$ is simple.
+</p>
+<ol>
+<li>the map of <a href="20261118-representation_ring_of_a_finite_group.html#ID-d70c3610-150a-49b5-b1e9-f7fe8808f1e9">representation rings</a>  $\mathrm{Ind}: \bigoplus_{H \in \mathcal{X}} R(H) \rightarrow R(G)$ has <a href="20211227215929-endliche_menge.html#ID-53523a13-c374-4332-a2d9-c49f03558e4d">finite</a> <a href="20230827-cokernel_category_theory.html#ID-3e52d31a-b97e-454b-b565-4ae3d2b26482">cokernel</a>    </li>
+
+<li>the map $\mathrm{Ind}: \bigoplus_{H \in \mathcal{X}} R(H) \otimes_{\mathbb{Z}} \mathbb{Q} \rightarrow R(G) \otimes_{\mathbb{Z}} \mathbb{Q}$ is surjective</li>
+</ol>
+<h2 id="proof">Proof</h2>
+
+
+<h3 id="2-implies-1">2) $\implies$ 1)</h3>
+<p>
+Suppose there exists a $g \in G$ such that $g \not\in H$ for all $H \in \mathcal{X}$.
+Then <a href="20261118-frobenius_formula_over_c.html#ID-d4e6978a-3186-4ea0-8e1b-2193debc7def">frobenius formula over C</a>
+</p>
+
+<div class="math-block">\begin{align*}
+\chi_{\mathrm{Ind}_{H}^{G}(v)}(g) = \sum \chi(x^{-1} g x) = 0
+\end{align*}</div>
+<p>
+for all $H \in \mathcal{X}$ and $V$ a simple of $H$.
+</p>
+
+<p>
+But then by 2), $\chi_{W}(g) = 0$ for any finite dimensional G-representation $W$.
+But this contradicts the fact that characters of simple \(G\)-representations span $\mathrm{Cl}(G,k)$, so e.g. any nonzero, constant class function.
+</p>
+
+
+
+<h3 id="1-implies-2">1) $\implies$ 2)</h3>
+<p>
+Suppose that $U$ is a virtual representation of $G$ such that $\langle \chi_{U}, \chi_{\mathrm{Ind}_{H}^{G}(V)}\rangle = 0$ for all $H \in \mathcal{X}$ and all simples $V$ of $H$.
+Then
+</p>
+
+<div class="math-block">\begin{align*}
+\langle \chi_{U_{\vert H}}, \chi_{V}\rangle = 0
+\end{align*}</div>
+<p>
+for all simples $\chi_{V}$.
+So <a href="20261104-orthogonality_of_simple_characters.html#ID-045bf65d-5aa5-4dc4-877e-8165d75e4eec">orthogonality of simple characters</a> implies that $\chi_{U_{\vert H}} = 0$.
+But then $\chi_{U}$ is identically zero by i.
+</p>
+
+
+<h3 id="2-implies-3">2) $\implies$ 3)</h3>
+<p>
+We have $R[G] = \bigoplus_{S_i} \mathbb{Z}$ a finite direct sum.
+</p>
+
+<p>
+Hence there exsits a $d$ such that $d S_i \in \mathrm{Im}(I)$.
+So $R(G)/\mathrm{Im}(\mathrm{Ind}))$ is a quotient of $\bigoplus_{S_i} \mathbb{Z}/ d_i  \mathbb{Z}$ so it is finite.
+</p>
+
+
+<h3 id="2-implies-4-4-implies-2">2) $\implies 4), 4) $\implies 2),</h3>
+<p>
+rephrasing
+</p>
+
+<h3 id="3-implies-4">3) $\implies$ 4)</h3>
+<p>
+follows as tensoring is <a href="20230903-right_exact_functor.html#ID-9af3df51-d300-4ca2-b340-8ac92cdd3fca">right exact</a>and any finite abelian group is torsion.
+</p>
+
+
+<h3 id="4-implies-2">4) $\implies$ 2)</h3>
+
+</div>
+</body>
+</html>
